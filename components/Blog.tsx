@@ -1,5 +1,6 @@
 import React from 'react';
 import { BLOG_POSTS, IMAGES } from '../constants';
+import { SEO } from './SEO';
 import { Calendar, User, ArrowRight, ArrowUpRight, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -16,6 +17,12 @@ const staggerContainer = {
 
 export const Blog: React.FC = () => {
     return (
+        <>
+        <SEO
+            title="Blog Immobilier | Marché & Conseils Pays de Gex — Mickael Lima"
+            description="Analyses du marché immobilier, conseils d'investissement et actualités réglementaires pour le Pays de Gex et la zone frontalière genevoise."
+            canonical="/blog"
+        />
         <section className="py-32 bg-background min-h-screen relative overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
@@ -100,5 +107,6 @@ export const Blog: React.FC = () => {
                 </motion.div>
             </div>
         </section>
+        </>
     );
 };

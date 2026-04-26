@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { BLOG_POSTS, IMAGES } from '../constants';
+import { SEO } from './SEO';
 import { ArrowLeft, Calendar, User, Tag, ArrowUpRight, Clock, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -23,7 +24,36 @@ export const BlogPostPage: React.FC = () => {
     );
   }
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'Mickael Lima Dos Santos',
+      url: 'https://mickael-lima.immo/about',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: "Mickael Lima — L'Agence Immo",
+      url: 'https://mickael-lima.immo',
+    },
+    image: post.image,
+    url: `https://mickael-lima.immo/blog/${post.id}`,
+  };
+
   return (
+    <>
+    <SEO
+      title={`${post.title} — Mickael Lima`}
+      description={post.excerpt}
+      canonical={`/blog/${post.id}`}
+      ogImage={post.image}
+      ogType="article"
+      schema={articleSchema}
+    />
     <article className="bg-[#FAF9F6] min-h-screen relative w-full overflow-hidden">
 
       {/* 
@@ -160,5 +190,6 @@ export const BlogPostPage: React.FC = () => {
         </div>
       </div>
     </article>
+    </>
   );
 };

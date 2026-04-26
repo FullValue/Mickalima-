@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IMAGES } from '../constants';
+import { SEO } from './SEO';
 import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -27,6 +28,12 @@ export const Estimation: React.FC = () => {
     };
 
     return (
+        <>
+        <SEO
+            title="Estimation Gratuite de votre Bien | Pays de Gex — Mickael Lima"
+            description="Obtenez une estimation gratuite et confidentielle de votre bien immobilier dans le Pays de Gex. Déplacement sur site, analyse marché, dossier complet remis sous 48h."
+            canonical="/estimation"
+        />
         <section id="estimation" className="py-32 bg-background relative overflow-hidden min-h-screen flex items-center">
 
             {/* Elegant Background Gradients */}
@@ -235,5 +242,6 @@ export const Estimation: React.FC = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };

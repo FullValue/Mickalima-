@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hammer, PaintBucket, Building, Calculator, Users, Star } from 'lucide-react';
+import { SEO } from './SEO';
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
@@ -14,6 +15,12 @@ const staggerContainer = {
 
 export const Partners: React.FC = () => {
     return (
+        <>
+        <SEO
+            title="Partenaires | Réseau d'Experts — Mickael Lima Pays de Gex"
+            description="Courtiers, artisans qualifiés, architectes d'intérieur et entreprises de rénovation : le réseau de partenaires sélectionnés de Mickael Lima pour votre projet immobilier."
+            canonical="/partenaires"
+        />
         <div className="min-h-screen bg-gray-50 flex flex-col">
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary pt-20">
@@ -108,5 +115,6 @@ export const Partners: React.FC = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };

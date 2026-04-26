@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowUpRight, Star, ArrowRight, MessageSquare, Clock, Globe, ShieldCheck, ChevronDown } from 'lucide-react';
+import { SEO } from './SEO';
 import { IMAGES } from '../constants';
 import { motion } from 'framer-motion';
 
@@ -36,6 +37,12 @@ export const ContactPage: React.FC = () => {
     ];
 
     return (
+        <>
+        <SEO
+            title="Contact | Estimation Gratuite — Mickael Lima Pays de Gex"
+            description="Contactez Mickael Lima pour une estimation gratuite et confidentielle de votre bien dans le Pays de Gex. Réponse sous 48h, déplacement sur site inclus."
+            canonical="/contact"
+        />
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
@@ -112,11 +119,11 @@ export const ContactPage: React.FC = () => {
                                         </div>
                                         <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors">+33 7 69 31 35 02</span>
                                     </motion.a>
-                                    <motion.a variants={fadeInUp} href="mailto:contact@homely.com" className="flex items-center gap-5 group w-fit">
+                                    <motion.a variants={fadeInUp} href="mailto:contact@mickael-lima.immo" className="flex items-center gap-5 group w-fit">
                                         <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-lg">
                                             <Mail size={20} />
                                         </div>
-                                        <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors">contact@homely.com</span>
+                                        <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors">contact@mickael-lima.immo</span>
                                     </motion.a>
                                 </motion.div>
                             </motion.div>
@@ -324,5 +331,6 @@ export const ContactPage: React.FC = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };

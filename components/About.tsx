@@ -1,5 +1,6 @@
 import React from 'react';
 import { IMAGES } from '../constants';
+import { SEO } from './SEO';
 import { Ruler, ArrowUpRight, Trophy, Shield, Target, Award, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -16,7 +17,13 @@ const staggerContainer = {
 
 export const About: React.FC = () => {
   return (
-    <div className="bg-background min-h-screen flex flex-col">
+    <>
+      <SEO
+        title="À Propos — Mickael Lima | Agent Immobilier Pays de Gex"
+        description="Découvrez Mickael Lima Dos Santos, agent commercial immobilier avec 7 ans d'expérience dans le Pays de Gex. Expert en vente prestige, prospection foncière et accompagnement personnalisé."
+        canonical="/about"
+      />
+      <div className="bg-background min-h-screen flex flex-col">
 
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary pt-20">
@@ -184,5 +191,6 @@ export const About: React.FC = () => {
 
       {/* SECTION CITATION SUPPRIMÉE */}
     </div>
+    </>
   );
 };

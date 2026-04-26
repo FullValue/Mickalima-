@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Check, Camera, Share2, Users, Layout, Star, Gem, Video, ArrowRight, ArrowUpRight, Heart, ShieldCheck, MessageSquare, Target, Wand2, Play } from 'lucide-react';
+import { SEO } from './SEO';
 import { IMAGES } from '../constants';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -16,6 +17,12 @@ const staggerContainer = {
 
 export const MandatSignature: React.FC = () => {
     return (
+        <>
+        <SEO
+            title="Mandat Signature | Vendez Mieux — Mickael Lima Pays de Gex"
+            description="Le Mandat Signature : photos HD, vidéo drone 4K, diffusion sur +40 portails immobiliers, visites qualifiées et zéro visite inutile. Vendez votre bien dans le Pays de Gex au meilleur prix."
+            canonical="/mandat-signature"
+        />
         <div className="bg-background min-h-screen flex flex-col">
             {/* PROFESSIONAL HERO SECTION */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
@@ -630,11 +637,18 @@ export const MandatSignature: React.FC = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
 
 export const MandatExclusif: React.FC = () => {
     return (
+        <>
+        <SEO
+            title="Mandat Exclusif | L'Excellence Immobilière — Mickael Lima"
+            description="Le Mandat Exclusif : production cinématographique, home staging, événements privés, diffusion internationale. Pour les biens d'exception dans le Pays de Gex qui méritent le meilleur."
+            canonical="/mandat-exclusif"
+        />
         <div className="bg-background min-h-screen flex flex-col">
             {/* PROFESSIONAL HERO SECTION */}
             <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
@@ -958,5 +972,6 @@ export const MandatExclusif: React.FC = () => {
                 </div>
             </section>
         </div>
+        </>
     );
 };
