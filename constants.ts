@@ -71,6 +71,7 @@ export const SERVICES: Service[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,
+    slug: "tendances-immobilieres-2025",
     title: "Les tendances immobilières de 2025",
     excerpt: "Analyse des nouvelles attentes des acheteurs et évolution des prix dans le secteur résidentiel de prestige.",
     date: "12 Octobre 2025",
@@ -93,6 +94,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 2,
+    slug: "reussir-investissement-locatif",
     title: "Comment réussir son investissement locatif ?",
     excerpt: "Les clés pour choisir le bon emplacement, optimiser sa fiscalité et garantir une rentabilité durable.",
     date: "28 Septembre 2025",
@@ -115,6 +117,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 3,
+    slug: "importance-dpe-vente",
     title: "L'importance du DPE dans la vente",
     excerpt: "Pourquoi le diagnostic de performance énergétique est devenu le critère numéro un pour les acheteurs.",
     date: "15 Septembre 2025",

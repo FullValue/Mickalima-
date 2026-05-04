@@ -64,7 +64,7 @@ export const Blog: React.FC = () => {
                             {/* Glass background */}
                             <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-white/50 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 -z-10"></div>
 
-                            <Link to={`/blog/${post.id}`} className="flex flex-col h-full bg-transparent p-4">
+                            <Link to={`/blog/${post.slug}`} className="flex flex-col h-full bg-transparent p-4">
                                 <div className="h-64 rounded-3xl overflow-hidden relative shadow-inner">
                                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                                     <img

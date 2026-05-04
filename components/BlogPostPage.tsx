@@ -6,12 +6,12 @@ import { ArrowLeft, Calendar, User, Tag, ArrowUpRight, Clock, Share2, Facebook, 
 import { motion } from 'framer-motion';
 
 export const BlogPostPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const post = BLOG_POSTS.find(p => p.id === Number(id));
+  const { slug } = useParams<{ slug: string }>();
+  const post = BLOG_POSTS.find(p => p.slug === slug);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [slug]);
 
   if (!post) {
     return (
@@ -41,7 +41,7 @@ export const BlogPostPage: React.FC = () => {
       url: 'https://mickael-lima.immo',
     },
     image: post.image,
-    url: `https://mickael-lima.immo/blog/${post.id}`,
+    url: `https://mickael-lima.immo/blog/${post.slug}`,
   };
 
   return (
@@ -49,7 +49,7 @@ export const BlogPostPage: React.FC = () => {
     <SEO
       title={`${post.title} — Mickael Lima`}
       description={post.excerpt}
-      canonical={`/blog/${post.id}`}
+      canonical={`/blog/${post.slug}`}
       ogImage={post.image}
       ogType="article"
       schema={articleSchema}
