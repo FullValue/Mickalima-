@@ -436,7 +436,7 @@ export const FAQSection: React.FC = () => {
                                 <div>
                                     <p className="font-bold text-lg mb-1">Bureau d'accueil</p>
                                     <p className="text-white/70 font-medium leading-relaxed">
-                                        15 Avenue du Mont-Blanc,<br />
+                                        328 Rue des Fontanettes,<br />
                                         01220 Divonne-les-Bains<br />
                                         <span className="text-xs font-light italic mt-1 block">Uniquement sur rendez-vous</span>
                                     </p>

@@ -148,9 +148,9 @@ export const ContactPage: React.FC = () => {
                                 <div>
                                     <div className="flex items-center gap-1 text-accent mb-1">
                                         <Star size={16} fill="currentColor" />
-                                        <span className="font-bold text-white text-lg ml-2">4.9/5</span>
+                                        <span className="font-bold text-white text-lg ml-2">5/5</span>
                                     </div>
-                                    <p className="text-sm text-white/50 font-bold uppercase tracking-widest">100+ Avis Clients</p>
+                                    <p className="text-sm text-white/50 font-bold uppercase tracking-widest">25 Avis Clients</p>
                                 </div>
                             </motion.div>
                         </div>
@@ -302,7 +302,7 @@ export const ContactPage: React.FC = () => {
                                     <div>
                                         <p className="font-bold text-lg mb-1">Bureau d'accueil</p>
                                         <p className="text-white/70 font-medium leading-relaxed">
-                                            15 Avenue du Mont-Blanc,<br />
+                                            328 Rue des Fontanettes,<br />
                                             01220 Divonne-les-Bains<br />
                                             <span className="text-xs font-light italic mt-1 block">Uniquement sur rendez-vous</span>
                                         </p>
@@ -318,7 +318,7 @@ export const ContactPage: React.FC = () => {
                                         <p className="text-white/70 font-medium leading-relaxed mb-4">
                                             Une messagerie directe pour un échange immédiat et confidentiel.
                                         </p>
-                                        <a href="#" className="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors">
+                                        <a href="https://wa.me/33769313502" className="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors">
                                             Démarrer le chat <ArrowRight size={16} />
                                         </a>
                                     </div>

@@ -149,6 +149,13 @@ export const Footer: React.FC = () => {
                         </div>
 
                     </div>
+
+                    {/* NAP — Name Address Phone */}
+                    <div className="mt-16 pt-10 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-white/50">
+                        <span className="font-semibold text-white/70">Mickael Lima — L'Agence Immo</span>
+                        <span>328 Rue des Fontanettes, 01220 Divonne-les-Bains</span>
+                        <a href="tel:+33769313502" className="hover:text-white transition-colors">07 69 31 35 02</a>
+                    </div>
                 </div>
             </div>
         </footer>
