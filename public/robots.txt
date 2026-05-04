@@ -4,10 +4,19 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
-User-agent: Claude-Web
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: GoogleOther
 Allow: /
 
 Sitemap: https://mickael-lima.immo/sitemap.xml

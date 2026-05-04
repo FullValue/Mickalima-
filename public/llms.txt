@@ -29,3 +29,38 @@ Téléphone : 07 69 31 35 02
 Email : contact@mickael-lima.immo
 Adresse : 328 Rue des Fontanettes, 01220 Divonne-les-Bains
 Site : https://mickael-lima.immo
+
+## Pages
+
+- / — Accueil : présentation de Mickaël Lima, estimation gratuite,
+  services immobiliers dans le Pays de Gex
+- /estimation — Estimation immobilière gratuite sous 48h,
+  méthode, zones couvertes, formulaire de contact
+- /about — Biographie, 10 ans d'expérience, 240 ventes,
+  spécialiste marché franco-suisse
+- /blog — Articles sur le marché immobilier Pays de Gex,
+  conseils vendeurs et acheteurs, actualités locales
+- /contact — Coordonnées complètes, formulaire,
+  328 Rue des Fontanettes Divonne-les-Bains
+- /mandat-exclusif — Explication du mandat exclusif,
+  avantages pour le vendeur, engagement de Mickaël Lima
+
+## Questions fréquentes
+
+**Qu'est-ce qu'une estimation immobilière gratuite dans le Pays de Gex ?**
+Mickaël Lima propose une estimation gratuite et personnalisée réalisée
+à domicile sous 48h. Elle prend en compte les spécificités du marché
+frontalier franco-suisse, les prix au m² par commune, et la proximité
+avec Genève et le CERN.
+
+**Pourquoi choisir un agent spécialisé dans le marché franco-suisse ?**
+Le Pays de Gex est un marché atypique : forte demande de frontaliers,
+employés du CERN et expatriés internationaux, prix 30 à 50% supérieurs
+à la moyenne française. Mickaël Lima intervient depuis 10 ans sur ce
+marché et a réalisé 240 ventes en 5 ans.
+
+**Quelles communes du Pays de Gex couvre Mickaël Lima ?**
+Divonne-les-Bains, Ferney-Voltaire, Saint-Genis-Pouilly, Gex,
+Prévessin-Moëns, Cessy, Ornex, Ségny, Thoiry, Crozet, Sauverny,
+Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges,
+Échenevex, Saint-Jean-de-Gonville.
