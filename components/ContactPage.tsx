@@ -309,6 +309,17 @@ export const ContactPage: React.FC = () => {
                                     </div>
                                 </div>
 
+                                <iframe
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-placeholder&q=328+Rue+des+Fontanettes,+01220+Divonne-les-Bains"
+                                    width="100%"
+                                    height="300"
+                                    style={{ border: 0 }}
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Localisation Mickaël Lima — L'agence Immo"
+                                    className="rounded-xl mb-8"
+                                />
+
                                 <div className="flex gap-6 pt-8 border-t border-white/10 group/item">
                                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20 group-hover/item:border-accent transition-colors">
                                         <MessageSquare size={20} className="text-accent" />
