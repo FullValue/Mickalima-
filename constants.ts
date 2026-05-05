@@ -71,70 +71,124 @@ export const SERVICES: Service[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,
-    slug: "tendances-immobilieres-2025",
-    title: "Les tendances immobilières de 2025",
-    excerpt: "Analyse des nouvelles attentes des acheteurs et évolution des prix dans le secteur résidentiel de prestige.",
-    date: "12 Octobre 2025",
+    slug: "prix-m2-pays-de-gex-2026",
+    title: "Prix au m² dans le Pays de Gex en 2026 : commune par commune",
+    excerpt: "Le Pays de Gex affiche des prix immobiliers parmi les plus élevés de France, portés par la proximité de Genève et la demande des frontaliers. Voici les valeurs réelles par commune.",
+    date: "5 Mai 2026",
     category: "Marché",
-    image: IMAGES.misc1,
+    image: "/images/hero-pays-de-gex.jpg",
     content: `
-      <p>Le marché immobilier est en perpétuelle évolution, et l'année 2025 s'annonce comme un tournant majeur pour le secteur résidentiel, en particulier dans les zones frontalières comme le Pays de Gex.</p>
-      
-      <h3>1. La stabilisation des prix</h3>
-      <p>Après plusieurs années de hausse continue, nous observons une stabilisation des prix au mètre carré. Cette tendance est saine pour le marché, permettant aux acquéreurs de prendre des décisions plus réfléchies et aux vendeurs de trouver des acheteurs solvables plus rapidement.</p>
-      
-      <h3>2. L'exigence de la performance énergétique</h3>
-      <p>Ce n'est plus une surprise, le DPE (Diagnostic de Performance Énergétique) est devenu le critère numéro un. Les biens classés A, B ou C se vendent avec une prime significative, tandis que les passoires thermiques nécessitent une stratégie de prix ajustée.</p>
-      
-      <h3>3. Le retour des acquéreurs internationaux</h3>
-      <p>Avec la stabilisation de la situation économique mondiale, nous voyons un retour marqué de la clientèle internationale, particulièrement suisse et anglo-saxonne, à la recherche de biens de caractère avec des prestations haut de gamme.</p>
+    <p>Le marché immobilier du Pays de Gex reste sous tension en 2026. La demande excède l'offre sur la quasi-totalité des communes, avec des acheteurs issus principalement du bassin genevois : frontaliers, employés d'organisations internationales, cadres expatriés. Le résultat : des prix qui résistent à la correction observée dans d'autres marchés français.</p>
 
-      <p>En conclusion, 2025 offre de belles opportunités pour ceux qui sont bien accompagnés. L'expertise locale est plus que jamais indispensable pour naviguer ces nouvelles réalités.</p>
-    `
+    <h3>Prix médians par commune (mai 2026)</h3>
+    <p>Les données ci-dessous sont issues des transactions enregistrées sur les 12 derniers mois dans le secteur :</p>
+    <ul>
+      <li><strong>Ferney-Voltaire</strong> — 5 200 à 6 800 €/m² (appartements), 6 500 à 9 000 €/m² (maisons)</li>
+      <li><strong>Divonne-les-Bains</strong> — 4 800 à 6 200 €/m² (appartements), 5 800 à 8 500 €/m² (maisons)</li>
+      <li><strong>Saint-Genis-Pouilly</strong> — 4 500 à 5 800 €/m² (appartements), 5 200 à 7 500 €/m² (maisons)</li>
+      <li><strong>Gex</strong> — 3 800 à 5 200 €/m² (appartements), 4 500 à 6 800 €/m² (maisons)</li>
+      <li><strong>Prévessin-Moëns</strong> — 4 200 à 5 600 €/m² (appartements), 5 000 à 7 200 €/m² (maisons)</li>
+      <li><strong>Cessy / Ornex</strong> — 4 000 à 5 400 €/m² (appartements), 4 800 à 7 000 €/m² (maisons)</li>
+      <li><strong>Thoiry / Crozet</strong> — 3 500 à 4 800 €/m² (appartements), 4 200 à 6 200 €/m² (maisons)</li>
+    </ul>
+
+    <h3>Ce qui explique ces niveaux de prix</h3>
+    <p>Trois facteurs structurels maintiennent les prix élevés dans le Pays de Gex. D'abord, le différentiel de revenus entre frontaliers et résidents français classiques : un salarié travaillant à Genève dispose d'un pouvoir d'achat immobilier 40 à 60 % supérieur à la moyenne nationale. Ensuite, la rareté du foncier constructible dans un secteur contraint par les zones agricoles et naturelles. Enfin, la demande locative soutenue, portée par le renouvellement permanent des contrats de détachement.</p>
+
+    <blockquote>Le Pays de Gex est l'un des seuls marchés français où la demande en francs suisses coexiste avec la demande en euros. Ce double marché crée des dynamiques de prix qu'un agent non spécialisé ne peut pas anticiper correctement.</blockquote>
+
+    <h3>Quelle est la valeur réelle de votre bien ?</h3>
+    <p>Les prix médians donnent une orientation, pas une valeur précise. L'estimation d'un bien dans le Pays de Gex doit intégrer sa commune exacte, sa distance aux axes frontaliers, son état énergétique (DPE), sa vue, et les transactions comparables récentes dans un rayon de 500 mètres. C'est ce travail d'analyse fine qu'une estimation de terrain permet de réaliser.</p>
+    <p>Une estimation réalisée à distance, sur la base de données agrégées, peut s'écarter de 10 à 20 % de la valeur réelle dans ce secteur. Sur un bien à 600 000 €, cela représente entre 60 000 et 120 000 € d'écart — dans un sens ou dans l'autre.</p>
+
+    <h3>Délais de vente moyens en 2026</h3>
+    <ul>
+      <li><strong>Appartements bien estimés</strong> : 28 à 45 jours en moyenne</li>
+      <li><strong>Maisons bien estimées</strong> : 45 à 75 jours</li>
+      <li><strong>Biens surestimés de 10 %+</strong> : délai multiplié par 3 à 4, avec décote finale systématique</li>
+    </ul>
+    <p>La précision de l'estimation initiale reste le facteur le plus déterminant sur le délai et le prix final obtenu.</p>
+  `
   },
   {
     id: 2,
-    slug: "reussir-investissement-locatif",
-    title: "Comment réussir son investissement locatif ?",
-    excerpt: "Les clés pour choisir le bon emplacement, optimiser sa fiscalité et garantir une rentabilité durable.",
-    date: "28 Septembre 2025",
-    category: "Conseil",
-    image: IMAGES.misc5,
+    slug: "immobilier-frontalier-pays-de-gex",
+    title: "Immobilier dans le Pays de Gex : ce que les frontaliers doivent savoir",
+    excerpt: "Vivre en France, travailler en Suisse : le Pays de Gex attire chaque année des milliers de nouveaux frontaliers. Voici ce qu'il faut comprendre sur ce marché immobilier atypique avant d'acheter ou de vendre.",
+    date: "5 Mai 2026",
+    category: "Frontalier",
+    image: "/images/hero-pays-de-gex.jpg",
     content: `
-      <p>L'investissement locatif reste l'un des placements les plus sûrs pour se constituer un patrimoine. Cependant, la rentabilité n'est pas automatique. Voici les piliers d'un investissement réussi.</p>
-      
-      <h3>L'Emplacement, toujours l'emplacement</h3>
-      <p>Dans le Pays de Gex, privilégiez les communes avec un accès rapide aux transports vers Genève. Divonne-les-Bains, Ferney-Voltaire et Saint-Genis-Pouilly restent des valeurs sûres avec une demande locative constante.</p>
-      
-      <h3>La Fiscalité : LMNP vs Foncier classique</h3>
-      <p>Le statut de Loueur Meublé Non Professionnel (LMNP) offre souvent une fiscalité plus douce grâce à l'amortissement du bien. Il est crucial de faire une simulation avec un expert comptable avant de se lancer.</p>
-      
-      <h3>La qualité du bien</h3>
-      <p>Les locataires d'aujourd'hui sont exigeants. Un bien rénové, lumineux et bien équipé se louera plus cher et attirera des profils plus stables. Ne négligez pas le "coup de cœur" même pour du locatif.</p>
+    <p>Le Pays de Gex compte environ 100 000 habitants, dont près de 35 % travaillent en Suisse. Cette proportion de frontaliers — parmi les plus élevées d'Europe — structure intégralement le marché immobilier local : niveaux de prix, profils d'acheteurs, critères de choix, délais de transaction. Acheter ou vendre dans ce secteur sans maîtriser ces spécificités, c'est travailler avec une carte incomplète.</p>
 
-      <blockquote>"Investir dans la pierre, c'est investir dans l'avenir, à condition de ne pas se tromper de présent."</blockquote>
-    `
+    <h3>Pourquoi les frontaliers choisissent le Pays de Gex</h3>
+    <p>La réponse tient en quelques chiffres. Un appartement de 90 m² à Ferney-Voltaire se négocie autour de 500 000 €. Le même logement côté suisse, à Genève ou dans le canton de Vaud, dépasse 1,2 million de francs suisses. Pour un frontalier payé en CHF, résider en France représente une économie substantielle à qualité de vie équivalente — accès aux axes autoroutiers, temps de trajet maîtrisé, fiscalité française.</p>
+
+    <blockquote>Le Pays de Gex n'est pas un marché immobilier français classique. C'est un marché de frontière, avec ses propres règles, ses propres acheteurs et ses propres dynamiques. Les méthodes d'estimation et de commercialisation doivent en tenir compte.</blockquote>
+
+    <h3>Ce qui différencie un acheteur frontalier</h3>
+    <p>Les frontaliers achètent avec des critères précis, souvent non négociables :</p>
+    <ul>
+      <li><strong>Proximité des axes frontaliers</strong> : D984, A40, douane de Bardonnex — chaque minute gagnée sur le trajet compte</li>
+      <li><strong>Qualité des établissements scolaires</strong> : les familles expatriées cherchent des communes avec lycées internationaux ou accès au réseau scolaire genevois</li>
+      <li><strong>Fibre et connectivité</strong> : le télétravail partiel est désormais la norme dans les organisations internationales</li>
+      <li><strong>Espaces extérieurs</strong> : jardins, terrasses — la comparaison avec les logements suisses joue systématiquement</li>
+    </ul>
+
+    <h3>Vendre à un acheteur frontalier ou expatrié</h3>
+    <p>Un propriétaire qui commercialise son bien uniquement sur les portails français laisse passer une partie significative de la demande. Les frontaliers actifs sur le marché consultent Properstar, les portails suisses, et les réseaux d'agents spécialisés en zone frontalière. La mise en valeur du bien — photos professionnelles, vidéo drone, description en français et en anglais — est un prérequis, pas un plus.</p>
+    <p>Sur les 240 ventes réalisées en 5 ans dans le Pays de Gex, une proportion significative impliquait des acheteurs travaillant à Genève, au CERN ou dans des organisations internationales. Cette clientèle spécifique a des attentes précises et des processus d'achat différents des acquéreurs français classiques.</p>
+
+    <h3>Les communes les mieux positionnées pour les frontaliers</h3>
+    <ul>
+      <li><strong>Ferney-Voltaire</strong> : 8 km de Genève, forte communauté internationale, toutes commodités</li>
+      <li><strong>Saint-Genis-Pouilly</strong> : CERN à proximité immédiate, demande locative très soutenue</li>
+      <li><strong>Prévessin-Moëns</strong> : calme, résidentiel, accès rapide à la douane</li>
+      <li><strong>Ornex / Cessy</strong> : pavillonnaire, familles, rapport qualité-prix favorable</li>
+      <li><strong>Divonne-les-Bains</strong> : prestige, lac, golf — profil cadre supérieur et expatrié senior</li>
+    </ul>
+  `
   },
   {
     id: 3,
-    slug: "importance-dpe-vente",
-    title: "L'importance du DPE dans la vente",
-    excerpt: "Pourquoi le diagnostic de performance énergétique est devenu le critère numéro un pour les acheteurs.",
-    date: "15 Septembre 2025",
-    category: "Réglementation",
-    image: IMAGES.misc3,
+    slug: "mandat-exclusif-vs-mandat-simple",
+    title: "Mandat exclusif ou mandat simple : lequel choisir pour vendre dans le Pays de Gex ?",
+    excerpt: "Le choix du type de mandat conditionne la stratégie de vente, le délai et souvent le prix final obtenu. Voici une comparaison objective des deux options dans le contexte du marché frontalier.",
+    date: "5 Mai 2026",
+    category: "Conseil",
+    image: "/images/hero-pays-de-gex.jpg",
     content: `
-      <p>Depuis la loi Climat et Résilience, le Diagnostic de Performance Énergétique (DPE) a changé de statut. Il n'est plus simplement informatif, il est opposable et détermine la valeur verte de votre bien.</p>
-      
-      <h3>Un impact direct sur le prix</h3>
-      <p>Les études notariales montrent un écart de prix grandissant entre les biens performants et les biens énergivores. Dans certaines régions, la décote pour un bien classé F ou G peut atteindre 15%.</p>
-      
-      <h3>Les obligations de rénovation</h3>
-      <p>Pour les bailleurs, l'interdiction progressive de louer les passoires thermiques impose des travaux. Pour les vendeurs, un audit énergétique est désormais obligatoire pour les maisons individuelles classées F ou G.</p>
-      
-      <h3>Comment améliorer son DPE avant la vente ?</h3>
-      <p>Parfois, quelques travaux ciblés (isolation des combles, changement de système de chauffage) suffisent pour gagner une ou deux lettres et valoriser considérablement votre bien. Une estimation précise doit prendre en compte ce potentiel.</p>
-    `
+    <p>La question revient dans presque chaque premier rendez-vous : faut-il signer un mandat exclusif ou confier son bien à plusieurs agences ? La réponse dépend moins d'une préférence générale que de la réalité du marché local et des objectifs du vendeur. Dans le Pays de Gex, les deux formules produisent des résultats très différents selon la situation.</p>
+
+    <h3>Ce que dit la loi Hoguet</h3>
+    <p>Un mandat exclusif interdit au propriétaire de confier son bien à une autre agence pendant la durée du contrat, généralement 3 mois renouvelables. Un mandat simple autorise la multi-diffusion et la vente en direct par le propriétaire. Les deux formes sont encadrées par la loi Hoguet du 2 janvier 1970 et ses décrets d'application.</p>
+
+    <h3>Les avantages concrets du mandat exclusif</h3>
+    <ul>
+      <li><strong>Engagement renforcé de l'agent</strong> : un mandat exclusif justifie un investissement en communication — shooting photo professionnel, vidéo drone 4K, campagne de diffusion sur 40+ portails, relance active du fichier acheteurs</li>
+      <li><strong>Prix affiché cohérent</strong> : un bien sur plusieurs agences apparaît souvent à des prix différents, ce qui génère de la méfiance chez les acheteurs et affaiblit la négociation</li>
+      <li><strong>Suivi personnalisé</strong> : un seul interlocuteur coordonne les visites, les retours, et l'ajustement éventuel de stratégie</li>
+      <li><strong>Délai généralement plus court</strong> : les statistiques internes montrent un délai moyen inférieur de 30 à 40 % sur les mandats exclusifs correctement travaillés</li>
+    </ul>
+
+    <h3>Quand le mandat simple peut avoir du sens</h3>
+    <p>Le mandat simple reste pertinent dans certains cas précis : bien atypique avec une cible très restreinte, propriétaire ayant un réseau personnel solide, ou situation nécessitant une mise sur le marché immédiate sans délai de préparation. Dans ces cas, la multiplication des canaux compense l'absence de stratégie coordonnée.</p>
+
+    <blockquote>Dans le Pays de Gex, la demande est suffisamment soutenue pour qu'un bien correctement estimé et bien présenté se vende avec un mandat exclusif dans des délais raisonnables. La question n'est pas tant le type de mandat que la qualité de l'accompagnement derrière.</blockquote>
+
+    <h3>Ce qui change vraiment la donne</h3>
+    <p>Le type de mandat influence moins le résultat final que deux autres facteurs : la justesse de l'estimation initiale et la qualité de la présentation du bien. Un bien surestimé de 8 % avec mandat exclusif se vendra moins bien qu'un bien correctement estimé avec mandat simple. Et un bien photographié avec un smartphone restera invisible face aux concurrents mis en valeur avec des photos professionnelles et une vidéo drone.</p>
+    <p>Ces deux éléments — estimation précise et mise en valeur premium — sont inclus systématiquement dans chaque mandat, quel que soit le type choisi.</p>
+
+    <h3>Les questions à poser avant de signer</h3>
+    <ul>
+      <li>Sur combien de portails le bien sera-t-il diffusé ?</li>
+      <li>Qui réalise les photos et la vidéo, et à quel coût pour le vendeur ?</li>
+      <li>Quel est le délai moyen de vente constaté sur les mandats récents ?</li>
+      <li>Comment l'agent gère-t-il les retours négatifs de visiteurs ?</li>
+      <li>Quelles sont les conditions de résiliation anticipée ?</li>
+    </ul>
+  `
   }
 ];
 
