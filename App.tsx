@@ -11,6 +11,7 @@ import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
 import { ContactPage } from './components/ContactPage';
 import { Estimation } from './components/Contact';
+import { CommuneEstimationPage } from './components/CommuneEstimationPage';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 
@@ -53,6 +54,7 @@ const App: React.FC = () => {
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/estimation" element={<Estimation />} />
+            <Route path="/:commune/estimation-immobiliere" element={<CommuneEstimationPage />} />
           </Routes>
         </main>
         <Footer />

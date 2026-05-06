@@ -1,4 +1,4 @@
-import { NavItem, Stat, Facility, LocationItem, RoomSize, Service, BlogPost } from './types';
+import { NavItem, Stat, Facility, LocationItem, RoomSize, Service, BlogPost, Commune } from './types';
 import { Home, Key, TrendingUp, Search, PenTool, Building } from 'lucide-react';
 
 export const COLORS = {
@@ -190,6 +190,189 @@ export const BLOG_POSTS: BlogPost[] = [
     </ul>
   `
   }
+];
+
+export const COMMUNES: Commune[] = [
+  {
+    slug: "ferney-voltaire",
+    name: "Ferney-Voltaire",
+    cp: "01210",
+    distanceGeneve: "8 km",
+    prixApptMin: 5200,
+    prixApptMax: 6800,
+    prixMaisonMin: 6500,
+    prixMaisonMax: 9000,
+    delaiMoyen: 35,
+    pointsForts: [
+      "8 km du centre de Genève — accès en 15 min",
+      "Communauté internationale dense, lycée bilingue",
+      "Tous commerces, restaurants, vie de quartier animée",
+    ],
+    descriptionMarche:
+      "Porte d'entrée du Pays de Gex, Ferney-Voltaire est la commune la plus recherchée par les frontaliers genevois. Organisations internationales, communauté expatriée, commerces : un marché premium sous tension permanente.",
+    frontalierContext:
+      "À 8 km du centre de Genève et 15 minutes de l'ONU ou du CERN, Ferney-Voltaire concentre la demande des fonctionnaires internationaux et des cadres expatriés. La présence d'un lycée international et d'une communauté anglophone bien établie en fait le premier choix des familles en relocalisation depuis la Suisse.",
+  },
+  {
+    slug: "saint-genis-pouilly",
+    name: "Saint-Genis-Pouilly",
+    cp: "01630",
+    distanceGeneve: "5 km",
+    prixApptMin: 4500,
+    prixApptMax: 5800,
+    prixMaisonMin: 5200,
+    prixMaisonMax: 7500,
+    delaiMoyen: 40,
+    pointsForts: [
+      "Accès direct au CERN, douane Meyrin à 3 min",
+      "Demande locative parmi les plus fortes du Pays de Gex",
+      "Réseau scolaire international (primaire + collège)",
+    ],
+    descriptionMarche:
+      "La commune du CERN. Saint-Genis-Pouilly bénéficie d'une demande locative et d'achat parmi les plus soutenues du Pays de Gex, portée par les milliers d'employés et visiteurs de l'organisation chaque année.",
+    frontalierContext:
+      "Saint-Genis-Pouilly jouxte directement le site du CERN et bénéficie d'accès frontaliers rapides vers Meyrin et Genève-centre. La rotation des contrats de détachement crée une demande locative structurelle forte — idéale pour l'investissement. Les acheteurs viennent massivement d'Allemagne, de Suisse alémanique et du Royaume-Uni.",
+  },
+  {
+    slug: "divonne-les-bains",
+    name: "Divonne-les-Bains",
+    cp: "01220",
+    distanceGeneve: "20 km",
+    prixApptMin: 4800,
+    prixApptMax: 6200,
+    prixMaisonMin: 5800,
+    prixMaisonMax: 8500,
+    delaiMoyen: 55,
+    pointsForts: [
+      "Lac, golf, casino — qualité de vie premium",
+      "Marché très sélectif, biens rares, plus-values élevées",
+      "Clientèle cadre supérieur et expatrié senior",
+    ],
+    descriptionMarche:
+      "Prestige, lac et golf : Divonne-les-Bains est le marché le plus premium du Pays de Gex. Cadres supérieurs, directeurs d'organisations, propriétés d'architecte — une clientèle à fort pouvoir d'achat qui arbitre entre Divonne et les communes vaudoises.",
+    frontalierContext:
+      "Divonne cible une clientèle de cadres supérieurs et de dirigeants travaillant à Genève, Nyon ou Lausanne. Le lac, le casino, le golf et la proximité du Jura font de la commune une alternative crédible aux communes vaudoises. Le profil acheteur est souvent en fin de carrière ou en relocalisation long terme.",
+  },
+  {
+    slug: "gex",
+    name: "Gex",
+    cp: "01170",
+    distanceGeneve: "25 km",
+    prixApptMin: 3800,
+    prixApptMax: 5200,
+    prixMaisonMin: 4500,
+    prixMaisonMax: 6800,
+    delaiMoyen: 50,
+    pointsForts: [
+      "Chef-lieu du Pays de Gex — tous services",
+      "Accès direct aux pistes de ski du Jura",
+      "Rapport qualité-prix le plus favorable du secteur",
+    ],
+    descriptionMarche:
+      "Capitale du Pays de Gex, Gex offre un rapport qualité-prix favorable tout en bénéficiant des attraits du secteur : accès à la Suisse, environnement Jura, services complets. Un marché plus accessible que Ferney ou Saint-Genis, mais en tension croissante.",
+    frontalierContext:
+      "Gex attire les acheteurs qui souhaitent un cadre plus tranquille et plus grand pour le même budget. À 25 km de Genève, le trajet est compensé par des prix inférieurs de 20 à 30 % par rapport à Ferney-Voltaire. Les familles avec enfants scolarisés localement sont surreprésentées dans les transactions.",
+  },
+  {
+    slug: "prevessin-moens",
+    name: "Prévessin-Moëns",
+    cp: "01280",
+    distanceGeneve: "6 km",
+    prixApptMin: 4200,
+    prixApptMax: 5600,
+    prixMaisonMin: 5000,
+    prixMaisonMax: 7200,
+    delaiMoyen: 38,
+    pointsForts: [
+      "6 km de Genève, accès douane en 10 min",
+      "Commune résidentielle calme, pavillonnaire",
+      "Secteur scolaire réputé, écoles bilingues proches",
+    ],
+    descriptionMarche:
+      "Entre Ferney-Voltaire et Saint-Genis-Pouilly, Prévessin-Moëns est une commune résidentielle prisée pour son calme et sa proximité frontalière. À 6 km de Genève, elle combine les atouts des deux communes voisines avec un marché encore légèrement plus accessible.",
+    frontalierContext:
+      "Prévessin-Moëns est souvent le choix des familles qui cherchent à concilier proximité genevoise et cadre pavillonnaire. Les acheteurs sont largement des frontaliers avec enfants, attirés par les écoles de qualité et la sécurité du quartier. Bien desservie par les axes D984 et A40.",
+  },
+  {
+    slug: "cessy",
+    name: "Cessy",
+    cp: "01170",
+    distanceGeneve: "12 km",
+    prixApptMin: 4000,
+    prixApptMax: 5400,
+    prixMaisonMin: 4800,
+    prixMaisonMax: 7000,
+    delaiMoyen: 45,
+    pointsForts: [
+      "Grandes maisons avec jardins — espace rare à ce prix",
+      "Cadre verdoyant, commune tranquille et familiale",
+      "12 km de Genève, accès A40 rapide",
+    ],
+    descriptionMarche:
+      "Commune pavillonnaire recherchée pour son cadre verdoyant et ses biens spacieux. Cessy séduit les familles en quête d'espace, avec de grandes maisons et des jardins — un profil rare à ce niveau de prix dans le Pays de Gex.",
+    frontalierContext:
+      "Cessy est le choix des frontaliers qui privilégient l'espace sur la proximité immédiate. Les maisons avec jardin y sont plus accessibles qu'à Ferney ou Prévessin. La commune est appréciée des acheteurs suisses cherchant l'équivalent des maisons de campagne vaudoises, à prix immobilier français.",
+  },
+  {
+    slug: "ornex",
+    name: "Ornex",
+    cp: "01710",
+    distanceGeneve: "10 km",
+    prixApptMin: 4000,
+    prixApptMax: 5400,
+    prixMaisonMin: 4800,
+    prixMaisonMax: 7000,
+    delaiMoyen: 42,
+    pointsForts: [
+      "Proche CERN et Saint-Genis-Pouilly",
+      "Commune pavillonnaire, constructions récentes",
+      "Premier achat patrimonial accessible dans le Pays de Gex",
+    ],
+    descriptionMarche:
+      "Ornex est l'une des communes les plus recherchées pour l'accès au CERN et à Saint-Genis-Pouilly. Pavillonnaire, calme et encore accessible, elle attire une clientèle de jeunes cadres frontaliers cherchant à se constituer un premier patrimoine.",
+    frontalierContext:
+      "Ornex est bien positionnée pour les employés du CERN et les frontaliers travaillant sur le secteur de Meyrin. La commune offre un bon rapport qualité-prix avec des maisons récentes. Les acheteurs viennent souvent de Saint-Genis, en recherche d'un bien plus grand pour le même budget.",
+  },
+  {
+    slug: "thoiry",
+    name: "Thoiry",
+    cp: "01710",
+    distanceGeneve: "18 km",
+    prixApptMin: 3500,
+    prixApptMax: 4800,
+    prixMaisonMin: 4200,
+    prixMaisonMax: 6200,
+    delaiMoyen: 55,
+    pointsForts: [
+      "Cadre alpin exceptionnel, Jura à portée immédiate",
+      "Biens spacieux parmi les prix les plus accessibles du secteur",
+      "En développement — potentiel de plus-value à moyen terme",
+    ],
+    descriptionMarche:
+      "Thoiry est la porte du Jura depuis le Pays de Gex. À 18 km de Genève, la commune offre un cadre naturel exceptionnel avec des biens spacieux à des prix inférieurs aux communes frontalières. Un marché en progression porté par les acheteurs qui arbitrent espace versus proximité.",
+    frontalierContext:
+      "Thoiry séduit les frontaliers en télétravail partiel, qui acceptent un trajet plus long en échange d'un cadre de vie supérieur. La commune est en développement avec de nouveaux programmes résidentiels. Les acheteurs viennent souvent de la région parisienne, attirés par les salaires suisses et le cadre alpin.",
+  },
+  {
+    slug: "crozet",
+    name: "Crozet",
+    cp: "01170",
+    distanceGeneve: "22 km",
+    prixApptMin: 3500,
+    prixApptMax: 4800,
+    prixMaisonMin: 4200,
+    prixMaisonMax: 6200,
+    delaiMoyen: 60,
+    pointsForts: [
+      "Commune préservée, biens de caractère et atypiques",
+      "Marché de niche — rareté créatrice de valeur",
+      "22 km de Genève, environnement naturel Jura intact",
+    ],
+    descriptionMarche:
+      "Crozet est une commune préservée du Jura, entre Gex et la frontière. Marché de niche avec peu de transactions mais des biens d'exception. Idéale pour les acheteurs qui cherchent l'authenticité et le calme à distance raisonnable du bassin genevois.",
+    frontalierContext:
+      "Crozet attire une clientèle de connaisseurs : acheteurs cherchant une résidence principale de caractère ou une résidence secondaire proche de Genève. Le marché est peu liquide — il faut un agent connaissant la commune pour accéder aux rares biens disponibles, souvent vendus hors portails.",
+  },
 ];
 
 export const ROOM_SIZES: RoomSize[] = [

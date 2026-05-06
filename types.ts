@@ -49,3 +49,18 @@ export interface BlogPost {
   category: string;
   content?: string;
 }
+
+export interface Commune {
+  slug: string;
+  name: string;
+  cp: string;
+  distanceGeneve: string;
+  prixApptMin: number;
+  prixApptMax: number;
+  prixMaisonMin: number;
+  prixMaisonMax: number;
+  delaiMoyen: number;
+  pointsForts: string[];
+  descriptionMarche: string;
+  frontalierContext: string;
+}
