@@ -277,16 +277,16 @@ export const MandatSignature: React.FC = () => {
                                 </p>
                                 <div className="flex flex-wrap gap-3 items-center">
                                     {[
-                                        { src: '/images/seloger.png', alt: 'SeLoger' },
-                                        { src: '/images/leboncoin.png', alt: 'Leboncoin' },
-                                        { src: '/images/bienici-logo.svg', alt: 'BienIci' },
-                                        { src: '/images/logo_logicimmo.png', alt: 'LogicImmo' },
-                                        { src: '/images/lefigaroimmo.png', alt: 'Figaro' },
-                                        { src: '/images/logoluxuryestate.png', alt: 'LuxuryEstate' }
+                                        { src: '/images/seloger.png', alt: 'SeLoger', href: 'https://www.seloger.com/professionnels-immobilier/2bccyjgnD7SN5UJ1TfrRMy', title: 'Mickaël Lima sur SeLoger' },
+                                        { src: '/images/leboncoin.png', alt: 'Leboncoin', href: 'https://www.leboncoin.fr/boutique/7395512/', title: 'Mickaël Lima sur Leboncoin' },
+                                        { src: '/images/bienici-logo.svg', alt: 'BienIci', href: 'https://www.bienici.com/', title: 'Mickaël Lima sur BienIci' },
+                                        { src: '/images/logo_logicimmo.png', alt: 'LogicImmo', href: 'https://www.logic-immo.com/agences-immobilieres/2bccyjgnD7SN5UJ1TfrRMy', title: 'Mickaël Lima sur Logic-Immo' },
+                                        { src: '/images/lefigaroimmo.png', alt: 'Figaro', href: 'https://immobilier.lefigaro.fr/', title: 'Mickaël Lima sur Figaro Immobilier' },
+                                        { src: '/images/logoluxuryestate.png', alt: 'LuxuryEstate', href: 'https://www.luxuryestate.com/', title: 'Mickaël Lima sur Luxury Estate' }
                                     ].map((logo) => (
-                                        <div key={logo.alt} className="px-4 py-2 bg-surface rounded-xl border border-gray-100 flex items-center justify-center h-[3.25rem] shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-gray-200 transition-all duration-300 group cursor-default">
+                                        <a key={logo.alt} href={logo.href} target="_blank" rel="noopener noreferrer" title={logo.title} className="px-4 py-2 bg-surface rounded-xl border border-gray-100 flex items-center justify-center h-[3.25rem] shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-gray-200 transition-all duration-300 group">
                                             <img src={logo.src} alt={logo.alt} className="max-h-6 max-w-[90px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
-                                        </div>
+                                        </a>
                                     ))}
                                     <span className="px-5 h-[3.25rem] flex items-center justify-center bg-textMain text-white rounded-xl text-sm font-bold shadow-lg shadow-textMain/20 hover:-translate-y-0.5 transition-transform duration-300 cursor-default">
                                         +35 autres

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const portalLogos = [
-  { src: '/images/seloger.png', alt: 'SeLoger' },
-  { src: '/images/leboncoin.png', alt: 'Leboncoin' },
-  { src: '/images/bienici-logo.svg', alt: 'BienIci' },
-  { src: '/images/logo_logicimmo.png', alt: 'LogicImmo' },
-  { src: '/images/lefigaroimmo.png', alt: 'Figaro Immobilier' },
-  { src: '/images/logoluxuryestate.png', alt: 'Luxury Estate' },
+  { src: '/images/seloger.png', alt: 'SeLoger', href: 'https://www.seloger.com/professionnels-immobilier/2bccyjgnD7SN5UJ1TfrRMy', title: 'Mickaël Lima sur SeLoger' },
+  { src: '/images/leboncoin.png', alt: 'Leboncoin', href: 'https://www.leboncoin.fr/boutique/7395512/', title: 'Mickaël Lima sur Leboncoin' },
+  { src: '/images/bienici-logo.svg', alt: 'BienIci', href: 'https://www.bienici.com/', title: 'Mickaël Lima sur BienIci' },
+  { src: '/images/logo_logicimmo.png', alt: 'LogicImmo', href: 'https://www.logic-immo.com/agences-immobilieres/2bccyjgnD7SN5UJ1TfrRMy', title: 'Mickaël Lima sur Logic-Immo' },
+  { src: '/images/lefigaroimmo.png', alt: 'Figaro Immobilier', href: 'https://immobilier.lefigaro.fr/', title: 'Mickaël Lima sur Figaro Immobilier' },
+  { src: '/images/logoluxuryestate.png', alt: 'Luxury Estate', href: 'https://www.luxuryestate.com/', title: 'Mickaël Lima sur Luxury Estate' },
 ];
 
 export const Method: React.FC = () => {
@@ -151,9 +151,9 @@ export const Method: React.FC = () => {
           transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
         >
           {[...portalLogos, ...portalLogos, ...portalLogos].map((logo, idx) => (
-            <div key={idx} className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 px-4 shrink-0 w-32 md:w-48">
+            <a key={idx} href={logo.href} target="_blank" rel="noopener noreferrer" title={logo.title} className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 px-4 shrink-0 w-32 md:w-48">
               <img src={logo.src} alt={logo.alt} className="max-h-10 md:max-h-14 w-auto object-contain" />
-            </div>
+            </a>
           ))}
         </motion.div>
       </div>
