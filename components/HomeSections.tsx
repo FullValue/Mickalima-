@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle, Users, Globe, Eye, MessageSquare, Heart, Target, Layers, TrendingUp, Star, Award, ShieldCheck, ArrowRight, Play, ArrowUpRight, Phone, Calendar, Home, ChevronRight, CheckCircle2, ChevronDown, Search, Building, MapPin } from 'lucide-react';
-import { IMAGES, BLOG_POSTS } from '../constants';
+import { IMAGES, BLOG_POSTS, COMMUNES } from '../constants';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -566,6 +566,65 @@ export const HomeBlog: React.FC = () => (
 );
 
 /* UNCHANGED FINALCTA */
+export const ZonesDIntervention: React.FC = () => (
+    <section className="py-24 bg-surface">
+        <div className="container mx-auto px-6">
+            <div className="flex flex-col lg:flex-row justify-between items-end mb-14 gap-6">
+                <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
+                    >
+                        <MapPin size={14} /> Zones d'intervention
+                    </motion.div>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1]"
+                    >
+                        9 communes du<br />
+                        <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                            Pays de Gex
+                        </span>
+                    </motion.h2>
+                </div>
+                <p className="text-gray-500 font-light max-w-sm text-lg leading-relaxed lg:text-right">
+                    Connaissance fine de chaque marché local — estimation gratuite sur site en 48h.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {COMMUNES.map((c, i) => (
+                    <motion.div
+                        key={c.slug}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.06 }}
+                    >
+                        <Link
+                            to={`/${c.slug}/estimation-immobiliere`}
+                            className="group flex items-center justify-between bg-white rounded-[1.5rem] p-6 border border-gray-100 shadow-sm hover:border-primary/20 hover:shadow-md transition-all"
+                        >
+                            <div>
+                                <p className="font-bold text-textMain text-lg group-hover:text-primary transition-colors">{c.name}</p>
+                                <p className="text-gray-400 text-sm font-light mt-0.5">{c.distanceGeneve} · {c.prixApptMin.toLocaleString('fr-FR')}–{c.prixApptMax.toLocaleString('fr-FR')} €/m²</p>
+                            </div>
+                            <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all shrink-0">
+                                <ArrowRight size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+                            </div>
+                        </Link>
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+    </section>
+);
+
 export const FinalCTA: React.FC = () => (
     <section className="py-32 relative overflow-hidden bg-white">
         <div className="container mx-auto px-6 relative z-10">

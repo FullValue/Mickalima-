@@ -374,6 +374,50 @@ export const CommuneEstimationPage: React.FC = () => {
           </div>
         </section>
 
+        {/* ── Communes voisines ── */}
+        <section className="py-16 bg-white border-t border-gray-100">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-6">
+              Communes voisines
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {commune.voisines.map((slug) => {
+                const voisine = COMMUNES.find((c) => c.slug === slug);
+                if (!voisine) return null;
+                return (
+                  <Link
+                    key={slug}
+                    to={`/${slug}/estimation-immobiliere`}
+                    className="group flex items-center justify-between bg-surface rounded-[1.5rem] p-6 border border-gray-100 hover:border-primary/20 hover:shadow-md transition-all"
+                  >
+                    <div>
+                      <p className="font-bold text-textMain text-lg group-hover:text-primary transition-colors">{voisine.name}</p>
+                      <p className="text-gray-400 text-sm font-light mt-0.5">
+                        {voisine.distanceGeneve} · {voisine.prixApptMin.toLocaleString('fr-FR')}–{voisine.prixApptMax.toLocaleString('fr-FR')} €/m²
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all shrink-0">
+                      <ArrowUpRight size={16} className="text-gray-400 group-hover:text-white transition-colors" />
+                    </div>
+                  </Link>
+                );
+              })}
+              <Link
+                to="/estimation"
+                className="group flex items-center justify-between bg-primary rounded-[1.5rem] p-6 hover:bg-textMain transition-all"
+              >
+                <div>
+                  <p className="font-bold text-white text-lg">Toutes les communes</p>
+                  <p className="text-white/60 text-sm font-light mt-0.5">Estimation gratuite · 9 secteurs</p>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all shrink-0">
+                  <ArrowUpRight size={16} className="text-white" />
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ── Lien blog ── */}
         <section className="py-16 bg-surface border-t border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8">

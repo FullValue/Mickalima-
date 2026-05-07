@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMAGES } from '../constants';
+import { IMAGES, COMMUNES } from '../constants';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -144,6 +144,22 @@ export const Footer: React.FC = () => {
                                     <li><a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a></li>
                                     <li><a href="#" className="hover:text-white transition-colors">Mentions légales</a></li>
                                 </ul>
+                            </div>
+
+                            {/* Nos secteurs */}
+                            <div className="md:col-span-3 pt-8 border-t border-white/10">
+                                <h4 className="text-lg font-bold mb-6 text-white">Nos secteurs</h4>
+                                <div className="flex flex-wrap gap-3">
+                                    {COMMUNES.map((c) => (
+                                        <Link
+                                            key={c.slug}
+                                            to={`/${c.slug}/estimation-immobiliere`}
+                                            className="px-4 py-2 rounded-full border border-white/15 text-gray-300 text-sm font-medium hover:border-white/40 hover:text-white transition-all"
+                                        >
+                                            {c.name}
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
 
                         </div>

@@ -18,7 +18,7 @@ import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 
 // Homepage Sections
-import { Positioning, Problematic, Visibility, Testimonials, FAQSection, FinalCTA, HomeBlog } from './components/HomeSections';
+import { Positioning, Problematic, Visibility, Testimonials, FAQSection, FinalCTA, HomeBlog, ZonesDIntervention } from './components/HomeSections';
 
 const HomePage: React.FC = () => (
   <>
@@ -35,6 +35,7 @@ const HomePage: React.FC = () => (
     <Testimonials />
     <FAQSection />
     <HomeBlog />
+    <ZonesDIntervention />
     <FinalCTA />
   </>
 );

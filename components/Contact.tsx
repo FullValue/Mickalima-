@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { IMAGES } from '../constants';
+import { Link } from 'react-router-dom';
+import { IMAGES, COMMUNES } from '../constants';
 import { SEO } from './SEO';
 import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -239,6 +240,37 @@ export const Estimation: React.FC = () => {
                         </div>
 
                     </motion.div>
+                </div>
+            </div>
+        </section>
+
+        {/* ── Estimation par commune ── */}
+        <section className="py-20 bg-surface border-t border-gray-100">
+            <div className="container mx-auto px-6">
+                <div className="text-center mb-12">
+                    <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+                        Pays de Gex
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-medium text-textMain tracking-tight">
+                        Estimation par commune
+                    </h2>
+                    <p className="text-gray-500 font-light mt-3 max-w-lg mx-auto">
+                        Chaque commune du Pays de Gex a son propre marché. Consultez les prix et demandez une estimation précise pour votre secteur.
+                    </p>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+                    {COMMUNES.map((c) => (
+                        <Link
+                            key={c.slug}
+                            to={`/${c.slug}/estimation-immobiliere`}
+                            className="group flex flex-col items-center gap-2 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:border-primary/20 hover:shadow-md transition-all text-center"
+                        >
+                            <span className="font-bold text-textMain text-sm group-hover:text-primary transition-colors leading-tight">
+                                {c.name}
+                            </span>
+                            <span className="text-xs text-gray-400 font-light">{c.distanceGeneve}</span>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </section>
