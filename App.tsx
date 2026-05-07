@@ -13,6 +13,7 @@ import { ContactPage } from './components/ContactPage';
 import { Estimation } from './components/Contact';
 import { CommuneEstimationPage } from './components/CommuneEstimationPage';
 import { PrixImmobilierPage } from './components/PrixImmobilierPage';
+import { FrontalierCommunePage } from './components/FrontalierCommunePage';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 
@@ -57,6 +58,7 @@ const App: React.FC = () => {
             <Route path="/estimation" element={<Estimation />} />
             <Route path="/:commune/estimation-immobiliere" element={<CommuneEstimationPage />} />
             <Route path="/prix-immobilier/:commune" element={<PrixImmobilierPage />} />
+            <Route path="/frontalier/:commune" element={<FrontalierCommunePage />} />
           </Routes>
         </main>
         <Footer />
