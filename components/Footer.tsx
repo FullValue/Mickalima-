@@ -146,19 +146,58 @@ export const Footer: React.FC = () => {
                                 </ul>
                             </div>
 
-                            {/* Nos secteurs */}
+                            {/* Nos secteurs — 3 colonnes */}
                             <div className="md:col-span-3 pt-8 border-t border-white/10">
-                                <h4 className="text-lg font-bold mb-6 text-white">Nos secteurs</h4>
-                                <div className="flex flex-wrap gap-3">
-                                    {COMMUNES.map((c) => (
-                                        <Link
-                                            key={c.slug}
-                                            to={`/${c.slug}/estimation-immobiliere`}
-                                            className="px-4 py-2 rounded-full border border-white/15 text-gray-300 text-sm font-medium hover:border-white/40 hover:text-white transition-all"
-                                        >
-                                            {c.name}
-                                        </Link>
-                                    ))}
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+
+                                    {/* Estimation par commune */}
+                                    <div>
+                                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Estimation par commune</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {COMMUNES.map((c) => (
+                                                <Link
+                                                    key={c.slug}
+                                                    to={`/${c.slug}/estimation-immobiliere`}
+                                                    className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
+                                                >
+                                                    {c.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Prix immobilier */}
+                                    <div>
+                                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Prix immobilier</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {COMMUNES.map((c) => (
+                                                <Link
+                                                    key={c.slug}
+                                                    to={`/prix-immobilier/${c.slug}`}
+                                                    className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
+                                                >
+                                                    {c.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Marché frontalier */}
+                                    <div>
+                                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Marché frontalier</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {COMMUNES.map((c) => (
+                                                <Link
+                                                    key={c.slug}
+                                                    to={`/frontalier/${c.slug}`}
+                                                    className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
+                                                >
+                                                    {c.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
