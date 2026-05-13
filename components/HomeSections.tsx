@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { CheckCircle, Users, Globe, Eye, MessageSquare, Heart, Target, Layers, TrendingUp, Star, Award, ShieldCheck, ArrowRight, Play, ArrowUpRight, Phone, Calendar, Home, ChevronRight, ChevronLeft, CheckCircle2, ChevronDown, Search, Building, MapPin } from 'lucide-react';
+import { CheckCircle, Users, Globe, Eye, MessageSquare, Heart, Target, Layers, TrendingUp, Star, Award, ShieldCheck, ArrowRight, Play, ArrowUpRight, Phone, Calendar, Home, ChevronRight, CheckCircle2, ChevronDown, Search, Building, MapPin } from 'lucide-react';
 import { IMAGES, BLOG_POSTS, COMMUNES } from '../constants';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -24,9 +24,9 @@ const itemVariants = {
 /* DESIGN 1: SERVICES GRID (Positioning) */
 export const Positioning: React.FC = () => {
     return (
-        <section className="py-32 bg-white relative">
+        <section className="py-16 md:py-24 lg:py-32 bg-white relative">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row justify-between items-start mb-20 gap-10">
+                <div className="flex flex-col lg:flex-row justify-between items-start mb-12 md:mb-20 gap-8 md:gap-10">
                     <div className="lg:w-7/12 w-full">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -60,7 +60,7 @@ export const Positioning: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex md:grid md:grid-cols-2 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 md:mx-0 px-6 md:px-0 gap-4 md:gap-6 pb-4 md:pb-0">
                     {[
                         { icon: Home, title: "Estimation Juste", text: "Évaluation précise de votre bien immobilier au juste prix du marché local, sans complaisance pour garantir une vente fluide." },
                         { icon: Star, title: "Présentation Premium", text: "Mise en valeur exceptionnelle (photos professionnelles, vidéos 4K, immersion 3D) pour déclencher le coup de cœur immédiat." },
@@ -73,13 +73,13 @@ export const Positioning: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-5%" }}
                             transition={{ duration: 0.7, delay: idx * 0.15 }}
-                            className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-10 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 group"
+                            className="snap-start shrink-0 md:shrink w-[85%] md:w-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-7 md:p-10 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 group"
                         >
-                            <div className="w-20 h-20 rounded-[1.25rem] bg-surface flex items-center justify-center mb-8 border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary shadow-inner">
-                                <item.icon size={32} strokeWidth={1.5} />
+                            <div className="w-16 h-16 md:w-20 md:h-20 rounded-[1.25rem] bg-surface flex items-center justify-center mb-6 md:mb-8 border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary shadow-inner">
+                                <item.icon size={28} strokeWidth={1.5} />
                             </div>
-                            <h3 className="text-2xl font-bold text-textMain mb-4 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
-                            <p className="text-gray-500 leading-relaxed font-light text-lg">
+                            <h3 className="text-xl md:text-2xl font-bold text-textMain mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+                            <p className="text-gray-500 leading-relaxed font-light text-base md:text-lg">
                                 {item.text}
                             </p>
                         </motion.div>
@@ -92,7 +92,7 @@ export const Positioning: React.FC = () => {
 
 /* UNCHANGED PROBLEMATIC */
 export const Problematic: React.FC = () => (
-    <section className="py-24 md:py-32 bg-surface relative overflow-hidden border-t border-gray-100">
+    <section className="py-16 md:py-24 lg:py-32 bg-surface relative overflow-hidden border-t border-gray-100">
         <div className="container mx-auto px-6 relative z-10">
             <motion.div
                 className="text-center max-w-5xl mx-auto mb-16 lg:mb-20 px-4"
@@ -125,8 +125,8 @@ export const Problematic: React.FC = () => (
                     <div className="absolute inset-0 bg-primary/10"></div>
                 </motion.div>
 
-                <div className="relative z-20 -mt-20 lg:-mt-28 px-4 md:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="relative z-20 mt-8 md:-mt-20 lg:-mt-28 md:px-8">
+                    <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 md:mx-0 px-6 md:px-0 gap-4 md:gap-6 pb-4 md:pb-0">
                         {[
                             "La qualité de la mise en valeur",
                             "La perception du bien par les acheteurs",
@@ -138,7 +138,7 @@ export const Problematic: React.FC = () => (
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-10%" }}
                                 transition={{ duration: 0.8, delay: 0.2 + idx * 0.1, ease: "easeOut" }}
-                                className="bg-white rounded-[2rem] p-8 lg:p-10 shadow-[0_15px_40px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col items-center justify-center min-h-[160px] lg:min-h-[240px] hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] hover:border-primary/20 transition-all duration-500 group relative overflow-hidden"
+                                className="snap-start shrink-0 md:shrink w-[80%] md:w-auto bg-white rounded-[2rem] p-7 md:p-8 lg:p-10 shadow-[0_15px_40px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col items-center justify-center min-h-[180px] md:min-h-[160px] lg:min-h-[240px] hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] hover:border-primary/20 transition-all duration-500 group relative overflow-hidden"
                             >
                                 {/* Subtle decorative glow */}
                                 <div className="absolute -right-6 -top-6 w-24 h-24 bg-primary/5 rounded-full blur-[20px] group-hover:bg-primary/10 transition-colors duration-500 pointer-events-none"></div>
@@ -469,14 +469,14 @@ export const FAQSection: React.FC = () => {
 
 /* UNCHANGED HOMEBLOG */
 export const HomeBlog: React.FC = () => (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8"
+                className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8"
             >
                 <div>
                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
@@ -492,7 +492,7 @@ export const HomeBlog: React.FC = () => (
                 </Link>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 md:mx-0 px-6 md:px-0 gap-4 md:gap-8 pb-4 md:pb-0">
                 {BLOG_POSTS.slice(0, 3).map((post, i) => (
                     <motion.div
                         key={post.id}
@@ -500,7 +500,7 @@ export const HomeBlog: React.FC = () => (
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, delay: i * 0.2 }}
-                        className="group relative"
+                        className="group relative snap-start shrink-0 md:shrink w-[85%] md:w-auto"
                     >
                         {/* Glass background from Blog.tsx */}
                         <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-white/50 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 -z-10"></div>
@@ -581,21 +581,32 @@ const COMMUNE_IMAGES: Record<string, string> = {
 export const ZonesDIntervention: React.FC = () => {
     const [current, setCurrent] = useState(0);
     const [paused, setPaused] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
     const n = COMMUNES.length;
     const prev = () => setCurrent(i => (i - 1 + n) % n);
     const next = () => setCurrent(i => (i + 1) % n);
-    const visible = [0, 1, 2].map(offset => COMMUNES[(current + offset) % n]);
+
+    React.useEffect(() => {
+        const onResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
 
     React.useEffect(() => {
         if (paused) return;
-        const t = setInterval(() => setCurrent(i => (i + 1) % n), 3500);
+        const t = setInterval(() => setCurrent(i => (i + 1) % n), 4000);
         return () => clearInterval(t);
     }, [paused, n]);
 
+    const isMobile = windowWidth < 768;
+    const cardWidth = isMobile ? Math.min(windowWidth - 80, 320) : 380;
+    const cardHeight = isMobile ? cardWidth * 1.1 : 420;
+    const peekShift = isMobile ? cardWidth * 0.65 : cardWidth * 0.78;
+
     return (
-        <section className="py-24 bg-surface">
+        <section className="py-16 md:py-24 lg:py-32 bg-surface overflow-hidden">
             <div className="container mx-auto px-6">
-                <div className="flex flex-col lg:flex-row justify-between items-end mb-14 gap-6">
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 md:mb-14 gap-6">
                     <div>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -618,90 +629,99 @@ export const ZonesDIntervention: React.FC = () => {
                             </span>
                         </motion.h2>
                     </div>
-                    <p className="text-gray-500 font-light max-w-sm text-lg leading-relaxed lg:text-right">
+                    <p className="text-gray-500 font-light max-w-sm text-base md:text-lg leading-relaxed lg:text-right">
                         Connaissance fine de chaque marché local — estimation gratuite sur site en 48h.
                     </p>
                 </div>
 
-                {/* Slider */}
+                {/* Cover Flow Slider */}
                 <div
                     className="relative"
                     onMouseEnter={() => setPaused(true)}
                     onMouseLeave={() => setPaused(false)}
                 >
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={current}
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -12 }}
-                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                            className="grid grid-cols-1 md:grid-cols-3 gap-5"
-                        >
-                            {visible.map((c, idx) => (
-                                <Link
-                                    key={c.slug}
-                                    to={`/${c.slug}/estimation-immobiliere`}
-                                    className={`group block rounded-3xl overflow-hidden${idx > 0 ? ' hidden md:block' : ''}`}
-                                    style={{ aspectRatio: '4/3', position: 'relative', background: '#1a2340' }}
+                    <motion.div
+                        className="relative flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
+                        style={{ height: cardHeight + 40 }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.18}
+                        onDragStart={() => setPaused(true)}
+                        onDragEnd={(_, info) => {
+                            if (info.offset.x < -50) next();
+                            else if (info.offset.x > 50) prev();
+                            setTimeout(() => setPaused(false), 800);
+                        }}
+                    >
+                        {[-1, 0, 1].map(offset => {
+                            const idx = (current + offset + n) % n;
+                            const c = COMMUNES[idx];
+                            const isCenter = offset === 0;
+                            return (
+                                <motion.div
+                                    key={`${c.slug}-${offset}`}
+                                    animate={{
+                                        x: offset * peekShift,
+                                        scale: isCenter ? 1 : 0.82,
+                                        opacity: isCenter ? 1 : 0.42,
+                                        zIndex: isCenter ? 3 : 1,
+                                        filter: isCenter ? 'blur(0px)' : 'blur(2px)',
+                                    }}
+                                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                                    className="absolute"
+                                    style={{ width: cardWidth, height: cardHeight }}
                                 >
-                                    <img
-                                        src={COMMUNE_IMAGES[c.slug]}
-                                        alt={c.name}
-                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        style={{ filter: 'brightness(0.85) saturate(1.3)' }}
-                                    />
-                                    <div
-                                        className="absolute inset-0 z-10 pointer-events-none"
-                                        style={{
-                                            backdropFilter: 'blur(14px) saturate(1.4) brightness(0.82)',
-                                            background: 'linear-gradient(to bottom, rgba(0,18,60,0) 0%, rgba(0,18,60,0.35) 100%)',
-                                            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.45) 55%, black 75%)',
-                                            maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.45) 55%, black 75%)',
-                                        }}
-                                    />
-                                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
-                                        <p className="text-[0.65rem] font-bold uppercase tracking-widest opacity-50 mb-1">
-                                            {c.distanceGeneve} de Genève
-                                        </p>
-                                        <p className="text-xl font-semibold leading-tight mb-2">{c.name}</p>
-                                        <div className="flex items-center justify-between gap-2">
-                                            <p className="text-sm opacity-70 truncate">{c.pointsForts[0]}</p>
-                                            <span className="shrink-0 transition-transform duration-250 group-hover:scale-150">
-                                                <ChevronRight size={18} className="opacity-70" />
-                                            </span>
+                                    <Link
+                                        to={`/${c.slug}/estimation-immobiliere`}
+                                        className="group block rounded-3xl overflow-hidden w-full h-full relative"
+                                        style={{ background: '#1a2340' }}
+                                        draggable={false}
+                                        onClick={(e) => { if (!isCenter) e.preventDefault(); }}
+                                    >
+                                        <img
+                                            src={COMMUNE_IMAGES[c.slug]}
+                                            alt={c.name}
+                                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            style={{ filter: 'brightness(0.85) saturate(1.3)' }}
+                                            draggable={false}
+                                        />
+                                        <div
+                                            className="absolute inset-0 z-10 pointer-events-none"
+                                            style={{
+                                                backdropFilter: 'blur(14px) saturate(1.4) brightness(0.82)',
+                                                background: 'linear-gradient(to bottom, rgba(0,18,60,0) 0%, rgba(0,18,60,0.4) 100%)',
+                                                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.45) 55%, black 75%)',
+                                                maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.45) 55%, black 75%)',
+                                            }}
+                                        />
+                                        <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
+                                            <p className="text-[0.65rem] font-bold uppercase tracking-widest opacity-50 mb-1">
+                                                {c.distanceGeneve} de Genève
+                                            </p>
+                                            <p className="text-xl md:text-2xl font-semibold leading-tight mb-2">{c.name}</p>
+                                            <div className="flex items-center justify-between gap-2">
+                                                <p className="text-sm opacity-70 truncate">{c.pointsForts[0]}</p>
+                                                <span className="shrink-0 transition-transform duration-300 group-hover:scale-125">
+                                                    <ChevronRight size={18} className="opacity-70" />
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </motion.div>
-                    </AnimatePresence>
+                                    </Link>
+                                </motion.div>
+                            );
+                        })}
+                    </motion.div>
 
-                    {/* Navigation — centré */}
-                    <div className="flex items-center justify-center gap-4 mt-8">
-                        <button
-                            onClick={prev}
-                            className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-white text-gray-400 transition-all shrink-0"
-                        >
-                            <ChevronLeft size={17} />
-                        </button>
-
-                        <div className="flex items-center gap-2">
-                            {COMMUNES.map((_, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => setCurrent(i)}
-                                    className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-primary' : 'w-1.5 bg-gray-300 hover:bg-gray-400'}`}
-                                />
-                            ))}
-                        </div>
-
-                        <button
-                            onClick={next}
-                            className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-white text-gray-400 transition-all shrink-0"
-                        >
-                            <ChevronRight size={17} />
-                        </button>
+                    {/* Dots centrés */}
+                    <div className="flex items-center justify-center gap-2 mt-8">
+                        {COMMUNES.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setCurrent(i)}
+                                aria-label={`Voir commune ${i + 1}`}
+                                className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-primary' : 'w-1.5 bg-gray-300 hover:bg-gray-400'}`}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>
@@ -710,7 +730,7 @@ export const ZonesDIntervention: React.FC = () => {
 };
 
 export const FinalCTA: React.FC = () => (
-    <section className="py-32 relative overflow-hidden bg-white">
+    <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden bg-white">
         <div className="container mx-auto px-6 relative z-10">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}

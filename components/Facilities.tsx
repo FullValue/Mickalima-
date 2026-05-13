@@ -17,8 +17,8 @@ export const Method: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   return (
-    <section id="section-method" className="bg-surface pt-32">
-      <div className="container mx-auto px-6 mb-24">
+    <section id="section-method" className="bg-surface pt-16 md:pt-24 lg:pt-32">
+      <div className="container mx-auto px-6 mb-16 md:mb-24">
 
         {/* Header Section */}
         <motion.div
@@ -26,7 +26,7 @@ export const Method: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col lg:flex-row justify-between items-center mb-20 gap-10"
+          className="flex flex-col lg:flex-row justify-between items-center mb-12 md:mb-20 gap-10"
         >
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
@@ -47,7 +47,7 @@ export const Method: React.FC = () => {
         </motion.div>
 
         {/* Accordion Cards Grid */}
-        <div className="flex flex-col xl:flex-row gap-6 w-full lg:h-[600px]">
+        <div className="flex flex-col lg:flex-row gap-6 w-full lg:h-[600px]">
           {[
             {
               id: 1,
@@ -81,7 +81,7 @@ export const Method: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
-                className={`relative rounded-[2.5rem] overflow-hidden group bg-black/5 cursor-pointer transition-all duration-700 ease-out flex flex-col justify-end ${isActive ? 'xl:flex-[2] h-[500px] xl:h-full' : 'xl:flex-[1] h-[250px] xl:h-full'
+                className={`relative rounded-[2.5rem] overflow-hidden group bg-black/5 cursor-pointer transition-all duration-700 ease-out flex flex-col justify-end ${isActive ? 'lg:flex-[2] h-[280px] sm:h-[360px] lg:h-full' : 'lg:flex-[1] h-[200px] sm:h-[260px] lg:h-full'
                   }`}
               >
                 <img
