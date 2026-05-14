@@ -31,6 +31,10 @@ export const About: React.FC = () => {
           {/* L'image est moins assombrie */}
           <img
             src="/images/about-hero.jpg"
+            width="1920"
+            height="1080"
+            loading="eager"
+            decoding="async"
             alt="Background"
             className="w-full h-full object-cover mix-blend-overlay opacity-40 mx-auto"
           />

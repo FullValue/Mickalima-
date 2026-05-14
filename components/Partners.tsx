@@ -27,6 +27,10 @@ export const Partners: React.FC = () => {
                 <div className="absolute inset-0 z-0 text-center flex justify-center">
                     <img
                         src="/images/partners-hero.jpg"
+                        width="1920"
+                        height="1080"
+                        loading="eager"
+                        decoding="async"
                         alt="Partenaires Immobiliers"
                         className="w-full h-full object-cover mix-blend-overlay opacity-40 mx-auto"
                     />

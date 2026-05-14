@@ -109,6 +109,36 @@ export const FrontalierCommunePage: React.FC = () => {
       },
       description: `Immobilier à ${commune.name} pour les frontaliers travaillant à Genève. Expertise marché local, clientèle CERN, ONU et organisations internationales.`,
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: `Est-il avantageux d'acheter à ${commune.name} quand on travaille à Genève ?`,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: `Oui. ${commune.name} se situe à ${commune.distanceGeneve} de Genève, ce qui en fait l'une des communes du Pays de Gex les plus prisées par les frontaliers. ${commune.frontalierContext} Le différentiel de pouvoir d'achat (salaire en CHF + fiscalité française) reste le moteur principal de la demande, et permet aux frontaliers d'accéder à des biens 40 à 60 % moins chers qu'à qualité équivalente côté suisse.`,
+          },
+        },
+        {
+          '@type': 'Question',
+          name: `Quels sont les prix immobiliers à ${commune.name} en ${year} ?`,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: `À ${commune.name} (${commune.cp}) en ${year}, les prix au m² s'établissent entre ${commune.prixApptMin.toLocaleString('fr-FR')} et ${commune.prixApptMax.toLocaleString('fr-FR')} €/m² pour les appartements, et entre ${commune.prixMaisonMin.toLocaleString('fr-FR')} et ${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² pour les maisons. Le délai moyen de vente sur les biens correctement estimés est de ${commune.delaiMoyen} jours. ${commune.evolutionPrix}`,
+          },
+        },
+        {
+          '@type': 'Question',
+          name: `Mickaël Lima propose-t-il des estimations gratuites à ${commune.name} ?`,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: `Oui. L'estimation est gratuite, confidentielle et sans engagement. Elle inclut une visite sur site à ${commune.name}, l'analyse des transactions comparables récentes dans un rayon de 500 m, et un dossier complet remis sous 48h. Mickaël Lima intervient sur l'ensemble du Pays de Gex avec une expertise particulière sur la clientèle frontalière franco-suisse.`,
+          },
+        },
+      ],
+    },
   ];
 
   return (

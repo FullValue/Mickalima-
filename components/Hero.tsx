@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IMAGES, HERO_SLIDES } from '../constants';
+import { IMAGES } from '../constants';
 import { Link } from 'react-router-dom';
 import { Phone, ArrowRight, ArrowUpRight, Award, Home, Users } from 'lucide-react';
 
@@ -10,8 +10,13 @@ export const Hero: React.FC = () => {
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0">
                     <img
-                        src={HERO_SLIDES[0]}
-                        alt="Hero Background"
+                        src="/images/hero-main.jpg"
+                        alt="Pays de Gex — vue d'ensemble"
+                        width="1920"
+                        height="1080"
+                        fetchPriority="high"
+                        loading="eager"
+                        decoding="async"
                         className="w-full h-full object-cover"
                     />
                 </div>

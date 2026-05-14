@@ -152,7 +152,7 @@ export const Method: React.FC = () => {
         >
           {[...portalLogos, ...portalLogos, ...portalLogos].map((logo, idx) => (
             <a key={idx} href={logo.href} target="_blank" rel="noopener noreferrer" title={logo.title} className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 px-4 shrink-0 w-32 md:w-48">
-              <img src={logo.src} alt={logo.alt} className="max-h-10 md:max-h-14 w-auto object-contain" />
+              <img src={logo.src} alt={logo.alt} width="200" height="60" loading="lazy" decoding="async" className="max-h-10 md:max-h-14 w-auto object-contain" />
             </a>
           ))}
         </motion.div>

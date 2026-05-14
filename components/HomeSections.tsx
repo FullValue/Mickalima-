@@ -121,7 +121,7 @@ export const Problematic: React.FC = () => (
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden shadow-2xl relative"
                 >
-                    <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Notre approche" className="w-full h-full object-cover" />
+                    <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Notre approche" width="1200" height="800" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-primary/10"></div>
                 </motion.div>
 
@@ -198,7 +198,7 @@ export const Visibility: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="lg:w-[55%] w-full relative h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-100"
                     >
-                        <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Visibilité Maximale" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+                        <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Visibilité Maximale" width="1200" height="800" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-10 w-full text-white">
                             <h3 className="text-3xl font-bold mb-2 tracking-tight">Visibilité Maximale</h3>
@@ -261,7 +261,7 @@ export const Visibility: React.FC = () => {
                 >
                     {[...portalLogos, ...portalLogos, ...portalLogos].map((logo, idx) => (
                         <a key={idx} href={logo.href} target="_blank" rel="noopener noreferrer" title={logo.title} className="flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 px-4 shrink-0 w-32 md:w-48">
-                            <img src={logo.src} alt={logo.alt} className="max-h-10 md:max-h-14 w-auto object-contain" />
+                            <img src={logo.src} alt={logo.alt} width="200" height="60" loading="lazy" decoding="async" className="max-h-10 md:max-h-14 w-auto object-contain" />
                         </a>
                     ))}
                 </motion.div>
@@ -696,7 +696,7 @@ export const FinalCTA: React.FC = () => (
             >
                 {/* Decorative Background Image & Gradients */}
                 <div className="absolute inset-0">
-                    <img src={IMAGES.ctaBg} alt="Background" className="w-full h-full object-cover opacity-40 mix-blend-overlay" />
+                    <img src={IMAGES.ctaBg} alt="Background" width="1920" height="1080" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-40 mix-blend-overlay" />
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/80 to-primary/90"></div>
                 </div>
                 <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>

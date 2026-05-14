@@ -656,6 +656,10 @@ export const MandatExclusif: React.FC = () => {
                 <div className="absolute inset-0 z-0 text-center flex justify-center origin-center">
                     <img
                         src="/images/mandat-exclusif-hero.jpg"
+                        width="1920"
+                        height="1080"
+                        loading="eager"
+                        decoding="async"
                         alt="Mandat Signature Exclusif"
                         className="w-full h-full object-cover mix-blend-overlay opacity-40 mx-auto"
                     />
