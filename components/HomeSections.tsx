@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { CheckCircle, Users, Globe, Eye, MessageSquare, Heart, Target, Layers, TrendingUp, Star, Award, ShieldCheck, ArrowRight, Play, ArrowUpRight, Phone, Calendar, Home, ChevronRight, CheckCircle2, ChevronDown, Search, Building, MapPin } from 'lucide-react';
 import { IMAGES, BLOG_POSTS, COMMUNES } from '../constants';
 import { Link } from 'react-router-dom';
@@ -186,40 +186,55 @@ const portalLogos = [
 ];
 
 export const Visibility: React.FC = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        // Tentative de play après mount — ignore les erreurs de policy mobile
+        const v = videoRef.current;
+        if (!v) return;
+        const tryPlay = () => v.play().catch(() => {});
+        tryPlay();
+        // Retry quand metadata loadée (sécurité)
+        v.addEventListener('loadedmetadata', tryPlay);
+        return () => v.removeEventListener('loadedmetadata', tryPlay);
+    }, []);
+
     return (
-        <section className="pt-32 pb-0 md:pb-8 bg-white relative">
+        <section className="pt-16 md:pt-24 lg:pt-32 pb-0 md:pb-8 bg-white relative">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-                    {/* Image Left */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
+                    {/* Video Left — plus petit, hauteur s'aligne sur le bloc droit */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="lg:w-[55%] w-full relative h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-100"
+                        className="lg:col-span-5 w-full relative aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[520px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-100 bg-primary/10 cursor-pointer"
+                        onClick={() => videoRef.current?.play().catch(() => {})}
                     >
                         <video
-                            src="/video/VillaGrillyMickaelV1.2.MP4"
-                            poster="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg"
-                            autoPlay
+                            ref={videoRef}
                             muted
                             loop
                             playsInline
-                            preload="metadata"
+                            autoPlay
+                            preload="auto"
                             aria-label="Visibilité Maximale — Vidéo de présentation Villa Grilly"
                             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 p-10 w-full text-white">
-                            <h3 className="text-3xl font-bold mb-2 tracking-tight">Visibilité Maximale</h3>
-                            <p className="text-white/80 text-lg font-light">
+                        >
+                            <source src="/video/VillaGrillyMickaelV1.2.MP4" type="video/mp4" />
+                        </video>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
+                        <div className="absolute bottom-0 left-0 p-8 lg:p-10 w-full text-white pointer-events-none">
+                            <h3 className="text-2xl lg:text-3xl font-bold mb-2 tracking-tight">Visibilité Maximale</h3>
+                            <p className="text-white/80 text-base lg:text-lg font-light">
                                 Diffusion large et ciblée sur les portails majeurs et réseaux sociaux.
                             </p>
                         </div>
                     </motion.div>
 
-                    {/* Text Right */}
-                    <div className="lg:w-[45%] flex flex-col justify-center">
+                    {/* Text Right — élargi (col-span-7) */}
+                    <div className="lg:col-span-7 flex flex-col justify-center">
                         <motion.div
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
