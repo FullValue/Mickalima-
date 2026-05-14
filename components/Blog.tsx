@@ -81,7 +81,7 @@ export const Blog: React.FC = () => {
                                 <div className="p-6 pt-8 flex-1 flex flex-col">
                                     <div className="flex items-center gap-2 text-gray-400 text-xs font-bold tracking-widest uppercase mb-4">
                                         <Calendar size={14} className="text-primary" />
-                                        {post.date}
+                                        {new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
                                     </div>
                                     <h3 className="text-2xl font-bold text-textMain mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
                                         {post.title}

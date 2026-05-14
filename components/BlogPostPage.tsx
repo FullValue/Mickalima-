@@ -40,7 +40,7 @@ export const BlogPostPage: React.FC = () => {
       name: "Mickael Lima — L'Agence Immo",
       url: 'https://mickael-lima.immo',
     },
-    image: post.image,
+    image: `https://mickael-lima.immo${post.image}`,
     url: `https://mickael-lima.immo/blog/${post.slug}`,
   };
 
@@ -91,7 +91,7 @@ export const BlogPostPage: React.FC = () => {
                 {post.category}
               </span>
               <span className="flex items-center gap-2 text-white/90">
-                <Calendar size={14} className="text-accent" /> {post.date}
+                <Calendar size={14} className="text-accent" /> {new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
               </span>
               <span className="hidden md:flex items-center gap-2 text-white/90">
                 <Clock size={14} className="text-accent" /> 5 min de lecture

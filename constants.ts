@@ -74,7 +74,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "prix-m2-pays-de-gex-2026",
     title: "Prix au m² dans le Pays de Gex en 2026 : commune par commune",
     excerpt: "Le Pays de Gex affiche des prix immobiliers parmi les plus élevés de France, portés par la proximité de Genève et la demande des frontaliers. Voici les valeurs réelles par commune.",
-    date: "5 Mai 2026",
+    date: "2026-05-05",
     category: "Marché",
     image: "/images/hero-pays-de-gex.jpg",
     content: `
@@ -115,7 +115,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "immobilier-frontalier-pays-de-gex",
     title: "Immobilier dans le Pays de Gex : ce que les frontaliers doivent savoir",
     excerpt: "Vivre en France, travailler en Suisse : le Pays de Gex attire chaque année des milliers de nouveaux frontaliers. Voici ce qu'il faut comprendre sur ce marché immobilier atypique avant d'acheter ou de vendre.",
-    date: "5 Mai 2026",
+    date: "2026-05-05",
     category: "Frontalier",
     image: "/images/hero-pays-de-gex.jpg",
     content: `
@@ -154,7 +154,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "mandat-exclusif-vs-mandat-simple",
     title: "Mandat exclusif ou mandat simple : lequel choisir pour vendre dans le Pays de Gex ?",
     excerpt: "Le choix du type de mandat conditionne la stratégie de vente, le délai et souvent le prix final obtenu. Voici une comparaison objective des deux options dans le contexte du marché frontalier.",
-    date: "5 Mai 2026",
+    date: "2026-05-05",
     category: "Conseil",
     image: "/images/hero-pays-de-gex.jpg",
     content: `
