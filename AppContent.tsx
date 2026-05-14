@@ -13,6 +13,7 @@ import { ContactPage } from './components/ContactPage';
 import { Estimation } from './components/Contact';
 import { CommuneEstimationPage } from './components/CommuneEstimationPage';
 import { PrixImmobilierPage } from './components/PrixImmobilierPage';
+import { PrixImmobilierPaysDeGex } from './components/PrixImmobilierPaysDeGex';
 import { FrontalierCommunePage } from './components/FrontalierCommunePage';
 import { MentionsLegales } from './components/MentionsLegales';
 import { PolitiqueConfidentialite } from './components/PolitiqueConfidentialite';
@@ -68,6 +69,7 @@ export const AppContent: React.FC = () => (
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
           <Route path="/:commune/estimation-immobiliere" element={<CommuneEstimationPage />} />
+          <Route path="/prix-immobilier/pays-de-gex" element={<PrixImmobilierPaysDeGex />} />
           <Route path="/prix-immobilier/:commune" element={<PrixImmobilierPage />} />
           <Route path="/frontalier/:commune" element={<FrontalierCommunePage />} />
         </Routes>

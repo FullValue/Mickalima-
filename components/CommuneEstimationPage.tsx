@@ -66,6 +66,13 @@ export const CommuneEstimationPage: React.FC = () => {
       name: 'Mickaël Lima — L’agence Immo',
       url: 'https://mickael-lima.immo',
       telephone: '+33769313502',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '328 Rue des Fontanettes',
+        addressLocality: 'Divonne-les-Bains',
+        postalCode: '01220',
+        addressCountry: 'FR',
+      },
       areaServed: {
         '@type': 'City',
         name: commune.name,
