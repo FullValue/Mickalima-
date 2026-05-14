@@ -1,59 +1,188 @@
-import React, { useState, useEffect } from 'react';
-import { IMAGES, HERO_SLIDES } from '../constants';
+import React, { useState } from 'react';
+import { HERO_SLIDES, COMMUNES } from '../constants';
 import { Link } from 'react-router-dom';
-import { Phone, ArrowRight, ArrowUpRight, Award, Home, Users } from 'lucide-react';
+import { Phone, ArrowUpRight, Home as HomeIcon, MapPin, Ruler, CheckCircle2, Sparkles } from 'lucide-react';
 
 export const Hero: React.FC = () => {
+    const [propertyType, setPropertyType] = useState<'Maison' | 'Appartement' | 'Terrain'>('Maison');
+    const [commune, setCommune] = useState('');
+    const [surface, setSurface] = useState('');
+    const [contact, setContact] = useState('');
+    const [submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmitted(true);
+    };
+
     return (
-        <section id="home" className="relative w-full h-screen min-h-[500px] lg:min-h-[700px] flex flex-col justify-center overflow-hidden">
+        <section id="home" className="relative w-full min-h-screen lg:min-h-[760px] flex flex-col justify-center overflow-hidden py-24 lg:py-0">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0">
-                    <img
-                        src={HERO_SLIDES[0]}
-                        alt="Pays de Gex — vue d'ensemble"
-                        width="1920"
-                        height="1080"
-                        fetchPriority="high"
-                        loading="eager"
-                        decoding="async"
-                        className="w-full h-full object-cover"
-                    />
-                </div>
-                {/* Blue/Dark Gradient Overlay for better text readability and Fixoria look */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-black/30 z-10"></div>
+                <img
+                    src={HERO_SLIDES[0]}
+                    alt="Pays de Gex — vue d'ensemble"
+                    width="1920"
+                    height="1080"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/55 to-primary/65 z-10"></div>
             </div>
 
-            <div className="container mx-auto px-6 lg:px-12 relative z-10 h-full flex flex-col justify-center">
+            <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
 
-                <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8 lg:gap-12">
+                {/* Left Section: Heading & Copy */}
+                <div className="w-full lg:max-w-xl xl:max-w-2xl pt-12 lg:pt-0">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-white tracking-tight drop-shadow-xl mb-6">
+                        Vendez votre bien <br />
+                        au meilleur prix <br />
+                        dans le Pays de Gex
+                    </h1>
+                    <p className="text-base sm:text-lg lg:text-xl text-white/90 font-medium drop-shadow-md mb-8 leading-relaxed">
+                        Une stratégie premium, une mise en valeur professionnelle et un accompagnement personnalisé pour vendre sans stress et sans brader.
+                    </p>
 
-                    {/* Left Section: Heading & Copy */}
-                    <div className="max-w-3xl pt-20 lg:pt-0">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-white tracking-tight drop-shadow-xl mb-6">
-                            Vendez votre bien <br />
-                            au meilleur prix <br />
-                            dans le Pays de Gex
-                        </h1>
-                        <p className="text-lg sm:text-xl text-white/90 font-medium max-w-2xl drop-shadow-md mb-8 leading-relaxed">
-                            Une stratégie de vente premium, une mise en valeur professionnelle et un accompagnement personnalisé pour vendre efficacement, sans stress et sans brader votre bien.
-                        </p>
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start w-full">
+                        <Link to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-2 px-2 pr-6 rounded-full font-bold hover:bg-white/20 transition-all shadow-xl hover:-translate-y-1 flex items-center gap-4 group">
+                            <div className="bg-white text-textMain rounded-full p-3 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                                <Phone size={18} />
+                            </div>
+                            <span className="text-sm tracking-wide whitespace-nowrap">Être rappelé</span>
+                        </Link>
+                    </div>
+                </div>
 
-                        {/* Buttons styled like the reference search bar/pill */}
-                        <div className="flex flex-col sm:flex-row gap-4 items-start w-full">
-                            <Link to="/estimation" className="bg-white text-textMain py-2 px-2 pr-6 rounded-full font-bold hover:bg-gray-50 transition-all shadow-xl hover:-translate-y-1 flex items-center gap-4 group max-w-full">
-                                <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-300 shrink-0">
-                                    <ArrowUpRight size={20} />
+                {/* Right Section: Liquid Glass Estimation Form */}
+                <div className="w-full lg:w-[420px] lg:shrink-0">
+                    <div
+                        className="relative rounded-[2rem] p-7 md:p-8 border border-white/25 shadow-[0_25px_80px_rgba(0,12,40,0.45)] overflow-hidden"
+                        style={{
+                            background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 100%)',
+                            backdropFilter: 'blur(24px) saturate(160%)',
+                            WebkitBackdropFilter: 'blur(24px) saturate(160%)',
+                        }}
+                    >
+                        {/* Inner highlight ring */}
+                        <div className="absolute inset-0 rounded-[2rem] pointer-events-none" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3)' }} />
+                        {/* Soft glow blob */}
+                        <div className="absolute -top-20 -right-20 w-48 h-48 bg-blue-300/30 rounded-full blur-3xl pointer-events-none" />
+
+                        {!submitted ? (
+                            <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
+                                <div className="flex items-center gap-2 text-white/80 text-[0.65rem] font-bold uppercase tracking-widest">
+                                    <Sparkles size={14} /> Estimation gratuite · 48h
                                 </div>
-                                <span className="text-base tracking-wide whitespace-normal sm:whitespace-nowrap text-left">Estimer mon bien gratuitement</span>
-                            </Link>
-                            <Link to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-2 px-2 pr-6 rounded-full font-bold hover:bg-white/20 transition-all shadow-xl hover:-translate-y-1 flex items-center gap-4 group max-w-full">
-                                <div className="bg-white text-textMain rounded-full p-4 group-hover:scale-110 transition-transform duration-300 shrink-0">
-                                    <Phone size={20} />
+                                <h2 className="text-2xl font-semibold text-white leading-tight">
+                                    Quelle est la valeur<br />de votre bien&nbsp;?
+                                </h2>
+
+                                {/* Type de bien — pills */}
+                                <div>
+                                    <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                                        <HomeIcon size={12} /> Type de bien
+                                    </label>
+                                    <div className="grid grid-cols-3 gap-2">
+                                        {(['Maison', 'Appartement', 'Terrain'] as const).map((type) => (
+                                            <button
+                                                type="button"
+                                                key={type}
+                                                onClick={() => setPropertyType(type)}
+                                                className={`py-2.5 rounded-xl border text-xs font-bold transition-all ${propertyType === type
+                                                    ? 'bg-white text-textMain border-white shadow-lg'
+                                                    : 'bg-white/5 text-white/80 border-white/20 hover:bg-white/15'}`}
+                                            >
+                                                {type}
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
-                                <span className="text-base tracking-wide whitespace-normal sm:whitespace-nowrap text-left">Être rappelé</span>
-                            </Link>
-                        </div>
+
+                                {/* Commune */}
+                                <div>
+                                    <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                                        <MapPin size={12} /> Commune
+                                    </label>
+                                    <select
+                                        required
+                                        value={commune}
+                                        onChange={(e) => setCommune(e.target.value)}
+                                        className="w-full bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-white/50 focus:bg-white/15 transition-all appearance-none cursor-pointer"
+                                        style={{ colorScheme: 'dark' }}
+                                    >
+                                        <option value="" disabled className="bg-primary text-white">Choisir une commune…</option>
+                                        {COMMUNES.map((c) => (
+                                            <option key={c.slug} value={c.name} className="bg-primary text-white">{c.name}</option>
+                                        ))}
+                                        <option value="Autre" className="bg-primary text-white">Autre Pays de Gex</option>
+                                    </select>
+                                </div>
+
+                                {/* Surface + Contact côte-à-côte */}
+                                <div className="grid grid-cols-5 gap-3">
+                                    <div className="col-span-2">
+                                        <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                                            <Ruler size={12} /> Surface
+                                        </label>
+                                        <div className="relative">
+                                            <input
+                                                type="number"
+                                                required
+                                                min="1"
+                                                value={surface}
+                                                onChange={(e) => setSurface(e.target.value)}
+                                                placeholder="120"
+                                                className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 pr-9 text-sm font-medium focus:outline-none focus:border-white/50 focus:bg-white/15 transition-all"
+                                            />
+                                            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 text-xs font-medium pointer-events-none">m²</span>
+                                        </div>
+                                    </div>
+                                    <div className="col-span-3">
+                                        <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2">
+                                            Contact
+                                        </label>
+                                        <input
+                                            type="text"
+                                            required
+                                            value={contact}
+                                            onChange={(e) => setContact(e.target.value)}
+                                            placeholder="Tél. ou email"
+                                            className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-white/50 focus:bg-white/15 transition-all"
+                                        />
+                                    </div>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-white text-textMain font-bold rounded-full py-3.5 flex items-center justify-center gap-2 hover:bg-gray-50 hover:-translate-y-0.5 transition-all shadow-xl group"
+                                >
+                                    <span>Recevoir mon estimation</span>
+                                    <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform duration-300" />
+                                </button>
+                                <p className="text-[0.65rem] text-white/50 text-center font-light">
+                                    Confidentiel · sans engagement · réponse sous 48h
+                                </p>
+                            </form>
+                        ) : (
+                            <div className="relative z-10 text-center py-6 space-y-4">
+                                <div className="w-16 h-16 mx-auto rounded-full bg-white/20 flex items-center justify-center">
+                                    <CheckCircle2 size={32} className="text-white" />
+                                </div>
+                                <h3 className="text-2xl font-semibold text-white leading-tight">Demande reçue&nbsp;!</h3>
+                                <p className="text-sm text-white/80 leading-relaxed">
+                                    Mickaël Lima vous recontacte sous <strong className="font-bold text-white">48 h</strong> pour planifier la visite et finaliser l'estimation de votre {propertyType.toLowerCase()} {commune && `à ${commune}`}.
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={() => { setSubmitted(false); setCommune(''); setSurface(''); setContact(''); }}
+                                    className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white underline-offset-4 hover:underline transition-colors"
+                                >
+                                    Nouvelle demande
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
