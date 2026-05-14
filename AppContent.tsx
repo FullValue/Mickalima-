@@ -1,6 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { LazyMotion } from 'framer-motion';
 import { SEO } from './components/SEO';
+
+// Charge les features d'animation Framer Motion en chunk séparé asynchrone
+// (réduit le JS initial parsé/exécuté → améliore INP)
+const loadMotionFeatures = () => import('framer-motion').then(res => res.domAnimation);
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Method } from './components/Facilities';
@@ -143,7 +148,7 @@ const HomePage: React.FC = () => (
 );
 
 export const AppContent: React.FC = () => (
-  <>
+  <LazyMotion features={loadMotionFeatures}>
     <ScrollToTop />
     <div className="font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
@@ -168,5 +173,5 @@ export const AppContent: React.FC = () => (
       </main>
       <Footer />
     </div>
-  </>
+  </LazyMotion>
 );

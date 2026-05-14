@@ -17,6 +17,11 @@
   <!-- LCP : preload hero image avec haute priorité -->
   <link rel="preload" as="image" href="/images/hero-main.jpg" fetchpriority="high" />
 
+  <!-- Hreflang : audience frontalière franco-suisse (fallback homepage statique, surchargé par Helmet par route) -->
+  <link rel="alternate" hreflang="fr-FR" href="https://mickael-lima.immo/" />
+  <link rel="alternate" hreflang="fr-CH" href="https://mickael-lima.immo/" />
+  <link rel="alternate" hreflang="x-default" href="https://mickael-lima.immo/" />
+
   <!--
     Schema.org JSON-LD : déplacé dans HomePage (AppContent.tsx) via React Helmet
     pour éviter la duplication sur les 41 pages pré-rendues. Les schemas globaux

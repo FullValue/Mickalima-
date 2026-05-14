@@ -30,6 +30,11 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
+      {/* Hreflang : audience frontalière franco-suisse (même URL pour fr-FR et fr-CH) */}
+      {canonicalUrl && <link rel="alternate" hrefLang="fr-FR" href={canonicalUrl} />}
+      {canonicalUrl && <link rel="alternate" hrefLang="fr-CH" href={canonicalUrl} />}
+      {canonicalUrl && <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />}
+
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
