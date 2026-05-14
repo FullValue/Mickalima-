@@ -19,7 +19,7 @@ export const Blog: React.FC = () => {
     return (
         <>
         <SEO
-            title="Blog Immobilier | Marché & Conseils Pays de Gex — Mickael Lima"
+            title="Blog Immobilier | Marché & Conseils Pays de Gex — Mickaël Lima"
             description="Analyses du marché immobilier, conseils d'investissement et actualités réglementaires pour le Pays de Gex et la zone frontalière genevoise."
             canonical="/blog"
         />
@@ -92,9 +92,9 @@ export const Blog: React.FC = () => {
                                     <div className="border-t border-gray-100 pt-6 flex justify-between items-center relative">
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 rounded-full bg-surface border-2 border-primary/10 overflow-hidden shadow-sm">
-                                                <img src={IMAGES.heroAgent} alt="Mickael Lima" className="w-full h-full object-cover" />
+                                                <img src={IMAGES.heroAgent} alt="Mickaël Lima" className="w-full h-full object-cover" />
                                             </div>
-                                            <span className="text-xs font-bold tracking-widest uppercase text-gray-500">Mickael Lima</span>
+                                            <span className="text-xs font-bold tracking-widest uppercase text-gray-500">Mickaël Lima</span>
                                         </div>
                                         <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                                             <ArrowUpRight size={18} />

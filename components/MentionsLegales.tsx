@@ -20,7 +20,7 @@ export const MentionsLegales: React.FC = () => (
             <ul className="space-y-1.5 text-base">
               <li><strong className="font-semibold">Nom :</strong> Mickaël Lima (Michael Lima dos Santos)</li>
               <li><strong className="font-semibold">Qualité :</strong> Agent commercial immobilier indépendant</li>
-              <li><strong className="font-semibold">Mandant :</strong> L'agence Immo — <a href="https://lagenceimmo01.fr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">lagenceimmo01.fr</a></li>
+              <li><strong className="font-semibold">Mandant :</strong> L’agence Immo — <a href="https://lagenceimmo01.fr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">lagenceimmo01.fr</a></li>
               <li><strong className="font-semibold">Adresse :</strong> 328 Rue des Fontanettes, 01220 Divonne-les-Bains</li>
               <li><strong className="font-semibold">Téléphone :</strong> <a href="tel:+33769313502" className="text-primary hover:underline">07 69 31 35 02</a></li>
               <li><strong className="font-semibold">Email :</strong> <a href="mailto:contact@mickael-lima.immo" className="text-primary hover:underline">contact@mickael-lima.immo</a></li>
@@ -35,9 +35,9 @@ export const MentionsLegales: React.FC = () => (
           <section>
             <h2 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Hébergeur</h2>
             <ul className="space-y-1.5 text-base">
-              <li><strong className="font-semibold">Société :</strong> Netlify, Inc.</li>
-              <li><strong className="font-semibold">Adresse :</strong> 44 Montgomery Street, Suite 300, San Francisco, CA 94104, États-Unis</li>
-              <li><strong className="font-semibold">Site :</strong> <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">www.netlify.com</a></li>
+              <li><strong className="font-semibold">Société :</strong> Vercel, Inc.</li>
+              <li><strong className="font-semibold">Adresse :</strong> 340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis</li>
+              <li><strong className="font-semibold">Site :</strong> <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">vercel.com</a></li>
             </ul>
           </section>
 

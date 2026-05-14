@@ -490,9 +490,9 @@ export const HomeBlog: React.FC = () => (
                                 <div className="flex items-center justify-between border-t border-gray-100 pt-6 mt-auto">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 rounded-full border-2 border-primary/10 overflow-hidden shadow-sm">
-                                            <img src={IMAGES.heroAgent} alt="Mickael Lima" className="w-full h-full object-cover" />
+                                            <img src={IMAGES.heroAgent} alt="Mickaël Lima" className="w-full h-full object-cover" />
                                         </div>
-                                        <span className="text-xs font-bold tracking-widest uppercase text-gray-500">Mickael Lima</span>
+                                        <span className="text-xs font-bold tracking-widest uppercase text-gray-500">Mickaël Lima</span>
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 rounded-full bg-surface border border-gray-100 flex items-center justify-center text-textMain group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-colors duration-300 shadow-sm">
@@ -705,7 +705,7 @@ export const FinalCTA: React.FC = () => (
                 <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
                     <img
                         src={IMAGES.logoWhite}
-                        alt="Mickael Lima"
+                        alt="Mickaël Lima"
                         className="h-16 md:h-20 lg:h-24 object-contain mb-10 drop-shadow-lg opacity-90"
                         style={{ filter: 'brightness(0) invert(1)' }}
                     />

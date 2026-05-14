@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
     return (
         <footer className="flex flex-col">
 
-            {/* Scrolling Logo Section - Mickael Lima (Blue on White) */}
+            {/* Scrolling Logo Section - Mickaël Lima (Blue on White) */}
             {!isBlueFooterPage && (
                 <div className="w-full py-6 border-t overflow-hidden relative flex items-center bg-white border-gray-100">
                     <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
                 {/* Background Image - Changed to ctaBg for synthetic look */}
                 <img
                     src={IMAGES.ctaBg}
-                    alt="Mickael Lima Immobilier"
+                    alt="Mickaël Lima Immobilier"
                     className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${isBlueFooterPage ? 'mix-blend-overlay opacity-40' : ''}`}
                 />
 
@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
                             <div className="flex items-center gap-4 mt-4 lg:mt-0">
                                 <img
                                     src={IMAGES.logoWhite}
-                                    alt="Mickael Lima"
+                                    alt="Mickaël Lima"
                                     className="h-24 opacity-90"
                                 />
                             </div>
@@ -207,7 +207,7 @@ export const Footer: React.FC = () => {
 
                     {/* NAP — Name Address Phone */}
                     <div className="mt-16 pt-10 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-white/50">
-                        <span className="font-semibold text-white/70">Mickael Lima — L'Agence Immo</span>
+                        <span className="font-semibold text-white/70">Mickaël Lima — L’agence Immo</span>
                         <span>328 Rue des Fontanettes, 01220 Divonne-les-Bains</span>
                         <a href="tel:+33769313502" className="hover:text-white transition-colors">07 69 31 35 02</a>
                     </div>

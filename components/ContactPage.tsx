@@ -39,8 +39,8 @@ export const ContactPage: React.FC = () => {
     return (
         <>
         <SEO
-            title="Contact | Estimation Gratuite — Mickael Lima Pays de Gex"
-            description="Contactez Mickael Lima pour une estimation gratuite et confidentielle de votre bien dans le Pays de Gex. Réponse sous 48h, déplacement sur site inclus."
+            title="Contact | Estimation Gratuite — Mickaël Lima Pays de Gex"
+            description="Contactez Mickaël Lima pour une estimation gratuite et confidentielle de votre bien dans le Pays de Gex. Réponse sous 48h, déplacement sur site inclus."
             canonical="/contact"
         />
         <div className="min-h-screen bg-white">
@@ -316,7 +316,7 @@ export const ContactPage: React.FC = () => {
                                     style={{ border: 0 }}
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
-                                    title="Localisation Mickaël Lima — L'agence Immo"
+                                    title="Localisation Mickaël Lima — L’agence Immo"
                                     className="rounded-xl mb-8"
                                 />
 

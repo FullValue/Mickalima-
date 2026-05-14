@@ -19,7 +19,7 @@ export const MandatSignature: React.FC = () => {
     return (
         <>
         <SEO
-            title="Mandat Signature | Vendez Mieux — Mickael Lima Pays de Gex"
+            title="Mandat Signature | Vendez Mieux — Mickaël Lima Pays de Gex"
             description="Le Mandat Signature : photos HD, vidéo drone 4K, diffusion sur +40 portails immobiliers, visites qualifiées et zéro visite inutile. Vendez votre bien dans le Pays de Gex au meilleur prix."
             canonical="/mandat-signature"
         />
@@ -524,7 +524,7 @@ export const MandatSignature: React.FC = () => {
             </section>
 
 
-            {/* Scrolling Logo Section - Mickael Lima (Signature Page) */}
+            {/* Scrolling Logo Section - Mickaël Lima (Signature Page) */}
             <div className="w-full py-6 border-t overflow-hidden relative flex items-center bg-primary border-primary/10">
                 <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r z-10 pointer-events-none from-primary to-transparent"></div>
                 <div className="absolute right-0 w-24 md:w-48 h-full bg-gradient-to-l z-10 pointer-events-none from-primary to-transparent"></div>
@@ -645,7 +645,7 @@ export const MandatExclusif: React.FC = () => {
     return (
         <>
         <SEO
-            title="Mandat Exclusif | L'Excellence Immobilière — Mickael Lima"
+            title="Mandat Exclusif | L'Excellence Immobilière — Mickaël Lima"
             description="Le Mandat Exclusif : production cinématographique, home staging, événements privés, diffusion internationale. Pour les biens d'exception dans le Pays de Gex qui méritent le meilleur."
             canonical="/mandat-exclusif"
         />
@@ -860,7 +860,7 @@ export const MandatExclusif: React.FC = () => {
                 </div>
             </section>
 
-            {/* Scrolling Logo Section - Mickael Lima (Exclusif Page) */}
+            {/* Scrolling Logo Section - Mickaël Lima (Exclusif Page) */}
             <div className="w-full py-6 border-t overflow-hidden relative flex items-center bg-primary border-primary/10">
                 <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r z-10 pointer-events-none from-primary to-transparent"></div>
                 <div className="absolute right-0 w-24 md:w-48 h-full bg-gradient-to-l z-10 pointer-events-none from-primary to-transparent"></div>

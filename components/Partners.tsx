@@ -17,8 +17,8 @@ export const Partners: React.FC = () => {
     return (
         <>
         <SEO
-            title="Partenaires | Réseau d'Experts — Mickael Lima Pays de Gex"
-            description="Courtiers, artisans qualifiés, architectes d'intérieur et entreprises de rénovation : le réseau de partenaires sélectionnés de Mickael Lima pour votre projet immobilier."
+            title="Partenaires | Réseau d'Experts — Mickaël Lima Pays de Gex"
+            description="Courtiers, artisans qualifiés, architectes d'intérieur et entreprises de rénovation : le réseau de partenaires sélectionnés de Mickaël Lima pour votre projet immobilier."
             canonical="/partenaires"
         />
         <div className="min-h-screen bg-gray-50 flex flex-col">

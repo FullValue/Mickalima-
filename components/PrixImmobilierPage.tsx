@@ -57,7 +57,7 @@ export const PrixImmobilierPage: React.FC = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
-      name: 'Mickaël Lima — Agent Immobilier',
+      name: 'Mickaël Lima — L’agence Immo',
       url: 'https://mickael-lima.immo',
       telephone: '+33769313502',
       areaServed: {

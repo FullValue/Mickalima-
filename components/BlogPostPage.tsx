@@ -32,12 +32,12 @@ export const BlogPostPage: React.FC = () => {
     datePublished: post.date,
     author: {
       '@type': 'Person',
-      name: 'Mickael Lima Dos Santos',
+      name: 'Mickaël Lima Dos Santos',
       url: 'https://mickael-lima.immo/about',
     },
     publisher: {
       '@type': 'Organization',
-      name: "Mickael Lima — L'Agence Immo",
+      name: "Mickaël Lima — L’agence Immo",
       url: 'https://mickael-lima.immo',
     },
     image: `https://mickael-lima.immo${post.image}`,
@@ -47,7 +47,7 @@ export const BlogPostPage: React.FC = () => {
   return (
     <>
     <SEO
-      title={`${post.title} — Mickael Lima`}
+      title={`${post.title} — Mickaël Lima`}
       description={post.excerpt}
       canonical={`/blog/${post.slug}`}
       ogImage={post.image}
@@ -119,9 +119,9 @@ export const BlogPostPage: React.FC = () => {
                 {/* Author Info */}
                 <div className="flex flex-col items-center md:items-start text-center md:text-left">
                   <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/10 shadow-lg mb-4">
-                    <img src={IMAGES.heroAgent} alt="Mickael Lima" className="w-full h-full object-cover" />
+                    <img src={IMAGES.heroAgent} alt="Mickaël Lima" className="w-full h-full object-cover" />
                   </div>
-                  <p className="font-bold text-textMain text-lg leading-tight">Mickael Lima</p>
+                  <p className="font-bold text-textMain text-lg leading-tight">Mickaël Lima</p>
                   <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1 mb-4">Expert Immobilier</p>
                   <p className="text-gray-500 font-light text-sm leading-relaxed hidden md:block">
                     Analyste du marché immobilier Gessien. Mes conseils sont fondés sur plus de 10 ans d'expérience locale.

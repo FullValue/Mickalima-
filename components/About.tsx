@@ -19,8 +19,8 @@ export const About: React.FC = () => {
   return (
     <>
       <SEO
-        title="À Propos — Mickael Lima | Agent Immobilier Pays de Gex"
-        description="Découvrez Mickael Lima Dos Santos, agent commercial immobilier avec 7 ans d'expérience dans le Pays de Gex. Expert en vente prestige, prospection foncière et accompagnement personnalisé."
+        title="À Propos — Mickaël Lima | Agent Immobilier Pays de Gex"
+        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 7 ans d'expérience dans le Pays de Gex. Expert en vente prestige, prospection foncière et accompagnement personnalisé."
         canonical="/about"
       />
       <div className="bg-background min-h-screen flex flex-col">
@@ -75,12 +75,12 @@ export const About: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-black/20 to-transparent z-10 pointer-events-none"></div>
                 <img
                   src={IMAGES.heroAgent}
-                  alt="Mickael Lima"
+                  alt="Mickaël Lima"
                   className="w-full aspect-[4/5] object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
 
                 <div className="absolute bottom-10 left-10 right-10 z-20 pointer-events-none">
-                  <p className="font-bold text-3xl text-white tracking-tight mb-2">Mickael Lima</p>
+                  <p className="font-bold text-3xl text-white tracking-tight mb-2">Mickaël Lima</p>
                   <p className="text-sm text-white/80 uppercase tracking-widest font-bold">Expert Immobilier Pays de Gex</p>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export const About: React.FC = () => {
               <motion.div variants={fadeInUp} className="prose prose-lg text-gray-500 max-w-none font-light leading-relaxed mb-12">
                 <p className="mb-6 text-xl text-gray-600 font-medium">
                   Bonjour, <br />
-                  Je suis Mickael LIMA DOS SANTOS, agent commercial immobilier à L'Agence Immo, et c'est avec une passion profonde pour l'immobilier que je me présente à vous aujourd'hui.
+                  Je suis Mickaël LIMA DOS SANTOS, agent commercial immobilier à L’agence Immo, et c'est avec une passion profonde pour l'immobilier que je me présente à vous aujourd'hui.
                 </p>
                 <p className="mb-6">
                   Fort de 7 années d'expérience dans la promotion immobilière en tant que prospecteur foncier, j'ai développé une solide expertise dans l'identification des opportunités foncières et la gestion de projets immobiliers, notamment dans le Pays de Gex, une région que je connais parfaitement.

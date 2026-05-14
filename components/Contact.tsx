@@ -31,7 +31,7 @@ export const Estimation: React.FC = () => {
     return (
         <>
         <SEO
-            title="Estimation Gratuite de votre Bien | Pays de Gex — Mickael Lima"
+            title="Estimation Gratuite de votre Bien | Pays de Gex — Mickaël Lima"
             description="Obtenez une estimation gratuite et confidentielle de votre bien immobilier dans le Pays de Gex. Déplacement sur site, analyse marché, dossier complet remis sous 48h."
             canonical="/estimation"
         />
@@ -225,12 +225,12 @@ export const Estimation: React.FC = () => {
                                 <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-20 group-hover:scale-110 transition-transform duration-500"></div>
                                 <img
                                     src={IMAGES.heroAgent}
-                                    alt="Mickael Lima"
+                                    alt="Mickaël Lima"
                                     className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl relative z-10"
                                 />
                             </div>
                             <div className="text-center md:text-left text-textMain">
-                                <h4 className="text-2xl font-bold tracking-tight mb-1">Mickael Lima</h4>
+                                <h4 className="text-2xl font-bold tracking-tight mb-1">Mickaël Lima</h4>
                                 <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Expert Immobilier</p>
                                 <div className="flex items-center justify-center md:justify-start gap-3 bg-surface border border-gray-100 px-5 py-3 rounded-2xl w-fit mx-auto md:mx-0 shadow-inner group-hover:bg-primary/5 transition-colors">
                                     <Phone size={18} className="text-primary" />

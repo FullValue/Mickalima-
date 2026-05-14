@@ -20,7 +20,7 @@ export const PolitiqueConfidentialite: React.FC = () => (
             <ul className="space-y-1.5 text-base">
               <li><strong className="font-semibold">Nom :</strong> Mickaël Lima (Michael Lima dos Santos)</li>
               <li><strong className="font-semibold">Qualité :</strong> Agent commercial immobilier indépendant</li>
-              <li><strong className="font-semibold">Mandant :</strong> L'agence Immo — <a href="https://lagenceimmo01.fr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">lagenceimmo01.fr</a></li>
+              <li><strong className="font-semibold">Mandant :</strong> L’agence Immo — <a href="https://lagenceimmo01.fr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">lagenceimmo01.fr</a></li>
               <li><strong className="font-semibold">Adresse :</strong> 328 Rue des Fontanettes, 01220 Divonne-les-Bains</li>
               <li><strong className="font-semibold">Téléphone :</strong> <a href="tel:+33769313502" className="text-primary hover:underline">07 69 31 35 02</a></li>
               <li><strong className="font-semibold">Email :</strong> <a href="mailto:contact@mickael-lima.immo" className="text-primary hover:underline">contact@mickael-lima.immo</a></li>

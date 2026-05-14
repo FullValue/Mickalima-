@@ -32,7 +32,7 @@ import {
 const HomePage: React.FC = () => (
   <>
     <SEO
-      title="Mickael Lima — Agent Immobilier Prestige | Pays de Gex"
+      title="Mickaël Lima — Agent Immobilier Prestige | Pays de Gex"
       description="Agent immobilier prestige dans le Pays de Gex. Estimation gratuite, diffusion sur +40 portails immobiliers, clientèle frontalière genevoise et internationale. Vendez au meilleur prix."
       canonical="/"
     />

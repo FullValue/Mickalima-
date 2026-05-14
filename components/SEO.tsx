@@ -21,7 +21,7 @@ export const SEO: React.FC<SEOProps> = ({
   ogType = 'website',
   schema,
 }) => {
-  const fullTitle = title.includes('Mickael Lima') ? title : `${title} | Mickael Lima`;
+  const fullTitle = title.includes('Mickaël Lima') ? title : `${title} | Mickaël Lima`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
 
   return (

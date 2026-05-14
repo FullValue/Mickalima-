@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
                 <Link to="/" className="z-50 relative group flex items-center gap-2">
                     <img
                         src={IMAGES.logoWhite}
-                        alt="Mickael Lima"
+                        alt="Mickaël Lima"
                         className="h-8 md:h-10 transition-opacity"
                     />
                 </Link>
