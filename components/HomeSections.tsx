@@ -270,93 +270,48 @@ export const Visibility: React.FC = () => {
     );
 };
 
-/* DESIGN 3: TESTIMONIAL SLIDER (Testimonials) */
+/* DESIGN 3: TRUST CARD — Google Reviews link (real reviews only) */
 export const Testimonials: React.FC = () => {
     return (
-        <section className="pt-16 pb-32 bg-surface relative overflow-hidden">
+        <section className="pt-12 md:pt-16 pb-16 md:pb-24 lg:pb-32 bg-surface relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 md:mb-14">
                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
                         <Star size={16} /> 03. Avis clients
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] drop-shadow-sm hyphens-auto break-words">
                         Ce que <span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary font-normal">nos clients</span> disent
                     </h2>
-                    <p className="text-gray-500 mt-6 text-lg font-light">De vraies histoires, de vrais clients, soutenus par de vrais résultats.</p>
                 </div>
 
-                {/* Slider Container with gradient masks */}
-                <div className="w-full relative py-10 flex items-center overflow-hidden">
-                    <div className="absolute left-0 top-0 bottom-0 w-24 md:w-64 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none"></div>
-                    <div className="absolute right-0 top-0 bottom-0 w-24 md:w-64 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none"></div>
-
-                    <motion.div
-                        className="flex flex-nowrap gap-8 min-w-max items-stretch py-4"
-                        animate={{ x: ["0%", "-50%"] }}
-                        transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
-                    >
-                        {[
-                            {
-                                name: "M. & Mme Dupont",
-                                role: "Vendeurs au Pays de Gex",
-                                quote: "Un accompagnement sérieux, une stratégie très claire et un bien vendu au meilleur prix et rapidement sans tracas. La différence est flagrante !",
-                                img: IMAGES.misc3
-                            },
-                            {
-                                name: "Sophie T.",
-                                role: "Venderesse Frontalière",
-                                quote: "La mise en valeur de notre maison avec la vidéo au drone a créé le coup de cœur. Une vente au prix, rapide et en toute sérénité. Merci l'équipe !",
-                                img: IMAGES.misc1
-                            },
-                            {
-                                name: "Marc L.",
-                                role: "Acquéreur & Investisseur",
-                                quote: "Une transparence rare sur le marché. De la première visite jusqu'à la signature chez le notaire, le suivi a été exemplaire. Je recommande les yeux fermés !",
-                                img: IMAGES.misc2
-                            },
-                            {
-                                name: "M. & Mme Dupont",
-                                role: "Vendeurs au Pays de Gex",
-                                quote: "Un accompagnement sérieux, une stratégie très claire et un bien vendu au meilleur prix et rapidement sans tracas. La différence est flagrante !",
-                                img: IMAGES.misc3
-                            },
-                            {
-                                name: "Sophie T.",
-                                role: "Venderesse Frontalière",
-                                quote: "La mise en valeur de notre maison avec la vidéo au drone a créé le coup de cœur. Une vente au prix, rapide et en toute sérénité. Merci l'équipe !",
-                                img: IMAGES.misc1
-                            },
-                            {
-                                name: "Marc L.",
-                                role: "Acquéreur & Investisseur",
-                                quote: "Une transparence rare sur le marché. De la première visite jusqu'à la signature chez le notaire, le suivi a été exemplaire. Je recommande les yeux fermés !",
-                                img: IMAGES.misc2
-                            }
-                        ].map((testimonial, idx) => (
-                            <div
-                                key={idx}
-                                className="w-[350px] md:w-[450px] bg-white/60 backdrop-blur-2xl rounded-[2.5rem] p-8 lg:p-10 flex flex-col items-center text-center border border-white/50 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-300 relative shrink-0"
-                            >
-                                <div className="absolute top-6 left-8 text-gray-200">
-                                    <span className="text-[6rem] font-serif leading-none opacity-50">"</span>
-                                </div>
-                                <div className="w-24 h-24 mb-6 shrink-0 relative z-10">
-                                    <img src={testimonial.img} alt={testimonial.name} className="w-full h-full object-cover rounded-full shadow-lg border-4 border-white" />
-                                </div>
-                                <p className="text-lg text-textMain font-medium leading-[1.6] mb-8 relative z-10 italic flex-1">
-                                    "{testimonial.quote}"
-                                </p>
-                                <div className="mt-auto relative z-10">
-                                    <div className="flex justify-center gap-1 mb-3 text-accent">
-                                        {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                                    </div>
-                                    <h4 className="text-xl font-bold text-textMain mb-1">{testimonial.name}</h4>
-                                    <span className="text-sm text-gray-500 font-light">{testimonial.role}</span>
-                                </div>
-                            </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className="max-w-3xl mx-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-8 md:p-14 text-center shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
+                >
+                    <div className="flex justify-center gap-1.5 mb-5 text-accent">
+                        {[...Array(5)].map((_, i) => (
+                            <Star key={i} size={28} fill="currentColor" />
                         ))}
-                    </motion.div>
-                </div>
+                    </div>
+                    <div className="text-5xl md:text-7xl font-medium text-textMain leading-none mb-3">
+                        5,0<span className="text-gray-300 text-3xl md:text-4xl">/5</span>
+                    </div>
+                    <p className="text-gray-500 text-base md:text-lg font-light mt-4 mb-8">
+                        Sur <span className="font-bold text-textMain">25 avis Google vérifiés</span> — Pays de Gex
+                    </p>
+                    <a
+                        href="https://share.google/JTKp7Il2o4HfRymBD"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-3 bg-primary text-white font-bold px-7 md:px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl group"
+                    >
+                        <span>Lire les avis sur Google</span>
+                        <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform duration-300" />
+                    </a>
+                </motion.div>
             </div>
         </section>
     );
