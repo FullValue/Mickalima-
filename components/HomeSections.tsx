@@ -209,7 +209,7 @@ export const Visibility: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="lg:col-span-5 w-full relative aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[520px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-100 bg-primary/10 cursor-pointer"
+                        className="lg:col-span-6 w-full relative aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[640px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-100 bg-primary/10 cursor-pointer"
                         onClick={() => videoRef.current?.play().catch(() => {})}
                     >
                         <video
@@ -233,8 +233,8 @@ export const Visibility: React.FC = () => {
                         </div>
                     </motion.div>
 
-                    {/* Text Right — élargi (col-span-7) */}
-                    <div className="lg:col-span-7 flex flex-col justify-center">
+                    {/* Text Right — col-span-6 (balanced avec la vidéo) */}
+                    <div className="lg:col-span-6 flex flex-col justify-center">
                         <motion.div
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
