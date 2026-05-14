@@ -198,7 +198,17 @@ export const Visibility: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="lg:w-[55%] w-full relative h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-100"
                     >
-                        <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Visibilité Maximale" width="1200" height="800" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+                        <video
+                            src="/video/VillaGrillyMickaelV1.2.MP4"
+                            poster="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="metadata"
+                            aria-label="Visibilité Maximale — Vidéo de présentation Villa Grilly"
+                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-10 w-full text-white">
                             <h3 className="text-3xl font-bold mb-2 tracking-tight">Visibilité Maximale</h3>

@@ -2,3 +2,8 @@ node_modules/
 dist/
 .DS_Store
 *.local
+
+# Videos : on n'embarque que les fichiers réellement utilisés sur le site
+# (les autres sont des assets locaux, trop lourds pour GitHub > 100MB / file)
+public/video/*
+!public/video/VillaGrillyMickaelV1.2.MP4
