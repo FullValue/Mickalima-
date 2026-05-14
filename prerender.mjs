@@ -32,6 +32,8 @@ const ROUTES = [
   '/estimation',
   '/mandat-signature',
   '/mandat-exclusif',
+  '/mentions-legales',
+  '/politique-confidentialite',
   ...BLOG_SLUGS.map(s => `/blog/${s}`),
   ...COMMUNES.map(c => `/${c}/estimation-immobiliere`),
   ...COMMUNES.map(c => `/prix-immobilier/${c}`),
@@ -80,10 +82,11 @@ async function prerender() {
           .replace(/[ \t]*<meta name="twitter:[^"]*"[^>]*>\r?\n?/g, '')
           .replace(/[ \t]*<!-- OG fallbacks[^\n]*\n?/g, '');
 
-        // Inject helmet meta + link tags
+        // Inject helmet meta + link + script tags (Article/BreadcrumbList JSON-LD)
         const headInsert = [
           helmet.meta?.toString(),
           helmet.link?.toString(),
+          helmet.script?.toString(),
         ]
           .filter(s => s?.trim())
           .join('\n  ');
