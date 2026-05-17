@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
     };
 
     return (
-        <section id="home" className="relative w-full min-h-screen lg:min-h-[760px] flex flex-col justify-center overflow-hidden pt-24 md:pt-28 lg:pt-32 pb-16 lg:pb-12">
+        <section id="home" className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-28 lg:pt-32">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <img

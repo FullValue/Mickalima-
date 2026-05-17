@@ -24,7 +24,7 @@ const itemVariants = {
 /* DESIGN 1: SERVICES GRID (Positioning) */
 export const Positioning: React.FC = () => {
     return (
-        <section className="py-16 md:py-24 lg:py-32 bg-white relative">
+        <section className="pt-8 md:pt-12 lg:pt-16 pb-16 md:pb-24 lg:pb-32 bg-white relative">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row justify-between items-start mb-12 md:mb-20 gap-8 md:gap-10">
                     <div className="lg:w-7/12 w-full">
