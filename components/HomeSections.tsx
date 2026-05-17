@@ -414,11 +414,10 @@ export const FAQSection: React.FC = () => {
                                     <MapPin size={20} className="text-accent" />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-lg mb-1">Bureau d'accueil</p>
+                                    <p className="font-bold text-lg mb-1">Pays de Gex (01)</p>
                                     <p className="text-white/70 font-medium leading-relaxed">
-                                        328 Rue des Fontanettes,<br />
-                                        01220 Divonne-les-Bains<br />
-                                        <span className="text-xs font-light italic mt-1 block">Uniquement sur rendez-vous</span>
+                                        Intervention sur tout le secteur
+                                        <span className="text-xs font-light italic mt-1 block">Rendez-vous sur site uniquement</span>
                                     </p>
                                 </div>
                             </div>

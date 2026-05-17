@@ -297,32 +297,27 @@ export const ContactPage: React.FC = () => {
                             <div className="bg-primary text-white rounded-[2.5rem] p-10 md:p-12 shadow-2xl relative overflow-hidden group h-full flex flex-col justify-center">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-white/10 transition-colors duration-700"></div>
 
-                                <h3 className="text-2xl font-bold mb-8">Où nous trouver ?</h3>
+                                <h3 className="text-2xl font-bold mb-8">Zone d'intervention</h3>
 
                                 <div className="flex gap-6 mb-8 group/item">
                                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20 group-hover/item:border-accent transition-colors">
                                         <MapPin size={20} className="text-accent" />
                                     </div>
                                     <div>
-                                        <p className="font-bold text-lg mb-1">Bureau d'accueil</p>
+                                        <p className="font-bold text-lg mb-1">Pays de Gex (01)</p>
                                         <p className="text-white/70 font-medium leading-relaxed">
-                                            328 Rue des Fontanettes,<br />
-                                            01220 Divonne-les-Bains<br />
-                                            <span className="text-xs font-light italic mt-1 block">Uniquement sur rendez-vous</span>
+                                            Intervention sur tout le secteur
+                                            <span className="text-xs font-light italic mt-1 block">Rendez-vous sur site uniquement</span>
                                         </p>
                                     </div>
                                 </div>
 
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-placeholder&q=328+Rue+des+Fontanettes,+01220+Divonne-les-Bains"
-                                    width="100%"
-                                    height="300"
-                                    style={{ border: 0 }}
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Localisation Mickaël Lima — L’agence Immo"
-                                    className="rounded-xl mb-8"
-                                />
+                                <div className="bg-white/5 backdrop-blur-md border border-white/15 rounded-2xl p-6 mb-8">
+                                    <p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent mb-3">Communes couvertes</p>
+                                    <p className="text-white/85 text-sm font-medium leading-relaxed">
+                                        Intervention sur tout le Pays de Gex — <strong className="font-semibold text-white">Ferney-Voltaire</strong>, <strong className="font-semibold text-white">Divonne-les-Bains</strong>, <strong className="font-semibold text-white">Saint-Genis-Pouilly</strong>, <strong className="font-semibold text-white">Gex</strong>, <strong className="font-semibold text-white">Prévessin-Moëns</strong> et communes voisines.
+                                    </p>
+                                </div>
 
                                 <div className="flex gap-6 pt-8 border-t border-white/10 group/item">
                                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20 group-hover/item:border-accent transition-colors">
