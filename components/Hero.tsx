@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
             <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
 
                 {/* Left Section: Heading & Copy */}
-                <div className="w-full lg:max-w-xl xl:max-w-2xl pt-12 lg:pt-0">
+                <div className="w-full lg:max-w-xl xl:max-w-2xl pt-12 lg:pt-0 lg:-mt-20">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-white tracking-tight drop-shadow-xl mb-6">
                         Vendez votre bien <br />
                         au meilleur prix <br />
