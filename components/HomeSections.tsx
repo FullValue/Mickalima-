@@ -417,7 +417,7 @@ export const FAQSection: React.FC = () => {
                                     <p className="font-bold text-lg mb-1">Pays de Gex (01)</p>
                                     <p className="text-white/70 font-medium leading-relaxed">
                                         Intervention sur tout le secteur
-                                        <span className="text-xs font-light italic mt-1 block">Rendez-vous sur site uniquement</span>
+                                        <span className="text-xs font-light italic mt-1 block">Disponible 6j/7 — Réponse sous 24h</span>
                                     </p>
                                 </div>
                             </div>

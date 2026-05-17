@@ -115,19 +115,25 @@ export const ContactPage: React.FC = () => {
                                     Une question, une estimation, un projet de vente ? Je suis à votre écoute pour un échange confidentiel et sans engagement.
                                 </motion.p>
 
-                                {/* Quick Contact Info embedded */}
+                                {/* Quick Contact Info embedded — 2 modes : appel direct + formulaire */}
                                 <motion.div variants={staggerContainer} className="space-y-6 mb-16">
                                     <motion.a variants={fadeInUp} href="tel:+33769313502" className="flex items-center gap-5 group w-fit">
                                         <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-lg">
                                             <Phone size={20} />
                                         </div>
-                                        <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors">+33 7 69 31 35 02</span>
+                                        <div>
+                                            <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors block">07 69 31 35 02</span>
+                                            <span className="text-xs font-bold text-accent uppercase tracking-widest">Appel direct</span>
+                                        </div>
                                     </motion.a>
                                     <motion.a variants={fadeInUp} href="mailto:contact@mickael-lima.immo" className="flex items-center gap-5 group w-fit">
                                         <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-lg">
                                             <Mail size={20} />
                                         </div>
-                                        <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors">contact@mickael-lima.immo</span>
+                                        <div>
+                                            <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors block">contact@mickael-lima.immo</span>
+                                            <span className="text-xs font-bold text-accent uppercase tracking-widest">Réponse sous 24h</span>
+                                        </div>
                                     </motion.a>
                                 </motion.div>
                             </motion.div>
@@ -237,7 +243,7 @@ export const ContactPage: React.FC = () => {
                                 <Clock size={24} />
                             </div>
                             <h3 className="text-2xl font-bold text-textMain mb-4">Réactivité absolue</h3>
-                            <p className="text-gray-600 leading-relaxed font-light text-lg">Un interlocuteur unique disponible 7j/7 pour répondre à vos interrogations. Aucun délai sur les retours de visites.</p>
+                            <p className="text-gray-600 leading-relaxed font-light text-lg">Un interlocuteur unique disponible 6j/7. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.</p>
                         </div>
                         <div className="bg-surface p-10 rounded-[2.5rem] border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                             <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 text-primary">
@@ -307,7 +313,7 @@ export const ContactPage: React.FC = () => {
                                         <p className="font-bold text-lg mb-1">Pays de Gex (01)</p>
                                         <p className="text-white/70 font-medium leading-relaxed">
                                             Intervention sur tout le secteur
-                                            <span className="text-xs font-light italic mt-1 block">Rendez-vous sur site uniquement</span>
+                                            <span className="text-xs font-light italic mt-1 block">Disponible 6j/7 — Réponse sous 24h</span>
                                         </p>
                                     </div>
                                 </div>
