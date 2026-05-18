@@ -218,11 +218,11 @@ export const Visibility: React.FC = () => {
                             loop
                             playsInline
                             autoPlay
-                            preload="auto"
+                            preload="none"
                             aria-label="Visibilité Maximale — Vidéo de présentation Villa Grilly"
                             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                         >
-                            <source src="/video/VillaGrillyMickaelV1.2.MP4" type="video/mp4" />
+                            <source src="/video/villa-grilly-hero.mp4" type="video/mp4" />
                         </video>
                         <div className="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-black/85 to-transparent pointer-events-none"></div>
                         <div className="absolute bottom-0 left-0 p-8 lg:p-10 w-full text-white pointer-events-none">

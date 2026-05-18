@@ -3,7 +3,9 @@ dist/
 .DS_Store
 *.local
 
-# Videos : on n'embarque que les fichiers réellement utilisés sur le site
-# (les autres sont des assets locaux, trop lourds pour GitHub > 100MB / file)
+# Videos : on n'embarque que la version compressée web (14MB)
+# - L'original VillaGrillyMickaelV1.2.MP4 (87MB) est conservé localement
+#   mais exclu de git (lourd, master file pour ré-encodages futurs)
+# - Les autres vidéos locales (>100MB) sont aussi exclues
 public/video/*
-!public/video/VillaGrillyMickaelV1.2.MP4
+!public/video/villa-grilly-hero.mp4
