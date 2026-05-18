@@ -39,7 +39,19 @@
     <lastmod>2026-05-14</lastmod>
   </url>
 
-  <!-- English page (international/CERN/UN expats) -->
+  <!-- English pages -->
+  <url>
+    <loc>https://mickael-lima.immo/en/</loc>
+    <lastmod>2026-05-18</lastmod>
+  </url>
+  <url>
+    <loc>https://mickael-lima.immo/en/estimation/</loc>
+    <lastmod>2026-05-18</lastmod>
+  </url>
+  <url>
+    <loc>https://mickael-lima.immo/en/contact/</loc>
+    <lastmod>2026-05-18</lastmod>
+  </url>
   <url>
     <loc>https://mickael-lima.immo/en/real-estate-pays-de-gex/</loc>
     <lastmod>2026-05-18</lastmod>

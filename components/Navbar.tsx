@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { IMAGES } from '../constants';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { routeMap } from '../i18n/routes';
 
 const LanguageSwitcher: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const isEnglish = location.pathname.startsWith('/en/');
+    const target = routeMap[location.pathname] ?? (isEnglish ? '/' : '/en/');
 
     return (
         <button
-            onClick={() => navigate(isEnglish ? '/' : '/en/real-estate-pays-de-gex/')}
-            className="flex items-center gap-1 text-xs font-bold tracking-widest uppercase px-3 py-2 rounded-full border border-white/30 text-white/80 hover:text-white hover:border-white/60 hover:bg-white/10 transition-all"
+            onClick={() => navigate(target)}
+            className="text-xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity leading-none"
             aria-label={isEnglish ? 'Passer en français' : 'Switch to English'}
+            title={isEnglish ? 'Français' : 'English'}
         >
-            {isEnglish ? 'FR' : 'EN'}
+            {isEnglish ? '🇫🇷' : '🇬🇧'}
         </button>
     );
 };
