@@ -18,20 +18,30 @@ export const Hero: React.FC = () => {
         formData.append('access_key', '38f90cdc-9f17-48ef-bae6-f94e9b44e41f');
         formData.append('subject', 'Estimation rapide — Pays de Gex');
         formData.append('from_name', 'mickael-lima.immo');
+        formData.append('botcheck', '');
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
         try {
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: json,
             });
             const data = await response.json();
             if (data.success) {
                 setStatus('success');
                 (e.target as HTMLFormElement).reset();
             } else {
+                console.error('Web3Forms error:', data);
                 setStatus('error');
             }
-        } catch {
+        } catch (err) {
+            console.error('Fetch error:', err);
             setStatus('error');
         }
     };

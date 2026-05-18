@@ -49,7 +49,7 @@ export const About: React.FC = () => {
     <>
       <SEO
         title="À Propos — Mickaël Lima | Agent Immobilier Pays de Gex"
-        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 7 ans d'expérience dans le Pays de Gex. Expert en vente prestige, prospection foncière et accompagnement personnalisé."
+        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 10 ans d'expérience dans le Pays de Gex (240 ventes en 5 ans). Expert en vente prestige, prospection foncière et accompagnement personnalisé."
         canonical="/about"
         schema={ABOUT_SCHEMA}
       />

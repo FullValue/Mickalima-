@@ -84,7 +84,7 @@ const HOMEPAGE_SCHEMA = [
       '@type': 'Person',
       name: 'Mickaël Lima Dos Santos',
       jobTitle: 'Agent Commercial Immobilier',
-      description: "7 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex",
+      description: "10 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (240 ventes sur les 5 dernières années)",
       telephone: '+33769313502',
       email: 'contact@mickael-lima.immo',
       worksFor: { '@type': 'Organization', name: 'L’agence Immo' },

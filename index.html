@@ -17,10 +17,8 @@
   <!-- LCP : preload hero image AVIF (avec fallback WebP/JPG via <picture>) -->
   <link rel="preload" as="image" href="/images/hero-mickael.avif" type="image/avif" fetchpriority="high" />
 
-  <!-- Hreflang : audience frontalière franco-suisse (fallback homepage statique, surchargé par Helmet par route) -->
-  <link rel="alternate" hreflang="fr-FR" href="https://mickael-lima.immo/" />
-  <link rel="alternate" hreflang="fr-CH" href="https://mickael-lima.immo/" />
-  <link rel="alternate" hreflang="x-default" href="https://mickael-lima.immo/" />
+  <!-- Hreflang : injectés via React Helmet dans SEO.tsx pour éviter duplication
+       (l'injection statique ici créait 6 tags au lieu de 3 sur les pages SSG) -->
 
   <!--
     Schema.org JSON-LD : déplacé dans HomePage (AppContent.tsx) via React Helmet

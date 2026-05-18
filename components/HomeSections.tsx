@@ -431,7 +431,7 @@ export const FAQSection: React.FC = () => {
                                     <p className="text-white/70 font-medium leading-relaxed mb-4">
                                         Une messagerie directe pour un échange immédiat et confidentiel.
                                     </p>
-                                    <a href="#" className="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors">
+                                    <a href="https://wa.me/33769313502" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors">
                                         Démarrer le chat <ArrowRight size={16} />
                                     </a>
                                 </div>
