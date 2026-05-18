@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { IMAGES } from '../constants';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+const LanguageSwitcher: React.FC = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const isEnglish = location.pathname.startsWith('/en/');
+
+    return (
+        <button
+            onClick={() => navigate(isEnglish ? '/' : '/en/real-estate-pays-de-gex/')}
+            className="flex items-center gap-1 text-xs font-bold tracking-widest uppercase px-3 py-2 rounded-full border border-white/30 text-white/80 hover:text-white hover:border-white/60 hover:bg-white/10 transition-all"
+            aria-label={isEnglish ? 'Passer en français' : 'Switch to English'}
+        >
+            {isEnglish ? 'FR' : 'EN'}
+        </button>
+    );
+};
 
 export const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -103,8 +119,9 @@ export const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Right Side - CTA & Mobile Toggle */}
-                <div className="flex items-center gap-4">
+                {/* Right Side - Language Switcher, CTA & Mobile Toggle */}
+                <div className="flex items-center gap-3">
+                    <LanguageSwitcher />
                     <Link
                         to="/estimation"
                         className="hidden lg:flex bg-white text-textMain pl-6 pr-2 py-2 rounded-full font-bold hover:bg-gray-100 transition-all text-sm shadow-lg items-center gap-3 group hover:-translate-y-0.5"
