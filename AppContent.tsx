@@ -92,14 +92,6 @@ const HOMEPAGE_SCHEMA = [
     priceRange: '€€€',
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Virement bancaire, Chèque',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '09:00',
-        closes: '19:00',
-      },
-    ],
     sameAs: [
       'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
       'https://share.google/JTKp7Il2o4HfRymBD',

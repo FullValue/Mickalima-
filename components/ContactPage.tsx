@@ -31,7 +31,6 @@ const CONTACT_SCHEMA = {
             postalCode: '01220',
             addressCountry: 'FR',
         },
-        openingHours: 'Mo-Sa 09:00-19:00',
     },
 };
 
@@ -320,7 +319,7 @@ export const ContactPage: React.FC = () => {
                                 <Clock size={24} />
                             </div>
                             <h3 className="text-2xl font-bold text-textMain mb-4">Réactivité absolue</h3>
-                            <p className="text-gray-600 leading-relaxed font-light text-lg">Un interlocuteur unique disponible 6j/7. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.</p>
+                            <p className="text-gray-600 leading-relaxed font-light text-lg">Un interlocuteur unique. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.</p>
                         </div>
                         <div className="bg-surface p-10 rounded-[2.5rem] border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                             <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 text-primary">
@@ -390,7 +389,7 @@ export const ContactPage: React.FC = () => {
                                         <p className="font-bold text-lg mb-1">Pays de Gex (01)</p>
                                         <p className="text-white/70 font-medium leading-relaxed">
                                             Intervention sur tout le secteur
-                                            <span className="text-xs font-light italic mt-1 block">Disponible 6j/7 — Réponse sous 24h</span>
+                                            <span className="text-xs font-light italic mt-1 block">Réponse sous 24h</span>
                                         </p>
                                     </div>
                                 </div>
