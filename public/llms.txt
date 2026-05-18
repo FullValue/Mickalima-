@@ -109,6 +109,12 @@ Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges,
 - https://mickael-lima.immo/blog/mandat-exclusif-ou-simple-pays-de-gex/
 
 ## English content
-- https://mickael-lima.immo/en/real-estate-pays-de-gex/
-  English-language page for international buyers and CERN/UN expats
-  in Pays de Gex. Market data, area guides, FAQ, bilingual agent.
+- https://mickael-lima.immo/en/
+  English homepage : sell/buy property in Pays de Gex with a
+  bilingual agent. Why work with me, 3-step process, testimonials,
+  FAQ for international buyers.
+- https://mickael-lima.immo/en/estimation/
+  English property valuation form for international sellers.
+- https://mickael-lima.immo/en/contact/
+  English contact page : direct call, email, WhatsApp, FAQ,
+  Pays de Gex service area.

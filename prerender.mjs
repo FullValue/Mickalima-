@@ -38,7 +38,6 @@ const ROUTES = [
   '/en',
   '/en/estimation',
   '/en/contact',
-  '/en/real-estate-pays-de-gex',
   ...BLOG_SLUGS.map(s => `/blog/${s}`),
   ...COMMUNES.map(c => `/${c}/estimation-immobiliere`),
   ...COMMUNES.map(c => `/prix-immobilier/${c}`),

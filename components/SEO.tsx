@@ -63,9 +63,17 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {schema && (
+      {/* JSON-LD : un <script> par objet quand schema est un tableau
+          (la spec JSON-LD 1.1 n'autorise pas un tableau bare hors @graph) */}
+      {schema && Array.isArray(schema) &&
+        schema.map((s, i) => (
+          <script key={i} type="application/ld+json">
+            {JSON.stringify(s)}
+          </script>
+        ))}
+      {schema && !Array.isArray(schema) && (
         <script type="application/ld+json">
-          {JSON.stringify(Array.isArray(schema) ? schema : schema)}
+          {JSON.stringify(schema)}
         </script>
       )}
     </Helmet>

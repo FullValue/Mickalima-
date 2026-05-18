@@ -65,7 +65,7 @@ const SCHEMA = [
     },
     sameAs: [
       'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
-      'https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z',
+      'https://share.google/fvsAyaT6pI2059MZF',
     ],
   },
   {
@@ -549,7 +549,7 @@ export const HomeEN: React.FC = () => {
 
           <div className="text-center mt-10">
             <a
-              href="https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z"
+              href="https://share.google/fvsAyaT6pI2059MZF"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-textMain transition-colors"
@@ -602,13 +602,13 @@ export const HomeEN: React.FC = () => {
                 CERN, UN, WHO professional?
               </h3>
               <p className="text-gray-500 font-light leading-relaxed mb-6">
-                Detailed guide for cross-border buyers and sellers: market data, area guide, financing, FAQ on French notary process and frontalier specifics.
+                Daily experience with cross-border buyers and sellers — French notaire process, CHF/EUR financing, frontalier specifics, English throughout.
               </p>
               <Link
-                to="/en/real-estate-pays-de-gex/"
+                to="/en/contact/"
                 className="inline-flex items-center gap-3 bg-primary text-white font-bold px-6 py-3 rounded-full hover:bg-primary/90 transition-all shadow-md group"
               >
-                <span>Open the expat guide</span>
+                <span>Get in touch in English</span>
                 <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform duration-300" />
               </Link>
             </div>

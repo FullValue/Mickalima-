@@ -45,7 +45,7 @@ const ABOUT_SCHEMA = {
   knowsLanguage: ['fr', 'en'],
   sameAs: [
     'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
-    'https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z',
+    'https://share.google/fvsAyaT6pI2059MZF',
   ],
 };
 

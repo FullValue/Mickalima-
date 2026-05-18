@@ -11,6 +11,16 @@
       "source": "/blog/mandat-exclusif-vs-mandat-simple/",
       "destination": "/blog/mandat-exclusif-ou-simple-pays-de-gex/",
       "permanent": true
+    },
+    {
+      "source": "/en/real-estate-pays-de-gex",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/en/real-estate-pays-de-gex/",
+      "destination": "/en/",
+      "permanent": true
     }
   ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],

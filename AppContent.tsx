@@ -19,7 +19,6 @@ import { Estimation } from './components/Contact';
 import { CommuneEstimationPage } from './components/CommuneEstimationPage';
 import { PrixImmobilierPage } from './components/PrixImmobilierPage';
 import { PrixImmobilierPaysDeGex } from './components/PrixImmobilierPaysDeGex';
-import { ExpatPage } from './components/ExpatPage';
 import { HomeEN } from './components/HomeEN';
 import { EstimationEN } from './components/EstimationEN';
 import { ContactEN } from './components/ContactEN';
@@ -98,7 +97,7 @@ const HOMEPAGE_SCHEMA = [
     paymentAccepted: 'Virement bancaire, Chèque',
     sameAs: [
       'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
-      'https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z',
+      'https://share.google/fvsAyaT6pI2059MZF',
     ],
   },
   {
@@ -172,7 +171,7 @@ export const AppContent: React.FC = () => (
           <Route path="/en/" element={<HomeEN />} />
           <Route path="/en/estimation" element={<EstimationEN />} />
           <Route path="/en/contact" element={<ContactEN />} />
-          <Route path="/en/real-estate-pays-de-gex" element={<ExpatPage />} />
+          {/* /en/real-estate-pays-de-gex redirige (301) vers /en/ via vercel.json */}
           <Route path="/:commune/estimation-immobiliere" element={<CommuneEstimationPage />} />
           <Route path="/prix-immobilier/pays-de-gex" element={<PrixImmobilierPaysDeGex />} />
           <Route path="/prix-immobilier/:commune" element={<PrixImmobilierPage />} />

@@ -205,8 +205,34 @@ export const Footer: React.FC = () => {
 
                     </div>
 
+                    {/* Avis Google — Lien direct GBP pour booster signaux Local SEO */}
+                    <div className="mt-16 pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+                        <a
+                            href="https://share.google/fvsAyaT6pI2059MZF"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-accent transition-colors group"
+                            aria-label="Voir les 25 avis Google 5 étoiles"
+                        >
+                            <span className="text-accent">⭐ 5/5</span>
+                            <span>Voir les 25 avis Google</span>
+                            <ArrowUpRight size={14} className="opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all" />
+                        </a>
+                        <span className="text-white/20 hidden sm:inline">·</span>
+                        <a
+                            href="https://share.google/fvsAyaT6pI2059MZF"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors group"
+                            aria-label="Laisser un avis Google"
+                        >
+                            <span>Laisser un avis Google</span>
+                            <ArrowUpRight size={14} className="opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all" />
+                        </a>
+                    </div>
+
                     {/* NAP — Name Address Phone */}
-                    <div className="mt-16 pt-10 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-white/50">
+                    <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-white/50">
                         <span className="font-semibold text-white/70">Mickaël Lima — L’agence Immo</span>
                         <span>Pays de Gex (01) — Intervention sur tout le secteur</span>
                         <a href="tel:+33769313502" className="hover:text-white transition-colors">07 69 31 35 02</a>
