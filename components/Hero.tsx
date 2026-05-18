@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HERO_SLIDES, COMMUNES } from '../constants';
+import { COMMUNES } from '../constants';
 import { Link } from 'react-router-dom';
 import { Phone, ArrowUpRight, Home as HomeIcon, MapPin, Ruler, CheckCircle2, Sparkles } from 'lucide-react';
 
@@ -17,18 +17,22 @@ export const Hero: React.FC = () => {
 
     return (
         <section id="home" className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-28 lg:pt-32">
-            {/* Background Image */}
+            {/* Background Image — AVIF + WebP + JPG fallback */}
             <div className="absolute inset-0 z-0">
-                <img
-                    src={HERO_SLIDES[0]}
-                    alt="Pays de Gex — vue d'ensemble"
-                    width="1920"
-                    height="1080"
-                    fetchPriority="high"
-                    loading="eager"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                />
+                <picture>
+                    <source srcSet="/images/hero-mickael.avif" type="image/avif" />
+                    <source srcSet="/images/hero-mickael.webp" type="image/webp" />
+                    <img
+                        src="/images/hero-mickael.jpg"
+                        alt="Mickaël Lima agent immobilier Pays de Gex"
+                        width="1200"
+                        height="630"
+                        fetchPriority="high"
+                        loading="eager"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/55 to-primary/65 z-10"></div>
             </div>
 
