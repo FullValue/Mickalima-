@@ -46,6 +46,20 @@ export const HERO_SLIDES = [
   "https://i.imgur.com/Yxq7idV.jpeg"
 ];
 
+// Mapping des images hero par commune pour les pages programmatiques
+// (estimation/, prix-immobilier/, frontalier/). Communes non-mappées →
+// fallback /images/hero-pays-de-gex.jpg.
+// Les images des 3 communes prioritaires sont actuellement des placeholders
+// (copies du fallback) — à remplacer par de vraies photos quand disponibles.
+const COMMUNE_HERO_IMAGES: Record<string, string> = {
+  'ferney-voltaire': '/images/hero-ferney-voltaire.jpg',
+  'saint-genis-pouilly': '/images/hero-saint-genis-pouilly.jpg',
+  'divonne-les-bains': '/images/hero-divonne-les-bains.jpg',
+};
+
+export const getCommuneHeroImage = (slug: string): string =>
+  COMMUNE_HERO_IMAGES[slug] ?? '/images/hero-pays-de-gex.jpg';
+
 export const STATS: Stat[] = [
   { label: 'm²', value: '155', icon: 'size' },
   { label: 'Chambres', value: '4', icon: 'bed' },

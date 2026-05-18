@@ -10,7 +10,7 @@ import {
   Phone,
   BarChart2,
 } from 'lucide-react';
-import { COMMUNES } from '../constants';
+import { COMMUNES, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
 
 export const PrixImmobilierPage: React.FC = () => {
@@ -100,7 +100,7 @@ export const PrixImmobilierPage: React.FC = () => {
         <section className="relative min-h-[60vh] flex items-end pb-20 bg-primary overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="/images/hero-pays-de-gex.jpg"
+              src={getCommuneHeroImage(commune.slug)}
               alt={`Prix immobilier ${commune.name}`}
               className="w-full h-full object-cover opacity-20"
             />

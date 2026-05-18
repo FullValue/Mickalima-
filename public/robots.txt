@@ -20,3 +20,5 @@ User-agent: GoogleOther
 Allow: /
 
 Sitemap: https://mickael-lima.immo/sitemap.xml
+
+IndexNow: https://mickael-lima.immo/ff951cf2d05e6aad1f6f584fe5215a6c.txt
