@@ -3,7 +3,7 @@ import { IMAGES } from '../constants';
 import { SEO } from './SEO';
 import { Ruler, ArrowUpRight, Trophy, Shield, Target, Award, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -42,24 +42,24 @@ export const About: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10"></div>
         </div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
           className="container mx-auto px-6 relative z-20 text-center"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+          <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
             <Award size={16} /> Notre Histoire
-          </motion.div>
+          </m.div>
           {/* Typographie alignée sur MandatSignature */}
-          <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium text-white mb-6 tracking-tight leading-[1.05] drop-shadow-2xl break-words hyphens-auto">
+          <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium text-white mb-6 tracking-tight leading-[1.05] drop-shadow-2xl break-words hyphens-auto">
             Une approche exclusive <br />
             <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">de l'immobilier.</span>
-          </motion.h1>
-          <motion.p variants={fadeInUp} className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
+          </m.h1>
+          <m.p variants={fadeInUp} className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
             Redéfinir les standards de l'immobilier dans le Pays de Gex avec exigence et transparence.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
       </section>
 
       {/* MAIN CONTENT SECTION - BIO */}
@@ -68,7 +68,7 @@ export const About: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-20 items-center">
 
             {/* PORTRAIT */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -101,26 +101,26 @@ export const About: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* TEXT CONTENT */}
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-10%" }}
               className="lg:w-7/12"
             >
-              <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
+              <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
                 <MessageSquare size={16} /> Faisons connaissance !
-              </motion.div>
+              </m.div>
 
-              <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-10 leading-[1.05] tracking-tight drop-shadow-sm break-words hyphens-auto">
+              <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-10 leading-[1.05] tracking-tight drop-shadow-sm break-words hyphens-auto">
                 L'ambition d'un service <br />
                 <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">sur-mesure.</span>
-              </motion.h2>
+              </m.h2>
 
-              <motion.div variants={fadeInUp} className="prose prose-lg text-gray-500 max-w-none font-light leading-relaxed mb-12">
+              <m.div variants={fadeInUp} className="prose prose-lg text-gray-500 max-w-none font-light leading-relaxed mb-12">
                 <p className="mb-6 text-xl text-gray-600 font-medium">
                   Bonjour, <br />
                   Je suis Mickaël LIMA DOS SANTOS, agent commercial immobilier à L’agence Immo, et c'est avec une passion profonde pour l'immobilier que je me présente à vous aujourd'hui.
@@ -131,10 +131,10 @@ export const About: React.FC = () => {
                 <p>
                   Au fil de ces années, j'ai acquis des compétences variées dans les domaines techniques, juridiques et commerciaux, me permettant d'offrir un accompagnement personnalisé et complet. Mon objectif est de vous guider à chaque étape de votre projet immobilier avec rigueur et professionnalisme.
                 </p>
-              </motion.div>
+              </m.div>
 
               {/* Actions */}
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-5">
+              <m.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-5">
                 <Link to="/estimation" className="bg-white text-textMain font-bold p-2 pr-8 rounded-full hover:bg-gray-50 border border-gray-200 transition-all shadow-sm flex items-center gap-4 group w-fit">
                   <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-300">
                     <ArrowUpRight size={18} />
@@ -147,9 +147,9 @@ export const About: React.FC = () => {
                   </div>
                   <span className="tracking-wide uppercase text-sm">Échanger sur mon projet</span>
                 </Link>
-              </motion.div>
+              </m.div>
 
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -172,7 +172,7 @@ export const About: React.FC = () => {
               { icon: Award, title: "Exigence Marketing", text: "Nous traitons chaque bien comme un produit premium. Photos HDR, vidéos 4K cinématiques et storytelling percutant." },
               { icon: Shield, title: "Ancrage Local", text: "Une parfaite maîtrise des micro-marchés du Pays de Gex, des infrastructures locales et des attentes de la clientèle frontalière." }
             ].map((item, idx) => (
-              <motion.div
+              <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -187,7 +187,7 @@ export const About: React.FC = () => {
                 <p className="text-gray-500 leading-relaxed font-light text-lg">
                   {item.text}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

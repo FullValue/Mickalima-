@@ -8,11 +8,32 @@ export const Hero: React.FC = () => {
     const [commune, setCommune] = useState('');
     const [surface, setSurface] = useState('');
     const [contact, setContact] = useState('');
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setSubmitted(true);
+        setStatus('loading');
+
+        const formData = new FormData(e.currentTarget);
+        formData.append('access_key', '38f90cdc-9f17-48ef-bae6-f94e9b44e41f');
+        formData.append('subject', 'Estimation rapide — Pays de Gex');
+        formData.append('from_name', 'mickael-lima.immo');
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await response.json();
+            if (data.success) {
+                setStatus('success');
+                (e.target as HTMLFormElement).reset();
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
     };
 
     return (
@@ -80,8 +101,12 @@ export const Hero: React.FC = () => {
                         {/* Soft glow blob */}
                         <div className="absolute -top-20 -right-20 w-48 h-48 bg-blue-300/30 rounded-full blur-3xl pointer-events-none" />
 
-                        {!submitted ? (
+                        {status !== 'success' ? (
                             <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
+                                {/* Web3Forms hidden inputs */}
+                                <input type="hidden" name="access_key" value="38f90cdc-9f17-48ef-bae6-f94e9b44e41f" />
+                                <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+
                                 <div className="flex items-center gap-2 text-white/80 text-[0.65rem] font-bold uppercase tracking-widest">
                                     <Sparkles size={14} /> Estimation gratuite · 48h
                                 </div>
@@ -89,7 +114,8 @@ export const Hero: React.FC = () => {
                                     Quelle est la valeur<br />de votre bien&nbsp;?
                                 </h2>
 
-                                {/* Type de bien — pills */}
+                                {/* Type de bien — pills + hidden input pour FormData */}
+                                <input type="hidden" name="type_de_bien" value={propertyType} />
                                 <div>
                                     <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                                         <HomeIcon size={12} /> Type de bien
@@ -117,6 +143,7 @@ export const Hero: React.FC = () => {
                                     </label>
                                     <select
                                         required
+                                        name="commune"
                                         value={commune}
                                         onChange={(e) => setCommune(e.target.value)}
                                         className="w-full bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-white/50 focus:bg-white/15 transition-all appearance-none cursor-pointer"
@@ -141,6 +168,7 @@ export const Hero: React.FC = () => {
                                                 type="number"
                                                 required
                                                 min="1"
+                                                name="surface_m2"
                                                 value={surface}
                                                 onChange={(e) => setSurface(e.target.value)}
                                                 placeholder="120"
@@ -156,6 +184,7 @@ export const Hero: React.FC = () => {
                                         <input
                                             type="text"
                                             required
+                                            name="contact_tel_ou_email"
                                             value={contact}
                                             onChange={(e) => setContact(e.target.value)}
                                             placeholder="Tél. ou email"
@@ -166,11 +195,22 @@ export const Hero: React.FC = () => {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-white text-textMain font-bold rounded-full py-3.5 flex items-center justify-center gap-2 hover:bg-gray-50 hover:-translate-y-0.5 transition-all shadow-xl group"
+                                    disabled={status === 'loading'}
+                                    className="w-full bg-white text-textMain font-bold rounded-full py-3.5 flex items-center justify-center gap-2 hover:bg-gray-50 hover:-translate-y-0.5 transition-all shadow-xl group disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                                 >
-                                    <span>Recevoir mon estimation</span>
-                                    <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform duration-300" />
+                                    <span>{status === 'loading' ? 'Envoi…' : 'Recevoir mon estimation'}</span>
+                                    {status !== 'loading' && (
+                                        <ArrowUpRight size={18} className="group-hover:rotate-45 transition-transform duration-300" />
+                                    )}
                                 </button>
+
+                                {status === 'loading' && (
+                                    <p className="text-white/70 text-xs font-medium text-center">Envoi en cours…</p>
+                                )}
+                                {status === 'error' && (
+                                    <p className="text-red-300 text-xs font-medium text-center">Une erreur est survenue. Appelez directement le <a href="tel:+33769313502" className="underline">07 69 31 35 02</a>.</p>
+                                )}
+
                                 <p className="text-[0.65rem] text-white/50 text-center font-light">
                                     Confidentiel · sans engagement · réponse sous 48h
                                 </p>
@@ -180,13 +220,13 @@ export const Hero: React.FC = () => {
                                 <div className="w-16 h-16 mx-auto rounded-full bg-white/20 flex items-center justify-center">
                                     <CheckCircle2 size={32} className="text-white" />
                                 </div>
-                                <h3 className="text-2xl font-semibold text-white leading-tight">Demande reçue&nbsp;!</h3>
+                                <h3 className="text-2xl font-semibold text-white leading-tight">✅ Message envoyé&nbsp;!</h3>
                                 <p className="text-sm text-white/80 leading-relaxed">
-                                    Mickaël Lima vous recontacte sous <strong className="font-bold text-white">48 h</strong> pour planifier la visite et finaliser l'estimation de votre {propertyType.toLowerCase()} {commune && `à ${commune}`}.
+                                    Mickaël vous recontacte sous <strong className="font-bold text-white">24 h</strong> pour planifier la visite et finaliser l'estimation de votre {propertyType.toLowerCase()} {commune && `à ${commune}`}.
                                 </p>
                                 <button
                                     type="button"
-                                    onClick={() => { setSubmitted(false); setCommune(''); setSurface(''); setContact(''); }}
+                                    onClick={() => { setStatus('idle'); setCommune(''); setSurface(''); setContact(''); }}
                                     className="text-xs font-bold uppercase tracking-widest text-white/60 hover:text-white underline-offset-4 hover:underline transition-colors"
                                 >
                                     Nouvelle demande

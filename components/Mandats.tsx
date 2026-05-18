@@ -3,7 +3,7 @@ import { Check, Camera, Share2, Users, Layout, Star, Gem, Video, ArrowRight, Arr
 import { SEO } from './SEO';
 import { IMAGES } from '../constants';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -36,30 +36,30 @@ export const MandatSignature: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10"></div>
                 </div>
 
-                <motion.div
+                <m.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
                     className="container mx-auto px-6 relative z-20 text-center pt-20"
                 >
-                    <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
+                    <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
                         <Star size={16} className="text-accent fill-accent" /> Performance & Sérénité
-                    </motion.div>
-                    <motion.h1 variants={fadeInUp} className="text-5xl md:text-8xl font-medium text-white mb-8 tracking-tight leading-[1.05] drop-shadow-2xl">
+                    </m.div>
+                    <m.h1 variants={fadeInUp} className="text-5xl md:text-8xl font-medium text-white mb-8 tracking-tight leading-[1.05] drop-shadow-2xl">
                         Mandat <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">Signature</span>
-                    </motion.h1>
-                    <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg">
+                    </m.h1>
+                    <m.p variants={fadeInUp} className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg">
                         L'alliance parfaite entre technologie de pointe et expertise humaine <br className="hidden md:block" />pour une vente au meilleur prix.
-                    </motion.p>
-                    <motion.div variants={fadeInUp} className="mt-12 flex justify-center">
+                    </m.p>
+                    <m.div variants={fadeInUp} className="mt-12 flex justify-center">
                         <Link to="/estimation" className="group relative inline-flex items-center gap-4 p-2 pr-8 bg-white text-textMain font-bold rounded-full overflow-hidden transition-all duration-500 shadow-2xl hover:-translate-y-1 mb-10 w-fit">
                             <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-500">
                                 <ArrowUpRight size={20} />
                             </div>
                             <span className="text-sm tracking-widest uppercase">Demander une estimation</span>
                         </Link>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             </section>
 
             {/* SECTION 1: Valorisation Visuelle & Média */}
@@ -73,7 +73,7 @@ export const MandatSignature: React.FC = () => {
                     <div className="flex flex-col md:flex-row gap-20 items-start">
                         {/* Left Column - Sticky */}
                         <div className="md:w-5/12 sticky top-32 h-fit">
-                            <motion.div
+                            <m.div
                                 variants={staggerContainer}
                                 initial="hidden"
                                 whileInView="visible"
@@ -83,16 +83,16 @@ export const MandatSignature: React.FC = () => {
                                 {/* Premium Gradient Border Effect */}
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-300 via-primary to-blue-300"></div>
 
-                                <motion.div variants={fadeInUp} className="w-20 h-20 bg-primary/5 rounded-3xl flex items-center justify-center mb-10 border border-primary/10 group-hover:scale-105 transition-transform duration-500">
+                                <m.div variants={fadeInUp} className="w-20 h-20 bg-primary/5 rounded-3xl flex items-center justify-center mb-10 border border-primary/10 group-hover:scale-105 transition-transform duration-500">
                                     <Camera className="text-primary" size={36} strokeWidth={1.5} />
-                                </motion.div>
-                                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
+                                </m.div>
+                                <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                                     Valorisation <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">Visuelle</span>
-                                </motion.h2>
-                                <motion.p variants={fadeInUp} className="text-gray-500 mb-10 leading-relaxed text-lg font-light">
+                                </m.h2>
+                                <m.p variants={fadeInUp} className="text-gray-500 mb-10 leading-relaxed text-lg font-light">
                                     Une stratégie visuelle complète pour capter l'attention partout. Nous créons une véritable identité pour votre bien immobilier.
-                                </motion.p>
-                                <motion.ul variants={staggerContainer} className="space-y-6">
+                                </m.p>
+                                <m.ul variants={staggerContainer} className="space-y-6">
                                     {[
                                         "Photos Pro Haute Définition",
                                         "Vidéo Drone 4K & Présentation",
@@ -101,28 +101,28 @@ export const MandatSignature: React.FC = () => {
                                         "Home Staging Virtuel",
                                         "Réseaux Sociaux & Média"
                                     ].map((item, i) => (
-                                        <motion.li variants={fadeInUp} key={i} className="flex items-start gap-4 text-gray-700 font-medium group/item">
+                                        <m.li variants={fadeInUp} key={i} className="flex items-start gap-4 text-gray-700 font-medium group/item">
                                             <div className="bg-primary/5 p-2 rounded-full mt-0.5 group-hover/item:bg-primary/10 transition-colors border border-primary/10"><Check size={16} className="text-primary" /></div>
                                             <span className="block text-textMain font-bold">{item}</span>
-                                        </motion.li>
+                                        </m.li>
                                     ))}
-                                </motion.ul>
+                                </m.ul>
 
-                                <motion.div variants={fadeInUp} className="mt-12 pt-10 border-t border-gray-100">
+                                <m.div variants={fadeInUp} className="mt-12 pt-10 border-t border-gray-100">
                                     <Link to="/estimation" className="w-full bg-white text-textMain font-bold p-2 pr-8 rounded-full border border-gray-200 hover:bg-gray-50 transition-all shadow-sm flex items-center gap-4 group/btn">
                                         <div className="bg-textMain text-white rounded-full p-4 group-hover/btn:rotate-45 transition-transform duration-300">
                                             <ArrowUpRight size={20} />
                                         </div>
                                         <span className="text-base tracking-wide uppercase">Demander une estimation</span>
                                     </Link>
-                                </motion.div>
-                            </motion.div>
+                                </m.div>
+                            </m.div>
                         </div>
 
                         {/* Right Column - Scrollable Content */}
                         <div className="md:w-7/12 space-y-32 pb-32">
                             {/* Cinematic Video Placeholder */}
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -143,10 +143,10 @@ export const MandatSignature: React.FC = () => {
                                     </div>
                                     <h3 className="text-4xl font-serif italic font-light drop-shadow-lg">Vidéo 4K</h3>
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Photos Pro Gallery */}
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -174,22 +174,22 @@ export const MandatSignature: React.FC = () => {
                                         ))}
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Carousel Placeholder */}
-                            <motion.div
+                            <m.div
                                 variants={staggerContainer}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
                             >
-                                <motion.h3 variants={fadeInUp} className="text-2xl font-bold text-textMain mb-8 flex items-center gap-4">
+                                <m.h3 variants={fadeInUp} className="text-2xl font-bold text-textMain mb-8 flex items-center gap-4">
                                     <div className="p-3 bg-primary/5 rounded-xl border border-primary/10"><Share2 size={24} className="text-primary" strokeWidth={1.5} /></div>
                                     Format TikTok & Reels
-                                </motion.h3>
+                                </m.h3>
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                                     {[1, 2, 3].map((i) => (
-                                        <motion.div variants={fadeInUp} key={i} className="bg-surface rounded-3xl aspect-[9/16] relative border border-gray-100 shadow-xl flex items-center justify-center group cursor-pointer overflow-hidden hover:-translate-y-2 transition-transform duration-500">
+                                        <m.div variants={fadeInUp} key={i} className="bg-surface rounded-3xl aspect-[9/16] relative border border-gray-100 shadow-xl flex items-center justify-center group cursor-pointer overflow-hidden hover:-translate-y-2 transition-transform duration-500">
                                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/80 opacity-60 z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
                                             <img src={IMAGES.misc1} alt={`Reel ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-1000" />
 
@@ -199,13 +199,13 @@ export const MandatSignature: React.FC = () => {
                                                 </div>
                                                 <span className="text-white font-bold tracking-widest uppercase text-xs block">Reel {i}</span>
                                             </div>
-                                        </motion.div>
+                                        </m.div>
                                     ))}
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Home Staging */}
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -231,7 +231,7 @@ export const MandatSignature: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         </div>
                     </div>
                 </div>
@@ -240,26 +240,26 @@ export const MandatSignature: React.FC = () => {
             {/* SECTION 2: Visibilité Multi-Canal (Bento Grid) */}
             <section className="py-32 bg-surface">
                 <div className="container mx-auto px-6">
-                    <motion.div
+                    <m.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-10%" }}
                         className="text-center max-w-4xl mx-auto mb-20"
                     >
-                        <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+                        <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
                             <Target size={16} /> 02. Diffusion Massive
-                        </motion.div>
-                        <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
+                        </m.div>
+                        <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                             Omniprésence <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">Digitale</span>
-                        </motion.h2>
-                        <motion.p variants={fadeInUp} className="text-gray-500 text-xl font-light leading-relaxed">
+                        </m.h2>
+                        <m.p variants={fadeInUp} className="text-gray-500 text-xl font-light leading-relaxed">
                             Votre bien ne doit pas être cherché, il doit être trouvé. Nous inondons le marché pour toucher 100% des acquéreurs actifs.
-                        </motion.p>
-                    </motion.div>
+                        </m.p>
+                    </m.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -293,9 +293,9 @@ export const MandatSignature: React.FC = () => {
                                     </span>
                                 </div>
                             </div>
-                        </motion.div>
+                        </m.div>
 
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -315,9 +315,9 @@ export const MandatSignature: React.FC = () => {
                                 <div className="text-xs font-bold opacity-70 uppercase tracking-[0.2em]">Audience Cumulée</div>
                             </div>
                             <div className="absolute -bottom-20 -right-20 w-64 h-64 border border-white/10 rounded-full group-hover:scale-125 transition-transform duration-1000"></div>
-                        </motion.div>
+                        </m.div>
 
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -337,7 +337,7 @@ export const MandatSignature: React.FC = () => {
                                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
                                 <span className="text-sm font-bold text-textMain uppercase tracking-widest">Active 24/7</span>
                             </div>
-                        </motion.div>
+                        </m.div>
                     </div>
                 </div>
             </section>
@@ -346,7 +346,7 @@ export const MandatSignature: React.FC = () => {
             <section className="py-32 bg-white flex items-center min-h-[80vh]">
                 <div className="container mx-auto px-6">
                     <div className="flex flex-col lg:flex-row gap-24 items-center">
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -407,28 +407,28 @@ export const MandatSignature: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </m.div>
 
-                        <motion.div
+                        <m.div
                             variants={staggerContainer}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-10%" }}
                             className="lg:w-1/2 order-1 lg:order-2"
                         >
-                            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
+                            <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
                                 <Layout size={16} /> 03. Transparence Totale
-                            </motion.div>
-                            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
+                            </m.div>
+                            <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                                 Vous savez tout, <br />
                                 <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">tout le temps.</span>
-                            </motion.h2>
-                            <motion.p variants={fadeInUp} className="text-gray-500 text-xl font-light leading-relaxed mb-12">
+                            </m.h2>
+                            <m.p variants={fadeInUp} className="text-gray-500 text-xl font-light leading-relaxed mb-12">
                                 Fini le silence radio. Nous avons mis en place des processus de suivi rigoureux pour que vous soyez acteur de votre vente, sans le stress.
-                            </motion.p>
+                            </m.p>
 
                             <div className="space-y-10">
-                                <motion.div variants={fadeInUp} className="flex gap-6 group">
+                                <m.div variants={fadeInUp} className="flex gap-6 group">
                                     <div className="w-16 h-16 rounded-[2rem] bg-surface flex items-center justify-center shrink-0 border border-gray-100 group-hover:scale-110 group-hover:bg-primary/5 transition-all duration-500">
                                         <Users className="text-primary" size={28} strokeWidth={1.5} />
                                     </div>
@@ -438,8 +438,8 @@ export const MandatSignature: React.FC = () => {
                                             Avant même la diffusion, nous proposons votre bien à notre base de clients actifs et finançables.
                                         </p>
                                     </div>
-                                </motion.div>
-                                <motion.div variants={fadeInUp} className="flex gap-6 group">
+                                </m.div>
+                                <m.div variants={fadeInUp} className="flex gap-6 group">
                                     <div className="w-16 h-16 rounded-[2rem] bg-surface flex items-center justify-center shrink-0 border border-gray-100 group-hover:scale-110 group-hover:bg-primary/5 transition-all duration-500">
                                         <MessageSquare className="text-primary" size={28} strokeWidth={1.5} />
                                     </div>
@@ -449,9 +449,9 @@ export const MandatSignature: React.FC = () => {
                                             Un fil de discussion direct avec votre agent pour une communication fluide et instantanée.
                                         </p>
                                     </div>
-                                </motion.div>
+                                </m.div>
                             </div>
-                        </motion.div>
+                        </m.div>
                     </div>
                 </div>
             </section>
@@ -459,25 +459,25 @@ export const MandatSignature: React.FC = () => {
             {/* SECTION 4: Visites Qualifiées (Minimalist Pillars) */}
             <section className="py-32 bg-surface relative overflow-hidden flex items-center min-h-[80vh]">
                 <div className="container mx-auto px-6 relative z-10">
-                    <motion.div
+                    <m.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-10%" }}
                         className="text-center mb-24"
                     >
-                        <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+                        <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
                             <ShieldCheck size={16} /> 04. Sécurité
-                        </motion.div>
-                        <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
+                        </m.div>
+                        <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                             Zéro <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">Tourisme Immobilier</span>
-                        </motion.h2>
-                        <motion.p variants={fadeInUp} className="text-gray-500 text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                        </m.h2>
+                        <m.p variants={fadeInUp} className="text-gray-500 text-xl font-light max-w-2xl mx-auto leading-relaxed">
                             Nous protégeons votre intimité et votre temps. Seuls les acheteurs sérieux franchissent votre porte.
-                        </motion.p>
-                    </motion.div>
+                        </m.p>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
@@ -485,7 +485,7 @@ export const MandatSignature: React.FC = () => {
                         className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
                     >
                         {/* Pillar 1 */}
-                        <motion.div variants={fadeInUp} className="bg-white p-12 rounded-[3rem] shadow-sm border border-gray-100 text-center group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl">
+                        <m.div variants={fadeInUp} className="bg-white p-12 rounded-[3rem] shadow-sm border border-gray-100 text-center group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl">
                             <div className="w-24 h-24 mx-auto bg-surface rounded-[2rem] flex items-center justify-center mb-10 group-hover:bg-primary group-hover:text-white transition-colors duration-500 border border-gray-100">
                                 <ShieldCheck size={40} strokeWidth={1.5} />
                             </div>
@@ -493,10 +493,10 @@ export const MandatSignature: React.FC = () => {
                             <p className="text-gray-500 leading-relaxed font-light text-lg">
                                 Nous collectons la pièce d'identité de chaque visiteur avant la visite pour une sécurité totale.
                             </p>
-                        </motion.div>
+                        </m.div>
 
                         {/* Pillar 2 */}
-                        <motion.div variants={fadeInUp} className="bg-white p-12 rounded-[3rem] shadow-2xl border border-primary/20 text-center group hover:-translate-y-2 transition-all duration-500 relative z-10 md:scale-105">
+                        <m.div variants={fadeInUp} className="bg-white p-12 rounded-[3rem] shadow-2xl border border-primary/20 text-center group hover:-translate-y-2 transition-all duration-500 relative z-10 md:scale-105">
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
                                 Essentiel
                             </div>
@@ -507,10 +507,10 @@ export const MandatSignature: React.FC = () => {
                             <p className="text-gray-500 leading-relaxed font-light text-lg">
                                 Étude de solvabilité obligatoire. Pas de visite sans plan de financement clair et validé.
                             </p>
-                        </motion.div>
+                        </m.div>
 
                         {/* Pillar 3 */}
-                        <motion.div variants={fadeInUp} className="bg-white p-12 rounded-[3rem] shadow-sm border border-gray-100 text-center group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl">
+                        <m.div variants={fadeInUp} className="bg-white p-12 rounded-[3rem] shadow-sm border border-gray-100 text-center group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl">
                             <div className="w-24 h-24 mx-auto bg-surface rounded-[2rem] flex items-center justify-center mb-10 group-hover:bg-primary group-hover:text-white transition-colors duration-500 border border-gray-100">
                                 <Target size={40} strokeWidth={1.5} />
                             </div>
@@ -518,8 +518,8 @@ export const MandatSignature: React.FC = () => {
                             <p className="text-gray-500 leading-relaxed font-light text-lg">
                                 Nous qualifions la motivation et l'adéquation du projet pour éviter les visites de curiosité.
                             </p>
-                        </motion.div>
-                    </motion.div>
+                        </m.div>
+                    </m.div>
                 </div>
             </section>
 
@@ -529,7 +529,7 @@ export const MandatSignature: React.FC = () => {
                 <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r z-10 pointer-events-none from-primary to-transparent"></div>
                 <div className="absolute right-0 w-24 md:w-48 h-full bg-gradient-to-l z-10 pointer-events-none from-primary to-transparent"></div>
 
-                <motion.div
+                <m.div
                     className="flex gap-16 md:gap-32 items-center flex-nowrap min-w-max"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
@@ -550,7 +550,7 @@ export const MandatSignature: React.FC = () => {
                             }}
                         />
                     ))}
-                </motion.div>
+                </m.div>
             </div>
 
             {/* REDESIGNED RECAP SECTION (Hero Style) - STICKY TO FOOTER */}
@@ -564,26 +564,26 @@ export const MandatSignature: React.FC = () => {
                 </div>
 
                 <div className="container mx-auto px-6 relative z-20">
-                    <motion.div
+                    <m.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-10%" }}
                         className="text-center max-w-4xl mx-auto mb-20"
                     >
-                        <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white/90 text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
+                        <m.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white/90 text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
                             <Star size={14} className="text-accent fill-accent" /> L'Excellence Immobilière
-                        </motion.span>
+                        </m.span>
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                             Pourquoi choisir le <br />
                             <span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white font-normal">Mandat Signature ?</span>
                         </h2>
-                        <motion.p variants={fadeInUp} className="text-xl text-white/60 leading-relaxed max-w-2xl mx-auto font-light">
+                        <m.p variants={fadeInUp} className="text-xl text-white/60 leading-relaxed max-w-2xl mx-auto font-light">
                             Une approche globale qui fusionne technologie, marketing et expertise humaine pour des résultats exceptionnels.
-                        </motion.p>
-                    </motion.div>
+                        </m.p>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
@@ -596,7 +596,7 @@ export const MandatSignature: React.FC = () => {
                             { icon: Users, title: "Acquéreurs & Suivi", items: ["Fichier Qualifié", "Partage Inter-agence", "WhatsApp dédié"] },
                             { icon: Layout, title: "Visites Qualifiées", items: ["Préqualification", "Validation Budget", "0 Visite Inutile"] }
                         ].map((card, idx) => (
-                            <motion.div key={idx} variants={fadeInUp} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-all duration-500 group shadow-2xl">
+                            <m.div key={idx} variants={fadeInUp} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-all duration-500 group shadow-2xl">
                                 <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-8 border border-white/10 group-hover:scale-110 transition-transform duration-500 shadow-inner">
                                     <card.icon className="text-white relative z-10" size={28} />
                                 </div>
@@ -609,11 +609,11 @@ export const MandatSignature: React.FC = () => {
                                         </li>
                                     ))}
                                 </ul>
-                            </motion.div>
+                            </m.div>
                         ))}
-                    </motion.div>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -626,7 +626,7 @@ export const MandatSignature: React.FC = () => {
                             </div>
                             <span className="text-base tracking-wide uppercase">Je choisis l'excellence</span>
                         </Link>
-                    </motion.div>
+                    </m.div>
                 </div>
 
                 {/* Footer Bar */}
@@ -666,31 +666,31 @@ export const MandatExclusif: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10"></div>
                 </div>
 
-                <motion.div
+                <m.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
                     className="container mx-auto px-6 relative z-20 text-center pt-20"
                 >
-                    <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
+                    <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
                         <Gem size={16} className="text-accent fill-accent" /> Prestige & Exception
-                    </motion.div>
+                    </m.div>
                     <h1 className="text-4xl md:text-6xl lg:text-8xl font-medium text-white mb-8 tracking-tight leading-[1.05] drop-shadow-2xl break-words hyphens-auto">
                         Le Mandat <br className="hidden md:block" />
                         <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">Exclusif.</span>
                     </h1>
-                    <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg">
+                    <m.p variants={fadeInUp} className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-lg">
                         L'art de sublimer l'exceptionnel. <br className="hidden md:block" />Une production cinématographique pour une désirabilité sans égale.
-                    </motion.p>
-                    <motion.div variants={fadeInUp} className="mt-14 flex justify-center">
+                    </m.p>
+                    <m.div variants={fadeInUp} className="mt-14 flex justify-center">
                         <Link to="/contact" className="group relative inline-flex items-center gap-4 p-2 pr-8 bg-white text-textMain font-bold rounded-full overflow-hidden transition-all duration-500 shadow-2xl hover:-translate-y-1 mb-10 w-fit">
                             <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-500">
                                 <ArrowUpRight size={20} />
                             </div>
                             <span className="text-sm tracking-widest uppercase">Candidater pour ce mandat</span>
                         </Link>
-                    </motion.div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             </section>
 
             {/* SECTION: Valorisation & Prestations */}
@@ -704,7 +704,7 @@ export const MandatExclusif: React.FC = () => {
                     <div className="flex flex-col md:flex-row gap-20 items-start">
                         {/* Left Column - Sticky */}
                         <div className="md:w-5/12 sticky top-32 h-fit">
-                            <motion.div
+                            <m.div
                                 variants={staggerContainer}
                                 initial="hidden"
                                 whileInView="visible"
@@ -714,61 +714,61 @@ export const MandatExclusif: React.FC = () => {
                                 {/* Premium Gradient Border Effect */}
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-300 via-primary to-blue-300"></div>
 
-                                <motion.div variants={fadeInUp} className="w-20 h-20 bg-primary/5 rounded-3xl flex items-center justify-center mb-10 border border-primary/10 group-hover:scale-105 transition-transform duration-500">
+                                <m.div variants={fadeInUp} className="w-20 h-20 bg-primary/5 rounded-3xl flex items-center justify-center mb-10 border border-primary/10 group-hover:scale-105 transition-transform duration-500">
                                     <Gem className="text-primary" size={36} strokeWidth={1.5} />
-                                </motion.div>
-                                <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
+                                </m.div>
+                                <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                                     Au-delà des <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">standards</span>
-                                </motion.h2>
-                                <motion.p variants={fadeInUp} className="text-gray-500 mb-10 leading-relaxed text-lg font-light">
+                                </m.h2>
+                                <m.p variants={fadeInUp} className="text-gray-500 mb-10 leading-relaxed text-lg font-light">
                                     Ce mandat inclut <strong>toutes les prestations du Mandat Signature</strong>, enrichies par l'intervention d'un vidéaste professionnel dédié pour une narration émotionnelle.
-                                </motion.p>
-                                <motion.ul variants={staggerContainer} className="space-y-6">
-                                    <motion.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
+                                </m.p>
+                                <m.ul variants={staggerContainer} className="space-y-6">
+                                    <m.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
                                         <div className="bg-primary/5 p-2 rounded-full mt-0.5 group-hover/item:bg-primary/10 transition-colors border border-primary/10"><Check size={16} className="text-primary" /></div>
                                         <div>
                                             <span className="block text-textMain font-bold">Production Cinématographique</span>
                                             <span className="text-sm text-gray-500 font-light">Équipe de tournage dédiée</span>
                                         </div>
-                                    </motion.li>
-                                    <motion.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
+                                    </m.li>
+                                    <m.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
                                         <div className="bg-primary/5 p-2 rounded-full mt-0.5 group-hover/item:bg-primary/10 transition-colors border border-primary/10"><Check size={16} className="text-primary" /></div>
                                         <div>
                                             <span className="block text-textMain font-bold">Captation de l'essence</span>
                                             <span className="text-sm text-gray-500 font-light">Mise en lumière des détails</span>
                                         </div>
-                                    </motion.li>
-                                    <motion.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
+                                    </m.li>
+                                    <m.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
                                         <div className="bg-primary/5 p-2 rounded-full mt-0.5 group-hover/item:bg-primary/10 transition-colors border border-primary/10"><Check size={16} className="text-primary" /></div>
                                         <div>
                                             <span className="block text-textMain font-bold">Storytelling Visuel</span>
                                             <span className="text-sm text-gray-500 font-light">Scénarisation sur-mesure</span>
                                         </div>
-                                    </motion.li>
-                                    <motion.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
+                                    </m.li>
+                                    <m.li variants={fadeInUp} className="flex items-start gap-4 text-gray-700 font-medium group/item">
                                         <div className="bg-primary/5 p-2 rounded-full mt-0.5 group-hover/item:bg-primary/10 transition-colors border border-primary/10"><Check size={16} className="text-primary" /></div>
                                         <div>
                                             <span className="block text-textMain font-bold">Diffusion Internationale</span>
                                             <span className="text-sm text-gray-500 font-light">Ciblage acquéreurs prestige</span>
                                         </div>
-                                    </motion.li>
-                                </motion.ul>
+                                    </m.li>
+                                </m.ul>
 
-                                <motion.div variants={fadeInUp} className="mt-12 pt-10 border-t border-gray-100">
+                                <m.div variants={fadeInUp} className="mt-12 pt-10 border-t border-gray-100">
                                     <Link to="/contact" className="w-full bg-white text-textMain font-bold p-2 pr-8 rounded-full border border-gray-200 hover:bg-gray-50 transition-all shadow-sm flex items-center gap-4 group/btn">
                                         <div className="bg-textMain text-white rounded-full p-4 group-hover/btn:rotate-45 transition-transform duration-300">
                                             <ArrowUpRight size={20} />
                                         </div>
                                         <span className="text-base tracking-wide uppercase">Demander ce mandat</span>
                                     </Link>
-                                </motion.div>
-                            </motion.div>
+                                </m.div>
+                            </m.div>
                         </div>
 
                         {/* Right Column - Scrollable Content */}
                         <div className="md:w-7/12 space-y-32 pb-32">
                             {/* Cinematic Video Placeholder */}
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -793,22 +793,22 @@ export const MandatExclusif: React.FC = () => {
                                     </div>
                                     <h3 className="text-4xl font-serif italic font-light drop-shadow-lg">L'Art de Vivre</h3>
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Social Media Teasers */}
-                            <motion.div
+                            <m.div
                                 variants={staggerContainer}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
                             >
-                                <motion.h3 variants={fadeInUp} className="text-2xl font-bold text-textMain mb-8 flex items-center gap-4">
+                                <m.h3 variants={fadeInUp} className="text-2xl font-bold text-textMain mb-8 flex items-center gap-4">
                                     <div className="p-3 bg-primary/5 rounded-xl border border-primary/10"><Share2 size={24} className="text-primary" strokeWidth={1.5} /></div>
                                     Teasers Réseaux Sociaux
-                                </motion.h3>
+                                </m.h3>
                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                                     {[1, 2, 3].map((i) => (
-                                        <motion.div variants={fadeInUp} key={i} className="bg-surface rounded-3xl aspect-[9/16] relative border border-gray-100 shadow-xl flex items-center justify-center group cursor-pointer overflow-hidden hover:-translate-y-2 transition-transform duration-500">
+                                        <m.div variants={fadeInUp} key={i} className="bg-surface rounded-3xl aspect-[9/16] relative border border-gray-100 shadow-xl flex items-center justify-center group cursor-pointer overflow-hidden hover:-translate-y-2 transition-transform duration-500">
                                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/80 opacity-60 z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
                                             <img src={IMAGES.misc1} alt={`Teaser ${i}`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-1000" />
 
@@ -818,13 +818,13 @@ export const MandatExclusif: React.FC = () => {
                                                 </div>
                                                 <span className="text-white font-bold tracking-widest uppercase text-xs block">Teaser {i}</span>
                                             </div>
-                                        </motion.div>
+                                        </m.div>
                                     ))}
                                 </div>
-                            </motion.div>
+                            </m.div>
 
                             {/* Luxury Photo Gallery */}
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -858,7 +858,7 @@ export const MandatExclusif: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         </div>
                     </div>
                 </div>
@@ -869,7 +869,7 @@ export const MandatExclusif: React.FC = () => {
                 <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r z-10 pointer-events-none from-primary to-transparent"></div>
                 <div className="absolute right-0 w-24 md:w-48 h-full bg-gradient-to-l z-10 pointer-events-none from-primary to-transparent"></div>
 
-                <motion.div
+                <m.div
                     className="flex gap-16 md:gap-32 items-center flex-nowrap min-w-max"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
@@ -890,7 +890,7 @@ export const MandatExclusif: React.FC = () => {
                             }}
                         />
                     ))}
-                </motion.div>
+                </m.div>
             </div>
 
             {/* REDESIGNED RECAP SECTION (Hero Style) - STICKY TO FOOTER */}
@@ -904,25 +904,25 @@ export const MandatExclusif: React.FC = () => {
                 </div>
 
                 <div className="container mx-auto px-6 relative z-20">
-                    <motion.div
+                    <m.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-10%" }}
                         className="text-center max-w-4xl mx-auto mb-20"
                     >
-                        <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white/90 text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
+                        <m.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white/90 text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
                             <Star size={16} className="text-accent fill-accent" /> Le Sommet de l'Immobilier
-                        </motion.span>
-                        <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tight leading-[1.05] mb-8 whitespace-nowrap">
+                        </m.span>
+                        <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-white tracking-tight leading-[1.05] mb-8 whitespace-nowrap">
                             L'Ultime <span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white font-normal">Privilège</span>
-                        </motion.h2>
-                        <motion.p variants={fadeInUp} className="text-xl text-white/60 leading-relaxed max-w-2xl mx-auto font-light">
+                        </m.h2>
+                        <m.p variants={fadeInUp} className="text-xl text-white/60 leading-relaxed max-w-2xl mx-auto font-light">
                             Le Mandat Exclusif est notre promesse d'excellence absolue. Une mise en scène digne des plus grandes productions pour des biens qui ne méritent rien de moins.
-                        </motion.p>
-                    </motion.div>
+                        </m.p>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
@@ -935,7 +935,7 @@ export const MandatExclusif: React.FC = () => {
                             { icon: Star, title: "Événementiel", items: ["Soirée Privée (sur dmd)", "Relations Publiques", "Dossier Relié"] },
                             { icon: ShieldCheck, title: "Service Conciergerie", items: ["Accompagnement VIP", "Confidentialité", "Disponibilité 24/7"] }
                         ].map((card, idx) => (
-                            <motion.div key={idx} variants={fadeInUp} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-all duration-500 group shadow-2xl">
+                            <m.div key={idx} variants={fadeInUp} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-all duration-500 group shadow-2xl">
                                 <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-8 border border-white/10 group-hover:scale-110 transition-transform duration-500 shadow-inner">
                                     <card.icon className="text-white relative z-10" size={28} />
                                 </div>
@@ -948,11 +948,11 @@ export const MandatExclusif: React.FC = () => {
                                         </li>
                                     ))}
                                 </ul>
-                            </motion.div>
+                            </m.div>
                         ))}
-                    </motion.div>
+                    </m.div>
 
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -965,7 +965,7 @@ export const MandatExclusif: React.FC = () => {
                             </div>
                             <span className="text-base tracking-wide uppercase">Candidature Confidentielle</span>
                         </Link>
-                    </motion.div>
+                    </m.div>
                 </div>
 
                 {/* Footer Bar */}

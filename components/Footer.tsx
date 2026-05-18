@@ -2,7 +2,7 @@ import React from 'react';
 import { IMAGES, COMMUNES } from '../constants';
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export const Footer: React.FC = () => {
     const location = useLocation();
@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
                     <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
                     <div className="absolute right-0 w-24 md:w-48 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-                    <motion.div
+                    <m.div
                         className="flex gap-16 md:gap-32 items-center flex-nowrap min-w-max"
                         animate={{ x: ["0%", "-50%"] }}
                         transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
                                 }}
                             />
                         ))}
-                    </motion.div>
+                    </m.div>
                 </div>
             )}
 

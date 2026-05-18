@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { CheckCircle, Users, Globe, Eye, MessageSquare, Heart, Target, Layers, TrendingUp, Star, Award, ShieldCheck, ArrowRight, Play, ArrowUpRight, Phone, Calendar, Home, ChevronRight, CheckCircle2, ChevronDown, Search, Building, MapPin } from 'lucide-react';
 import { IMAGES, BLOG_POSTS, COMMUNES } from '../constants';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,15 +28,15 @@ export const Positioning: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row justify-between items-start mb-12 md:mb-20 gap-8 md:gap-10">
                     <div className="lg:w-7/12 w-full">
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
                         >
                             <Target size={16} /> Expertise Locale
-                        </motion.div>
-                        <motion.h2
+                        </m.div>
+                        <m.h2
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -45,10 +45,10 @@ export const Positioning: React.FC = () => {
                         >
                             Une approche pour les <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary font-newsletter italic font-normal">vendeurs exigeants.</span>
-                        </motion.h2>
+                        </m.h2>
                     </div>
                     <div className="lg:w-5/12 pt-2">
-                        <motion.p
+                        <m.p
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -56,7 +56,7 @@ export const Positioning: React.FC = () => {
                             className="text-lg text-gray-500 leading-relaxed font-light"
                         >
                             Le marché immobilier du Pays de Gex est dynamique, mais très concurrentiel. Aujourd'hui, un bien ne se vend plus uniquement grâce à une simple annonce en ligne. Il requiert une stratégie globale, des outils performants et un accompagnement sur mesure pour sécuriser votre vente.
-                        </motion.p>
+                        </m.p>
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@ export const Positioning: React.FC = () => {
                         { icon: Target, title: "Visibilité Ciblée", text: "Diffusion puissante sur plus de 40 portails de premier plan et mise en avant auprès de notre communauté qualifiée sur les réseaux sociaux." },
                         { icon: ShieldCheck, title: "Vente Sécurisée", text: "Validation systématique et rigoureuse du financement de chaque acquéreur et encadrement juridique strict de bout en bout." }
                     ].map((item, idx) => (
-                        <motion.div
+                        <m.div
                             key={idx}
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export const Positioning: React.FC = () => {
                             <p className="text-gray-500 leading-relaxed font-light text-base md:text-lg">
                                 {item.text}
                             </p>
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
             </div>
@@ -94,7 +94,7 @@ export const Positioning: React.FC = () => {
 export const Problematic: React.FC = () => (
     <section className="py-16 md:py-24 lg:py-32 bg-surface relative overflow-hidden border-t border-gray-100">
         <div className="container mx-auto px-6 relative z-10">
-            <motion.div
+            <m.div
                 className="text-center max-w-5xl mx-auto mb-16 lg:mb-20 px-4"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -111,10 +111,10 @@ export const Problematic: React.FC = () => (
                     Deux biens similaires peuvent obtenir des résultats très différents. <br className="hidden md:block" />
                     La différence ne se fait pas sur la chance, mais sur :
                 </p>
-            </motion.div>
+            </m.div>
 
             <div className="max-w-6xl mx-auto relative mb-12">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-10%" }}
@@ -123,7 +123,7 @@ export const Problematic: React.FC = () => (
                 >
                     <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Notre approche" width="1200" height="800" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-primary/10"></div>
-                </motion.div>
+                </m.div>
 
                 <div className="relative z-20 mt-8 md:-mt-20 lg:-mt-28 md:px-8">
                     <div className="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 md:mx-0 px-6 md:px-0 gap-4 md:gap-6 pb-4 md:pb-0">
@@ -132,7 +132,7 @@ export const Problematic: React.FC = () => (
                             "La perception du bien par les acheteurs",
                             "La stratégie de diffusion"
                         ].map((point, idx) => (
-                            <motion.div
+                            <m.div
                                 key={idx}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -154,13 +154,13 @@ export const Problematic: React.FC = () => (
 
                                 {/* Bottom accent line */}
                                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1.5 bg-gradient-to-r from-blue-500 to-primary group-hover:w-1/2 transition-all duration-500 rounded-t-full"></div>
-                            </motion.div>
+                            </m.div>
                         ))}
                     </div>
                 </div>
             </div>
 
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
@@ -170,7 +170,7 @@ export const Problematic: React.FC = () => (
                 <p className="text-2xl md:text-3xl text-textMain font-bold leading-relaxed max-w-4xl mx-auto">
                     Un bien valorisé intelligemment crée de l’intérêt, de la rareté et limite naturellement les négociations.
                 </p>
-            </motion.div>
+            </m.div>
         </div>
     </section>
 );
@@ -204,7 +204,7 @@ export const Visibility: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
                     {/* Video Left — plus petit, hauteur s'aligne sur le bloc droit */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -231,11 +231,11 @@ export const Visibility: React.FC = () => {
                                 Diffusion large et ciblée sur les portails majeurs et réseaux sociaux.
                             </p>
                         </div>
-                    </motion.div>
+                    </m.div>
 
                     {/* Text Right — col-span-6 (balanced avec la vidéo) */}
                     <div className="lg:col-span-6 flex flex-col justify-center">
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -269,7 +269,7 @@ export const Visibility: React.FC = () => {
                                     <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-3 whitespace-nowrap">Audience Mensuelle</div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </m.div>
                     </div>
                 </div>
             </div>
@@ -279,7 +279,7 @@ export const Visibility: React.FC = () => {
                 <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
                 <div className="absolute right-0 w-24 md:w-48 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-                <motion.div
+                <m.div
                     className="flex flex-nowrap gap-16 md:gap-24 items-center min-w-max"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
@@ -289,7 +289,7 @@ export const Visibility: React.FC = () => {
                             <img src={logo.src} alt={logo.alt} width="200" height="60" loading="lazy" decoding="async" className="max-h-10 md:max-h-14 w-auto object-contain" />
                         </a>
                     ))}
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );
@@ -309,7 +309,7 @@ export const Testimonials: React.FC = () => {
                     </h2>
                 </div>
 
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
@@ -336,7 +336,7 @@ export const Testimonials: React.FC = () => {
                         <span>Lire les avis sur Google</span>
                         <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform duration-300" />
                     </a>
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );
@@ -450,7 +450,7 @@ export const FAQSection: React.FC = () => {
 export const HomeBlog: React.FC = () => (
     <section className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10%" }}
@@ -469,11 +469,11 @@ export const HomeBlog: React.FC = () => (
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </div>
                 </Link>
-            </motion.div>
+            </m.div>
 
             <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar -mx-6 md:mx-0 px-6 md:px-0 gap-4 md:gap-8 pb-4 md:pb-0">
                 {BLOG_POSTS.slice(0, 3).map((post, i) => (
-                    <motion.div
+                    <m.div
                         key={post.id}
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -526,11 +526,11 @@ export const HomeBlog: React.FC = () => (
                                 </div>
                             </div>
                         </Link>
-                    </motion.div>
+                    </m.div>
                 ))}
             </div>
 
-            <motion.div
+            <m.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -539,7 +539,7 @@ export const HomeBlog: React.FC = () => (
                 <Link to="/blog" className="inline-flex items-center justify-center w-full py-4 rounded-full border-2 border-primary text-primary font-bold">
                     Voir tous les articles
                 </Link>
-            </motion.div>
+            </m.div>
         </div>
     </section>
 );
@@ -587,15 +587,15 @@ export const ZonesDIntervention: React.FC = () => {
             <div className="container mx-auto px-6">
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 md:mb-14 gap-6">
                     <div>
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
                         >
                             <MapPin size={14} /> Zones d'intervention
-                        </motion.div>
-                        <motion.h2
+                        </m.div>
+                        <m.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -606,7 +606,7 @@ export const ZonesDIntervention: React.FC = () => {
                             <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
                                 Pays de Gex
                             </span>
-                        </motion.h2>
+                        </m.h2>
                     </div>
                     <p className="text-gray-500 font-light max-w-sm text-base md:text-lg leading-relaxed lg:text-right">
                         Connaissance fine de chaque marché local — estimation gratuite sur site en 48h.
@@ -619,7 +619,7 @@ export const ZonesDIntervention: React.FC = () => {
                     onMouseEnter={() => setPaused(true)}
                     onMouseLeave={() => setPaused(false)}
                 >
-                    <motion.div
+                    <m.div
                         className="relative flex items-center justify-center cursor-grab active:cursor-grabbing select-none"
                         style={{ height: cardHeight + 40 }}
                         drag="x"
@@ -637,7 +637,7 @@ export const ZonesDIntervention: React.FC = () => {
                             const c = COMMUNES[idx];
                             const isCenter = offset === 0;
                             return (
-                                <motion.div
+                                <m.div
                                     key={`${c.slug}-${offset}`}
                                     animate={{
                                         x: offset * peekShift,
@@ -686,10 +686,10 @@ export const ZonesDIntervention: React.FC = () => {
                                             </div>
                                         </div>
                                     </Link>
-                                </motion.div>
+                                </m.div>
                             );
                         })}
-                    </motion.div>
+                    </m.div>
 
                     {/* Dots centrés */}
                     <div className="flex items-center justify-center gap-2 mt-8">
@@ -711,7 +711,7 @@ export const ZonesDIntervention: React.FC = () => {
 export const FinalCTA: React.FC = () => (
     <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden bg-white">
         <div className="container mx-auto px-6 relative z-10">
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-10%" }}
@@ -754,7 +754,7 @@ export const FinalCTA: React.FC = () => (
                         </Link>
                     </div>
                 </div>
-            </motion.div>
+            </m.div>
         </div>
     </section>
 );

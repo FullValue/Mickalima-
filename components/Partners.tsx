@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hammer, PaintBucket, Building, Calculator, Users, Star } from 'lucide-react';
 import { SEO } from './SEO';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -37,29 +37,29 @@ export const Partners: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10"></div>
                 </div>
 
-                <motion.div
+                <m.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
                     className="container mx-auto px-6 relative z-20 text-center text-white"
                 >
-                    <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+                    <m.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
                         <Building size={16} /> Écosystème
-                    </motion.span>
-                    <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight drop-shadow-2xl break-words hyphens-auto">
+                    </m.span>
+                    <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight drop-shadow-2xl break-words hyphens-auto">
                         Le cercle <br />
                         <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">de confiance.</span>
-                    </motion.h1>
-                    <motion.p variants={fadeInUp} className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    </m.h1>
+                    <m.p variants={fadeInUp} className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                         Vendre ou acheter un bien implique souvent d’autres projets : financement, rénovation, aménagement. Pour répondre à l’ensemble de vos besoins, je mets à votre disposition un réseau de partenaires sélectionnés pour leur sérieux et leur professionnalisme.
-                    </motion.p>
-                </motion.div>
+                    </m.p>
+                </m.div>
             </section>
 
             {/* Partners List Section */}
             <section className="py-32 bg-surface">
                 <div className="container mx-auto px-6">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-10%" }}
@@ -72,7 +72,7 @@ export const Partners: React.FC = () => {
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">
                             Nos <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">Partenaires</span>
                         </h2>
-                    </motion.div>
+                    </m.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32 max-w-5xl mx-auto">
                         {[
@@ -81,7 +81,7 @@ export const Partners: React.FC = () => {
                             { icon: PaintBucket, title: "Architectes d’intérieur" },
                             { icon: Building, title: "Entreprises de rénovation" }
                         ].map((partner, idx) => (
-                            <motion.div
+                            <m.div
                                 key={idx}
                                 initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,12 +97,12 @@ export const Partners: React.FC = () => {
                                         {partner.title}
                                     </h3>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         ))}
                     </div>
 
                     {/* Promise Section */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-10%" }}
@@ -115,7 +115,7 @@ export const Partners: React.FC = () => {
                         <p className="text-4xl md:text-5xl lg:text-7xl leading-[1.15] text-textMain tracking-tight italic font-serif break-words hyphens-auto">
                             "Un seul mot d'ordre : <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">L'Excellence.</span>"
                         </p>
-                    </motion.div>
+                    </m.div>
                 </div>
             </section>
         </div>

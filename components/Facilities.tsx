@@ -2,7 +2,7 @@ import React from 'react';
 import { FACILITIES, IMAGES } from '../constants';
 import { ArrowUpRight, ArrowRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const portalLogos = [
   { src: '/images/seloger.png', alt: 'SeLoger', href: 'https://www.seloger.com/professionnels-immobilier/2bccyjgnD7SN5UJ1TfrRMy', title: 'Mickaël Lima sur SeLoger' },
@@ -21,7 +21,7 @@ export const Method: React.FC = () => {
       <div className="container mx-auto px-6 mb-16 md:mb-24">
 
         {/* Header Section */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
@@ -44,7 +44,7 @@ export const Method: React.FC = () => {
               <span className="text-sm tracking-wide uppercase">Découvrir les mandats proposés</span>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Accordion Cards Grid */}
         <div className="flex flex-col lg:flex-row gap-6 w-full lg:h-[600px]">
@@ -73,7 +73,7 @@ export const Method: React.FC = () => {
           ].map((pilier, index) => {
             const isActive = activeIndex === index;
             return (
-              <motion.div
+              <m.div
                 key={pilier.id}
                 onHoverStart={() => setActiveIndex(index)}
                 onClick={() => setActiveIndex(index)}
@@ -106,7 +106,7 @@ export const Method: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>
@@ -145,7 +145,7 @@ export const Method: React.FC = () => {
         <div className="absolute left-0 w-24 md:w-48 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute right-0 w-24 md:w-48 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-        <motion.div
+        <m.div
           className="flex flex-nowrap gap-16 md:gap-24 items-center min-w-max"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
@@ -155,7 +155,7 @@ export const Method: React.FC = () => {
               <img src={logo.src} alt={logo.alt} width="200" height="60" loading="lazy" decoding="async" className="max-h-10 md:max-h-14 w-auto object-contain" />
             </a>
           ))}
-        </motion.div>
+        </m.div>
       </div>
 
     </section>

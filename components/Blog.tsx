@@ -3,7 +3,7 @@ import { BLOG_POSTS, IMAGES } from '../constants';
 import { SEO } from './SEO';
 import { Calendar, User, ArrowRight, ArrowUpRight, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -28,31 +28,31 @@ export const Blog: React.FC = () => {
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10 pt-10">
-                <motion.div
+                <m.div
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
                     className="text-center mb-20"
                 >
-                    <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest shadow-sm mb-6">
+                    <m.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest shadow-sm mb-6">
                         <Eye size={16} /> Actualités & Insights
-                    </motion.span>
-                    <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
+                    </m.span>
+                    <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                         L'Observatoire du <br />
                         <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">marché Gessien</span>
-                    </motion.h2>
-                    <motion.p variants={fadeInUp} className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    </m.h2>
+                    <m.p variants={fadeInUp} className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
                         Analyses, opportunités et conseils d’expert pour comprendre votre marché et valoriser votre patrimoine.
-                    </motion.p>
+                    </m.p>
                     <Link to="/estimation" className="group inline-flex items-center gap-4 bg-white text-textMain border border-gray-200 font-bold p-2 pr-8 rounded-full hover:bg-gray-50 transition-all shadow-sm transform hover:-translate-y-1 duration-500">
                         <div className="w-12 h-12 bg-textMain text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
                             <ArrowUpRight size={20} />
                         </div>
                         <span className="tracking-wide">Solliciter une analyse</span>
                     </Link>
-                </motion.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
@@ -60,7 +60,7 @@ export const Blog: React.FC = () => {
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
                 >
                     {BLOG_POSTS.map((post) => (
-                        <motion.div variants={fadeInUp} key={post.id} className="group relative">
+                        <m.div variants={fadeInUp} key={post.id} className="group relative">
                             {/* Glass background */}
                             <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-white/50 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 -z-10"></div>
 
@@ -102,9 +102,9 @@ export const Blog: React.FC = () => {
                                     </div>
                                 </div>
                             </Link>
-                        </motion.div>
+                        </m.div>
                     ))}
-                </motion.div>
+                </m.div>
             </div>
         </section>
         </>

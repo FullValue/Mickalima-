@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, MapPin, TrendingUp } from 'lucide-react';
 import { COMMUNES } from '../constants';
 import { SEO } from './SEO';
@@ -70,7 +70,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
           </div>
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -101,14 +101,14 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
                 Comparatif des prix au m² commune par commune. Données issues des transactions des 12 derniers mois sur le secteur frontalier franco-suisse.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ── Intro marché ── */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6 max-w-3xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -121,14 +121,14 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               <p>
                 Trois facteurs structurels expliquent ce différentiel : le pouvoir d'achat en francs suisses (40 à 60 % supérieur à la moyenne française), la rareté du foncier constructible dans un secteur contraint par les zones agricoles, et une demande locative permanente liée au renouvellement des contrats de détachement. Sur l'ensemble du Pays de Gex, les fourchettes vont de <strong className="font-semibold">{allApptMin.toLocaleString('fr-FR')} à {allApptMax.toLocaleString('fr-FR')} €/m²</strong> pour les appartements et de <strong className="font-semibold">{allMaisonMin.toLocaleString('fr-FR')} à {allMaisonMax.toLocaleString('fr-FR')} €/m²</strong> pour les maisons, avec un délai moyen de vente de <strong className="font-semibold">{avgDelai} jours</strong> sur les biens correctement estimés.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ── Tableau comparatif ── */}
         <section className="py-16 md:py-24 bg-surface border-y border-gray-100">
           <div className="container mx-auto px-6 max-w-6xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -177,7 +177,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               <p className="text-xs text-gray-400 mt-4 italic">
                 Fourchettes basées sur les transactions des 12 derniers mois — hors biens atypiques. Estimation précise au cas par cas.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -193,7 +193,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {COMMUNES.map((c, i) => (
-                <motion.div
+                <m.div
                   key={c.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -224,7 +224,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                       </p>
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>

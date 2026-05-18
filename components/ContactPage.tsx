@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, Phone, MapPin, ArrowUpRight, Star, ArrowRight, MessageSquare, Clock, Globe, ShieldCheck, ChevronDown } from 'lucide-react';
 import { SEO } from './SEO';
 import { IMAGES } from '../constants';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -16,6 +16,33 @@ const staggerContainer = {
 
 export const ContactPage: React.FC = () => {
     const [activeFaq, setActiveFaq] = React.useState<number | null>(null);
+    const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus('loading');
+
+        const formData = new FormData(e.currentTarget);
+        formData.append('access_key', '38f90cdc-9f17-48ef-bae6-f94e9b44e41f');
+        formData.append('subject', 'Contact — mickael-lima.immo');
+        formData.append('from_name', 'mickael-lima.immo');
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await response.json();
+            if (data.success) {
+                setStatus('success');
+                (e.target as HTMLFormElement).reset();
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
+    };
 
     const faqs = [
         {
@@ -77,7 +104,7 @@ export const ContactPage: React.FC = () => {
                 <div className="container mx-auto px-6 relative z-10 pt-10">
 
                     {/* Main Container - Rounded Split Layout */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -95,29 +122,29 @@ export const ContactPage: React.FC = () => {
                             {/* Background Decor */}
                             <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none z-10"></div>
 
-                            <motion.div
+                            <m.div
                                 variants={staggerContainer}
                                 initial="hidden"
                                 animate="visible"
                                 className="relative z-20"
                             >
                                 {/* Pill Badge */}
-                                <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 border border-white/20 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-12 shadow-sm">
+                                <m.div variants={fadeInUp} className="inline-flex items-center gap-3 border border-white/20 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-12 shadow-sm">
                                     <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                                     Contact
-                                </motion.div>
+                                </m.div>
 
-                                <motion.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.05] drop-shadow-xl mb-8 break-words hyphens-auto">
+                                <m.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.05] drop-shadow-xl mb-8 break-words hyphens-auto">
                                     Parlons de <br />
                                     <span className="font-newsletter italic font-normal text-white">votre projet.</span>
-                                </motion.h1>
-                                <motion.p variants={fadeInUp} className="text-xl text-white/70 leading-relaxed max-w-sm mb-16 font-light">
+                                </m.h1>
+                                <m.p variants={fadeInUp} className="text-xl text-white/70 leading-relaxed max-w-sm mb-16 font-light">
                                     Une question, une estimation, un projet de vente ? Je suis à votre écoute pour un échange confidentiel et sans engagement.
-                                </motion.p>
+                                </m.p>
 
                                 {/* Quick Contact Info embedded — 2 modes : appel direct + formulaire */}
-                                <motion.div variants={staggerContainer} className="space-y-6 mb-16">
-                                    <motion.a variants={fadeInUp} href="tel:+33769313502" className="flex items-center gap-5 group w-fit">
+                                <m.div variants={staggerContainer} className="space-y-6 mb-16">
+                                    <m.a variants={fadeInUp} href="tel:+33769313502" className="flex items-center gap-5 group w-fit">
                                         <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-lg">
                                             <Phone size={20} />
                                         </div>
@@ -125,8 +152,8 @@ export const ContactPage: React.FC = () => {
                                             <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors block">07 69 31 35 02</span>
                                             <span className="text-xs font-bold text-accent uppercase tracking-widest">Appel direct</span>
                                         </div>
-                                    </motion.a>
-                                    <motion.a variants={fadeInUp} href="mailto:contact@mickael-lima.immo" className="flex items-center gap-5 group w-fit">
+                                    </m.a>
+                                    <m.a variants={fadeInUp} href="mailto:contact@mickael-lima.immo" className="flex items-center gap-5 group w-fit">
                                         <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-lg">
                                             <Mail size={20} />
                                         </div>
@@ -134,12 +161,12 @@ export const ContactPage: React.FC = () => {
                                             <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors block">contact@mickael-lima.immo</span>
                                             <span className="text-xs font-bold text-accent uppercase tracking-widest">Réponse sous 24h</span>
                                         </div>
-                                    </motion.a>
-                                </motion.div>
-                            </motion.div>
+                                    </m.a>
+                                </m.div>
+                            </m.div>
 
                             {/* Bottom Reviews */}
-                            <motion.div
+                            <m.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.8, duration: 1 }}
@@ -162,65 +189,93 @@ export const ContactPage: React.FC = () => {
                                     </div>
                                     <p className="text-sm text-white/50 font-bold uppercase tracking-widest">25 Avis Clients</p>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         </div>
 
                         {/* Right Side (White Form) */}
                         <div className="lg:w-7/12 bg-white p-12 md:p-16 flex flex-col justify-center relative">
-                            <motion.form
+                            <m.form
+                                onSubmit={handleSubmit}
                                 variants={staggerContainer}
                                 initial="hidden"
                                 animate="visible"
                                 className="space-y-8 max-w-xl mx-auto w-full relative z-10"
                             >
+                                {/* Web3Forms hidden inputs */}
+                                <input type="hidden" name="access_key" value="38f90cdc-9f17-48ef-bae6-f94e9b44e41f" />
+                                <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
 
-                                <motion.div variants={fadeInUp} className="space-y-3">
+                                <m.div variants={fadeInUp} className="space-y-3">
                                     <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Nom complet</label>
                                     <input
                                         type="text"
+                                        name="nom"
+                                        required
                                         placeholder="ex: Jean Dupont"
                                         className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
                                     />
-                                </motion.div>
+                                </m.div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <motion.div variants={fadeInUp} className="space-y-3">
+                                    <m.div variants={fadeInUp} className="space-y-3">
                                         <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Email</label>
                                         <input
                                             type="email"
+                                            name="email"
+                                            required
                                             placeholder="jean@exemple.com"
                                             className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
                                         />
-                                    </motion.div>
-                                    <motion.div variants={fadeInUp} className="space-y-3">
+                                    </m.div>
+                                    <m.div variants={fadeInUp} className="space-y-3">
                                         <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Téléphone</label>
                                         <input
                                             type="tel"
+                                            name="telephone"
+                                            required
                                             placeholder="06 12 34 56 78"
                                             className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
                                         />
-                                    </motion.div>
+                                    </m.div>
                                 </div>
 
-                                <motion.div variants={fadeInUp} className="space-y-3">
+                                <m.div variants={fadeInUp} className="space-y-3">
                                     <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Message</label>
                                     <textarea
+                                        name="message"
+                                        required
                                         placeholder="Parlez-nous de votre projet..."
                                         className="w-full h-40 bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all resize-none placeholder:text-gray-400 shadow-sm"
                                     ></textarea>
-                                </motion.div>
+                                </m.div>
 
-                                <motion.button variants={fadeInUp} className="group w-full bg-white text-textMain border border-gray-200 rounded-full p-2 pr-8 font-bold text-xl flex items-center gap-4 hover:bg-gray-50 transition-all duration-500 shadow-sm transform hover:-translate-y-1">
+                                <m.button type="submit" disabled={status === 'loading'} variants={fadeInUp} className="group w-full bg-white text-textMain border border-gray-200 rounded-full p-2 pr-8 font-bold text-xl flex items-center gap-4 hover:bg-gray-50 transition-all duration-500 shadow-sm transform hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
                                     <div className="w-14 h-14 bg-textMain text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
                                         <ArrowUpRight size={24} />
                                     </div>
-                                    <span className="tracking-wide">Envoyer la demande</span>
-                                </motion.button>
+                                    <span className="tracking-wide">{status === 'loading' ? 'Envoi en cours…' : 'Envoyer la demande'}</span>
+                                </m.button>
 
-                            </motion.form>
+                                {status === 'success' && (
+                                    <p className="text-green-600 font-medium mt-2 text-center">
+                                        ✅ Message envoyé ! Mickaël vous recontacte sous 24h.
+                                    </p>
+                                )}
+                                {status === 'error' && (
+                                    <p className="text-red-500 font-medium mt-2 text-center">
+                                        Une erreur est survenue. Appelez directement le <a href="tel:+33769313502" className="underline">07 69 31 35 02</a>.
+                                    </p>
+                                )}
+                                {status === 'loading' && (
+                                    <p className="text-gray-400 font-medium mt-2 text-center">
+                                        Envoi en cours...
+                                    </p>
+                                )}
+
+                            </m.form>
                         </div>
 
-                    </motion.div>
+                    </m.div>
                 </div>
             </section>
 

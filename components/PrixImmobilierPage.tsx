@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -101,7 +101,7 @@ export const PrixImmobilierPage: React.FC = () => {
           </div>
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -133,14 +133,14 @@ export const PrixImmobilierPage: React.FC = () => {
               <p className="text-white/70 text-xl font-light max-w-xl leading-relaxed">
                 {commune.descriptionMarche}
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ── Tableau de prix ── */}
         <section className="py-20 bg-white border-b border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -201,14 +201,14 @@ export const PrixImmobilierPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ── Analyse marché ── */}
         <section className="py-20 bg-surface border-b border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -231,7 +231,7 @@ export const PrixImmobilierPage: React.FC = () => {
                 <p>{commune.frontalierContext}</p>
                 <p>{commune.evolutionPrix}</p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -239,7 +239,7 @@ export const PrixImmobilierPage: React.FC = () => {
         {voisines.length > 0 && (
           <section className="py-20 bg-white border-b border-gray-100">
             <div className="container mx-auto px-6 max-w-5xl">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -301,7 +301,7 @@ export const PrixImmobilierPage: React.FC = () => {
                     </tbody>
                   </table>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </section>
         )}
@@ -310,7 +310,7 @@ export const PrixImmobilierPage: React.FC = () => {
         <section id="estimation" className="py-24 bg-primary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -353,7 +353,7 @@ export const PrixImmobilierPage: React.FC = () => {
                   07 69 31 35 02
                 </a>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 

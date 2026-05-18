@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IMAGES, COMMUNES } from '../constants';
 import { SEO } from './SEO';
 import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -16,16 +16,37 @@ const staggerContainer = {
 };
 
 export const Estimation: React.FC = () => {
-    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
     // States for form fields
     const [propertyType, setPropertyType] = useState('Maison');
     const [dpe, setDpe] = useState('C');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setFormSubmitted(true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setStatus('loading');
+
+        const formData = new FormData(e.currentTarget);
+        formData.append('access_key', '38f90cdc-9f17-48ef-bae6-f94e9b44e41f');
+        formData.append('subject', 'Estimation complète — Pays de Gex');
+        formData.append('from_name', 'mickael-lima.immo');
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await response.json();
+            if (data.success) {
+                setStatus('success');
+                (e.target as HTMLFormElement).reset();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
     };
 
     return (
@@ -43,15 +64,15 @@ export const Estimation: React.FC = () => {
 
             <div className="container mx-auto px-6 relative z-10 pt-10">
                 <div className="text-center mb-16">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
                     >
                         <Sparkles size={16} /> Évaluation Confidentielle
-                    </motion.div>
-                    <motion.h1
+                    </m.div>
+                    <m.h1
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -60,13 +81,13 @@ export const Estimation: React.FC = () => {
                     >
                         Estimez la valeur de <br />
                         <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">votre patrimoine.</span>
-                    </motion.h1>
+                    </m.h1>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
                     {/* Form Side */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -76,8 +97,13 @@ export const Estimation: React.FC = () => {
                             {/* Inner subtle glow */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                            {!formSubmitted ? (
+                            {status !== 'success' ? (
                                 <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                                    {/* Web3Forms hidden inputs */}
+                                    <input type="hidden" name="access_key" value="38f90cdc-9f17-48ef-bae6-f94e9b44e41f" />
+                                    <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+                                    <input type="hidden" name="type_de_bien" value={propertyType} />
+                                    <input type="hidden" name="dpe" value={dpe} />
 
                                     <div className="space-y-2">
                                         <h2 className="text-2xl font-bold text-textMain tracking-tight">Détails du bien</h2>
@@ -107,19 +133,19 @@ export const Estimation: React.FC = () => {
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Surface (m²)</label>
                                             <div className="relative group">
                                                 <Ruler className="absolute left-4 top-[1.1rem] text-gray-400 group-hover:text-primary transition-colors" size={18} />
-                                                <input type="number" placeholder="ex: 120" className="w-full bg-surface border-2 border-transparent pl-12 p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                                <input type="number" name="surface_m2" placeholder="ex: 120" className="w-full bg-surface border-2 border-transparent pl-12 p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                             </div>
                                         </div>
                                         <div className="space-y-3">
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Nombre de pièces</label>
-                                            <input type="number" placeholder="ex: 4" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                            <input type="number" name="nombre_pieces" placeholder="ex: 4" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                         </div>
                                     </div>
 
                                     {/* Localisation */}
                                     <div className="space-y-3">
                                         <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2"><MapPin size={14} /> Localisation</label>
-                                        <input type="text" placeholder="Adresse complète" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="text" name="adresse" placeholder="Adresse complète" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                     </div>
 
                                     {/* DPE */}
@@ -150,23 +176,30 @@ export const Estimation: React.FC = () => {
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <input type="text" placeholder="Nom complet" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
-                                        <input type="email" placeholder="Email" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="text" name="nom" placeholder="Nom complet" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="email" name="email" placeholder="Email" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                     </div>
                                     <div className="pb-4">
-                                        <input type="tel" placeholder="Téléphone" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="tel" name="telephone" placeholder="Téléphone" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                     </div>
 
-                                    <button type="submit" className="group w-full bg-white text-textMain border border-gray-200 rounded-full p-2 pr-8 font-bold text-xl flex items-center gap-4 hover:bg-gray-50 transition-all duration-500 shadow-sm transform hover:-translate-y-1 mt-6">
+                                    <button type="submit" disabled={status === 'loading'} className="group w-full bg-white text-textMain border border-gray-200 rounded-full p-2 pr-8 font-bold text-xl flex items-center gap-4 hover:bg-gray-50 transition-all duration-500 shadow-sm transform hover:-translate-y-1 mt-6 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
                                         <div className="w-14 h-14 bg-textMain text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
                                             <ArrowUpRight size={24} />
                                         </div>
-                                        <span className="tracking-wide">Solliciter l'estimation</span>
+                                        <span className="tracking-wide">{status === 'loading' ? 'Envoi en cours…' : "Solliciter l'estimation"}</span>
                                     </button>
+
+                                    {status === 'loading' && (
+                                        <p className="text-gray-400 font-medium mt-2 text-center">Envoi en cours...</p>
+                                    )}
+                                    {status === 'error' && (
+                                        <p className="text-red-500 font-medium mt-2 text-center">Une erreur est survenue. Appelez directement le <a href="tel:+33769313502" className="underline">07 69 31 35 02</a>.</p>
+                                    )}
                                 </form>
                             ) : (
                                 <AnimatePresence>
-                                    <motion.div
+                                    <m.div
                                         initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         className="bg-surface p-10 rounded-3xl text-center py-24 relative z-10 border border-primary/10"
@@ -174,18 +207,18 @@ export const Estimation: React.FC = () => {
                                         <div className="inline-flex bg-white p-5 rounded-full mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)] text-primary">
                                             <CheckCircle size={56} strokeWidth={1.5} />
                                         </div>
-                                        <h4 className="text-3xl font-bold text-textMain mb-4 tracking-tight">Demande Confirmée</h4>
+                                        <h4 className="text-3xl font-bold text-textMain mb-4 tracking-tight">✅ Message envoyé !</h4>
                                         <p className="text-gray-500 text-lg font-light leading-relaxed max-w-sm mx-auto">
-                                            L'un de nos experts analyse actuellement ces informations. Nous reviendrons vers vous d'ici 24 heures en toute confidentialité.
+                                            Mickaël vous recontacte sous 24h pour finaliser votre estimation en toute confidentialité.
                                         </p>
-                                    </motion.div>
+                                    </m.div>
                                 </AnimatePresence>
                             )}
                         </div>
-                    </motion.div>
+                    </m.div>
 
                     {/* Agent / Info Side */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -239,7 +272,7 @@ export const Estimation: React.FC = () => {
                             </div>
                         </div>
 
-                    </motion.div>
+                    </m.div>
                 </div>
             </div>
         </section>

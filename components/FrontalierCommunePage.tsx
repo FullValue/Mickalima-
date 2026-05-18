@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -164,7 +164,7 @@ export const FrontalierCommunePage: React.FC = () => {
           </div>
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -196,7 +196,7 @@ export const FrontalierCommunePage: React.FC = () => {
               <p className="text-white/70 text-xl font-light max-w-2xl leading-relaxed">
                 {commune.descriptionMarche}
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -205,7 +205,7 @@ export const FrontalierCommunePage: React.FC = () => {
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -224,9 +224,9 @@ export const FrontalierCommunePage: React.FC = () => {
                 <p className="text-gray-600 font-light text-lg leading-relaxed">
                   {commune.frontalierContext}
                 </p>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -250,7 +250,7 @@ export const FrontalierCommunePage: React.FC = () => {
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-2">fourchette actuelle du marché</p>
                 </div>
-              </motion.div>
+              </m.div>
 
             </div>
           </div>
@@ -259,7 +259,7 @@ export const FrontalierCommunePage: React.FC = () => {
         {/* ── Ce que les frontaliers recherchent ── */}
         <section className="py-20 bg-surface border-b border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -278,7 +278,7 @@ export const FrontalierCommunePage: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {CRITERIA_BASE.map((c, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -293,12 +293,12 @@ export const FrontalierCommunePage: React.FC = () => {
                       <p className="font-bold text-textMain text-lg mb-2">{c.title(commune.distanceGeneve)}</p>
                       <p className="text-gray-500 font-light leading-relaxed">{c.description()}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
 
                 {/* Critère spécifique commune */}
                 {isSaintGenis && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -314,11 +314,11 @@ export const FrontalierCommunePage: React.FC = () => {
                         Saint-Genis-Pouilly jouxte directement le site principal du CERN et la zone technique de Prévessin. Les employés — physiciens, ingénieurs, techniciens, staff administratif — viennent de 100+ pays et représentent une demande locative et d'achat structurellement stable, indépendante des cycles immobiliers classiques.
                       </p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
 
                 {isFerney && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -334,17 +334,17 @@ export const FrontalierCommunePage: React.FC = () => {
                         Ferney-Voltaire est à 8 km du Palais des Nations, du siège de l'OMS, du WTO et du WIPO. Les fonctionnaires internationaux représentent une part significative des acheteurs — bénéficiant d'une immunité fiscale partielle et d'un pouvoir d'achat USD/CHF élevé. La communauté anglophone est la plus dense du Pays de Gex, avec des écoles internationales à proximité directe.
                       </p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ── Pouvoir d'achat CHF vs EUR ── */}
         <section className="py-20 bg-white border-b border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -418,7 +418,7 @@ export const FrontalierCommunePage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -426,7 +426,7 @@ export const FrontalierCommunePage: React.FC = () => {
         {isSaintGenis && (
           <section className="py-20 bg-surface border-b border-gray-100">
             <div className="container mx-auto px-6 max-w-5xl">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -470,7 +470,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </section>
         )}
@@ -479,7 +479,7 @@ export const FrontalierCommunePage: React.FC = () => {
         {isFerney && (
           <section className="py-20 bg-surface border-b border-gray-100">
             <div className="container mx-auto px-6 max-w-5xl">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -523,7 +523,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </section>
         )}
@@ -532,7 +532,7 @@ export const FrontalierCommunePage: React.FC = () => {
         <section className="py-24 bg-primary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -575,7 +575,7 @@ export const FrontalierCommunePage: React.FC = () => {
                   07 69 31 35 02
                 </a>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 

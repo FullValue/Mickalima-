@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -122,7 +122,7 @@ export const CommuneEstimationPage: React.FC = () => {
           </div>
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -154,14 +154,14 @@ export const CommuneEstimationPage: React.FC = () => {
               <p className="text-white/70 text-xl font-light max-w-xl leading-relaxed">
                 {commune.descriptionMarche}
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ── Prix m² ── */}
         <section className="py-20 bg-white border-b border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -226,7 +226,7 @@ export const CommuneEstimationPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -235,7 +235,7 @@ export const CommuneEstimationPage: React.FC = () => {
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -254,9 +254,9 @@ export const CommuneEstimationPage: React.FC = () => {
                 <p className="text-gray-600 font-light text-lg leading-relaxed">
                   {commune.frontalierContext}
                 </p>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -272,7 +272,7 @@ export const CommuneEstimationPage: React.FC = () => {
                     <p className="font-medium text-textMain">{point}</p>
                   </div>
                 ))}
-              </motion.div>
+              </m.div>
 
             </div>
           </div>
@@ -282,7 +282,7 @@ export const CommuneEstimationPage: React.FC = () => {
         <section className="py-24 bg-primary relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="container mx-auto px-6 max-w-4xl relative z-10 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -325,14 +325,14 @@ export const CommuneEstimationPage: React.FC = () => {
                   07 69 31 35 02
                 </a>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* ── FAQ ── */}
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6 max-w-3xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -377,7 +377,7 @@ export const CommuneEstimationPage: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 

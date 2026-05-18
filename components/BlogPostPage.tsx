@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { BLOG_POSTS, IMAGES } from '../constants';
 import { SEO } from './SEO';
 import { ArrowLeft, Calendar, User, Tag, ArrowUpRight, Clock, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -75,7 +75,7 @@ export const BlogPostPage: React.FC = () => {
 
         {/* Header Content */}
         <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full max-w-5xl">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -101,7 +101,7 @@ export const BlogPostPage: React.FC = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] text-white drop-shadow-md break-words hyphens-auto max-w-4xl">
               {post.title}
             </h1>
-          </motion.div>
+          </m.div>
         </div>
       </header>
 
