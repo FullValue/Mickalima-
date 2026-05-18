@@ -19,6 +19,7 @@ import { Estimation } from './components/Contact';
 import { CommuneEstimationPage } from './components/CommuneEstimationPage';
 import { PrixImmobilierPage } from './components/PrixImmobilierPage';
 import { PrixImmobilierPaysDeGex } from './components/PrixImmobilierPaysDeGex';
+import { ExpatPage } from './components/ExpatPage';
 import { FrontalierCommunePage } from './components/FrontalierCommunePage';
 import { MentionsLegales } from './components/MentionsLegales';
 import { PolitiqueConfidentialite } from './components/PolitiqueConfidentialite';
@@ -118,6 +119,12 @@ const HOMEPAGE_SCHEMA = [
   },
 ];
 
+const HOMEPAGE_ALTERNATES = [
+  { hreflang: 'fr', href: 'https://mickael-lima.immo/' },
+  { hreflang: 'en', href: 'https://mickael-lima.immo/en/real-estate-pays-de-gex/' },
+  { hreflang: 'x-default', href: 'https://mickael-lima.immo/' },
+];
+
 const HomePage: React.FC = () => (
   <>
     <SEO
@@ -125,6 +132,7 @@ const HomePage: React.FC = () => (
       description="Agent immobilier prestige dans le Pays de Gex. Estimation gratuite, diffusion sur +40 portails immobiliers, clientèle frontalière genevoise et internationale. Vendez au meilleur prix."
       canonical="/"
       schema={HOMEPAGE_SCHEMA}
+      alternates={HOMEPAGE_ALTERNATES}
     />
     <Hero />
     <Positioning />
@@ -157,6 +165,7 @@ export const AppContent: React.FC = () => (
           <Route path="/estimation" element={<Estimation />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+          <Route path="/en/real-estate-pays-de-gex" element={<ExpatPage />} />
           <Route path="/:commune/estimation-immobiliere" element={<CommuneEstimationPage />} />
           <Route path="/prix-immobilier/pays-de-gex" element={<PrixImmobilierPaysDeGex />} />
           <Route path="/prix-immobilier/:commune" element={<PrixImmobilierPage />} />

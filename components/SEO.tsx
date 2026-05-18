@@ -8,6 +8,11 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   schema?: object | object[];
+  /**
+   * Custom hreflang alternates. Si fourni, remplace les defaults fr-FR + fr-CH + x-default
+   * (utile pour les pages bilingues qui ont une vraie alternance FR ↔ EN).
+   */
+  alternates?: { hreflang: string; href: string }[];
 }
 
 const BASE_URL = 'https://mickael-lima.immo';
@@ -20,6 +25,7 @@ export const SEO: React.FC<SEOProps> = ({
   ogImage = DEFAULT_IMAGE,
   ogType = 'website',
   schema,
+  alternates,
 }) => {
   const fullTitle = title.includes('Mickaël Lima') ? title : `${title} | Mickaël Lima`;
   // Force trailing slash sur tous les canonicals pour matcher ce que sert Vercel
@@ -35,10 +41,17 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="description" content={description} />
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-      {/* Hreflang : audience frontalière franco-suisse (même URL pour fr-FR et fr-CH) */}
-      {canonicalUrl && <link rel="alternate" hrefLang="fr-FR" href={canonicalUrl} />}
-      {canonicalUrl && <link rel="alternate" hrefLang="fr-CH" href={canonicalUrl} />}
-      {canonicalUrl && <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />}
+      {/* Hreflang : custom alternates si fournis (pages bilingues FR/EN),
+          sinon défaut fr-FR + fr-CH + x-default pour l'audience frontalière franco-suisse */}
+      {alternates
+        ? alternates.map((a) => (
+            <link key={a.hreflang} rel="alternate" hrefLang={a.hreflang} href={a.href} />
+          ))
+        : canonicalUrl && [
+            <link key="fr-FR" rel="alternate" hrefLang="fr-FR" href={canonicalUrl} />,
+            <link key="fr-CH" rel="alternate" hrefLang="fr-CH" href={canonicalUrl} />,
+            <link key="x-default" rel="alternate" hrefLang="x-default" href={canonicalUrl} />,
+          ]}
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

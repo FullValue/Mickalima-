@@ -35,6 +35,7 @@ const ROUTES = [
   '/mentions-legales',
   '/politique-confidentialite',
   '/prix-immobilier/pays-de-gex',
+  '/en/real-estate-pays-de-gex',
   ...BLOG_SLUGS.map(s => `/blog/${s}`),
   ...COMMUNES.map(c => `/${c}/estimation-immobiliere`),
   ...COMMUNES.map(c => `/prix-immobilier/${c}`),
