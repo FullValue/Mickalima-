@@ -20,7 +20,7 @@ const COMMUNES = [
 const BLOG_SLUGS = [
   'prix-m2-pays-de-gex-2026',
   'immobilier-frontalier-pays-de-gex',
-  'mandat-exclusif-vs-mandat-simple',
+  'mandat-exclusif-ou-simple-pays-de-gex',
 ];
 
 const ROUTES = [

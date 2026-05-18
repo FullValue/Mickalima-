@@ -1,6 +1,18 @@
 {
   "buildCommand": "npm run build:ssg",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/blog/mandat-exclusif-vs-mandat-simple",
+      "destination": "/blog/mandat-exclusif-ou-simple-pays-de-gex/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mandat-exclusif-vs-mandat-simple/",
+      "destination": "/blog/mandat-exclusif-ou-simple-pays-de-gex/",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {
