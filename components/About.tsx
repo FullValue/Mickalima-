@@ -42,7 +42,21 @@ const ABOUT_SCHEMA = {
     'Marché frontalier franco-suisse',
     'Estimation immobilière',
   ],
+  knowsLanguage: ['fr', 'en'],
+  sameAs: [
+    'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
+    'https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z',
+  ],
 };
+
+const KEY_STATS = [
+  { value: '10 ans', label: "d'expérience" },
+  { value: '240', label: 'ventes en 5 ans' },
+  { value: '25', label: 'avis 5 étoiles Google' },
+  { value: '40+', label: 'portails de diffusion' },
+  { value: '20', label: 'communes couvertes' },
+  { value: '< 24h', label: 'délai de réponse garanti' },
+];
 
 export const About: React.FC = () => {
   return (
@@ -153,13 +167,32 @@ export const About: React.FC = () => {
               <m.div variants={fadeInUp} className="prose prose-lg text-gray-500 max-w-none font-light leading-relaxed mb-12">
                 <p className="mb-6 text-xl text-gray-600 font-medium">
                   Bonjour, <br />
-                  Je suis Mickaël LIMA DOS SANTOS, agent commercial immobilier à L’agence Immo, et c'est avec une passion profonde pour l'immobilier que je me présente à vous aujourd'hui.
+                  Je suis Mickaël Lima Dos Santos, agent commercial immobilier indépendant à L'agence Immo, basé à Divonne-les-Bains au cœur du Pays de Gex.
                 </p>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Qui je suis</h3>
                 <p className="mb-6">
-                  Fort de 7 années d'expérience dans la promotion immobilière en tant que prospecteur foncier, j'ai développé une solide expertise dans l'identification des opportunités foncières et la gestion de projets immobiliers, notamment dans le Pays de Gex, une région que je connais parfaitement.
+                  10 ans dans l'immobilier, dont 5 au sein de L'agence Immo à Divonne-les-Bains. 240 ventes réalisées dans le Pays de Gex — appartements, maisons, biens de prestige, locaux commerciaux. Agent indépendant, rémunéré uniquement à la commission : mes intérêts sont alignés avec ceux de mes clients. Bilingue français-anglais, je travaille au quotidien avec une clientèle française, suisse et internationale, en particulier les frontaliers, expatriés et collaborateurs du CERN, de l'ONU et de l'OMS. Mon ancrage local à Divonne me permet de connaître les micro-marchés commune par commune et d'estimer chaque bien au juste prix dès le premier rendez-vous.
                 </p>
-                <p>
-                  Au fil de ces années, j'ai acquis des compétences variées dans les domaines techniques, juridiques et commerciaux, me permettant d'offrir un accompagnement personnalisé et complet. Mon objectif est de vous guider à chaque étape de votre projet immobilier avec rigueur et professionnalisme.
+
+                <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Mon approche</h3>
+                <p className="mb-6">
+                  Le Pays de Gex n'est pas un marché immobilier classique. Les prix sont structurés par la demande genevoise, les acheteurs sont souvent frontaliers ou expatriés, et les délais de vente dépendent directement de la justesse de l'estimation initiale. J'ai construit ma pratique autour de trois principes : <strong>estimation au prix du marché réel</strong> — pas au prix qui flatte le vendeur, <strong>mise en valeur premium</strong> (photos pro + vidéo drone 4K incluses sur chaque mandat), et <strong>accompagnement de bout en bout</strong> jusqu'à la signature chez le notaire. Un bien correctement positionné se vend en 30 à 60 jours dans le Pays de Gex. Un bien surévalué s'enlise et finit par perdre 10 à 15% de sa valeur initiale.
+                </p>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Ce que j'inclus dans chaque mandat</h3>
+                <ul className="list-disc ml-6 space-y-2 mb-6">
+                  <li>Estimation gratuite et argumentée (données DVF + comparables récents)</li>
+                  <li>Shooting photo professionnel (pas de smartphone, pas de frais)</li>
+                  <li>Vidéo 4K drone pour les biens avec extérieur ou vue</li>
+                  <li>Diffusion sur 40+ portails : SeLoger, Leboncoin, Bien'ici, Figaro Immo, Properstar (Suisse), LuxuryEstate, et 35+ autres</li>
+                  <li>Reporting régulier : nombre de vues, retours visiteurs, ajustements de stratégie si nécessaire</li>
+                  <li>Un seul interlocuteur, de l'estimation à la remise des clés</li>
+                </ul>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Le marché que je couvre</h3>
+                <p className="mb-6">
+                  20 communes du Pays de Gex dans le département de l'Ain (01) : Ferney-Voltaire, Divonne-les-Bains, Saint-Genis-Pouilly, Gex, Prévessin-Moëns, Cessy, Ornex, Ségny, Thoiry, Crozet, Sauverny, Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges, Échenevex, Saint-Jean-de-Gonville. Marché frontalier franco-suisse — proximité Genève, CERN, ONU, OMS. Clientèle française et internationale, <em>English spoken</em>.
                 </p>
               </m.div>
 
@@ -180,6 +213,46 @@ export const About: React.FC = () => {
               </m.div>
 
             </m.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CHIFFRES CLÉS */}
+      <section className="py-20 md:py-28 bg-primary text-white relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+              <Trophy size={16} /> Chiffres Clés
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
+              10 ans, 240 ventes,<br />
+              <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">une seule région.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+            {KEY_STATS.map((stat, idx) => (
+              <m.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 md:p-8 text-center hover:bg-white/15 transition-colors"
+              >
+                <div className="text-3xl md:text-5xl font-bold tracking-tighter mb-2">{stat.value}</div>
+                <div className="text-xs md:text-sm text-white/70 font-medium uppercase tracking-widest">{stat.label}</div>
+              </m.div>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <Link to="/estimation" className="bg-white text-textMain font-bold p-2 pr-8 rounded-full hover:bg-gray-100 transition-all shadow-xl flex items-center gap-4 group">
+              <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-300">
+                <ArrowUpRight size={18} />
+              </div>
+              <span className="tracking-wide uppercase text-sm">Demander une estimation gratuite</span>
+            </Link>
           </div>
         </div>
       </section>

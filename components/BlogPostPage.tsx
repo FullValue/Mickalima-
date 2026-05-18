@@ -5,6 +5,8 @@ import { SEO } from './SEO';
 import { ArrowLeft, Calendar, User, Tag, ArrowUpRight, Clock, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { m } from 'framer-motion';
 
+const LAST_MODIFIED_DATE = '2026-05-18';
+
 export const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = BLOG_POSTS.find(p => p.slug === slug);
@@ -24,24 +26,46 @@ export const BlogPostPage: React.FC = () => {
     );
   }
 
+  // Calcul reading time : compte les mots du contenu HTML stripé (~200 wpm)
+  // Fallback caractères/1000 si content vide.
+  const plainText = (post.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const wordCount = plainText ? plainText.split(' ').length : 0;
+  const readingTime = wordCount > 0
+    ? Math.max(1, Math.ceil(wordCount / 200))
+    : Math.max(1, Math.ceil((post.content?.length || 0) / 1000));
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
+    dateModified: LAST_MODIFIED_DATE,
     author: {
       '@type': 'Person',
       name: 'Mickaël Lima Dos Santos',
-      url: 'https://mickael-lima.immo/about',
+      url: 'https://mickael-lima.immo/about/',
+      sameAs: [
+        'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
+      ],
     },
     publisher: {
       '@type': 'Organization',
       name: "Mickaël Lima — L’agence Immo",
       url: 'https://mickael-lima.immo',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://mickael-lima.immo/images/logo.png',
+      },
     },
     image: `https://mickael-lima.immo${post.image}`,
-    url: `https://mickael-lima.immo/blog/${post.slug}`,
+    url: `https://mickael-lima.immo/blog/${post.slug}/`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://mickael-lima.immo/blog/${post.slug}/`,
+    },
+    wordCount,
+    timeRequired: `PT${readingTime}M`,
   };
 
   return (
@@ -94,7 +118,7 @@ export const BlogPostPage: React.FC = () => {
                 <Calendar size={14} className="text-accent" /> {new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
               </span>
               <span className="hidden md:flex items-center gap-2 text-white/90">
-                <Clock size={14} className="text-accent" /> 5 min de lecture
+                <Clock size={14} className="text-accent" /> {readingTime} min de lecture
               </span>
             </div>
 
