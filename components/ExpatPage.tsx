@@ -143,7 +143,7 @@ export const ExpatPage: React.FC = () => {
               </span>
             </h1>
             <p className="text-white/85 text-lg md:text-xl font-light max-w-2xl leading-relaxed mb-10">
-              10 years of expertise on the French-Swiss border. Serving CERN, UN, WHO and international professionals since 2014.
+              8 years of expertise on the French-Swiss border. Serving CERN, UN, WHO and international professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -345,7 +345,7 @@ export const ExpatPage: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 size={20} className="text-primary mt-1 shrink-0" />
-                    <span><strong className="font-semibold">10 years experience</strong>, 240 sales over the last 5 years.</span>
+                    <span><strong className="font-semibold">8 years experience</strong>, 240 sales over the last 5 years.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 size={20} className="text-primary mt-1 shrink-0" />

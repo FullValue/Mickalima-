@@ -148,7 +148,7 @@ export const BlogPostPage: React.FC = () => {
                   <p className="font-bold text-textMain text-lg leading-tight">Mickaël Lima</p>
                   <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1 mb-4">Expert Immobilier</p>
                   <p className="text-gray-500 font-light text-sm leading-relaxed hidden md:block">
-                    Analyste du marché immobilier Gessien. Mes conseils sont fondés sur plus de 10 ans d'expérience locale.
+                    Analyste du marché immobilier Gessien. Mes conseils sont fondés sur 8 ans d'expérience locale.
                   </p>
                 </div>
 

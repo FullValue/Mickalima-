@@ -63,22 +63,22 @@ export const MandatSignature: React.FC = () => {
             </section>
 
             {/* SECTION 1: Valorisation Visuelle & Média */}
-            <section className="py-32 bg-white text-textMain relative">
+            <section className="py-16 md:py-32 bg-white text-textMain relative">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                     <div className="absolute top-0 right-0 w-1/2 h-full bg-surface skew-x-12 translate-x-1/4 opacity-50"></div>
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="flex flex-col md:flex-row gap-20 items-start">
-                        {/* Left Column - Sticky */}
-                        <div className="md:w-5/12 sticky top-32 h-fit">
+                    <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-start">
+                        {/* Left Column - Sticky (sticky uniquement desktop pour éviter chevauchement mobile) */}
+                        <div className="w-full md:w-5/12 md:sticky md:top-32 h-fit">
                             <m.div
                                 variants={staggerContainer}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, margin: "-10%" }}
-                                className="bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-gray-100 shadow-2xl relative overflow-hidden group"
+                                className="bg-white/80 backdrop-blur-xl p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] border border-gray-100 shadow-2xl relative overflow-hidden group"
                             >
                                 {/* Premium Gradient Border Effect */}
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-300 via-primary to-blue-300"></div>
@@ -120,14 +120,14 @@ export const MandatSignature: React.FC = () => {
                         </div>
 
                         {/* Right Column - Scrollable Content */}
-                        <div className="md:w-7/12 space-y-32 pb-32">
+                        <div className="w-full md:w-7/12 space-y-16 md:space-y-32 pb-16 md:pb-32">
                             {/* Cinematic Video Placeholder */}
                             <m.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8 }}
-                                className="bg-surface rounded-[3rem] overflow-hidden aspect-video relative group border border-gray-800 shadow-2xl"
+                                className="bg-surface rounded-[1.5rem] md:rounded-[3rem] overflow-hidden aspect-video relative group border border-gray-800 shadow-2xl"
                             >
                                 <div className="absolute inset-0 flex items-center justify-center flex-col text-gray-400 group-hover:text-white transition-colors z-20 duration-500">
                                     <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_40px_rgba(255,255,255,0.2)] cursor-pointer">
@@ -159,15 +159,15 @@ export const MandatSignature: React.FC = () => {
                                 </h3>
                                 <div className="flex flex-col gap-6">
                                     {/* Main Large Photo */}
-                                    <div className="bg-surface rounded-[2.5rem] aspect-[21/9] w-full relative border border-gray-100 shadow-2xl flex items-center justify-center group overflow-hidden cursor-pointer hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-shadow duration-700">
+                                    <div className="bg-surface rounded-[1.5rem] md:rounded-[2.5rem] aspect-[21/9] w-full relative border border-gray-100 shadow-2xl flex items-center justify-center group overflow-hidden cursor-pointer hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-shadow duration-700">
                                         <img src={IMAGES.heroBg} alt="Main View" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700"></div>
                                         <span className="text-white font-bold tracking-widest uppercase text-sm relative z-10 border border-white/30 px-8 py-3 rounded-full backdrop-blur-xl bg-black/20 group-hover:bg-white group-hover:text-primary transition-all duration-500">Agrandir la galerie</span>
                                     </div>
                                     {/* Thumbnails Row */}
-                                    <div className="grid grid-cols-3 gap-6 w-full">
+                                    <div className="grid grid-cols-3 gap-3 md:gap-6 w-full">
                                         {[IMAGES.misc1, IMAGES.misc2, IMAGES.misc3].map((img, idx) => (
-                                            <div key={idx} className="bg-surface rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
+                                            <div key={idx} className="bg-surface rounded-xl md:rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
                                                 <img src={img} alt={`Detail ${idx}`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110" />
                                                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500"></div>
                                             </div>
@@ -187,7 +187,7 @@ export const MandatSignature: React.FC = () => {
                                     <div className="p-3 bg-primary/5 rounded-xl border border-primary/10"><Share2 size={24} className="text-primary" strokeWidth={1.5} /></div>
                                     Format TikTok & Reels
                                 </m.h3>
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
                                     {[1, 2, 3].map((i) => (
                                         <m.div variants={fadeInUp} key={i} className="bg-surface rounded-3xl aspect-[9/16] relative border border-gray-100 shadow-xl flex items-center justify-center group cursor-pointer overflow-hidden hover:-translate-y-2 transition-transform duration-500">
                                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/80 opacity-60 z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
@@ -216,7 +216,7 @@ export const MandatSignature: React.FC = () => {
                                     <div className="p-3 bg-primary/5 rounded-xl border border-primary/10"><Wand2 size={24} className="text-primary" strokeWidth={1.5} /></div>
                                     Home Staging Virtuel
                                 </h3>
-                                <div className="bg-surface rounded-[2.5rem] overflow-hidden relative border border-gray-100 shadow-xl group w-full aspect-video">
+                                <div className="bg-surface rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden relative border border-gray-100 shadow-xl group w-full aspect-video">
                                     <div className="absolute inset-0 flex">
                                         <div className="w-1/2 bg-gray-200 flex items-center justify-center border-r border-white/50">
                                             <span className="text-gray-500 text-sm font-bold uppercase tracking-widest">Avant</span>
@@ -701,15 +701,15 @@ export const MandatExclusif: React.FC = () => {
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="flex flex-col md:flex-row gap-20 items-start">
-                        {/* Left Column - Sticky */}
-                        <div className="md:w-5/12 sticky top-32 h-fit">
+                    <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-start">
+                        {/* Left Column - Sticky (sticky uniquement desktop pour éviter chevauchement mobile) */}
+                        <div className="w-full md:w-5/12 md:sticky md:top-32 h-fit">
                             <m.div
                                 variants={staggerContainer}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, margin: "-10%" }}
-                                className="bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-gray-100 shadow-2xl relative overflow-hidden group"
+                                className="bg-white/80 backdrop-blur-xl p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] border border-gray-100 shadow-2xl relative overflow-hidden group"
                             >
                                 {/* Premium Gradient Border Effect */}
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-300 via-primary to-blue-300"></div>
@@ -766,14 +766,14 @@ export const MandatExclusif: React.FC = () => {
                         </div>
 
                         {/* Right Column - Scrollable Content */}
-                        <div className="md:w-7/12 space-y-32 pb-32">
+                        <div className="w-full md:w-7/12 space-y-16 md:space-y-32 pb-16 md:pb-32">
                             {/* Cinematic Video Placeholder */}
                             <m.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8 }}
-                                className="bg-surface rounded-[3rem] overflow-hidden aspect-video relative group border border-gray-800 shadow-2xl"
+                                className="bg-surface rounded-[1.5rem] md:rounded-[3rem] overflow-hidden aspect-video relative group border border-gray-800 shadow-2xl"
                             >
                                 <div className="absolute inset-0 flex items-center justify-center flex-col text-gray-400 group-hover:text-white transition-colors z-20 duration-500">
                                     <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_40px_rgba(255,255,255,0.2)] cursor-pointer">
@@ -806,7 +806,7 @@ export const MandatExclusif: React.FC = () => {
                                     <div className="p-3 bg-primary/5 rounded-xl border border-primary/10"><Share2 size={24} className="text-primary" strokeWidth={1.5} /></div>
                                     Teasers Réseaux Sociaux
                                 </m.h3>
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
                                     {[1, 2, 3].map((i) => (
                                         <m.div variants={fadeInUp} key={i} className="bg-surface rounded-3xl aspect-[9/16] relative border border-gray-100 shadow-xl flex items-center justify-center group cursor-pointer overflow-hidden hover:-translate-y-2 transition-transform duration-500">
                                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/80 opacity-60 z-10 transition-opacity duration-500 group-hover:opacity-80"></div>
@@ -837,22 +837,22 @@ export const MandatExclusif: React.FC = () => {
                                 </h3>
                                 <div className="flex flex-col gap-6">
                                     {/* Main Large Photo */}
-                                    <div className="bg-surface rounded-[2.5rem] aspect-[21/9] w-full relative border border-gray-100 shadow-2xl flex items-center justify-center group overflow-hidden cursor-pointer hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-shadow duration-700">
+                                    <div className="bg-surface rounded-[1.5rem] md:rounded-[2.5rem] aspect-[21/9] w-full relative border border-gray-100 shadow-2xl flex items-center justify-center group overflow-hidden cursor-pointer hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-shadow duration-700">
                                         <img src={IMAGES.heroBg} alt="Main View" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700"></div>
                                         <span className="text-white font-bold tracking-widest uppercase text-sm relative z-10 border border-white/30 px-8 py-3 rounded-full backdrop-blur-xl bg-black/20 group-hover:bg-white group-hover:text-primary transition-all duration-500">Vue Panoramique</span>
                                     </div>
                                     {/* Thumbnails Row */}
-                                    <div className="grid grid-cols-3 gap-6 w-full">
-                                        <div className="bg-surface rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
+                                    <div className="grid grid-cols-3 gap-3 md:gap-6 w-full">
+                                        <div className="bg-surface rounded-xl md:rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
                                             <img src={IMAGES.misc2} alt="Detail" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110" />
                                             <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500"></div>
                                         </div>
-                                        <div className="bg-surface rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
+                                        <div className="bg-surface rounded-xl md:rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
                                             <img src={IMAGES.misc3} alt="Exterior" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110" />
                                             <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500"></div>
                                         </div>
-                                        <div className="bg-surface rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
+                                        <div className="bg-surface rounded-xl md:rounded-3xl aspect-video border border-gray-100 shadow-lg flex items-center justify-center text-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden group relative hover:-translate-y-1">
                                             <img src={IMAGES.cardImage} alt="Night" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110" />
                                             <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500"></div>
                                         </div>

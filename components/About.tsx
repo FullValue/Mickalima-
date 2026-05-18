@@ -36,7 +36,7 @@ const ABOUT_SCHEMA = {
   },
   areaServed: 'Pays de Gex',
   description:
-    'Agent immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. 10 ans d’expérience, 240 ventes en 5 ans.',
+    'Agent immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. 8 ans d’expérience, 240 ventes en 5 ans.',
   knowsAbout: [
     'Immobilier Pays de Gex',
     'Marché frontalier franco-suisse',
@@ -50,7 +50,7 @@ const ABOUT_SCHEMA = {
 };
 
 const KEY_STATS = [
-  { value: '10 ans', label: "d'expérience" },
+  { value: '8 ans', label: "d'expérience" },
   { value: '240', label: 'ventes en 5 ans' },
   { value: '25', label: 'avis 5 étoiles Google' },
   { value: '40+', label: 'portails de diffusion' },
@@ -63,7 +63,7 @@ export const About: React.FC = () => {
     <>
       <SEO
         title="À Propos — Mickaël Lima | Agent Immobilier Pays de Gex"
-        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 10 ans d'expérience dans le Pays de Gex (240 ventes en 5 ans). Expert en vente prestige, prospection foncière et accompagnement personnalisé."
+        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 8 ans d'expérience dans le Pays de Gex (240 ventes en 5 ans). Expert en vente prestige, prospection foncière et accompagnement personnalisé."
         canonical="/about"
         schema={ABOUT_SCHEMA}
       />
@@ -172,7 +172,7 @@ export const About: React.FC = () => {
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Qui je suis</h3>
                 <p className="mb-6">
-                  10 ans dans l'immobilier, dont 5 au sein de L'agence Immo à Divonne-les-Bains. 240 ventes réalisées dans le Pays de Gex — appartements, maisons, biens de prestige, locaux commerciaux. Agent indépendant, rémunéré uniquement à la commission : mes intérêts sont alignés avec ceux de mes clients. Bilingue français-anglais, je travaille au quotidien avec une clientèle française, suisse et internationale, en particulier les frontaliers, expatriés et collaborateurs du CERN, de l'ONU et de l'OMS. Mon ancrage local à Divonne me permet de connaître les micro-marchés commune par commune et d'estimer chaque bien au juste prix dès le premier rendez-vous.
+                  8 ans dans l'immobilier, dont 5 au sein de L'agence Immo à Divonne-les-Bains. 240 ventes réalisées dans le Pays de Gex — appartements, maisons, biens de prestige, locaux commerciaux. Agent indépendant, rémunéré uniquement à la commission : mes intérêts sont alignés avec ceux de mes clients. Bilingue français-anglais, je travaille au quotidien avec une clientèle française, suisse et internationale, en particulier les frontaliers, expatriés et collaborateurs du CERN, de l'ONU et de l'OMS. Mon ancrage local à Divonne me permet de connaître les micro-marchés commune par commune et d'estimer chaque bien au juste prix dès le premier rendez-vous.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Mon approche</h3>
@@ -225,7 +225,7 @@ export const About: React.FC = () => {
               <Trophy size={16} /> Chiffres Clés
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
-              10 ans, 240 ventes,<br />
+              8 ans, 240 ventes,<br />
               <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">une seule région.</span>
             </h2>
           </div>

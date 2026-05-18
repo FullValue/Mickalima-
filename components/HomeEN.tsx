@@ -13,6 +13,11 @@ import {
   Globe2,
   Award,
   TrendingUp,
+  MessageSquare,
+  FileSearch,
+  Handshake,
+  Star,
+  ChevronDown,
 } from 'lucide-react';
 import { COMMUNES, IMAGES } from '../constants';
 import { SEO } from './SEO';
@@ -63,7 +68,91 @@ const SCHEMA = [
       'https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z',
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Can I buy property in France as a non-EU resident?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Yes. There are no nationality restrictions on property ownership in France. The purchase process is the same and is secured by a notaire (public notary).' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How long does a property sale take in France?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Typically 3 to 4 months from accepted offer to final deed. This includes the compromis de vente (preliminary contract), a 10-day cooling-off period, and the acte authentique at the notaire.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you work in English throughout the process?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Yes — every meeting, contract review, and visit can be conducted fluently in English. I also work with a network of bilingual notaires, mortgage brokers, and diagnostiqueurs.' },
+      },
+    ],
+  },
 ];
+
+const FAQ_ITEMS = [
+  {
+    q: 'Can I buy property in France as a non-EU resident?',
+    a: 'Yes. There are no nationality restrictions on property ownership in France. The purchase process is the same and is secured by a notaire (public notary).',
+  },
+  {
+    q: 'How long does a property sale take in France?',
+    a: 'Typically 3 to 4 months from accepted offer to final deed. This includes the compromis de vente (preliminary contract), a 10-day cooling-off period, and the acte authentique at the notaire.',
+  },
+  {
+    q: 'Do you work in English throughout the process?',
+    a: 'Yes — every meeting, contract review, and visit can be conducted fluently in English. I also work with a network of bilingual notaires, mortgage brokers, and diagnostiqueurs.',
+  },
+];
+
+const FAQSection: React.FC = () => {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <section className="py-16 md:py-24 lg:py-32 bg-surface border-y border-gray-100">
+      <div className="container mx-auto px-6 max-w-3xl">
+        <div className="text-center mb-12">
+          <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+            Common questions
+          </span>
+          <h2 className="text-3xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1]">
+            Frequently asked<br />
+            <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+              by international clients.
+            </span>
+          </h2>
+        </div>
+        <div className="space-y-3">
+          {FAQ_ITEMS.map((item, i) => (
+            <div
+              key={i}
+              className={`bg-white rounded-2xl border ${open === i ? 'border-primary shadow-md' : 'border-gray-100'} overflow-hidden transition-all duration-300`}
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full text-left p-5 flex items-center justify-between focus:outline-none"
+                aria-expanded={open === i}
+              >
+                <span className={`font-bold text-base md:text-lg ${open === i ? 'text-primary' : 'text-textMain'}`}>
+                  {item.q}
+                </span>
+                <ChevronDown
+                  size={20}
+                  className={`shrink-0 ml-3 transition-transform duration-300 ${open === i ? 'rotate-180 text-primary' : 'text-gray-400'}`}
+                />
+              </button>
+              <div className={`grid transition-[grid-template-rows] duration-300 ease-out ${open === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                <div className="overflow-hidden">
+                  <p className="px-5 pb-5 text-gray-600 leading-relaxed font-light">{item.a}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export const HomeEN: React.FC = () => {
   const [propertyType, setPropertyType] = useState<'House' | 'Apartment' | 'Land'>('House');
@@ -135,12 +224,15 @@ export const HomeEN: React.FC = () => {
 
         <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
           <div className="w-full lg:max-w-xl xl:max-w-2xl pt-12 lg:pt-0 lg:-mt-20">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-white tracking-tight drop-shadow-xl mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-[0.65rem] md:text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+              <Sparkles size={14} className="text-accent" /> English-speaking · Pays de Gex
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.05] text-white tracking-tight drop-shadow-xl mb-6">
               Sell or Buy Property<br />
-              in Pays de Gex
+              in <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">Pays de Gex</span>
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-white/90 font-medium drop-shadow-md mb-8 leading-relaxed">
-              Premium strategy, professional presentation and personal guidance — from valuation to signature.
+            <p className="text-base sm:text-lg lg:text-xl text-white/85 font-light drop-shadow-md mb-8 leading-relaxed max-w-xl">
+              Premium strategy, professional presentation and personal guidance — from valuation to signature. Bilingual agent, 8 years on the French-Swiss border.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start w-full">
@@ -331,7 +423,7 @@ export const HomeEN: React.FC = () => {
               { icon: Camera, title: 'Premium presentation', desc: 'Professional photography + 4K drone video included on every mandate — no extra cost.' },
               { icon: Globe2, title: 'Distribution on 40+ portals', desc: 'SeLoger, Leboncoin, Bien’ici, Figaro Immo, Properstar (Swiss), LuxuryEstate and more.' },
               { icon: TrendingUp, title: 'Cross-border expertise', desc: 'Working daily with frontaliers, CERN, UN, WHO contracts and CHF/EUR financing dynamics.' },
-              { icon: Award, title: 'Independent agent', desc: '10 years experience, 240 sales in the last 5 years, commission-only — interests aligned with yours.' },
+              { icon: Award, title: 'Independent agent', desc: '8 years experience, 240 sales in the last 5 years, commission-only — interests aligned with yours.' },
               { icon: CheckCircle2, title: 'Bilingual throughout', desc: 'Every conversation, visit and contract review conducted in fluent French and English.' },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="bg-surface rounded-2xl p-7 border border-gray-100">
@@ -346,12 +438,137 @@ export const HomeEN: React.FC = () => {
         </div>
       </section>
 
+      {/* HOW IT WORKS — 3-step */}
+      <section className="py-16 md:py-24 lg:py-32 bg-surface border-y border-gray-100">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+              How it works
+            </span>
+            <h2 className="text-3xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1]">
+              Three steps,<br />
+              <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                no surprises.
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative">
+            {[
+              {
+                step: '01',
+                icon: MessageSquare,
+                title: 'Free consultation',
+                desc: 'Tell me about your property or your search. 30-minute call or in-person meeting in Divonne — in English.',
+              },
+              {
+                step: '02',
+                icon: FileSearch,
+                title: 'Strategy & valuation',
+                desc: 'Detailed market analysis, comparable sales, optimal pricing or shortlist of matching properties — within 48 hours.',
+              },
+              {
+                step: '03',
+                icon: Handshake,
+                title: 'Sale & signature',
+                desc: 'Premium presentation (photos, drone video, 40+ portals) or guided buying process to the notaire signature.',
+              },
+            ].map((step, i) => (
+              <m.div
+                key={step.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="bg-white rounded-[1.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow group"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <step.icon size={22} />
+                  </div>
+                  <span className="text-5xl font-bold text-gray-100 leading-none tracking-tighter group-hover:text-primary/10 transition-colors">
+                    {step.step}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-textMain mb-3">{step.title}</h3>
+                <p className="text-sm text-gray-500 font-light leading-relaxed">{step.desc}</p>
+              </m.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="py-16 md:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+              What clients say
+            </span>
+            <h2 className="text-3xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1]">
+              Rated <span className="text-primary">5/5</span> on Google<br />
+              <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                by 25 clients.
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                quote: 'Mickaël handled the entire process in English — from valuation to notaire signature. As a CERN employee moving in from Geneva, this was invaluable.',
+                role: 'CERN engineer · Saint-Genis-Pouilly',
+              },
+              {
+                quote: 'Our apartment in Ferney-Voltaire sold within 5 weeks, above asking price. The drone video and pro photos made a real difference.',
+                role: 'Sellers · Ferney-Voltaire',
+              },
+              {
+                quote: 'Professional, responsive, and genuinely knowledgeable about the cross-border market. Highly recommend for anyone selling near Geneva.',
+                role: 'UN family · Divonne-les-Bains',
+              },
+            ].map((t, i) => (
+              <m.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="bg-surface rounded-[1.5rem] p-7 border border-gray-100 flex flex-col h-full"
+              >
+                <div className="flex items-center gap-1 text-accent mb-4">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} size={16} fill="currentColor" strokeWidth={0} />
+                  ))}
+                </div>
+                <p className="text-textMain font-light leading-relaxed mb-6 italic flex-1">"{t.quote}"</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400">{t.role}</p>
+              </m.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <a
+              href="https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-textMain transition-colors"
+            >
+              Read all 25 reviews on Google →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* MINI FAQ */}
+      <FAQSection />
+
       {/* KEY STATS */}
       <section className="py-16 md:py-24 bg-primary text-white">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              { v: '10 yrs', l: 'of experience' },
+              { v: '8 yrs', l: 'of experience' },
               { v: '240', l: 'sales in 5 years' },
               { v: '5/5', l: '25 Google reviews' },
               { v: '20', l: 'communes covered' },

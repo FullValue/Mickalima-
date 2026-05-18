@@ -43,6 +43,16 @@ export const Navbar: React.FC = () => {
         setIsMobileMandatsOpen(false);
     }, [location]);
 
+    // Lock body scroll when mobile menu is open (évite double-scroll fantôme)
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isMobileMenuOpen]);
+
     // Header class logic
     const headerClass = isHome
         ? (isScrolled ? 'bg-primary/95 backdrop-blur-sm shadow-md py-4' : 'bg-transparent py-6')
@@ -122,9 +132,8 @@ export const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Right Side - Language Switcher, CTA & Mobile Toggle */}
+                {/* Right Side - CTA, Language Switcher & Mobile Toggle */}
                 <div className="flex items-center gap-3">
-                    <LanguageSwitcher />
                     <Link
                         to="/estimation"
                         className="hidden lg:flex bg-white text-textMain pl-6 pr-2 py-2 rounded-full font-bold hover:bg-gray-100 transition-all text-sm shadow-lg items-center gap-3 group hover:-translate-y-0.5"
@@ -134,6 +143,7 @@ export const Navbar: React.FC = () => {
                             <ArrowUpRight size={16} />
                         </div>
                     </Link>
+                    <LanguageSwitcher />
 
                     {/* Mobile Toggle */}
                     <button
@@ -144,25 +154,30 @@ export const Navbar: React.FC = () => {
                     </button>
                 </div>
 
-                {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-primary/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-                    <ul className="flex flex-col items-center gap-8 text-xl md:text-2xl">
+                {/* Mobile Menu Overlay — scroll-friendly + pas de jump sur accordion */}
+                <div className={`fixed inset-0 bg-primary/95 backdrop-blur-xl z-40 flex flex-col items-center justify-start gap-6 pt-28 pb-12 px-6 overflow-y-auto transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+                    <ul className="flex flex-col items-center gap-7 text-xl md:text-2xl w-full">
                         <li className={`transition-all duration-500 delay-100 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <Link to="/" className="font-bold text-white tracking-widest uppercase hover:text-white/70 transition-colors">Accueil</Link>
                         </li>
 
-                        {/* Mobile Accordion */}
+                        {/* Mobile Accordion — transition propre (max-h + py au lieu de mt qui sautait) */}
                         <li className={`flex flex-col items-center w-full transition-all duration-500 delay-200 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <button
                                 onClick={() => setIsMobileMandatsOpen(!isMobileMandatsOpen)}
                                 className="flex items-center gap-2 font-bold text-white tracking-widest uppercase hover:text-white/70 transition-colors"
+                                aria-expanded={isMobileMandatsOpen}
                             >
                                 Services & Mandats <ChevronDown size={20} className={`transition-transform duration-300 ${isMobileMandatsOpen ? 'rotate-180' : ''}`} />
                             </button>
 
-                            <div className={`overflow-hidden transition-all duration-300 flex flex-col items-center gap-5 ${isMobileMandatsOpen ? 'max-h-40 opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
-                                <Link to="/mandat-signature" className="text-lg text-white/80 hover:text-white font-medium">Mandat Signature</Link>
-                                <Link to="/mandat-exclusif" className="text-lg text-white/80 hover:text-white font-medium">Mandat Exclusif</Link>
+                            <div className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out w-full ${isMobileMandatsOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                                <div className="overflow-hidden">
+                                    <div className="flex flex-col items-center gap-4 pt-5">
+                                        <Link to="/mandat-signature" className="text-lg text-white/80 hover:text-white font-medium">Mandat Signature</Link>
+                                        <Link to="/mandat-exclusif" className="text-lg text-white/80 hover:text-white font-medium">Mandat Exclusif</Link>
+                                    </div>
+                                </div>
                             </div>
                         </li>
 
