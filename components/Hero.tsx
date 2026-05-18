@@ -232,7 +232,7 @@ export const Hero: React.FC = () => {
                                 </div>
                                 <h3 className="text-2xl font-semibold text-white leading-tight">✅ Message envoyé&nbsp;!</h3>
                                 <p className="text-sm text-white/80 leading-relaxed">
-                                    Mickaël vous recontacte sous <strong className="font-bold text-white">24 h</strong> pour planifier la visite et finaliser l'estimation de votre {propertyType.toLowerCase()} {commune && `à ${commune}`}.
+                                    Notre équipe vous recontacte sous <strong className="font-bold text-white">24 h</strong> pour planifier la visite et finaliser l'estimation de votre {propertyType.toLowerCase()} {commune && `à ${commune}`}.
                                 </p>
                                 <button
                                     type="button"

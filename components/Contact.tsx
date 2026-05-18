@@ -219,7 +219,7 @@ export const Estimation: React.FC = () => {
                                         </div>
                                         <h4 className="text-3xl font-bold text-textMain mb-4 tracking-tight">✅ Message envoyé !</h4>
                                         <p className="text-gray-500 text-lg font-light leading-relaxed max-w-sm mx-auto">
-                                            Mickaël vous recontacte sous 24h pour finaliser votre estimation en toute confidentialité.
+                                            Notre équipe vous recontacte sous 24h pour finaliser votre estimation en toute confidentialité.
                                         </p>
                                     </m.div>
                                 </AnimatePresence>

@@ -289,7 +289,7 @@ export const ContactPage: React.FC = () => {
 
                                 {status === 'success' && (
                                     <p className="text-green-600 font-medium mt-2 text-center">
-                                        ✅ Message envoyé ! Mickaël vous recontacte sous 24h.
+                                        ✅ Message envoyé ! Notre équipe vous recontacte sous 24h.
                                     </p>
                                 )}
                                 {status === 'error' && (
