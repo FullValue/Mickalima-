@@ -328,7 +328,7 @@ export const Testimonials: React.FC = () => {
                         Sur <span className="font-bold text-textMain">25 avis Google vérifiés</span> — Pays de Gex
                     </p>
                     <a
-                        href="https://share.google/JTKp7Il2o4HfRymBD"
+                        href="https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-3 bg-primary text-white font-bold px-7 md:px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl group"

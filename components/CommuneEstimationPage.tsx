@@ -80,6 +80,13 @@ export const CommuneEstimationPage: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5.0',
+        reviewCount: '25',
+        bestRating: '5',
+        worstRating: '1',
+      },
       description: `Estimation immobilière gratuite à ${commune.name} (${commune.cp}). Expert du marché frontalier du Pays de Gex.`,
     },
   ];

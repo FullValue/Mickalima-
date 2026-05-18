@@ -94,7 +94,7 @@ const HOMEPAGE_SCHEMA = [
     paymentAccepted: 'Virement bancaire, Chèque',
     sameAs: [
       'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
-      'https://share.google/JTKp7Il2o4HfRymBD',
+      'https://www.google.com/maps/place/Micka%C3%ABl+Lima+-+L%27agence+Immo/@46.3568,6.1432,17z',
     ],
   },
   {

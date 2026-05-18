@@ -74,6 +74,13 @@ export const PrixImmobilierPage: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5.0',
+        reviewCount: '25',
+        bestRating: '5',
+        worstRating: '1',
+      },
       description: `Prix immobilier ${commune.name} en ${year} — fourchettes par type de bien, évolution du marché et contexte frontalier.`,
     },
   ];

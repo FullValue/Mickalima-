@@ -1,5 +1,7 @@
 # Mickaël Lima — Agent immobilier Pays de Gex
 
+> License: RSL-1.0
+
 > Mickaël Lima est agent commercial immobilier indépendant
 chez L'agence Immo, basé à Divonne-les-Bains (01220),
 spécialiste du marché frontalier franco-suisse.
@@ -64,3 +66,44 @@ Divonne-les-Bains, Ferney-Voltaire, Saint-Genis-Pouilly, Gex,
 Prévessin-Moëns, Cessy, Ornex, Ségny, Thoiry, Crozet, Sauverny,
 Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges,
 Échenevex, Saint-Jean-de-Gonville.
+
+## Pages programmatiques par commune (9 communes × 3 templates = 27 URLs)
+
+### Estimation immobilière par commune
+- https://mickael-lima.immo/ferney-voltaire/estimation-immobiliere/
+- https://mickael-lima.immo/saint-genis-pouilly/estimation-immobiliere/
+- https://mickael-lima.immo/divonne-les-bains/estimation-immobiliere/
+- https://mickael-lima.immo/gex/estimation-immobiliere/
+- https://mickael-lima.immo/prevessin-moens/estimation-immobiliere/
+- https://mickael-lima.immo/cessy/estimation-immobiliere/
+- https://mickael-lima.immo/ornex/estimation-immobiliere/
+- https://mickael-lima.immo/thoiry/estimation-immobiliere/
+- https://mickael-lima.immo/crozet/estimation-immobiliere/
+
+### Prix immobilier par commune (fourchettes €/m² appartements et maisons)
+- https://mickael-lima.immo/prix-immobilier/pays-de-gex/ — Hub comparatif 9 communes
+- https://mickael-lima.immo/prix-immobilier/ferney-voltaire/
+- https://mickael-lima.immo/prix-immobilier/saint-genis-pouilly/
+- https://mickael-lima.immo/prix-immobilier/divonne-les-bains/
+- https://mickael-lima.immo/prix-immobilier/gex/
+- https://mickael-lima.immo/prix-immobilier/prevessin-moens/
+- https://mickael-lima.immo/prix-immobilier/cessy/
+- https://mickael-lima.immo/prix-immobilier/ornex/
+- https://mickael-lima.immo/prix-immobilier/thoiry/
+- https://mickael-lima.immo/prix-immobilier/crozet/
+
+### Guides frontaliers par commune (FAQ : avantage achat, prix, estimation)
+- https://mickael-lima.immo/frontalier/ferney-voltaire/
+- https://mickael-lima.immo/frontalier/saint-genis-pouilly/
+- https://mickael-lima.immo/frontalier/divonne-les-bains/
+- https://mickael-lima.immo/frontalier/gex/
+- https://mickael-lima.immo/frontalier/prevessin-moens/
+- https://mickael-lima.immo/frontalier/cessy/
+- https://mickael-lima.immo/frontalier/ornex/
+- https://mickael-lima.immo/frontalier/thoiry/
+- https://mickael-lima.immo/frontalier/crozet/
+
+### Blog
+- https://mickael-lima.immo/blog/prix-m2-pays-de-gex-2026/
+- https://mickael-lima.immo/blog/immobilier-frontalier-pays-de-gex/
+- https://mickael-lima.immo/blog/mandat-exclusif-vs-mandat-simple/

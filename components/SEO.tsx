@@ -22,7 +22,12 @@ export const SEO: React.FC<SEOProps> = ({
   schema,
 }) => {
   const fullTitle = title.includes('Mickaël Lima') ? title : `${title} | Mickaël Lima`;
-  const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
+  // Force trailing slash sur tous les canonicals pour matcher ce que sert Vercel
+  // (résout le mismatch sitemap/canonical sur 40 pages identifié par l'audit)
+  const normalizedCanonical = canonical
+    ? (canonical.endsWith('/') ? canonical : canonical + '/')
+    : undefined;
+  const canonicalUrl = normalizedCanonical ? `${BASE_URL}${normalizedCanonical}` : undefined;
 
   return (
     <Helmet>

@@ -107,6 +107,13 @@ export const FrontalierCommunePage: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5.0',
+        reviewCount: '25',
+        bestRating: '5',
+        worstRating: '1',
+      },
       description: `Immobilier à ${commune.name} pour les frontaliers travaillant à Genève. Expertise marché local, clientèle CERN, ONU et organisations internationales.`,
     },
     {

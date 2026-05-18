@@ -44,6 +44,13 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       })),
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5.0',
+        reviewCount: '25',
+        bestRating: '5',
+        worstRating: '1',
+      },
       description: `Observatoire des prix immobiliers dans le Pays de Gex en ${year} — fourchettes par commune, marché frontalier franco-suisse.`,
     },
   ];
