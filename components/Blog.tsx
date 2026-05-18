@@ -15,6 +15,24 @@ const staggerContainer = {
     visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
 };
 
+const BLOG_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Blog immobilier Pays de Gex — Mickaël Lima',
+    url: 'https://mickael-lima.immo/blog/',
+    description:
+        'Conseils immobiliers, prix du marché et actualités du Pays de Gex par Mickaël Lima, agent immobilier.',
+    author: {
+        '@type': 'Person',
+        name: 'Mickaël Lima',
+    },
+    publisher: {
+        '@type': 'Person',
+        name: 'Mickaël Lima',
+        url: 'https://mickael-lima.immo',
+    },
+};
+
 export const Blog: React.FC = () => {
     return (
         <>
@@ -22,6 +40,7 @@ export const Blog: React.FC = () => {
             title="Blog Immobilier | Marché & Conseils Pays de Gex — Mickaël Lima"
             description="Analyses du marché immobilier, conseils d'investissement et actualités réglementaires pour le Pays de Gex et la zone frontalière genevoise."
             canonical="/blog"
+            schema={BLOG_SCHEMA}
         />
         <section className="py-32 bg-background min-h-screen relative overflow-hidden">
             {/* Background Decor */}

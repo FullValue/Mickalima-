@@ -14,6 +14,27 @@ const staggerContainer = {
     visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
 };
 
+const CONTACT_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact — Mickaël Lima Agent Immobilier Pays de Gex',
+    url: 'https://mickael-lima.immo/contact/',
+    mainEntity: {
+        '@type': 'RealEstateAgent',
+        name: 'Mickaël Lima — L’agence Immo',
+        telephone: '+33769313502',
+        email: 'contact@mickael-lima.immo',
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: '328 Rue des Fontanettes',
+            addressLocality: 'Divonne-les-Bains',
+            postalCode: '01220',
+            addressCountry: 'FR',
+        },
+        openingHours: 'Mo-Sa 09:00-19:00',
+    },
+};
+
 export const ContactPage: React.FC = () => {
     const [activeFaq, setActiveFaq] = React.useState<number | null>(null);
     const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -69,6 +90,7 @@ export const ContactPage: React.FC = () => {
             title="Contact | Estimation Gratuite — Mickaël Lima Pays de Gex"
             description="Contactez Mickaël Lima pour une estimation gratuite et confidentielle de votre bien dans le Pays de Gex. Réponse sous 48h, déplacement sur site inclus."
             canonical="/contact"
+            schema={CONTACT_SCHEMA}
         />
         <div className="min-h-screen bg-white">
             {/* Hero Section */}

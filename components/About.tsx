@@ -15,6 +15,35 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
 };
 
+const ABOUT_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mickaël Lima',
+  jobTitle: 'Agent commercial immobilier',
+  worksFor: {
+    '@type': 'RealEstateAgent',
+    name: 'L’agence Immo',
+    url: 'https://www.lagenceimmo01.fr',
+  },
+  url: 'https://mickael-lima.immo/about/',
+  telephone: '+33769313502',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '328 Rue des Fontanettes',
+    addressLocality: 'Divonne-les-Bains',
+    postalCode: '01220',
+    addressCountry: 'FR',
+  },
+  areaServed: 'Pays de Gex',
+  description:
+    'Agent immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. 10 ans d’expérience, 240 ventes en 5 ans.',
+  knowsAbout: [
+    'Immobilier Pays de Gex',
+    'Marché frontalier franco-suisse',
+    'Estimation immobilière',
+  ],
+};
+
 export const About: React.FC = () => {
   return (
     <>
@@ -22,6 +51,7 @@ export const About: React.FC = () => {
         title="À Propos — Mickaël Lima | Agent Immobilier Pays de Gex"
         description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 7 ans d'expérience dans le Pays de Gex. Expert en vente prestige, prospection foncière et accompagnement personnalisé."
         canonical="/about"
+        schema={ABOUT_SCHEMA}
       />
       <div className="bg-background min-h-screen flex flex-col">
 

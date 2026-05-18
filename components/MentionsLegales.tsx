@@ -1,12 +1,25 @@
 import React from 'react';
 import { SEO } from './SEO';
 
+const MENTIONS_LEGALES_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Mentions légales — Mickaël Lima',
+  url: 'https://mickael-lima.immo/mentions-legales/',
+  publisher: {
+    '@type': 'Person',
+    name: 'Mickaël Lima',
+    url: 'https://mickael-lima.immo',
+  },
+};
+
 export const MentionsLegales: React.FC = () => (
   <>
     <SEO
       title="Mentions légales — Mickaël Lima"
       description="Mentions légales de mickael-lima.immo : éditeur, hébergeur, responsable de publication, données personnelles."
       canonical="/mentions-legales"
+      schema={MENTIONS_LEGALES_SCHEMA}
     />
     <section className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-6 max-w-3xl">
