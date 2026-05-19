@@ -20,8 +20,8 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://mickael-lima.immo' },
-        { '@type': 'ListItem', position: 2, name: 'Prix immobilier Pays de Gex', item: 'https://mickael-lima.immo/prix-immobilier/pays-de-gex' },
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://mickael-lima.immo/' },
+        { '@type': 'ListItem', position: 2, name: 'Prix immobilier Pays de Gex', item: 'https://mickael-lima.immo/prix-immobilier/pays-de-gex/' },
       ],
     },
     {

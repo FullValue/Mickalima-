@@ -165,10 +165,10 @@ export const ContactPage: React.FC = () => {
                                     Contact
                                 </m.div>
 
-                                <m.h1 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.05] drop-shadow-xl mb-8 break-words hyphens-auto">
+                                <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.05] drop-shadow-xl mb-8 break-words hyphens-auto">
                                     Parlons de <br />
                                     <span className="font-newsletter italic font-normal text-white">votre projet.</span>
-                                </m.h1>
+                                </m.h2>
                                 <m.p variants={fadeInUp} className="text-xl text-white/70 leading-relaxed max-w-sm mb-16 font-light">
                                     Une question, une estimation, un projet de vente ? Je suis à votre écoute pour un échange confidentiel et sans engagement.
                                 </m.p>

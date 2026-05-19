@@ -15,6 +15,73 @@ const staggerContainer = {
     visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
 };
 
+const MANDAT_PROVIDER = {
+    '@type': 'RealEstateAgent',
+    name: 'Mickaël Lima — L’agence Immo',
+    url: 'https://mickael-lima.immo',
+    telephone: '+33769313502',
+    email: 'contact@mickael-lima.immo',
+    sameAs: [
+        'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
+        'https://share.google/fvsAyaT6pI2059MZF',
+    ],
+    address: {
+        '@type': 'PostalAddress',
+        streetAddress: '328 Rue des Fontanettes',
+        addressLocality: 'Divonne-les-Bains',
+        postalCode: '01220',
+        addressRegion: 'Ain',
+        addressCountry: 'FR',
+    },
+};
+
+const MANDAT_AREA = {
+    '@type': 'AdministrativeArea',
+    name: 'Pays de Gex',
+};
+
+const MANDAT_SIGNATURE_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Mandat Signature — Vente immobilière Pays de Gex',
+    serviceType: 'Real estate sale mandate',
+    provider: MANDAT_PROVIDER,
+    areaServed: MANDAT_AREA,
+    description:
+        'Mandat de vente performant : photos HD, vidéo drone 4K, diffusion sur 40+ portails immobiliers, visites qualifiées, reporting hebdomadaire. Inclus sans frais supplémentaires pour le vendeur.',
+    url: 'https://mickael-lima.immo/mandat-signature/',
+    offers: {
+        '@type': 'Offer',
+        priceCurrency: 'EUR',
+        priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'EUR',
+            description: 'Commission sur vente effective uniquement, conformément au mandat signé.',
+        },
+    },
+};
+
+const MANDAT_EXCLUSIF_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Mandat Exclusif — Vente prestige Pays de Gex',
+    serviceType: 'Premium real estate exclusive mandate',
+    provider: MANDAT_PROVIDER,
+    areaServed: MANDAT_AREA,
+    description:
+        'Mandat exclusif pour biens d’exception : production cinématographique, home staging, événements privés, diffusion internationale (Properstar, LuxuryEstate). Stratégie premium pour propriétés résidentielles haut de gamme.',
+    url: 'https://mickael-lima.immo/mandat-exclusif/',
+    offers: {
+        '@type': 'Offer',
+        priceCurrency: 'EUR',
+        priceSpecification: {
+            '@type': 'PriceSpecification',
+            priceCurrency: 'EUR',
+            description: 'Commission sur vente effective uniquement, conformément au mandat signé.',
+        },
+    },
+};
+
 export const MandatSignature: React.FC = () => {
     return (
         <>
@@ -22,6 +89,7 @@ export const MandatSignature: React.FC = () => {
             title="Mandat Signature | Vendez Mieux — Mickaël Lima Pays de Gex"
             description="Le Mandat Signature : photos HD, vidéo drone 4K, diffusion sur +40 portails immobiliers, visites qualifiées et zéro visite inutile. Vendez votre bien dans le Pays de Gex au meilleur prix."
             canonical="/mandat-signature"
+            schema={MANDAT_SIGNATURE_SCHEMA}
         />
         <div className="bg-background min-h-screen flex flex-col">
             {/* PROFESSIONAL HERO SECTION */}
@@ -648,6 +716,7 @@ export const MandatExclusif: React.FC = () => {
             title="Mandat Exclusif | L'Excellence Immobilière — Mickaël Lima"
             description="Le Mandat Exclusif : production cinématographique, home staging, événements privés, diffusion internationale. Pour les biens d'exception dans le Pays de Gex qui méritent le meilleur."
             canonical="/mandat-exclusif"
+            schema={MANDAT_EXCLUSIF_SCHEMA}
         />
         <div className="bg-background min-h-screen flex flex-col">
             {/* PROFESSIONAL HERO SECTION */}
