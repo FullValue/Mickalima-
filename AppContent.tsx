@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { LazyMotion } from 'framer-motion';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import { SEO } from './components/SEO';
 
-// Charge les features d'animation Framer Motion en chunk séparé asynchrone
-// (réduit le JS initial parsé/exécuté → améliore INP)
-const loadMotionFeatures = () => import('framer-motion').then(res => res.domAnimation);
+// domAnimation importé en sync : le loader async cassait le SSG
+// (LazyMotion suspendait le rendu, fallback HomePage sur toutes les routes).
+// Trade-off : +~25KB dans le bundle initial vs SSG fonctionnel.
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Method } from './components/Facilities';
@@ -140,7 +140,7 @@ const HomePage: React.FC = () => (
 );
 
 export const AppContent: React.FC = () => (
-  <LazyMotion features={loadMotionFeatures}>
+  <LazyMotion features={domAnimation}>
     <ScrollToTop />
     <div className="font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
