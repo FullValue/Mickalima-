@@ -42,7 +42,6 @@ const ABOUT_SCHEMA = {
     'Marché frontalier franco-suisse',
     'Estimation immobilière',
   ],
-  knowsLanguage: ['fr', 'en'],
   sameAs: [
     'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
     'https://share.google/fvsAyaT6pI2059MZF',
@@ -192,7 +191,7 @@ export const About: React.FC = () => {
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Le marché que je couvre</h3>
                 <p className="mb-6">
-                  20 communes du Pays de Gex dans le département de l'Ain (01) : Ferney-Voltaire, Divonne-les-Bains, Saint-Genis-Pouilly, Gex, Prévessin-Moëns, Cessy, Ornex, Ségny, Thoiry, Crozet, Sauverny, Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges, Échenevex, Saint-Jean-de-Gonville. Marché frontalier franco-suisse — proximité Genève, CERN, ONU, OMS. Clientèle française et internationale, <em>English spoken</em>.
+                  20 communes du Pays de Gex dans le département de l'Ain (01) : Ferney-Voltaire, Divonne-les-Bains, Saint-Genis-Pouilly, Gex, Prévessin-Moëns, Cessy, Ornex, Ségny, Thoiry, Crozet, Sauverny, Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges, Échenevex, Saint-Jean-de-Gonville. Marché frontalier franco-suisse — proximité Genève, CERN, ONU, OMS. Clientèle française et internationale.
                 </p>
               </m.div>
 

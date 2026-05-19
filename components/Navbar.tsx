@@ -1,26 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IMAGES } from '../constants';
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { routeMap } from '../i18n/routes';
-
-const LanguageSwitcher: React.FC = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const isEnglish = location.pathname.startsWith('/en/');
-    const target = routeMap[location.pathname] ?? (isEnglish ? '/' : '/en/');
-
-    return (
-        <button
-            onClick={() => navigate(target)}
-            className="text-xl cursor-pointer opacity-70 hover:opacity-100 transition-opacity leading-none"
-            aria-label={isEnglish ? 'Passer en français' : 'Switch to English'}
-            title={isEnglish ? 'Français' : 'English'}
-        >
-            {isEnglish ? '🇫🇷' : '🇬🇧'}
-        </button>
-    );
-};
+import { Link, useLocation } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -132,8 +113,8 @@ export const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Right Side - CTA, Language Switcher & Mobile Toggle */}
-                <div className="flex items-center gap-3">
+                {/* Right Side - CTA & Mobile Toggle */}
+                <div className="flex items-center gap-4">
                     <Link
                         to="/estimation"
                         className="hidden lg:flex bg-white text-textMain pl-6 pr-2 py-2 rounded-full font-bold hover:bg-gray-100 transition-all text-sm shadow-lg items-center gap-3 group hover:-translate-y-0.5"
@@ -143,7 +124,6 @@ export const Navbar: React.FC = () => {
                             <ArrowUpRight size={16} />
                         </div>
                     </Link>
-                    <LanguageSwitcher />
 
                     {/* Mobile Toggle */}
                     <button
