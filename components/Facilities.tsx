@@ -127,6 +127,7 @@ export const Method: React.FC = () => {
             href="https://www.youtube.com/watch?v=JMyl8K2voHU"
             target="_blank"
             rel="noreferrer"
+            aria-label="Regarder la vidéo de présentation sur YouTube"
             className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-white/50 bg-white/10 backdrop-blur-md flex items-center justify-center hover:scale-110 hover:bg-primary hover:border-primary transition-all duration-500 shadow-2xl group-hover:shadow-primary/50"
           >
             <div className="w-0 h-0 border-t-[12px] md:border-t-[16px] border-t-transparent border-l-[20px] md:border-l-[28px] border-l-white border-b-[12px] md:border-b-[16px] border-b-transparent ml-2"></div>

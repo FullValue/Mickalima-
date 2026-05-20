@@ -97,7 +97,11 @@ export const Footer: React.FC = () => {
                                         placeholder="Votre adresse email"
                                         className="w-full h-16 pl-8 pr-16 rounded-full bg-white text-black font-medium focus:outline-none focus:ring-4 focus:ring-white/20 transition-all placeholder:text-gray-500"
                                     />
-                                    <button className="absolute right-2 top-2 h-12 w-12 bg-[#1a1a1a] rounded-full flex items-center justify-center text-white hover:bg-primary transition-all duration-300 group-hover/input:rotate-45">
+                                    <button
+                                        type="submit"
+                                        aria-label="S'inscrire à la newsletter"
+                                        className="absolute right-2 top-2 h-12 w-12 bg-[#1a1a1a] rounded-full flex items-center justify-center text-white hover:bg-primary transition-all duration-300 group-hover/input:rotate-45"
+                                    >
                                         <ArrowUpRight size={20} />
                                     </button>
                                 </div>
@@ -118,7 +122,7 @@ export const Footer: React.FC = () => {
 
                             {/* Navigation */}
                             <div>
-                                <h4 className="text-lg font-bold mb-8 text-white">Navigation</h4>
+                                <p className="text-lg font-bold mb-8 text-white">Navigation</p>
                                 <ul className="space-y-4 text-gray-300 font-medium">
                                     <li><Link to="/" className="hover:text-white transition-colors">Accueil</Link></li>
                                     <li><Link to="/mandat-signature" className="hover:text-white transition-colors">Nos Mandats</Link></li>
@@ -129,7 +133,7 @@ export const Footer: React.FC = () => {
 
                             {/* Projet */}
                             <div>
-                                <h4 className="text-lg font-bold mb-8 text-white">Projet</h4>
+                                <p className="text-lg font-bold mb-8 text-white">Projet</p>
                                 <ul className="space-y-4 text-gray-300 font-medium">
                                     <li><Link to="/estimation" className="hover:text-white transition-colors">Estimer mon bien</Link></li>
                                     <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
@@ -139,7 +143,7 @@ export const Footer: React.FC = () => {
 
                             {/* Légal */}
                             <div>
-                                <h4 className="text-lg font-bold mb-8 text-white">Légal</h4>
+                                <p className="text-lg font-bold mb-8 text-white">Légal</p>
                                 <ul className="space-y-4 text-gray-300 font-medium">
                                     <li><Link to="/politique-confidentialite" className="hover:text-white transition-colors">Politique de confidentialité</Link></li>
                                     <li><Link to="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link></li>
@@ -152,12 +156,13 @@ export const Footer: React.FC = () => {
 
                                     {/* Estimation par commune */}
                                     <div>
-                                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Estimation par commune</h4>
+                                        <p className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Estimation par commune</p>
                                         <div className="flex flex-wrap gap-2">
                                             {COMMUNES.map((c) => (
                                                 <Link
                                                     key={c.slug}
                                                     to={`/${c.slug}/estimation-immobiliere`}
+                                                    aria-label={`Estimation immobilière ${c.name}`}
                                                     className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
                                                 >
                                                     {c.name}
@@ -168,12 +173,13 @@ export const Footer: React.FC = () => {
 
                                     {/* Prix immobilier */}
                                     <div>
-                                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Prix immobilier</h4>
+                                        <p className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Prix immobilier</p>
                                         <div className="flex flex-wrap gap-2">
                                             {COMMUNES.map((c) => (
                                                 <Link
                                                     key={c.slug}
                                                     to={`/prix-immobilier/${c.slug}`}
+                                                    aria-label={`Prix immobilier ${c.name}`}
                                                     className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
                                                 >
                                                     {c.name}
@@ -184,12 +190,13 @@ export const Footer: React.FC = () => {
 
                                     {/* Marché frontalier */}
                                     <div>
-                                        <h4 className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Marché frontalier</h4>
+                                        <p className="text-sm font-bold mb-4 text-white uppercase tracking-widest">Marché frontalier</p>
                                         <div className="flex flex-wrap gap-2">
                                             {COMMUNES.map((c) => (
                                                 <Link
                                                     key={c.slug}
                                                     to={`/frontalier/${c.slug}`}
+                                                    aria-label={`Immobilier frontalier ${c.name}`}
                                                     className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
                                                 >
                                                     {c.name}
@@ -231,11 +238,11 @@ export const Footer: React.FC = () => {
                         </a>
                     </div>
 
-                    {/* NAP — Name Address Phone */}
-                    <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-white/50">
-                        <span className="font-semibold text-white/70">Mickaël Lima — L’agence Immo</span>
+                    {/* NAP — Name Address Phone (contrastes WCAG AA conformes) */}
+                    <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-white/85">
+                        <span className="font-semibold text-white">Mickaël Lima — L’agence Immo</span>
                         <span>Pays de Gex (01) — Intervention sur tout le secteur</span>
-                        <a href="tel:+33769313502" className="hover:text-white transition-colors">07 69 31 35 02</a>
+                        <a href="tel:+33769313502" className="text-white hover:text-accent transition-colors font-medium">07 69 31 35 02</a>
                     </div>
                 </div>
             </div>

@@ -148,10 +148,11 @@ export const Hero: React.FC = () => {
 
                                 {/* Commune */}
                                 <div>
-                                    <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                                    <label htmlFor="hero-commune" className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                                         <MapPin size={12} /> Commune
                                     </label>
                                     <select
+                                        id="hero-commune"
                                         required
                                         name="commune"
                                         value={commune}
@@ -170,11 +171,12 @@ export const Hero: React.FC = () => {
                                 {/* Surface + Contact côte-à-côte */}
                                 <div className="grid grid-cols-5 gap-3">
                                     <div className="col-span-2">
-                                        <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                                        <label htmlFor="hero-surface" className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2 flex items-center gap-1.5">
                                             <Ruler size={12} /> Surface
                                         </label>
                                         <div className="relative">
                                             <input
+                                                id="hero-surface"
                                                 type="number"
                                                 required
                                                 min="1"
@@ -188,10 +190,11 @@ export const Hero: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="col-span-3">
-                                        <label className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2">
+                                        <label htmlFor="hero-contact" className="block text-[0.65rem] font-bold text-white/60 uppercase tracking-widest mb-2">
                                             Contact
                                         </label>
                                         <input
+                                            id="hero-contact"
                                             type="text"
                                             required
                                             name="contact_tel_ou_email"

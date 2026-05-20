@@ -691,15 +691,21 @@ export const ZonesDIntervention: React.FC = () => {
                         })}
                     </m.div>
 
-                    {/* Dots centrés */}
-                    <div className="flex items-center justify-center gap-2 mt-8">
+                    {/* Dots centrés — zone tactile 44px WCAG, dot visible inchangé */}
+                    <div className="flex items-center justify-center mt-8">
                         {COMMUNES.map((_, i) => (
                             <button
                                 key={i}
                                 onClick={() => setCurrent(i)}
-                                aria-label={`Voir commune ${i + 1}`}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-primary' : 'w-1.5 bg-gray-300 hover:bg-gray-400'}`}
-                            />
+                                aria-label={`Voir la commune ${COMMUNES[i].name}`}
+                                aria-current={i === current ? 'true' : undefined}
+                                className="h-11 w-11 flex items-center justify-center group"
+                            >
+                                <span
+                                    aria-hidden="true"
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-primary' : 'w-1.5 bg-gray-300 group-hover:bg-gray-400'}`}
+                                />
+                            </button>
                         ))}
                     </div>
                 </div>
