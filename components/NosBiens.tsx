@@ -4,13 +4,15 @@ import { T, NB_PROPERTIES, ListingCard, RevalisFooter } from './nosBiensShared';
 
 /**
  * Index des biens — réplique de la page /listings du template Framer Revalis :
- * hero (badge « nos propriétés », grand titre, sous-titre), barre de filtres
- * (statut + type + ville + budget), grille de cartes, bouton « Charger plus »,
- * footer Revalis. Textes FR, polices du site (Playfair Display + Montserrat).
- * Chaque carte mène à sa page détail /nos-biens/:slug.
+ * - hero image sombre pleine largeur (badge « nos propriétés », ligne, grand
+ *   titre blanc, sous-titre)
+ * - sidebar sticky à gauche : Statut (select) + cases à cocher Type / Ville /
+ *   Budget, filtrage multi-critères fonctionnel
+ * - grille de cartes 2 colonnes, bouton « Charger plus », footer Revalis
+ * Textes FR, polices du site (Playfair Display + Montserrat).
  */
 
-const STATUSES = ['Tous', 'À vendre', 'À louer'] as const;
+const HERO_IMAGE = 'https://framerusercontent.com/images/tmhpllg4ojGt6jGr62njvEeBYg8.webp';
 
 const TYPES = ['Appartement', 'Villa', 'Condo', 'Penthouse'];
 const CITIES = ['Rochester', 'Albany', 'Buffalo', 'New York'];
@@ -23,29 +25,67 @@ const RANGES: Array<{ label: string; min: number; max: number }> = [
 
 const PAGE_SIZE = 6;
 
-const selectStyle: React.CSSProperties = {
-  fontFamily: T.body, fontSize: 14, color: T.dark, background: '#fff',
-  border: `1px solid ${T.border}`, borderRadius: 8, padding: '12px 16px',
-  outline: 'none', cursor: 'pointer', minWidth: 170,
+const groupLabel: React.CSSProperties = {
+  fontFamily: T.body, fontSize: 13, fontWeight: 600, textTransform: 'uppercase',
+  letterSpacing: 1.5, color: T.dark, marginBottom: 14,
 };
 
+/* Case à cocher stylée comme le template */
+const Checkbox: React.FC<{ label: string; checked: boolean; onChange: () => void }> = ({ label, checked, onChange }) => (
+  <label
+    style={{
+      display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer',
+      fontFamily: T.body, fontSize: 16, color: T.dark,
+    }}
+  >
+    <input
+      type="checkbox"
+      checked={checked}
+      onChange={onChange}
+      style={{ position: 'absolute', opacity: 0, width: 0, height: 0 }}
+    />
+    <span
+      aria-hidden="true"
+      style={{
+        width: 20, height: 20, borderRadius: 5, flexShrink: 0,
+        border: `1.5px solid ${checked ? T.dark : '#d5d5d5'}`,
+        background: checked ? T.dark : '#fff',
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        transition: 'all .15s ease',
+      }}
+    >
+      {checked && (
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true">
+          <path d="M1 4.5L4 7.5L10 1" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )}
+    </span>
+    {label}
+  </label>
+);
+
+const toggle = (list: string[], value: string) =>
+  list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
+
 export const NosBiens: React.FC = () => {
-  const [status, setStatus] = useState<(typeof STATUSES)[number]>('Tous');
-  const [type, setType] = useState('Tous');
-  const [city, setCity] = useState('Toutes');
-  const [range, setRange] = useState('Tous');
+  const [status, setStatus] = useState('Tous');
+  const [types, setTypes] = useState<string[]>([]);
+  const [cities, setCities] = useState<string[]>([]);
+  const [ranges, setRanges] = useState<string[]>([]);
   const [visible, setVisible] = useState(PAGE_SIZE);
 
+  const reset = () => setVisible(PAGE_SIZE);
+
   const filtered = useMemo(() => {
-    const r = RANGES.find((x) => x.label === range);
+    const activeRanges = RANGES.filter((r) => ranges.includes(r.label));
     return NB_PROPERTIES.filter((p) => {
       if (status === 'À louer') return false; // démo : tout est à la vente
-      if (type !== 'Tous' && p.type !== type) return false;
-      if (city !== 'Toutes' && p.city !== city) return false;
-      if (r && !(p.priceValue >= r.min && p.priceValue < r.max)) return false;
+      if (types.length && !types.includes(p.type)) return false;
+      if (cities.length && !cities.includes(p.city)) return false;
+      if (activeRanges.length && !activeRanges.some((r) => p.priceValue >= r.min && p.priceValue < r.max)) return false;
       return true;
     });
-  }, [status, type, city, range]);
+  }, [status, types, cities, ranges]);
 
   const shown = filtered.slice(0, visible);
 
@@ -57,141 +97,151 @@ export const NosBiens: React.FC = () => {
         canonical="/nos-biens"
       />
 
-      <div style={{ background: T.bg, fontFamily: T.body, color: T.dark, paddingTop: 96 }}>
-        {/* ===== Hero ===== */}
-        <section style={{ maxWidth: 1300, margin: '0 auto', padding: '64px 30px 48px', textAlign: 'center' }}>
-          <span
+      <div style={{ background: T.bg, fontFamily: T.body, color: T.dark }}>
+        {/* ===== Hero image sombre pleine largeur ===== */}
+        <section
+          style={{
+            position: 'relative', minHeight: 580, display: 'flex', alignItems: 'center',
+            overflow: 'hidden', backgroundColor: T.navy,
+          }}
+        >
+          <img
+            src={HERO_IMAGE}
+            alt=""
+            aria-hidden="true"
+            width="1920"
+            height="1080"
+            loading="eager"
+            decoding="async"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          <div
+            aria-hidden="true"
             style={{
-              display: 'inline-block', fontSize: 13, fontWeight: 600, textTransform: 'uppercase',
-              letterSpacing: 2, color: T.muted, border: `1px solid ${T.border}`, background: '#fff',
-              borderRadius: 50, padding: '9px 18px', marginBottom: 26,
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(90deg, rgba(1,17,38,0.92) 0%, rgba(1,17,38,0.55) 40%, rgba(1,17,38,0.15) 75%, rgba(1,17,38,0.05) 100%)',
             }}
-          >
-            Nos propriétés
-          </span>
-          <h1
-            style={{
-              fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(44px, 6.4vw, 84px)',
-              lineHeight: '1.05em', color: T.dark, marginBottom: 22,
-            }}
-          >
-            Notre sélection <em style={{ fontStyle: 'italic' }}>de biens.</em>
-          </h1>
-          <p style={{ fontSize: 17, lineHeight: '1.65em', color: T.muted, maxWidth: 560, margin: '0 auto' }}>
-            Découvrez une sélection de biens dans les quartiers les plus recherchés,
-            portée par une expertise locale.
-          </p>
+          />
+          <div style={{ position: 'relative', width: '100%', maxWidth: 1300, margin: '0 auto', padding: '150px 30px 70px', color: '#fff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 28, marginBottom: 34 }}>
+              <span style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2.5, whiteSpace: 'nowrap' }}>
+                Nos propriétés
+              </span>
+              <span aria-hidden="true" style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.25)' }} />
+            </div>
+            <h1
+              style={{
+                fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(46px, 6.4vw, 92px)',
+                lineHeight: '1.04em', marginBottom: 24,
+              }}
+            >
+              Notre sélection de biens
+            </h1>
+            <p style={{ fontSize: 18, lineHeight: '1.6em', color: 'rgba(255,255,255,0.92)', maxWidth: 480 }}>
+              Découvrez une sélection de biens dans les quartiers les plus recherchés,
+              portée par une expertise locale.
+            </p>
+          </div>
         </section>
 
-        {/* ===== Filtres ===== */}
-        <section style={{ maxWidth: 1300, margin: '0 auto', padding: '0 30px 40px' }}>
-          <div
-            style={{
-              display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between',
-              gap: 20, background: '#fff', border: `1px solid ${T.border}`, borderRadius: 10, padding: 18,
-            }}
-          >
-            {/* Statut */}
+        {/* ===== Sidebar filtres + grille ===== */}
+        <section style={{ maxWidth: 1300, margin: '0 auto', padding: '70px 30px 30px' }}>
+          <div className="nb-listing-layout" style={{ display: 'grid', gridTemplateColumns: '350px 1fr', gap: 28, alignItems: 'start' }}>
+            {/* --- Sidebar (sticky) --- */}
+            <aside className="nb-sidebar" style={{ position: 'sticky', top: 100, background: '#fff', borderRadius: 10, padding: 26 }}>
+              <div style={{ marginBottom: 32 }}>
+                <p style={groupLabel}>Statut</p>
+                <select
+                  value={status}
+                  onChange={(e) => { setStatus(e.target.value); reset(); }}
+                  aria-label="Filtrer par statut"
+                  style={{
+                    fontFamily: T.body, fontSize: 15, color: T.dark, background: T.chipBg,
+                    border: `1px solid ${T.border}`, borderRadius: 8, padding: '13px 16px',
+                    outline: 'none', cursor: 'pointer', width: '100%',
+                  }}
+                >
+                  {['Tous', 'À vendre', 'À louer'].map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div style={{ marginBottom: 32 }}>
+                <p style={groupLabel}>Par type</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  {TYPES.map((t) => (
+                    <Checkbox key={t} label={t} checked={types.includes(t)} onChange={() => { setTypes(toggle(types, t)); reset(); }} />
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ marginBottom: 32 }}>
+                <p style={groupLabel}>Par ville</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  {CITIES.map((c) => (
+                    <Checkbox key={c} label={c} checked={cities.includes(c)} onChange={() => { setCities(toggle(cities, c)); reset(); }} />
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p style={groupLabel}>Budget</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  {RANGES.map((r) => (
+                    <Checkbox key={r.label} label={r.label} checked={ranges.includes(r.label)} onChange={() => { setRanges(toggle(ranges, r.label)); reset(); }} />
+                  ))}
+                </div>
+              </div>
+            </aside>
+
+            {/* --- Grille des biens (2 colonnes) --- */}
             <div>
-              <p style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5, color: T.muted, marginBottom: 10 }}>
-                Statut
-              </p>
-              <div style={{ display: 'inline-flex', background: T.chipBg, borderRadius: 8, padding: 4 }} role="group" aria-label="Filtrer par statut">
-                {STATUSES.map((s) => (
+              {shown.length > 0 ? (
+                <div className="nb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+                  {shown.map((p) => (
+                    <ListingCard key={p.slug} property={p} fluid />
+                  ))}
+                </div>
+              ) : (
+                <div style={{ background: '#fff', borderRadius: 10, padding: '64px 24px', textAlign: 'center' }}>
+                  <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 26, marginBottom: 10 }}>
+                    Aucun bien ne correspond à ces critères
+                  </h3>
+                  <p style={{ fontSize: 15, color: T.muted }}>
+                    Élargissez vos filtres ou contactez-nous : une partie de nos biens n'est jamais publiée.
+                  </p>
+                </div>
+              )}
+
+              {visible < filtered.length && (
+                <div style={{ textAlign: 'center', marginTop: 44 }}>
                   <button
-                    key={s}
                     type="button"
-                    onClick={() => { setStatus(s); setVisible(PAGE_SIZE); }}
-                    aria-pressed={status === s}
+                    onClick={() => setVisible((v) => v + PAGE_SIZE)}
                     style={{
-                      fontFamily: T.body, fontSize: 14, fontWeight: 500, cursor: 'pointer',
-                      border: 'none', borderRadius: 6, padding: '9px 18px',
-                      background: status === s ? '#fff' : 'transparent',
-                      color: status === s ? T.dark : T.muted,
-                      boxShadow: status === s ? '0 1px 4px rgba(0,0,0,0.08)' : 'none',
+                      fontFamily: T.body, fontSize: 15, fontWeight: 500, color: T.dark, background: '#fff',
+                      border: 'none', borderRadius: 8, padding: '15px 34px', cursor: 'pointer',
+                      boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
                     }}
                   >
-                    {s}
+                    Charger plus
                   </button>
-                ))}
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-              <div>
-                <label htmlFor="nb-f-type" style={{ display: 'block', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5, color: T.muted, marginBottom: 10 }}>
-                  Par type
-                </label>
-                <select id="nb-f-type" value={type} onChange={(e) => { setType(e.target.value); setVisible(PAGE_SIZE); }} style={selectStyle}>
-                  <option value="Tous">Tous les types</option>
-                  {TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="nb-f-city" style={{ display: 'block', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5, color: T.muted, marginBottom: 10 }}>
-                  Par ville
-                </label>
-                <select id="nb-f-city" value={city} onChange={(e) => { setCity(e.target.value); setVisible(PAGE_SIZE); }} style={selectStyle}>
-                  <option value="Toutes">Toutes les villes</option>
-                  {CITIES.map((c) => <option key={c} value={c}>{c}</option>)}
-                </select>
-              </div>
-              <div>
-                <label htmlFor="nb-f-range" style={{ display: 'block', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5, color: T.muted, marginBottom: 10 }}>
-                  Budget
-                </label>
-                <select id="nb-f-range" value={range} onChange={(e) => { setRange(e.target.value); setVisible(PAGE_SIZE); }} style={selectStyle}>
-                  <option value="Tous">Tous les budgets</option>
-                  {RANGES.map((r) => <option key={r.label} value={r.label}>{r.label}</option>)}
-                </select>
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
 
-        {/* ===== Grille des biens ===== */}
-        <section style={{ maxWidth: 1300, margin: '0 auto', padding: '0 30px 40px' }}>
-          {shown.length > 0 ? (
-            <div className="nb-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-              {shown.map((p) => (
-                <ListingCard key={p.slug} property={p} fluid />
-              ))}
-            </div>
-          ) : (
-            <div style={{ background: '#fff', border: `1px solid ${T.border}`, borderRadius: 10, padding: '64px 24px', textAlign: 'center' }}>
-              <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 26, marginBottom: 10 }}>
-                Aucun bien ne correspond à ces critères
-              </h3>
-              <p style={{ fontSize: 15, color: T.muted }}>
-                Élargissez vos filtres ou contactez-nous : une partie de nos biens n'est jamais publiée.
-              </p>
-            </div>
-          )}
-
-          {visible < filtered.length && (
-            <div style={{ textAlign: 'center', marginTop: 44 }}>
-              <button
-                type="button"
-                onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                style={{
-                  fontFamily: T.body, fontSize: 15, fontWeight: 500, color: '#fff', background: T.dark,
-                  border: 'none', borderRadius: 8, padding: '15px 34px', cursor: 'pointer',
-                }}
-              >
-                Charger plus
-              </button>
-            </div>
-          )}
-        </section>
-
-        <div style={{ height: 60 }} />
+        <div style={{ height: 70 }} />
 
         <RevalisFooter />
       </div>
 
       <style>{`
         @media (max-width: 1023px) {
-          .nb-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .nb-listing-layout { grid-template-columns: 1fr !important; }
+          .nb-sidebar { position: static !important; }
         }
         @media (max-width: 679px) {
           .nb-grid { grid-template-columns: 1fr !important; }
