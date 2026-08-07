@@ -13,6 +13,7 @@ import { MandatSignature, MandatExclusif } from './components/Mandats';
 import { About } from './components/About';
 import { NosBiens } from './components/NosBiens';
 import { NosBiensDetail } from './components/NosBiensDetail';
+import { GalleryWall } from './components/GalleryWall';
 import { Partners } from './components/Partners';
 import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
@@ -136,6 +137,7 @@ const HomePage: React.FC = () => (
     <Testimonials />
     <FAQSection />
     <HomeBlog />
+    <GalleryWall />
     <ZonesDIntervention />
     <FinalCTA />
   </>
