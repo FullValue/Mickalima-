@@ -17,6 +17,17 @@ const COMMUNES = [
   'crozet',
 ];
 
+const BIEN_SLUGS = [
+  'center-square-villa',
+  'cobble-hill-penthouse',
+  'sobha-apartment',
+  'riverside-modern-villa',
+  'park-avenue-penthouse',
+  'delaware-park-villa',
+  'lark-street-villa',
+  'hudson-view-condo',
+];
+
 const BLOG_SLUGS = [
   'prix-m2-pays-de-gex-2026',
   'immobilier-frontalier-pays-de-gex',
@@ -37,6 +48,7 @@ const ROUTES = [
   '/politique-confidentialite',
   '/prix-immobilier/pays-de-gex',
   ...BLOG_SLUGS.map(s => `/blog/${s}`),
+  ...BIEN_SLUGS.map(s => `/nos-biens/${s}`),
   ...COMMUNES.map(c => `/${c}/estimation-immobiliere`),
   ...COMMUNES.map(c => `/prix-immobilier/${c}`),
   ...COMMUNES.map(c => `/frontalier/${c}`),

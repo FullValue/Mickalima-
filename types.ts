@@ -50,24 +50,6 @@ export interface BlogPost {
   content?: string;
 }
 
-export type PropertyType = 'Maison' | 'Villa' | 'Appartement' | 'Terrain';
-export type PropertyStatus = 'À vendre' | 'Sous compromis' | 'Vendu';
-
-export interface Property {
-  id: number;
-  title: string;
-  commune: string;
-  type: PropertyType;
-  status: PropertyStatus;
-  price: number;
-  surface: number;
-  bedrooms: number;
-  bathrooms: number;
-  description: string;
-  image: string;
-  highlights: string[];
-}
-
 export interface Commune {
   slug: string;
   name: string;

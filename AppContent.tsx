@@ -12,6 +12,7 @@ import { Method } from './components/Facilities';
 import { MandatSignature, MandatExclusif } from './components/Mandats';
 import { About } from './components/About';
 import { NosBiens } from './components/NosBiens';
+import { NosBiensDetail } from './components/NosBiensDetail';
 import { Partners } from './components/Partners';
 import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
@@ -141,8 +142,8 @@ const HomePage: React.FC = () => (
 );
 
 export const AppContent: React.FC = () => {
-  // /nos-biens embarque son propre footer (réplique Revalis) → pas de double footer
-  const hasOwnFooter = useLocation().pathname.replace(/\/$/, '') === '/nos-biens';
+  // /nos-biens et ses pages détail embarquent leur propre footer (réplique Revalis)
+  const hasOwnFooter = useLocation().pathname.startsWith('/nos-biens');
   return (
   <LazyMotion features={domAnimation}>
     <ScrollToTop />
@@ -154,6 +155,7 @@ export const AppContent: React.FC = () => {
           <Route path="/mandat-signature" element={<MandatSignature />} />
           <Route path="/mandat-exclusif" element={<MandatExclusif />} />
           <Route path="/nos-biens" element={<NosBiens />} />
+          <Route path="/nos-biens/:slug" element={<NosBiensDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/partenaires" element={<Partners />} />
           <Route path="/blog" element={<Blog />} />
