@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Typographie unifiée (cf. footer Revalis) : titres en Playfair Display,
+   tout le reste en Montserrat (héritée du body). */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
