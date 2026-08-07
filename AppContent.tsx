@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { LazyMotion, domAnimation } from 'framer-motion';
 import { SEO } from './components/SEO';
 
@@ -140,7 +140,10 @@ const HomePage: React.FC = () => (
   </>
 );
 
-export const AppContent: React.FC = () => (
+export const AppContent: React.FC = () => {
+  // /nos-biens embarque son propre footer (réplique Revalis) → pas de double footer
+  const hasOwnFooter = useLocation().pathname.replace(/\/$/, '') === '/nos-biens';
+  return (
   <LazyMotion features={domAnimation}>
     <ScrollToTop />
     <div className="font-sans text-textMain antialiased flex flex-col min-h-screen">
@@ -165,7 +168,8 @@ export const AppContent: React.FC = () => (
           <Route path="/frontalier/:commune" element={<FrontalierCommunePage />} />
         </Routes>
       </main>
-      <Footer />
+      {!hasOwnFooter && <Footer />}
     </div>
   </LazyMotion>
-);
+  );
+};

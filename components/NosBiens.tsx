@@ -1,477 +1,547 @@
-import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { m } from 'framer-motion';
-import {
-  ArrowUpRight,
-  BedDouble,
-  Bath,
-  Maximize,
-  MapPin,
-  Lock,
-  Phone,
-  SlidersHorizontal,
-  Search,
-} from 'lucide-react';
+import React from 'react';
+import { BedDouble, Bath, Maximize, Check, Phone, Mail } from 'lucide-react';
 import { SEO } from './SEO';
-import { PROPERTIES } from '../constants';
-import type { Property, PropertyType } from '../types';
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+/**
+ * Réplique fidèle de la page "listing" du template Framer Revalis
+ * (https://revalis.framer.media/listings/park-avenue-penthouse),
+ * demandée telle quelle en vue du rebranding à venir.
+ * Différences voulues : navbar du site conservée, badges Framer retirés.
+ * Contenu démo du template (EN) conservé à l'identique pour l'instant.
+ */
+
+// Design tokens du template Revalis
+const T = {
+  bg: '#f7f7f7',
+  dark: '#111111',
+  navy: '#011d41',
+  muted: '#666666',
+  border: '#ebebeb',
+  heading: '"Marcellus", serif',
+  body: '"Inter", sans-serif',
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-};
+const GALLERY_HERO = [
+  'https://framerusercontent.com/images/qUn8PXGMNl5owKUxOJ3cx4UlZs8.webp',
+  'https://framerusercontent.com/images/D2Rosu46lk7tmVyYhuODw5KE6Qs.webp',
+  'https://framerusercontent.com/images/NcXkdQactuuaPNAXEpZ1fJkqCR0.webp',
+];
 
-const NOS_BIENS_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'Nos biens à vendre — Pays de Gex',
-  description:
-    'Sélection de biens immobiliers à la vente dans le Pays de Gex : maisons, villas, appartements et terrains proposés par Mickaël Lima.',
-  url: 'https://mickael-lima.immo/nos-biens/',
-  isPartOf: { '@type': 'WebSite', name: 'Mickaël Lima Immobilier', url: 'https://mickael-lima.immo' },
-  about: { '@type': 'RealEstateAgent', name: 'Mickaël Lima — L’agence Immo' },
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://mickael-lima.immo/' },
-      { '@type': 'ListItem', position: 2, name: 'Nos biens', item: 'https://mickael-lima.immo/nos-biens/' },
-    ],
+const GALLERY_GRID = [
+  'https://framerusercontent.com/images/YdrWklpMEJgsr54XpFUlPWExvxw.webp',
+  'https://framerusercontent.com/images/phjPBLFz2C2keKmrYPkV1hNS92Y.webp',
+  'https://framerusercontent.com/images/P0IKKWT3PjsidbfZPLGFRba6stU.webp',
+  'https://framerusercontent.com/images/QBv22NfP5VaAp4I4HjNNP9r7sq0.webp',
+  'https://framerusercontent.com/images/HaFup9m6JSG2y6Q8CzHvhig3bS0.jpg',
+  'https://framerusercontent.com/images/qUn8PXGMNl5owKUxOJ3cx4UlZs8.webp',
+];
+
+const AVATARS = [
+  'https://framerusercontent.com/images/IIXgToVdi2ToB016K5Fg5sG9Bc.webp',
+  'https://framerusercontent.com/images/PtrhtDHRTIeUkMdMVmo1Jfqric.webp',
+];
+
+const DETAILS: Array<[string, string]> = [
+  ['Property Id:', 'R0582'],
+  ['Price:', '$1.15 M'],
+  ['Property Size:', '1,650 ft²'],
+  ['Property Lot Size:', '2,050 ft²'],
+  ['Ownership:', 'Condominium'],
+  ['Year Built:', '2010'],
+  ['Unit Type:', 'Penthouse'],
+  ['Property Name:', 'Park Avenue Penthouse'],
+];
+
+const FEATURES = [
+  'Private terrace',
+  'Smart home features',
+  'Secure parking',
+  'Hardwood flooring',
+  'Elevator access',
+];
+
+const MORE_LISTINGS = [
+  {
+    image: 'https://framerusercontent.com/images/6PCCVyEFStSyJ2Gl753CW8tkea4.webp',
+    beds: 3, baths: 2, size: '2,050 ft²',
+    name: 'Center Square Villa', price: '$749,000', location: 'Center Square, Albany, NY',
   },
-};
+  {
+    image: 'https://framerusercontent.com/images/KcOhAhSgpyc3sxmVmxEiyvnqguw.webp',
+    beds: 4, baths: 3, size: '1,900 ft²',
+    name: 'Cobble Hill Penthouse', price: '$429,000', location: 'Cobble Hill, Brooklyn, NY',
+  },
+  {
+    image: 'https://framerusercontent.com/images/uz3zjgmRfQwnzLMkE0yDitfDNM.webp',
+    beds: 1, baths: 1, size: '950 ft²',
+    name: 'Sobha Apartment', price: '$99,000', location: 'Center Square, Albany, NY',
+  },
+];
 
-const TYPE_FILTERS: Array<PropertyType | 'Tous'> = ['Tous', 'Maison', 'Villa', 'Appartement', 'Terrain'];
+const SectionHeading: React.FC<{ title: string; desc?: string }> = ({ title, desc }) => (
+  <div style={{ marginBottom: 24 }}>
+    <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(28px, 3.2vw, 36px)', lineHeight: '1.2em', color: T.dark }}>
+      {title}
+    </h2>
+    {desc && (
+      <p style={{ fontFamily: T.body, fontSize: 16, lineHeight: '1.6em', color: T.muted, marginTop: 14, maxWidth: 640 }}>
+        {desc}
+      </p>
+    )}
+  </div>
+);
 
-const formatPrice = (value: number) =>
-  new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0,
-  }).format(value);
-
-const statusStyles: Record<Property['status'], string> = {
-  'À vendre': 'bg-white text-primary',
-  'Sous compromis': 'bg-amber-400 text-[#3a2600]',
-  Vendu: 'bg-primary text-white',
-};
-
-const PropertyCard: React.FC<{ property: Property }> = ({ property }) => (
-  <m.article
-    variants={fadeInUp}
-    className="group bg-white rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col"
-  >
-    <div className="relative aspect-[4/3] overflow-hidden">
-      <img
-        src={property.image}
-        alt={`${property.title} — ${property.commune}`}
-        width="800"
-        height="600"
-        loading="lazy"
-        decoding="async"
-        className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+const ContactCard: React.FC = () => (
+  <div style={{ background: '#ffffff', borderRadius: 10, padding: 28, border: `1px solid ${T.border}` }}>
+    <div style={{ display: 'flex', marginBottom: 16 }}>
+      {AVATARS.map((a, i) => (
+        <img
+          key={a}
+          src={a}
+          alt="Agent"
+          width="48"
+          height="48"
+          loading="lazy"
+          decoding="async"
+          style={{
+            width: 48, height: 48, borderRadius: '50%', objectFit: 'cover',
+            border: '2px solid #fff', marginLeft: i > 0 ? -12 : 0,
+          }}
+        />
+      ))}
+    </div>
+    <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 24, lineHeight: '1.2em', color: T.dark }}>
+      Talk with Our Agents!
+    </h3>
+    <p style={{ fontFamily: T.body, fontSize: 15, color: T.muted, margin: '8px 0 20px' }}>
+      Contact our Support Team for this project
+    </p>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const subject = encodeURIComponent('Demande — Park Avenue Penthouse');
+        const bodyTxt = encodeURIComponent(
+          `Nom : ${data.get('name')}\nEmail : ${data.get('email')}\nTéléphone : ${data.get('phone')}\n\n${data.get('message')}`
+        );
+        window.location.href = `mailto:contact@mickael-lima.immo?subject=${subject}&body=${bodyTxt}`;
+      }}
+      style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+    >
+      {(
+        [
+          ['name', 'Name', 'text'],
+          ['email', 'Email', 'email'],
+          ['phone', 'Phone', 'tel'],
+        ] as const
+      ).map(([name, label, type]) => (
+        <input
+          key={name}
+          name={name}
+          type={type}
+          required={name !== 'phone'}
+          placeholder={label}
+          aria-label={label}
+          style={{
+            fontFamily: T.body, fontSize: 15, color: T.dark, background: T.bg,
+            border: `1px solid ${T.border}`, borderRadius: 8, padding: '13px 16px', outline: 'none', width: '100%',
+          }}
+        />
+      ))}
+      <textarea
+        name="message"
+        placeholder="Your message"
+        aria-label="Your message"
+        rows={4}
+        style={{
+          fontFamily: T.body, fontSize: 15, color: T.dark, background: T.bg,
+          border: `1px solid ${T.border}`, borderRadius: 8, padding: '13px 16px', outline: 'none',
+          resize: 'vertical', width: '100%',
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-70" />
-      <span
-        className={`absolute top-4 left-4 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-md ${statusStyles[property.status]}`}
+      <button
+        type="submit"
+        style={{
+          fontFamily: T.body, fontSize: 15, fontWeight: 500, color: '#ffffff', background: T.dark,
+          border: 'none', borderRadius: 50, padding: '14px 24px', cursor: 'pointer', marginTop: 4,
+        }}
       >
-        {property.status}
-      </span>
-      <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 text-white text-sm font-medium drop-shadow">
-        <MapPin size={15} aria-hidden="true" /> {property.commune}
-      </span>
-    </div>
-
-    <div className="p-7 flex flex-col flex-grow">
-      <div className="flex items-start justify-between gap-4 mb-3">
-        <h2 className="text-xl font-medium leading-snug text-textMain">{property.title}</h2>
-        <span className="text-xs font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap pt-1">
-          {property.type}
-        </span>
-      </div>
-
-      <p className="text-gray-500 leading-relaxed text-sm mb-6 flex-grow">{property.description}</p>
-
-      <ul className="flex flex-wrap gap-2 mb-6">
-        {property.highlights.map((highlight) => (
-          <li
-            key={highlight}
-            className="text-[11px] font-semibold uppercase tracking-wider text-primary bg-surface border border-border rounded-full px-3 py-1.5"
-          >
-            {highlight}
-          </li>
-        ))}
-      </ul>
-
-      <div className="flex items-center gap-5 text-sm text-gray-500 border-t border-border pt-5">
-        <span className="inline-flex items-center gap-1.5">
-          <Maximize size={16} aria-hidden="true" /> {property.surface} m²
-        </span>
-        {property.bedrooms > 0 && (
-          <span className="inline-flex items-center gap-1.5">
-            <BedDouble size={16} aria-hidden="true" /> {property.bedrooms} ch.
-          </span>
-        )}
-        {property.bathrooms > 0 && (
-          <span className="inline-flex items-center gap-1.5">
-            <Bath size={16} aria-hidden="true" /> {property.bathrooms} sdb
-          </span>
-        )}
-      </div>
-
-      <div className="flex items-center justify-between gap-4 mt-6">
-        <p className="text-2xl font-medium text-primary">{formatPrice(property.price)}</p>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 bg-primary text-white pl-5 pr-2 py-2 rounded-full text-sm font-bold shadow-md hover:-translate-y-0.5 transition-transform group/cta"
-          aria-label={`Demander une visite — ${property.title} à ${property.commune}`}
-        >
-          <span>Visiter</span>
-          <span className="w-8 h-8 bg-white text-primary rounded-full flex items-center justify-center group-hover/cta:rotate-45 transition-transform duration-300">
-            <ArrowUpRight size={16} aria-hidden="true" />
-          </span>
-        </Link>
-      </div>
-    </div>
-  </m.article>
+        Submit
+      </button>
+    </form>
+  </div>
 );
 
 export const NosBiens: React.FC = () => {
-  const [type, setType] = useState<PropertyType | 'Tous'>('Tous');
-  const [commune, setCommune] = useState('Toutes');
-  const [sort, setSort] = useState<'recent' | 'asc' | 'desc'>('recent');
-
-  const communes = useMemo(
-    () => ['Toutes', ...Array.from(new Set(PROPERTIES.map((p) => p.commune))).sort()],
-    []
-  );
-
-  const filtered = useMemo(() => {
-    const list = PROPERTIES.filter(
-      (p) => (type === 'Tous' || p.type === type) && (commune === 'Toutes' || p.commune === commune)
-    );
-    if (sort === 'asc') return [...list].sort((a, b) => a.price - b.price);
-    if (sort === 'desc') return [...list].sort((a, b) => b.price - a.price);
-    return list;
-  }, [type, commune, sort]);
-
-  const available = PROPERTIES.filter((p) => p.status === 'À vendre').length;
-
   return (
     <>
       <SEO
-        title="Nos Biens à Vendre — Maisons, Villas & Appartements Pays de Gex"
-        description="Découvrez les biens immobiliers à la vente dans le Pays de Gex : maisons, villas, appartements et terrains sélectionnés par Mickaël Lima, agent immobilier prestige à la frontière genevoise."
+        title="Park Avenue Penthouse — Nos Biens"
+        description="Park Avenue Penthouse : penthouse raffiné avec vues élevées sur la ville, finitions premium et vastes intérieurs. Découvrez ce bien et contactez nos agents."
         canonical="/nos-biens"
-        schema={NOS_BIENS_SCHEMA}
       />
 
-      <div className="min-h-screen bg-gray-50 flex flex-col">
-        {/* Hero */}
-        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-primary pt-20">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/images/hero-pays-de-gex.jpg"
-              width="1920"
-              height="1080"
-              loading="eager"
-              decoding="async"
-              alt="Biens immobiliers dans le Pays de Gex"
-              className="w-full h-full object-cover mix-blend-overlay opacity-40"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10" />
-          </div>
-
-          <m.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="container mx-auto px-6 relative z-20 text-center text-white"
+      <div style={{ background: T.bg, fontFamily: T.body, color: T.dark, paddingTop: 96 }}>
+        {/* ===== Image Gallery hero ===== */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '24px 30px 0' }}>
+          <div
+            style={{
+              display: 'grid', gap: 10, gridTemplateColumns: '2fr 1fr',
+              borderRadius: 10, overflow: 'hidden',
+            }}
+            className="nb-gallery-hero"
           >
-            <m.span
-              variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
-            >
-              <Search size={16} aria-hidden="true" /> Sélection Pays de Gex
-            </m.span>
-
-            <m.h1
-              variants={fadeInUp}
-              className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight drop-shadow-2xl break-words hyphens-auto"
-            >
-              Nos biens <br />
-              <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
-                à la vente.
-              </span>
-            </m.h1>
-
-            <m.p
-              variants={fadeInUp}
-              className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
-            >
-              Maisons, villas, appartements et terrains à quelques minutes de la frontière genevoise.
-              Chaque bien est visité, vérifié et présenté avec la même exigence : photos professionnelles,
-              diagnostic complet et accompagnement de la visite à la signature.
-            </m.p>
-
-            <m.dl
-              variants={fadeInUp}
-              className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto"
-            >
-              {[
-                { value: String(available), label: 'Biens disponibles' },
-                { value: '9', label: 'Communes couvertes' },
-                { value: '+40', label: 'Portails de diffusion' },
-                { value: '240', label: 'Ventes en 5 ans' },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl py-5 px-3"
-                >
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd>
-                    <span className="block text-3xl md:text-4xl font-medium">{stat.value}</span>
-                    <span className="block text-[11px] uppercase tracking-widest text-white/70 mt-2">
-                      {stat.label}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </m.dl>
-          </m.div>
-        </section>
-
-        {/* Filtres + grille */}
-        <section className="py-24 md:py-32 bg-surface">
-          <div className="container mx-auto px-6">
-            <div className="max-w-3xl mb-12">
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
-                <SlidersHorizontal size={14} aria-hidden="true" /> Portefeuille
-              </span>
-              <h2 className="text-3xl md:text-5xl font-medium text-textMain leading-tight">
-                Trouvez le bien qui vous ressemble.
-              </h2>
-            </div>
-
-            {/* Barre de filtres */}
-            <div className="bg-white border border-border rounded-3xl shadow-sm p-5 md:p-6 mb-12 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8">
-              <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrer par type de bien">
-                {TYPE_FILTERS.map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => setType(t)}
-                    aria-pressed={type === t}
-                    className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
-                      type === t
-                        ? 'bg-primary text-white shadow-md'
-                        : 'bg-surface text-primary/70 hover:bg-primary/10 hover:text-primary'
-                    }`}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 lg:ml-auto w-full lg:w-auto">
-                <div className="flex flex-col gap-1.5">
-                  <label
-                    htmlFor="filtre-commune"
-                    className="text-[11px] font-bold uppercase tracking-widest text-gray-500"
-                  >
-                    Commune
-                  </label>
-                  <select
-                    id="filtre-commune"
-                    value={commune}
-                    onChange={(e) => setCommune(e.target.value)}
-                    className="border border-border rounded-full px-5 py-2.5 text-sm text-textMain bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 min-w-[190px]"
-                  >
-                    {communes.map((c) => (
-                      <option key={c} value={c}>
-                        {c}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label
-                    htmlFor="filtre-tri"
-                    className="text-[11px] font-bold uppercase tracking-widest text-gray-500"
-                  >
-                    Trier par
-                  </label>
-                  <select
-                    id="filtre-tri"
-                    value={sort}
-                    onChange={(e) => setSort(e.target.value as 'recent' | 'asc' | 'desc')}
-                    className="border border-border rounded-full px-5 py-2.5 text-sm text-textMain bg-white focus:outline-none focus:ring-2 focus:ring-primary/40 min-w-[190px]"
-                  >
-                    <option value="recent">Les plus récents</option>
-                    <option value="asc">Prix croissant</option>
-                    <option value="desc">Prix décroissant</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-sm text-gray-500 mb-8" aria-live="polite">
-              {filtered.length} bien{filtered.length > 1 ? 's' : ''} affiché
-              {filtered.length > 1 ? 's' : ''}
-            </p>
-
-            {filtered.length > 0 ? (
-              <m.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                className="grid md:grid-cols-2 xl:grid-cols-3 gap-8"
-              >
-                {filtered.map((property) => (
-                  <PropertyCard key={property.id} property={property} />
-                ))}
-              </m.div>
-            ) : (
-              <div className="bg-white border border-border rounded-3xl p-12 md:p-20 text-center">
-                <h3 className="text-2xl font-medium text-textMain mb-4">
-                  Aucun bien ne correspond à votre recherche
-                </h3>
-                <p className="text-gray-500 max-w-xl mx-auto mb-8 leading-relaxed">
-                  Le marché du Pays de Gex bouge vite et une partie des biens ne sont jamais publiés.
-                  Décrivez-moi votre projet : je vous préviens dès qu’un bien correspondant entre au
-                  portefeuille.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-3 bg-primary text-white pl-7 pr-2 py-2 rounded-full font-bold shadow-lg hover:-translate-y-0.5 transition-transform group"
-                >
-                  <span>Créer mon alerte</span>
-                  <span className="w-9 h-9 bg-white text-primary rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                  </span>
-                </Link>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Off-market */}
-        <section className="py-24 md:py-32 bg-white">
-          <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-            <m.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
-                <Lock size={14} aria-hidden="true" /> Confidentiel
-              </span>
-              <h2 className="text-3xl md:text-5xl font-medium text-textMain leading-tight mb-6">
-                Les plus beaux biens ne sont{' '}
-                <span className="font-newsletter italic font-normal">jamais annoncés.</span>
-              </h2>
-              <p className="text-gray-500 leading-relaxed mb-6">
-                Une part importante des transactions haut de gamme du Pays de Gex se conclut hors
-                portails, entre acquéreurs qualifiés et propriétaires qui souhaitent rester discrets.
-                Ces biens circulent uniquement dans mon fichier acquéreurs et auprès du réseau
-                inter-agences.
-              </p>
-              <ul className="space-y-3 mb-10 text-gray-600">
-                {[
-                  'Accès aux biens off-market avant leur mise en ligne',
-                  'Pré-visites organisées selon vos critères réels',
-                  'Analyse de prix et négociation menées pour vous',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-3 bg-primary text-white pl-7 pr-2 py-2 rounded-full font-bold shadow-lg hover:-translate-y-0.5 transition-transform group"
-              >
-                <span>Recevoir les biens off-market</span>
-                <span className="w-9 h-9 bg-white text-primary rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                  <ArrowUpRight size={18} aria-hidden="true" />
-                </span>
-              </Link>
-            </m.div>
-
-            <m.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              className="relative"
-            >
+            <div style={{ position: 'relative' }}>
               <img
-                src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg"
-                alt="Propriété de prestige dans le Pays de Gex"
+                src={GALLERY_HERO[0]}
+                alt="Park Avenue Penthouse — vue principale"
                 width="1200"
-                height="900"
-                loading="lazy"
+                height="800"
+                loading="eager"
                 decoding="async"
-                className="w-full aspect-[4/3] object-cover rounded-3xl shadow-2xl"
+                style={{ width: '100%', height: '100%', minHeight: 320, objectFit: 'cover', display: 'block' }}
               />
-              <div className="absolute -bottom-8 -left-4 md:-left-8 bg-white rounded-3xl shadow-xl border border-border p-6 max-w-xs">
-                <p className="text-4xl font-medium text-primary mb-1">48 h</p>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Délai moyen entre l’entrée d’un bien au portefeuille et la première visite qualifiée.
-                </p>
-              </div>
-            </m.div>
-          </div>
-        </section>
-
-        {/* CTA final */}
-        <section className="relative py-28 md:py-36 bg-primary overflow-hidden">
-          <img
-            src="/images/pool-cta-final.jpg"
-            alt=""
-            aria-hidden="true"
-            width="1920"
-            height="1080"
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30"
-          />
-          <div className="container mx-auto px-6 relative z-10 text-center text-white">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6">
-              Vous souhaitez vendre <br />
-              <span className="font-newsletter italic font-normal">votre bien ?</span>
-            </h2>
-            <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Estimation offerte, sans engagement, basée sur les transactions réelles de votre commune.
-              Vous saurez en 48 h ce que vaut votre bien sur le marché frontalier.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                to="/estimation"
-                className="inline-flex items-center gap-3 bg-white text-textMain pl-7 pr-2 py-2 rounded-full font-bold shadow-lg hover:-translate-y-0.5 transition-transform group"
+              <span
+                style={{
+                  position: 'absolute', top: 20, left: 20, background: T.dark, color: '#fff',
+                  fontSize: 13, fontWeight: 500, borderRadius: 50, padding: '8px 16px',
+                }}
               >
-                <span>Estimation offerte</span>
-                <span className="w-9 h-9 bg-textMain text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                  <ArrowUpRight size={18} aria-hidden="true" />
-                </span>
-              </Link>
+                For sale
+              </span>
               <a
-                href="tel:+33769313502"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-md font-bold hover:bg-white/20 transition-colors"
+                href={GALLERY_HERO[0]}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  position: 'absolute', bottom: 20, left: 20, background: '#fff', color: T.dark,
+                  fontSize: 14, fontWeight: 500, borderRadius: 50, padding: '12px 22px', textDecoration: 'none',
+                }}
               >
-                <Phone size={18} aria-hidden="true" /> 07 69 31 35 02
+                View Full Gallery
               </a>
             </div>
+            <div style={{ display: 'grid', gap: 10, gridTemplateRows: '1fr 1fr' }}>
+              {GALLERY_HERO.slice(1).map((img, i) => (
+                <img
+                  key={img}
+                  src={img}
+                  alt={`Park Avenue Penthouse — photo ${i + 2}`}
+                  width="600"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              ))}
+            </div>
           </div>
         </section>
+
+        {/* ===== Heading + infos + contenu ===== */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '48px 30px 0' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 24, alignItems: 'flex-end' }}>
+            <div>
+              <p style={{ fontSize: 15, color: T.muted, marginBottom: 10 }}>Park Avenue, Rochester, NY</p>
+              <h1 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(32px, 4.5vw, 44px)', lineHeight: '1.1em' }}>
+                Park Avenue Penthouse
+              </h1>
+            </div>
+            <p style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(26px, 3.5vw, 38px)' }}>$1,150,000</p>
+          </div>
+
+          <div
+            style={{
+              display: 'flex', flexWrap: 'wrap', gap: 32, borderTop: `1px solid ${T.border}`,
+              borderBottom: `1px solid ${T.border}`, padding: '22px 0', margin: '28px 0 0',
+            }}
+          >
+            {[
+              { icon: BedDouble, value: '3', label: 'Bedrooms' },
+              { icon: Bath, value: '2', label: 'Bathrooms' },
+              { icon: Maximize, value: '1,650 ft²', label: 'Living area' },
+            ].map(({ icon: Icon, value, label }) => (
+              <span key={label} style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                <Icon size={20} color={T.muted} aria-hidden="true" />
+                <span style={{ fontSize: 16, fontWeight: 500 }}>{value}</span>
+                <span style={{ fontSize: 15, color: T.muted }}>{label}</span>
+              </span>
+            ))}
+          </div>
+
+          <div className="nb-columns" style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 48, marginTop: 48 }}>
+            {/* --- Colonne gauche --- */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 64, minWidth: 0 }}>
+              {/* Details */}
+              <div>
+                <SectionHeading
+                  title="Details"
+                  desc="This refined penthouse offers elevated city views, premium finishes, and spacious interiors ideal for modern living. The open layout maximizes natural light while private outdoor space enhances comfort and entertaining possibilities."
+                />
+                <div className="nb-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 40 }}>
+                  {DETAILS.map(([label, value]) => (
+                    <div
+                      key={label}
+                      style={{
+                        display: 'flex', justifyContent: 'space-between', gap: 16,
+                        padding: '14px 0', borderBottom: `1px solid ${T.border}`,
+                      }}
+                    >
+                      <span style={{ fontSize: 15, color: T.muted }}>{label}</span>
+                      <span style={{ fontSize: 15, fontWeight: 500 }}>{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Location & Surrounding */}
+              <SectionHeading
+                title="Location & Surrounding"
+                desc="Positioned in Rochester’s Park Avenue district, the home enjoys access to cafes, boutiques, cultural venues, and convenient public transportation."
+              />
+
+              {/* Features & Amenities */}
+              <div>
+                <SectionHeading title="Features & Amenities" />
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 14 }}>
+                  {FEATURES.map((f) => (
+                    <li key={f} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 15 }}>
+                      <span
+                        style={{
+                          width: 26, height: 26, borderRadius: '50%', background: '#fff',
+                          border: `1px solid ${T.border}`, display: 'inline-flex', alignItems: 'center',
+                          justifyContent: 'center', flexShrink: 0,
+                        }}
+                      >
+                        <Check size={14} aria-hidden="true" />
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Gallery */}
+              <div>
+                <SectionHeading title="Gallery" />
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 10 }}>
+                  {GALLERY_GRID.map((img, i) => (
+                    <img
+                      key={`${img}-${i}`}
+                      src={img}
+                      alt={`Park Avenue Penthouse — galerie ${i + 1}`}
+                      width="600"
+                      height="450"
+                      loading="lazy"
+                      decoding="async"
+                      style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 10, display: 'block' }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Video */}
+              <div>
+                <SectionHeading title="Video" />
+                <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden' }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/mJVuZiK9a6I?iv_load_policy=3&rel=0&modestbranding=1&playsinline=1"
+                    title="Park Avenue Penthouse — vidéo"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+                  />
+                </div>
+              </div>
+
+              {/* Location map */}
+              <div>
+                <SectionHeading title="Location" />
+                <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden' }}>
+                  <iframe
+                    src="https://maps.google.com/maps?q=43.14950%2C%20-77.57310&z=15&output=embed"
+                    title="Park Avenue Penthouse — carte"
+                    loading="lazy"
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* --- Colonne droite : contact sticky --- */}
+            <aside className="nb-aside">
+              <div style={{ position: 'sticky', top: 110 }}>
+                <ContactCard />
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        {/* ===== More listings ===== */}
+        <section style={{ maxWidth: 1200, margin: '0 auto', padding: '96px 30px' }}>
+          <SectionHeading title="More listings" />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 24 }}>
+            {MORE_LISTINGS.map((l) => (
+              <article key={l.name} style={{ background: '#fff', borderRadius: 10, overflow: 'hidden', border: `1px solid ${T.border}` }}>
+                <div style={{ position: 'relative' }}>
+                  <img
+                    src={l.image}
+                    alt={l.name}
+                    width="600"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', display: 'block' }}
+                  />
+                  <span
+                    style={{
+                      position: 'absolute', top: 16, left: 16, background: T.dark, color: '#fff',
+                      fontSize: 12, fontWeight: 500, borderRadius: 50, padding: '7px 14px',
+                    }}
+                  >
+                    For sale
+                  </span>
+                  <div
+                    style={{
+                      position: 'absolute', bottom: 16, left: 16, right: 16, display: 'flex', gap: 14,
+                      background: 'rgba(17,17,17,0.72)', backdropFilter: 'blur(6px)', color: '#fff',
+                      borderRadius: 8, padding: '10px 14px', fontSize: 13,
+                    }}
+                  >
+                    <span>{l.beds} Beds</span>
+                    <span>{l.baths} Baths</span>
+                    <span>{l.size}</span>
+                  </div>
+                </div>
+                <div style={{ padding: 22 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
+                    <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 22, lineHeight: '1.2em' }}>{l.name}</h3>
+                    <span style={{ fontFamily: T.heading, fontSize: 20, whiteSpace: 'nowrap' }}>{l.price}</span>
+                  </div>
+                  <p style={{ fontSize: 15, color: T.muted, margin: '8px 0 18px' }}>{l.location}</p>
+                  <a
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                    style={{
+                      display: 'inline-block', fontSize: 14, fontWeight: 500, color: T.dark,
+                      border: `1px solid ${T.dark}`, borderRadius: 50, padding: '10px 22px', textDecoration: 'none',
+                    }}
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* ===== Newsletter + Footer Revalis ===== */}
+        <footer style={{ background: T.navy, color: '#fff' }}>
+          <div style={{ maxWidth: 1200, margin: '0 auto', padding: '72px 30px 40px' }}>
+            <div
+              className="nb-newsletter"
+              style={{
+                display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center',
+                gap: 24, paddingBottom: 48, borderBottom: '1px solid rgba(255,255,255,0.15)',
+              }}
+            >
+              <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(26px, 3vw, 34px)' }}>
+                Subscribe Our Newsletter
+              </h2>
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}
+              >
+                <input
+                  type="email"
+                  required
+                  placeholder="Email"
+                  aria-label="Email"
+                  style={{
+                    fontFamily: T.body, fontSize: 15, color: '#fff', background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.2)', borderRadius: 50, padding: '13px 20px',
+                    outline: 'none', minWidth: 240,
+                  }}
+                />
+                <button
+                  type="submit"
+                  style={{
+                    fontFamily: T.body, fontSize: 15, fontWeight: 500, color: T.navy, background: '#fff',
+                    border: 'none', borderRadius: 50, padding: '13px 26px', cursor: 'pointer',
+                  }}
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+
+            <div
+              className="nb-footer-cols"
+              style={{
+                display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1.2fr', gap: 40, padding: '48px 0',
+              }}
+            >
+              <div>
+                <p style={{ fontFamily: T.heading, fontSize: 26, marginBottom: 16 }}>Revalis</p>
+                <p style={{ fontSize: 15, lineHeight: '1.6em', color: 'rgba(255,255,255,0.65)', maxWidth: 300 }}>
+                  Revalis is a New York–based real estate agency specializing in sales and investment properties
+                  across New York.
+                </p>
+              </div>
+              <div>
+                <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Menu</p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
+                  {['Home', 'Listings', 'Services', 'Listing type', 'Listing city'].map((i) => (
+                    <li key={i} style={{ color: 'rgba(255,255,255,0.85)' }}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Company</p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
+                  {['About', 'Agents', 'Blog', 'Contact'].map((i) => (
+                    <li key={i} style={{ color: 'rgba(255,255,255,0.85)' }}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Contact us</p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'rgba(255,255,255,0.85)' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <Mail size={15} aria-hidden="true" /> support@revalis.com
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <Phone size={15} aria-hidden="true" /> +1 (200) 321-7890
+                  </li>
+                  <li>25 Charles Street, Suite 234, NY, 2002</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 24, fontSize: 14, color: 'rgba(255,255,255,0.5)' }}>
+              © 2026 Revalis. All rights reserved.
+            </div>
+          </div>
+        </footer>
       </div>
+
+      {/* Responsive : colonnes → pile sur mobile/tablette */}
+      <style>{`
+        @media (max-width: 1023px) {
+          .nb-columns { grid-template-columns: 1fr !important; }
+          .nb-aside { order: -1; }
+          .nb-aside > div { position: static !important; }
+        }
+        @media (max-width: 767px) {
+          .nb-gallery-hero { grid-template-columns: 1fr !important; }
+          .nb-details-grid { grid-template-columns: 1fr !important; }
+          .nb-footer-cols { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 479px) {
+          .nb-footer-cols { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </>
   );
 };
