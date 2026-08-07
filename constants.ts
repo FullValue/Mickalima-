@@ -20,8 +20,8 @@ export const NAV_ITEMS: NavItem[] = [
 export const IMAGES = {
   logo: "https://i.imgur.com/lwDyyfu.png",
   logoWhite: "https://i.imgur.com/lwDyyfu.png",
-  // Updated agent image - using direct link format for postimg
-  heroAgent: "https://i.postimg.cc/m147y1wt/image.png",
+  // Photo officielle de Mickaël (crop carré, buste légèrement coupé) — servie en local
+  heroAgent: "/images/micka-photo.jpg",
   heroBg: "https://madebydesignesia.com/themes/homely/images/demo/homepage-1.webp",
   cardImage: "https://madebydesignesia.com/themes/homely/images/demo/homepage-2.webp",
   misc1: "https://madebydesignesia.com/themes/homely/images/misc/s1.webp",

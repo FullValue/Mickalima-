@@ -63,11 +63,8 @@ const ALL_PHOTOS = [
   ...GALLERY_GRID,
 ];
 
-const AVATARS = [
-  'https://framerusercontent.com/images/IIXgToVdi2ToB016K5Fg5sG9Bc.webp',
-  'https://framerusercontent.com/images/PtrhtDHRTIeUkMdMVmo1Jfqric.webp',
-  'https://framerusercontent.com/images/YxxFm1LTRfwFGlA3h8r1cXZD3NM.webp',
-];
+// Pastille : photo officielle de Mickaël (remplace les 3 agents du template)
+const AGENT_PHOTO = '/images/micka-photo.jpg';
 
 const DETAILS: Array<[string, string]> = [
   ['Référence :', 'R0586'],
@@ -143,24 +140,21 @@ const labelStyle: React.CSSProperties = {
 const ContactCard: React.FC = () => (
   <div style={{ background: '#ffffff', borderRadius: 10, padding: 28, textAlign: 'center' }}>
     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 14 }}>
-      {AVATARS.map((a, i) => (
-        <img
-          key={a}
-          src={a}
-          alt="Agent"
-          width="52"
-          height="52"
-          loading="lazy"
-          decoding="async"
-          style={{
-            width: 52, height: 52, borderRadius: '50%', objectFit: 'cover',
-            border: '2px solid #fff', marginLeft: i > 0 ? -12 : 0,
-          }}
-        />
-      ))}
+      <img
+        src={AGENT_PHOTO}
+        alt="Mickaël Lima"
+        width="56"
+        height="56"
+        loading="lazy"
+        decoding="async"
+        style={{
+          width: 56, height: 56, borderRadius: '50%', objectFit: 'cover',
+          border: '2px solid #fff', boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+        }}
+      />
     </div>
     <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 26, lineHeight: '1.2em', color: T.dark }}>
-      Parlez avec nos agents !
+      Parlez avec votre agent !
     </h3>
     <p style={{ fontFamily: T.body, fontSize: 15, color: T.muted, margin: '8px 0 24px' }}>
       Contactez notre équipe pour ce projet
