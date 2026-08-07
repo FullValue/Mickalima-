@@ -25,6 +25,7 @@ const BLOG_SLUGS = [
 
 const ROUTES = [
   '/',
+  '/nos-biens',
   '/about',
   '/partenaires',
   '/blog',

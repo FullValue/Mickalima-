@@ -90,6 +90,11 @@ export const Navbar: React.FC = () => {
                             </li>
 
                             <li>
+                                <Link to="/nos-biens" className={getNavLinkClass(location.pathname === '/nos-biens')}>
+                                    Nos Biens
+                                </Link>
+                            </li>
+                            <li>
                                 <Link to="/about" className={getNavLinkClass(location.pathname === '/about')}>
                                     À Propos
                                 </Link>
@@ -161,6 +166,9 @@ export const Navbar: React.FC = () => {
                             </div>
                         </li>
 
+                        <li className={`transition-all duration-500 delay-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                            <Link to="/nos-biens" className="font-bold text-white tracking-widest uppercase hover:text-white/70 transition-colors">Nos Biens</Link>
+                        </li>
                         <li className={`transition-all duration-500 delay-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <Link to="/about" className="font-bold text-white tracking-widest uppercase hover:text-white/70 transition-colors">À Propos</Link>
                         </li>

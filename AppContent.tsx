@@ -11,6 +11,7 @@ import { Hero } from './components/Hero';
 import { Method } from './components/Facilities';
 import { MandatSignature, MandatExclusif } from './components/Mandats';
 import { About } from './components/About';
+import { NosBiens } from './components/NosBiens';
 import { Partners } from './components/Partners';
 import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
@@ -149,6 +150,7 @@ export const AppContent: React.FC = () => (
           <Route path="/" element={<HomePage />} />
           <Route path="/mandat-signature" element={<MandatSignature />} />
           <Route path="/mandat-exclusif" element={<MandatExclusif />} />
+          <Route path="/nos-biens" element={<NosBiens />} />
           <Route path="/about" element={<About />} />
           <Route path="/partenaires" element={<Partners />} />
           <Route path="/blog" element={<Blog />} />
