@@ -47,11 +47,13 @@ const GALLERY_HERO = {
   bottomRight: 'https://framerusercontent.com/images/waWK4WYu7GsknywLmZLBba4.webp',
 };
 
+// Pattern des pages « bien » : la 4e tuile de la galerie est toujours
+// la photo de Mickaël (jamais celle d'un agent du template).
 const GALLERY_GRID = [
   'https://framerusercontent.com/images/qUn8PXGMNl5owKUxOJ3cx4UlZs8.webp',
   'https://framerusercontent.com/images/lqwCPSh3RoZtdRP6tJd1GRldOo.webp',
   'https://framerusercontent.com/images/D2Rosu46lk7tmVyYhuODw5KE6Qs.webp',
-  'https://framerusercontent.com/images/YdrWklpMEJgsr54XpFUlPWExvxw.webp',
+  '/images/micka-photo.jpg',
 ];
 
 // Toutes les photos du bien, pour la lightbox « Voir toute la galerie »
@@ -576,7 +578,7 @@ export const NosBiens: React.FC = () => {
                     >
                       <img
                         src={img}
-                        alt={`Center Square Villa — galerie ${i + 1}`}
+                        alt={i === GALLERY_GRID.length - 1 ? 'Mickaël Lima, votre agent' : `Center Square Villa — galerie ${i + 1}`}
                         width="600"
                         height="450"
                         loading="lazy"
