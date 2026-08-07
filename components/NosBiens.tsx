@@ -25,7 +25,8 @@ import { SEO } from './SEO';
  * - navbar du site conservée, badges Framer retirés
  * - bloc "Location" (carte Google Maps) retiré
  * - "More listings" défile en autoplay (marquee) au lieu d'une grille statique
- * Contenu démo du template (EN) conservé à l'identique pour l'instant.
+ * - textes traduits en français, polices du site (Playfair Display + Montserrat)
+ * Données démo du template conservées en attendant les vrais biens.
  */
 
 const T = {
@@ -35,8 +36,8 @@ const T = {
   muted: '#666666',
   border: '#ebebeb',
   chipBg: '#f1f1f1',
-  heading: '"Marcellus", serif',
-  body: '"Inter", sans-serif',
+  heading: '"Playfair Display", serif',
+  body: '"Montserrat", sans-serif',
 };
 
 const GALLERY_HERO = {
@@ -53,7 +54,7 @@ const GALLERY_GRID = [
   'https://framerusercontent.com/images/YdrWklpMEJgsr54XpFUlPWExvxw.webp',
 ];
 
-// Toutes les photos du bien, pour la lightbox « View Full Gallery »
+// Toutes les photos du bien, pour la lightbox « Voir toute la galerie »
 const ALL_PHOTOS = [
   GALLERY_HERO.main,
   GALLERY_HERO.topRight,
@@ -69,54 +70,54 @@ const AVATARS = [
 ];
 
 const DETAILS: Array<[string, string]> = [
-  ['Property Id:', 'R0586'],
-  ['Price:', '$429,000'],
-  ['Property Size:', '1,900 ft²'],
-  ['Property Lot Size:', '2,200 ft²'],
-  ['Ownership:', 'Condominium'],
-  ['Year Built:', '2013'],
-  ['Unit Type:', 'Penthouse'],
-  ['Property Name:', 'Cobble Hill Penthouse'],
+  ['Référence :', 'R0586'],
+  ['Prix :', '429 000 $'],
+  ['Surface habitable :', '176 m²'],
+  ['Surface du terrain :', '204 m²'],
+  ['Type de propriété :', 'Copropriété'],
+  ['Année de construction :', '2013'],
+  ['Type de bien :', 'Penthouse'],
+  ['Nom du bien :', 'Cobble Hill Penthouse'],
 ];
 
 const FEATURES = [
-  'Private rooftop terrace',
-  'Smart home integration',
-  'Concierge service',
-  'Underground parking',
-  'Wine storage',
+  'Terrasse privée sur le toit',
+  'Domotique intégrée',
+  'Service de conciergerie',
+  'Parking souterrain',
+  'Cave à vin',
 ];
 
 const MORE_LISTINGS = [
   {
     image: 'https://framerusercontent.com/images/6PCCVyEFStSyJ2Gl753CW8tkea4.webp',
-    beds: 3, baths: 2, size: '2,050 ft²',
-    name: 'Center Square Villa', price: '$749,000', location: 'Center Square, Albany, NY',
+    beds: 3, baths: 2, size: '190 m²',
+    name: 'Center Square Villa', price: '749 000 $', location: 'Center Square, Albany, NY',
   },
   {
     image: 'https://framerusercontent.com/images/qczYR3J1pTxtpJWYdeFIZUL4o.webp',
-    beds: 1, baths: 1, size: '950 ft²',
-    name: 'Sobha Apartment', price: '$99,000', location: 'Center Square, Albany, NY',
+    beds: 1, baths: 1, size: '88 m²',
+    name: 'Sobha Apartment', price: '99 000 $', location: 'Center Square, Albany, NY',
   },
   {
     image: 'https://framerusercontent.com/images/E79CfN6JX4ZumwQ0y8fXYYTTJQ.webp',
-    beds: 4, baths: 2, size: '2,100 ft²',
-    name: 'Riverside Modern Villa', price: '$712,000', location: 'Riverside, Rochester, NY',
+    beds: 4, baths: 2, size: '195 m²',
+    name: 'Riverside Modern Villa', price: '712 000 $', location: 'Riverside, Rochester, NY',
   },
   {
     image: 'https://framerusercontent.com/images/qUn8PXGMNl5owKUxOJ3cx4UlZs8.webp',
-    beds: 3, baths: 2, size: '1,650 ft²',
-    name: 'Park Avenue Penthouse', price: '$1.15 M', location: 'Park Avenue, Rochester, NY',
+    beds: 3, baths: 2, size: '153 m²',
+    name: 'Park Avenue Penthouse', price: '1,15 M$', location: 'Park Avenue, Rochester, NY',
   },
   {
     image: 'https://framerusercontent.com/images/4i0fVABNmQKsRxrejJXT5DhYlk0.webp',
-    beds: 4, baths: 2, size: '1,800 ft²',
-    name: 'Delaware Park Villa', price: '$859,000', location: 'Delaware District, Buffalo, NY',
+    beds: 4, baths: 2, size: '167 m²',
+    name: 'Delaware Park Villa', price: '859 000 $', location: 'Delaware District, Buffalo, NY',
   },
   {
     image: 'https://framerusercontent.com/images/0uNitXTJq1oSjHev9mJw6Q9LwA.webp',
-    beds: 3, baths: 3, size: '2,100 ft²',
-    name: 'Lark Street Villa', price: '$720,000', location: 'Lark Street District, Albany, NY',
+    beds: 3, baths: 3, size: '195 m²',
+    name: 'Lark Street Villa', price: '720 000 $', location: 'Lark Street District, Albany, NY',
   },
 ];
 
@@ -159,10 +160,10 @@ const ContactCard: React.FC = () => (
       ))}
     </div>
     <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 26, lineHeight: '1.2em', color: T.dark }}>
-      Talk with Our Agents!
+      Parlez avec nos agents !
     </h3>
     <p style={{ fontFamily: T.body, fontSize: 15, color: T.muted, margin: '8px 0 24px' }}>
-      Contact our Support Team for this project
+      Contactez notre équipe pour ce projet
     </p>
     <form
       onSubmit={(e) => {
@@ -177,25 +178,25 @@ const ContactCard: React.FC = () => (
       style={{ display: 'flex', flexDirection: 'column', gap: 16, textAlign: 'left' }}
     >
       <div>
-        <label htmlFor="nb-name" style={labelStyle}>Name</label>
-        <input id="nb-name" name="name" type="text" required placeholder="Jane Smith" style={inputStyle} />
+        <label htmlFor="nb-name" style={labelStyle}>Nom</label>
+        <input id="nb-name" name="name" type="text" required placeholder="Jeanne Martin" style={inputStyle} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
         <div>
           <label htmlFor="nb-email" style={labelStyle}>Email</label>
-          <input id="nb-email" name="email" type="email" required placeholder="jane@framer.com" style={inputStyle} />
+          <input id="nb-email" name="email" type="email" required placeholder="jeanne@exemple.fr" style={inputStyle} />
         </div>
         <div>
-          <label htmlFor="nb-phone" style={labelStyle}>Phone</label>
-          <input id="nb-phone" name="phone" type="tel" placeholder="+44 500 08 145" style={inputStyle} />
+          <label htmlFor="nb-phone" style={labelStyle}>Téléphone</label>
+          <input id="nb-phone" name="phone" type="tel" placeholder="+33 6 12 34 56 78" style={inputStyle} />
         </div>
       </div>
       <div>
-        <label htmlFor="nb-message" style={labelStyle}>Your message</label>
+        <label htmlFor="nb-message" style={labelStyle}>Votre message</label>
         <textarea
           id="nb-message"
           name="message"
-          placeholder="I am interested in this Project..."
+          placeholder="Je suis intéressé(e) par ce bien..."
           rows={5}
           style={{ ...inputStyle, resize: 'vertical' }}
         />
@@ -207,7 +208,7 @@ const ContactCard: React.FC = () => (
           border: 'none', borderRadius: 8, padding: '16px 24px', cursor: 'pointer', width: '100%',
         }}
       >
-        Submit
+        Envoyer
       </button>
     </form>
   </div>
@@ -237,7 +238,7 @@ const ListingCard: React.FC<{ listing: (typeof MORE_LISTINGS)[number]; ariaHidde
           fontSize: 14, fontWeight: 500, borderRadius: 8, padding: '8px 14px',
         }}
       >
-        For sale
+        À vendre
       </span>
       {/* Dots du carrousel, comme sur le template */}
       <span
@@ -255,8 +256,8 @@ const ListingCard: React.FC<{ listing: (typeof MORE_LISTINGS)[number]; ariaHidde
     <div style={{ padding: '18px 8px 8px' }}>
       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 16 }}>
         {[
-          { icon: BedDouble, txt: `${l.beds} Beds` },
-          { icon: Bath, txt: `${l.baths} Baths` },
+          { icon: BedDouble, txt: `${l.beds} ch.` },
+          { icon: Bath, txt: `${l.baths} sdb` },
           { icon: Ruler, txt: l.size },
         ].map(({ icon: Icon, txt }) => (
           <span
@@ -287,7 +288,7 @@ const ListingCard: React.FC<{ listing: (typeof MORE_LISTINGS)[number]; ariaHidde
           borderRadius: 8, padding: '12px 12px 12px 20px', textDecoration: 'none',
         }}
       >
-        Learn More
+        En savoir plus
         <span
           style={{
             width: 34, height: 34, background: '#fff', borderRadius: 6,
@@ -487,7 +488,7 @@ export const NosBiens: React.FC = () => {
                       color: '#fff', fontSize: 17, fontWeight: 500,
                     }}
                   >
-                    View Full Gallery
+                    Voir toute la galerie
                   </span>
                 </button>
               </div>
@@ -507,16 +508,16 @@ export const NosBiens: React.FC = () => {
                 Center Square Villa
               </h1>
               <p style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(28px, 2.6vw, 38px)', margin: '10px 0 0' }}>
-                $749,000
+                749 000 $
               </p>
 
               <hr style={{ border: 'none', borderTop: `1px solid #e3e3e3`, margin: '26px 0' }} />
 
               <div style={{ display: 'flex', gap: 44, flexWrap: 'wrap', marginBottom: 30 }}>
                 {[
-                  { icon: BedDouble, txt: '4 Bedrooms' },
-                  { icon: Bath, txt: '3 Bathrooms' },
-                  { icon: Ruler, txt: '1,900 ft²' },
+                  { icon: BedDouble, txt: '4 chambres' },
+                  { icon: Bath, txt: '3 salles de bain' },
+                  { icon: Ruler, txt: '176 m²' },
                 ].map(({ icon: Icon, txt }) => (
                   <span key={txt} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                     <Icon size={24} aria-hidden="true" />
@@ -532,11 +533,11 @@ export const NosBiens: React.FC = () => {
             <div style={{ background: '#fff', borderRadius: 10, padding: 'clamp(24px, 3.2vw, 44px)', display: 'flex', flexDirection: 'column', gap: 56 }}>
               {/* Details */}
               <div>
-                <SectionHeading icon={<Bookmark size={22} />} title="Details" />
+                <SectionHeading icon={<Bookmark size={22} />} title="Détails" />
                 <p style={{ fontSize: 16, lineHeight: '1.65em', color: T.muted, marginBottom: 28 }}>
-                  This luxury penthouse offers expansive interiors, refined design details, and a private rooftop
-                  terrace with skyline views. The open-concept living area and premium finishes create an elevated
-                  urban retreat in a highly sought-after Brooklyn neighborhood.
+                  Ce penthouse de luxe offre de vastes intérieurs, des finitions raffinées et une terrasse privée
+                  sur le toit avec vue sur la skyline. L'espace de vie ouvert et les prestations haut de gamme
+                  en font un refuge urbain d'exception dans un quartier très recherché de Brooklyn.
                 </p>
                 <div className="nb-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 48, rowGap: 18 }}>
                   {DETAILS.map(([label, value]) => (
@@ -550,16 +551,16 @@ export const NosBiens: React.FC = () => {
 
               {/* Location & Surrounding */}
               <div>
-                <SectionHeading icon={<MapPin size={22} />} title="Location & Surrounding" />
+                <SectionHeading icon={<MapPin size={22} />} title="Localisation & environs" />
                 <p style={{ fontSize: 16, lineHeight: '1.65em', color: T.muted }}>
-                  Positioned in Cobble Hill, residents enjoy boutique shopping, renowned restaurants, tree-lined
-                  streets, and quick subway access to Lower Manhattan.
+                  Situé à Cobble Hill, le quartier offre boutiques de créateurs, restaurants renommés, rues
+                  bordées d'arbres et un accès rapide en métro vers Lower Manhattan.
                 </p>
               </div>
 
               {/* Features & Amenities */}
               <div>
-                <SectionHeading icon={<Sparkles size={22} />} title="Features & Amenities" />
+                <SectionHeading icon={<Sparkles size={22} />} title="Prestations & équipements" />
                 <ul style={{ margin: 0, paddingLeft: 22, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 16, color: T.dark }}>
                   {FEATURES.map((f) => (
                     <li key={f}>{f}</li>
@@ -569,7 +570,7 @@ export const NosBiens: React.FC = () => {
 
               {/* Gallery */}
               <div>
-                <SectionHeading icon={<ImageIcon size={22} />} title="Gallery" />
+                <SectionHeading icon={<ImageIcon size={22} />} title="Galerie" />
                 <div className="nb-gallery-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                   {GALLERY_GRID.map((img, i) => (
                     <button
@@ -595,7 +596,7 @@ export const NosBiens: React.FC = () => {
 
               {/* Video */}
               <div>
-                <SectionHeading icon={<PlaySquare size={22} />} title="Video" />
+                <SectionHeading icon={<PlaySquare size={22} />} title="Vidéo" />
                 <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 8, overflow: 'hidden' }}>
                   <iframe
                     src="https://www.youtube.com/embed/mJVuZiK9a6I?iv_load_policy=3&rel=0&modestbranding=1&playsinline=1"
@@ -619,7 +620,7 @@ export const NosBiens: React.FC = () => {
               lineHeight: '1.05em', color: T.dark, textAlign: 'center', marginBottom: 56,
             }}
           >
-            More listings
+            Plus de biens
           </h2>
           <div className="nb-marquee">
             <div className="nb-marquee-track">
@@ -644,7 +645,7 @@ export const NosBiens: React.FC = () => {
               }}
             >
               <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(26px, 3vw, 34px)' }}>
-                Subscribe Our Newsletter
+                Abonnez-vous à notre newsletter
               </h2>
               <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                 <input
@@ -665,7 +666,7 @@ export const NosBiens: React.FC = () => {
                     border: 'none', borderRadius: 50, padding: '13px 26px', cursor: 'pointer',
                   }}
                 >
-                  Submit
+                  S'abonner
                 </button>
               </form>
             </div>
@@ -677,28 +678,28 @@ export const NosBiens: React.FC = () => {
               <div>
                 <p style={{ fontFamily: T.heading, fontSize: 26, marginBottom: 16 }}>Revalis</p>
                 <p style={{ fontSize: 15, lineHeight: '1.6em', color: 'rgba(255,255,255,0.65)', maxWidth: 300 }}>
-                  Revalis is a New York–based real estate agency specializing in sales and investment properties
-                  across New York.
+                  Revalis est une agence immobilière new-yorkaise spécialisée dans la vente et l'investissement
+                  immobilier dans tout l'État de New York.
                 </p>
               </div>
               <div>
                 <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Menu</p>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
-                  {['Home', 'Listings', 'Services', 'Listing type', 'Listing city'].map((i) => (
+                  {['Accueil', 'Nos biens', 'Services', 'Types de biens', 'Villes'].map((i) => (
                     <li key={i} style={{ color: 'rgba(255,255,255,0.85)' }}>{i}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Company</p>
+                <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Société</p>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
-                  {['About', 'Agents', 'Blog', 'Contact'].map((i) => (
+                  {['À propos', 'Agents', 'Blog', 'Contact'].map((i) => (
                     <li key={i} style={{ color: 'rgba(255,255,255,0.85)' }}>{i}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Contact us</p>
+                <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Contactez-nous</p>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'rgba(255,255,255,0.85)' }}>
                   <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <Mail size={15} aria-hidden="true" /> support@revalis.com
@@ -712,7 +713,7 @@ export const NosBiens: React.FC = () => {
             </div>
 
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 24, fontSize: 14, color: 'rgba(255,255,255,0.5)' }}>
-              © 2026 Revalis. All rights reserved.
+              © 2026 Revalis. Tous droits réservés.
             </div>
           </div>
         </footer>
