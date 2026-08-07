@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   BedDouble,
   Bath,
@@ -9,6 +9,9 @@ import {
   Image as ImageIcon,
   PlaySquare,
   ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+  X,
   Phone,
   Mail,
 } from 'lucide-react';
@@ -37,23 +40,32 @@ const T = {
 };
 
 const GALLERY_HERO = {
-  main: 'https://framerusercontent.com/images/qUn8PXGMNl5owKUxOJ3cx4UlZs8.webp',
-  topRight: 'https://framerusercontent.com/images/D2Rosu46lk7tmVyYhuODw5KE6Qs.webp',
-  bottomLeft: 'https://framerusercontent.com/images/NcXkdQactuuaPNAXEpZ1fJkqCR0.webp',
-  bottomRight: 'https://framerusercontent.com/images/QBv22NfP5VaAp4I4HjNNP9r7sq0.webp',
+  main: 'https://framerusercontent.com/images/v86nEI684w4zPg0EhgNucbSOktA.webp',
+  topRight: 'https://framerusercontent.com/images/7qddMcFEDswacgycG4I3MRkL56o.webp',
+  bottomLeft: 'https://framerusercontent.com/images/NCe5u2vNkJTDq99aE4z9j4nnomw.webp',
+  bottomRight: 'https://framerusercontent.com/images/waWK4WYu7GsknywLmZLBba4.webp',
 };
 
 const GALLERY_GRID = [
+  'https://framerusercontent.com/images/qUn8PXGMNl5owKUxOJ3cx4UlZs8.webp',
+  'https://framerusercontent.com/images/lqwCPSh3RoZtdRP6tJd1GRldOo.webp',
+  'https://framerusercontent.com/images/D2Rosu46lk7tmVyYhuODw5KE6Qs.webp',
   'https://framerusercontent.com/images/YdrWklpMEJgsr54XpFUlPWExvxw.webp',
-  'https://framerusercontent.com/images/phjPBLFz2C2keKmrYPkV1hNS92Y.webp',
-  'https://framerusercontent.com/images/P0IKKWT3PjsidbfZPLGFRba6stU.webp',
-  'https://framerusercontent.com/images/HaFup9m6JSG2y6Q8CzHvhig3bS0.jpg',
+];
+
+// Toutes les photos du bien, pour la lightbox « View Full Gallery »
+const ALL_PHOTOS = [
+  GALLERY_HERO.main,
+  GALLERY_HERO.topRight,
+  GALLERY_HERO.bottomLeft,
+  GALLERY_HERO.bottomRight,
+  ...GALLERY_GRID,
 ];
 
 const AVATARS = [
   'https://framerusercontent.com/images/IIXgToVdi2ToB016K5Fg5sG9Bc.webp',
   'https://framerusercontent.com/images/PtrhtDHRTIeUkMdMVmo1Jfqric.webp',
-  'https://framerusercontent.com/images/waWK4WYu7GsknywLmZLBba4.webp',
+  'https://framerusercontent.com/images/YxxFm1LTRfwFGlA3h8r1cXZD3NM.webp',
 ];
 
 const DETAILS: Array<[string, string]> = [
@@ -82,27 +94,27 @@ const MORE_LISTINGS = [
     name: 'Center Square Villa', price: '$749,000', location: 'Center Square, Albany, NY',
   },
   {
-    image: 'https://framerusercontent.com/images/uz3zjgmRfQwnzLMkE0yDitfDNM.webp',
+    image: 'https://framerusercontent.com/images/qczYR3J1pTxtpJWYdeFIZUL4o.webp',
     beds: 1, baths: 1, size: '950 ft²',
     name: 'Sobha Apartment', price: '$99,000', location: 'Center Square, Albany, NY',
   },
   {
-    image: 'https://framerusercontent.com/images/v86nEI684w4zPg0EhgNucbSOktA.webp',
+    image: 'https://framerusercontent.com/images/E79CfN6JX4ZumwQ0y8fXYYTTJQ.webp',
     beds: 4, baths: 2, size: '2,100 ft²',
     name: 'Riverside Modern Villa', price: '$712,000', location: 'Riverside, Rochester, NY',
   },
   {
-    image: 'https://framerusercontent.com/images/KcOhAhSgpyc3sxmVmxEiyvnqguw.webp',
+    image: 'https://framerusercontent.com/images/qUn8PXGMNl5owKUxOJ3cx4UlZs8.webp',
     beds: 3, baths: 2, size: '1,650 ft²',
     name: 'Park Avenue Penthouse', price: '$1.15 M', location: 'Park Avenue, Rochester, NY',
   },
   {
-    image: 'https://framerusercontent.com/images/7qddMcFEDswacgycG4I3MRkL56o.webp',
+    image: 'https://framerusercontent.com/images/4i0fVABNmQKsRxrejJXT5DhYlk0.webp',
     beds: 4, baths: 2, size: '1,800 ft²',
     name: 'Delaware Park Villa', price: '$859,000', location: 'Delaware District, Buffalo, NY',
   },
   {
-    image: 'https://framerusercontent.com/images/NCe5u2vNkJTDq99aE4z9j4nnomw.webp',
+    image: 'https://framerusercontent.com/images/0uNitXTJq1oSjHev9mJw6Q9LwA.webp',
     beds: 3, baths: 3, size: '2,100 ft²',
     name: 'Lark Street Villa', price: '$720,000', location: 'Lark Street District, Albany, NY',
   },
@@ -289,7 +301,104 @@ const ListingCard: React.FC<{ listing: (typeof MORE_LISTINGS)[number]; ariaHidde
   </article>
 );
 
+/* Lightbox plein écran avec slider (flèches, clavier, compteur) */
+const Lightbox: React.FC<{ index: number; onClose: () => void; onNav: (i: number) => void }> = ({ index, onClose, onNav }) => {
+  const prev = useCallback(() => onNav((index - 1 + ALL_PHOTOS.length) % ALL_PHOTOS.length), [index, onNav]);
+  const next = useCallback(() => onNav((index + 1) % ALL_PHOTOS.length), [index, onNav]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [onClose, prev, next]);
+
+  const navBtn: React.CSSProperties = {
+    background: 'rgba(255,255,255,0.12)', color: '#fff', border: 'none', borderRadius: '50%',
+    width: 52, height: 52, display: 'flex', alignItems: 'center', justifyContent: 'center',
+    cursor: 'pointer', flexShrink: 0,
+  };
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Galerie photos"
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 100, background: 'rgba(10,10,10,0.92)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(12px, 3vw, 40px)',
+      }}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Fermer la galerie"
+        style={{ ...navBtn, position: 'absolute', top: 20, right: 20 }}
+      >
+        <X size={24} aria-hidden="true" />
+      </button>
+
+      <span
+        style={{
+          position: 'absolute', top: 32, left: '50%', transform: 'translateX(-50%)',
+          color: 'rgba(255,255,255,0.75)', fontSize: 15, fontFamily: T.body,
+        }}
+      >
+        {index + 1} / {ALL_PHOTOS.length}
+      </span>
+
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px, 2vw, 28px)', width: '100%', maxWidth: 1200 }}
+      >
+        <button type="button" onClick={prev} aria-label="Photo précédente" style={navBtn}>
+          <ChevronLeft size={26} aria-hidden="true" />
+        </button>
+        <img
+          src={ALL_PHOTOS[index]}
+          alt={`Photo ${index + 1} sur ${ALL_PHOTOS.length}`}
+          style={{
+            flex: 1, minWidth: 0, maxHeight: '78vh', objectFit: 'contain',
+            borderRadius: 10, display: 'block',
+          }}
+        />
+        <button type="button" onClick={next} aria-label="Photo suivante" style={navBtn}>
+          <ChevronRight size={26} aria-hidden="true" />
+        </button>
+      </div>
+
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8 }}
+      >
+        {ALL_PHOTOS.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => onNav(i)}
+            aria-label={`Aller à la photo ${i + 1}`}
+            style={{
+              width: 9, height: 9, borderRadius: '50%', border: 'none', cursor: 'pointer', padding: 0,
+              background: i === index ? '#fff' : 'rgba(255,255,255,0.35)',
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const NosBiens: React.FC = () => {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
   return (
     <>
       <SEO
@@ -299,43 +408,68 @@ export const NosBiens: React.FC = () => {
       />
 
       <div style={{ background: T.bg, fontFamily: T.body, color: T.dark, paddingTop: 96 }}>
-        {/* ===== Galerie hero : grande image + colonne (1 large, 2 petites) ===== */}
+        {/* ===== Galerie hero : hauteur contrainte comme le template (~2.4:1) ===== */}
         <section style={{ maxWidth: 1300, margin: '0 auto', padding: '24px 30px 0' }}>
           <div className="nb-gallery-hero" style={{ display: 'grid', gap: 12, gridTemplateColumns: '1.2fr 1fr' }}>
-            <img
-              src={GALLERY_HERO.main}
-              alt="Center Square Villa — vue principale"
-              width="1200"
-              height="900"
-              loading="eager"
-              decoding="async"
-              style={{ width: '100%', height: '100%', minHeight: 320, objectFit: 'cover', display: 'block', borderRadius: 10 }}
-            />
-            <div style={{ display: 'grid', gap: 12, gridTemplateRows: '1.6fr 1fr' }}>
+            <button
+              type="button"
+              onClick={() => setLightbox(0)}
+              aria-label="Agrandir la photo principale"
+              style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minWidth: 0 }}
+            >
               <img
-                src={GALLERY_HERO.topRight}
-                alt="Center Square Villa — séjour"
-                width="800"
-                height="500"
-                loading="lazy"
+                src={GALLERY_HERO.main}
+                alt="Center Square Villa — vue principale"
+                width="1200"
+                height="900"
+                loading="eager"
                 decoding="async"
+                className="nb-hero-img"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 10 }}
               />
-              <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr 1.1fr' }}>
+            </button>
+            <div className="nb-hero-right" style={{ display: 'grid', gap: 12, gridTemplateRows: '1.65fr 1fr', minWidth: 0 }}>
+              <button
+                type="button"
+                onClick={() => setLightbox(1)}
+                aria-label="Agrandir la photo du séjour"
+                style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0 }}
+              >
                 <img
-                  src={GALLERY_HERO.bottomLeft}
-                  alt="Center Square Villa — salon"
-                  width="500"
-                  height="380"
+                  src={GALLERY_HERO.topRight}
+                  alt="Center Square Villa — séjour"
+                  width="800"
+                  height="500"
                   loading="lazy"
                   decoding="async"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 10 }}
                 />
-                <a
-                  href={GALLERY_HERO.main}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ position: 'relative', display: 'block', borderRadius: 10, overflow: 'hidden', textDecoration: 'none' }}
+              </button>
+              <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr 1.1fr', minHeight: 0 }}>
+                <button
+                  type="button"
+                  onClick={() => setLightbox(2)}
+                  aria-label="Agrandir la photo du salon"
+                  style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0 }}
+                >
+                  <img
+                    src={GALLERY_HERO.bottomLeft}
+                    alt="Center Square Villa — salon"
+                    width="500"
+                    height="380"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 10 }}
+                  />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLightbox(3)}
+                  aria-label="Voir toutes les photos"
+                  style={{
+                    position: 'relative', padding: 0, border: 'none', background: 'none',
+                    cursor: 'pointer', display: 'block', borderRadius: 10, overflow: 'hidden', minHeight: 0,
+                  }}
                 >
                   <img
                     src={GALLERY_HERO.bottomRight}
@@ -355,7 +489,7 @@ export const NosBiens: React.FC = () => {
                   >
                     View Full Gallery
                   </span>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -438,16 +572,23 @@ export const NosBiens: React.FC = () => {
                 <SectionHeading icon={<ImageIcon size={22} />} title="Gallery" />
                 <div className="nb-gallery-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                   {GALLERY_GRID.map((img, i) => (
-                    <img
+                    <button
                       key={img}
-                      src={img}
-                      alt={`Center Square Villa — galerie ${i + 1}`}
-                      width="600"
-                      height="450"
-                      loading="lazy"
-                      decoding="async"
-                      style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 8, display: 'block' }}
-                    />
+                      type="button"
+                      onClick={() => setLightbox(4 + i)}
+                      aria-label={`Agrandir la photo ${i + 1} de la galerie`}
+                      style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block' }}
+                    >
+                      <img
+                        src={img}
+                        alt={`Center Square Villa — galerie ${i + 1}`}
+                        width="600"
+                        height="450"
+                        loading="lazy"
+                        decoding="async"
+                        style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 8, display: 'block' }}
+                      />
+                    </button>
                   ))}
                 </div>
               </div>
@@ -577,7 +718,23 @@ export const NosBiens: React.FC = () => {
         </footer>
       </div>
 
+      {lightbox !== null && (
+        <Lightbox index={lightbox} onClose={() => setLightbox(null)} onNav={setLightbox} />
+      )}
+
       <style>{`
+        /* Galerie hero : hauteur contrainte comme le template (≈ 2.4:1) */
+        @media (min-width: 768px) {
+          .nb-gallery-hero { aspect-ratio: 2.42 / 1; }
+          .nb-gallery-hero > button { height: 100%; min-height: 0; overflow: hidden; }
+          .nb-hero-right { min-height: 0; }
+          .nb-hero-right button { overflow: hidden; }
+        }
+        @media (max-width: 767px) {
+          .nb-gallery-hero > button img { aspect-ratio: 4 / 3; }
+          .nb-hero-right { grid-template-rows: auto auto !important; }
+        }
+
         /* Marquee autoplay des listings */
         .nb-marquee { overflow: hidden; width: 100%; }
         .nb-marquee-track {
