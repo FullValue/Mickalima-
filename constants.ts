@@ -2,8 +2,8 @@ import { NavItem, Stat, Facility, LocationItem, RoomSize, Service, BlogPost, Com
 import { Home, Key, TrendingUp, Search, PenTool, Building } from 'lucide-react';
 
 export const COLORS = {
-  primary: '#003064',
-  text: '#003064',
+  primary: '#011d41',
+  text: '#011d41',
   bg: '#FFFFFF'
 };
 

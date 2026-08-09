@@ -653,7 +653,7 @@ export const ZonesDIntervention: React.FC = () => {
                                     <Link
                                         to={`/${c.slug}/estimation-immobiliere`}
                                         className="group block rounded-3xl overflow-hidden w-full h-full relative"
-                                        style={{ background: '#1a2340' }}
+                                        style={{ background: '#011d41' }}
                                         draggable={false}
                                         onClick={(e) => { if (!isCenter) e.preventDefault(); }}
                                     >
