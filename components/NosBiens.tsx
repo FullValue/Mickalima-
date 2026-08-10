@@ -87,6 +87,7 @@ export const NosBiens: React.FC = () => {
   const filtered = useMemo(() => {
     const activeRanges = RANGES.filter((r) => ranges.includes(r.label));
     return BIENS.filter((p) => {
+      if (status === 'Tous' && p.status === 'Vendu') return false; // les vendus ont leur section dédiée
       if (status !== 'Tous' && p.status !== status) return false;
       if (types.length && !types.includes(p.type)) return false;
       if (cities.length && !cities.includes(p.city)) return false;
@@ -96,6 +97,8 @@ export const NosBiens: React.FC = () => {
   }, [status, types, cities, ranges]);
 
   const shown = filtered.slice(0, visible);
+  const vendus = useMemo(() => BIENS.filter((p) => p.status === 'Vendu'), []);
+  const showVendusSection = status === 'Tous' && vendus.length > 0;
 
   return (
     <>
@@ -245,6 +248,23 @@ export const NosBiens: React.FC = () => {
           </div>
         </section>
 
+        {/* ===== Vendus récemment ===== */}
+        {showVendusSection && (
+          <section style={{ maxWidth: 1300, margin: '0 auto', padding: '50px 30px 30px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 28, marginBottom: 36 }}>
+              <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(30px, 3.4vw, 44px)', lineHeight: '1.1em', color: T.dark, whiteSpace: 'nowrap' }}>
+                Vendus récemment
+              </h2>
+              <span aria-hidden="true" style={{ flex: 1, height: 1, background: '#e0e0e0' }} />
+            </div>
+            <div className="nb-grid-vendus" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+              {vendus.map((p) => (
+                <ListingCard key={p.ref} property={p} fluid />
+              ))}
+            </div>
+          </section>
+        )}
+
         <div style={{ height: 70 }} />
 
         <RevalisFooter />
@@ -255,8 +275,12 @@ export const NosBiens: React.FC = () => {
           .nb-listing-layout { grid-template-columns: 1fr !important; }
           .nb-sidebar { position: static !important; }
         }
+        @media (max-width: 1023px) {
+          .nb-grid-vendus { grid-template-columns: repeat(2, 1fr) !important; }
+        }
         @media (max-width: 679px) {
           .nb-grid { grid-template-columns: 1fr !important; }
+          .nb-grid-vendus { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </>
