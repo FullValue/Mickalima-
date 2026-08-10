@@ -23,7 +23,7 @@ export const PrixImmobilierPage: React.FC = () => {
         <h2 className="text-4xl font-medium text-textMain">Commune introuvable</h2>
         <Link
           to="/"
-          className="flex items-center gap-2 bg-white text-textMain font-bold px-8 py-4 rounded-full shadow-lg hover:bg-surface transition-colors"
+          className="flex items-center gap-2 bg-white text-textMain font-bold px-8 py-4 rounded-full hover:bg-surface transition-colors"
         >
           <ArrowLeft size={20} /> Retour à l'accueil
         </Link>
@@ -108,9 +108,9 @@ export const PrixImmobilierPage: React.FC = () => {
             <img
               src={getCommuneHeroImage(commune.slug)}
               alt={`Prix immobilier ${commune.name}`}
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/70 to-[#011d41]/25" />
           </div>
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
@@ -138,7 +138,7 @@ export const PrixImmobilierPage: React.FC = () => {
               <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
                 Prix immobilier
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                <span className="font-newsletter italic font-normal">
                   {commune.name} en {year}
                 </span>
               </h1>
@@ -168,7 +168,7 @@ export const PrixImmobilierPage: React.FC = () => {
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <div className="bg-surface rounded-[2rem] p-10 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Appartements</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
                     {commune.prixApptMin.toLocaleString('fr-FR')} – {commune.prixApptMax.toLocaleString('fr-FR')}
@@ -179,7 +179,7 @@ export const PrixImmobilierPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="bg-surface rounded-[2rem] p-10 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Maisons</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
                     {commune.prixMaisonMin.toLocaleString('fr-FR')} – {commune.prixMaisonMax.toLocaleString('fr-FR')}
@@ -192,21 +192,21 @@ export const PrixImmobilierPage: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div className="flex items-start gap-4 bg-surface p-6 rounded-2xl border border-gray-100">
+                <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <Clock size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">{commune.delaiMoyen} jours</p>
                     <p className="text-gray-500 text-sm font-light">Délai moyen de vente</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 bg-surface p-6 rounded-2xl border border-gray-100">
+                <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <MapPin size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">{commune.distanceGeneve}</p>
                     <p className="text-gray-500 text-sm font-light">de Genève centre</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 bg-surface p-6 rounded-2xl border border-gray-100">
+                <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <TrendingUp size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">Marché sous tension</p>
@@ -234,7 +234,7 @@ export const PrixImmobilierPage: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-10 break-words hyphens-auto">
                 Le marché immobilier
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                <span className="font-newsletter italic font-normal">
                   de {commune.name}
                 </span>
               </h2>
@@ -336,7 +336,7 @@ export const PrixImmobilierPage: React.FC = () => {
               <h2 className="text-4xl md:text-6xl font-medium text-white tracking-tight leading-[1.05] mb-6 break-words hyphens-auto">
                 Connaître la valeur réelle
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                <span className="font-newsletter italic font-normal">
                   de votre bien à {commune.name}
                 </span>
               </h2>
@@ -348,7 +348,7 @@ export const PrixImmobilierPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-xl shadow-black/20"
+                  className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-black/20"
                 >
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                     <ArrowUpRight size={18} />
@@ -386,7 +386,7 @@ export const PrixImmobilierPage: React.FC = () => {
             </div>
             <Link
               to={`/${commune.slug}/estimation-immobiliere`}
-              className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-xl shadow-primary/20 shrink-0"
+              className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-primary/20 shrink-0"
             >
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                 <ArrowUpRight size={18} />

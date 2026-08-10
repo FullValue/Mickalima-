@@ -18,8 +18,8 @@ export const BlogPostPage: React.FC = () => {
   if (!post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background px-6">
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-8 font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">Article introuvable</h2>
-        <Link to="/blog" className="text-textMain font-bold hover:text-primary transition-colors flex items-center gap-2 bg-white px-8 py-4 rounded-full shadow-lg">
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-8 font-newsletter italic font-normal">Article introuvable</h2>
+        <Link to="/blog" className="text-textMain font-bold hover:text-primary transition-colors flex items-center gap-2 bg-white px-8 py-4 rounded-full">
           <ArrowLeft size={20} /> Retour à l'observatoire
         </Link>
       </div>
@@ -122,7 +122,7 @@ export const BlogPostPage: React.FC = () => {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] text-white drop-shadow-md break-words hyphens-auto max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.1] text-white break-words hyphens-auto max-w-4xl">
               {post.title}
             </h1>
           </m.div>
@@ -130,7 +130,7 @@ export const BlogPostPage: React.FC = () => {
       </header>
 
       {/* Main Content Area - Full width strategy with beautiful typography max-width */}
-      <div className="w-full bg-white relative z-20 -mt-8 rounded-t-[3rem] shadow-[0_-20px_40px_rgba(0,0,0,0.05)] border-t border-gray-100">
+      <div className="w-full bg-white relative z-20 -mt-8 rounded-t-[3rem] border-t border-gray-100">
 
         <div className="container mx-auto px-6 py-20 max-w-4xl">
 
@@ -142,7 +142,7 @@ export const BlogPostPage: React.FC = () => {
 
                 {/* Author Info */}
                 <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/10 shadow-lg mb-4">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/10 mb-4">
                     <img src={IMAGES.heroAgent} alt="Mickaël Lima" className="w-full h-full object-cover" />
                   </div>
                   <p className="font-bold text-textMain text-lg leading-tight">Mickaël Lima</p>
@@ -184,24 +184,17 @@ export const BlogPostPage: React.FC = () => {
               {/* Rich Text HTML Content */}
               {/* Added specific CSS rules to ensure gorgeous typography and blue details */}
               <div
-                className="prose prose-lg md:prose-xl w-full max-w-none 
-                prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-textMain prose-headings:mt-12 prose-headings:mb-6
-                prose-p:text-[#4A5568] prose-p:font-light prose-p:leading-[1.8] prose-p:mb-8 prose-p:text-justify
-                prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline hover:prose-a:text-blue-700
-                prose-img:rounded-[2rem] prose-img:shadow-2xl prose-img:my-12 prose-img:w-full prose-img:border prose-img:border-gray-100
-                prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:font-serif prose-blockquote:italic prose-blockquote:text-textMain prose-blockquote:my-10
-                prose-strong:text-textMain prose-strong:font-bold
-                prose-ul:list-disc prose-ul:ml-4 prose-li:text-[#4A5568] prose-li:font-light prose-li:mb-2 marker:text-primary"
+                className="prose prose-lg md:prose-xl w-full max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-textMain prose-headings:mt-12 prose-headings:mb-6 prose-p:text-[#4A5568] prose-p:font-light prose-p:leading-[1.8] prose-p:mb-8 prose-p:text-justify prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline hover:prose-a:text-blue-700 prose-img:rounded-[10px] prose-img: prose-img:my-12 prose-img:w-full prose-img:border prose-img:border-gray-100 prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:font-serif prose-blockquote:italic prose-blockquote:text-textMain prose-blockquote:my-10 prose-strong:text-textMain prose-strong:font-bold prose-ul:list-disc prose-ul:ml-4 prose-li:text-[#4A5568] prose-li:font-light prose-li:mb-2 marker:text-primary"
                 dangerouslySetInnerHTML={{ __html: post.content || '' }}
               />
 
               {/* Navigation Bottom Footer */}
-              <div className="mt-24 pt-10 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-8 bg-surface p-8 rounded-[2rem]">
+              <div className="mt-24 pt-10 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-8 bg-surface p-8 rounded-[10px]">
                 <div>
                   <h4 className="font-bold text-textMain text-xl mb-2">Un projet immobilier en vue ?</h4>
                   <p className="text-gray-500 font-light">Discutons de vive voix de vos objectifs.</p>
                 </div>
-                <Link to="/contact" className="group bg-primary text-white font-bold p-3 pr-8 rounded-full hover:bg-textMain transition-all shadow-xl shadow-primary/20 flex items-center gap-4 text-base">
+                <Link to="/contact" className="group bg-primary text-white font-bold p-3 pr-8 rounded-full hover:bg-textMain transition-all shadow-primary/20 flex items-center gap-4 text-base">
                   <div className="w-10 h-10 bg-white/20 text-white rounded-full flex items-center justify-center transition-transform shrink-0">
                     <ArrowUpRight size={18} />
                   </div>

@@ -69,8 +69,8 @@ export const About: React.FC = () => {
       <div className="bg-background min-h-screen flex flex-col">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary pt-20">
-        <div className="absolute inset-0 z-0 text-center flex justify-center">
+      <section className="relative min-h-[620px] flex items-center overflow-hidden bg-primary pt-20">
+        <div className="absolute inset-0 z-0">
           {/* L'image est moins assombrie */}
           <img
             src="/images/about-hero.jpg"
@@ -79,27 +79,28 @@ export const About: React.FC = () => {
             loading="eager"
             decoding="async"
             alt="Background"
-            className="w-full h-full object-cover mix-blend-overlay opacity-40 mx-auto"
+            className="w-full h-full object-cover"
           />
           {/* L'overlay bleu est très allégé */}
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/60 to-[#011d41]/10 z-10"></div>
         </div>
 
         <m.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="container mx-auto px-6 relative z-20 text-center"
+          className="container mx-auto px-6 relative z-20 text-left"
         >
-          <m.div variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
-            <Award size={16} /> Notre Histoire
+          <m.div variants={fadeInUp} className="flex items-center gap-7 text-white/90 text-sm font-bold uppercase tracking-[0.2em] mb-8">
+            <span className="inline-flex items-center gap-2 whitespace-nowrap"><Award size={16} /> Notre Histoire</span>
+            <span aria-hidden="true" className="flex-1 h-px bg-white/25"></span>
           </m.div>
           {/* Typographie alignée sur MandatSignature */}
-          <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium text-white mb-6 tracking-tight leading-[1.05] drop-shadow-2xl break-words hyphens-auto">
+          <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium text-white mb-6 tracking-tight leading-[1.05] break-words hyphens-auto">
             Une approche exclusive <br />
-            <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">de l'immobilier.</span>
+            <span className="font-newsletter italic font-normal">de l'immobilier.</span>
           </m.h1>
-          <m.p variants={fadeInUp} className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
+          <m.p variants={fadeInUp} className="text-lg text-white/90 max-w-xl leading-relaxed font-light">
             Redéfinir les standards de l'immobilier dans le Pays de Gex avec exigence et transparence.
           </m.p>
         </m.div>
@@ -118,7 +119,7 @@ export const About: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="lg:w-5/12 relative"
             >
-              <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 group">
+              <div className="relative z-10 rounded-[10px] overflow-hidden border border-gray-100 group">
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-black/20 to-transparent z-10 pointer-events-none"></div>
                 <img
                   src={IMAGES.heroAgent}
@@ -133,9 +134,9 @@ export const About: React.FC = () => {
               </div>
 
               {/* Floating Stats */}
-              <div className="absolute -right-12 top-1/2 -translate-y-1/2 bg-white p-6 rounded-[2.5rem] shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-gray-100 z-30 hidden lg:block hover:-translate-y-2 transition-transform duration-500">
+              <div className="absolute -right-12 top-1/2 -translate-y-1/2 bg-white p-6 rounded-[10px] border border-gray-100 z-30 hidden lg:block hover:-translate-y-2 transition-transform duration-500">
                 <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 bg-surface rounded-2xl flex items-center justify-center border border-gray-100">
+                  <div className="w-16 h-16 bg-surface rounded-[10px] flex items-center justify-center border border-gray-100">
                     <Trophy size={28} className="text-primary" />
                   </div>
                   <div>
@@ -160,7 +161,7 @@ export const About: React.FC = () => {
 
               <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-10 leading-[1.05] tracking-tight drop-shadow-sm break-words hyphens-auto">
                 L'ambition d'un service <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">sur-mesure.</span>
+                <span className="font-newsletter italic font-normal">sur-mesure.</span>
               </m.h2>
 
               <m.div variants={fadeInUp} className="prose prose-lg text-gray-500 max-w-none font-light leading-relaxed mb-12">
@@ -225,7 +226,7 @@ export const About: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
               8 ans, 240 ventes,<br />
-              <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">une seule région.</span>
+              <span className="font-newsletter italic font-normal">une seule région.</span>
             </h2>
           </div>
 
@@ -237,7 +238,7 @@ export const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
-                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 md:p-8 text-center hover:bg-white/15 transition-colors"
+                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[10px] p-6 md:p-8 text-center hover:bg-white/15 transition-colors"
               >
                 <div className="text-3xl md:text-5xl font-bold tracking-tighter mb-2">{stat.value}</div>
                 <div className="text-xs md:text-sm text-white/70 font-medium uppercase tracking-widest">{stat.label}</div>
@@ -246,7 +247,7 @@ export const About: React.FC = () => {
           </div>
 
           <div className="flex justify-center mt-12">
-            <Link to="/estimation" className="bg-white text-textMain font-bold p-2 pr-8 rounded-full hover:bg-gray-100 transition-all shadow-xl flex items-center gap-4 group">
+            <Link to="/estimation" className="bg-white text-textMain font-bold p-2 pr-8 rounded-full hover:bg-gray-100 transition-all flex items-center gap-4 group">
               <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-300">
                 <ArrowUpRight size={18} />
               </div>
@@ -264,7 +265,7 @@ export const About: React.FC = () => {
               <Shield size={16} /> Nos Valeurs
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-6 leading-[1.05] tracking-tight drop-shadow-sm break-words hyphens-auto">
-              Nos <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">Valeurs</span>
+              Nos <span className="font-newsletter italic font-normal">Valeurs</span>
             </h2>
           </div>
 
@@ -280,9 +281,9 @@ export const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: idx * 0.2 }}
-                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-10 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 group"
+                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-10 hover: transition-all duration-500 group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-surface flex items-center justify-center mb-8 border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary">
+                <div className="w-16 h-16 rounded-[10px] bg-surface flex items-center justify-center mb-8 border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary">
                   <item.icon size={30} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-2xl font-bold text-textMain mb-4">{item.title}</h3>

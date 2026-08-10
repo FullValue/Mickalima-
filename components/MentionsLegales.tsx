@@ -21,8 +21,9 @@ export const MentionsLegales: React.FC = () => (
       canonical="/mentions-legales"
       schema={MENTIONS_LEGALES_SCHEMA}
     />
-    <section className="py-16 md:py-24 lg:py-32 bg-white">
+    <section className="py-16 md:py-24 lg:py-32 bg-[#f7f7f7]">
       <div className="container mx-auto px-6 max-w-3xl">
+        <div className="bg-white rounded-[10px] p-8 md:p-14">
         <h1 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1] mb-12">
           Mentions légales
         </h1>
@@ -68,6 +69,7 @@ export const MentionsLegales: React.FC = () => (
             <h2 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Cookies</h2>
             <p className="text-base">Ce site n'utilise pas de cookies de suivi tiers. Seuls les cookies techniques nécessaires au bon fonctionnement du site peuvent être déposés.</p>
           </section>
+        </div>
         </div>
       </div>
     </section>

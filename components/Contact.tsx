@@ -90,7 +90,7 @@ export const Estimation: React.FC = () => {
                         className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.1]"
                     >
                         Estimez la valeur de <br />
-                        <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">votre patrimoine.</span>
+                        <span className="font-newsletter italic font-normal">votre patrimoine.</span>
                     </m.h1>
                 </div>
 
@@ -103,7 +103,7 @@ export const Estimation: React.FC = () => {
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                         className="lg:col-span-7"
                     >
-                        <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden">
+                        <div className="bg-white p-8 md:p-12 rounded-[10px] border border-gray-100 relative overflow-hidden">
                             {/* Inner subtle glow */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
@@ -129,7 +129,7 @@ export const Estimation: React.FC = () => {
                                                     type="button"
                                                     key={type}
                                                     onClick={() => setPropertyType(type)}
-                                                    className={`flex-1 py-4 rounded-2xl border font-bold text-sm transition-all duration-300 ${propertyType === type ? 'bg-textMain text-white border-textMain shadow-lg shadow-textMain/20' : 'bg-surface text-gray-500 border-transparent hover:border-gray-200 hover:bg-gray-50'}`}
+                                                    className={`flex-1 py-4 rounded-[10px] border font-bold text-sm transition-all duration-300 ${propertyType === type ? 'bg-textMain text-white border-textMain  shadow-textMain/20' : 'bg-surface text-gray-500 border-transparent hover:border-gray-200 hover:bg-gray-50'}`}
                                                 >
                                                     {type}
                                                 </button>
@@ -143,19 +143,19 @@ export const Estimation: React.FC = () => {
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Surface (m²)</label>
                                             <div className="relative group">
                                                 <Ruler className="absolute left-4 top-[1.1rem] text-gray-400 group-hover:text-primary transition-colors" size={18} />
-                                                <input type="number" name="surface_m2" placeholder="ex: 120" className="w-full bg-surface border-2 border-transparent pl-12 p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                                <input type="number" name="surface_m2" placeholder="ex: 120" className="w-full bg-surface border-2 border-transparent pl-12 p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                             </div>
                                         </div>
                                         <div className="space-y-3">
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Nombre de pièces</label>
-                                            <input type="number" name="nombre_pieces" placeholder="ex: 4" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                            <input type="number" name="nombre_pieces" placeholder="ex: 4" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                         </div>
                                     </div>
 
                                     {/* Localisation */}
                                     <div className="space-y-3">
                                         <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2"><MapPin size={14} /> Localisation</label>
-                                        <input type="text" name="adresse" placeholder="Adresse complète" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="text" name="adresse" placeholder="Adresse complète" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                     </div>
 
                                     {/* DPE */}
@@ -167,12 +167,12 @@ export const Estimation: React.FC = () => {
                                                     type="button"
                                                     key={letter}
                                                     onClick={() => setDpe(letter)}
-                                                    className={`w-12 h-12 rounded-xl font-bold text-lg transition-all duration-300 border ${dpe === letter ? 'bg-textMain text-white border-textMain shadow-md' : 'bg-surface text-gray-500 border-transparent hover:border-gray-200'}`}
+                                                    className={`w-12 h-12 rounded-lg font-bold text-lg transition-all duration-300 border ${dpe === letter ? 'bg-textMain text-white border-textMain ' : 'bg-surface text-gray-500 border-transparent hover:border-gray-200'}`}
                                                 >
                                                     {letter}
                                                 </button>
                                             ))}
-                                            <button type="button" onClick={() => setDpe('Inconnu')} className={`px-6 h-12 rounded-xl font-bold text-sm transition-all duration-300 border ${dpe === 'Inconnu' ? 'bg-textMain text-white border-textMain shadow-md' : 'bg-surface text-gray-500 border-transparent hover:border-gray-200'}`}>
+                                            <button type="button" onClick={() => setDpe('Inconnu')} className={`px-6 h-12 rounded-lg font-bold text-sm transition-all duration-300 border ${dpe === 'Inconnu' ? 'bg-textMain text-white border-textMain ' : 'bg-surface text-gray-500 border-transparent hover:border-gray-200'}`}>
                                                 Je n'en ai pas
                                             </button>
                                         </div>
@@ -186,11 +186,11 @@ export const Estimation: React.FC = () => {
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <input type="text" name="nom" placeholder="Nom complet" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
-                                        <input type="email" name="email" placeholder="Email" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="text" name="nom" placeholder="Nom complet" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="email" name="email" placeholder="Email" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                     </div>
                                     <div className="pb-4">
-                                        <input type="tel" name="telephone" placeholder="Téléphone" className="w-full bg-surface border-2 border-transparent p-4 rounded-2xl text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="tel" name="telephone" placeholder="Téléphone" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                     </div>
 
                                     <button type="submit" disabled={status === 'loading'} className="group w-full bg-white text-textMain border border-gray-200 rounded-full p-2 pr-8 font-bold text-xl flex items-center gap-4 hover:bg-gray-50 transition-all duration-500 shadow-sm transform hover:-translate-y-1 mt-6 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
@@ -212,9 +212,9 @@ export const Estimation: React.FC = () => {
                                     <m.div
                                         initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
-                                        className="bg-surface p-10 rounded-3xl text-center py-24 relative z-10 border border-primary/10"
+                                        className="bg-surface p-10 rounded-[10px] text-center py-24 relative z-10 border border-primary/10"
                                     >
-                                        <div className="inline-flex bg-white p-5 rounded-full mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)] text-primary">
+                                        <div className="inline-flex bg-white p-5 rounded-full mb-8 text-primary">
                                             <CheckCircle size={56} strokeWidth={1.5} />
                                         </div>
                                         <h4 className="text-3xl font-bold text-textMain mb-4 tracking-tight">✅ Message envoyé !</h4>
@@ -235,7 +235,7 @@ export const Estimation: React.FC = () => {
                         className="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32"
                     >
                         {/* Why Us Card */}
-                        <div className="bg-primary text-white p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                        <div className="bg-primary text-white p-12 rounded-[10px] relative overflow-hidden">
                             {/* Texture Overlay */}
                             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent opacity-60 pointer-events-none"></div>
 
@@ -263,19 +263,19 @@ export const Estimation: React.FC = () => {
                         </div>
 
                         {/* Agent Profile */}
-                        <div className="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col md:flex-row items-center gap-8 group">
+                        <div className="bg-white p-8 md:p-10 rounded-[10px] border border-gray-100 flex flex-col md:flex-row items-center gap-8 group">
                             <div className="relative">
                                 <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-20 group-hover:scale-110 transition-transform duration-500"></div>
                                 <img
                                     src={IMAGES.heroAgent}
                                     alt="Mickaël Lima"
-                                    className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-xl relative z-10"
+                                    className="w-32 h-32 rounded-full object-cover border-4 border-white relative z-10"
                                 />
                             </div>
                             <div className="text-center md:text-left text-textMain">
                                 <h4 className="text-2xl font-bold tracking-tight mb-1">Mickaël Lima</h4>
                                 <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Expert Immobilier</p>
-                                <div className="flex items-center justify-center md:justify-start gap-3 bg-surface border border-gray-100 px-5 py-3 rounded-2xl w-fit mx-auto md:mx-0 shadow-inner group-hover:bg-primary/5 transition-colors">
+                                <div className="flex items-center justify-center md:justify-start gap-3 bg-surface border border-gray-100 px-5 py-3 rounded-[10px] w-fit mx-auto md:mx-0 shadow-inner group-hover:bg-primary/5 transition-colors">
                                     <Phone size={18} className="text-primary" />
                                     <span className="font-bold tracking-wide">+33 7 69 31 35 02</span>
                                 </div>
@@ -306,7 +306,7 @@ export const Estimation: React.FC = () => {
                         <Link
                             key={c.slug}
                             to={`/${c.slug}/estimation-immobiliere`}
-                            className="group flex flex-col items-center gap-2 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:border-primary/20 hover:shadow-md transition-all text-center"
+                            className="group flex flex-col items-center gap-2 bg-white rounded-[10px] p-5 border border-gray-100 shadow-sm hover:border-primary/20 hover: transition-all text-center"
                         >
                             <span className="font-bold text-textMain text-sm group-hover:text-primary transition-colors leading-tight">
                                 {c.name}

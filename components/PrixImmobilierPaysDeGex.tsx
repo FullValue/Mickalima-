@@ -71,7 +71,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
             <img
               src="/images/hero-pays-de-gex.jpg"
               alt="Pays de Gex"
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/40" />
           </div>
@@ -100,7 +100,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
 
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
                 Prix immobilier dans le<br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                <span className="font-newsletter italic font-normal">
                   Pays de Gex en {year}
                 </span>
               </h1>
@@ -149,7 +149,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               </h2>
 
               <div className="overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0 no-scrollbar">
-                <table className="w-full min-w-[640px] bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <table className="w-full min-w-[640px] bg-white rounded-[10px] overflow-hidden shadow-sm border border-gray-100">
                   <thead>
                     <tr className="bg-primary text-white text-xs font-bold uppercase tracking-widest">
                       <th className="text-left px-5 py-4">Commune</th>
@@ -209,7 +209,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                 >
                   <Link
                     to={`/prix-immobilier/${c.slug}`}
-                    className="group block bg-white rounded-[1.5rem] p-6 border border-gray-100 shadow-sm hover:border-primary/20 hover:shadow-lg transition-all"
+                    className="group block bg-white rounded-[10px] p-6 border border-gray-100 shadow-sm hover:border-primary/20 hover: transition-all"
                   >
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div>
@@ -245,7 +245,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
             </span>
             <h2 className="text-3xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1] mb-6">
               Connaître la valeur exacte<br />
-              <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+              <span className="font-newsletter italic font-normal">
                 de votre bien
               </span>
             </h2>
@@ -254,7 +254,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl group"
+              className="inline-flex items-center gap-3 bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all hover: group"
             >
               <span>Demander mon estimation</span>
               <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform duration-300" />

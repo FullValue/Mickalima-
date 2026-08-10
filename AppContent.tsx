@@ -25,7 +25,7 @@ import { PrixImmobilierPaysDeGex } from './components/PrixImmobilierPaysDeGex';
 import { FrontalierCommunePage } from './components/FrontalierCommunePage';
 import { MentionsLegales } from './components/MentionsLegales';
 import { PolitiqueConfidentialite } from './components/PolitiqueConfidentialite';
-import { Footer } from './components/Footer';
+import { RevalisFooter } from './components/nosBiensShared';
 import { ScrollToTop } from './components/ScrollToTop';
 import {
   Positioning,
@@ -144,7 +144,7 @@ const HomePage: React.FC = () => (
 );
 
 export const AppContent: React.FC = () => {
-  // /nos-biens et ses pages détail embarquent leur propre footer (réplique Revalis)
+  // /nos-biens et ses pages détail embarquent déjà le footer DA
   const hasOwnFooter = useLocation().pathname.startsWith('/nos-biens');
   return (
   <LazyMotion features={domAnimation}>
@@ -172,7 +172,7 @@ export const AppContent: React.FC = () => {
           <Route path="/frontalier/:commune" element={<FrontalierCommunePage />} />
         </Routes>
       </main>
-      {!hasOwnFooter && <Footer />}
+      {!hasOwnFooter && <RevalisFooter />}
     </div>
   </LazyMotion>
   );

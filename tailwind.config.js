@@ -11,8 +11,8 @@ export default {
       colors: {
         primary: '#011d41',
         textMain: '#011d41',
-        surface: '#F8FAFC',
-        border: '#E2E8F0',
+        surface: '#f7f7f7',
+        border: '#ebebeb',
       },
       fontFamily: {
         // Deux familles uniquement sur tout le site (cf. footer Revalis) :

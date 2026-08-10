@@ -56,7 +56,7 @@ export const FrontalierCommunePage: React.FC = () => {
         <h2 className="text-4xl font-medium text-textMain">Commune introuvable</h2>
         <Link
           to="/"
-          className="flex items-center gap-2 bg-white text-textMain font-bold px-8 py-4 rounded-full shadow-lg hover:bg-surface transition-colors"
+          className="flex items-center gap-2 bg-white text-textMain font-bold px-8 py-4 rounded-full hover:bg-surface transition-colors"
         >
           <ArrowLeft size={20} /> Retour à l'accueil
         </Link>
@@ -165,9 +165,9 @@ export const FrontalierCommunePage: React.FC = () => {
             <img
               src={getCommuneHeroImage(commune.slug)}
               alt={`Immobilier frontalier ${commune.name}`}
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/70 to-[#011d41]/25" />
           </div>
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
@@ -195,7 +195,7 @@ export const FrontalierCommunePage: React.FC = () => {
               <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
                 Immobilier {commune.name}
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                <span className="font-newsletter italic font-normal">
                   pour les frontaliers genevois
                 </span>
               </h1>
@@ -224,7 +224,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1] mb-8 break-words hyphens-auto">
                   Ce qui attire les
                   <br />
-                  <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                  <span className="font-newsletter italic font-normal">
                     frontaliers ici
                   </span>
                 </h2>
@@ -240,17 +240,17 @@ export const FrontalierCommunePage: React.FC = () => {
                 transition={{ duration: 0.7 }}
                 className="space-y-5"
               >
-                <div className="bg-surface rounded-[2rem] p-8 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Distance Genève</p>
                   <p className="text-4xl font-medium text-textMain">{commune.distanceGeneve}</p>
                   <p className="text-gray-500 font-light text-sm mt-2">depuis le centre de Genève</p>
                 </div>
-                <div className="bg-surface rounded-[2rem] p-8 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Délai de vente moyen</p>
                   <p className="text-4xl font-medium text-textMain">{commune.delaiMoyen} jours</p>
                   <p className="text-gray-500 font-light text-sm mt-2">sur les biens correctement estimés</p>
                 </div>
-                <div className="bg-surface rounded-[2rem] p-8 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Prix appartements</p>
                   <p className="text-3xl font-medium text-textMain">
                     {commune.prixApptMin.toLocaleString('fr-FR')} – {commune.prixApptMax.toLocaleString('fr-FR')} €/m²
@@ -278,7 +278,7 @@ export const FrontalierCommunePage: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-12 break-words hyphens-auto">
                 Ce que les frontaliers
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                <span className="font-newsletter italic font-normal">
                   recherchent à {commune.name}
                 </span>
               </h2>
@@ -291,9 +291,9 @@ export const FrontalierCommunePage: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="bg-white rounded-[1.5rem] p-8 border border-gray-100 shadow-sm flex items-start gap-6"
+                    className="bg-white rounded-[10px] p-8 border border-gray-100 shadow-sm flex items-start gap-6"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-[10px] bg-primary/5 flex items-center justify-center shrink-0">
                       <c.icon size={22} className="text-primary" />
                     </div>
                     <div>
@@ -310,9 +310,9 @@ export const FrontalierCommunePage: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="bg-primary rounded-[1.5rem] p-8 border border-primary shadow-sm flex items-start gap-6 md:col-span-2"
+                    className="bg-primary rounded-[10px] p-8 border border-primary shadow-sm flex items-start gap-6 md:col-span-2"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-[10px] bg-white/10 flex items-center justify-center shrink-0">
                       <Microscope size={22} className="text-white" />
                     </div>
                     <div>
@@ -330,9 +330,9 @@ export const FrontalierCommunePage: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="bg-primary rounded-[1.5rem] p-8 border border-primary shadow-sm flex items-start gap-6 md:col-span-2"
+                    className="bg-primary rounded-[10px] p-8 border border-primary shadow-sm flex items-start gap-6 md:col-span-2"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-[10px] bg-white/10 flex items-center justify-center shrink-0">
                       <Globe size={22} className="text-white" />
                     </div>
                     <div>
@@ -363,7 +363,7 @@ export const FrontalierCommunePage: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-6 break-words hyphens-auto">
                 CHF vs EUR :
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                <span className="font-newsletter italic font-normal">
                   l'équation qui change tout
                 </span>
               </h2>
@@ -372,7 +372,7 @@ export const FrontalierCommunePage: React.FC = () => {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div className="bg-surface rounded-[2rem] p-8 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <div className="flex items-center gap-3 mb-4">
                     <TrendingDown size={20} className="text-primary" />
                     <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Appartements · {commune.name}</p>
@@ -383,7 +383,7 @@ export const FrontalierCommunePage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="bg-surface rounded-[2rem] p-8 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <div className="flex items-center gap-3 mb-4">
                     <TrendingDown size={20} className="text-primary" />
                     <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Maisons · {commune.name}</p>
@@ -394,7 +394,7 @@ export const FrontalierCommunePage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="bg-primary rounded-[2rem] p-8">
+                <div className="bg-primary rounded-[10px] p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 size={20} className="text-white/60" />
                     <p className="text-xs font-bold uppercase tracking-widest text-white/60">Équivalent Genève-ville</p>
@@ -406,7 +406,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-surface rounded-[2rem] p-8 border border-gray-100">
+              <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                 <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
                   Exemple concret · Budget 800 000 €
                 </p>
@@ -445,7 +445,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-8 break-words hyphens-auto">
                   Acheter à Saint-Genis
                   <br />
-                  <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                  <span className="font-newsletter italic font-normal">
                     quand on travaille au CERN
                   </span>
                 </h2>
@@ -470,7 +470,7 @@ export const FrontalierCommunePage: React.FC = () => {
                       { label: 'Distance CERN Meyrin → Saint-Genis', value: '3 min' },
                       { label: 'Demande locative (rotation annuelle)', value: 'très forte' },
                     ].map((item) => (
-                      <div key={item.label} className="flex items-center justify-between bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                      <div key={item.label} className="flex items-center justify-between bg-white p-6 rounded-[10px] border border-gray-100 shadow-sm">
                         <p className="font-medium text-textMain">{item.label}</p>
                         <p className="font-bold text-primary text-lg shrink-0 ml-4">{item.value}</p>
                       </div>
@@ -498,7 +498,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-8 break-words hyphens-auto">
                   Acheter à Ferney-Voltaire
                   <br />
-                  <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                  <span className="font-newsletter italic font-normal">
                     quand on travaille à l'ONU
                   </span>
                 </h2>
@@ -523,7 +523,7 @@ export const FrontalierCommunePage: React.FC = () => {
                       { label: 'Distance Palais des Nations → Ferney', value: '8 km' },
                       { label: 'Profil acheteur dominant', value: 'cadre supérieur' },
                     ].map((item) => (
-                      <div key={item.label} className="flex items-center justify-between bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                      <div key={item.label} className="flex items-center justify-between bg-white p-6 rounded-[10px] border border-gray-100 shadow-sm">
                         <p className="font-medium text-textMain">{item.label}</p>
                         <p className="font-bold text-primary text-lg shrink-0 ml-4">{item.value}</p>
                       </div>
@@ -552,7 +552,7 @@ export const FrontalierCommunePage: React.FC = () => {
               <h2 className="text-4xl md:text-6xl font-medium text-white tracking-tight leading-[1.05] mb-6 break-words hyphens-auto">
                 Vous travaillez en Suisse
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                <span className="font-newsletter italic font-normal">
                   et cherchez à acheter à {commune.name} ?
                 </span>
               </h2>
@@ -564,7 +564,7 @@ export const FrontalierCommunePage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-xl shadow-black/20"
+                  className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-black/20"
                 >
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                     <ArrowUpRight size={18} />
@@ -602,7 +602,7 @@ export const FrontalierCommunePage: React.FC = () => {
             </div>
             <Link
               to={`/${commune.slug}/estimation-immobiliere`}
-              className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-xl shadow-primary/20 shrink-0"
+              className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-primary/20 shrink-0"
             >
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                 <ArrowUpRight size={18} />

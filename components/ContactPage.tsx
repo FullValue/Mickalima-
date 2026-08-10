@@ -103,8 +103,8 @@ export const ContactPage: React.FC = () => {
         />
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
-                <div className="absolute inset-0 z-0 text-center flex justify-center">
+            <section className="relative min-h-[620px] flex items-center overflow-hidden bg-primary">
+                <div className="absolute inset-0 z-0">
                     <img
                         src="/images/contact-hero.jpg"
                         width="1920"
@@ -112,18 +112,19 @@ export const ContactPage: React.FC = () => {
                         loading="eager"
                         decoding="async"
                         alt="Contact"
-                        className="w-full h-full object-cover mix-blend-overlay opacity-40 mx-auto"
+                        className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/60 to-[#011d41]/10 z-10"></div>
                 </div>
 
-                <div className="container mx-auto px-6 relative z-10 text-center text-white mt-16">
-                    <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm animate-fade-in-up">
-                        <MessageSquare size={16} /> Contact & Échanges
-                    </span>
-                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight animate-fade-in-up delay-100 drop-shadow-2xl break-words hyphens-auto">
+                <div className="container mx-auto px-6 relative z-10 text-left text-white mt-16">
+                    <div className="flex items-center gap-7 text-white/90 text-sm font-bold uppercase tracking-[0.2em] mb-8 animate-fade-in-up">
+                        <span className="inline-flex items-center gap-2 whitespace-nowrap"><MessageSquare size={16} /> Contact & Échanges</span>
+                        <span aria-hidden="true" className="flex-1 h-px bg-white/25"></span>
+                    </div>
+                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight animate-fade-in-up delay-100 break-words hyphens-auto">
                         Votre projet commence <br />
-                        <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">ici.</span>
+                        <span className="font-newsletter italic font-normal">ici.</span>
                     </h1>
                 </div>
             </section>
@@ -139,7 +140,7 @@ export const ContactPage: React.FC = () => {
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="flex flex-col lg:flex-row bg-white/80 backdrop-blur-2xl rounded-[3rem] overflow-hidden shadow-2xl min-h-[750px] border border-white/50"
+                        className="flex flex-col lg:flex-row bg-white/80 backdrop-blur-2xl rounded-[10px] overflow-hidden min-h-[750px] border border-white/50"
                     >
 
                         {/* Left Side (Dark / Glassmorphism) */}
@@ -165,7 +166,7 @@ export const ContactPage: React.FC = () => {
                                     Contact
                                 </m.div>
 
-                                <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.05] drop-shadow-xl mb-8 break-words hyphens-auto">
+                                <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                                     Parlons de <br />
                                     <span className="font-newsletter italic font-normal text-white">votre projet.</span>
                                 </m.h2>
@@ -176,7 +177,7 @@ export const ContactPage: React.FC = () => {
                                 {/* Quick Contact Info embedded — 2 modes : appel direct + formulaire */}
                                 <m.div variants={staggerContainer} className="space-y-6 mb-16">
                                     <m.a variants={fadeInUp} href="tel:+33769313502" className="flex items-center gap-5 group w-fit">
-                                        <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-lg">
+                                        <div className="w-12 h-12 rounded-[10px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300">
                                             <Phone size={20} />
                                         </div>
                                         <div>
@@ -185,7 +186,7 @@ export const ContactPage: React.FC = () => {
                                         </div>
                                     </m.a>
                                     <m.a variants={fadeInUp} href="mailto:contact@mickael-lima.immo" className="flex items-center gap-5 group w-fit">
-                                        <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300 shadow-lg">
+                                        <div className="w-12 h-12 rounded-[10px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300">
                                             <Mail size={20} />
                                         </div>
                                         <div>
@@ -209,7 +210,7 @@ export const ContactPage: React.FC = () => {
                                             key={i}
                                             src={`https://i.pravatar.cc/100?img=${i + 30}`}
                                             alt="Client"
-                                            className="w-12 h-12 rounded-full border-2 border-primary object-cover shadow-lg"
+                                            className="w-12 h-12 rounded-full border-2 border-primary object-cover"
                                         />
                                     ))}
                                 </div>
@@ -243,7 +244,7 @@ export const ContactPage: React.FC = () => {
                                         name="nom"
                                         required
                                         placeholder="ex: Jean Dupont"
-                                        className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
+                                        className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
                                     />
                                 </m.div>
 
@@ -255,7 +256,7 @@ export const ContactPage: React.FC = () => {
                                             name="email"
                                             required
                                             placeholder="jean@exemple.com"
-                                            className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
+                                            className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
                                         />
                                     </m.div>
                                     <m.div variants={fadeInUp} className="space-y-3">
@@ -265,7 +266,7 @@ export const ContactPage: React.FC = () => {
                                             name="telephone"
                                             required
                                             placeholder="06 12 34 56 78"
-                                            className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
+                                            className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
                                         />
                                     </m.div>
                                 </div>
@@ -276,7 +277,7 @@ export const ContactPage: React.FC = () => {
                                         name="message"
                                         required
                                         placeholder="Parlez-nous de votre projet..."
-                                        className="w-full h-40 bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-2xl p-5 text-lg font-medium outline-none transition-all resize-none placeholder:text-gray-400 shadow-sm"
+                                        className="w-full h-40 bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all resize-none placeholder:text-gray-400 shadow-sm"
                                     ></textarea>
                                 </m.div>
 
@@ -319,27 +320,27 @@ export const ContactPage: React.FC = () => {
                         <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">Notre charte</span>
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">
                             Notre charte <br />
-                            <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">d'engagement.</span>
+                            <span className="font-newsletter italic font-normal">d'engagement.</span>
                         </h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-surface p-10 rounded-[2.5rem] border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                            <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 text-primary">
+                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 hover: transition-shadow duration-300">
+                            <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
                                 <Clock size={24} />
                             </div>
                             <h3 className="text-2xl font-bold text-textMain mb-4">Réactivité absolue</h3>
                             <p className="text-gray-600 leading-relaxed font-light text-lg">Un interlocuteur unique. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.</p>
                         </div>
-                        <div className="bg-surface p-10 rounded-[2.5rem] border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                            <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 text-primary">
+                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 hover: transition-shadow duration-300">
+                            <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
                                 <ShieldCheck size={24} />
                             </div>
                             <h3 className="text-2xl font-bold text-textMain mb-4">Sélection rigoureuse</h3>
                             <p className="text-gray-600 leading-relaxed font-light text-lg">Finis les visites curieuses. Chaque profil acquéreur est analysé et son financement pré-validé avant d'entrer chez vous.</p>
                         </div>
-                        <div className="bg-surface p-10 rounded-[2.5rem] border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                            <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 text-primary">
+                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 hover: transition-shadow duration-300">
+                            <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
                                 <Globe size={24} />
                             </div>
                             <h3 className="text-2xl font-bold text-textMain mb-4">Portée internationale</h3>
@@ -354,7 +355,7 @@ export const ContactPage: React.FC = () => {
                 <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gray-50 z-0"></div>
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="mb-12">
-                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">Questions <span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary font-normal">fréquentes</span></h2>
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">Questions <span className="font-newsletter italic font-normal">fréquentes</span></h2>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-16 items-stretch">
@@ -365,7 +366,7 @@ export const ContactPage: React.FC = () => {
                                 {faqs.map((faq, index) => (
                                     <div
                                         key={index}
-                                        className={`bg-white rounded-2xl border ${activeFaq === index ? 'border-primary shadow-md' : 'border-gray-100'} overflow-hidden transition-all duration-300`}
+                                        className={`bg-white rounded-[10px] border ${activeFaq === index ? 'border-primary ' : 'border-gray-100'} overflow-hidden transition-all duration-300`}
                                     >
                                         <button
                                             onClick={() => setActiveFaq(activeFaq === index ? null : index)}
@@ -386,7 +387,7 @@ export const ContactPage: React.FC = () => {
 
                         {/* Right: Info Complementaire (Bureau, etc) */}
                         <div className="lg:w-5/12">
-                            <div className="bg-primary text-white rounded-[2.5rem] p-10 md:p-12 shadow-2xl relative overflow-hidden group h-full flex flex-col justify-center">
+                            <div className="bg-primary text-white rounded-[10px] p-10 md:p-12 relative overflow-hidden group h-full flex flex-col justify-center">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-white/10 transition-colors duration-700"></div>
 
                                 <h3 className="text-2xl font-bold mb-8">Zone d'intervention</h3>
@@ -404,7 +405,7 @@ export const ContactPage: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-md border border-white/15 rounded-2xl p-6 mb-8">
+                                <div className="bg-white/5 backdrop-blur-md border border-white/15 rounded-[10px] p-6 mb-8">
                                     <p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent mb-3">Communes couvertes</p>
                                     <p className="text-white/85 text-sm font-medium leading-relaxed">
                                         Intervention sur tout le Pays de Gex — <strong className="font-semibold text-white">Ferney-Voltaire</strong>, <strong className="font-semibold text-white">Divonne-les-Bains</strong>, <strong className="font-semibold text-white">Saint-Genis-Pouilly</strong>, <strong className="font-semibold text-white">Gex</strong>, <strong className="font-semibold text-white">Prévessin-Moëns</strong> et communes voisines.

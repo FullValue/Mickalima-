@@ -25,7 +25,7 @@ export const CommuneEstimationPage: React.FC = () => {
         <h2 className="text-4xl font-medium text-textMain">Commune introuvable</h2>
         <Link
           to="/"
-          className="flex items-center gap-2 bg-white text-textMain font-bold px-8 py-4 rounded-full shadow-lg hover:bg-surface transition-colors"
+          className="flex items-center gap-2 bg-white text-textMain font-bold px-8 py-4 rounded-full hover:bg-surface transition-colors"
         >
           <ArrowLeft size={20} /> Retour à l'accueil
         </Link>
@@ -123,9 +123,9 @@ export const CommuneEstimationPage: React.FC = () => {
             <img
               src={getCommuneHeroImage(commune.slug)}
               alt={`Estimation immobilière ${commune.name}`}
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-primary/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/70 to-[#011d41]/25" />
           </div>
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
@@ -153,7 +153,7 @@ export const CommuneEstimationPage: React.FC = () => {
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
                 Estimation immobilière
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                <span className="font-newsletter italic font-normal">
                   {commune.name}
                 </span>
               </h1>
@@ -183,7 +183,7 @@ export const CommuneEstimationPage: React.FC = () => {
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <div className="bg-surface rounded-[2rem] p-10 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
                     Appartements
                   </p>
@@ -196,7 +196,7 @@ export const CommuneEstimationPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="bg-surface rounded-[2rem] p-10 border border-gray-100">
+                <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
                     Maisons
                   </p>
@@ -211,21 +211,21 @@ export const CommuneEstimationPage: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div className="flex items-start gap-4 bg-surface p-6 rounded-2xl border border-gray-100">
+                <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <Clock size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">{commune.delaiMoyen} jours</p>
                     <p className="text-gray-500 text-sm font-light">Délai moyen de vente (bien estimé)</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 bg-surface p-6 rounded-2xl border border-gray-100">
+                <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <MapPin size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">{commune.distanceGeneve}</p>
                     <p className="text-gray-500 text-sm font-light">de Genève centre</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 bg-surface p-6 rounded-2xl border border-gray-100">
+                <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <TrendingUp size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">Marché sous tension</p>
@@ -254,7 +254,7 @@ export const CommuneEstimationPage: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1] mb-8 break-words hyphens-auto">
                   Pourquoi {commune.name}
                   <br />
-                  <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                  <span className="font-newsletter italic font-normal">
                     attire les acheteurs
                   </span>
                 </h2>
@@ -273,7 +273,7 @@ export const CommuneEstimationPage: React.FC = () => {
                 {commune.pointsForts.map((point, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+                    className="flex items-center gap-4 bg-white p-6 rounded-[10px] border border-gray-100 shadow-sm"
                   >
                     <CheckCircle size={22} className="text-primary shrink-0" />
                     <p className="font-medium text-textMain">{point}</p>
@@ -302,7 +302,7 @@ export const CommuneEstimationPage: React.FC = () => {
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.05] mb-6 break-words hyphens-auto">
                 Quelle est la valeur réelle
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                <span className="font-newsletter italic font-normal">
                   de votre bien ?
                 </span>
               </h2>
@@ -314,7 +314,7 @@ export const CommuneEstimationPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-xl shadow-black/20"
+                  className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-black/20"
                 >
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                     <ArrowUpRight size={18} />
@@ -348,7 +348,7 @@ export const CommuneEstimationPage: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-12 break-words hyphens-auto">
                 Questions sur l'estimation
                 <br />
-                <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                <span className="font-newsletter italic font-normal">
                   à {commune.name}
                 </span>
               </h2>
@@ -357,8 +357,8 @@ export const CommuneEstimationPage: React.FC = () => {
                 {faqs.map((faq, i) => (
                   <div
                     key={i}
-                    className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
-                      activeFaq === i ? 'border-primary shadow-md' : 'border-gray-100'
+                    className={`rounded-[10px] border overflow-hidden transition-all duration-300 ${
+                      activeFaq === i ? 'border-primary ' : 'border-gray-100'
                     }`}
                   >
                     <button
@@ -402,7 +402,7 @@ export const CommuneEstimationPage: React.FC = () => {
                   <Link
                     key={slug}
                     to={`/${slug}/estimation-immobiliere`}
-                    className="group flex items-center justify-between bg-surface rounded-[1.5rem] p-6 border border-gray-100 hover:border-primary/20 hover:shadow-md transition-all"
+                    className="group flex items-center justify-between bg-surface rounded-[10px] p-6 border border-gray-100 hover:border-primary/20 hover: transition-all"
                   >
                     <div>
                       <p className="font-bold text-textMain text-lg group-hover:text-primary transition-colors">{voisine.name}</p>
@@ -418,7 +418,7 @@ export const CommuneEstimationPage: React.FC = () => {
               })}
               <Link
                 to="/estimation"
-                className="group flex items-center justify-between bg-primary rounded-[1.5rem] p-6 hover:bg-textMain transition-all"
+                className="group flex items-center justify-between bg-primary rounded-[10px] p-6 hover:bg-textMain transition-all"
               >
                 <div>
                   <p className="font-bold text-white text-lg">Toutes les communes</p>
@@ -448,7 +448,7 @@ export const CommuneEstimationPage: React.FC = () => {
             </div>
             <Link
               to="/blog"
-              className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-xl shadow-primary/20 shrink-0"
+              className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-primary/20 shrink-0"
             >
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                 <ArrowUpRight size={18} />

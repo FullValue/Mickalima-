@@ -44,7 +44,7 @@ export const Positioning: React.FC = () => {
                             className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] hyphens-auto break-words"
                         >
                             Une approche pour les <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary font-newsletter italic font-normal">vendeurs exigeants.</span>
+                            <span className="font-newsletter italic font-normal">vendeurs exigeants.</span>
                         </m.h2>
                     </div>
                     <div className="lg:w-5/12 pt-2">
@@ -73,7 +73,7 @@ export const Positioning: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-5%" }}
                             transition={{ duration: 0.7, delay: idx * 0.15 }}
-                            className="snap-start shrink-0 md:shrink w-[85%] md:w-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-7 md:p-10 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 group"
+                            className="snap-start shrink-0 md:shrink w-[85%] md:w-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-7 md:p-10 hover: hover:-translate-y-2 transition-all duration-500 group"
                         >
                             <div className="w-16 h-16 md:w-20 md:h-20 rounded-[1.25rem] bg-surface flex items-center justify-center mb-6 md:mb-8 border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary shadow-inner">
                                 <item.icon size={28} strokeWidth={1.5} />
@@ -105,7 +105,7 @@ export const Problematic: React.FC = () => (
                     <Layers size={16} /> 01. Nouvelle approche
                 </div>
                 <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-6 leading-[1.1] tracking-tight drop-shadow-sm">
-                    Pourquoi certains biens se vendent mieux <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">que d'autres</span>
+                    Pourquoi certains biens se vendent mieux <span className="font-newsletter italic font-normal">que d'autres</span>
                 </h2>
                 <p className="text-lg md:text-xl text-gray-500 font-light leading-relaxed max-w-3xl mx-auto">
                     Deux biens similaires peuvent obtenir des résultats très différents. <br className="hidden md:block" />
@@ -119,7 +119,7 @@ export const Problematic: React.FC = () => (
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden shadow-2xl relative"
+                    className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-[10px] overflow-hidden relative"
                 >
                     <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Notre approche" width="1200" height="800" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-primary/10"></div>
@@ -138,7 +138,7 @@ export const Problematic: React.FC = () => (
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-10%" }}
                                 transition={{ duration: 0.8, delay: 0.2 + idx * 0.1, ease: "easeOut" }}
-                                className="snap-start shrink-0 md:shrink w-[80%] md:w-auto bg-white rounded-[2rem] p-7 md:p-8 lg:p-10 shadow-[0_15px_40px_rgba(0,0,0,0.06)] border border-gray-100 flex flex-col items-center justify-center min-h-[180px] md:min-h-[160px] lg:min-h-[240px] hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)] hover:border-primary/20 transition-all duration-500 group relative overflow-hidden"
+                                className="snap-start shrink-0 md:shrink w-[80%] md:w-auto bg-white rounded-[10px] p-7 md:p-8 lg:p-10 border border-gray-100 flex flex-col items-center justify-center min-h-[180px] md:min-h-[160px] lg:min-h-[240px] hover:-translate-y-2 hover: hover:border-primary/20 transition-all duration-500 group relative overflow-hidden"
                             >
                                 {/* Subtle decorative glow */}
                                 <div className="absolute -right-6 -top-6 w-24 h-24 bg-primary/5 rounded-full blur-[20px] group-hover:bg-primary/10 transition-colors duration-500 pointer-events-none"></div>
@@ -209,7 +209,7 @@ export const Visibility: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="lg:col-span-6 w-full relative aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[640px] rounded-[2.5rem] overflow-hidden shadow-2xl group border border-gray-100 bg-primary/10 cursor-pointer"
+                        className="lg:col-span-6 w-full relative aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[640px] rounded-[10px] overflow-hidden group border border-gray-100 bg-primary/10 cursor-pointer"
                         onClick={() => videoRef.current?.play().catch(() => {})}
                     >
                         <video
@@ -245,14 +245,14 @@ export const Visibility: React.FC = () => {
                                 <Globe size={16} /> 02. Diffusion Massive
                             </div>
                             <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] text-textMain tracking-tight mb-6 font-serif italic drop-shadow-sm">
-                                "Une exposition qui <br className="hidden md:block" />fait <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">la différence.</span>"
+                                "Une exposition qui <br className="hidden md:block" />fait <span className="font-newsletter italic font-normal">la différence.</span>"
                             </h3>
                             <p className="text-xl md:text-2xl text-gray-500 font-light leading-relaxed mb-10 max-w-lg">
                                 Plus de contacts, des visites ciblées et efficaces pour votre transaction.
                             </p>
 
                             <div className="flex items-center gap-4 mb-12">
-                                <img src={IMAGES.heroAgent} alt="Agent" className="w-14 h-14 rounded-full object-cover shadow-md border-2 border-white" />
+                                <img src={IMAGES.heroAgent} alt="Agent" className="w-14 h-14 rounded-full object-cover border-2 border-white" />
                                 <div>
                                     <h4 className="font-bold text-textMain text-lg">Notre Agence</h4>
                                     <p className="text-sm text-gray-500 font-medium tracking-wide uppercase mt-0.5">Expertise Locale</p>
@@ -305,7 +305,7 @@ export const Testimonials: React.FC = () => {
                         <Star size={16} /> 03. Avis clients
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] drop-shadow-sm hyphens-auto break-words">
-                        Ce que <span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary font-normal">nos clients</span> disent
+                        Ce que <span className="font-newsletter italic font-normal">nos clients</span> disent
                     </h2>
                 </div>
 
@@ -314,7 +314,7 @@ export const Testimonials: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="max-w-3xl mx-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-8 md:p-14 text-center shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
+                    className="max-w-3xl mx-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-8 md:p-14 text-center"
                 >
                     <div className="flex justify-center gap-1.5 mb-5 text-accent">
                         {[...Array(5)].map((_, i) => (
@@ -331,7 +331,7 @@ export const Testimonials: React.FC = () => {
                         href="https://share.google/fvsAyaT6pI2059MZF"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 bg-primary text-white font-bold px-7 md:px-8 py-4 rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl group"
+                        className="inline-flex items-center gap-3 bg-primary text-white font-bold px-7 md:px-8 py-4 rounded-full hover:bg-primary/90 transition-all hover: group"
                     >
                         <span>Lire les avis sur Google</span>
                         <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform duration-300" />
@@ -372,7 +372,7 @@ export const FAQSection: React.FC = () => {
                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
                         <MessageSquare size={16} /> 04. Questions fréquentes
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">Questions <span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary font-normal">fréquentes</span></h2>
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">Questions <span className="font-newsletter italic font-normal">fréquentes</span></h2>
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-16 items-stretch">
@@ -383,7 +383,7 @@ export const FAQSection: React.FC = () => {
                             {faqs.map((faq, index) => (
                                 <div
                                     key={index}
-                                    className={`bg-white rounded-2xl border ${activeFaq === index ? 'border-primary shadow-md' : 'border-gray-100'} overflow-hidden transition-all duration-300`}
+                                    className={`bg-white rounded-[10px] border ${activeFaq === index ? 'border-primary ' : 'border-gray-100'} overflow-hidden transition-all duration-300`}
                                 >
                                     <button
                                         onClick={() => setActiveFaq(activeFaq === index ? null : index)}
@@ -404,7 +404,7 @@ export const FAQSection: React.FC = () => {
 
                     {/* Right: Info Complementaire (Bureau, etc) */}
                     <div className="lg:w-5/12">
-                        <div className="bg-primary text-white rounded-[2.5rem] p-10 md:p-12 shadow-2xl relative overflow-hidden group h-full flex flex-col justify-center">
+                        <div className="bg-primary text-white rounded-[10px] p-10 md:p-12 relative overflow-hidden group h-full flex flex-col justify-center">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-white/10 transition-colors duration-700"></div>
 
                             <h3 className="text-2xl font-bold mb-8">Où nous trouver ?</h3>
@@ -461,7 +461,7 @@ export const HomeBlog: React.FC = () => (
                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
                         <Users size={16} /> 05. Expertise
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] drop-shadow-lg hyphens-auto break-words">Actualités & <br className="hidden md:block" /><span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary font-normal">Conseils</span></h2>
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] hyphens-auto break-words">Actualités & <br className="hidden md:block" /><span className="font-newsletter italic font-normal">Conseils</span></h2>
                 </div>
                 <Link to="/blog" className="group flex items-center gap-4 text-textMain font-bold hover:text-primary transition-colors text-lg">
                     Voir tous les articles
@@ -482,10 +482,10 @@ export const HomeBlog: React.FC = () => (
                         className="group relative snap-start shrink-0 md:shrink w-[85%] md:w-auto"
                     >
                         {/* Glass background from Blog.tsx */}
-                        <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-white/50 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 -z-10"></div>
+                        <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 group-hover: transition-all duration-500 -z-10"></div>
 
                         <Link to={`/blog/${post.slug}`} className="flex flex-col h-full bg-transparent p-4">
-                            <div className="h-64 rounded-3xl overflow-hidden relative shadow-inner">
+                            <div className="h-64 rounded-[10px] overflow-hidden relative shadow-inner">
                                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                                 <img
                                     src={post.image}
@@ -493,7 +493,7 @@ export const HomeBlog: React.FC = () => (
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
                                 />
                                 <div className="absolute top-4 left-4 z-20">
-                                    <span className="bg-white/90 backdrop-blur text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
+                                    <span className="bg-white/90 backdrop-blur text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">
                                         {post.category}
                                     </span>
                                 </div>
@@ -603,7 +603,7 @@ export const ZonesDIntervention: React.FC = () => {
                             className="text-4xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1]"
                         >
                             9 communes du<br />
-                            <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">
+                            <span className="font-newsletter italic font-normal">
                                 Pays de Gex
                             </span>
                         </m.h2>
@@ -652,7 +652,7 @@ export const ZonesDIntervention: React.FC = () => {
                                 >
                                     <Link
                                         to={`/${c.slug}/estimation-immobiliere`}
-                                        className="group block rounded-3xl overflow-hidden w-full h-full relative"
+                                        className="group block rounded-[10px] overflow-hidden w-full h-full relative"
                                         style={{ background: '#011d41' }}
                                         draggable={false}
                                         onClick={(e) => { if (!isCenter) e.preventDefault(); }}
@@ -722,7 +722,7 @@ export const FinalCTA: React.FC = () => (
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="bg-primary rounded-[3rem] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl border border-white/10"
+                className="bg-primary rounded-[10px] p-12 lg:p-24 text-center text-white relative overflow-hidden border border-white/10"
             >
                 {/* Decorative Background Image & Gradients */}
                 <div className="absolute inset-0">
@@ -736,17 +736,17 @@ export const FinalCTA: React.FC = () => (
                     <img
                         src={IMAGES.logoWhite}
                         alt="Mickaël Lima"
-                        className="h-16 md:h-20 lg:h-24 object-contain mb-10 drop-shadow-lg opacity-90"
+                        className="h-16 md:h-20 lg:h-24 object-contain mb-10 opacity-90"
                         style={{ filter: 'brightness(0) invert(1)' }}
                     />
 
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium mb-8 leading-[1.05] tracking-tight drop-shadow-2xl hyphens-auto break-words">Vous avez un projet <br className="hidden md:block" /><span className="font-newsletter italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white font-normal">de vente ?</span></h2>
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium mb-8 leading-[1.05] tracking-tight hyphens-auto break-words">Vous avez un projet <br className="hidden md:block" /><span className="font-newsletter italic font-normal">de vente ?</span></h2>
                     <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl font-light leading-relaxed text-center">
                         Faites estimer votre bien et bénéficiez d’un accompagnement professionnel, adapté à votre projet et à votre bien.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-lg">
-                        <Link to="/estimation" className="bg-white text-textMain py-2 px-2 pr-6 rounded-full font-bold hover:bg-gray-50 transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-4 group flex-1">
+                        <Link to="/estimation" className="bg-white text-textMain py-2 px-2 pr-6 rounded-full font-bold hover:bg-gray-50 transition-all hover:-translate-y-1 flex items-center justify-center gap-4 group flex-1">
                             <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-300">
                                 <ArrowUpRight size={20} />
                             </div>

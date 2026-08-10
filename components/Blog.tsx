@@ -58,7 +58,7 @@ export const Blog: React.FC = () => {
                     </m.span>
                     <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
                         L'Observatoire du <br />
-                        <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">marché Gessien</span>
+                        <span className="font-newsletter italic font-normal">marché Gessien</span>
                     </m.h2>
                     <m.p variants={fadeInUp} className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
                         Analyses, opportunités et conseils d’expert pour comprendre votre marché et valoriser votre patrimoine.
@@ -81,10 +81,10 @@ export const Blog: React.FC = () => {
                     {BLOG_POSTS.map((post) => (
                         <m.div variants={fadeInUp} key={post.id} className="group relative">
                             {/* Glass background */}
-                            <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[2rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-white/50 group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-500 -z-10"></div>
+                            <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 group-hover: transition-all duration-500 -z-10"></div>
 
                             <Link to={`/blog/${post.slug}`} className="flex flex-col h-full bg-transparent p-4">
-                                <div className="h-64 rounded-3xl overflow-hidden relative shadow-inner">
+                                <div className="h-64 rounded-[10px] overflow-hidden relative shadow-inner">
                                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                                     <img
                                         src={post.image}
@@ -92,7 +92,7 @@ export const Blog: React.FC = () => {
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
                                     />
                                     <div className="absolute top-4 left-4 z-20">
-                                        <span className="bg-white/90 backdrop-blur text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
+                                        <span className="bg-white/90 backdrop-blur text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">
                                             {post.category}
                                         </span>
                                     </div>

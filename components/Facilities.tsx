@@ -33,7 +33,7 @@ export const Method: React.FC = () => {
               <Star size={16} /> Méthode Éprouvée
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight mb-6 leading-[1.05]">
-              Une méthode en <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary whitespace-nowrap">3 temps</span>.
+              Une méthode en <span className="font-newsletter italic font-normal whitespace-nowrap">3 temps</span>.
             </h2>
           </div>
           <div className="flex flex-col items-start lg:items-end gap-8">
@@ -81,7 +81,7 @@ export const Method: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
-                className={`relative rounded-[2.5rem] overflow-hidden group bg-black/5 cursor-pointer transition-all duration-700 ease-out flex flex-col justify-end ${isActive ? 'lg:flex-[2] h-[280px] sm:h-[360px] lg:h-full' : 'lg:flex-[1] h-[200px] sm:h-[260px] lg:h-full'
+                className={`relative rounded-[10px] overflow-hidden group bg-black/5 cursor-pointer transition-all duration-700 ease-out flex flex-col justify-end ${isActive ? 'lg:flex-[2] h-[280px] sm:h-[360px] lg:h-full' : 'lg:flex-[1] h-[200px] sm:h-[260px] lg:h-full'
                   }`}
               >
                 <img
@@ -96,7 +96,7 @@ export const Method: React.FC = () => {
                     <span className={`inline-block px-4 py-1 rounded-full border backdrop-blur-md text-xs font-bold uppercase tracking-widest mb-4 md:mb-6 shadow-sm transition-colors duration-500 ${isActive ? 'border-white/20 bg-black/40 text-white/90' : 'border-white/10 bg-white/5 text-white/50 group-hover:text-white/80'}`}>
                       {pilier.badge}
                     </span>
-                    <h3 className={`font-medium mb-2 md:mb-4 leading-tight tracking-tight drop-shadow-md transition-all duration-700 ${isActive ? 'text-4xl md:text-5xl text-white' : 'text-2xl md:text-3xl text-white/70 group-hover:text-white'}`}>
+                    <h3 className={`font-medium mb-2 md:mb-4 leading-tight tracking-tight  transition-all duration-700 ${isActive ? 'text-4xl md:text-5xl text-white' : 'text-2xl md:text-3xl text-white/70 group-hover:text-white'}`}>
                       {pilier.title}
                     </h3>
                     <div className={`grid transition-all duration-700 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100 mt-2 md:mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'}`}>
@@ -128,7 +128,7 @@ export const Method: React.FC = () => {
             target="_blank"
             rel="noreferrer"
             aria-label="Regarder la vidéo de présentation sur YouTube"
-            className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-white/50 bg-white/10 backdrop-blur-md flex items-center justify-center hover:scale-110 hover:bg-primary hover:border-primary transition-all duration-500 shadow-2xl group-hover:shadow-primary/50"
+            className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-white/50 bg-white/10 backdrop-blur-md flex items-center justify-center hover:scale-110 hover:bg-primary hover:border-primary transition-all duration-500 group-hover:shadow-primary/50"
           >
             <div className="w-0 h-0 border-t-[12px] md:border-t-[16px] border-t-transparent border-l-[20px] md:border-l-[28px] border-l-white border-b-[12px] md:border-b-[16px] border-b-transparent ml-2"></div>
           </a>

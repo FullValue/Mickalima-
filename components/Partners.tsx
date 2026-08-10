@@ -23,8 +23,8 @@ export const Partners: React.FC = () => {
         />
         <div className="min-h-screen bg-gray-50 flex flex-col">
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary pt-20">
-                <div className="absolute inset-0 z-0 text-center flex justify-center">
+            <section className="relative min-h-[620px] flex items-center overflow-hidden bg-primary pt-20">
+                <div className="absolute inset-0 z-0">
                     <img
                         src="/images/partners-hero.jpg"
                         width="1920"
@@ -32,25 +32,26 @@ export const Partners: React.FC = () => {
                         loading="eager"
                         decoding="async"
                         alt="Partenaires Immobiliers"
-                        className="w-full h-full object-cover mix-blend-overlay opacity-40 mx-auto"
+                        className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/30 to-background z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/60 to-[#011d41]/10 z-10"></div>
                 </div>
 
                 <m.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="container mx-auto px-6 relative z-20 text-center text-white"
+                    className="container mx-auto px-6 relative z-20 text-left text-white"
                 >
-                    <m.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white/90 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
-                        <Building size={16} /> Écosystème
-                    </m.span>
-                    <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight drop-shadow-2xl break-words hyphens-auto">
+                    <m.div variants={fadeInUp} className="flex items-center gap-7 text-white/90 text-sm font-bold uppercase tracking-[0.2em] mb-8">
+                        <span className="inline-flex items-center gap-2 whitespace-nowrap"><Building size={16} /> Écosystème</span>
+                        <span aria-hidden="true" className="flex-1 h-px bg-white/25"></span>
+                    </m.div>
+                    <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight break-words hyphens-auto">
                         Le cercle <br />
-                        <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">de confiance.</span>
+                        <span className="font-newsletter italic font-normal">de confiance.</span>
                     </m.h1>
-                    <m.p variants={fadeInUp} className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    <m.p variants={fadeInUp} className="text-lg text-white/90 max-w-2xl leading-relaxed">
                         Vendre ou acheter un bien implique souvent d’autres projets : financement, rénovation, aménagement. Pour répondre à l’ensemble de vos besoins, je mets à votre disposition un réseau de partenaires sélectionnés pour leur sérieux et leur professionnalisme.
                     </m.p>
                 </m.div>
@@ -70,7 +71,7 @@ export const Partners: React.FC = () => {
                             <Users size={16} /> Notre réseau
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">
-                            Nos <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">Partenaires</span>
+                            Nos <span className="font-newsletter italic font-normal">Partenaires</span>
                         </h2>
                     </m.div>
 
@@ -87,9 +88,9 @@ export const Partners: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-10%" }}
                                 transition={{ duration: 0.7, delay: idx * 0.15 }}
-                                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-10 flex items-center gap-8 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 group cursor-default"
+                                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-10 flex items-center gap-8 hover: hover:-translate-y-2 transition-all duration-500 group cursor-default"
                             >
-                                <div className="w-24 h-24 rounded-[1.5rem] bg-surface flex flex-shrink-0 items-center justify-center border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary shadow-inner">
+                                <div className="w-24 h-24 rounded-[10px] bg-surface flex flex-shrink-0 items-center justify-center border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary shadow-inner">
                                     <partner.icon size={36} strokeWidth={1.5} />
                                 </div>
                                 <div>
@@ -113,7 +114,7 @@ export const Partners: React.FC = () => {
                             <Star size={16} /> Notre Promesse
                         </span>
                         <p className="text-4xl md:text-5xl lg:text-7xl leading-[1.15] text-textMain tracking-tight italic font-serif break-words hyphens-auto">
-                            "Un seul mot d'ordre : <span className="font-newsletter italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-primary">L'Excellence.</span>"
+                            "Un seul mot d'ordre : <span className="font-newsletter italic font-normal">L'Excellence.</span>"
                         </p>
                     </m.div>
                 </div>

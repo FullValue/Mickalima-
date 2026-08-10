@@ -8,8 +8,9 @@ export const PolitiqueConfidentialite: React.FC = () => (
       description="Politique de confidentialité de mickael-lima.immo : données collectées, finalité, durée de conservation, droits RGPD."
       canonical="/politique-confidentialite"
     />
-    <section className="py-16 md:py-24 lg:py-32 bg-white">
+    <section className="py-16 md:py-24 lg:py-32 bg-[#f7f7f7]">
       <div className="container mx-auto px-6 max-w-3xl">
+        <div className="bg-white rounded-[10px] p-8 md:p-14">
         <h1 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1] mb-12">
           Politique de confidentialité
         </h1>
@@ -71,6 +72,7 @@ export const PolitiqueConfidentialite: React.FC = () => (
             <h2 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Cookies</h2>
             <p className="text-base">Ce site n'utilise aucun cookie de suivi publicitaire ou de mesure d'audience tiers. Seuls les cookies techniques strictement nécessaires au bon fonctionnement du site peuvent être déposés.</p>
           </section>
+        </div>
         </div>
       </div>
     </section>

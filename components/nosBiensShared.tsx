@@ -251,8 +251,18 @@ export const RevalisFooter: React.FC = () => (
         </div>
       </div>
 
-      <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 24, fontSize: 14, color: 'rgba(255,255,255,0.5)' }}>
-        © 2026 Mickaël Lima — L'agence Immo. Tous droits réservés.
+      <div
+        style={{
+          borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 24, fontSize: 14,
+          color: 'rgba(255,255,255,0.5)', display: 'flex', flexWrap: 'wrap',
+          justifyContent: 'space-between', gap: 12,
+        }}
+      >
+        <span>© 2026 Mickaël Lima — L'agence Immo. Tous droits réservés.</span>
+        <span style={{ display: 'flex', gap: 20 }}>
+          <Link to="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</Link>
+          <Link to="/politique-confidentialite" style={{ color: 'inherit', textDecoration: 'none' }}>Politique de confidentialité</Link>
+        </span>
       </div>
     </div>
 
