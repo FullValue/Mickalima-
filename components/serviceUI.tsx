@@ -115,34 +115,70 @@ export const CheckList: React.FC<{ items: string[] }> = ({ items }) => (
   </ul>
 );
 
-/* ---- Colonne gauche sticky : kicker, titre, description, liste, CTA ---- */
+/* ---- Colonne gauche sticky : icône/kicker, titre, description, liste, CTA ---- */
 export const StickyIntro: React.FC<{
-  kicker: string;
+  icon?: React.ReactNode;
+  kicker?: string;
   title: React.ReactNode;
   description: React.ReactNode;
   items?: string[];
+  detailedItems?: Array<{ title: string; sub: string }>;
   ctaLabel: string;
   ctaTo: string;
-}> = ({ kicker, title, description, items, ctaLabel, ctaTo }) => (
+}> = ({ icon, kicker, title, description, items, detailedItems, ctaLabel, ctaTo }) => (
   <div className="sv-sticky" style={{ position: 'sticky', top: 100 }}>
-    <p style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2, color: T.muted, marginBottom: 16 }}>
-      {kicker}
-    </p>
+    {icon && (
+      <span
+        aria-hidden="true"
+        style={{
+          width: 64, height: 64, borderRadius: 10, background: '#fff', color: T.dark,
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 26,
+        }}
+      >
+        {icon}
+      </span>
+    )}
+    {kicker && (
+      <p style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2, color: T.muted, marginBottom: 16 }}>
+        {kicker}
+      </p>
+    )}
     <h2
       style={{
-        fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(34px, 3.4vw, 48px)',
+        fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(34px, 3.4vw, 52px)',
         lineHeight: '1.08em', color: T.dark, marginBottom: 20,
       }}
     >
       {title}
     </h2>
-    <p style={{ fontSize: 16, lineHeight: '1.7em', color: T.muted, marginBottom: items ? 30 : 34 }}>
+    <p style={{ fontSize: 17, lineHeight: '1.7em', color: T.muted, marginBottom: items || detailedItems ? 30 : 34 }}>
       {description}
     </p>
     {items && (
       <div style={{ marginBottom: 34 }}>
         <CheckList items={items} />
       </div>
+    )}
+    {detailedItems && (
+      <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 34px', display: 'flex', flexDirection: 'column', gap: 18 }}>
+        {detailedItems.map((it) => (
+          <li key={it.title} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+            <span
+              aria-hidden="true"
+              style={{
+                width: 20, height: 20, borderRadius: 5, background: T.dark, flexShrink: 0, marginTop: 3,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              }}
+            >
+              <Check size={12} color="#fff" strokeWidth={3} />
+            </span>
+            <span>
+              <span style={{ display: 'block', fontSize: 16, fontWeight: 500, color: T.dark }}>{it.title}</span>
+              <span style={{ display: 'block', fontSize: 15, color: T.muted, marginTop: 3 }}>{it.sub}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
     )}
     <Link
       to={ctaTo}
@@ -186,6 +222,7 @@ export const TwoCol: React.FC<{ left: React.ReactNode; right: React.ReactNode }>
 
 /* ---- Bandeau récapitulatif navy avec cartes + CTA ---- */
 export const RecapBand: React.FC<{
+  badgeIcon?: React.ReactNode;
   kicker: string;
   title: React.ReactNode;
   description: string;
@@ -193,13 +230,20 @@ export const RecapBand: React.FC<{
   ctaLabel: string;
   ctaTo: string;
   note?: string;
-}> = ({ kicker, title, description, cards, ctaLabel, ctaTo, note }) => (
+}> = ({ badgeIcon, kicker, title, description, cards, ctaLabel, ctaTo, note }) => (
   <section style={{ background: T.navy, color: '#fff', padding: '100px 0' }}>
     <div style={wrap}>
       <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 60px' }}>
-        <p style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2, color: 'rgba(255,255,255,0.6)', marginBottom: 18 }}>
-          {kicker}
-        </p>
+        <span
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)',
+            border: '1px solid rgba(255,255,255,0.2)', borderRadius: 50, padding: '9px 18px',
+            fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.8,
+            color: 'rgba(255,255,255,0.9)', marginBottom: 22,
+          }}
+        >
+          {badgeIcon} {kicker}
+        </span>
         <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(36px, 4.6vw, 62px)', lineHeight: '1.06em', marginBottom: 20 }}>
           {title}
         </h2>
@@ -265,8 +309,13 @@ export const ServiceStyles: React.FC = () => (
       .sv-sticky { position: static !important; }
       .sv-recap { grid-template-columns: repeat(2, 1fr) !important; }
     }
+    @media (max-width: 1023px) {
+      .sv-bento { grid-template-columns: 1fr !important; }
+      .sv-bento-wide { grid-column: auto !important; }
+    }
     @media (max-width: 679px) {
       .sv-recap { grid-template-columns: 1fr !important; }
+      .sv-grid-3 { grid-template-columns: 1fr !important; }
       .sv-grid-3 { grid-template-columns: 1fr !important; }
       .sv-grid-2 { grid-template-columns: 1fr !important; }
     }
