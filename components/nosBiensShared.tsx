@@ -127,9 +127,11 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
         <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 24, lineHeight: '1.2em', color: T.dark }}>
           {l.typeLabel} — {l.city}
         </h3>
-        <span style={{ fontFamily: T.heading, fontSize: 21, whiteSpace: 'nowrap', color: T.dark }}>
-          {formatPrice(l.price)}
-        </span>
+        {l.status !== 'Vendu' && (
+          <span style={{ fontFamily: T.heading, fontSize: 21, whiteSpace: 'nowrap', color: T.dark }}>
+            {formatPrice(l.price)}
+          </span>
+        )}
       </div>
       <p style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 15, color: T.muted, margin: '10px 0 18px' }}>
         <MapPin size={15} aria-hidden="true" /> {l.city} ({l.cp})

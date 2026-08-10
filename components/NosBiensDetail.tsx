@@ -255,12 +255,12 @@ export const NosBiensDetail: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${property.typeLabel} ${property.city} — ${formatPrice(property.price)} | Nos Biens`}
+        title={`${property.typeLabel} ${property.city} — ${property.status === 'Vendu' ? 'Vendu' : formatPrice(property.price)} | Nos Biens`}
         description={`${property.title} — ${[
           property.surface ? `${formatSurface(property.surface)}` : null,
           property.bedrooms ? `${property.bedrooms} chambres` : null,
           property.land ? `terrain ${formatSurface(property.land)}` : null,
-        ].filter(Boolean).join(', ')}. ${formatPrice(property.price)}. Réf. ${property.ref}.`}
+        ].filter(Boolean).join(', ')}. ${property.status === 'Vendu' ? 'Bien vendu' : formatPrice(property.price)}. Réf. ${property.ref}.`}
         canonical={`/nos-biens/${property.slug}`}
       />
 
@@ -370,9 +370,11 @@ export const NosBiensDetail: React.FC = () => {
               <h1 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(32px, 3vw, 44px)', lineHeight: '1.12em', color: T.dark }}>
                 {property.typeLabel} — {property.city}
               </h1>
-              <p style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(28px, 2.6vw, 38px)', margin: '10px 0 0' }}>
-                {formatPrice(property.price)}
-              </p>
+              {property.status !== 'Vendu' && (
+                <p style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(28px, 2.6vw, 38px)', margin: '10px 0 0' }}>
+                  {formatPrice(property.price)}
+                </p>
+              )}
 
               <hr style={{ border: 'none', borderTop: '1px solid #e3e3e3', margin: '26px 0' }} />
 
