@@ -7,38 +7,24 @@ import {
   MapPin,
   Bookmark,
   Sparkles,
+  LandPlot,
   Image as ImageIcon,
-  PlaySquare,
+  Zap,
   ChevronLeft,
   ChevronRight,
   X,
 } from 'lucide-react';
 import { SEO } from './SEO';
-import { T, AGENT_PHOTO, NB_PROPERTIES, ListingCard, RevalisFooter, NBProperty } from './nosBiensShared';
+import { T, AGENT_PHOTO, ListingCard, RevalisFooter, NBProperty, formatPrice, formatSurface } from './nosBiensShared';
+import { BIENS } from './biensData';
 
 /**
- * Page détail d'un bien — réplique de la page listing du template Framer Revalis
- * (revalis.framer.media/listings/...). Même layout pour chaque bien :
- * - galerie hero 1+3 avec lightbox slider (« Voir toute la galerie »)
- * - colonne gauche sticky : titre, prix, infos, formulaire avec pastille Mickaël
- * - carte blanche : Détails, Localisation, Prestations, Galerie (photo de
- *   Mickaël toujours en 4e tuile), Vidéo — pas de bloc carte Google Maps
- * - « Plus de biens » en marquee autoplay
+ * Page détail d'un bien — DA du template Framer Revalis (page listing) :
+ * galerie hero 1+3 avec lightbox slider, colonne gauche sticky (titre, prix,
+ * infos, formulaire avec pastille Mickaël), carte blanche (Détails,
+ * Points forts, Caractéristiques, DPE, Galerie), marquee « Plus de biens ».
+ * Données réelles : portefeuille de Mickaël (biensData.ts).
  */
-
-// Intérieurs partagés entre les biens (démo template)
-const INTERIOR_TOP = 'https://framerusercontent.com/images/7qddMcFEDswacgycG4I3MRkL56o.webp';
-const INTERIOR_BL = 'https://framerusercontent.com/images/NCe5u2vNkJTDq99aE4z9j4nnomw.webp';
-const INTERIOR_BR = 'https://framerusercontent.com/images/waWK4WYu7GsknywLmZLBba4.webp';
-
-const GALLERY_GRID = [
-  'https://framerusercontent.com/images/vS2CA5Cg9J9whGTYIJAYs6DfPs.webp',
-  'https://framerusercontent.com/images/lqwCPSh3RoZtdRP6tJd1GRldOo.webp',
-  'https://framerusercontent.com/images/w5FoqrGf2ajYCpdOTgI4Rm4s1s.webp',
-  AGENT_PHOTO, // pattern : photo de Mickaël toujours en 4e tuile
-];
-
-const photosOf = (p: NBProperty) => [p.image, INTERIOR_TOP, INTERIOR_BL, INTERIOR_BR, ...GALLERY_GRID];
 
 const SectionHeading: React.FC<{ icon: React.ReactNode; title: string }> = ({ icon, title }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 22 }}>
@@ -58,7 +44,7 @@ const labelStyle: React.CSSProperties = {
   fontFamily: T.body, fontSize: 15, color: T.dark, display: 'block', marginBottom: 8,
 };
 
-const ContactCard: React.FC<{ propertyName: string }> = ({ propertyName }) => (
+const ContactCard: React.FC<{ property: NBProperty }> = ({ property }) => (
   <div style={{ background: '#ffffff', borderRadius: 10, padding: 28, textAlign: 'center' }}>
     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 14 }}>
       <img
@@ -78,13 +64,13 @@ const ContactCard: React.FC<{ propertyName: string }> = ({ propertyName }) => (
       Parlez avec votre agent !
     </h3>
     <p style={{ fontFamily: T.body, fontSize: 15, color: T.muted, margin: '8px 0 24px' }}>
-      Contactez notre équipe pour ce projet
+      Mickaël Lima — réponse en moins d'une heure
     </p>
     <form
       onSubmit={(e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
-        const subject = encodeURIComponent(`Demande — ${propertyName}`);
+        const subject = encodeURIComponent(`Demande — ${property.typeLabel} ${property.city} (réf. ${property.ref})`);
         const bodyTxt = encodeURIComponent(
           `Nom : ${data.get('name')}\nEmail : ${data.get('email')}\nTéléphone : ${data.get('phone')}\n\n${data.get('message')}`
         );
@@ -210,7 +196,7 @@ const Lightbox: React.FC<{ photos: string[]; index: number; onClose: () => void;
 
       <div
         onClick={(e) => e.stopPropagation()}
-        style={{ position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8 }}
+        style={{ position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8, maxWidth: '90vw', flexWrap: 'wrap', justifyContent: 'center' }}
       >
         {photos.map((_, i) => (
           <button
@@ -229,9 +215,31 @@ const Lightbox: React.FC<{ photos: string[]; index: number; onClose: () => void;
   );
 };
 
+/* Étiquette DPE / GES */
+const DPE_COLORS: Record<string, string> = {
+  A: '#00934f', B: '#4fb84e', C: '#bfd634', D: '#fced4f', E: '#f5b23c', F: '#ec6d2c', G: '#d7221f',
+};
+const EnergyBadge: React.FC<{ kind: 'DPE' | 'GES'; grade: string }> = ({ kind, grade }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+    <span
+      style={{
+        width: 46, height: 46, borderRadius: 8, background: DPE_COLORS[grade] || T.chipBg,
+        color: ['D', 'E'].includes(grade) ? T.dark : '#fff',
+        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: T.body, fontSize: 22, fontWeight: 600,
+      }}
+    >
+      {grade}
+    </span>
+    <span style={{ fontSize: 15, color: T.muted }}>
+      {kind === 'DPE' ? 'Classe énergie' : 'Classe climat'}
+    </span>
+  </div>
+);
+
 export const NosBiensDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const property = NB_PROPERTIES.find((p) => p.slug === slug);
+  const property = BIENS.find((p) => p.slug === slug);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   // Fermer la lightbox quand on change de bien
@@ -239,66 +247,61 @@ export const NosBiensDetail: React.FC = () => {
 
   if (!property) return <Navigate to="/nos-biens" replace />;
 
-  const photos = photosOf(property);
-  const others = NB_PROPERTIES.filter((p) => p.slug !== property.slug);
-
-  const details: Array<[string, string]> = [
-    ['Référence :', property.ref],
-    ['Prix :', property.price],
-    ['Surface habitable :', property.size],
-    ['Surface du terrain :', property.lotSize],
-    ['Type de propriété :', property.ownership],
-    ['Année de construction :', property.year],
-    ['Type de bien :', property.type],
-    ['Nom du bien :', property.name],
-  ];
-
-  const features = [
-    'Terrasse privée sur le toit',
-    'Domotique intégrée',
-    'Service de conciergerie',
-    'Parking souterrain',
-    'Cave à vin',
-  ];
+  const photos = property.photos;
+  const others = BIENS.filter((p) => p.slug !== property.slug).slice(0, 8);
+  const heroSide = [photos[1] || photos[0], photos[2] || photos[0], photos[3] || photos[0]];
+  const galleryRest = photos.slice(4);
 
   return (
     <>
       <SEO
-        title={`${property.name} — Nos Biens`}
-        description={`${property.name} : ${property.beds} chambres, ${property.baths} salles de bain, ${property.size} à ${property.location}. ${property.price}. Contactez votre agent.`}
+        title={`${property.typeLabel} ${property.city} — ${formatPrice(property.price)} | Nos Biens`}
+        description={`${property.title} — ${[
+          property.surface ? `${formatSurface(property.surface)}` : null,
+          property.bedrooms ? `${property.bedrooms} chambres` : null,
+          property.land ? `terrain ${formatSurface(property.land)}` : null,
+        ].filter(Boolean).join(', ')}. ${formatPrice(property.price)}. Réf. ${property.ref}.`}
         canonical={`/nos-biens/${property.slug}`}
       />
 
       <div style={{ background: T.bg, fontFamily: T.body, color: T.dark, paddingTop: 96 }}>
-        {/* ===== Galerie hero : hauteur contrainte comme le template (~2.4:1) ===== */}
+        {/* ===== Galerie hero : hauteur contrainte (~2.4:1) ===== */}
         <section style={{ maxWidth: 1300, margin: '0 auto', padding: '24px 30px 0' }}>
           <div className="nb-gallery-hero" style={{ display: 'grid', gap: 12, gridTemplateColumns: '1.2fr 1fr' }}>
             <button
               type="button"
               onClick={() => setLightbox(0)}
               aria-label="Agrandir la photo principale"
-              style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minWidth: 0 }}
+              style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minWidth: 0, position: 'relative' }}
             >
               <img
-                src={property.image}
-                alt={`${property.name} — vue principale`}
+                src={photos[0]}
+                alt={`${property.typeLabel} à ${property.city} — vue principale`}
                 width="1200"
                 height="900"
                 loading="eager"
                 decoding="async"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 10 }}
               />
+              <span
+                style={{
+                  position: 'absolute', top: 16, left: 16, background: '#fff', color: T.dark,
+                  fontSize: 14, fontWeight: 500, borderRadius: 8, padding: '8px 14px',
+                }}
+              >
+                {property.status}
+              </span>
             </button>
             <div className="nb-hero-right" style={{ display: 'grid', gap: 12, gridTemplateRows: '1.65fr 1fr', minWidth: 0 }}>
               <button
                 type="button"
-                onClick={() => setLightbox(1)}
-                aria-label="Agrandir la photo du séjour"
+                onClick={() => setLightbox(1 % photos.length)}
+                aria-label="Agrandir la photo 2"
                 style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0 }}
               >
                 <img
-                  src={INTERIOR_TOP}
-                  alt={`${property.name} — séjour`}
+                  src={heroSide[0]}
+                  alt={`${property.typeLabel} à ${property.city} — photo 2`}
                   width="800"
                   height="500"
                   loading="lazy"
@@ -309,13 +312,13 @@ export const NosBiensDetail: React.FC = () => {
               <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr 1.1fr', minHeight: 0 }}>
                 <button
                   type="button"
-                  onClick={() => setLightbox(2)}
-                  aria-label="Agrandir la photo du salon"
+                  onClick={() => setLightbox(2 % photos.length)}
+                  aria-label="Agrandir la photo 3"
                   style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0 }}
                 >
                   <img
-                    src={INTERIOR_BL}
-                    alt={`${property.name} — salon`}
+                    src={heroSide[1]}
+                    alt={`${property.typeLabel} à ${property.city} — photo 3`}
                     width="500"
                     height="380"
                     loading="lazy"
@@ -325,7 +328,7 @@ export const NosBiensDetail: React.FC = () => {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setLightbox(3)}
+                  onClick={() => setLightbox(3 % photos.length)}
                   aria-label="Voir toutes les photos"
                   style={{
                     position: 'relative', padding: 0, border: 'none', background: 'none',
@@ -333,7 +336,7 @@ export const NosBiensDetail: React.FC = () => {
                   }}
                 >
                   <img
-                    src={INTERIOR_BR}
+                    src={heroSide[2]}
                     alt=""
                     width="500"
                     height="380"
@@ -348,7 +351,7 @@ export const NosBiensDetail: React.FC = () => {
                       color: '#fff', fontSize: 17, fontWeight: 500,
                     }}
                   >
-                    Voir toute la galerie
+                    Voir toute la galerie ({photos.length})
                   </span>
                 </button>
               </div>
@@ -362,104 +365,110 @@ export const NosBiensDetail: React.FC = () => {
             {/* --- Colonne gauche (sticky) --- */}
             <div className="nb-left" style={{ position: 'sticky', top: 100, display: 'flex', flexDirection: 'column' }}>
               <p style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 16, color: T.dark, marginBottom: 14 }}>
-                <MapPin size={17} aria-hidden="true" /> {property.location}
+                <MapPin size={17} aria-hidden="true" /> {property.city} ({property.cp})
               </p>
-              <h1 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(36px, 3.6vw, 52px)', lineHeight: '1.08em', color: T.dark }}>
-                {property.name}
+              <h1 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(32px, 3vw, 44px)', lineHeight: '1.12em', color: T.dark }}>
+                {property.typeLabel} — {property.city}
               </h1>
               <p style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(28px, 2.6vw, 38px)', margin: '10px 0 0' }}>
-                {property.price}
+                {formatPrice(property.price)}
               </p>
 
               <hr style={{ border: 'none', borderTop: '1px solid #e3e3e3', margin: '26px 0' }} />
 
-              <div style={{ display: 'flex', gap: 44, flexWrap: 'wrap', marginBottom: 30 }}>
+              <div style={{ display: 'flex', gap: 38, flexWrap: 'wrap', marginBottom: 30 }}>
                 {[
-                  { icon: BedDouble, txt: `${property.beds} chambres` },
-                  { icon: Bath, txt: `${property.baths} salles de bain` },
-                  { icon: Ruler, txt: property.size },
-                ].map(({ icon: Icon, txt }) => (
-                  <span key={txt} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                    <Icon size={24} aria-hidden="true" />
-                    <span style={{ fontSize: 17 }}>{txt}</span>
-                  </span>
-                ))}
+                  property.bedrooms ? { icon: BedDouble, txt: `${property.bedrooms} chambres` } : null,
+                  property.baths ? { icon: Bath, txt: `${property.baths} salle${property.baths > 1 ? 's' : ''} d'eau` } : null,
+                  property.surface ? { icon: Ruler, txt: formatSurface(property.surface) as string } : null,
+                  property.land ? { icon: LandPlot, txt: `${formatSurface(property.land)} terrain` } : null,
+                ]
+                  .filter(Boolean)
+                  .map((c) => {
+                    const { icon: Icon, txt } = c as { icon: typeof BedDouble; txt: string };
+                    return (
+                      <span key={txt} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                        <Icon size={24} aria-hidden="true" />
+                        <span style={{ fontSize: 17 }}>{txt}</span>
+                      </span>
+                    );
+                  })}
               </div>
 
-              <ContactCard propertyName={property.name} />
+              <ContactCard property={property} />
             </div>
 
             {/* --- Colonne droite : carte blanche avec les sections --- */}
             <div style={{ background: '#fff', borderRadius: 10, padding: 'clamp(24px, 3.2vw, 44px)', display: 'flex', flexDirection: 'column', gap: 56 }}>
               <div>
                 <SectionHeading icon={<Bookmark size={22} />} title="Détails" />
-                <p style={{ fontSize: 16, lineHeight: '1.65em', color: T.muted, marginBottom: 28 }}>
-                  {property.description}
+                <p style={{ fontFamily: T.body, fontSize: 15, color: T.muted, marginBottom: 18 }}>
+                  Référence {property.ref}
                 </p>
+                <div style={{ fontSize: 16, lineHeight: '1.7em', color: T.muted, whiteSpace: 'pre-line' }}>
+                  {property.description}
+                </div>
+              </div>
+
+              {property.highlights.length > 0 && (
+                <div>
+                  <SectionHeading icon={<Sparkles size={22} />} title="Les points forts" />
+                  <ul style={{ margin: 0, paddingLeft: 22, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 16, color: T.dark }}>
+                    {property.highlights.map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div>
+                <SectionHeading icon={<Ruler size={22} />} title="Caractéristiques techniques" />
                 <div className="nb-details-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: 48, rowGap: 18 }}>
-                  {details.map(([label, value]) => (
-                    <p key={label} style={{ fontSize: 16, margin: 0 }}>
-                      <span style={{ color: T.dark }}>{label}</span>{' '}
-                      <span style={{ color: T.muted }}>{value}</span>
+                  {property.features.map(([label, value]) => (
+                    <p key={label} style={{ fontSize: 16, margin: 0, display: 'flex', justifyContent: 'space-between', gap: 16, borderBottom: `1px solid ${T.border}`, paddingBottom: 10 }}>
+                      <span style={{ color: T.muted }}>{label}</span>
+                      <span style={{ color: T.dark, textAlign: 'right' }}>{value}</span>
                     </p>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <SectionHeading icon={<MapPin size={22} />} title="Localisation & environs" />
-                <p style={{ fontSize: 16, lineHeight: '1.65em', color: T.muted }}>
-                  {property.surroundings}
-                </p>
-              </div>
-
-              <div>
-                <SectionHeading icon={<Sparkles size={22} />} title="Prestations & équipements" />
-                <ul style={{ margin: 0, paddingLeft: 22, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 16, color: T.dark }}>
-                  {features.map((f) => (
-                    <li key={f}>{f}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <SectionHeading icon={<ImageIcon size={22} />} title="Galerie" />
-                <div className="nb-gallery-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-                  {GALLERY_GRID.map((img, i) => (
-                    <button
-                      key={img}
-                      type="button"
-                      onClick={() => setLightbox(4 + i)}
-                      aria-label={`Agrandir la photo ${i + 1} de la galerie`}
-                      style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block' }}
-                    >
-                      <img
-                        src={img}
-                        alt={i === GALLERY_GRID.length - 1 ? 'Mickaël Lima, votre agent' : `${property.name} — galerie ${i + 1}`}
-                        width="600"
-                        height="450"
-                        loading="lazy"
-                        decoding="async"
-                        style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 8, display: 'block' }}
-                      />
-                    </button>
-                  ))}
+              {(property.dpe || property.ges) && (
+                <div>
+                  <SectionHeading icon={<Zap size={22} />} title="Performance énergétique" />
+                  <div style={{ display: 'flex', gap: 40, flexWrap: 'wrap' }}>
+                    {property.dpe && <EnergyBadge kind="DPE" grade={property.dpe} />}
+                    {property.ges && <EnergyBadge kind="GES" grade={property.ges} />}
+                  </div>
                 </div>
-              </div>
+              )}
 
-              <div>
-                <SectionHeading icon={<PlaySquare size={22} />} title="Vidéo" />
-                <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 8, overflow: 'hidden' }}>
-                  <iframe
-                    src="https://www.youtube.com/embed/mJVuZiK9a6I?iv_load_policy=3&rel=0&modestbranding=1&playsinline=1"
-                    title={`${property.name} — vidéo`}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
-                  />
+              {galleryRest.length > 0 && (
+                <div>
+                  <SectionHeading icon={<ImageIcon size={22} />} title="Galerie" />
+                  <div className="nb-gallery-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    {galleryRest.map((img, i) => (
+                      <button
+                        key={img}
+                        type="button"
+                        onClick={() => setLightbox(4 + i)}
+                        aria-label={`Agrandir la photo ${5 + i}`}
+                        style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block' }}
+                      >
+                        <img
+                          src={img}
+                          alt={`${property.typeLabel} à ${property.city} — photo ${5 + i}`}
+                          width="600"
+                          height="450"
+                          loading="lazy"
+                          decoding="async"
+                          style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 8, display: 'block' }}
+                        />
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
@@ -477,11 +486,11 @@ export const NosBiensDetail: React.FC = () => {
           <div className="nb-marquee">
             <div className="nb-marquee-track">
               {others.map((p) => (
-                <ListingCard key={p.slug} property={p} />
+                <ListingCard key={p.ref} property={p} />
               ))}
               {/* Copie pour la boucle infinie du marquee */}
               {others.map((p) => (
-                <ListingCard key={`dup-${p.slug}`} property={p} ariaHidden />
+                <ListingCard key={`dup-${p.ref}`} property={p} ariaHidden />
               ))}
             </div>
           </div>

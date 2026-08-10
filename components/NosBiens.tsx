@@ -1,26 +1,24 @@
 import React, { useMemo, useState } from 'react';
 import { SEO } from './SEO';
-import { T, NB_PROPERTIES, ListingCard, RevalisFooter } from './nosBiensShared';
+import { T, ListingCard, RevalisFooter } from './nosBiensShared';
+import { BIENS } from './biensData';
 
 /**
- * Index des biens — réplique de la page /listings du template Framer Revalis :
- * - hero image sombre pleine largeur (badge « nos propriétés », ligne, grand
- *   titre blanc, sous-titre)
- * - sidebar sticky à gauche : Statut (select) + cases à cocher Type / Ville /
- *   Budget, filtrage multi-critères fonctionnel
- * - grille de cartes 2 colonnes, bouton « Charger plus », footer Revalis
- * Textes FR, polices du site (Playfair Display + Montserrat).
+ * Index des biens — DA du template Framer Revalis (page /listings) :
+ * hero image sombre pleine largeur, sidebar sticky de filtres à cocher,
+ * grille de cartes 2 colonnes, « Charger plus », footer.
+ * Données réelles : portefeuille de Mickaël (biensData.ts).
  */
 
-const HERO_IMAGE = 'https://framerusercontent.com/images/tmhpllg4ojGt6jGr62njvEeBYg8.webp';
+const HERO_IMAGE = '/images/biens/VM976/01.jpg';
 
-const TYPES = ['Appartement', 'Villa', 'Condo', 'Penthouse'];
-const CITIES = ['Rochester', 'Albany', 'Buffalo', 'New York'];
+const TYPES = ['Maison', 'Appartement', 'Terrain'];
+const CITIES = Array.from(new Set(BIENS.map((b) => b.city))).sort((a, b) => a.localeCompare(b, 'fr'));
 const RANGES: Array<{ label: string; min: number; max: number }> = [
-  { label: '< 100 k$', min: 0, max: 100000 },
-  { label: '100 k$ – 500 k$', min: 100000, max: 500000 },
-  { label: '500 k$ – 1 M$', min: 500000, max: 1000000 },
-  { label: '1 M$ +', min: 1000000, max: Infinity },
+  { label: '< 500 k€', min: 0, max: 500000 },
+  { label: '500 k€ – 800 k€', min: 500000, max: 800000 },
+  { label: '800 k€ – 1,2 M€', min: 800000, max: 1200000 },
+  { label: '1,2 M€ +', min: 1200000, max: Infinity },
 ];
 
 const PAGE_SIZE = 6;
@@ -67,6 +65,16 @@ const Checkbox: React.FC<{ label: string; checked: boolean; onChange: () => void
 const toggle = (list: string[], value: string) =>
   list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
 
+const NOSBIENS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Nos biens à vendre — Pays de Gex et bassin genevois',
+  description:
+    'Maisons, appartements et terrains à la vente, sélectionnés par Mickaël Lima, agent immobilier dans le Pays de Gex.',
+  url: 'https://mickael-lima.immo/nos-biens/',
+  about: { '@type': 'RealEstateAgent', name: 'Mickaël Lima — L’agence Immo' },
+};
+
 export const NosBiens: React.FC = () => {
   const [status, setStatus] = useState('Tous');
   const [types, setTypes] = useState<string[]>([]);
@@ -78,11 +86,11 @@ export const NosBiens: React.FC = () => {
 
   const filtered = useMemo(() => {
     const activeRanges = RANGES.filter((r) => ranges.includes(r.label));
-    return NB_PROPERTIES.filter((p) => {
-      if (status === 'À louer') return false; // démo : tout est à la vente
+    return BIENS.filter((p) => {
+      if (status !== 'Tous' && p.status !== status) return false;
       if (types.length && !types.includes(p.type)) return false;
       if (cities.length && !cities.includes(p.city)) return false;
-      if (activeRanges.length && !activeRanges.some((r) => p.priceValue >= r.min && p.priceValue < r.max)) return false;
+      if (activeRanges.length && !activeRanges.some((r) => (p.price ?? 0) >= r.min && (p.price ?? 0) < r.max)) return false;
       return true;
     });
   }, [status, types, cities, ranges]);
@@ -92,9 +100,10 @@ export const NosBiens: React.FC = () => {
   return (
     <>
       <SEO
-        title="Nos Biens — Notre sélection"
-        description="Découvrez notre sélection de biens à la vente : villas, penthouses, appartements et condos. Filtrez par type, ville et budget, et contactez votre agent."
+        title="Nos Biens à Vendre — Pays de Gex & Bassin Genevois | Mickaël Lima"
+        description="Maisons, appartements et terrains à vendre dans le Pays de Gex et alentours : Grilly, Divonne-les-Bains, Ferney-Voltaire, Crozet, Péron… Photos, détails et visites avec Mickaël Lima."
         canonical="/nos-biens"
+        schema={NOSBIENS_SCHEMA}
       />
 
       <div style={{ background: T.bg, fontFamily: T.body, color: T.dark }}>
@@ -138,8 +147,8 @@ export const NosBiens: React.FC = () => {
               Notre sélection de biens
             </h1>
             <p style={{ fontSize: 18, lineHeight: '1.6em', color: 'rgba(255,255,255,0.92)', maxWidth: 480 }}>
-              Découvrez une sélection de biens dans les quartiers les plus recherchés,
-              portée par une expertise locale.
+              Maisons, appartements et terrains dans le Pays de Gex et le bassin genevois,
+              sélectionnés et accompagnés par votre agent.
             </p>
           </div>
         </section>
@@ -161,7 +170,7 @@ export const NosBiens: React.FC = () => {
                     outline: 'none', cursor: 'pointer', width: '100%',
                   }}
                 >
-                  {['Tous', 'À vendre', 'À louer'].map((s) => (
+                  {['Tous', 'À vendre', 'Sous compromis'].map((s) => (
                     <option key={s} value={s}>{s}</option>
                   ))}
                 </select>
@@ -197,10 +206,13 @@ export const NosBiens: React.FC = () => {
 
             {/* --- Grille des biens (2 colonnes) --- */}
             <div>
+              <p style={{ fontSize: 14, color: T.muted, margin: '0 0 18px' }} aria-live="polite">
+                {filtered.length} bien{filtered.length > 1 ? 's' : ''}
+              </p>
               {shown.length > 0 ? (
                 <div className="nb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
                   {shown.map((p) => (
-                    <ListingCard key={p.slug} property={p} fluid />
+                    <ListingCard key={p.ref} property={p} fluid />
                   ))}
                 </div>
               ) : (
