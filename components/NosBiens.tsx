@@ -170,7 +170,7 @@ export const NosBiens: React.FC = () => {
                     outline: 'none', cursor: 'pointer', width: '100%',
                   }}
                 >
-                  {['Tous', 'À vendre', 'Sous compromis'].map((s) => (
+                  {['Tous', 'À vendre', 'Sous compromis', 'Vendu'].map((s) => (
                     <option key={s} value={s}>{s}</option>
                   ))}
                 </select>

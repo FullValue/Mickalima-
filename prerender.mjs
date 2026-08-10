@@ -34,6 +34,9 @@ const BIEN_SLUGS = [
   'appartement-t4-4-pieces-ferney-voltaire-01210-va2352',
   'appartement-t4-4-pieces-ferney-voltaire-01210-va2539',
   'maison-individuelle-7-pieces-vetraz-monthoux-74100',
+  'appartement-t3-3-pieces-cessy-01170',
+  'maison-individuelle-7-pieces-cessy-01170',
+  'maison-mitoyenne-2-cotes-4-pieces-gex-01170',
 ];
 
 const BLOG_SLUGS = [

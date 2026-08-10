@@ -27,7 +27,7 @@ export interface NBProperty {
   title: string;
   type: 'Maison' | 'Appartement' | 'Terrain';
   typeLabel: string;
-  status: 'À vendre' | 'Sous compromis';
+  status: 'À vendre' | 'Sous compromis' | 'Vendu';
   city: string;
   cp: string;
   price: number | null;
@@ -80,7 +80,9 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
       />
       <span
         style={{
-          position: 'absolute', top: 14, left: 14, background: '#fff', color: T.dark,
+          position: 'absolute', top: 14, left: 14,
+          background: l.status === 'Vendu' ? T.navy : '#fff',
+          color: l.status === 'Vendu' ? '#fff' : T.dark,
           fontSize: 14, fontWeight: 500, borderRadius: 8, padding: '8px 14px', fontFamily: T.body,
         }}
       >
