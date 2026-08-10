@@ -12,7 +12,7 @@ export const BlogPostPage: React.FC = () => {
   const post = BLOG_POSTS.find(p => p.slug === slug);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
   }, [slug]);
 
   if (!post) {

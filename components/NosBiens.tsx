@@ -233,6 +233,7 @@ export const NosBiens: React.FC = () => {
                 <div style={{ textAlign: 'center', marginTop: 44 }}>
                   <button
                     type="button"
+                    className="nb-loadmore"
                     onClick={() => setVisible((v) => v + PAGE_SIZE)}
                     style={{
                       fontFamily: T.body, fontSize: 15, fontWeight: 500, color: T.dark, background: '#fff',

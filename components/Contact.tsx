@@ -107,8 +107,15 @@ export const Estimation: React.FC = () => {
                             {/* Inner subtle glow */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
+                            <AnimatePresence mode="wait" initial={false}>
                             {status !== 'success' ? (
-                                <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                                <m.form
+                                    key="form"
+                                    exit={{ opacity: 0, y: -12 }}
+                                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                                    onSubmit={handleSubmit}
+                                    className="space-y-8 relative z-10"
+                                >
                                     {/* Web3Forms hidden inputs */}
                                     <input type="hidden" name="access_key" value="38f90cdc-9f17-48ef-bae6-f94e9b44e41f" />
                                     <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
@@ -206,12 +213,13 @@ export const Estimation: React.FC = () => {
                                     {status === 'error' && (
                                         <p className="text-red-500 font-medium mt-2 text-center">Une erreur est survenue. Appelez directement le <a href="tel:+33769313502" className="underline">07 69 31 35 02</a>.</p>
                                     )}
-                                </form>
+                                </m.form>
                             ) : (
-                                <AnimatePresence>
                                     <m.div
+                                        key="success"
                                         initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                                         className="bg-surface p-10 rounded-[10px] text-center py-24 relative z-10 border border-primary/10"
                                     >
                                         <div className="inline-flex bg-white p-5 rounded-full mb-8 text-primary">
@@ -222,8 +230,8 @@ export const Estimation: React.FC = () => {
                                             Notre équipe vous recontacte sous 24h pour finaliser votre estimation en toute confidentialité.
                                         </p>
                                     </m.div>
-                                </AnimatePresence>
                             )}
+                            </AnimatePresence>
                         </div>
                     </m.div>
 
@@ -306,7 +314,7 @@ export const Estimation: React.FC = () => {
                         <Link
                             key={c.slug}
                             to={`/${c.slug}/estimation-immobiliere`}
-                            className="group flex flex-col items-center gap-2 bg-white rounded-[10px] p-5 border border-gray-100 shadow-sm hover:border-primary/20 hover: transition-all text-center"
+                            className="group flex flex-col items-center gap-2 bg-white rounded-[10px] p-5 border border-gray-100 shadow-sm hover:border-primary/20 transition-all text-center"
                         >
                             <span className="font-bold text-textMain text-sm group-hover:text-primary transition-colors leading-tight">
                                 {c.name}

@@ -73,7 +73,7 @@ export const Positioning: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-5%" }}
                             transition={{ duration: 0.7, delay: idx * 0.15 }}
-                            className="snap-start shrink-0 md:shrink w-[85%] md:w-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-7 md:p-10 hover: hover:-translate-y-2 transition-all duration-500 group"
+                            className="snap-start shrink-0 md:shrink w-[85%] md:w-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-7 md:p-10 hover:-translate-y-2 transition-all duration-500 group"
                         >
                             <div className="w-16 h-16 md:w-20 md:h-20 rounded-[1.25rem] bg-surface flex items-center justify-center mb-6 md:mb-8 border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary shadow-inner">
                                 <item.icon size={28} strokeWidth={1.5} />
@@ -138,7 +138,7 @@ export const Problematic: React.FC = () => (
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-10%" }}
                                 transition={{ duration: 0.8, delay: 0.2 + idx * 0.1, ease: "easeOut" }}
-                                className="snap-start shrink-0 md:shrink w-[80%] md:w-auto bg-white rounded-[10px] p-7 md:p-8 lg:p-10 border border-gray-100 flex flex-col items-center justify-center min-h-[180px] md:min-h-[160px] lg:min-h-[240px] hover:-translate-y-2 hover: hover:border-primary/20 transition-all duration-500 group relative overflow-hidden"
+                                className="snap-start shrink-0 md:shrink w-[80%] md:w-auto bg-white rounded-[10px] p-7 md:p-8 lg:p-10 border border-gray-100 flex flex-col items-center justify-center min-h-[180px] md:min-h-[160px] lg:min-h-[240px] hover:-translate-y-2 hover:border-primary/20 transition-all duration-500 group relative overflow-hidden"
                             >
                                 {/* Subtle decorative glow */}
                                 <div className="absolute -right-6 -top-6 w-24 h-24 bg-primary/5 rounded-full blur-[20px] group-hover:bg-primary/10 transition-colors duration-500 pointer-events-none"></div>
@@ -300,14 +300,20 @@ export const Testimonials: React.FC = () => {
     return (
         <section className="pt-12 md:pt-16 pb-16 md:pb-24 lg:pb-32 bg-surface relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-10 md:mb-14">
+                <m.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-center mb-10 md:mb-14"
+                >
                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
                         <Star size={16} /> 03. Avis clients
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] drop-shadow-sm hyphens-auto break-words">
                         Ce que <span className="font-newsletter italic font-normal">nos clients</span> disent
                     </h2>
-                </div>
+                </m.div>
 
                 <m.div
                     initial={{ opacity: 0, y: 30 }}
@@ -331,7 +337,7 @@ export const Testimonials: React.FC = () => {
                         href="https://share.google/fvsAyaT6pI2059MZF"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 bg-primary text-white font-bold px-7 md:px-8 py-4 rounded-full hover:bg-primary/90 transition-all hover: group"
+                        className="inline-flex items-center gap-3 bg-primary text-white font-bold px-7 md:px-8 py-4 rounded-full hover:bg-primary/90 transition-all group"
                     >
                         <span>Lire les avis sur Google</span>
                         <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform duration-300" />
@@ -368,12 +374,18 @@ export const FAQSection: React.FC = () => {
     return (
         <section className="py-24 bg-surface relative overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="mb-12">
+                <m.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className="mb-12"
+                >
                     <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
                         <MessageSquare size={16} /> 04. Questions fréquentes
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">Questions <span className="font-newsletter italic font-normal">fréquentes</span></h2>
-                </div>
+                </m.div>
 
                 <div className="flex flex-col lg:flex-row gap-16 items-stretch">
 
@@ -393,9 +405,9 @@ export const FAQSection: React.FC = () => {
                                         <ChevronDown className={`shrink-0 transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-primary' : 'text-gray-400'}`} />
                                     </button>
                                     <div
-                                        className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${activeFaq === index ? 'max-h-48 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                                        className={`px-6 grid transition-[grid-template-rows,opacity] duration-300 ease-out ${activeFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                                     >
-                                        <p className="text-gray-600 leading-relaxed font-light">{faq.answer}</p>
+                                        <div className="overflow-hidden min-h-0"><p className="text-gray-600 leading-relaxed font-light pb-6">{faq.answer}</p></div>
                                     </div>
                                 </div>
                             ))}
@@ -482,7 +494,7 @@ export const HomeBlog: React.FC = () => (
                         className="group relative snap-start shrink-0 md:shrink w-[85%] md:w-auto"
                     >
                         {/* Glass background from Blog.tsx */}
-                        <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 group-hover: transition-all duration-500 -z-10"></div>
+                        <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 transition-all duration-500 -z-10"></div>
 
                         <Link to={`/blog/${post.slug}`} className="flex flex-col h-full bg-transparent p-4">
                             <div className="h-64 rounded-[10px] overflow-hidden relative shadow-inner">
@@ -644,7 +656,6 @@ export const ZonesDIntervention: React.FC = () => {
                                         scale: isCenter ? 1 : 0.82,
                                         opacity: isCenter ? 1 : 0.42,
                                         zIndex: isCenter ? 3 : 1,
-                                        filter: isCenter ? 'blur(0px)' : 'blur(2px)',
                                     }}
                                     transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                                     className="absolute"

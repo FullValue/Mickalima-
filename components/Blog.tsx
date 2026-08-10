@@ -81,7 +81,7 @@ export const Blog: React.FC = () => {
                     {BLOG_POSTS.map((post) => (
                         <m.div variants={fadeInUp} key={post.id} className="group relative">
                             {/* Glass background */}
-                            <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 group-hover: transition-all duration-500 -z-10"></div>
+                            <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 transition-all duration-500 -z-10"></div>
 
                             <Link to={`/blog/${post.slug}`} className="flex flex-col h-full bg-transparent p-4">
                                 <div className="h-64 rounded-[10px] overflow-hidden relative shadow-inner">

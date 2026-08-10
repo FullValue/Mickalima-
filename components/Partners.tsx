@@ -88,7 +88,7 @@ export const Partners: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-10%" }}
                                 transition={{ duration: 0.7, delay: idx * 0.15 }}
-                                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-10 flex items-center gap-8 hover: hover:-translate-y-2 transition-all duration-500 group cursor-default"
+                                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-10 flex items-center gap-8 hover:-translate-y-2 transition-all duration-500 group cursor-default"
                             >
                                 <div className="w-24 h-24 rounded-[10px] bg-surface flex flex-shrink-0 items-center justify-center border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary shadow-inner">
                                     <partner.icon size={36} strokeWidth={1.5} />

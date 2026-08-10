@@ -402,7 +402,7 @@ export const CommuneEstimationPage: React.FC = () => {
                   <Link
                     key={slug}
                     to={`/${slug}/estimation-immobiliere`}
-                    className="group flex items-center justify-between bg-surface rounded-[10px] p-6 border border-gray-100 hover:border-primary/20 hover: transition-all"
+                    className="group flex items-center justify-between bg-surface rounded-[10px] p-6 border border-gray-100 hover:border-primary/20 transition-all"
                   >
                     <div>
                       <p className="font-bold text-textMain text-lg group-hover:text-primary transition-colors">{voisine.name}</p>

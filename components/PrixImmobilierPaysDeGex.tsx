@@ -209,7 +209,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                 >
                   <Link
                     to={`/prix-immobilier/${c.slug}`}
-                    className="group block bg-white rounded-[10px] p-6 border border-gray-100 shadow-sm hover:border-primary/20 hover: transition-all"
+                    className="group block bg-white rounded-[10px] p-6 border border-gray-100 shadow-sm hover:border-primary/20 transition-all"
                   >
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div>
@@ -254,7 +254,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all hover: group"
+              className="inline-flex items-center gap-3 bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all group"
             >
               <span>Demander mon estimation</span>
               <ArrowUpRight size={20} className="group-hover:rotate-45 transition-transform duration-300" />

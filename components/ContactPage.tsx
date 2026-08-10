@@ -325,21 +325,21 @@ export const ContactPage: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 hover: transition-shadow duration-300">
+                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 transition-shadow duration-300">
                             <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
                                 <Clock size={24} />
                             </div>
                             <h3 className="text-2xl font-bold text-textMain mb-4">Réactivité absolue</h3>
                             <p className="text-gray-600 leading-relaxed font-light text-lg">Un interlocuteur unique. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.</p>
                         </div>
-                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 hover: transition-shadow duration-300">
+                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 transition-shadow duration-300">
                             <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
                                 <ShieldCheck size={24} />
                             </div>
                             <h3 className="text-2xl font-bold text-textMain mb-4">Sélection rigoureuse</h3>
                             <p className="text-gray-600 leading-relaxed font-light text-lg">Finis les visites curieuses. Chaque profil acquéreur est analysé et son financement pré-validé avant d'entrer chez vous.</p>
                         </div>
-                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 hover: transition-shadow duration-300">
+                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 transition-shadow duration-300">
                             <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
                                 <Globe size={24} />
                             </div>
@@ -376,9 +376,9 @@ export const ContactPage: React.FC = () => {
                                             <ChevronDown className={`shrink-0 transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-primary' : 'text-gray-400'}`} />
                                         </button>
                                         <div
-                                            className={`px-6 overflow-hidden transition-all duration-500 ease-in-out ${activeFaq === index ? 'max-h-48 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                                            className={`px-6 grid transition-[grid-template-rows,opacity] duration-300 ease-out ${activeFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                                         >
-                                            <p className="text-gray-600 leading-relaxed font-light">{faq.answer}</p>
+                                            <div className="overflow-hidden min-h-0"><p className="text-gray-600 leading-relaxed font-light pb-6">{faq.answer}</p></div>
                                         </div>
                                     </div>
                                 ))}

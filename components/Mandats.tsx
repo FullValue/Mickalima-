@@ -14,7 +14,7 @@ import {
   Wand2,
   Play,
 } from 'lucide-react';
-import { m } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { SEO } from './SEO';
 import { IMAGES } from '../constants';
 import { T } from './nosBiensShared';
@@ -178,7 +178,7 @@ const GalleryBlock: React.FC<{ main: string; overlay: string; thumbs: string[]; 
   thumbAlts,
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-    <div style={{ position: 'relative', aspectRatio: '21 / 9', borderRadius: 8, overflow: 'hidden' }}>
+    <div className="sv-media" style={{ position: 'relative', aspectRatio: '21 / 9', borderRadius: 8, overflow: 'hidden' }}>
       <img
         src={main}
         alt="Main View"
@@ -221,7 +221,7 @@ const GalleryBlock: React.FC<{ main: string; overlay: string; thumbs: string[]; 
 const VerticalTiles: React.FC<{ label: string }> = ({ label }) => (
   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="sv-grid-3">
     {[1, 2, 3].map((i) => (
-      <div key={i} style={{ position: 'relative', aspectRatio: '9 / 16', borderRadius: 8, overflow: 'hidden' }}>
+      <div key={i} className="sv-media" style={{ position: 'relative', aspectRatio: '9 / 16', borderRadius: 8, overflow: 'hidden' }}>
         <img
           src={IMAGES.misc1}
           alt={`${label} ${i}`}
@@ -260,7 +260,12 @@ const Panel: React.FC<{
   stat?: { value: string; label: string };
   children?: React.ReactNode;
 }> = ({ icon, title, desc, tag, stat, children }) => (
-  <div style={{ background: '#fff', borderRadius: 10, padding: 32 }}>
+  <m.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-80px' }}
+    transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+    style={{ background: '#fff', borderRadius: 10, padding: 32 }}>
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
       {icon && <span aria-hidden="true" style={{ display: 'inline-flex', color: T.dark }}>{icon}</span>}
       {tag && (
@@ -287,15 +292,17 @@ const Panel: React.FC<{
       </div>
     )}
     {children}
-  </div>
+  </m.div>
 );
 
 /* Bandeau de logos défilant (identique à l'ancienne version) */
-const LogoMarquee: React.FC = () => (
+const LogoMarquee: React.FC = () => {
+  const reduced = useReducedMotion();
+  return (
   <div style={{ background: T.navy, padding: '26px 0', overflow: 'hidden', position: 'relative' }}>
     <m.div
       style={{ display: 'flex', gap: 96, alignItems: 'center', flexWrap: 'nowrap', minWidth: 'max-content' }}
-      animate={{ x: ['0%', '-50%'] }}
+      animate={reduced ? undefined : { x: ['0%', '-50%'] }}
       transition={{ repeat: Infinity, ease: 'linear', duration: 30 }}
     >
       {[...Array(10)].map((_, idx) => (
@@ -316,7 +323,8 @@ const LogoMarquee: React.FC = () => (
       ))}
     </m.div>
   </div>
-);
+  );
+};
 
 /* Titre de section centré (sections 02 et 04) */
 const CenteredHeading: React.FC<{
@@ -487,6 +495,7 @@ export const MandatSignature: React.FC = () => (
                     target="_blank"
                     rel="noopener noreferrer"
                     title={logo.title}
+                    className="sv-portail"
                     style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       background: T.bg, borderRadius: 8, padding: '14px 18px', height: 52,

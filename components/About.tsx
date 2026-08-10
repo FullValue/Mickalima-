@@ -281,7 +281,7 @@ export const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: idx * 0.2 }}
-                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-10 hover: transition-all duration-500 group"
+                className="bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[10px] p-10 transition-all duration-500 group"
               >
                 <div className="w-16 h-16 rounded-[10px] bg-surface flex items-center justify-center mb-8 border border-gray-100 group-hover:bg-primary group-hover:text-white transition-colors duration-500 text-primary">
                   <item.icon size={30} strokeWidth={1.5} />

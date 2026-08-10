@@ -1,4 +1,5 @@
 import React from 'react';
+import { m } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { T } from './nosBiensShared';
@@ -46,41 +47,62 @@ export const ServiceHero: React.FC<{
       }}
     />
     <div style={{ ...wrap, position: 'relative', width: '100%', padding: '160px 30px 80px', color: '#fff' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 28, marginBottom: 34 }}>
+      <m.div
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        style={{ display: 'flex', alignItems: 'center', gap: 28, marginBottom: 34 }}
+      >
         <span style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2.5, whiteSpace: 'nowrap' }}>
           {badge}
         </span>
         <span aria-hidden="true" style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.25)' }} />
-      </div>
-      <h1
+      </m.div>
+      <m.h1
+        initial={{ opacity: 0, y: 22 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
         style={{
           fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(46px, 6.4vw, 92px)',
           lineHeight: '1.04em', marginBottom: 24, maxWidth: 900,
         }}
       >
         {title}
-      </h1>
-      <p style={{ fontSize: 18, lineHeight: '1.65em', color: 'rgba(255,255,255,0.9)', maxWidth: 520, marginBottom: 40 }}>
-        {subtitle}
-      </p>
-      <Link
-        to={ctaTo}
-        style={{
-          display: 'inline-flex', alignItems: 'center', gap: 14, background: '#fff', color: T.dark,
-          fontFamily: T.body, fontSize: 15, fontWeight: 500, textDecoration: 'none',
-          borderRadius: 50, padding: '10px 12px 10px 26px',
-        }}
+      </m.h1>
+      <m.p
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        style={{ fontSize: 18, lineHeight: '1.65em', color: 'rgba(255,255,255,0.9)', maxWidth: 520, marginBottom: 40 }}
       >
-        {ctaLabel}
-        <span
+        {subtitle}
+      </m.p>
+      <m.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+      >
+        <Link
+          to={ctaTo}
+          className="sv-cta"
           style={{
-            width: 38, height: 38, borderRadius: '50%', background: T.dark, color: '#fff',
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            display: 'inline-flex', alignItems: 'center', gap: 14, background: '#fff', color: T.dark,
+            fontFamily: T.body, fontSize: 15, fontWeight: 500, textDecoration: 'none',
+            borderRadius: 50, padding: '10px 12px 10px 26px',
           }}
         >
-          <ArrowUpRight size={18} aria-hidden="true" />
-        </span>
-      </Link>
+          {ctaLabel}
+          <span
+            className="sv-cta-arrow"
+            style={{
+              width: 38, height: 38, borderRadius: '50%', background: T.dark, color: '#fff',
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </span>
+        </Link>
+      </m.div>
     </div>
   </section>
 );
@@ -182,6 +204,7 @@ export const StickyIntro: React.FC<{
     )}
     <Link
       to={ctaTo}
+      className="sv-cta"
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 14, background: T.dark, color: '#fff',
         fontFamily: T.body, fontSize: 15, fontWeight: 500, textDecoration: 'none',
@@ -190,6 +213,7 @@ export const StickyIntro: React.FC<{
     >
       {ctaLabel}
       <span
+        className="sv-cta-arrow"
         style={{
           width: 38, height: 38, borderRadius: '50%', background: '#fff', color: T.dark,
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -251,9 +275,13 @@ export const RecapBand: React.FC<{
       </div>
 
       <div className="sv-recap" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, marginBottom: 56 }}>
-        {cards.map((c) => (
-          <div
+        {cards.map((c, ci) => (
+          <m.div
             key={c.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: ci * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
             style={{
               background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
               borderRadius: 10, padding: 28,
@@ -270,13 +298,14 @@ export const RecapBand: React.FC<{
                 </li>
               ))}
             </ul>
-          </div>
+          </m.div>
         ))}
       </div>
 
       <div style={{ textAlign: 'center' }}>
         <Link
           to={ctaTo}
+          className="sv-cta"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 14, background: '#fff', color: T.dark,
             fontFamily: T.body, fontSize: 15, fontWeight: 500, textDecoration: 'none',
@@ -285,6 +314,7 @@ export const RecapBand: React.FC<{
         >
           {ctaLabel}
           <span
+            className="sv-cta-arrow"
             style={{
               width: 38, height: 38, borderRadius: '50%', background: T.dark, color: '#fff',
               display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -304,6 +334,14 @@ export const RecapBand: React.FC<{
 /* ---- CSS responsive partagé des pages service ---- */
 export const ServiceStyles: React.FC = () => (
   <style>{`
+    .sv-cta { transition: transform .3s cubic-bezier(0.25, 0.1, 0.25, 1); }
+    .sv-cta:hover { transform: translateY(-2px); }
+    .sv-cta .sv-cta-arrow { transition: transform .35s cubic-bezier(0.25, 0.1, 0.25, 1); }
+    .sv-cta:hover .sv-cta-arrow { transform: rotate(45deg); }
+    .sv-portail { transition: transform .25s ease, background-color .25s ease; }
+    .sv-portail:hover { transform: translateY(-2px); background-color: #efefef !important; }
+    .sv-media img { transition: transform .45s cubic-bezier(.25,.1,.25,1); }
+    .sv-media:hover img { transform: scale(1.04); }
     @media (max-width: 1023px) {
       .sv-cols { grid-template-columns: 1fr !important; }
       .sv-sticky { position: static !important; }

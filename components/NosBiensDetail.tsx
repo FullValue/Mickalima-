@@ -107,7 +107,10 @@ const ContactCard: React.FC<{ property: NBProperty }> = ({ property }) => (
         style={{
           fontFamily: T.body, fontSize: 16, fontWeight: 500, color: '#ffffff', background: T.dark,
           border: 'none', borderRadius: 8, padding: '16px 24px', cursor: 'pointer', width: '100%',
+          transition: 'opacity .2s ease, transform .15s ease',
         }}
+        onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.9'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
       >
         Envoyer
       </button>
@@ -154,6 +157,7 @@ const Lightbox: React.FC<{ photos: string[]; index: number; onClose: () => void;
       style={{
         position: 'fixed', inset: 0, zIndex: 100, background: 'rgba(10,10,10,0.92)',
         display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(12px, 3vw, 40px)',
+        animation: 'nbFadeIn .25s ease',
       }}
     >
       <button
@@ -182,11 +186,13 @@ const Lightbox: React.FC<{ photos: string[]; index: number; onClose: () => void;
           <ChevronLeft size={26} aria-hidden="true" />
         </button>
         <img
+          key={index}
           src={photos[index]}
           alt={`Photo ${index + 1} sur ${photos.length}`}
           style={{
             flex: 1, minWidth: 0, maxHeight: '78vh', objectFit: 'contain',
             borderRadius: 10, display: 'block',
+            animation: 'nbFadeIn .3s ease',
           }}
         />
         <button type="button" onClick={next} aria-label="Photo suivante" style={navBtn}>
@@ -207,6 +213,8 @@ const Lightbox: React.FC<{ photos: string[]; index: number; onClose: () => void;
             style={{
               width: 9, height: 9, borderRadius: '50%', border: 'none', cursor: 'pointer', padding: 0,
               background: i === index ? '#fff' : 'rgba(255,255,255,0.35)',
+              transform: i === index ? 'scale(1.25)' : 'scale(1)',
+              transition: 'background .2s ease, transform .2s ease',
             }}
           />
         ))}
@@ -506,6 +514,14 @@ export const NosBiensDetail: React.FC = () => {
       )}
 
       <style>{`
+        /* Zoom doux des photos de galerie */
+        .nb-gallery-hero button img, .nb-gallery-grid button img {
+          transition: transform .45s cubic-bezier(.25,.1,.25,1);
+        }
+        .nb-gallery-hero button:hover img, .nb-gallery-grid button:hover img {
+          transform: scale(1.04);
+        }
+
         /* Galerie hero : hauteur contrainte comme le template (≈ 2.4:1) */
         @media (min-width: 768px) {
           .nb-gallery-hero { aspect-ratio: 2.42 / 1; }

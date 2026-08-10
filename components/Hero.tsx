@@ -81,13 +81,13 @@ export const Hero: React.FC = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start w-full">
-                        <Link to="/estimation" className="bg-white text-textMain py-2 px-2 pr-6 rounded-full font-bold hover:bg-gray-50 transition-all hover:-translate-y-1 flex items-center gap-4 group">
+                        <Link to="/estimation" className="bg-white text-textMain py-2 px-2 pr-6 rounded-full font-bold hover:bg-gray-50 transition-all duration-300 ease-out hover:-translate-y-1 flex items-center gap-4 group">
                             <div className="bg-textMain text-white rounded-full p-3 group-hover:rotate-45 transition-transform duration-300 shrink-0">
                                 <ArrowUpRight size={18} />
                             </div>
                             <span className="text-sm tracking-wide whitespace-nowrap">Estimer mon bien</span>
                         </Link>
-                        <Link to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-2 px-2 pr-6 rounded-full font-bold hover:bg-white/20 transition-all hover:-translate-y-1 flex items-center gap-4 group">
+                        <Link to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-2 px-2 pr-6 rounded-full font-bold hover:bg-white/20 transition-all duration-300 ease-out hover:-translate-y-1 flex items-center gap-4 group">
                             <div className="bg-white text-textMain rounded-full p-3 group-hover:scale-110 transition-transform duration-300 shrink-0">
                                 <Phone size={18} />
                             </div>

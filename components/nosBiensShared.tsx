@@ -67,6 +67,7 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
     <Link
       to={`/nos-biens/${l.slug}`}
       tabIndex={ariaHidden ? -1 : undefined}
+      className="nb-card-media"
       style={{ display: 'block', position: 'relative', borderRadius: 8, overflow: 'hidden' }}
     >
       <img
@@ -139,6 +140,7 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
       <Link
         to={`/nos-biens/${l.slug}`}
         tabIndex={ariaHidden ? -1 : undefined}
+        className="nb-card-cta"
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           fontSize: 15, fontWeight: 500, color: T.dark, background: T.chipBg,
@@ -147,6 +149,7 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
       >
         En savoir plus
         <span
+          className="nb-card-cta-arrow"
           style={{
             width: 34, height: 34, background: '#fff', borderRadius: 6,
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -213,7 +216,7 @@ export const RevalisFooter: React.FC = () => (
               { label: 'Estimation offerte', to: '/estimation' },
             ].map((i) => (
               <li key={i.to}>
-                <Link to={i.to} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{i.label}</Link>
+                <Link to={i.to} className="rf-link" style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{i.label}</Link>
               </li>
             ))}
           </ul>
@@ -228,7 +231,7 @@ export const RevalisFooter: React.FC = () => (
               { label: 'Contact', to: '/contact' },
             ].map((i) => (
               <li key={i.to}>
-                <Link to={i.to} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{i.label}</Link>
+                <Link to={i.to} className="rf-link" style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{i.label}</Link>
               </li>
             ))}
           </ul>

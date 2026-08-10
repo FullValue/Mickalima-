@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { LazyMotion, domAnimation } from 'framer-motion';
+import { LazyMotion, domAnimation, AnimatePresence, m } from 'framer-motion';
 import { SEO } from './components/SEO';
 
 // domAnimation importé en sync : le loader async cassait le SSG
@@ -27,7 +27,7 @@ import { FrontalierCommunePage } from './components/FrontalierCommunePage';
 import { MentionsLegales } from './components/MentionsLegales';
 import { PolitiqueConfidentialite } from './components/PolitiqueConfidentialite';
 import { RevalisFooter } from './components/nosBiensShared';
-import { ScrollToTop } from './components/ScrollToTop';
+import { Preloader } from './components/Preloader';
 import {
   Positioning,
   Problematic,
@@ -146,15 +146,44 @@ const HomePage: React.FC = () => (
 );
 
 export const AppContent: React.FC = () => {
-  // /nos-biens et ses pages détail embarquent déjà le footer DA
-  const hasOwnFooter = useLocation().pathname.startsWith('/nos-biens');
+  const location = useLocation();
+  // Route réellement affichée (l'ancienne page reste montée pendant sa sortie)
+  const [displayedPath, setDisplayedPath] = useState(location.pathname);
+  // Pas d'animation d'entrée du wrapper au tout premier rendu (SSG visible immédiatement),
+  // mais on n'utilise PAS initial={false} sur AnimatePresence : cela neutraliserait les
+  // animations initial/whileInView de toutes les pages au premier chargement.
+  const isFirstRoute = useRef(true);
+  useEffect(() => { isFirstRoute.current = false; }, []);
+
+  // /nos-biens et ses pages détail embarquent déjà le footer DA — on masque le footer
+  // global dès qu'une des deux routes (affichée ou cible) est concernée, pour éviter
+  // le double footer pendant la transition.
+  const hasOwnFooter =
+    location.pathname.startsWith('/nos-biens') || displayedPath.startsWith('/nos-biens');
   return (
   <LazyMotion features={domAnimation}>
-    <ScrollToTop />
+    <Preloader />
     <div className="font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        <Routes>
+        {/* Transition douce entre les routes : sortie en fondu pur (pas de translation,
+            les surfaces backdrop-blur ré-échantillonneraient à chaque frame), entrée
+            fondu + léger glissement. Scroll remis en haut quand l'ancienne page est partie. */}
+        <AnimatePresence
+          mode="wait"
+          onExitComplete={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+            setDisplayedPath(location.pathname);
+          }}
+        >
+        <m.div
+          key={location.pathname}
+          initial={isFirstRoute.current ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        >
+        <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/mandat-signature" element={<MandatSignature />} />
           <Route path="/mandat-exclusif" element={<MandatExclusif />} />
@@ -173,6 +202,8 @@ export const AppContent: React.FC = () => {
           <Route path="/prix-immobilier/:commune" element={<PrixImmobilierPage />} />
           <Route path="/frontalier/:commune" element={<FrontalierCommunePage />} />
         </Routes>
+        </m.div>
+        </AnimatePresence>
       </main>
       {!hasOwnFooter && <RevalisFooter />}
     </div>

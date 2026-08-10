@@ -57,7 +57,11 @@ const COLUMNS: GWColumn[] = [
 ];
 
 export const GalleryWall: React.FC = () => (
-  <section className="gallery-wall" aria-label="Galerie">
+  <section
+    className="gallery-wall"
+    aria-label="Galerie"
+    ref={(el) => { if (el) el.classList.add('gw-js'); }}
+  >
     <div className="gallery-wall__grid">
       {COLUMNS.map((col, ci) => (
         <div key={ci} className="gallery-wall__col">
@@ -74,7 +78,15 @@ export const GalleryWall: React.FC = () => (
                   aria-hidden={pass === 1 || undefined}
                   style={{ aspectRatio: ratio }}
                 >
-                  <img src={src} alt="" loading="lazy" decoding="async" />
+                  <img
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={(e) => e.currentTarget.classList.add('is-loaded')}
+                    onError={(e) => e.currentTarget.classList.add('is-loaded')}
+                    ref={(el) => { if (el && el.complete) el.classList.add('is-loaded'); }}
+                  />
                 </div>
               ))
             )}
@@ -135,7 +147,10 @@ export const GalleryWall: React.FC = () => (
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: opacity .5s ease;
       }
+      /* fade-in seulement si JS est actif (sinon le mur doit rester visible) */
+      .gallery-wall.gw-js .gallery-wall__item img:not(.is-loaded) { opacity: 0; }
 
       /* Pause au survol */
       .gallery-wall:hover .gallery-wall__track { animation-play-state: paused; }

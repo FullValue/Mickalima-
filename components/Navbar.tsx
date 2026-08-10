@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
                                     Services & Mandats <ChevronDown size={14} className={`transition-transform duration-300 ${location.pathname.includes('mandat') ? 'rotate-180' : 'group-hover:rotate-180'}`} />
                                 </button>
                                 {/* Dropdown Content */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-64 bg-white rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 overflow-hidden p-2 text-left ring-1 ring-black/5">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-64 bg-white rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 p-2 text-left ring-1 ring-black/5 before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6">
                                     <Link to="/mandat-signature" className="block px-4 py-3 rounded-xl text-textMain hover:bg-surface hover:text-primary transition-colors group/item">
                                         <span className="block font-bold group-hover/item:translate-x-1 transition-transform">Mandat Signature</span>
                                         <span className="text-xs text-gray-500">Le plus performant</span>

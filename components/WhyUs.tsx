@@ -65,7 +65,26 @@ export const WhyUs: React.FC = () => {
     if (!root) return;
     const cleanups: Array<() => void> = [];
 
+    /* ----- Reveal au scroll (head + cartes) ----- */
+    root.classList.add('whyus-js');
+    const revealTargets = root.querySelectorAll<HTMLElement>('.whyus__head, .whyus__card');
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add('is-inview');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    revealTargets.forEach((el) => revealObserver.observe(el));
+    cleanups.push(() => revealObserver.disconnect());
+
     /* ----- Compteurs animés au scroll ----- */
+    let countersCancelled = false;
+    cleanups.push(() => { countersCancelled = true; });
     const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
     const counters = root.querySelectorAll<HTMLElement>('[data-whyus-count]');
     const counterObserver = new IntersectionObserver(
@@ -80,6 +99,7 @@ export const WhyUs: React.FC = () => {
           const duration = 1800;
           let start: number | null = null;
           const step = (ts: number) => {
+            if (countersCancelled) return;
             if (start === null) start = ts;
             const p = Math.min((ts - start) / duration, 1);
             el.textContent = (target * easeOut(p)).toFixed(decimals) + suffix;
@@ -106,7 +126,7 @@ export const WhyUs: React.FC = () => {
 
       const paint = (progress: number) => {
         fills.forEach((f, i) => {
-          f.style.width = i < index ? '100%' : i === index ? `${progress * 100}%` : '0%';
+          f.style.transform = i < index ? 'scaleX(1)' : i === index ? `scaleX(${progress})` : 'scaleX(0)';
         });
       };
 
@@ -118,7 +138,7 @@ export const WhyUs: React.FC = () => {
           slides[index].classList.remove('is-active');
           index = (index + 1) % slides.length;
           slides[index].classList.add('is-active');
-          if (index === 0) fills.forEach((f) => { f.style.width = '0%'; });
+          if (index === 0) fills.forEach((f) => { f.style.transform = 'scaleX(0)'; });
           startTime = ts;
         }
         rafId = requestAnimationFrame(tick);
@@ -412,7 +432,7 @@ export const WhyUs: React.FC = () => {
           background: rgba(255,255,255,.3);
           overflow: hidden;
         }
-        .whyus-reel__bar > i { display: block; height: 100%; width: 0; background: #fff; border-radius: 6px; }
+        .whyus-reel__bar > i { display: block; height: 100%; width: 100%; transform: scaleX(0); transform-origin: left; background: #fff; border-radius: 6px; }
 
         /* ---------- Carte compteur ---------- */
         .whyus-stat {
@@ -476,8 +496,22 @@ export const WhyUs: React.FC = () => {
           background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--whyus-card) 100%);
         }
 
+        /* Reveal au scroll — appliqué seulement quand JS est actif */
+        .whyus-js .whyus__head, .whyus-js .whyus__card {
+          opacity: 0;
+          transform: translateY(26px);
+          transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+        }
+        .whyus-js .whyus__col:nth-child(2) .whyus__card { transition-delay: .1s; }
+        .whyus-js .whyus__col:nth-child(3) .whyus__card { transition-delay: .18s; }
+        .whyus-js .whyus__head.is-inview, .whyus-js .whyus__card.is-inview {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .whyus-ticker__track, .whyus-ring { animation: none; }
+          .whyus-js .whyus__head, .whyus-js .whyus__card { opacity: 1; transform: none; transition: none; }
         }
 
         @media (max-width: 1199px) {

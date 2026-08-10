@@ -19,3 +19,48 @@
 body {
   @apply bg-white text-[#011d41];
 }
+
+/* ---- Fluidité globale ---- */
+@keyframes nbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nbFadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Cartes biens : zoom doux de l'image, CTA réactif */
+.nb-card-media img { transition: transform .55s cubic-bezier(.25,.1,.25,1); }
+.nb-card-media:hover img { transform: scale(1.05); }
+.nb-card-cta { transition: background-color .25s ease; }
+.nb-card-cta:hover { background-color: #e8e8e8 !important; }
+.nb-card-cta .nb-card-cta-arrow { transition: transform .25s cubic-bezier(.25,.1,.25,1); }
+.nb-card-cta:hover .nb-card-cta-arrow { transform: translate(2px, -2px); }
+
+/* Grille des biens : apparition douce des cartes */
+.nb-grid > * { animation: nbFadeUp .4s cubic-bezier(.22,1,.36,1) both; }
+
+/* Bouton charger plus */
+.nb-loadmore { transition: transform .2s ease, background-color .2s ease; }
+.nb-loadmore:hover { transform: translateY(-1px); }
+
+/* Liens footer DA */
+.rf-link { transition: color .2s ease; }
+.rf-link:hover { color: #fff !important; }
+
+html {
+  scroll-behavior: smooth;
+}
+::selection {
+  background: #011d41;
+  color: #fff;
+}
+/* Les images apparaissent en douceur une fois chargées */
+img {
+  -webkit-user-drag: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
