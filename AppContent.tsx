@@ -14,6 +14,7 @@ import { About } from './components/About';
 import { NosBiens } from './components/NosBiens';
 import { NosBiensDetail } from './components/NosBiensDetail';
 import { GalleryWall } from './components/GalleryWall';
+import { WhyUs } from './components/WhyUs';
 import { Partners } from './components/Partners';
 import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
@@ -134,6 +135,7 @@ const HomePage: React.FC = () => (
     <Problematic />
     <Method />
     <Visibility />
+    <WhyUs />
     <Testimonials />
     <FAQSection />
     <HomeBlog />
