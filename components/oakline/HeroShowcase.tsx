@@ -1,79 +1,75 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { m, useReducedMotion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
 import { HERO_SLIDES } from '../../constants';
-import { BIENS } from '../biensData';
-import { formatPrice } from '../nosBiensShared';
 import { EASE, PillButton, SplitWords } from './primitives';
 
 /**
- * Hero plein écran façon Oakline : slideshow fondu croisé + Ken Burns
- * (scale 1.3→1 à l'apparition), overlays dégradés sombres bas/haut,
- * titre géant centré Playfair, cartes biens flottantes en bas (BIENS[0..2])
- * et indicateurs miniatures cliquables. Auto-rotation ~6s.
- * Radius bas 32px + ombre portée.
+ * Hero plein écran façon Oakline — version statique (sans slider) :
+ * une seule image avec Ken Burns lent à l'apparition, titre géant centré,
+ * et en bas un formulaire de demande (estimation gratuite / recherche
+ * d'un bien / projet de vente) envoyé via Web3Forms.
  */
 
-const AUTOPLAY_MS = 6000;
-const SLIDES = HERO_SLIDES;
-const FEATURED = BIENS.slice(0, 3);
+const WEB3FORMS_KEY = '38f90cdc-9f17-48ef-bae6-f94e9b44e41f';
+const HERO_IMAGE = HERO_SLIDES[0];
+
+type Status = 'idle' | 'loading' | 'success' | 'error';
+
+const inputClass =
+  'w-full rounded-xl border border-[#ebebeb] bg-[#f7f7f7] px-4 py-3 text-sm text-[#011d41] placeholder:text-[#011d41]/40 transition-colors focus:border-[#011d41] focus:bg-white focus:outline-none';
+const labelClass =
+  'mb-1.5 block text-left text-[11px] font-semibold uppercase tracking-[0.14em] text-[#011d41]/60';
 
 export const HeroShowcase: React.FC = () => {
-  const [index, setIndex] = useState(0);
   const reduce = useReducedMotion();
+  const [status, setStatus] = useState<Status>('idle');
 
-  // Auto-rotation — désactivée si prefers-reduced-motion.
-  // `index` en dépendance : le compteur repart à zéro après chaque changement
-  // (automatique ou manuel), période constante entre les slides.
-  useEffect(() => {
-    if (reduce) return;
-    const t = setInterval(
-      () => setIndex((i) => (i + 1) % SLIDES.length),
-      AUTOPLAY_MS
-    );
-    return () => clearInterval(t);
-  }, [index, reduce]);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const demande = String(formData.get('demande') ?? 'Demande');
+    formData.append('access_key', WEB3FORMS_KEY);
+    formData.append('subject', `Site ML Immo — ${demande}`);
+    formData.append('from_name', 'mickael-lima.immo');
+    formData.append('botcheck', '');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('success');
+        form.reset();
+      } else {
+        console.error('Web3Forms error:', data);
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error('Fetch error:', err);
+      setStatus('error');
+    }
+  };
 
   return (
     <section
       aria-label="Mickaël Lima Immobilier Prestige — Pays de Gex"
-      className="relative h-screen overflow-hidden rounded-b-[32px] shadow-[0_30px_80px_-30px_rgba(1,29,65,0.45)]"
-      style={{ height: '100svh' }}
+      className="relative flex min-h-[100svh] flex-col overflow-hidden rounded-b-[32px] shadow-[0_30px_80px_-30px_rgba(1,29,65,0.45)]"
     >
-      {/* Slides — pile absolue, fondu croisé par opacité */}
-      {SLIDES.map((src, i) => {
-        const active = i === index;
-        return (
-          <m.div
-            key={src}
-            className="absolute inset-0"
-            initial={{ opacity: i === 0 ? 1 : 0 }}
-            animate={{ opacity: active ? 1 : 0 }}
-            transition={{ duration: 1.1, ease: 'linear' }}
-          >
-            <m.img
-              src={src}
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover"
-              initial={reduce ? false : { scale: 1.3, y: -10 }}
-              animate={
-                reduce
-                  ? { scale: 1, y: 0 }
-                  : active
-                    ? { scale: 1, y: 0 }
-                    : { scale: 1.3, y: -10 }
-              }
-              transition={
-                active && !reduce
-                  ? { duration: 0.8, ease: EASE }
-                  : { duration: 0 }
-              }
-            />
-          </m.div>
-        );
-      })}
+      {/* Image de fond unique — Ken Burns lent à l'apparition */}
+      <m.img
+        src={HERO_IMAGE}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+        initial={reduce ? false : { scale: 1.18 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 9, ease: EASE }}
+      />
 
       {/* Overlays dégradés sombres + teinte bleue de la marque */}
       <div
@@ -86,151 +82,139 @@ export const HeroShowcase: React.FC = () => {
       />
       <div aria-hidden="true" className="absolute inset-0 bg-[#011d41]/25" />
 
-      {/* Contenu */}
-      <div className="relative z-10 flex h-full flex-col">
-        <div className="flex flex-1 flex-col items-center justify-center px-6 pt-24 text-center text-white">
-          <m.p
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm"
-          >
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white/70" />
-            Agent immobilier prestige — Pays de Gex
-          </m.p>
+      {/* Titre */}
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-12 pt-32 text-center text-white">
+        <m.p
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
+          className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm"
+        >
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white/70" />
+          Agent immobilier prestige — Pays de Gex
+        </m.p>
 
-          <h1 className="max-w-5xl font-serif text-[2.6rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-            <SplitWords text="L'excellence immobilière" delay={0.25} />
-            <br />
-            <span className="italic">
-              <SplitWords text="au cœur du Pays de Gex" delay={0.45} />
-            </span>
-          </h1>
+        <h1 className="max-w-5xl font-serif text-[2.6rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
+          <SplitWords text="L'excellence immobilière" delay={0.25} />
+          <br />
+          <span className="italic">
+            <SplitWords text="au cœur du Pays de Gex" delay={0.45} />
+          </span>
+        </h1>
 
-          <m.p
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.7 }}
-            className="mt-7 max-w-xl text-base font-light leading-relaxed text-white/85 md:text-lg"
-          >
-            Vente, estimation et accompagnement sur mesure pour une clientèle
-            exigeante, frontalière et internationale.
-          </m.p>
+        <m.p
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.7 }}
+          className="mt-7 max-w-xl text-base font-light leading-relaxed text-white/85 md:text-lg"
+        >
+          Vente, estimation et accompagnement sur mesure pour une clientèle
+          exigeante, frontalière et internationale.
+        </m.p>
+      </div>
 
-          <m.div
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.85 }}
-            className="mt-9 flex flex-col items-center gap-4 sm:flex-row"
-          >
-            <PillButton to="/estimation" variant="light" arrow>
-              Estimer mon bien gratuitement
-            </PillButton>
-            <PillButton to="/nos-biens" variant="ghost">
-              Découvrir mes biens
-            </PillButton>
-          </m.div>
-
-          <m.a
-            href="#selection"
-            aria-label="Faire défiler vers la sélection de biens"
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            className="mt-10 hidden h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white/80 transition-colors hover:bg-white/10 hover:text-white md:inline-flex"
-          >
-            <ArrowDown size={18} aria-hidden="true" />
-          </m.a>
-        </div>
-
-        {/* Bandeau bas : cartes biens flottantes + indicateurs miniatures */}
-        <div className="relative z-10 px-4 pb-6 sm:px-6 md:pb-8">
-          <div className="mx-auto flex max-w-6xl flex-col gap-5">
-            {/* Indicateurs miniatures cliquables */}
-            <div className="flex items-center justify-center gap-3">
-              {SLIDES.map((src, i) => (
-                <button
-                  key={src}
-                  type="button"
-                  onClick={() => setIndex(i)}
-                  aria-label={`Afficher la photo ${i + 1} sur ${SLIDES.length}`}
-                  aria-current={i === index ? 'true' : undefined}
-                  className={`group relative h-12 w-[72px] overflow-hidden rounded-xl ring-offset-2 ring-offset-black/20 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white ${
-                    i === index
-                      ? 'ring-2 ring-white'
-                      : 'opacity-60 ring-1 ring-white/40 hover:opacity-100'
-                  }`}
-                >
-                  <img
-                    src={src}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
-
-            {/* Cartes biens (desktop/tablette) — une par slide */}
-            <div className="hidden justify-center gap-4 sm:grid sm:grid-cols-3">
-              {FEATURED.map((bien, i) => (
-                <Link
-                  key={bien.slug}
-                  to={`/nos-biens/${bien.slug}`}
-                  aria-label={`${bien.typeLabel} à ${bien.city} — ${formatPrice(bien.price)}`}
-                  className={`flex items-center gap-3.5 rounded-2xl bg-white/95 p-3 pr-5 shadow-lg backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                    i === index ? 'ring-2 ring-white/90' : ''
-                  }`}
-                >
-                  <img
-                    src={bien.photos[0]}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    className="h-14 w-16 shrink-0 rounded-xl object-cover"
-                  />
-                  <span className="min-w-0">
-                    <span className="block truncate text-[13px] font-semibold text-[#011d41]">
-                      {bien.typeLabel} — {bien.city}
-                    </span>
-                    <span className="mt-0.5 block font-serif text-[15px] text-[#011d41]">
-                      {formatPrice(bien.price)}
-                    </span>
-                  </span>
-                </Link>
-              ))}
-            </div>
-
-            {/* Mobile : carte du bien actif uniquement */}
-            <div className="sm:hidden">
-              <Link
-                to={`/nos-biens/${FEATURED[index]?.slug ?? FEATURED[0].slug}`}
-                className="flex items-center gap-3.5 rounded-2xl bg-white/95 p-3 pr-5 shadow-lg backdrop-blur"
-              >
-                <img
-                  src={FEATURED[index]?.photos[0] ?? FEATURED[0].photos[0]}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  decoding="async"
-                  className="h-14 w-16 shrink-0 rounded-xl object-cover"
-                />
-                <span className="min-w-0">
-                  <span className="block truncate text-[13px] font-semibold text-[#011d41]">
-                    {(FEATURED[index] ?? FEATURED[0]).typeLabel} —{' '}
-                    {(FEATURED[index] ?? FEATURED[0]).city}
-                  </span>
-                  <span className="mt-0.5 block font-serif text-[15px] text-[#011d41]">
-                    {formatPrice((FEATURED[index] ?? FEATURED[0]).price)}
-                  </span>
-                </span>
-              </Link>
+      {/* Formulaire de demande — bas du hero */}
+      <div className="relative z-10 px-4 pb-8 sm:px-6 md:pb-10">
+        <m.div
+          initial={reduce ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.85 }}
+          className="mx-auto w-full max-w-4xl rounded-[24px] bg-white p-6 shadow-[0_30px_80px_-30px_rgba(1,29,65,0.55)] md:p-8"
+        >
+          <div className="mb-5 flex flex-col gap-1 text-left sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="font-serif text-2xl tracking-tight text-[#011d41] md:text-3xl">
+                Votre projet immobilier
+              </h2>
+              <p className="mt-1 text-sm text-[#011d41]/60">
+                Réponse sous 24 h — estimation gratuite et sans engagement.
+              </p>
             </div>
           </div>
-        </div>
+
+          <div aria-live="polite">
+            {status === 'success' && (
+              <p className="mb-4 flex items-center gap-2 rounded-xl bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
+                <CheckCircle2 size={18} aria-hidden="true" />
+                Merci ! Votre demande est bien envoyée — je vous recontacte sous 24 h.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="mb-4 flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-800">
+                <AlertCircle size={18} aria-hidden="true" />
+                Une erreur est survenue. Réessayez ou contactez-moi directement au 07 69 31 35 02.
+              </p>
+            )}
+          </div>
+
+          <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2" noValidate={false}>
+            <div className="sm:col-span-2">
+              <label htmlFor="hero-demande" className={labelClass}>
+                Votre demande
+              </label>
+              <select id="hero-demande" name="demande" required defaultValue="" className={inputClass}>
+                <option value="" disabled>
+                  Sélectionnez…
+                </option>
+                <option value="Estimation gratuite">Demande d'estimation gratuite</option>
+                <option value="Recherche d'un bien">Recherche d'un bien</option>
+                <option value="Projet de vente">Projet de vente</option>
+                <option value="Autre demande">Autre demande</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="hero-nom" className={labelClass}>
+                Nom complet
+              </label>
+              <input id="hero-nom" name="nom" type="text" required autoComplete="name" placeholder="Jean Dupont" className={inputClass} />
+            </div>
+
+            <div>
+              <label htmlFor="hero-telephone" className={labelClass}>
+                Téléphone
+              </label>
+              <input id="hero-telephone" name="telephone" type="tel" required autoComplete="tel" placeholder="06 12 34 56 78" className={inputClass} />
+            </div>
+
+            <div>
+              <label htmlFor="hero-email" className={labelClass}>
+                Email
+              </label>
+              <input id="hero-email" name="email" type="email" required autoComplete="email" placeholder="jean@exemple.fr" className={inputClass} />
+            </div>
+
+            <div>
+              <label htmlFor="hero-commune" className={labelClass}>
+                Commune / Secteur <span className="normal-case text-[#011d41]/40">(optionnel)</span>
+              </label>
+              <input id="hero-commune" name="commune" type="text" placeholder="Ferney-Voltaire, Gex…" className={inputClass} />
+            </div>
+
+            <div className="sm:col-span-2">
+              <label htmlFor="hero-message" className={labelClass}>
+                Message <span className="normal-case text-[#011d41]/40">(optionnel)</span>
+              </label>
+              <textarea id="hero-message" name="message" rows={3} placeholder="Décrivez votre projet en quelques mots…" className={`${inputClass} resize-none`} />
+            </div>
+
+            <div className="flex flex-col items-start justify-between gap-4 sm:col-span-2 sm:flex-row sm:items-center">
+              <p className="text-xs leading-relaxed text-[#011d41]/50">
+                Vos données restent confidentielles et ne sont jamais partagées.
+              </p>
+              <PillButton type="submit" variant="solid" arrow disabled={status === 'loading'} className="w-full sm:w-auto">
+                {status === 'loading' ? (
+                  <>
+                    Envoi en cours
+                    <Loader2 size={16} className="animate-spin" aria-hidden="true" />
+                  </>
+                ) : (
+                  'Envoyer ma demande'
+                )}
+              </PillButton>
+            </div>
+          </form>
+        </m.div>
       </div>
     </section>
   );

@@ -64,3 +64,12 @@ img {
     transition-delay: 0ms !important;
   }
 }
+/* ---- Section portails : parallaxe « fond fixe » (desktop) ---- */
+/* Le fond reste fixe pendant que le contenu défile par-dessus.
+   iOS/Safari mobile ne supporte pas background-attachment: fixed ->
+   fallback naturel en scroll normal. */
+@media (hover: hover) and (pointer: fine) {
+  .parallax-fixed {
+    background-attachment: fixed;
+  }
+}

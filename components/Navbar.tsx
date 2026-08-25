@@ -86,7 +86,7 @@ export const Navbar: React.FC = () => {
         group relative px-4 py-2 text-[13px] font-semibold tracking-wide transition-colors duration-300
         ${isTransparent
             ? `${active ? 'text-white' : 'text-white/85 hover:text-white'}`
-            : `${active ? 'text-[#011d41]' : 'text-[#011d41]/70 hover:text-[#011d41]'}`}
+            : `${active ? 'text-white' : 'text-white/80 hover:text-white'}`}
     `;
 
     const isActivePath = (to: string) =>
@@ -99,7 +99,7 @@ export const Navbar: React.FC = () => {
           className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
             isTransparent
               ? 'bg-transparent py-5'
-              : 'bg-white/85 py-3 shadow-[0_1px_0_rgba(1,29,65,0.08)] backdrop-blur-md'
+              : 'bg-[#011d41]/95 py-3 shadow-[0_10px_30px_-12px_rgba(1,29,65,0.5)] backdrop-blur-md'
           }`}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
@@ -110,9 +110,7 @@ export const Navbar: React.FC = () => {
                         src={IMAGES.logoWhite}
                         alt=""
                         aria-hidden="true"
-                        className={`h-8 md:h-9 w-auto transition-all duration-500 ${
-                            isTransparent ? '[filter:brightness(0)_invert(1)]' : ''
-                        }`}
+                        className="h-8 md:h-9 w-auto transition-all duration-500 [filter:brightness(0)_invert(1)]"
                     />
                 </Link>
 
@@ -175,12 +173,12 @@ export const Navbar: React.FC = () => {
                         className={`hidden lg:inline-flex items-center gap-3 rounded-full py-1.5 pl-6 pr-1.5 text-sm font-semibold shadow-lg transition-all duration-500 hover:-translate-y-0.5 group ${
                             isTransparent
                               ? 'bg-white text-[#011d41] hover:bg-white/90'
-                              : 'bg-[#011d41] text-white hover:bg-[#123a66]'
+                              : 'bg-white text-[#011d41] hover:bg-white/90'
                         }`}
                     >
                         <span>Estimation offerte</span>
                         <span className={`flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-300 group-hover:rotate-45 ${
-                            isTransparent ? 'bg-[#011d41] text-white' : 'bg-white text-[#011d41]'
+                            isTransparent ? 'bg-[#011d41] text-white' : 'bg-[#011d41] text-white'
                         }`}>
                             <ArrowUpRight size={16} />
                         </span>
@@ -191,7 +189,7 @@ export const Navbar: React.FC = () => {
                         className={`lg:hidden z-50 flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                             isMobileMenuOpen || isTransparent
                               ? 'border-white/40 bg-white/10 text-white backdrop-blur focus-visible:outline-white'
-                              : 'border-[#ebebeb] bg-white text-[#011d41] focus-visible:outline-[#011d41]'
+                              : 'border-white/40 bg-white/10 text-white backdrop-blur focus-visible:outline-white'
                         }`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-expanded={isMobileMenuOpen}
