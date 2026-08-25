@@ -17,9 +17,9 @@ const HERO_IMAGE = HERO_SLIDES[0];
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
 const inputClass =
-  'w-full rounded-xl border border-[#ebebeb] bg-[#f7f7f7] px-4 py-3 text-sm text-[#011d41] placeholder:text-[#011d41]/40 transition-colors focus:border-[#011d41] focus:bg-white focus:outline-none';
+  'w-full rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/45 transition-colors focus:border-white/60 focus:bg-white/15 focus:outline-none';
 const labelClass =
-  'mb-1.5 block text-left text-[11px] font-semibold uppercase tracking-[0.14em] text-[#011d41]/60';
+  'mb-1.5 block text-left text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70';
 
 export const HeroShowcase: React.FC = () => {
   const reduce = useReducedMotion();
@@ -119,14 +119,14 @@ export const HeroShowcase: React.FC = () => {
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.85 }}
-          className="mx-auto w-full max-w-4xl rounded-[24px] bg-white p-6 shadow-[0_30px_80px_-30px_rgba(1,29,65,0.55)] md:p-8"
+          className="mx-auto w-full max-w-4xl rounded-[28px] border border-white/25 bg-white/10 p-6 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.65)] backdrop-blur-2xl md:p-8"
         >
           <div className="mb-5 flex flex-col gap-1 text-left sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="font-serif text-2xl tracking-tight text-[#011d41] md:text-3xl">
+              <h2 className="font-serif text-2xl tracking-tight text-white md:text-3xl">
                 Votre projet immobilier
               </h2>
-              <p className="mt-1 text-sm text-[#011d41]/60">
+              <p className="mt-1 text-sm text-white/70">
                 Réponse sous 24 h — estimation gratuite et sans engagement.
               </p>
             </div>
@@ -134,13 +134,13 @@ export const HeroShowcase: React.FC = () => {
 
           <div aria-live="polite">
             {status === 'success' && (
-              <p className="mb-4 flex items-center gap-2 rounded-xl bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
+              <p className="mb-4 flex items-center gap-2 rounded-xl border border-green-300/30 bg-green-400/15 px-4 py-3 text-sm font-medium text-green-100 backdrop-blur-sm">
                 <CheckCircle2 size={18} aria-hidden="true" />
                 Merci ! Votre demande est bien envoyée — je vous recontacte sous 24 h.
               </p>
             )}
             {status === 'error' && (
-              <p className="mb-4 flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-800">
+              <p className="mb-4 flex items-center gap-2 rounded-xl border border-red-300/30 bg-red-400/15 px-4 py-3 text-sm font-medium text-red-100 backdrop-blur-sm">
                 <AlertCircle size={18} aria-hidden="true" />
                 Une erreur est survenue. Réessayez ou contactez-moi directement au 07 69 31 35 02.
               </p>
@@ -199,7 +199,7 @@ export const HeroShowcase: React.FC = () => {
             </div>
 
             <div className="flex flex-col items-start justify-between gap-4 sm:col-span-2 sm:flex-row sm:items-center">
-              <p className="text-xs leading-relaxed text-[#011d41]/50">
+              <p className="text-xs leading-relaxed text-white/55">
                 Vos données restent confidentielles et ne sont jamais partagées.
               </p>
               <PillButton type="submit" variant="solid" arrow disabled={status === 'loading'} className="w-full sm:w-auto">

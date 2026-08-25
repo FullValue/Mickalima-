@@ -63,13 +63,11 @@ export const StatsBand: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-[#011d41] py-20 text-white md:py-28">
       {/* Fond image + overlays */}
-      <img
-        src={IMAGES.heroBg}
-        alt=""
+      {/* Fond FIXE au scroll (desktop) — le contenu défile par-dessus */}
+      <div
         aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-        className="absolute inset-0 h-full w-full object-cover opacity-25"
+        className="parallax-fixed absolute inset-0 bg-cover bg-center opacity-25"
+        style={{ backgroundImage: `url('${IMAGES.heroBg}')` }}
       />
       <div
         aria-hidden="true"
