@@ -35,6 +35,7 @@ import { InsightsTeaser } from './components/oakline/InsightsTeaser';
 import { CtaContact } from './components/oakline/CtaContact';
 import { FaqAccordion } from './components/oakline/FaqAccordion';
 import { SiteFooter } from './components/oakline/SiteFooter';
+import { WhatsAppButton } from './components/oakline/WhatsAppButton';
 
 const HOMEPAGE_SCHEMA = [
   {
@@ -159,6 +160,7 @@ export const AppContent: React.FC = () => {
   return (
   <LazyMotion features={domAnimation}>
     <Preloader />
+    <WhatsAppButton />
     <div className="font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
