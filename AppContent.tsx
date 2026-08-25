@@ -7,14 +7,10 @@ import { SEO } from './components/SEO';
 // (LazyMotion suspendait le rendu, fallback HomePage sur toutes les routes).
 // Trade-off : +~25KB dans le bundle initial vs SSG fonctionnel.
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Method } from './components/Facilities';
 import { MandatSignature, MandatExclusif } from './components/Mandats';
 import { About } from './components/About';
 import { NosBiens } from './components/NosBiens';
 import { NosBiensDetail } from './components/NosBiensDetail';
-import { GalleryWall } from './components/GalleryWall';
-import { WhyUs } from './components/WhyUs';
 import { Partners } from './components/Partners';
 import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
@@ -28,16 +24,18 @@ import { MentionsLegales } from './components/MentionsLegales';
 import { PolitiqueConfidentialite } from './components/PolitiqueConfidentialite';
 import { RevalisFooter } from './components/nosBiensShared';
 import { Preloader } from './components/Preloader';
-import {
-  Positioning,
-  Problematic,
-  Visibility,
-  Testimonials,
-  FAQSection,
-  FinalCTA,
-  HomeBlog,
-  ZonesDIntervention,
-} from './components/HomeSections';
+// Refonte accueil « Oakline » — voir ref/oakline-reconstruction.md
+import { HeroShowcase } from './components/oakline/HeroShowcase';
+import { FeaturedProperties } from './components/oakline/FeaturedProperties';
+import { StatsBand } from './components/oakline/StatsBand';
+import { AboutTeaser } from './components/oakline/AboutTeaser';
+import { TestimonialsShowcase } from './components/oakline/TestimonialsShowcase';
+import { NeighborhoodsGrid } from './components/oakline/NeighborhoodsGrid';
+import { PressTicker } from './components/oakline/PressTicker';
+import { InsightsTeaser } from './components/oakline/InsightsTeaser';
+import { CtaContact } from './components/oakline/CtaContact';
+import { FaqAccordion } from './components/oakline/FaqAccordion';
+import { SiteFooter } from './components/oakline/SiteFooter';
 
 const HOMEPAGE_SCHEMA = [
   {
@@ -130,18 +128,17 @@ const HomePage: React.FC = () => (
       canonical="/"
       schema={HOMEPAGE_SCHEMA}
     />
-    <Hero />
-    <Positioning />
-    <Problematic />
-    <Method />
-    <Visibility />
-    <WhyUs />
-    <Testimonials />
-    <FAQSection />
-    <HomeBlog />
-    <GalleryWall />
-    <ZonesDIntervention />
-    <FinalCTA />
+    {/* Ordre Oakline — cf. ref/oakline-reconstruction.md §4 */}
+    <HeroShowcase />
+    <FeaturedProperties />
+    <StatsBand />
+    <AboutTeaser />
+    <TestimonialsShowcase />
+    <NeighborhoodsGrid />
+    <PressTicker />
+    <InsightsTeaser />
+    <CtaContact />
+    <FaqAccordion />
   </>
 );
 
@@ -155,9 +152,10 @@ export const AppContent: React.FC = () => {
   const isFirstRoute = useRef(true);
   useEffect(() => { isFirstRoute.current = false; }, []);
 
-  // /nos-biens et ses pages détail embarquent déjà le footer DA — on masque le footer
-  // global dès qu'une des deux routes (affichée ou cible) est concernée, pour éviter
-  // le double footer pendant la transition.
+  // /nos-biens et ses pages détail embarquent le footer DA Revalis (non modifié) —
+  // dès qu'une des deux routes (affichée ou cible) est concernée, on rend uniquement
+  // RevalisFooter pour éviter le double footer pendant la transition.
+  // Toutes les autres routes utilisent le nouveau SiteFooter (refonte Oakline).
   const hasOwnFooter =
     location.pathname.startsWith('/nos-biens') || displayedPath.startsWith('/nos-biens');
   return (
@@ -205,7 +203,7 @@ export const AppContent: React.FC = () => {
         </m.div>
         </AnimatePresence>
       </main>
-      {!hasOwnFooter && <RevalisFooter />}
+      {hasOwnFooter ? <RevalisFooter /> : <SiteFooter />}
     </div>
   </LazyMotion>
   );
