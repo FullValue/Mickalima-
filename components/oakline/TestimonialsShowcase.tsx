@@ -112,12 +112,12 @@ export const TestimonialsShowcase: React.FC = () => (
                   « {t.quote} »
                 </p>
               </blockquote>
-              <footer className="mt-6 border-t border-[#ebebeb] pt-5">
+              <div className="mt-6 border-t border-[#ebebeb] pt-5">
                 <p className="font-serif text-base text-[#011d41]">{t.name}</p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
                   {t.context}
                 </p>
-              </footer>
+              </div>
             </article>
           </Reveal>
         ))}

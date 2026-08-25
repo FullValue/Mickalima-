@@ -238,7 +238,7 @@ export const WhiteCard: React.FC<{ children: React.ReactNode; gap?: number; pad?
 
 /* ---- Bloc 2 colonnes : sticky à gauche, carte blanche à droite ---- */
 export const TwoCol: React.FC<{ left: React.ReactNode; right: React.ReactNode }> = ({ left, right }) => (
-  <div className="sv-cols" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 5fr) minmax(0, 8fr)', gap: 44, alignItems: 'start' }}>
+  <div className="sv-cols" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 5fr) minmax(0, 8fr)', gap: 44 }}>
     <div>{left}</div>
     <div>{right}</div>
   </div>

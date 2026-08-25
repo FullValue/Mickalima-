@@ -26,7 +26,6 @@ import { RevalisFooter } from './components/nosBiensShared';
 import { Preloader } from './components/Preloader';
 // Refonte accueil « Oakline » — voir ref/oakline-reconstruction.md
 import { HeroShowcase } from './components/oakline/HeroShowcase';
-import { StatsBand } from './components/oakline/StatsBand';
 import { AboutTeaser } from './components/oakline/AboutTeaser';
 import { TestimonialsShowcase } from './components/oakline/TestimonialsShowcase';
 import { NeighborhoodsGrid } from './components/oakline/NeighborhoodsGrid';
@@ -130,7 +129,6 @@ const HomePage: React.FC = () => (
     />
     {/* Ordre Oakline — cf. ref/oakline-reconstruction.md §4 */}
     <HeroShowcase />
-    <StatsBand />
     <AboutTeaser />
     <TestimonialsShowcase />
     <NeighborhoodsGrid />

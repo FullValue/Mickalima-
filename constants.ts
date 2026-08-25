@@ -91,7 +91,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Le Pays de Gex affiche des prix immobiliers parmi les plus élevés de France, portés par la proximité de Genève et la demande des frontaliers. Voici les valeurs réelles par commune.",
     date: "2026-05-05",
     category: "Marché",
-    image: "/images/hero-pays-de-gex.jpg",
+    image: "/images/blog/prix-m2-pays-de-gex-2026.jpg",
     content: `
     <p>Le marché immobilier du Pays de Gex reste sous tension en 2026. La demande excède l'offre sur la quasi-totalité des communes, avec des acheteurs issus principalement du bassin genevois : frontaliers, employés d'organisations internationales, cadres expatriés. Avec plus de 5 000 nouveaux arrivants par an dans le secteur et plus de 50 % des transactions sur les communes frontalières réalisées par des ménages percevant leurs revenus en Suisse, le résultat est sans appel : des prix qui résistent à la correction observée dans d'autres marchés français, même en contexte de remontée des taux.</p>
 
@@ -174,7 +174,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Vivre en France, travailler en Suisse : le Pays de Gex attire chaque année des milliers de nouveaux frontaliers. Voici ce qu'il faut comprendre sur ce marché immobilier atypique avant d'acheter ou de vendre.",
     date: "2026-05-05",
     category: "Frontalier",
-    image: "/images/hero-pays-de-gex.jpg",
+    image: "/images/blog/immobilier-frontalier-pays-de-gex.jpg",
     content: `
     <p>Le Pays de Gex compte environ 100 000 habitants, dont près de 35 % travaillent en Suisse. Cette proportion de frontaliers — parmi les plus élevées d'Europe — structure intégralement le marché immobilier local : niveaux de prix, profils d'acheteurs, critères de choix, délais de transaction. Acheter ou vendre dans ce secteur sans maîtriser ces spécificités, c'est travailler avec une carte incomplète.</p>
 
@@ -240,7 +240,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Le choix du type de mandat conditionne la stratégie de vente, le délai, et souvent le prix final. Comparaison objective des deux options, 5 questions à poser à un agent, et coût réel d'un bien qui traîne sur le marché.",
     date: "2026-05-18",
     category: "Conseil",
-    image: "/images/hero-pays-de-gex.jpg",
+    image: "/images/blog/mandat-exclusif-ou-simple-pays-de-gex.jpg",
     content: `
     <p>La question revient dans presque chaque premier rendez-vous : faut-il signer un mandat exclusif ou confier son bien à plusieurs agences ? La réponse dépend moins d'une préférence générale que de la réalité du marché local et des objectifs du vendeur. Dans le Pays de Gex, les deux formules produisent des résultats très différents selon la situation. Cet article fait le tri, avec un calcul concret du coût d'opportunité d'une mise en marché ratée.</p>
 
