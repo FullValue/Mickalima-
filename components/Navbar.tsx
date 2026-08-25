@@ -95,6 +95,7 @@ export const Navbar: React.FC = () => {
     const isMandatActive = location.pathname.includes('mandat');
 
     return (
+      <>
         <nav
           className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
             isTransparent
@@ -200,7 +201,10 @@ export const Navbar: React.FC = () => {
                     </button>
                 </div>
 
-                {/* Panneau mobile plein écran */}
+          </div>
+        </nav>
+
+{/* Panneau mobile plein écran */}
                 <div
                   id="mobile-menu"
                   role="dialog"
@@ -267,8 +271,6 @@ export const Navbar: React.FC = () => {
                         </span>
                     </Link>
                 </div>
-
-            </div>
-        </nav>
-    );
+    </>
+  );
 };
