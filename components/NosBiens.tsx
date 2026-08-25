@@ -77,8 +77,17 @@ const NOSBIENS_SCHEMA = {
 
 export const NosBiens: React.FC = () => {
   const [status, setStatus] = useState('Tous');
-  const [types, setTypes] = useState<string[]>([]);
-  const [cities, setCities] = useState<string[]>([]);
+  // Pré-sélection depuis l'URL (?type=Maison&ville=Gex) — module d'intention du hero
+  const urlParams =
+    typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const [types, setTypes] = useState<string[]>(() => {
+    const t = urlParams?.get('type');
+    return t && TYPES.includes(t) ? [t] : [];
+  });
+  const [cities, setCities] = useState<string[]>(() => {
+    const v = urlParams?.get('ville');
+    return v && CITIES.includes(v) ? [v] : [];
+  });
   const [ranges, setRanges] = useState<string[]>([]);
   const [visible, setVisible] = useState(PAGE_SIZE);
 

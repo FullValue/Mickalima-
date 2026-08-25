@@ -2,6 +2,8 @@ import React from 'react';
 import { Mail, Phone, MapPin, ArrowUpRight, Star, ArrowRight, MessageSquare, Clock, Globe, ShieldCheck, ChevronDown } from 'lucide-react';
 import { SEO } from './SEO';
 import { IMAGES } from '../constants';
+import { buildWhatsappUrl, WHATSAPP_PATH } from './oakline/whatsapp';
+import { track } from './oakline/tracking';
 import { m } from 'framer-motion';
 
 const fadeInUp = {
@@ -289,9 +291,21 @@ export const ContactPage: React.FC = () => {
                                 </m.button>
 
                                 {status === 'success' && (
-                                    <p className="text-green-600 font-medium mt-2 text-center">
-                                        ✅ Message envoyé ! Notre équipe vous recontacte sous 24h.
-                                    </p>
+                                    <div className="mt-2 text-center">
+                                        <p className="font-medium text-green-600">
+                                            ✅ Message envoyé ! Notre équipe vous recontacte sous 24h.
+                                        </p>
+                                        <a
+                                            href={buildWhatsappUrl("Bonjour, je viens de vous transmettre une demande d'estimation depuis votre site.")}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={() => track('whatsapp_click_post_estimation', { page: '/contact' })}
+                                            className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                                        >
+                                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4"><path d={WHATSAPP_PATH} /></svg>
+                                            Continuer sur WhatsApp
+                                        </a>
+                                    </div>
                                 )}
                                 {status === 'error' && (
                                     <p className="text-red-500 font-medium mt-2 text-center">
