@@ -1,19 +1,9 @@
 import React from 'react';
 import { BLOG_POSTS, IMAGES } from '../constants';
 import { SEO } from './SEO';
-import { Calendar, User, ArrowRight, ArrowUpRight, Eye } from 'lucide-react';
+import { Calendar, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { m } from 'framer-motion';
-
-const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-};
-
-const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-};
+import { PillButton, Reveal, SectionLabel } from './oakline/primitives';
 
 const BLOG_SCHEMA = {
     '@context': 'https://schema.org',
@@ -42,49 +32,36 @@ export const Blog: React.FC = () => {
             canonical="/blog"
             schema={BLOG_SCHEMA}
         />
-        <section className="py-32 bg-background min-h-screen relative overflow-hidden">
+        <section className="relative min-h-screen overflow-hidden bg-[#fafafa] py-32">
             {/* Background Decor */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10 pt-10">
-                <m.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={staggerContainer}
-                    className="text-center mb-20"
-                >
-                    <m.span variants={fadeInUp} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest shadow-sm mb-6">
-                        <Eye size={16} /> Actualités & Insights
-                    </m.span>
-                    <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
+                <div className="mb-20 text-center">
+                    <Reveal y={6}>
+                        <SectionLabel icon={<Eye size={14} />}>Actualités &amp; Insights</SectionLabel>
+                    </Reveal>
+                    <Reveal delay={0.08}>
+                    <h1 className="mb-8 mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-[#011d41] md:text-5xl lg:text-7xl">
                         L'Observatoire du <br />
-                        <span className="font-newsletter italic font-normal">marché Gessien</span>
-                    </m.h2>
-                    <m.p variants={fadeInUp} className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                        <span className="italic">marché Gessien</span>
+                    </h1>
+                    </Reveal>
+                    <Reveal delay={0.16}>
+                    <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-500 md:text-xl">
                         Analyses, opportunités et conseils d’expert pour comprendre votre marché et valoriser votre patrimoine.
-                    </m.p>
-                    <Link to="/estimation" className="group inline-flex items-center gap-4 bg-white text-textMain border border-gray-200 font-bold p-2 pr-8 rounded-full hover:bg-gray-50 transition-all shadow-sm transform hover:-translate-y-1 duration-500">
-                        <div className="w-12 h-12 bg-textMain text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
-                            <ArrowUpRight size={20} />
-                        </div>
-                        <span className="tracking-wide">Solliciter une analyse</span>
-                    </Link>
-                </m.div>
+                    </p>
+                    </Reveal>
+                    <Reveal delay={0.24}>
+                        <PillButton to="/estimation" variant="solid" arrow>Solliciter une analyse</PillButton>
+                    </Reveal>
+                </div>
 
-                <m.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-10%" }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-                >
-                    {BLOG_POSTS.map((post) => (
-                        <m.div variants={fadeInUp} key={post.id} className="group relative">
-                            {/* Glass background */}
-                            <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 transition-all duration-500 -z-10"></div>
-
-                            <Link to={`/blog/${post.slug}`} className="flex flex-col h-full bg-transparent p-4">
-                                <div className="h-64 rounded-[10px] overflow-hidden relative shadow-inner">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {BLOG_POSTS.map((post, index) => (
+                        <Reveal key={post.id} delay={index * 0.08}>
+                            <Link to={`/blog/${post.slug}`} className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white shadow-[0_2px_20px_-5px_rgba(1,29,65,0.12)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(1,29,65,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]">
+                                <div className="relative h-64 overflow-hidden">
                                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                                     <img
                                         src={post.image}
@@ -92,38 +69,34 @@ export const Blog: React.FC = () => {
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
                                     />
                                     <div className="absolute top-4 left-4 z-20">
-                                        <span className="bg-white/90 backdrop-blur text-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">
-                                            {post.category}
-                                        </span>
+                                        <SectionLabel className="bg-white/95">{post.category}</SectionLabel>
                                     </div>
                                 </div>
-                                <div className="p-6 pt-8 flex-1 flex flex-col">
-                                    <div className="flex items-center gap-2 text-gray-400 text-xs font-bold tracking-widest uppercase mb-4">
+                                <div className="flex flex-1 flex-col p-8">
+                                    <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
                                         <Calendar size={14} className="text-primary" />
                                         {new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-textMain mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                                    <h2 className="mb-4 font-serif text-2xl leading-tight text-[#011d41] transition-colors duration-300 group-hover:text-[#123a66]">
                                         {post.title}
-                                    </h3>
-                                    <p className="text-gray-500 font-light text-base mb-8 flex-1 leading-relaxed">
+                                    </h2>
+                                    <p className="mb-8 flex-1 text-base leading-relaxed text-gray-500">
                                         {post.excerpt}
                                     </p>
-                                    <div className="border-t border-gray-100 pt-6 flex justify-between items-center relative">
+                                    <div className="relative flex items-center justify-between border-t border-[#ebebeb] pt-6">
                                         <div className="flex items-center gap-3">
                                             <div className="w-10 h-10 rounded-full bg-surface border-2 border-primary/10 overflow-hidden shadow-sm">
                                                 <img src={IMAGES.heroAgent} alt="Mickaël Lima" className="w-full h-full object-cover" />
                                             </div>
-                                            <span className="text-xs font-bold tracking-widest uppercase text-gray-500">Mickaël Lima</span>
+                                            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">Mickaël Lima</span>
                                         </div>
-                                        <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                            <ArrowUpRight size={18} />
-                                        </div>
+                                        <span className="text-sm font-semibold text-[#011d41]">Lire l'article →</span>
                                     </div>
                                 </div>
                             </Link>
-                        </m.div>
+                        </Reveal>
                     ))}
-                </m.div>
+                </div>
             </div>
         </section>
         </>

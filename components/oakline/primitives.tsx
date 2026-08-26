@@ -114,12 +114,14 @@ interface SectionLabelProps {
   children: React.ReactNode;
   tone?: 'dark' | 'light';
   className?: string;
+  icon?: React.ReactNode;
 }
 
 export const SectionLabel: React.FC<SectionLabelProps> = ({
   children,
   tone = 'dark',
   className = '',
+  icon,
 }) => (
   <span
     className={`inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] ${
@@ -128,10 +130,16 @@ export const SectionLabel: React.FC<SectionLabelProps> = ({
         : 'border border-[#ebebeb] bg-white/70 text-[#011d41]'
     } ${className}`}
   >
-    <span
-      aria-hidden="true"
-      className={`h-1.5 w-1.5 rounded-full ${tone === 'light' ? 'bg-white/70' : 'bg-[#011d41]'}`}
-    />
+    {icon ? (
+      <span aria-hidden="true" className="flex shrink-0 items-center justify-center">
+        {icon}
+      </span>
+    ) : (
+      <span
+        aria-hidden="true"
+        className={`h-1.5 w-1.5 rounded-full ${tone === 'light' ? 'bg-white/70' : 'bg-[#011d41]'}`}
+      />
+    )}
     {children}
   </span>
 );

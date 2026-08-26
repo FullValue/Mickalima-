@@ -1,8 +1,8 @@
 import React from 'react';
 import { m } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { T } from './nosBiensShared';
+import { PillButton, SectionLabel } from './oakline/primitives';
 
 /**
  * Briques de la nouvelle DA (reprise de /nos-biens — template Revalis) :
@@ -53,9 +53,7 @@ export const ServiceHero: React.FC<{
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         style={{ display: 'flex', alignItems: 'center', gap: 28, marginBottom: 34 }}
       >
-        <span style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2.5, whiteSpace: 'nowrap' }}>
-          {badge}
-        </span>
+        <SectionLabel tone="light" className="shrink-0">{badge}</SectionLabel>
         <span aria-hidden="true" style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.25)' }} />
       </m.div>
       <m.h1
@@ -82,26 +80,7 @@ export const ServiceHero: React.FC<{
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
       >
-        <Link
-          to={ctaTo}
-          className="sv-cta"
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 14, background: '#fff', color: T.dark,
-            fontFamily: T.body, fontSize: 15, fontWeight: 500, textDecoration: 'none',
-            borderRadius: 50, padding: '10px 12px 10px 26px',
-          }}
-        >
-          {ctaLabel}
-          <span
-            className="sv-cta-arrow"
-            style={{
-              width: 38, height: 38, borderRadius: '50%', background: T.dark, color: '#fff',
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            }}
-          >
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </span>
-        </Link>
+        <PillButton to={ctaTo} variant="light" arrow>{ctaLabel}</PillButton>
       </m.div>
     </div>
   </section>
@@ -125,7 +104,7 @@ export const CheckList: React.FC<{ items: string[] }> = ({ items }) => (
         <span
           aria-hidden="true"
           style={{
-            width: 20, height: 20, borderRadius: 5, background: T.dark, flexShrink: 0,
+            width: 20, height: 20, borderRadius: '50%', background: T.navy, flexShrink: 0,
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
           }}
         >
@@ -153,18 +132,14 @@ export const StickyIntro: React.FC<{
       <span
         aria-hidden="true"
         style={{
-          width: 64, height: 64, borderRadius: 10, background: '#fff', color: T.dark,
+          width: 64, height: 64, borderRadius: '50%', background: '#fff', color: T.navy,
           display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 26,
         }}
       >
         {icon}
       </span>
     )}
-    {kicker && (
-      <p style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2, color: T.muted, marginBottom: 16 }}>
-        {kicker}
-      </p>
-    )}
+    {kicker && <SectionLabel className="mb-5">{kicker}</SectionLabel>}
     <h2
       style={{
         fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(34px, 3.4vw, 52px)',
@@ -188,7 +163,7 @@ export const StickyIntro: React.FC<{
             <span
               aria-hidden="true"
               style={{
-                width: 20, height: 20, borderRadius: 5, background: T.dark, flexShrink: 0, marginTop: 3,
+                width: 20, height: 20, borderRadius: '50%', background: T.navy, flexShrink: 0, marginTop: 3,
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
               }}
             >
@@ -202,26 +177,7 @@ export const StickyIntro: React.FC<{
         ))}
       </ul>
     )}
-    <Link
-      to={ctaTo}
-      className="sv-cta"
-      style={{
-        display: 'inline-flex', alignItems: 'center', gap: 14, background: T.dark, color: '#fff',
-        fontFamily: T.body, fontSize: 15, fontWeight: 500, textDecoration: 'none',
-        borderRadius: 50, padding: '10px 12px 10px 26px',
-      }}
-    >
-      {ctaLabel}
-      <span
-        className="sv-cta-arrow"
-        style={{
-          width: 38, height: 38, borderRadius: '50%', background: '#fff', color: T.dark,
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-        }}
-      >
-        <ArrowUpRight size={18} aria-hidden="true" />
-      </span>
-    </Link>
+    <PillButton to={ctaTo} variant="solid" arrow>{ctaLabel}</PillButton>
   </div>
 );
 
@@ -231,7 +187,7 @@ export const WhiteCard: React.FC<{ children: React.ReactNode; gap?: number; pad?
   gap = 52,
   pad = 'clamp(24px, 3.2vw, 44px)',
 }) => (
-  <div style={{ background: '#fff', borderRadius: 10, padding: pad, display: 'flex', flexDirection: 'column', gap }}>
+  <div className="border border-[#ebebeb] shadow-[0_30px_70px_-45px_rgba(1,29,65,0.32)]" style={{ background: '#fff', borderRadius: 24, padding: pad, display: 'flex', flexDirection: 'column', gap }}>
     {children}
   </div>
 );
@@ -258,16 +214,7 @@ export const RecapBand: React.FC<{
   <section style={{ background: T.navy, color: '#fff', padding: '100px 0' }}>
     <div style={wrap}>
       <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 60px' }}>
-        <span
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)',
-            border: '1px solid rgba(255,255,255,0.2)', borderRadius: 50, padding: '9px 18px',
-            fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.8,
-            color: 'rgba(255,255,255,0.9)', marginBottom: 22,
-          }}
-        >
-          {badgeIcon} {kicker}
-        </span>
+        <SectionLabel tone="light" icon={badgeIcon} className="mb-6">{kicker}</SectionLabel>
         <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(36px, 4.6vw, 62px)', lineHeight: '1.06em', marginBottom: 20 }}>
           {title}
         </h2>
@@ -284,7 +231,7 @@ export const RecapBand: React.FC<{
             transition={{ duration: 0.5, delay: ci * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
             style={{
               background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: 10, padding: 28,
+              borderRadius: 24, padding: 28,
             }}
           >
             <span aria-hidden="true" style={{ display: 'inline-flex', marginBottom: 20, color: '#fff' }}>{c.icon}</span>
@@ -303,26 +250,7 @@ export const RecapBand: React.FC<{
       </div>
 
       <div style={{ textAlign: 'center' }}>
-        <Link
-          to={ctaTo}
-          className="sv-cta"
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 14, background: '#fff', color: T.dark,
-            fontFamily: T.body, fontSize: 15, fontWeight: 500, textDecoration: 'none',
-            borderRadius: 50, padding: '10px 12px 10px 26px',
-          }}
-        >
-          {ctaLabel}
-          <span
-            className="sv-cta-arrow"
-            style={{
-              width: 38, height: 38, borderRadius: '50%', background: T.dark, color: '#fff',
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            }}
-          >
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </span>
-        </Link>
+        <PillButton to={ctaTo} variant="light" arrow>{ctaLabel}</PillButton>
         {note && (
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', marginTop: 24 }}>{note}</p>
         )}
@@ -339,7 +267,7 @@ export const ServiceStyles: React.FC = () => (
     .sv-cta .sv-cta-arrow { transition: transform .35s cubic-bezier(0.25, 0.1, 0.25, 1); }
     .sv-cta:hover .sv-cta-arrow { transform: rotate(45deg); }
     .sv-portail { transition: transform .25s ease, background-color .25s ease; }
-    .sv-portail:hover { transform: translateY(-2px); background-color: #efefef !important; }
+    .sv-portail:hover { transform: translateY(-2px); background-color: #f2f5f8 !important; }
     .sv-media img { transition: transform .45s cubic-bezier(.25,.1,.25,1); }
     .sv-media:hover img { transform: scale(1.04); }
     @media (max-width: 1023px) {

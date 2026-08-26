@@ -10,7 +10,7 @@ import { BedDouble, Bath, Ruler, MapPin, ArrowUpRight, Phone, Mail } from 'lucid
 
 export const T = {
   bg: '#f7f7f7',
-  dark: '#111111',
+  dark: '#011d41',
   navy: '#011d41',
   muted: '#666666',
   border: '#ebebeb',

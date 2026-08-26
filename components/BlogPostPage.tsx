@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { BLOG_POSTS, IMAGES } from '../constants';
 import { SEO } from './SEO';
-import { ArrowLeft, Calendar, User, Tag, ArrowUpRight, Clock, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { m } from 'framer-motion';
+import { PillButton, SectionLabel } from './oakline/primitives';
 
 const LAST_MODIFIED_DATE = '2026-05-18';
 
@@ -19,9 +20,7 @@ export const BlogPostPage: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background px-6">
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-8 font-newsletter italic font-normal">Article introuvable</h2>
-        <Link to="/blog" className="text-textMain font-bold hover:text-primary transition-colors flex items-center gap-2 bg-white px-8 py-4 rounded-full">
-          <ArrowLeft size={20} /> Retour à l'observatoire
-        </Link>
+        <PillButton to="/blog" variant="solid">Retour à l'observatoire</PillButton>
       </div>
     );
   }
@@ -93,7 +92,7 @@ export const BlogPostPage: React.FC = () => {
             className="w-full h-full object-cover"
           />
           {/* Overlay gradient to ensure text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-[#011d41]/95 via-[#011d41]/55 to-[#011d41]/10"></div>
           <div className="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
         </div>
 
@@ -105,15 +104,13 @@ export const BlogPostPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <Link to="/blog" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors font-bold tracking-widest text-xs uppercase mb-8 backdrop-blur-md bg-white/10 px-4 py-2 rounded-full border border-white/20">
+            <Link to="/blog" className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/85 backdrop-blur-sm transition-colors hover:bg-white/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
               <ArrowLeft size={16} />
               Retour aux articles
             </Link>
 
             <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest mb-6">
-              <span className="bg-primary/20 backdrop-blur-md px-4 py-2 rounded-full border border-primary/30 text-white shadow-sm">
-                {post.category}
-              </span>
+              <SectionLabel tone="light">{post.category}</SectionLabel>
               <span className="flex items-center gap-2 text-white/90">
                 <Calendar size={14} className="text-accent" /> {new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
               </span>
@@ -129,54 +126,55 @@ export const BlogPostPage: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content Area - Full width strategy with beautiful typography max-width */}
-      <div className="w-full bg-white relative z-20 -mt-8 rounded-t-[3rem] border-t border-gray-100">
+      {/* Lecture structurée : rail auteur, colonne éditoriale, sommaire contextuel */}
+      <div className="relative z-20 -mt-8 w-full rounded-t-[32px] border-t border-[#ebebeb] bg-white md:rounded-t-[48px]">
 
-        <div className="container mx-auto px-6 py-20 max-w-4xl">
+        <div className="container mx-auto max-w-[1240px] px-6 py-16 md:py-24">
 
-          <div className="flex flex-col md:flex-row gap-16">
+          <div className="grid gap-12 lg:grid-cols-[190px_minmax(0,720px)_190px] lg:gap-12 xl:gap-16">
 
             {/* Left Sidebar: Socials & Author (Sticky) */}
-            <div className="md:w-1/4 relative">
-              <div className="sticky top-32 flex flex-col gap-10">
+            <aside className="relative order-2 lg:order-1">
+              <div className="flex flex-col gap-8 rounded-[24px] border border-[#ebebeb] bg-[#fafafa] p-6 lg:sticky lg:top-28">
 
                 {/* Author Info */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/10 mb-4">
+                <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                  <div className="mb-4 h-16 w-16 overflow-hidden rounded-full border-2 border-[#011d41]/10">
                     <img src={IMAGES.heroAgent} alt="Mickaël Lima" className="w-full h-full object-cover" />
                   </div>
-                  <p className="font-bold text-textMain text-lg leading-tight">Mickaël Lima</p>
-                  <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1 mb-4">Expert Immobilier</p>
-                  <p className="text-gray-500 font-light text-sm leading-relaxed hidden md:block">
+                  <p className="font-serif text-xl leading-tight text-[#011d41]">Mickaël Lima</p>
+                  <p className="mb-4 mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#011d41]/65">Expert immobilier</p>
+                  <p className="hidden text-sm leading-relaxed text-gray-500 lg:block">
                     Analyste du marché immobilier Gessien. Mes conseils sont fondés sur 8 ans d'expérience locale.
                   </p>
                 </div>
 
                 {/* Share Options */}
-                <div className="hidden md:flex flex-col gap-4">
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Partager</p>
+                <div className="hidden flex-col gap-4 lg:flex">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-400">Partager</p>
                   <div className="flex gap-3">
-                    <button className="w-10 h-10 rounded-full bg-surface border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-colors shadow-sm">
+                    <button type="button" aria-label="Partager sur Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ebebeb] bg-white text-[#011d41] transition-colors hover:bg-[#011d41] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#011d41]">
                       <Facebook size={16} />
                     </button>
-                    <button className="w-10 h-10 rounded-full bg-surface border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1DA1F2] hover:text-white hover:border-[#1DA1F2] transition-colors shadow-sm">
+                    <button type="button" aria-label="Partager sur X" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ebebeb] bg-white text-[#011d41] transition-colors hover:bg-[#011d41] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#011d41]">
                       <Twitter size={16} />
                     </button>
-                    <button className="w-10 h-10 rounded-full bg-surface border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] transition-colors shadow-sm">
+                    <button type="button" aria-label="Partager sur LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ebebeb] bg-white text-[#011d41] transition-colors hover:bg-[#011d41] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#011d41]">
                       <Linkedin size={16} />
                     </button>
                   </div>
                 </div>
 
               </div>
-            </div>
+            </aside>
 
             {/* Right Main Content */}
-            <main className="md:w-3/4">
+            <main className="order-1 min-w-0 lg:order-2">
 
               {/* Introduction/Excerpt Highlight */}
-              <div className="mb-12 border-l-4 border-primary pl-6">
-                <p className="text-2xl text-textMain font-medium leading-relaxed font-serif italic text-justify">
+              <div className="mb-12 rounded-[24px] border border-[#ebebeb] bg-[#fafafa] p-7 md:p-9">
+                <SectionLabel>À retenir</SectionLabel>
+                <p className="mt-5 font-serif text-xl italic leading-relaxed text-[#011d41] md:text-2xl">
                   {post.excerpt}
                 </p>
               </div>
@@ -184,24 +182,36 @@ export const BlogPostPage: React.FC = () => {
               {/* Rich Text HTML Content */}
               {/* Added specific CSS rules to ensure gorgeous typography and blue details */}
               <div
-                className="prose prose-lg md:prose-xl w-full max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-textMain prose-headings:mt-12 prose-headings:mb-6 prose-p:text-[#4A5568] prose-p:font-light prose-p:leading-[1.8] prose-p:mb-8 prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline hover:prose-a:text-blue-700 prose-img:rounded-[10px] prose-img: prose-img:my-12 prose-img:w-full prose-img:border prose-img:border-gray-100 prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:font-serif prose-blockquote:italic prose-blockquote:text-textMain prose-blockquote:my-10 prose-strong:text-textMain prose-strong:font-bold prose-ul:list-disc prose-ul:ml-4 prose-li:text-[#4A5568] prose-li:font-light prose-li:mb-2 marker:text-primary"
+                className="prose prose-lg w-full max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:tracking-tight prose-headings:text-[#011d41] prose-headings:mt-14 prose-headings:mb-5 prose-h2:text-3xl prose-h3:text-2xl prose-p:max-w-[68ch] prose-p:text-[#4f5968] prose-p:leading-[1.85] prose-p:mb-7 prose-a:font-semibold prose-a:text-[#011d41] prose-a:underline prose-a:decoration-[#011d41]/25 prose-a:underline-offset-4 hover:prose-a:decoration-[#011d41] prose-img:my-10 prose-img:w-full prose-img:rounded-[24px] prose-img:border prose-img:border-[#ebebeb] prose-blockquote:my-10 prose-blockquote:rounded-[20px] prose-blockquote:border-l-0 prose-blockquote:bg-[#011d41] prose-blockquote:px-8 prose-blockquote:py-7 prose-blockquote:font-serif prose-blockquote:italic prose-blockquote:text-white prose-strong:font-semibold prose-strong:text-[#011d41] prose-ul:my-7 prose-ul:rounded-[20px] prose-ul:bg-[#fafafa] prose-ul:px-8 prose-ul:py-6 prose-li:my-2 prose-li:text-[#4f5968] marker:text-[#011d41]"
                 dangerouslySetInnerHTML={{ __html: post.content || '' }}
               />
 
               {/* Navigation Bottom Footer */}
-              <div className="mt-24 pt-10 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-8 bg-surface p-8 rounded-[10px]">
+              <div className="mt-20 flex flex-col items-start justify-between gap-8 rounded-[24px] border border-[#ebebeb] bg-[#fafafa] p-8 sm:flex-row sm:items-center">
                 <div>
-                  <h4 className="font-bold text-textMain text-xl mb-2">Un projet immobilier en vue ?</h4>
-                  <p className="text-gray-500 font-light">Discutons de vive voix de vos objectifs.</p>
+                  <h2 className="mb-2 font-serif text-2xl text-[#011d41]">Un projet immobilier en vue ?</h2>
+                  <p className="text-gray-500">Discutons de vive voix de vos objectifs.</p>
                 </div>
-                <Link to="/contact" className="group bg-primary text-white font-bold p-3 pr-8 rounded-full hover:bg-textMain transition-all shadow-primary/20 flex items-center gap-4 text-base">
-                  <div className="w-10 h-10 bg-white/20 text-white rounded-full flex items-center justify-center transition-transform shrink-0">
-                    <ArrowUpRight size={18} />
-                  </div>
-                  <span className="tracking-wide">Contactez-nous</span>
-                </Link>
+                <PillButton to="/contact" variant="solid" arrow>Me contacter</PillButton>
               </div>
             </main>
+
+            <aside className="order-3 hidden lg:block">
+              <div className="sticky top-28 rounded-[24px] border border-[#ebebeb] bg-white p-6">
+                <SectionLabel>Lecture</SectionLabel>
+                <div className="mt-6 space-y-5 text-sm text-gray-500">
+                  <div>
+                    <p className="font-serif text-3xl text-[#011d41]">{readingTime} min</p>
+                    <p className="mt-1">Temps de lecture estimé</p>
+                  </div>
+                  <div className="border-t border-[#ebebeb] pt-5">
+                    <p className="font-serif text-3xl text-[#011d41]">{wordCount}</p>
+                    <p className="mt-1">Mots analysés</p>
+                  </div>
+                  <PillButton to="/estimation" variant="ghost" className="w-full px-4" arrow>Estimation</PillButton>
+                </div>
+              </div>
+            </aside>
 
           </div>
         </div>

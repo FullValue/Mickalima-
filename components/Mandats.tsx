@@ -107,9 +107,9 @@ const PORTAIL_LOGOS = [
 /* ---------- briques locales ---------- */
 
 const BlockTitle: React.FC<{ icon: React.ReactNode; children: React.ReactNode }> = ({ icon, children }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 22 }}>
-    <span aria-hidden="true" style={{ display: 'inline-flex', color: T.dark }}>{icon}</span>
-    <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 26, lineHeight: '1.2em', color: T.dark }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 22 }}>
+    <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 46, height: 46, flexShrink: 0, borderRadius: '50%', background: '#f5f5f5', color: T.navy }}>{icon}</span>
+    <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 28, lineHeight: '1.2em', color: T.navy }}>
       {children}
     </h3>
   </div>
@@ -123,7 +123,7 @@ const VideoBlock: React.FC<{
   badge: string;
   title: string;
 }> = ({ image, label, badgeIcon, badge, title }) => (
-  <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 8, overflow: 'hidden', background: T.navy }}>
+  <div className="sv-media" style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 24, overflow: 'hidden', background: T.navy }}>
     <img
       src={image}
       alt="Video Background"
@@ -178,7 +178,7 @@ const GalleryBlock: React.FC<{ main: string; overlay: string; thumbs: string[]; 
   thumbAlts,
 }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-    <div className="sv-media" style={{ position: 'relative', aspectRatio: '21 / 9', borderRadius: 8, overflow: 'hidden' }}>
+    <div className="sv-media" style={{ position: 'relative', aspectRatio: '21 / 9', borderRadius: 24, overflow: 'hidden' }}>
       <img
         src={main}
         alt="Main View"
@@ -210,7 +210,7 @@ const GalleryBlock: React.FC<{ main: string; overlay: string; thumbs: string[]; 
           alt={thumbAlts[idx]}
           loading="lazy"
           decoding="async"
-          style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', borderRadius: 8, display: 'block' }}
+          style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', borderRadius: 16, display: 'block' }}
         />
       ))}
     </div>
