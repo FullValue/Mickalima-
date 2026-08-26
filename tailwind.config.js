@@ -15,9 +15,8 @@ export default {
         border: '#ebebeb',
       },
       fontFamily: {
-        // Deux familles uniquement sur tout le site (cf. footer Revalis) :
-        // Playfair Display pour les titres/serif, Montserrat pour le reste.
-        sans: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
+        // Playfair Display pour les titres, Inter pour toute l'interface.
+        sans: ['Inter', '"Inter Placeholder"', 'system-ui', '-apple-system', 'sans-serif'],
         serif: ['"Playfair Display"', 'serif'],
         newsletter: ['"Playfair Display"', 'serif'],
       },

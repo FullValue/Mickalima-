@@ -27,7 +27,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
-      name: 'Mickaël Lima — L’agence Immo',
+      name: 'Mickaël Lima: L’agence Immo',
       url: 'https://mickael-lima.immo',
       telephone: '+33769313502',
       address: {
@@ -51,15 +51,15 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
         bestRating: '5',
         worstRating: '1',
       },
-      description: `Observatoire des prix immobiliers dans le Pays de Gex en ${year} — fourchettes par commune, marché frontalier franco-suisse.`,
+      description: `Observatoire des prix immobiliers dans le Pays de Gex en ${year}: fourchettes par commune, marché frontalier franco-suisse.`,
     },
   ];
 
   return (
     <>
       <SEO
-        title={`Prix immobilier Pays de Gex en ${year} — Comparatif 9 communes | Mickaël Lima`}
-        description={`Prix au m² par commune dans le Pays de Gex en ${year} : Ferney-Voltaire, Divonne, Saint-Genis, Gex, Prévessin… Fourchettes ${allApptMin.toLocaleString('fr-FR')}–${allApptMax.toLocaleString('fr-FR')} €/m² appartements, ${allMaisonMin.toLocaleString('fr-FR')}–${allMaisonMax.toLocaleString('fr-FR')} €/m² maisons.`}
+        title={`Prix immobilier Pays de Gex en ${year}: Comparatif 9 communes | Mickaël Lima`}
+        description={`Prix au m² par commune dans le Pays de Gex en ${year} : Ferney-Voltaire, Divonne, Saint-Genis, Gex, Prévessin… Fourchettes ${allApptMin.toLocaleString('fr-FR')}-${allApptMax.toLocaleString('fr-FR')} €/m² appartements, ${allMaisonMin.toLocaleString('fr-FR')}-${allMaisonMax.toLocaleString('fr-FR')} €/m² maisons.`}
         canonical="/prix-immobilier/pays-de-gex"
         schema={schema}
       />
@@ -169,10 +169,10 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                         </td>
                         <td className="px-5 py-4 text-gray-600 font-light">{c.distanceGeneve}</td>
                         <td className="px-5 py-4 text-textMain font-medium">
-                          {c.prixApptMin.toLocaleString('fr-FR')} – {c.prixApptMax.toLocaleString('fr-FR')}
+                          {c.prixApptMin.toLocaleString('fr-FR')} à {c.prixApptMax.toLocaleString('fr-FR')}
                         </td>
                         <td className="px-5 py-4 text-textMain font-medium">
-                          {c.prixMaisonMin.toLocaleString('fr-FR')} – {c.prixMaisonMax.toLocaleString('fr-FR')}
+                          {c.prixMaisonMin.toLocaleString('fr-FR')} à {c.prixMaisonMax.toLocaleString('fr-FR')}
                         </td>
                         <td className="px-5 py-4 text-gray-600 font-light">{c.delaiMoyen} jours</td>
                       </tr>
@@ -182,7 +182,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               </div>
 
               <p className="text-xs text-gray-400 mt-4 italic">
-                Fourchettes basées sur les transactions des 12 derniers mois — hors biens atypiques. Estimation précise au cas par cas.
+                Fourchettes basées sur les transactions des 12 derniers mois: hors biens atypiques. Estimation précise au cas par cas.
               </p>
             </m.div>
           </div>
@@ -224,10 +224,10 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                     </div>
                     <div className="border-t border-gray-100 pt-4 space-y-1.5 text-sm">
                       <p className="text-gray-500 font-light">
-                        <span className="text-gray-400">Appt&nbsp;:</span> <span className="text-textMain font-medium">{c.prixApptMin.toLocaleString('fr-FR')}–{c.prixApptMax.toLocaleString('fr-FR')} €/m²</span>
+                        <span className="text-gray-400">Appt&nbsp;:</span> <span className="text-textMain font-medium">{c.prixApptMin.toLocaleString('fr-FR')}-{c.prixApptMax.toLocaleString('fr-FR')} €/m²</span>
                       </p>
                       <p className="text-gray-500 font-light">
-                        <span className="text-gray-400">Maison&nbsp;:</span> <span className="text-textMain font-medium">{c.prixMaisonMin.toLocaleString('fr-FR')}–{c.prixMaisonMax.toLocaleString('fr-FR')} €/m²</span>
+                        <span className="text-gray-400">Maison&nbsp;:</span> <span className="text-textMain font-medium">{c.prixMaisonMin.toLocaleString('fr-FR')}-{c.prixMaisonMax.toLocaleString('fr-FR')} €/m²</span>
                       </p>
                     </div>
                   </Link>

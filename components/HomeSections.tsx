@@ -189,7 +189,7 @@ export const Visibility: React.FC = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
-        // Tentative de play après mount — ignore les erreurs de policy mobile
+        // Tentative de play après mount: ignore les erreurs de policy mobile
         const v = videoRef.current;
         if (!v) return;
         const tryPlay = () => v.play().catch(() => {});
@@ -203,7 +203,7 @@ export const Visibility: React.FC = () => {
         <section className="pt-16 md:pt-24 lg:pt-32 pb-0 md:pb-8 bg-white relative">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch">
-                    {/* Video Left — plus petit, hauteur s'aligne sur le bloc droit */}
+                    {/* Video Left: plus petit, hauteur s'aligne sur le bloc droit */}
                     <m.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -219,7 +219,7 @@ export const Visibility: React.FC = () => {
                             playsInline
                             autoPlay
                             preload="none"
-                            aria-label="Visibilité Maximale — Vidéo de présentation Villa Grilly"
+                            aria-label="Visibilité Maximale: Vidéo de présentation Villa Grilly"
                             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                         >
                             <source src="/video/villa-grilly-hero.mp4" type="video/mp4" />
@@ -233,7 +233,7 @@ export const Visibility: React.FC = () => {
                         </div>
                     </m.div>
 
-                    {/* Text Right — col-span-6 (balanced avec la vidéo) */}
+                    {/* Text Right: col-span-6 (balanced avec la vidéo) */}
                     <div className="lg:col-span-6 flex flex-col justify-center">
                         <m.div
                             initial={{ opacity: 0, x: 50 }}
@@ -295,7 +295,7 @@ export const Visibility: React.FC = () => {
     );
 };
 
-/* DESIGN 3: TRUST CARD — Google Reviews link (real reviews only) */
+/* DESIGN 3: TRUST CARD: Google Reviews link (real reviews only) */
 export const Testimonials: React.FC = () => {
     return (
         <section className="pt-12 md:pt-16 pb-16 md:pb-24 lg:pb-32 bg-surface relative overflow-hidden">
@@ -331,7 +331,7 @@ export const Testimonials: React.FC = () => {
                         5,0<span className="text-gray-300 text-3xl md:text-4xl">/5</span>
                     </div>
                     <p className="text-gray-500 text-base md:text-lg font-light mt-4 mb-8">
-                        Sur <span className="font-bold text-textMain">25 avis Google vérifiés</span> — Pays de Gex
+                        Sur <span className="font-bold text-textMain">25 avis Google vérifiés</span>: Pays de Gex
                     </p>
                     <a
                         href="https://share.google/fvsAyaT6pI2059MZF"
@@ -621,7 +621,7 @@ export const ZonesDIntervention: React.FC = () => {
                         </m.h2>
                     </div>
                     <p className="text-gray-500 font-light max-w-sm text-base md:text-lg leading-relaxed lg:text-right">
-                        Connaissance fine de chaque marché local — estimation gratuite sur site en 48h.
+                        Connaissance fine de chaque marché local: estimation gratuite sur site en 48h.
                     </p>
                 </div>
 
@@ -702,7 +702,7 @@ export const ZonesDIntervention: React.FC = () => {
                         })}
                     </m.div>
 
-                    {/* Dots centrés — zone tactile 44px WCAG, dot visible inchangé */}
+                    {/* Dots centrés: zone tactile 44px WCAG, dot visible inchangé */}
                     <div className="flex items-center justify-center mt-8">
                         {COMMUNES.map((_, i) => (
                             <button

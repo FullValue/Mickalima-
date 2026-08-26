@@ -6,7 +6,7 @@ import { formatPrice, formatSurface } from '../nosBiensShared';
 import { PillButton, Reveal, SectionHeader } from './primitives';
 
 /**
- * « Notre sélection » — grille de 3 cartes biens (BIENS[0..2]).
+ * « Notre sélection »: grille de 3 cartes biens (BIENS[0..2]).
  * Hover : swap image 1→2 en fondu + zoom 1.05→1.1, overlay sombre
  * avec bouton pilule « Voir le bien ». Lien vers /nos-biens/:slug.
  * formatPrice / formatSurface importés de nosBiensShared (import uniquement).
@@ -20,7 +20,7 @@ export const FeaturedProperties: React.FC = () => (
       <SectionHeader
         label="Notre sélection"
         title="Biens d'exception, sélectionnés avec exigence"
-        subtitle="Une collection resserrée de propriétés premium du Pays de Gex — chaque bien est visité, photographié et valorisé avant sa mise en vente."
+        subtitle="Une collection resserrée de propriétés premium du Pays de Gex: chaque bien est visité, photographié et valorisé avant sa mise en vente."
       />
 
       <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
@@ -33,7 +33,7 @@ export const FeaturedProperties: React.FC = () => (
                 aria-label={`Voir le bien : ${bien.typeLabel} à ${bien.city}, ${formatPrice(bien.price)}`}
                 className="group block overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white shadow-[0_2px_20px_-5px_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(1,29,65,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]"
               >
-                {/* Média — swap d'image au survol */}
+                {/* Média: swap d'image au survol */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={bien.photos[0]}
@@ -87,7 +87,7 @@ export const FeaturedProperties: React.FC = () => (
                 <div className="p-7">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="font-serif text-xl leading-snug text-[#011d41]">
-                      {bien.typeLabel} — {bien.city}
+                      {bien.typeLabel}: {bien.city}
                     </h3>
                     <p className="whitespace-nowrap font-serif text-lg text-[#011d41]">
                       {formatPrice(bien.price)}

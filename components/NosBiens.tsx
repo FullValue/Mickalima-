@@ -4,7 +4,7 @@ import { T, ListingCard, RevalisFooter } from './nosBiensShared';
 import { BIENS } from './biensData';
 
 /**
- * Index des biens — DA du template Framer Revalis (page /listings) :
+ * Index des biens: DA du template Framer Revalis (page /listings) :
  * hero image sombre pleine largeur, sidebar sticky de filtres à cocher,
  * grille de cartes 2 colonnes, « Charger plus », footer.
  * Données réelles : portefeuille de Mickaël (biensData.ts).
@@ -16,8 +16,8 @@ const TYPES = ['Maison', 'Appartement', 'Terrain'];
 const CITIES = Array.from(new Set(BIENS.map((b) => b.city))).sort((a, b) => a.localeCompare(b, 'fr'));
 const RANGES: Array<{ label: string; min: number; max: number }> = [
   { label: '< 500 k€', min: 0, max: 500000 },
-  { label: '500 k€ – 800 k€', min: 500000, max: 800000 },
-  { label: '800 k€ – 1,2 M€', min: 800000, max: 1200000 },
+  { label: '500 k€ à 800 k€', min: 500000, max: 800000 },
+  { label: '800 k€ à 1,2 M€', min: 800000, max: 1200000 },
   { label: '1,2 M€ +', min: 1200000, max: Infinity },
 ];
 
@@ -68,16 +68,16 @@ const toggle = (list: string[], value: string) =>
 const NOSBIENS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Nos biens à vendre — Pays de Gex et bassin genevois',
+  name: 'Nos biens à vendre: Pays de Gex et bassin genevois',
   description:
     'Maisons, appartements et terrains à la vente, sélectionnés par Mickaël Lima, agent immobilier dans le Pays de Gex.',
   url: 'https://mickael-lima.immo/nos-biens/',
-  about: { '@type': 'RealEstateAgent', name: 'Mickaël Lima — L’agence Immo' },
+  about: { '@type': 'RealEstateAgent', name: 'Mickaël Lima: L’agence Immo' },
 };
 
 export const NosBiens: React.FC = () => {
   const [status, setStatus] = useState('Tous');
-  // Pré-sélection depuis l'URL (?type=Maison&ville=Gex) — module d'intention du hero
+  // Pré-sélection depuis l'URL (?type=Maison&ville=Gex): module d'intention du hero
   const urlParams =
     typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
   const [types, setTypes] = useState<string[]>(() => {
@@ -112,7 +112,7 @@ export const NosBiens: React.FC = () => {
   return (
     <>
       <SEO
-        title="Nos Biens à Vendre — Pays de Gex & Bassin Genevois | Mickaël Lima"
+        title="Nos Biens à Vendre: Pays de Gex & Bassin Genevois | Mickaël Lima"
         description="Maisons, appartements et terrains à vendre dans le Pays de Gex et alentours : Grilly, Divonne-les-Bains, Ferney-Voltaire, Crozet, Péron… Photos, détails et visites avec Mickaël Lima."
         canonical="/nos-biens"
         schema={NOSBIENS_SCHEMA}

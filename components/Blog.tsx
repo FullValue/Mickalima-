@@ -8,7 +8,7 @@ import { PillButton, Reveal, SectionLabel } from './oakline/primitives';
 const BLOG_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'Blog immobilier Pays de Gex — Mickaël Lima',
+    name: 'Blog immobilier Pays de Gex: Mickaël Lima',
     url: 'https://mickael-lima.immo/blog/',
     description:
         'Conseils immobiliers, prix du marché et actualités du Pays de Gex par Mickaël Lima, agent immobilier.',
@@ -27,7 +27,7 @@ export const Blog: React.FC = () => {
     return (
         <>
         <SEO
-            title="Blog Immobilier | Marché & Conseils Pays de Gex — Mickaël Lima"
+            title="Blog Immobilier | Marché & Conseils Pays de Gex: Mickaël Lima"
             description="Analyses du marché immobilier, conseils d'investissement et actualités réglementaires pour le Pays de Gex et la zone frontalière genevoise."
             canonical="/blog"
             schema={BLOG_SCHEMA}

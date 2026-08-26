@@ -82,7 +82,7 @@ export const FaqAccordion: React.FC = () => {
                     </span>
                   </button>
 
-                  {/* Réponse — animation grid-rows (pattern existant du site) */}
+                  {/* Réponse: animation grid-rows (pattern existant du site) */}
                   <div
                     id={`faq-panel-${index}`}
                     role="region"

@@ -5,9 +5,9 @@ import { T } from './nosBiensShared';
 import { PillButton, SectionLabel } from './oakline/primitives';
 
 /**
- * Briques de la nouvelle DA (reprise de /nos-biens — template Revalis) :
+ * Briques de la nouvelle DA (reprise de /nos-biens: template Revalis) :
  * fond clair #f7f7f7, hero image sombre pleine largeur, cartes blanches
- * radius 10, titres Playfair Display, textes Montserrat, colonne sticky.
+ * radius 24, titres Playfair Display, textes Inter, colonne sticky.
  * Utilisées par les pages service (mandats).
  */
 

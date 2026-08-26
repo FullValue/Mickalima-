@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 /**
- * Section « Pourquoi nous ? » — bento grid animée :
+ * Section « Pourquoi nous ? »: bento grid animée :
  * - carte photo avec ticker défilant, carte avis (avatars + étoiles)
  * - reel central façon story (barres de progression, autoplay)
  * - compteurs animés au scroll, anneau d'avatars en rotation
- * Adapté du snippet fourni : DA du site (Playfair/Montserrat), photos réelles
+ * Adapté du snippet fourni : DA du site (Playfair/Inter), photos réelles
  * des biens, chiffres réels (240 ventes, 5/5 sur 25 avis Google).
  */
 
@@ -275,7 +275,7 @@ export const WhyUs: React.FC = () => {
           --whyus-sub: #666666;
           --whyus-muted: #b2b2ac;
           --whyus-radius: 10px;
-          font-family: 'Montserrat', system-ui, sans-serif;
+          font-family: 'Inter', 'Inter Placeholder', system-ui, sans-serif;
           background: var(--whyus-bg);
           padding: 70px 0 140px;
           display: flex;
@@ -496,7 +496,7 @@ export const WhyUs: React.FC = () => {
           background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--whyus-card) 100%);
         }
 
-        /* Reveal au scroll — appliqué seulement quand JS est actif */
+        /* Reveal au scroll: appliqué seulement quand JS est actif */
         .whyus-js .whyus__head, .whyus-js .whyus__card {
           opacity: 0;
           transform: translateY(26px);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IMAGES } from '../constants';
 
 /**
- * Preloader plein écran — première visite de la session uniquement.
+ * Preloader plein écran: première visite de la session uniquement.
  * Rideau navy : le logo se révèle (fondu + netteté), un filet lumineux
  * balaie la ligne sous le logo, puis le rideau se lève en deux temps.
  * 100 % CSS (transform/opacity uniquement), JS minimal : démontage +
@@ -32,7 +32,7 @@ export const Preloader: React.FC = () => {
     const t0 = (window as unknown as { __mlT0?: number }).__mlT0 ?? Date.now();
     const remaining = Math.max(0, TOTAL_MS - (Date.now() - t0));
     if (remaining < 80) {
-      // rideau déjà levé — rien à verrouiller
+      // rideau déjà levé: rien à verrouiller
       setGone(true);
       return;
     }
@@ -66,7 +66,7 @@ export const Preloader: React.FC = () => {
           <span className="ml-preloader__line">
             <i />
           </span>
-          <span className="ml-preloader__tag">Immobilier — Pays de Gex</span>
+          <span className="ml-preloader__tag">Immobilier: Pays de Gex</span>
         </div>
       </div>
 
@@ -134,7 +134,7 @@ export const Preloader: React.FC = () => {
         }
 
         .ml-preloader__tag {
-          font-family: 'Montserrat', sans-serif;
+          font-family: 'Inter', 'Inter Placeholder', sans-serif;
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.35em; text-transform: uppercase;
           color: rgba(255,255,255,0.55);

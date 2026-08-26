@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
 
         const formData = new FormData(e.currentTarget);
         formData.append('access_key', '38f90cdc-9f17-48ef-bae6-f94e9b44e41f');
-        formData.append('subject', 'Estimation rapide — Pays de Gex');
+        formData.append('subject', 'Estimation rapide: Pays de Gex');
         formData.append('from_name', 'mickael-lima.immo');
         formData.append('botcheck', '');
 
@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
 
     return (
         <section id="home" className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-28 lg:pt-32">
-            {/* Background Image — AVIF + WebP + JPG fallback */}
+            {/* Background Image: AVIF + WebP + JPG fallback */}
             <div className="absolute inset-0 z-0">
                 <picture>
                     <source srcSet="/images/hero-mickael.avif" type="image/avif" />
@@ -113,7 +113,7 @@ export const Hero: React.FC = () => {
                                     Quelle est la valeur<br />de votre bien&nbsp;?
                                 </h2>
 
-                                {/* Type de bien — pills + hidden input pour FormData */}
+                                {/* Type de bien: pills + hidden input pour FormData */}
                                 <input type="hidden" name="type_de_bien" value={propertyType} />
                                 <div>
                                     <label className="block text-[0.65rem] font-bold text-gray-500 uppercase tracking-widest mb-2 flex items-center gap-1.5">

@@ -21,16 +21,16 @@ import { T } from './nosBiensShared';
 import { wrap, ServiceHero, StickyIntro, WhiteCard, TwoCol, RecapBand, ServiceStyles } from './serviceUI';
 
 /**
- * Pages service (mandats) — nouvelle DA reprise de /nos-biens :
+ * Pages service (mandats): nouvelle DA reprise de /nos-biens :
  * fond clair, hero image sombre pleine largeur, cartes blanches radius 10,
  * titres Playfair Display, colonnes sticky, bandeau récapitulatif navy.
  * ⚠️ Le copywriting et l'ordre des blocs sont ceux de la version précédente,
- * à l'identique — seule la présentation change.
+ * à l'identique: seule la présentation change.
  */
 
 const MANDAT_PROVIDER = {
   '@type': 'RealEstateAgent',
-  name: 'Mickaël Lima — L’agence Immo',
+  name: 'Mickaël Lima: L’agence Immo',
   url: 'https://mickael-lima.immo',
   telephone: '+33769313502',
   email: 'contact@mickael-lima.immo',
@@ -56,7 +56,7 @@ const MANDAT_AREA = {
 const MANDAT_SIGNATURE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Mandat Signature — Vente immobilière Pays de Gex',
+  name: 'Mandat Signature: Vente immobilière Pays de Gex',
   serviceType: 'Real estate sale mandate',
   provider: MANDAT_PROVIDER,
   areaServed: MANDAT_AREA,
@@ -77,7 +77,7 @@ const MANDAT_SIGNATURE_SCHEMA = {
 const MANDAT_EXCLUSIF_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Mandat Exclusif — Vente prestige Pays de Gex',
+  name: 'Mandat Exclusif: Vente prestige Pays de Gex',
   serviceType: 'Premium real estate exclusive mandate',
   provider: MANDAT_PROVIDER,
   areaServed: MANDAT_AREA,
@@ -360,7 +360,7 @@ const CenteredHeading: React.FC<{
 export const MandatSignature: React.FC = () => (
   <>
     <SEO
-      title="Mandat Signature | Vendez Mieux — Mickaël Lima Pays de Gex"
+      title="Mandat Signature | Vendez Mieux: Mickaël Lima Pays de Gex"
       description="Le Mandat Signature : photos HD, vidéo drone 4K, diffusion sur +40 portails immobiliers, visites qualifiées et zéro visite inutile. Vendez votre bien dans le Pays de Gex au meilleur prix."
       canonical="/mandat-signature"
       schema={MANDAT_SIGNATURE_SCHEMA}
@@ -740,7 +740,7 @@ export const MandatSignature: React.FC = () => (
 export const MandatExclusif: React.FC = () => (
   <>
     <SEO
-      title="Mandat Exclusif | L'Excellence Immobilière — Mickaël Lima"
+      title="Mandat Exclusif | L'Excellence Immobilière: Mickaël Lima"
       description="Le Mandat Exclusif : production cinématographique, home staging, événements privés, diffusion internationale. Pour les biens d'exception dans le Pays de Gex qui méritent le meilleur."
       canonical="/mandat-exclusif"
       schema={MANDAT_EXCLUSIF_SCHEMA}

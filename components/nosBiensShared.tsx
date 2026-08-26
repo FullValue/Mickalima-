@@ -16,7 +16,7 @@ export const T = {
   border: '#ebebeb',
   chipBg: '#f1f1f1',
   heading: '"Playfair Display", serif',
-  body: '"Montserrat", sans-serif',
+  body: '"Inter", "Inter Placeholder", sans-serif',
 };
 
 export const AGENT_PHOTO = '/images/micka-photo.jpg';
@@ -51,7 +51,7 @@ export const formatPrice = (p: number | null) =>
 export const formatSurface = (v: number | null) =>
   v == null ? null : `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 }).format(v)} m²`;
 
-/* Carte bien — utilisée dans la grille de /nos-biens et le marquee des pages détail */
+/* Carte bien: utilisée dans la grille de /nos-biens et le marquee des pages détail */
 export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; ariaHidden?: boolean }> = ({
   property: l,
   fluid,
@@ -126,7 +126,7 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
         <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 24, lineHeight: '1.2em', color: T.dark }}>
-          {l.typeLabel} — {l.city}
+          {l.typeLabel}: {l.city}
         </h3>
         {l.status !== 'Vendu' && (
           <span style={{ fontFamily: T.heading, fontSize: 21, whiteSpace: 'nowrap', color: T.dark }}>
@@ -162,7 +162,7 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
   </article>
 );
 
-/* Footer (design Revalis, contenu réel) — commun à l'index et aux pages détail */
+/* Footer (design Revalis, contenu réel): commun à l'index et aux pages détail */
 export const RevalisFooter: React.FC = () => (
   <footer style={{ background: T.navy, color: '#fff', fontFamily: T.body }}>
     <div style={{ maxWidth: 1300, margin: '0 auto', padding: '72px 30px 40px' }}>
@@ -261,7 +261,7 @@ export const RevalisFooter: React.FC = () => (
           justifyContent: 'space-between', gap: 12,
         }}
       >
-        <span>© 2026 Mickaël Lima — L'agence Immo. Tous droits réservés.</span>
+        <span>© 2026 Mickaël Lima: L'agence Immo. Tous droits réservés.</span>
         <span style={{ display: 'flex', gap: 20 }}>
           <Link to="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</Link>
           <Link to="/politique-confidentialite" style={{ color: 'inherit', textDecoration: 'none' }}>Politique de confidentialité</Link>

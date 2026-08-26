@@ -151,7 +151,7 @@ export const Footer: React.FC = () => {
                                 </ul>
                             </div>
 
-                            {/* Nos secteurs — 3 colonnes */}
+                            {/* Nos secteurs: 3 colonnes */}
                             <div className="md:col-span-3 pt-8 border-t border-white/10">
                                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
 
@@ -213,7 +213,7 @@ export const Footer: React.FC = () => {
 
                     </div>
 
-                    {/* Avis Google — Lien direct GBP pour booster signaux Local SEO */}
+                    {/* Avis Google: Lien direct GBP pour booster signaux Local SEO */}
                     <div className="mt-16 pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
                         <a
                             href="https://share.google/fvsAyaT6pI2059MZF"
@@ -239,10 +239,10 @@ export const Footer: React.FC = () => {
                         </a>
                     </div>
 
-                    {/* NAP — Name Address Phone (contrastes WCAG AA conformes) */}
+                    {/* NAP: Name Address Phone (contrastes WCAG AA conformes) */}
                     <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-white/85">
-                        <span className="font-semibold text-white">Mickaël Lima — L’agence Immo</span>
-                        <span>Pays de Gex (01) — Intervention sur tout le secteur</span>
+                        <span className="font-semibold text-white">Mickaël Lima: L’agence Immo</span>
+                        <span>Pays de Gex (01): Intervention sur tout le secteur</span>
                         <a href="tel:+33769313502" className="text-white hover:text-accent transition-colors font-medium">07 69 31 35 02</a>
                     </div>
                 </div>

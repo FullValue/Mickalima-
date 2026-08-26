@@ -24,7 +24,7 @@ import {
 } from './oakline/primitives';
 
 /**
- * Page Contact — alignée sur la DA « Oakline » (accueil / CtaContact) :
+ * Page Contact: alignée sur la DA « Oakline » (accueil / CtaContact) :
  * mêmes labels pilules, mêmes champs arrondis, boutons pilule, reveals.
  * Logique métier inchangée : Web3Forms, FAQ, WhatsApp, schema ContactPage.
  */
@@ -32,11 +32,11 @@ import {
 const CONTACT_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact — Mickaël Lima Agent Immobilier Pays de Gex',
+    name: 'Contact: Mickaël Lima Agent Immobilier Pays de Gex',
     url: 'https://mickael-lima.immo/contact/',
     mainEntity: {
         '@type': 'RealEstateAgent',
-        name: 'Mickaël Lima — L’agence Immo',
+        name: 'Mickaël Lima: L’agence Immo',
         telephone: '+33769313502',
         email: 'contact@mickael-lima.immo',
         address: {
@@ -65,7 +65,7 @@ export const ContactPage: React.FC = () => {
 
         const formData = new FormData(e.currentTarget);
         formData.append('access_key', '38f90cdc-9f17-48ef-bae6-f94e9b44e41f');
-        formData.append('subject', 'Contact — mickael-lima.immo');
+        formData.append('subject', 'Contact: mickael-lima.immo');
         formData.append('from_name', 'mickael-lima.immo');
         formData.append('botcheck', '');
 
@@ -117,7 +117,7 @@ export const ContactPage: React.FC = () => {
     return (
         <>
         <SEO
-            title="Contact | Estimation Gratuite — Mickaël Lima Pays de Gex"
+            title="Contact | Estimation Gratuite: Mickaël Lima Pays de Gex"
             description="Contactez Mickaël Lima pour une estimation gratuite et confidentielle de votre bien dans le Pays de Gex. Réponse sous 48h, déplacement sur site inclus."
             canonical="/contact"
             schema={CONTACT_SCHEMA}
@@ -169,7 +169,7 @@ export const ContactPage: React.FC = () => {
                 <div className="container relative z-10 mx-auto px-6">
                     <Reveal>
                         <div className="flex min-h-[750px] flex-col overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white shadow-[0_40px_80px_-40px_rgba(1,29,65,0.25)] lg:flex-row">
-                            {/* Panneau gauche — navy */}
+                            {/* Panneau gauche: navy */}
                             <div className="relative flex flex-col justify-between overflow-hidden bg-[#011d41] p-10 text-white md:p-14 lg:w-5/12">
                                 <div className="absolute inset-0 z-0">
                                     <img src={IMAGES.cardImage} alt="" aria-hidden="true" className="h-full w-full object-cover opacity-20 mix-blend-overlay grayscale" />
@@ -242,7 +242,7 @@ export const ContactPage: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Panneau droit — formulaire */}
+                            {/* Panneau droit: formulaire */}
                             <div className="relative flex flex-col justify-center bg-white p-10 md:p-14 lg:w-7/12">
                                 <m.form
                                     onSubmit={handleSubmit}
@@ -319,7 +319,7 @@ export const ContactPage: React.FC = () => {
                                     <div aria-live="polite" className="min-h-[1.5rem] text-sm">
                                         {status === 'success' && (
                                             <div role="status" className="rounded-2xl bg-green-50 px-4 py-3 text-green-700">
-                                                <p>Merci ! Votre message a bien été envoyé — réponse sous 24h.</p>
+                                                <p>Merci ! Votre message a bien été envoyé: réponse sous 24h.</p>
                                                 <a
                                                     href={buildWhatsappUrl("Bonjour, je viens de vous transmettre une demande d'estimation depuis votre site.")}
                                                     target="_blank"

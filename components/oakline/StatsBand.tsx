@@ -63,7 +63,7 @@ export const StatsBand: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-[#011d41] py-20 text-white md:py-28">
       {/* Fond image + overlays */}
-      {/* Fond FIXE au scroll (desktop) — le contenu défile par-dessus */}
+      {/* Fond FIXE au scroll (desktop): le contenu défile par-dessus */}
       <div
         aria-hidden="true"
         className="parallax-fixed absolute inset-0 bg-cover bg-center opacity-25"
@@ -83,7 +83,7 @@ export const StatsBand: React.FC = () => {
           {!reduce && (
             <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
               Les caractéristiques moyennes des propriétés que nous confient
-              nos clients — un segment premium, du Jura à la frontière genevoise.
+              nos clients: un segment premium, du Jura à la frontière genevoise.
             </p>
           )}
         </div>

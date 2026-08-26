@@ -28,7 +28,7 @@ export const Estimation: React.FC = () => {
 
         const formData = new FormData(e.currentTarget);
         formData.append('access_key', '38f90cdc-9f17-48ef-bae6-f94e9b44e41f');
-        formData.append('subject', 'Estimation complète — Pays de Gex');
+        formData.append('subject', 'Estimation complète: Pays de Gex');
         formData.append('from_name', 'mickael-lima.immo');
         formData.append('botcheck', '');
 
@@ -62,7 +62,7 @@ export const Estimation: React.FC = () => {
     return (
         <>
         <SEO
-            title="Estimation Gratuite de votre Bien | Pays de Gex — Mickaël Lima"
+            title="Estimation Gratuite de votre Bien | Pays de Gex: Mickaël Lima"
             description="Obtenez une estimation gratuite et confidentielle de votre bien immobilier dans le Pays de Gex. Déplacement sur site, analyse marché, dossier complet remis sous 48h."
             canonical="/estimation"
         />

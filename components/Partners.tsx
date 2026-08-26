@@ -18,7 +18,7 @@ import {
 } from './oakline/primitives';
 
 /**
- * Page Partenaires — alignée sur la DA « Oakline » (accueil) :
+ * Page Partenaires: alignée sur la DA « Oakline » (accueil) :
  * labels pilules, titres Playfair avec accroche italique, boutons pilule,
  * reveals blur+fade, cartes arrondies 24px, section méthode sur fond navy.
  */
@@ -49,7 +49,7 @@ const PARTNERS = [
         icon: Building2,
         title: 'Entreprises de rénovation',
         description:
-            "Gros œuvre, rénovations énergétiques, extensions : des entreprises sérieuses pour transformer un bien à fort potentiel — ou rassurer vos acquéreurs sur la suite du projet.",
+            "Gros œuvre, rénovations énergétiques, extensions : des entreprises sérieuses pour transformer un bien à fort potentiel: ou rassurer vos acquéreurs sur la suite du projet.",
         tag: 'Rénovation',
     },
 ];
@@ -65,7 +65,7 @@ const METHOD_STEPS = [
         icon: Handshake,
         number: '02',
         title: 'Mise en relation ciblée',
-        text: 'Je vous présente le bon interlocuteur — pas une liste anonyme. Un contact direct, avec le contexte de votre dossier déjà transmis.',
+        text: 'Je vous présente le bon interlocuteur: pas une liste anonyme. Un contact direct, avec le contexte de votre dossier déjà transmis.',
     },
     {
         icon: KeyRound,
@@ -79,7 +79,7 @@ export const Partners: React.FC = () => {
     return (
         <>
             <SEO
-                title="Partenaires | Réseau d'Experts — Mickaël Lima Pays de Gex"
+                title="Partenaires | Réseau d'Experts: Mickaël Lima Pays de Gex"
                 description="Courtiers, artisans qualifiés, architectes d'intérieur et entreprises de rénovation : le réseau de partenaires sélectionnés de Mickaël Lima pour votre projet immobilier."
                 canonical="/partenaires"
             />

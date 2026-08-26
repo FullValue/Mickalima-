@@ -90,7 +90,7 @@ export const FrontalierCommunePage: React.FC = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
-      name: 'Mickaël Lima — L’agence Immo',
+      name: 'Mickaël Lima: L’agence Immo',
       url: 'https://mickael-lima.immo',
       telephone: '+33769313502',
       address: {
@@ -151,7 +151,7 @@ export const FrontalierCommunePage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`Immobilier ${commune.name} pour les frontaliers genevois — Guide ${year} | Mickaël Lima`}
+        title={`Immobilier ${commune.name} pour les frontaliers genevois: Guide ${year} | Mickaël Lima`}
         description={`Acheter à ${commune.name} (${commune.cp}) en travaillant à Genève : trajet, prix, pouvoir d'achat CHF vs EUR, écoles, critères frontaliers. Expert marché local. Estimation gratuite.`}
         canonical={`/frontalier/${commune.slug}`}
         schema={schema}
@@ -253,7 +253,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Prix appartements</p>
                   <p className="text-3xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} – {commune.prixApptMax.toLocaleString('fr-FR')} €/m²
+                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')} €/m²
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-2">fourchette actuelle du marché</p>
                 </div>
@@ -318,7 +318,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <div>
                       <p className="font-bold text-white text-lg mb-2">Accès direct au CERN</p>
                       <p className="text-white/70 font-light leading-relaxed">
-                        Saint-Genis-Pouilly jouxte directement le site principal du CERN et la zone technique de Prévessin. Les employés — physiciens, ingénieurs, techniciens, staff administratif — viennent de 100+ pays et représentent une demande locative et d'achat structurellement stable, indépendante des cycles immobiliers classiques.
+                        Saint-Genis-Pouilly jouxte directement le site principal du CERN et la zone technique de Prévessin. Les employés: physiciens, ingénieurs, techniciens, staff administratif: viennent de 100+ pays et représentent une demande locative et d'achat structurellement stable, indépendante des cycles immobiliers classiques.
                       </p>
                     </div>
                   </m.div>
@@ -338,7 +338,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <div>
                       <p className="font-bold text-white text-lg mb-2">ONU & organisations internationales</p>
                       <p className="text-white/70 font-light leading-relaxed">
-                        Ferney-Voltaire est à 8 km du Palais des Nations, du siège de l'OMS, du WTO et du WIPO. Les fonctionnaires internationaux représentent une part significative des acheteurs — bénéficiant d'une immunité fiscale partielle et d'un pouvoir d'achat USD/CHF élevé. La communauté anglophone est la plus dense du Pays de Gex, avec des écoles internationales à proximité directe.
+                        Ferney-Voltaire est à 8 km du Palais des Nations, du siège de l'OMS, du WTO et du WIPO. Les fonctionnaires internationaux représentent une part significative des acheteurs: bénéficiant d'une immunité fiscale partielle et d'un pouvoir d'achat USD/CHF élevé. La communauté anglophone est la plus dense du Pays de Gex, avec des écoles internationales à proximité directe.
                       </p>
                     </div>
                   </m.div>
@@ -368,7 +368,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 </span>
               </h2>
               <p className="text-gray-600 font-light text-lg leading-relaxed max-w-3xl mb-12">
-                Un salarié genevois dispose en moyenne d'un pouvoir d'achat immobilier 40 à 60 % supérieur à un résident français de même profil. Un appartement de 90 m² comparable dans les communes résidentielles genevoises (Carouge, Lancy, Meyrin) se négocie entre 1,2 et 1,8 million CHF. À {commune.name}, la fourchette est de {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')} €/m². Sur une surface équivalente, l'économie représente souvent 800 000 à 1 200 000 € — sans compromis sur la qualité de vie.
+                Un salarié genevois dispose en moyenne d'un pouvoir d'achat immobilier 40 à 60 % supérieur à un résident français de même profil. Un appartement de 90 m² comparable dans les communes résidentielles genevoises (Carouge, Lancy, Meyrin) se négocie entre 1,2 et 1,8 million CHF. À {commune.name}, la fourchette est de {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')} €/m². Sur une surface équivalente, l'économie représente souvent 800 000 à 1 200 000 €: sans compromis sur la qualité de vie.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -378,7 +378,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Appartements · {commune.name}</p>
                   </div>
                   <p className="text-3xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} – {commune.prixApptMax.toLocaleString('fr-FR')}
+                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
                     <span className="text-xl text-gray-400 ml-1">€/m²</span>
                   </p>
                 </div>
@@ -389,7 +389,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Maisons · {commune.name}</p>
                   </div>
                   <p className="text-3xl font-medium text-textMain">
-                    {commune.prixMaisonMin.toLocaleString('fr-FR')} – {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                    {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
                     <span className="text-xl text-gray-400 ml-1">€/m²</span>
                   </p>
                 </div>
@@ -400,7 +400,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <p className="text-xs font-bold uppercase tracking-widest text-white/60">Équivalent Genève-ville</p>
                   </div>
                   <p className="text-3xl font-medium text-white">
-                    13 000 – 20 000
+                    13 000 à 20 000
                     <span className="text-xl text-white/60 ml-1">CHF/m²</span>
                   </p>
                 </div>
@@ -414,7 +414,7 @@ export const FrontalierCommunePage: React.FC = () => {
                   <div>
                     <p className="font-bold text-textMain text-lg mb-2">À {commune.name}</p>
                     <p className="text-gray-600 font-light leading-relaxed">
-                      Une maison de 4 à 5 pièces avec jardin, garage double, finitions récentes — surface de 140 à 180 m² selon l'état et la localisation exacte dans la commune.
+                      Une maison de 4 à 5 pièces avec jardin, garage double, finitions récentes: surface de 140 à 180 m² selon l'état et la localisation exacte dans la commune.
                     </p>
                   </div>
                   <div>
@@ -456,10 +456,10 @@ export const FrontalierCommunePage: React.FC = () => {
                       Le CERN emploie directement 17 000 personnes issues de plus de 100 nationalités. À ces effectifs s'ajoutent des milliers de prestataires, doctorants et visiteurs en séjour long. Pour les membres du personnel en contrat permanent ou de longue durée, l'achat à Saint-Genis-Pouilly est la solution logique : à 3 minutes du site principal de Meyrin et à portée du secteur de Prévessin-Moëns.
                     </p>
                     <p>
-                      Le profil CERN présente des caractéristiques spécifiques : salaires nets en CHF avec exonérations fiscales partielles, fort pouvoir d'achat, critères de sélection précis (taille, qualité, proximité du CERN). La demande est structurellement découplée des cycles économiques — elle suit le calendrier des recrutements et des rotations de contrats, pas les variations de taux.
+                      Le profil CERN présente des caractéristiques spécifiques : salaires nets en CHF avec exonérations fiscales partielles, fort pouvoir d'achat, critères de sélection précis (taille, qualité, proximité du CERN). La demande est structurellement découplée des cycles économiques: elle suit le calendrier des recrutements et des rotations de contrats, pas les variations de taux.
                     </p>
                     <p>
-                      Plusieurs familles du CERN ont acheté à Saint-Genis-Pouilly avec un accompagnement spécialisé — connaître les délais d'obtention de visa, les particularités des statuts diplomatiques et la gestion des virements internationaux fait partie du service.
+                      Plusieurs familles du CERN ont acheté à Saint-Genis-Pouilly avec un accompagnement spécialisé: connaître les délais d'obtention de visa, les particularités des statuts diplomatiques et la gestion des virements internationaux fait partie du service.
                     </p>
                   </div>
 
@@ -506,13 +506,13 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                   <div className="space-y-5 text-gray-600 font-light text-lg leading-relaxed">
                     <p>
-                      Genève accueille plus de 40 organisations internationales — ONU, OMS, OMC, OMPI, OIT, HCR — représentant plus de 35 000 fonctionnaires internationaux. Ferney-Voltaire, à 8 km du Palais des Nations, est le premier marché résidentiel de cette clientèle : une communauté stable, solvable, et très exigeante sur la qualité des biens.
+                      Genève accueille plus de 40 organisations internationales: ONU, OMS, OMC, OMPI, OIT, HCR: représentant plus de 35 000 fonctionnaires internationaux. Ferney-Voltaire, à 8 km du Palais des Nations, est le premier marché résidentiel de cette clientèle : une communauté stable, solvable, et très exigeante sur la qualité des biens.
                     </p>
                     <p>
-                      Les fonctionnaires internationaux bénéficient d'une immunité fiscale sur leurs émoluments — leur capacité d'emprunt est calculée sur un revenu net effectif élevé. La durée des mandats (3 à 5 ans, souvent renouvelés) crée une demande mixte : certains louent d'abord, puis achètent en cas de renouvellement. D'autres achètent dès la première affectation pour rentabiliser le bien à la relocalisation suivante.
+                      Les fonctionnaires internationaux bénéficient d'une immunité fiscale sur leurs émoluments: leur capacité d'emprunt est calculée sur un revenu net effectif élevé. La durée des mandats (3 à 5 ans, souvent renouvelés) crée une demande mixte : certains louent d'abord, puis achètent en cas de renouvellement. D'autres achètent dès la première affectation pour rentabiliser le bien à la relocalisation suivante.
                     </p>
                     <p>
-                      La communauté anglophone, franco-britannique et nord-américaine est dense à Ferney-Voltaire — avec des écoles internationales, des cercles sociaux actifs et une vie de quartier cosmopolite. C'est un critère de premier ordre pour les familles en relocalisation.
+                      La communauté anglophone, franco-britannique et nord-américaine est dense à Ferney-Voltaire: avec des écoles internationales, des cercles sociaux actifs et une vie de quartier cosmopolite. C'est un critère de premier ordre pour les familles en relocalisation.
                     </p>
                   </div>
 

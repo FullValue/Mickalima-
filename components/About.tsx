@@ -61,7 +61,7 @@ export const About: React.FC = () => {
   return (
     <>
       <SEO
-        title="À Propos — Mickaël Lima | Agent Immobilier Pays de Gex"
+        title="À Propos: Mickaël Lima | Agent Immobilier Pays de Gex"
         description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 8 ans d'expérience dans le Pays de Gex (240 ventes en 5 ans). Expert en vente prestige, prospection foncière et accompagnement personnalisé."
         canonical="/about"
         schema={ABOUT_SCHEMA}
@@ -172,12 +172,12 @@ export const About: React.FC = () => {
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Qui je suis</h3>
                 <p className="mb-6">
-                  8 ans dans l'immobilier, dont 5 au sein de L'agence Immo à Divonne-les-Bains. 240 ventes réalisées dans le Pays de Gex — appartements, maisons, biens de prestige, locaux commerciaux. Agent indépendant, rémunéré uniquement à la commission : mes intérêts sont alignés avec ceux de mes clients. Bilingue français-anglais, je travaille au quotidien avec une clientèle française, suisse et internationale, en particulier les frontaliers, expatriés et collaborateurs du CERN, de l'ONU et de l'OMS. Mon ancrage local à Divonne me permet de connaître les micro-marchés commune par commune et d'estimer chaque bien au juste prix dès le premier rendez-vous.
+                  8 ans dans l'immobilier, dont 5 au sein de L'agence Immo à Divonne-les-Bains. 240 ventes réalisées dans le Pays de Gex: appartements, maisons, biens de prestige, locaux commerciaux. Agent indépendant, rémunéré uniquement à la commission : mes intérêts sont alignés avec ceux de mes clients. Bilingue français-anglais, je travaille au quotidien avec une clientèle française, suisse et internationale, en particulier les frontaliers, expatriés et collaborateurs du CERN, de l'ONU et de l'OMS. Mon ancrage local à Divonne me permet de connaître les micro-marchés commune par commune et d'estimer chaque bien au juste prix dès le premier rendez-vous.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Mon approche</h3>
                 <p className="mb-6">
-                  Le Pays de Gex n'est pas un marché immobilier classique. Les prix sont structurés par la demande genevoise, les acheteurs sont souvent frontaliers ou expatriés, et les délais de vente dépendent directement de la justesse de l'estimation initiale. J'ai construit ma pratique autour de trois principes : <strong>estimation au prix du marché réel</strong> — pas au prix qui flatte le vendeur, <strong>mise en valeur premium</strong> (photos pro + vidéo drone 4K incluses sur chaque mandat), et <strong>accompagnement de bout en bout</strong> jusqu'à la signature chez le notaire. Un bien correctement positionné se vend en 30 à 60 jours dans le Pays de Gex. Un bien surévalué s'enlise et finit par perdre 10 à 15% de sa valeur initiale.
+                  Le Pays de Gex n'est pas un marché immobilier classique. Les prix sont structurés par la demande genevoise, les acheteurs sont souvent frontaliers ou expatriés, et les délais de vente dépendent directement de la justesse de l'estimation initiale. J'ai construit ma pratique autour de trois principes : <strong>estimation au prix du marché réel</strong>: pas au prix qui flatte le vendeur, <strong>mise en valeur premium</strong> (photos pro + vidéo drone 4K incluses sur chaque mandat), et <strong>accompagnement de bout en bout</strong> jusqu'à la signature chez le notaire. Un bien correctement positionné se vend en 30 à 60 jours dans le Pays de Gex. Un bien surévalué s'enlise et finit par perdre 10 à 15% de sa valeur initiale.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Ce que j'inclus dans chaque mandat</h3>
@@ -192,7 +192,7 @@ export const About: React.FC = () => {
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Le marché que je couvre</h3>
                 <p className="mb-6">
-                  20 communes du Pays de Gex dans le département de l'Ain (01) : Ferney-Voltaire, Divonne-les-Bains, Saint-Genis-Pouilly, Gex, Prévessin-Moëns, Cessy, Ornex, Ségny, Thoiry, Crozet, Sauverny, Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges, Échenevex, Saint-Jean-de-Gonville. Marché frontalier franco-suisse — proximité Genève, CERN, ONU, OMS. Clientèle française et internationale.
+                  20 communes du Pays de Gex dans le département de l'Ain (01) : Ferney-Voltaire, Divonne-les-Bains, Saint-Genis-Pouilly, Gex, Prévessin-Moëns, Cessy, Ornex, Ségny, Thoiry, Crozet, Sauverny, Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges, Échenevex, Saint-Jean-de-Gonville. Marché frontalier franco-suisse: proximité Genève, CERN, ONU, OMS. Clientèle française et internationale.
                 </p>
               </m.div>
 

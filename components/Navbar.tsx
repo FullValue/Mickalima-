@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
             <div className="container mx-auto px-6 flex justify-between items-center">
 
                 {/* Logo */}
-                <Link to="/" className="z-50 relative flex items-center gap-2" aria-label="Mickaël Lima — Accueil">
+                <Link to="/" className="z-50 relative flex items-center gap-2" aria-label="Mickaël Lima: Accueil">
                     <img
                         src={IMAGES.logoWhite}
                         alt=""
@@ -185,7 +185,7 @@ export const Navbar: React.FC = () => {
                         </span>
                     </Link>
 
-                    {/* Mobile Toggle — pilule */}
+                    {/* Mobile Toggle: pilule */}
                     <button
                         className={`lg:hidden z-50 flex h-11 w-11 items-center justify-center rounded-full border transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
                             isMobileMenuOpen || isTransparent

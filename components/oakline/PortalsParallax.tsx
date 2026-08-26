@@ -5,7 +5,7 @@ import { Reveal, SectionLabel, SplitWords } from './primitives';
  * Section « portails » façon Oakline : l'image de fond reste FIXE pendant
  * que le contenu défile par-dessus (background-attachment: fixed sur
  * desktop ; fallback scroll natif sur iOS qui ne supporte pas fixed).
- * Logos des portails réels de diffusion — liens repris de HomeSections.tsx.
+ * Logos des portails réels de diffusion: liens repris de HomeSections.tsx.
  */
 
 const PORTALS = [
@@ -68,7 +68,7 @@ export const PortalsParallax: React.FC = () => (
         <p className="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/85 md:text-lg">
           Photos professionnelles, reportage vidéo et mise en ligne sur plus de
           40 portails : votre bien est vu immédiatement par des acquéreurs
-          qualifiés — frontaliers et internationaux.
+          qualifiés: frontaliers et internationaux.
         </p>
       </Reveal>
 

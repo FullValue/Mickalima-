@@ -63,7 +63,7 @@ export const PrixImmobilierPage: React.FC = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
-      name: 'Mickaël Lima — L’agence Immo',
+      name: 'Mickaël Lima: L’agence Immo',
       url: 'https://mickael-lima.immo',
       telephone: '+33769313502',
       address: {
@@ -87,15 +87,15 @@ export const PrixImmobilierPage: React.FC = () => {
         bestRating: '5',
         worstRating: '1',
       },
-      description: `Prix immobilier ${commune.name} en ${year} — fourchettes par type de bien, évolution du marché et contexte frontalier.`,
+      description: `Prix immobilier ${commune.name} en ${year}: fourchettes par type de bien, évolution du marché et contexte frontalier.`,
     },
   ];
 
   return (
     <>
       <SEO
-        title={`Prix immobilier ${commune.name} en ${year} — Appartements & Maisons | Mickaël Lima`}
-        description={`Prix au m² à ${commune.name} (${commune.cp}) en ${year} : ${commune.prixApptMin.toLocaleString('fr-FR')}–${commune.prixApptMax.toLocaleString('fr-FR')} €/m² (appt), ${commune.prixMaisonMin.toLocaleString('fr-FR')}–${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² (maison). Évolution, marché frontalier et comparatif communes voisines.`}
+        title={`Prix immobilier ${commune.name} en ${year}: Appartements & Maisons | Mickaël Lima`}
+        description={`Prix au m² à ${commune.name} (${commune.cp}) en ${year} : ${commune.prixApptMin.toLocaleString('fr-FR')}-${commune.prixApptMax.toLocaleString('fr-FR')} €/m² (appt), ${commune.prixMaisonMin.toLocaleString('fr-FR')}-${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² (maison). Évolution, marché frontalier et comparatif communes voisines.`}
         canonical={`/prix-immobilier/${commune.slug}`}
         schema={schema}
       />
@@ -171,7 +171,7 @@ export const PrixImmobilierPage: React.FC = () => {
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Appartements</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} – {commune.prixApptMax.toLocaleString('fr-FR')}
+                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
@@ -182,7 +182,7 @@ export const PrixImmobilierPage: React.FC = () => {
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Maisons</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixMaisonMin.toLocaleString('fr-FR')} – {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                    {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
@@ -282,10 +282,10 @@ export const PrixImmobilierPage: React.FC = () => {
                       <tr className="border-b border-primary/10 bg-primary/5">
                         <td className="py-5 pr-6 font-bold text-primary">{commune.name}</td>
                         <td className="py-5 pr-6 font-medium text-textMain">
-                          {commune.prixApptMin.toLocaleString('fr-FR')} – {commune.prixApptMax.toLocaleString('fr-FR')}
+                          {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
                         </td>
                         <td className="py-5 pr-6 font-medium text-textMain">
-                          {commune.prixMaisonMin.toLocaleString('fr-FR')} – {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                          {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
                         </td>
                         <td className="py-5 pr-6 font-medium text-textMain">{commune.delaiMoyen} j</td>
                         <td className="py-5 font-medium text-textMain">{commune.distanceGeneve}</td>
@@ -302,10 +302,10 @@ export const PrixImmobilierPage: React.FC = () => {
                             </Link>
                           </td>
                           <td className="py-5 pr-6 text-gray-600">
-                            {v.prixApptMin.toLocaleString('fr-FR')} – {v.prixApptMax.toLocaleString('fr-FR')}
+                            {v.prixApptMin.toLocaleString('fr-FR')} à {v.prixApptMax.toLocaleString('fr-FR')}
                           </td>
                           <td className="py-5 pr-6 text-gray-600">
-                            {v.prixMaisonMin.toLocaleString('fr-FR')} – {v.prixMaisonMax.toLocaleString('fr-FR')}
+                            {v.prixMaisonMin.toLocaleString('fr-FR')} à {v.prixMaisonMax.toLocaleString('fr-FR')}
                           </td>
                           <td className="py-5 pr-6 text-gray-600">{v.delaiMoyen} j</td>
                           <td className="py-5 text-gray-600">{v.distanceGeneve}</td>

@@ -15,7 +15,7 @@ export const EASE: [number, number, number, number] = [0.44, 0, 0.3, 0.99];
 export const VIEWPORT_ONCE = { once: true, margin: '-80px' } as const;
 
 /* ------------------------------------------------------------------ */
-/* Reveal — apparition au scroll : opacity .001→1, blur(10px)→0, y→0   */
+/* Reveal: apparition au scroll : opacity .001→1, blur(10px)→0, y→0   */
 /* ------------------------------------------------------------------ */
 interface RevealProps {
   children: React.ReactNode;
@@ -48,7 +48,7 @@ export const Reveal: React.FC<RevealProps> = ({
 };
 
 /* ------------------------------------------------------------------ */
-/* SplitWords — titre animé mot par mot (stagger)                      */
+/* SplitWords: titre animé mot par mot (stagger)                      */
 /* Le texte complet est fourni aux lecteurs d'écran via sr-only ;      */
 /* les mots animés sont aria-hidden.                                   */
 /* ------------------------------------------------------------------ */
@@ -108,7 +108,7 @@ export const SplitWords: React.FC<SplitWordsProps> = ({
 };
 
 /* ------------------------------------------------------------------ */
-/* SectionLabel — micro-label pilule au-dessus des titres              */
+/* SectionLabel: micro-label pilule au-dessus des titres              */
 /* ------------------------------------------------------------------ */
 interface SectionLabelProps {
   children: React.ReactNode;
@@ -145,7 +145,7 @@ export const SectionLabel: React.FC<SectionLabelProps> = ({
 );
 
 /* ------------------------------------------------------------------ */
-/* PillButton — bouton pilule (solid bleu / ghost clair / light blanc) */
+/* PillButton: bouton pilule (solid bleu / ghost clair / light blanc) */
 /* Rend un Link (to), un <a> (href) ou un <button>.                    */
 /* ------------------------------------------------------------------ */
 type PillVariant = 'solid' | 'ghost' | 'light';
@@ -236,7 +236,7 @@ export const PillButton: React.FC<PillButtonProps> = ({
 };
 
 /* ------------------------------------------------------------------ */
-/* SectionHeader — label + titre + sous-titre sur 2 colonnes           */
+/* SectionHeader: label + titre + sous-titre sur 2 colonnes           */
 /* ------------------------------------------------------------------ */
 interface SectionHeaderProps {
   label: string;

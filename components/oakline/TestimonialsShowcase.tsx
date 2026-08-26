@@ -5,7 +5,7 @@ import { PillButton, Reveal, SectionHeader } from './primitives';
 
 /**
  * Avis clients : photo pleine largeur avec note agrégée Google (5,0/5,
- * 25 avis vérifiés) puis slider autoplay des cartes d'avis — défilement
+ * 25 avis vérifiés) puis slider autoplay des cartes d'avis: défilement
  * lent droite→gauche, pause au survol, fondu doux sur les bords.
  * (Données réelles Google ; citations individuelles à valider.)
  */
@@ -23,25 +23,25 @@ const TESTIMONIALS: Testimonial[] = [
     quote:
       'Un accompagnement remarquable du premier appel à la signature. Estimation juste, photos sublimes, acheteur sérieux en trois semaines.',
     name: 'Sophie D.',
-    context: 'Vendeuse — Divonne-les-Bains',
+    context: 'Vendeuse: Divonne-les-Bains',
   },
   {
     quote:
       'Frontalier, je cherchais depuis des mois. Mickaël a compris exactement notre projet et déniché la maison qu’il nous fallait, côté français.',
     name: 'Laurent & Céline M.',
-    context: 'Acquéreurs — Saint-Genis-Pouilly',
+    context: 'Acquéreurs: Saint-Genis-Pouilly',
   },
   {
     quote:
       'Rigueur, disponibilité, discrétion. Tout a été géré avec un professionnalisme rare, y compris la partie administrative avec la Suisse.',
     name: 'Catherine R.',
-    context: 'Vendeuse — Ferney-Voltaire',
+    context: 'Vendeuse: Ferney-Voltaire',
   },
   {
     quote:
       'Estimation réaliste dès le départ, aucune promesse en l’air. Résultat : vendu au prix demandé, dans les délais annoncés.',
     name: 'Jean-Marc P.',
-    context: 'Vendeur — Gex',
+    context: 'Vendeur: Gex',
   },
 ];
 
@@ -59,7 +59,7 @@ export const TestimonialsShowcase: React.FC = () => (
       <SectionHeader
         label="Avis clients"
         title="Ils m'ont confié leur projet"
-        subtitle="Vendeurs et acquéreurs du Pays de Gex partagent leur expérience — la confiance se construit transaction après transaction."
+        subtitle="Vendeurs et acquéreurs du Pays de Gex partagent leur expérience: la confiance se construit transaction après transaction."
       />
 
       {/* Photo pleine largeur + note agrégée Google */}
@@ -84,7 +84,7 @@ export const TestimonialsShowcase: React.FC = () => (
             </p>
             <p className="mt-3 text-sm leading-relaxed text-white/80 md:text-base">
               Sur <span className="font-semibold text-white">25 avis Google
-              vérifiés</span> — clientèle du Pays de Gex et du bassin genevois.
+              vérifiés</span>: clientèle du Pays de Gex et du bassin genevois.
             </p>
             <PillButton
               href={GOOGLE_REVIEWS_URL}

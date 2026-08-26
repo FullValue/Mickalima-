@@ -4,7 +4,7 @@ import { SEO } from './SEO';
 const MENTIONS_LEGALES_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Mentions légales — Mickaël Lima',
+  name: 'Mentions légales: Mickaël Lima',
   url: 'https://mickael-lima.immo/mentions-legales/',
   publisher: {
     '@type': 'Person',
@@ -16,7 +16,7 @@ const MENTIONS_LEGALES_SCHEMA = {
 export const MentionsLegales: React.FC = () => (
   <>
     <SEO
-      title="Mentions légales — Mickaël Lima"
+      title="Mentions légales: Mickaël Lima"
       description="Mentions légales de mickael-lima.immo : éditeur, hébergeur, responsable de publication, données personnelles."
       canonical="/mentions-legales"
       schema={MENTIONS_LEGALES_SCHEMA}
@@ -34,7 +34,7 @@ export const MentionsLegales: React.FC = () => (
             <ul className="space-y-1.5 text-base">
               <li><strong className="font-semibold">Nom :</strong> Mickaël Lima (Michael Lima dos Santos)</li>
               <li><strong className="font-semibold">Qualité :</strong> Agent commercial immobilier indépendant</li>
-              <li><strong className="font-semibold">Mandant :</strong> L’agence Immo — <a href="https://lagenceimmo01.fr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">lagenceimmo01.fr</a></li>
+              <li><strong className="font-semibold">Mandant :</strong> L’agence Immo: <a href="https://lagenceimmo01.fr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">lagenceimmo01.fr</a></li>
               <li><strong className="font-semibold">Adresse :</strong> 328 Rue des Fontanettes, 01220 Divonne-les-Bains</li>
               <li><strong className="font-semibold">Téléphone :</strong> <a href="tel:+33769313502" className="text-primary hover:underline">07 69 31 35 02</a></li>
               <li><strong className="font-semibold">Email :</strong> <a href="mailto:contact@mickael-lima.immo" className="text-primary hover:underline">contact@mickael-lima.immo</a></li>
@@ -43,7 +43,7 @@ export const MentionsLegales: React.FC = () => (
 
           <section>
             <h2 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Responsable de la publication</h2>
-            <p className="text-base">Mickaël Lima — joignable aux coordonnées ci-dessus.</p>
+            <p className="text-base">Mickaël Lima: joignable aux coordonnées ci-dessus.</p>
           </section>
 
           <section>

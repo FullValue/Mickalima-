@@ -63,7 +63,7 @@ export const CommuneEstimationPage: React.FC = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
-      name: 'Mickaël Lima — L’agence Immo',
+      name: 'Mickaël Lima: L’agence Immo',
       url: 'https://mickael-lima.immo',
       telephone: '+33769313502',
       address: {
@@ -109,8 +109,8 @@ export const CommuneEstimationPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`Estimation Immobilière ${commune.name} — Prix m² ${year} | Mickaël Lima`}
-        description={`Estimation gratuite de votre bien à ${commune.name} (${commune.cp}). Prix au m² : ${commune.prixApptMin.toLocaleString('fr-FR')}–${commune.prixApptMax.toLocaleString('fr-FR')} €/m² (appt), ${commune.prixMaisonMin.toLocaleString('fr-FR')}–${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² (maison). Délai moyen : ${commune.delaiMoyen} jours. Réponse sous 48h.`}
+        title={`Estimation Immobilière ${commune.name}: Prix m² ${year} | Mickaël Lima`}
+        description={`Estimation gratuite de votre bien à ${commune.name} (${commune.cp}). Prix au m² : ${commune.prixApptMin.toLocaleString('fr-FR')}-${commune.prixApptMax.toLocaleString('fr-FR')} €/m² (appt), ${commune.prixMaisonMin.toLocaleString('fr-FR')}-${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² (maison). Délai moyen : ${commune.delaiMoyen} jours. Réponse sous 48h.`}
         canonical={`/${commune.slug}/estimation-immobiliere`}
         schema={schema}
       />
@@ -188,7 +188,7 @@ export const CommuneEstimationPage: React.FC = () => {
                     Appartements
                   </p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} – {commune.prixApptMax.toLocaleString('fr-FR')}
+                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
@@ -201,7 +201,7 @@ export const CommuneEstimationPage: React.FC = () => {
                     Maisons
                   </p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixMaisonMin.toLocaleString('fr-FR')} – {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                    {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
@@ -407,7 +407,7 @@ export const CommuneEstimationPage: React.FC = () => {
                     <div>
                       <p className="font-bold text-textMain text-lg group-hover:text-primary transition-colors">{voisine.name}</p>
                       <p className="text-gray-400 text-sm font-light mt-0.5">
-                        {voisine.distanceGeneve} · {voisine.prixApptMin.toLocaleString('fr-FR')}–{voisine.prixApptMax.toLocaleString('fr-FR')} €/m²
+                        {voisine.distanceGeneve} · {voisine.prixApptMin.toLocaleString('fr-FR')}-{voisine.prixApptMax.toLocaleString('fr-FR')} €/m²
                       </p>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all shrink-0">
@@ -443,7 +443,7 @@ export const CommuneEstimationPage: React.FC = () => {
                 Analyse complète du Pays de Gex
               </h3>
               <p className="text-gray-500 font-light mt-2">
-                Prix par commune, délais, dynamiques frontalières — tout est dans l'observatoire.
+                Prix par commune, délais, dynamiques frontalières: tout est dans l'observatoire.
               </p>
             </div>
             <Link

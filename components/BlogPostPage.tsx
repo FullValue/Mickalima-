@@ -50,7 +50,7 @@ export const BlogPostPage: React.FC = () => {
     },
     publisher: {
       '@type': 'Organization',
-      name: "Mickaël Lima — L’agence Immo",
+      name: "Mickaël Lima: L’agence Immo",
       url: 'https://mickael-lima.immo',
       logo: {
         '@type': 'ImageObject',
@@ -70,7 +70,7 @@ export const BlogPostPage: React.FC = () => {
   return (
     <>
     <SEO
-      title={`${post.title} — Mickaël Lima`}
+      title={`${post.title}: Mickaël Lima`}
       description={post.excerpt}
       canonical={`/blog/${post.slug}`}
       ogImage={post.image}

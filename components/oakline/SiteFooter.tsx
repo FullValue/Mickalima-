@@ -5,7 +5,7 @@ import { IMAGES, NAV_ITEMS } from '../../constants';
 import { PillButton } from './primitives';
 
 /**
- * Footer sombre #011d41 de la refonte — utilisé sur toutes les routes
+ * Footer sombre #011d41 de la refonte: utilisé sur toutes les routes
  * SAUF /nos-biens* (qui conserve RevalisFooter, non modifié).
  * Newsletter pilule (web3forms), colonnes Pages / Services / Légal,
  * coordonnées, socials LinkedIn + Google, copyright Mickaël Lima.
@@ -49,7 +49,7 @@ const NewsletterForm: React.FC = () => {
     setStatus('loading');
     const formData = new FormData(e.currentTarget);
     formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-    formData.append('subject', 'Newsletter — mickael-lima.immo');
+    formData.append('subject', 'Newsletter: mickael-lima.immo');
     formData.append('from_name', 'mickael-lima.immo');
     formData.append('botcheck', '');
     try {
@@ -117,7 +117,7 @@ const NewsletterForm: React.FC = () => {
         )}
         {status === 'error' && (
           <p role="alert" className="text-red-300">
-            Une erreur est survenue — réessayez ou écrivez-moi directement.
+            Une erreur est survenue: réessayez ou écrivez-moi directement.
           </p>
         )}
       </div>
@@ -140,7 +140,7 @@ export const SiteFooter: React.FC = () => (
       <div className="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {/* Marque */}
         <div>
-          <Link to="/" aria-label="Mickaël Lima — Accueil" className="inline-block">
+          <Link to="/" aria-label="Mickaël Lima: Accueil" className="inline-block">
             <img
               src={IMAGES.logoWhite}
               alt=""
@@ -181,7 +181,7 @@ export const SiteFooter: React.FC = () => (
               href={GOOGLE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Avis Google — Mickaël Lima"
+              aria-label="Avis Google: Mickaël Lima"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10 font-serif text-base font-semibold transition-colors hover:bg-white hover:text-[#011d41]"
             >
               G
@@ -274,7 +274,7 @@ export const SiteFooter: React.FC = () => (
 
       {/* Barre basse */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-6 text-sm text-white/55">
-        <span>© 2026 Mickaël Lima — L'agence Immo. Tous droits réservés.</span>
+        <span>© 2026 Mickaël Lima: L'agence Immo. Tous droits réservés.</span>
         <PillButton to="/estimation" variant="light" arrow className="!px-5 !py-2.5 text-xs">
           Estimation offerte
         </PillButton>

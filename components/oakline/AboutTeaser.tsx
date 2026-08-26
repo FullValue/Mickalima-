@@ -4,7 +4,7 @@ import { AGENT_PHOTO } from '../nosBiensShared';
 import { PillButton, Reveal, SectionLabel, SplitWords } from './primitives';
 
 /**
- * Section « À propos » — positionnement premium éditorial (codes Barnes,
+ * Section « À propos »: positionnement premium éditorial (codes Barnes,
  * Knight Frank, Daniel Féau) : grand portrait à cadre décalé, chips de
  * preuve sociale (ventes + note Google), titre serif romain/italique,
  * et trois différenciateurs en liste à filets fins numérotés.
@@ -29,7 +29,7 @@ export const AboutTeaser: React.FC = () => (
   <section className="bg-white py-24 md:py-36">
     <div className="container mx-auto px-6">
       <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-20">
-        {/* Portrait — cadre décalé + chips de preuve */}
+        {/* Portrait: cadre décalé + chips de preuve */}
         <Reveal className="lg:col-span-5">
           <div className="relative mx-auto max-w-md lg:max-w-none">
             {/* Cadre décoratif décalé (filet bleu) */}
@@ -49,7 +49,7 @@ export const AboutTeaser: React.FC = () => (
             <div className="absolute -bottom-8 left-4 rounded-2xl bg-white p-5 shadow-[0_20px_50px_-20px_rgba(1,29,65,0.45)] sm:left-8">
               <p className="font-serif text-3xl leading-none text-[#011d41]">240</p>
               <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-500">
-                Ventes — 5 dernières années
+                Ventes: 5 dernières années
               </p>
             </div>
 
@@ -83,12 +83,12 @@ export const AboutTeaser: React.FC = () => (
             <p className="mt-7 max-w-xl text-base leading-relaxed text-gray-500 md:text-lg">
               Mickaël Lima accompagne vendeurs et acquéreurs exigeants dans le
               Pays de Gex et le bassin genevois. Chaque mandat est mené comme
-              une pièce sur mesure — présentation soignée, stratégie ciblée,
+              une pièce sur mesure: présentation soignée, stratégie ciblée,
               négociation tenue.
             </p>
           </Reveal>
 
-          {/* Différenciateurs — filets fins numérotés */}
+          {/* Différenciateurs: filets fins numérotés */}
           <div className="mt-10 max-w-xl">
             {DIFFERENTIATORS.map((item, i) => (
               <Reveal key={item.title} delay={0.2 + i * 0.08}>

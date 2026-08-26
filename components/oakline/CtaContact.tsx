@@ -34,7 +34,7 @@ export const CtaContact: React.FC = () => {
 
     const formData = new FormData(e.currentTarget);
     formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-    formData.append('subject', "Contact page d'accueil — mickael-lima.immo");
+    formData.append('subject', "Contact page d'accueil: mickael-lima.immo");
     formData.append('from_name', 'mickael-lima.immo');
     formData.append('botcheck', '');
 
@@ -243,7 +243,7 @@ export const CtaContact: React.FC = () => {
               <div aria-live="polite" className="mt-4 min-h-[1.5rem] text-sm">
                 {status === 'success' && (
                   <p role="status" className="rounded-2xl bg-green-50 px-4 py-3 text-green-700">
-                    Merci ! Votre message a bien été envoyé — je vous réponds
+                    Merci ! Votre message a bien été envoyé: je vous réponds
                     sous 48h.
                   </p>
                 )}

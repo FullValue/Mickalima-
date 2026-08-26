@@ -19,7 +19,7 @@ import { T, AGENT_PHOTO, ListingCard, RevalisFooter, NBProperty, formatPrice, fo
 import { BIENS } from './biensData';
 
 /**
- * Page détail d'un bien — DA du template Framer Revalis (page listing) :
+ * Page détail d'un bien: DA du template Framer Revalis (page listing) :
  * galerie hero 1+3 avec lightbox slider, colonne gauche sticky (titre, prix,
  * infos, formulaire avec pastille Mickaël), carte blanche (Détails,
  * Points forts, Caractéristiques, DPE, Galerie), marquee « Plus de biens ».
@@ -64,13 +64,13 @@ const ContactCard: React.FC<{ property: NBProperty }> = ({ property }) => (
       Parlez avec votre agent !
     </h3>
     <p style={{ fontFamily: T.body, fontSize: 15, color: T.muted, margin: '8px 0 24px' }}>
-      Mickaël Lima — réponse en moins d'une heure
+      Mickaël Lima: réponse en moins d'une heure
     </p>
     <form
       onSubmit={(e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
-        const subject = encodeURIComponent(`Demande — ${property.typeLabel} ${property.city} (réf. ${property.ref})`);
+        const subject = encodeURIComponent(`Demande: ${property.typeLabel} ${property.city} (réf. ${property.ref})`);
         const bodyTxt = encodeURIComponent(
           `Nom : ${data.get('name')}\nEmail : ${data.get('email')}\nTéléphone : ${data.get('phone')}\n\n${data.get('message')}`
         );
@@ -263,8 +263,8 @@ export const NosBiensDetail: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${property.typeLabel} ${property.city} — ${property.status === 'Vendu' ? 'Vendu' : formatPrice(property.price)} | Nos Biens`}
-        description={`${property.title} — ${[
+        title={`${property.typeLabel} ${property.city}: ${property.status === 'Vendu' ? 'Vendu' : formatPrice(property.price)} | Nos Biens`}
+        description={`${property.title}: ${[
           property.surface ? `${formatSurface(property.surface)}` : null,
           property.bedrooms ? `${property.bedrooms} chambres` : null,
           property.land ? `terrain ${formatSurface(property.land)}` : null,
@@ -284,7 +284,7 @@ export const NosBiensDetail: React.FC = () => {
             >
               <img
                 src={photos[0]}
-                alt={`${property.typeLabel} à ${property.city} — vue principale`}
+                alt={`${property.typeLabel} à ${property.city}: vue principale`}
                 width="1200"
                 height="900"
                 loading="eager"
@@ -309,7 +309,7 @@ export const NosBiensDetail: React.FC = () => {
               >
                 <img
                   src={heroSide[0]}
-                  alt={`${property.typeLabel} à ${property.city} — photo 2`}
+                  alt={`${property.typeLabel} à ${property.city}: photo 2`}
                   width="800"
                   height="500"
                   loading="lazy"
@@ -326,7 +326,7 @@ export const NosBiensDetail: React.FC = () => {
                 >
                   <img
                     src={heroSide[1]}
-                    alt={`${property.typeLabel} à ${property.city} — photo 3`}
+                    alt={`${property.typeLabel} à ${property.city}: photo 3`}
                     width="500"
                     height="380"
                     loading="lazy"
@@ -376,7 +376,7 @@ export const NosBiensDetail: React.FC = () => {
                 <MapPin size={17} aria-hidden="true" /> {property.city} ({property.cp})
               </p>
               <h1 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(32px, 3vw, 44px)', lineHeight: '1.12em', color: T.dark }}>
-                {property.typeLabel} — {property.city}
+                {property.typeLabel}: {property.city}
               </h1>
               {property.status !== 'Vendu' && (
                 <p style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(28px, 2.6vw, 38px)', margin: '10px 0 0' }}>
@@ -467,7 +467,7 @@ export const NosBiensDetail: React.FC = () => {
                       >
                         <img
                           src={img}
-                          alt={`${property.typeLabel} à ${property.city} — photo ${5 + i}`}
+                          alt={`${property.typeLabel} à ${property.city}: photo ${5 + i}`}
                           width="600"
                           height="450"
                           loading="lazy"

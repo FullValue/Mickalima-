@@ -7,7 +7,7 @@ import { PillButton, Reveal, SectionHeader } from './primitives';
 /**
  * Zones d'intervention : slider autoplay des communes (cartes image,
  * zoom au survol, lien vers le guide de prix). Défilement lent avec
- * fondu doux sur les bords — évite le long scroll sur mobile.
+ * fondu doux sur les bords: évite le long scroll sur mobile.
  */
 
 const formatEUR = (v: number) => new Intl.NumberFormat('fr-FR').format(v);
@@ -19,7 +19,7 @@ export const NeighborhoodsGrid: React.FC = () => (
       <SectionHeader
         label="Zones d'intervention"
         title="Le Pays de Gex, commune par commune"
-        subtitle="Connaissance fine de chaque marché local : prix pratiqués, délais de vente, profils d'acheteurs — de Ferney-Voltaire à Cessy."
+        subtitle="Connaissance fine de chaque marché local : prix pratiqués, délais de vente, profils d'acheteurs: de Ferney-Voltaire à Cessy."
       />
     </div>
 
@@ -63,7 +63,7 @@ export const NeighborhoodsGrid: React.FC = () => (
               </p>
               <h3 className="mt-2 font-serif text-2xl tracking-tight">{commune.name}</h3>
               <p className="mt-2 text-sm text-white/75">
-                Appartements {formatEUR(commune.prixApptMin)}–
+                Appartements {formatEUR(commune.prixApptMin)}-
                 {formatEUR(commune.prixApptMax)} €/m²
               </p>
             </div>

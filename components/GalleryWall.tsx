@@ -4,7 +4,7 @@ import React from 'react';
  * Mur d'images animé (style Pinterest) : 4 colonnes qui défilent verticalement
  * en boucle, sens alterné, pause au survol. Contenu dupliqué dans chaque
  * colonne pour une boucle sans raccord (translateY -50 %).
- * Images : sélection des biens (démo Revalis) — à remplacer au rebranding.
+ * Images : sélection des biens (démo Revalis): à remplacer au rebranding.
  */
 
 interface GWColumn {
