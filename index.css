@@ -5,8 +5,16 @@
 /* Typographie unifiée : titres en Playfair Display,
    tout le reste en Inter, avec le fallback Framer Inter Placeholder. */
 @layer base {
+  html, body, #root {
+    font-family: 'Inter', 'Inter Placeholder', system-ui, -apple-system, sans-serif;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+  }
+
+  button, input, textarea, select {
+    font: inherit;
   }
 }
 
@@ -46,6 +54,11 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: hidden;
 }
 ::selection {
   background: #011d41;

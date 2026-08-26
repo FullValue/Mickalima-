@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { SEO } from './SEO';
-import { T, ListingCard, RevalisFooter } from './nosBiensShared';
+import { T, ListingCard } from './nosBiensShared';
 import { BIENS } from './biensData';
 
 /**
@@ -277,7 +277,6 @@ export const NosBiens: React.FC = () => {
 
         <div style={{ height: 70 }} />
 
-        <RevalisFooter />
       </div>
 
       <style>{`

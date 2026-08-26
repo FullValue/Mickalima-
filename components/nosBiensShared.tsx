@@ -16,7 +16,7 @@ export const T = {
   border: '#ebebeb',
   chipBg: '#f1f1f1',
   heading: '"Playfair Display", serif',
-  body: '"Inter", "Inter Placeholder", sans-serif',
+  body: '"Inter", "Inter Placeholder", system-ui, -apple-system, sans-serif',
 };
 
 export const AGENT_PHOTO = '/images/micka-photo.jpg';

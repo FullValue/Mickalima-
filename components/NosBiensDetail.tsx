@@ -15,7 +15,7 @@ import {
   X,
 } from 'lucide-react';
 import { SEO } from './SEO';
-import { T, AGENT_PHOTO, ListingCard, RevalisFooter, NBProperty, formatPrice, formatSurface } from './nosBiensShared';
+import { T, AGENT_PHOTO, ListingCard, NBProperty, formatPrice, formatSurface } from './nosBiensShared';
 import { BIENS } from './biensData';
 
 /**
@@ -506,7 +506,6 @@ export const NosBiensDetail: React.FC = () => {
           </div>
         </section>
 
-        <RevalisFooter />
       </div>
 
       {lightbox !== null && (
