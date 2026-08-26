@@ -1,20 +1,33 @@
 import React from 'react';
-import { Mail, Phone, MapPin, ArrowUpRight, Star, ArrowRight, MessageSquare, Clock, Globe, ShieldCheck, ChevronDown } from 'lucide-react';
+import {
+    Mail,
+    Phone,
+    MapPin,
+    Star,
+    MessageSquare,
+    Clock,
+    Globe,
+    ShieldCheck,
+    ChevronDown,
+    ArrowRight,
+} from 'lucide-react';
 import { SEO } from './SEO';
 import { IMAGES } from '../constants';
 import { buildWhatsappUrl, WHATSAPP_PATH } from './oakline/whatsapp';
 import { track } from './oakline/tracking';
 import { m } from 'framer-motion';
+import {
+    Reveal,
+    SectionLabel,
+    SectionHeader,
+    PillButton,
+} from './oakline/primitives';
 
-const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
-};
-
-const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-};
+/**
+ * Page Contact — alignée sur la DA « Oakline » (accueil / CtaContact) :
+ * mêmes labels pilules, mêmes champs arrondis, boutons pilule, reveals.
+ * Logique métier inchangée : Web3Forms, FAQ, WhatsApp, schema ContactPage.
+ */
 
 const CONTACT_SCHEMA = {
     '@context': 'https://schema.org',
@@ -35,6 +48,12 @@ const CONTACT_SCHEMA = {
         },
     },
 };
+
+/* Champs identiques à ceux du CTA de l'accueil (CtaContact). */
+const inputClass =
+    'w-full rounded-full border border-[#ebebeb] bg-[#fafafa] px-5 py-3.5 text-sm text-[#011d41] placeholder:text-gray-400 transition-colors focus:border-[#011d41] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#011d41]/10';
+const labelClass =
+    'mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-gray-500';
 
 export const ContactPage: React.FC = () => {
     const [activeFaq, setActiveFaq] = React.useState<number | null>(null);
@@ -104,8 +123,8 @@ export const ContactPage: React.FC = () => {
             schema={CONTACT_SCHEMA}
         />
         <div className="min-h-screen bg-white">
-            {/* Hero Section */}
-            <section className="relative min-h-[620px] flex items-center overflow-hidden bg-primary">
+            {/* ---------------------------------- HERO */}
+            <section className="relative flex min-h-[620px] items-center overflow-hidden bg-[#011d41] pt-20">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/images/contact-hero.jpg"
@@ -114,336 +133,365 @@ export const ContactPage: React.FC = () => {
                         loading="eager"
                         decoding="async"
                         alt="Contact"
-                        className="w-full h-full object-cover"
+                        className="h-full w-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/60 to-[#011d41]/10 z-10"></div>
+                    <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/60 to-[#011d41]/10" />
                 </div>
 
-                <div className="container mx-auto px-6 relative z-10 text-left text-white mt-16">
-                    <div className="flex items-center gap-7 text-white/90 text-sm font-bold uppercase tracking-[0.2em] mb-8 animate-fade-in-up">
-                        <span className="inline-flex items-center gap-2 whitespace-nowrap"><MessageSquare size={16} /> Contact & Échanges</span>
-                        <span aria-hidden="true" className="flex-1 h-px bg-white/25"></span>
-                    </div>
-                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-medium mb-6 leading-[1.05] tracking-tight animate-fade-in-up delay-100 break-words hyphens-auto">
-                        Votre projet commence <br />
-                        <span className="font-newsletter italic font-normal">ici.</span>
-                    </h1>
+                <div className="container relative z-20 mx-auto px-6 text-left text-white">
+                    <Reveal y={6}>
+                        <SectionLabel tone="light">Contact &amp; Échanges</SectionLabel>
+                    </Reveal>
+                    <Reveal delay={0.08}>
+                        <h1 className="mt-6 font-serif text-4xl leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">
+                            Votre projet commence
+                            <br />
+                            <span className="italic">ici.</span>
+                        </h1>
+                    </Reveal>
+                    <Reveal delay={0.16}>
+                        <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+                            Une question, une estimation, un projet de vente ?
+                            Réponse garantie sous 48h, déplacement sur site
+                            inclus dans tout le Pays de Gex.
+                        </p>
+                    </Reveal>
                 </div>
             </section>
 
-            <section className="py-20 relative overflow-hidden">
-                {/* Background elements */}
-                <div className="absolute top-0 right-0 w-1/3 h-[800px] bg-primary/5 skew-x-12 translate-x-1/2 opacity-50 pointer-events-none"></div>
+            {/* ---------------------------------- FORMULAIRE */}
+            <section className="relative overflow-hidden py-24 md:py-32">
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute right-0 top-0 h-[800px] w-1/3 translate-x-1/2 skew-x-12 bg-[#011d41]/5 opacity-50"
+                />
 
-                <div className="container mx-auto px-6 relative z-10 pt-10">
-
-                    {/* Main Container - Rounded Split Layout */}
-                    <m.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="flex flex-col lg:flex-row bg-white/80 backdrop-blur-2xl rounded-[10px] overflow-hidden min-h-[750px] border border-white/50"
-                    >
-
-                        {/* Left Side (Dark / Glassmorphism) */}
-                        <div className="lg:w-5/12 p-12 md:p-16 text-white flex flex-col justify-between relative overflow-hidden bg-primary">
-                            {/* Background Image with Overlay */}
-                            <div className="absolute inset-0 z-0">
-                                <img src={IMAGES.cardImage} alt="Contact bg" className="w-full h-full object-cover opacity-20 mix-blend-overlay grayscale" />
-                                <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/95 to-primary z-10"></div>
-                            </div>
-
-                            {/* Background Decor */}
-                            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none z-10"></div>
-
-                            <m.div
-                                variants={staggerContainer}
-                                initial="hidden"
-                                animate="visible"
-                                className="relative z-20"
-                            >
-                                {/* Pill Badge */}
-                                <m.div variants={fadeInUp} className="inline-flex items-center gap-3 border border-white/20 bg-white/5 backdrop-blur-md px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-12 shadow-sm">
-                                    <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-                                    Contact
-                                </m.div>
-
-                                <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.05] mb-8 break-words hyphens-auto">
-                                    Parlons de <br />
-                                    <span className="font-newsletter italic font-normal text-white">votre projet.</span>
-                                </m.h2>
-                                <m.p variants={fadeInUp} className="text-xl text-white/70 leading-relaxed max-w-sm mb-16 font-light">
-                                    Une question, une estimation, un projet de vente ? Je suis à votre écoute pour un échange confidentiel et sans engagement.
-                                </m.p>
-
-                                {/* Quick Contact Info embedded — 2 modes : appel direct + formulaire */}
-                                <m.div variants={staggerContainer} className="space-y-6 mb-16">
-                                    <m.a variants={fadeInUp} href="tel:+33769313502" className="flex items-center gap-5 group w-fit">
-                                        <div className="w-12 h-12 rounded-[10px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300">
-                                            <Phone size={20} />
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors block">07 69 31 35 02</span>
-                                            <span className="text-xs font-bold text-accent uppercase tracking-widest">Appel direct</span>
-                                        </div>
-                                    </m.a>
-                                    <m.a variants={fadeInUp} href="mailto:contact@mickael-lima.immo" className="flex items-center gap-5 group w-fit">
-                                        <div className="w-12 h-12 rounded-[10px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300">
-                                            <Mail size={20} />
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-xl tracking-wide group-hover:text-white/80 transition-colors block">contact@mickael-lima.immo</span>
-                                            <span className="text-xs font-bold text-accent uppercase tracking-widest">Réponse sous 24h</span>
-                                        </div>
-                                    </m.a>
-                                </m.div>
-                            </m.div>
-
-                            {/* Bottom Reviews */}
-                            <m.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.8, duration: 1 }}
-                                className="flex items-center gap-6 mt-auto relative z-20 pt-10 border-t border-white/10"
-                            >
-                                <div className="flex -space-x-4">
-                                    {[1, 2, 3].map((i) => (
-                                        <img
-                                            key={i}
-                                            src={`https://i.pravatar.cc/100?img=${i + 30}`}
-                                            alt="Client"
-                                            className="w-12 h-12 rounded-full border-2 border-primary object-cover"
-                                        />
-                                    ))}
+                <div className="container relative z-10 mx-auto px-6">
+                    <Reveal>
+                        <div className="flex min-h-[750px] flex-col overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white shadow-[0_40px_80px_-40px_rgba(1,29,65,0.25)] lg:flex-row">
+                            {/* Panneau gauche — navy */}
+                            <div className="relative flex flex-col justify-between overflow-hidden bg-[#011d41] p-10 text-white md:p-14 lg:w-5/12">
+                                <div className="absolute inset-0 z-0">
+                                    <img src={IMAGES.cardImage} alt="" aria-hidden="true" className="h-full w-full object-cover opacity-20 mix-blend-overlay grayscale" />
+                                    <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#011d41]/90 via-[#011d41]/95 to-[#011d41]" />
                                 </div>
-                                <div>
-                                    <div className="flex items-center gap-1 text-accent mb-1">
-                                        <Star size={16} fill="currentColor" />
-                                        <span className="font-bold text-white text-lg ml-2">5/5</span>
-                                    </div>
-                                    <p className="text-sm text-white/50 font-bold uppercase tracking-widest">25 Avis Clients</p>
-                                </div>
-                            </m.div>
-                        </div>
+                                <div
+                                    aria-hidden="true"
+                                    className="pointer-events-none absolute -translate-y-1/2 translate-x-1/2 top-0 right-0 z-10 h-96 w-96 rounded-full bg-white/5 blur-[100px]"
+                                />
 
-                        {/* Right Side (White Form) */}
-                        <div className="lg:w-7/12 bg-white p-12 md:p-16 flex flex-col justify-center relative">
-                            <m.form
-                                onSubmit={handleSubmit}
-                                variants={staggerContainer}
-                                initial="hidden"
-                                animate="visible"
-                                className="space-y-8 max-w-xl mx-auto w-full relative z-10"
-                            >
-                                {/* Web3Forms hidden inputs */}
-                                <input type="hidden" name="access_key" value="38f90cdc-9f17-48ef-bae6-f94e9b44e41f" />
-                                <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+                                <div className="relative z-20">
+                                    <SectionLabel tone="light">Contact</SectionLabel>
 
-                                <m.div variants={fadeInUp} className="space-y-3">
-                                    <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Nom complet</label>
-                                    <input
-                                        type="text"
-                                        name="nom"
-                                        required
-                                        placeholder="ex: Jean Dupont"
-                                        className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
-                                    />
-                                </m.div>
+                                    <h2 className="mt-8 font-serif text-4xl leading-[1.08] tracking-tight md:text-5xl">
+                                        Parlons de
+                                        <br />
+                                        <span className="italic">votre projet.</span>
+                                    </h2>
+                                    <p className="mb-12 mt-6 max-w-sm leading-relaxed text-white/70">
+                                        Une question, une estimation, un projet
+                                        de vente ? Je suis à votre écoute pour
+                                        un échange confidentiel et sans
+                                        engagement.
+                                    </p>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <m.div variants={fadeInUp} className="space-y-3">
-                                        <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Email</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            required
-                                            placeholder="jean@exemple.com"
-                                            className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
-                                        />
-                                    </m.div>
-                                    <m.div variants={fadeInUp} className="space-y-3">
-                                        <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Téléphone</label>
-                                        <input
-                                            type="tel"
-                                            name="telephone"
-                                            required
-                                            placeholder="06 12 34 56 78"
-                                            className="w-full bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all placeholder:text-gray-400 shadow-sm"
-                                        />
-                                    </m.div>
-                                </div>
-
-                                <m.div variants={fadeInUp} className="space-y-3">
-                                    <label className="text-textMain font-bold text-sm uppercase tracking-widest ml-1 text-gray-500">Message</label>
-                                    <textarea
-                                        name="message"
-                                        required
-                                        placeholder="Parlez-nous de votre projet..."
-                                        className="w-full h-40 bg-surface border-2 border-transparent focus:border-primary/20 hover:border-gray-200 rounded-[10px] p-5 text-lg font-medium outline-none transition-all resize-none placeholder:text-gray-400 shadow-sm"
-                                    ></textarea>
-                                </m.div>
-
-                                <m.button type="submit" disabled={status === 'loading'} variants={fadeInUp} className="group w-full bg-white text-textMain border border-gray-200 rounded-full p-2 pr-8 font-bold text-xl flex items-center gap-4 hover:bg-gray-50 transition-all duration-500 shadow-sm transform hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
-                                    <div className="w-14 h-14 bg-textMain text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
-                                        <ArrowUpRight size={24} />
-                                    </div>
-                                    <span className="tracking-wide">{status === 'loading' ? 'Envoi en cours…' : 'Envoyer la demande'}</span>
-                                </m.button>
-
-                                {status === 'success' && (
-                                    <div className="mt-2 text-center">
-                                        <p className="font-medium text-green-600">
-                                            ✅ Message envoyé ! Notre équipe vous recontacte sous 24h.
-                                        </p>
-                                        <a
-                                            href={buildWhatsappUrl("Bonjour, je viens de vous transmettre une demande d'estimation depuis votre site.")}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            onClick={() => track('whatsapp_click_post_estimation', { page: '/contact' })}
-                                            className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
-                                        >
-                                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4"><path d={WHATSAPP_PATH} /></svg>
-                                            Continuer sur WhatsApp
+                                    {/* Accès rapides : appel direct + email */}
+                                    <div className="space-y-6">
+                                        <a href="tel:+33769313502" className="group flex w-fit items-center gap-5">
+                                            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 backdrop-blur-md transition-colors duration-300 group-hover:bg-white group-hover:text-[#011d41]">
+                                                <Phone size={18} />
+                                            </span>
+                                            <span>
+                                                <span className="block font-semibold tracking-wide transition-colors group-hover:text-white/80">07 69 31 35 02</span>
+                                                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Appel direct</span>
+                                            </span>
+                                        </a>
+                                        <a href="mailto:contact@mickael-lima.immo" className="group flex w-fit items-center gap-5">
+                                            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 backdrop-blur-md transition-colors duration-300 group-hover:bg-white group-hover:text-[#011d41]">
+                                                <Mail size={18} />
+                                            </span>
+                                            <span>
+                                                <span className="block font-semibold tracking-wide transition-colors group-hover:text-white/80">contact@mickael-lima.immo</span>
+                                                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Réponse sous 24h</span>
+                                            </span>
                                         </a>
                                     </div>
-                                )}
-                                {status === 'error' && (
-                                    <p className="text-red-500 font-medium mt-2 text-center">
-                                        Une erreur est survenue. Appelez directement le <a href="tel:+33769313502" className="underline">07 69 31 35 02</a>.
-                                    </p>
-                                )}
-                                {status === 'loading' && (
-                                    <p className="text-gray-400 font-medium mt-2 text-center">
-                                        Envoi en cours...
-                                    </p>
-                                )}
+                                </div>
 
-                            </m.form>
+                                {/* Avis clients */}
+                                <div className="relative z-20 mt-12 flex items-center gap-6 border-t border-white/10 pt-10">
+                                    <div className="flex -space-x-4">
+                                        {[1, 2, 3].map((i) => (
+                                            <img
+                                                key={i}
+                                                src={`https://i.pravatar.cc/100?img=${i + 30}`}
+                                                alt=""
+                                                aria-hidden="true"
+                                                loading="lazy"
+                                                className="h-12 w-12 rounded-full border-2 border-[#011d41] object-cover"
+                                            />
+                                        ))}
+                                    </div>
+                                    <div>
+                                        <div className="mb-1 flex items-center gap-1 text-white">
+                                            <Star size={16} fill="currentColor" className="text-white" aria-hidden="true" />
+                                            <span className="ml-2 font-semibold text-lg">5/5</span>
+                                        </div>
+                                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">25 avis clients</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Panneau droit — formulaire */}
+                            <div className="relative flex flex-col justify-center bg-white p-10 md:p-14 lg:w-7/12">
+                                <m.form
+                                    onSubmit={handleSubmit}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.2 }}
+                                    className="relative z-10 mx-auto w-full max-w-xl space-y-6"
+                                >
+                                    {/* Web3Forms */}
+                                    <input type="hidden" name="access_key" value="38f90cdc-9f17-48ef-bae6-f94e9b44e41f" />
+                                    <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+
+                                    <div>
+                                        <label htmlFor="contact-nom" className={labelClass}>Nom complet *</label>
+                                        <input
+                                            id="contact-nom"
+                                            type="text"
+                                            name="nom"
+                                            required
+                                            autoComplete="name"
+                                            placeholder="Votre nom"
+                                            className={inputClass}
+                                        />
+                                    </div>
+
+                                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                                        <div>
+                                            <label htmlFor="contact-email" className={labelClass}>Email *</label>
+                                            <input
+                                                id="contact-email"
+                                                type="email"
+                                                name="email"
+                                                required
+                                                autoComplete="email"
+                                                placeholder="vous@exemple.fr"
+                                                className={inputClass}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="contact-tel" className={labelClass}>Téléphone *</label>
+                                            <input
+                                                id="contact-tel"
+                                                type="tel"
+                                                name="telephone"
+                                                required
+                                                autoComplete="tel"
+                                                placeholder="06 00 00 00 00"
+                                                className={inputClass}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor="contact-message" className={labelClass}>Message *</label>
+                                        <textarea
+                                            id="contact-message"
+                                            name="message"
+                                            required
+                                            rows={5}
+                                            placeholder="Parlez-moi de votre projet…"
+                                            className={`${inputClass} resize-none rounded-[20px]`}
+                                        />
+                                    </div>
+
+                                    <PillButton
+                                        type="submit"
+                                        variant="solid"
+                                        disabled={status === 'loading'}
+                                        className="w-full"
+                                    >
+                                        {status === 'loading' ? 'Envoi en cours…' : 'Envoyer la demande'}
+                                    </PillButton>
+
+                                    <div aria-live="polite" className="min-h-[1.5rem] text-sm">
+                                        {status === 'success' && (
+                                            <div role="status" className="rounded-2xl bg-green-50 px-4 py-3 text-green-700">
+                                                <p>Merci ! Votre message a bien été envoyé — réponse sous 24h.</p>
+                                                <a
+                                                    href={buildWhatsappUrl("Bonjour, je viens de vous transmettre une demande d'estimation depuis votre site.")}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    onClick={() => track('whatsapp_click_post_estimation', { page: '/contact' })}
+                                                    className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                                                >
+                                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4"><path d={WHATSAPP_PATH} /></svg>
+                                                    Continuer sur WhatsApp
+                                                </a>
+                                            </div>
+                                        )}
+                                        {status === 'error' && (
+                                            <p role="alert" className="rounded-2xl bg-red-50 px-4 py-3 text-red-700">
+                                                Une erreur est survenue. Appelez-moi directement au{' '}
+                                                <a href="tel:+33769313502" className="font-semibold underline">07 69 31 35 02</a>.
+                                            </p>
+                                        )}
+                                    </div>
+                                </m.form>
+                            </div>
                         </div>
-
-                    </m.div>
+                    </Reveal>
                 </div>
             </section>
 
-            {/* --- NOUVELLES SECTIONS --- */}
-
-            {/* Section Engagements */}
-            <section className="py-24 bg-white relative border-t border-gray-100">
+            {/* ---------------------------------- CHARTE */}
+            <section className="border-t border-[#ebebeb] bg-white py-24">
                 <div className="container mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">Notre charte</span>
-                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">
-                            Notre charte <br />
-                            <span className="font-newsletter italic font-normal">d'engagement.</span>
-                        </h2>
-                    </div>
+                    <SectionHeader
+                        label="Notre charte"
+                        title={
+                            <>
+                                Nos engagements,{' '}
+                                <span className="italic">noirs sur blanc.</span>
+                            </>
+                        }
+                        subtitle="Trois principes non négociables qui structurent chaque accompagnement, de la première prise de contact à la signature."
+                    />
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 transition-shadow duration-300">
-                            <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
-                                <Clock size={24} />
-                            </div>
-                            <h3 className="text-2xl font-bold text-textMain mb-4">Réactivité absolue</h3>
-                            <p className="text-gray-600 leading-relaxed font-light text-lg">Un interlocuteur unique. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.</p>
-                        </div>
-                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 transition-shadow duration-300">
-                            <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
-                                <ShieldCheck size={24} />
-                            </div>
-                            <h3 className="text-2xl font-bold text-textMain mb-4">Sélection rigoureuse</h3>
-                            <p className="text-gray-600 leading-relaxed font-light text-lg">Finis les visites curieuses. Chaque profil acquéreur est analysé et son financement pré-validé avant d'entrer chez vous.</p>
-                        </div>
-                        <div className="bg-surface p-10 rounded-[10px] border border-gray-100 transition-shadow duration-300">
-                            <div className="w-14 h-14 bg-white rounded-[10px] shadow-sm flex items-center justify-center mb-6 text-primary">
-                                <Globe size={24} />
-                            </div>
-                            <h3 className="text-2xl font-bold text-textMain mb-4">Portée internationale</h3>
-                            <p className="text-gray-600 leading-relaxed font-light text-lg">Des connexions solides avec une clientèle frontalière, expatriée et des partenaires de relocalisation reconnus.</p>
-                        </div>
+                    <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+                        {[
+                            {
+                                icon: Clock,
+                                title: 'Réactivité absolue',
+                                text: "Un interlocuteur unique. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.",
+                            },
+                            {
+                                icon: ShieldCheck,
+                                title: 'Sélection rigoureuse',
+                                text: "Finis les visites curieuses. Chaque profil acquéreur est analysé et son financement pré-validé avant d'entrer chez vous.",
+                            },
+                            {
+                                icon: Globe,
+                                title: 'Portée internationale',
+                                text: "Des connexions solides avec une clientèle frontalière, expatriée et des partenaires de relocalisation reconnus.",
+                            },
+                        ].map((item, idx) => (
+                            <Reveal key={item.title} delay={idx * 0.08}>
+                                <article className="h-full rounded-[24px] border border-[#ebebeb] bg-[#fafafa] p-10 transition-all duration-500 hover:-translate-y-1 hover:border-[#011d41]/20 hover:bg-white hover:shadow-[0_30px_60px_-30px_rgba(1,29,65,0.25)]">
+                                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-[#011d41] shadow-sm">
+                                        <item.icon size={22} aria-hidden="true" />
+                                    </span>
+                                    <h3 className="mt-8 font-serif text-2xl tracking-tight text-[#011d41]">{item.title}</h3>
+                                    <p className="mt-4 leading-relaxed text-gray-500">{item.text}</p>
+                                </article>
+                            </Reveal>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Section FAQ & Bureaux */}
-            <section className="py-24 bg-surface relative overflow-hidden">
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gray-50 z-0"></div>
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="mb-12">
-                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] break-words hyphens-auto">Questions <span className="font-newsletter italic font-normal">fréquentes</span></h2>
-                    </div>
+            {/* ---------------------------------- FAQ + ZONE */}
+            <section className="bg-[#fafafa] py-24">
+                <div className="container mx-auto px-6">
+                    <SectionHeader
+                        label="FAQ"
+                        title={
+                            <>
+                                Questions <span className="italic">fréquentes.</span>
+                            </>
+                        }
+                        subtitle="Les réponses aux questions que l'on me pose le plus souvent avant un premier rendez-vous."
+                    />
 
-                    <div className="flex flex-col lg:flex-row gap-16 items-stretch">
-
-                        {/* Left: FAQ */}
-                        <div className="lg:w-7/12 flex flex-col justify-center">
+                    <div className="mt-16 flex flex-col items-stretch gap-10 lg:flex-row lg:gap-16">
+                        {/* Accordéon FAQ */}
+                        <div className="flex flex-col justify-center lg:w-7/12">
                             <div className="space-y-4">
                                 {faqs.map((faq, index) => (
                                     <div
                                         key={index}
-                                        className={`bg-white rounded-[10px] border ${activeFaq === index ? 'border-primary ' : 'border-gray-100'} overflow-hidden transition-all duration-300`}
+                                        className={`overflow-hidden rounded-[20px] border bg-white transition-colors duration-300 ${activeFaq === index ? 'border-[#011d41]' : 'border-[#ebebeb]'}`}
                                     >
                                         <button
                                             onClick={() => setActiveFaq(activeFaq === index ? null : index)}
-                                            className="w-full text-left p-6 flex items-center justify-between focus:outline-none"
+                                            aria-expanded={activeFaq === index}
+                                            className="flex w-full items-center justify-between p-6 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#011d41]"
                                         >
-                                            <span className={`font-bold text-lg ${activeFaq === index ? 'text-primary' : 'text-textMain'}`}>{faq.question}</span>
-                                            <ChevronDown className={`shrink-0 transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-primary' : 'text-gray-400'}`} />
+                                            <span className={`pr-4 font-semibold ${activeFaq === index ? 'text-[#011d41]' : 'text-[#011d41]/80'}`}>{faq.question}</span>
+                                            <ChevronDown
+                                                size={18}
+                                                aria-hidden="true"
+                                                className={`shrink-0 transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-[#011d41]' : 'text-gray-400'}`}
+                                            />
                                         </button>
                                         <div
-                                            className={`px-6 grid transition-[grid-template-rows,opacity] duration-300 ease-out ${activeFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                                            className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${activeFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                                         >
-                                            <div className="overflow-hidden min-h-0"><p className="text-gray-600 leading-relaxed font-light pb-6">{faq.answer}</p></div>
+                                            <div className="min-h-0 overflow-hidden px-6">
+                                                <p className="pb-6 leading-relaxed text-gray-500">{faq.answer}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Right: Info Complementaire (Bureau, etc) */}
+                        {/* Zone d'intervention */}
                         <div className="lg:w-5/12">
-                            <div className="bg-primary text-white rounded-[10px] p-10 md:p-12 relative overflow-hidden group h-full flex flex-col justify-center">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-white/10 transition-colors duration-700"></div>
+                            <div className="group relative flex h-full flex-col justify-center overflow-hidden rounded-[24px] bg-[#011d41] p-10 text-white md:p-12">
+                                <div
+                                    aria-hidden="true"
+                                    className="pointer-events-none absolute -translate-y-1/2 translate-x-1/2 top-0 right-0 h-64 w-64 rounded-full bg-white/5 blur-[80px] transition-colors duration-700 group-hover:bg-white/10"
+                                />
 
-                                <h3 className="text-2xl font-bold mb-8">Zone d'intervention</h3>
+                                <SectionLabel tone="light" className="self-start">Zone d'intervention</SectionLabel>
 
-                                <div className="flex gap-6 mb-8 group/item">
-                                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20 group-hover/item:border-accent transition-colors">
-                                        <MapPin size={20} className="text-accent" />
-                                    </div>
+                                <div className="mt-10 mb-10 flex gap-6">
+                                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                                        <MapPin size={18} className="text-white" aria-hidden="true" />
+                                    </span>
                                     <div>
-                                        <p className="font-bold text-lg mb-1">Pays de Gex (01)</p>
-                                        <p className="text-white/70 font-medium leading-relaxed">
-                                            Intervention sur tout le secteur
-                                            <span className="text-xs font-light italic mt-1 block">Réponse sous 24h</span>
+                                        <p className="mb-1 font-semibold text-lg">Pays de Gex (01)</p>
+                                        <p className="leading-relaxed text-white/70">
+                                            Intervention sur tout le secteur, en
+                                            France comme côté genevois.
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="bg-white/5 backdrop-blur-md border border-white/15 rounded-[10px] p-6 mb-8">
-                                    <p className="text-[0.65rem] font-bold uppercase tracking-widest text-accent mb-3">Communes couvertes</p>
-                                    <p className="text-white/85 text-sm font-medium leading-relaxed">
-                                        Intervention sur tout le Pays de Gex — <strong className="font-semibold text-white">Ferney-Voltaire</strong>, <strong className="font-semibold text-white">Divonne-les-Bains</strong>, <strong className="font-semibold text-white">Saint-Genis-Pouilly</strong>, <strong className="font-semibold text-white">Gex</strong>, <strong className="font-semibold text-white">Prévessin-Moëns</strong> et communes voisines.
+                                <div className="mb-10 rounded-[20px] border border-white/15 bg-white/5 p-6 backdrop-blur-md">
+                                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Communes couvertes</p>
+                                    <p className="text-sm leading-relaxed text-white/85">
+                                        Ferney-Voltaire, Divonne-les-Bains,
+                                        Saint-Genis-Pouilly, Gex,
+                                        Prévessin-Moëns, Cessy, Thoiry, Ornex,
+                                        Crozet et communes voisines.
                                     </p>
                                 </div>
 
-                                <div className="flex gap-6 pt-8 border-t border-white/10 group/item">
-                                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20 group-hover/item:border-accent transition-colors">
-                                        <MessageSquare size={20} className="text-accent" />
-                                    </div>
+                                <div className="flex gap-6 border-t border-white/10 pt-10">
+                                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                                        <MessageSquare size={18} aria-hidden="true" />
+                                    </span>
                                     <div>
-                                        <p className="font-bold text-lg mb-1">WhatsApp Privé</p>
-                                        <p className="text-white/70 font-medium leading-relaxed mb-4">
-                                            Une messagerie directe pour un échange immédiat et confidentiel.
+                                        <p className="mb-1 font-semibold text-lg">WhatsApp privé</p>
+                                        <p className="mb-4 leading-relaxed text-white/70">
+                                            Une messagerie directe pour un
+                                            échange immédiat et confidentiel.
                                         </p>
-                                        <a href="https://wa.me/33769313502" className="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors">
-                                            Démarrer le chat <ArrowRight size={16} />
+                                        <a
+                                            href="https://wa.me/33769313502"
+                                            onClick={() => track('whatsapp_click_contact_zone', { page: '/contact' })}
+                                            className="inline-flex items-center gap-2 font-semibold text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
+                                        >
+                                            Démarrer le chat <ArrowRight size={16} aria-hidden="true" />
                                         </a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
