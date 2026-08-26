@@ -42,7 +42,7 @@ const PARTNERS = [
         icon: PaintBucket,
         title: "Architectes d'intérieur",
         description:
-            "Home staging, réaménagement d'espaces, rénovation haut de gamme : des regards experts pour révéler le potentiel de votre bien et séduire une clientèle exigeante.",
+            "Home staging, réaménagement d'espaces et rénovation : des regards experts pour révéler le potentiel de votre bien et aider les acquéreurs à s'y projeter.",
         tag: 'Valorisation',
     },
     {

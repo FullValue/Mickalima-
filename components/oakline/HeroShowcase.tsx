@@ -188,7 +188,7 @@ export const HeroShowcase: React.FC = () => {
 
   return (
     <section
-      aria-label="Mickaël Lima Immobilier Prestige: Pays de Gex"
+      aria-label="Mickaël Lima, agent immobilier dans le Pays de Gex"
       className="relative flex min-h-[100svh] flex-col overflow-hidden rounded-b-[32px] shadow-[0_30px_80px_-30px_rgba(1,29,65,0.45)]"
     >
       {/* Image de fond unique: Ken Burns lent */}
@@ -220,14 +220,14 @@ export const HeroShowcase: React.FC = () => {
           className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm"
         >
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white/70" />
-          Agent immobilier prestige: Pays de Gex
+          Agent immobilier: Pays de Gex
         </m.p>
 
         <h1 className="max-w-5xl font-serif text-[2.6rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-          <SplitWordsSafe text="L'excellence immobilière" delay={0.25} />
+          <SplitWordsSafe text="Votre bien, vendu avec méthode" delay={0.25} />
           <br />
           <span className="italic">
-            <SplitWordsSafe text="au cœur du Pays de Gex" delay={0.45} />
+            <SplitWordsSafe text="au meilleur prix" delay={0.45} />
           </span>
         </h1>
 
@@ -237,8 +237,8 @@ export const HeroShowcase: React.FC = () => {
           transition={{ duration: 0.8, ease: EASE, delay: 0.7 }}
           className="mt-7 max-w-xl text-base font-light leading-relaxed text-white/85 md:text-lg"
         >
-          Vente, estimation et accompagnement sur mesure pour une clientèle
-          exigeante, frontalière et internationale.
+          Estimation argumentée, présentation professionnelle et stratégie de
+          diffusion adaptée à chaque bien dans le Pays de Gex.
         </m.p>
       </div>
 

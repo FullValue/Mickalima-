@@ -62,7 +62,7 @@ export const About: React.FC = () => {
     <>
       <SEO
         title="À Propos: Mickaël Lima | Agent Immobilier Pays de Gex"
-        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 8 ans d'expérience dans le Pays de Gex (240 ventes en 5 ans). Expert en vente prestige, prospection foncière et accompagnement personnalisé."
+        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 8 ans d'expérience dans le Pays de Gex (240 ventes en 5 ans). Expertise locale, stratégie de vente et accompagnement personnalisé."
         canonical="/about"
         schema={ABOUT_SCHEMA}
       />
@@ -97,11 +97,11 @@ export const About: React.FC = () => {
           </m.div>
           {/* Typographie alignée sur MandatSignature */}
           <m.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-8xl font-medium text-white mb-6 tracking-tight leading-[1.05] break-words hyphens-auto">
-            Une approche exclusive <br />
-            <span className="font-newsletter italic font-normal">de l'immobilier.</span>
+            Une stratégie adaptée <br />
+            <span className="font-newsletter italic font-normal">à chaque bien.</span>
           </m.h1>
           <m.p variants={fadeInUp} className="text-lg text-white/90 max-w-xl leading-relaxed font-light">
-            Redéfinir les standards de l'immobilier dans le Pays de Gex avec exigence et transparence.
+            Estimer juste, présenter efficacement et négocier dans votre intérêt pour vendre dans les meilleures conditions.
           </m.p>
         </m.div>
       </section>
@@ -160,8 +160,8 @@ export const About: React.FC = () => {
               </m.div>
 
               <m.h2 variants={fadeInUp} className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-10 leading-[1.05] tracking-tight drop-shadow-sm break-words hyphens-auto">
-                L'ambition d'un service <br />
-                <span className="font-newsletter italic font-normal">sur-mesure.</span>
+                Une méthode claire pour <br />
+                <span className="font-newsletter italic font-normal">vendre au meilleur prix.</span>
               </m.h2>
 
               <m.div variants={fadeInUp} className="prose prose-lg text-gray-500 max-w-none font-light leading-relaxed mb-12">
@@ -177,7 +177,7 @@ export const About: React.FC = () => {
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Mon approche</h3>
                 <p className="mb-6">
-                  Le Pays de Gex n'est pas un marché immobilier classique. Les prix sont structurés par la demande genevoise, les acheteurs sont souvent frontaliers ou expatriés, et les délais de vente dépendent directement de la justesse de l'estimation initiale. J'ai construit ma pratique autour de trois principes : <strong>estimation au prix du marché réel</strong>: pas au prix qui flatte le vendeur, <strong>mise en valeur premium</strong> (photos pro + vidéo drone 4K incluses sur chaque mandat), et <strong>accompagnement de bout en bout</strong> jusqu'à la signature chez le notaire. Un bien correctement positionné se vend en 30 à 60 jours dans le Pays de Gex. Un bien surévalué s'enlise et finit par perdre 10 à 15% de sa valeur initiale.
+                  Le Pays de Gex n'est pas un marché immobilier classique. Les prix sont structurés par la demande genevoise, les acheteurs sont souvent frontaliers ou expatriés, et les délais de vente dépendent directement de la justesse de l'estimation initiale. J'ai construit ma pratique autour de trois principes : <strong>estimation au prix du marché réel</strong>, <strong>mise en valeur professionnelle</strong> avec des supports adaptés au bien, et <strong>accompagnement de bout en bout</strong> jusqu'à la signature chez le notaire. L'objectif est de défendre votre prix sans surévaluer le bien ni ralentir inutilement la vente.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Ce que j'inclus dans chaque mandat</h3>
@@ -272,7 +272,7 @@ export const About: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               { icon: Target, title: "Transparence", text: "Une communication claire à chaque étape de la transaction. Pas de promesses irréalisables, des faits concrets et un suivi régulier." },
-              { icon: Award, title: "Exigence Marketing", text: "Nous traitons chaque bien comme un produit premium. Photos HDR, vidéos 4K cinématiques et storytelling percutant." },
+              { icon: Award, title: "Mise en valeur", text: "Des photos professionnelles, des supports adaptés et une présentation qui aide les acquéreurs à comprendre la valeur de votre bien." },
               { icon: Shield, title: "Ancrage Local", text: "Une parfaite maîtrise des micro-marchés du Pays de Gex, des infrastructures locales et des attentes de la clientèle frontalière." }
             ].map((item, idx) => (
               <m.div

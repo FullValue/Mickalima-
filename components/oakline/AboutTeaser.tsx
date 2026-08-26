@@ -16,7 +16,7 @@ const DIFFERENTIATORS = [
     text: 'Bassin genevois, CERN, organisations internationales : une lecture fine d’un marché à double devise.',
   },
   {
-    title: 'Marketing haut de gamme',
+    title: 'Mise en valeur professionnelle',
     text: 'Photographie professionnelle, film, home staging et diffusion sur plus de 40 portails.',
   },
   {
@@ -39,7 +39,7 @@ export const AboutTeaser: React.FC = () => (
             />
             <img
               src={AGENT_PHOTO}
-              alt="Mickaël Lima, agent immobilier prestige dans le Pays de Gex"
+              alt="Mickaël Lima, agent immobilier dans le Pays de Gex"
               loading="lazy"
               decoding="async"
               className="relative aspect-[4/5] w-full rounded-[24px] object-cover shadow-[0_40px_80px_-30px_rgba(1,29,65,0.45)]"
@@ -71,20 +71,20 @@ export const AboutTeaser: React.FC = () => (
 
           <Reveal delay={0.08}>
             <h2 className="mt-7 font-serif text-4xl leading-[1.12] tracking-tight text-[#011d41] md:text-5xl lg:text-[3.4rem]">
-              <SplitWords text="Le prestige n’est pas un prix." />
+              <SplitWords text="Vendre au meilleur prix." />
               <br />
               <span className="italic text-[#011d41]/80">
-                <SplitWords text="C’est une exigence." delay={0.35} />
+                <SplitWords text="C’est une stratégie." delay={0.35} />
               </span>
             </h2>
           </Reveal>
 
           <Reveal delay={0.16}>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-gray-500 md:text-lg">
-              Mickaël Lima accompagne vendeurs et acquéreurs exigeants dans le
-              Pays de Gex et le bassin genevois. Chaque mandat est mené comme
-              une pièce sur mesure: présentation soignée, stratégie ciblée,
-              négociation tenue.
+              Mickaël Lima accompagne les propriétaires du Pays de Gex et du
+              bassin genevois pour vendre dans les meilleures conditions.
+              Chaque bien bénéficie d'une estimation argumentée, d'une
+              présentation soignée et d'une stratégie ciblée.
             </p>
           </Reveal>
 

@@ -102,7 +102,7 @@ export const ContactPage: React.FC = () => {
         },
         {
             question: "Proposez-vous des mandats simples ou uniquement exclusifs ?",
-            answer: "Si nous privilégions le Mandat Exclusif pour un investissement marketing maximal (vidéo, reportage photo premium, diffusion prioritaire), nous proposons également un Mandat Signature offrant une flexibilité totale."
+            answer: "Le choix du mandat dépend de votre bien, de votre calendrier et du niveau d’accompagnement recherché. Je vous présente les deux options clairement afin de retenir la stratégie la plus adaptée à votre vente."
         },
         {
             question: "Comment garantissez-vous la confidentialité de la vente ?",
@@ -110,7 +110,7 @@ export const ContactPage: React.FC = () => {
         },
         {
             question: "Couvrez-vous le bassin Genevois ?",
-            answer: "Absolument. Notre expertise historique se situe dans le Pays de Gex et l'agglomération frontalière, ce qui nous permet d'attirer une clientèle locale et internationale à fort pouvoir d'achat."
+            answer: "Oui. Mon expertise couvre le Pays de Gex et l'agglomération frontalière. Cette connaissance locale permet de positionner chaque bien avec précision et de toucher les acquéreurs pertinents, en France comme côté genevois."
         }
     ];
 
@@ -374,8 +374,8 @@ export const ContactPage: React.FC = () => {
                             },
                             {
                                 icon: Globe,
-                                title: 'Portée internationale',
-                                text: "Des connexions solides avec une clientèle frontalière, expatriée et des partenaires de relocalisation reconnus.",
+                                title: 'Diffusion ciblée',
+                                text: "Une stratégie de visibilité adaptée au bien pour toucher les acquéreurs pertinents, localement et dans le bassin genevois.",
                             },
                         ].map((item, idx) => (
                             <Reveal key={item.title} delay={idx * 0.08}>

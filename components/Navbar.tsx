@@ -145,7 +145,7 @@ export const Navbar: React.FC = () => {
                                 </Link>
                                 <Link to="/mandat-exclusif" className="block px-4 py-3 rounded-xl text-[#011d41] hover:bg-[#f5f5f5] transition-colors group/item">
                                     <span className="block font-bold group-hover/item:translate-x-1 transition-transform">Mandat Exclusif</span>
-                                    <span className="text-xs text-gray-500">Pour les biens d'exception</span>
+                                    <span className="text-xs text-gray-500">Une stratégie renforcée</span>
                                 </Link>
                             </div>
                         </li>

@@ -43,7 +43,7 @@ const HOMEPAGE_SCHEMA = [
     '@type': ['RealEstateAgent', 'LocalBusiness'],
     name: 'Mickaël Lima — L’agence Immo',
     description:
-      'Agent immobilier prestige spécialisé dans le Pays de Gex et la clientèle frontalière genevoise. Expertise en vente de biens résidentiels haut de gamme, estimation gratuite, diffusion sur +40 portails.',
+      'Agent immobilier dans le Pays de Gex et le bassin genevois. Estimation au juste prix, mise en valeur professionnelle et stratégie de vente adaptée à chaque bien.',
     url: 'https://mickael-lima.immo',
     telephone: '+33769313502',
     email: 'contact@mickael-lima.immo',
@@ -123,8 +123,8 @@ const HOMEPAGE_SCHEMA = [
 const HomePage: React.FC = () => (
   <>
     <SEO
-      title="Mickaël Lima — Agent Immobilier Prestige | Pays de Gex"
-      description="Agent immobilier prestige dans le Pays de Gex. Estimation gratuite, diffusion sur +40 portails immobiliers, clientèle frontalière genevoise et internationale. Vendez au meilleur prix."
+      title="Mickaël Lima — Agent Immobilier | Pays de Gex"
+      description="Vendez votre bien au meilleur prix dans le Pays de Gex avec une estimation argumentée, une mise en valeur professionnelle et une stratégie de diffusion adaptée."
       canonical="/"
       schema={HOMEPAGE_SCHEMA}
     />
