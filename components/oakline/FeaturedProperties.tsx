@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bath, BedDouble, ChevronLeft, ChevronRight, MapPin, Ruler } from 'lucide-react';
+import { Bath, BedDouble, ChevronLeft, ChevronRight, Ruler } from 'lucide-react';
 import { BIENS } from '../biensData';
 import { formatPrice, formatSurface } from '../nosBiensShared';
 import { PillButton, Reveal, SectionHeader } from './primitives';
@@ -34,8 +34,8 @@ export const FeaturedProperties: React.FC = () => {
   }, [paused]);
 
   return (
-    <section id="selection" className="overflow-hidden bg-[#f5f4ef] py-20 md:py-28">
-      <div className="container mx-auto px-6">
+    <section id="selection" className="overflow-hidden bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-[1350px] px-5">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <SectionHeader
             label="Notre sélection"
@@ -78,63 +78,64 @@ export const FeaturedProperties: React.FC = () => {
             if (event.key === 'ArrowRight') move(1);
             if (event.key === 'ArrowLeft') move(-1);
           }}
-          className="no-scrollbar -mx-6 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41] md:mt-16 md:gap-6"
+          className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41] md:mx-0 md:mt-16 md:gap-6 md:px-0"
         >
           {FEATURED.map((bien) => (
             <article
               key={bien.slug}
-              className="w-[86vw] max-w-[390px] shrink-0 snap-start rounded-[15px] border border-black/5 bg-white p-3 shadow-[0_16px_50px_-35px_rgba(1,29,65,0.35)] sm:w-[65vw] md:w-[44vw] lg:w-[31vw]"
+              className="w-[calc(100vw-40px)] max-w-none shrink-0 snap-start rounded-[15px] bg-[#f7f7f7] p-2.5 sm:w-[65vw] md:w-[calc((100%_-_24px)_/_2)] lg:w-[calc((100%_-_48px)_/_3)]"
             >
               <Link
                 to={`/nos-biens/${bien.slug}`}
                 aria-label={`Voir ${bien.typeLabel} à ${bien.city}, ${formatPrice(bien.price)}`}
-                className="group block rounded-[12px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]"
+                className="group block rounded-[10px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]"
               >
-                <div className="relative aspect-square overflow-hidden rounded-[12px] bg-[#e9e8e2]">
+                <div className="relative aspect-square overflow-hidden rounded-[10px] bg-[#e9e8e2]">
                   <img
                     src={bien.photos[0]}
                     alt={`${bien.typeLabel} à ${bien.city}`}
                     loading="lazy"
                     decoding="async"
                     draggable={false}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08] group-focus-visible:scale-[1.08] motion-reduce:transition-none"
+                    className="h-full w-full object-cover transition-[transform,filter] duration-500 ease-out group-hover:scale-[1.06] group-hover:brightness-75 group-hover:blur-[4px] group-focus-visible:scale-[1.06] group-focus-visible:brightness-75 group-focus-visible:blur-[4px] motion-reduce:transition-none"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#011d41] backdrop-blur">
-                    {bien.status}
+                  <span className="pointer-events-none absolute left-1/2 top-1/2 inline-flex h-10 -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-[10px] bg-white/30 px-5 text-sm font-medium text-white opacity-0 backdrop-blur-[5px] transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none">
+                    <ChevronRight size={18} aria-hidden="true" />
+                    Voir le bien
                   </span>
                 </div>
 
-                <div className="px-2 pb-3 pt-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-serif text-[1.35rem] leading-tight text-[#011d41]">
+                <div className="p-2.5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="min-w-0 font-sans text-[22px] font-medium leading-[1.3] text-[#1a1a1a]">
                       {bien.typeLabel} à {bien.city}
                     </h3>
-                    <p className="shrink-0 text-sm font-semibold text-[#011d41]">{formatPrice(bien.price)}</p>
+                    <p className="shrink-0 font-sans text-[22px] font-medium leading-[1.3] text-[#1a1a1a]">{formatPrice(bien.price)}</p>
                   </div>
 
-                  <p className="mt-3 flex items-center gap-1.5 text-sm text-[#011d41]/55">
-                    <MapPin size={14} aria-hidden="true" />
-                    {bien.city} ({bien.cp})
-                  </p>
-
-                  <p className="mt-4 line-clamp-2 min-h-12 text-sm leading-6 text-[#011d41]/65">
+                  <p className="mt-2 line-clamp-2 min-h-[44.8px] text-base leading-[1.4] text-gray-500">
                     {bien.highlights[0] || `Une propriété de caractère à découvrir à ${bien.city}.`}
                   </p>
 
-                  <div className="mt-5 flex min-h-11 items-center gap-5 border-t border-[#011d41]/10 pt-5 text-xs font-medium text-[#011d41]/70">
-                    {formatSurface(bien.surface) && (
-                      <span className="inline-flex items-center gap-1.5">
-                        <Ruler size={15} aria-hidden="true" /> {formatSurface(bien.surface)}
-                      </span>
-                    )}
+                  <div className="mt-2 h-[3px] border-t border-[#e5e5e5]" aria-hidden="true" />
+
+                  <div className="flex min-h-[31px] items-center justify-between gap-2 text-sm font-medium text-[#1a1a1a]">
                     {bien.bedrooms != null && (
-                      <span className="inline-flex items-center gap-1.5">
-                        <BedDouble size={15} aria-hidden="true" /> {bien.bedrooms} ch.
+                      <span className="inline-flex min-w-0 items-center gap-1.5">
+                        <BedDouble size={18} strokeWidth={1.5} aria-hidden="true" />
+                        <span>{bien.bedrooms} chambres</span>
                       </span>
                     )}
                     {bien.baths != null && (
-                      <span className="inline-flex items-center gap-1.5">
-                        <Bath size={15} aria-hidden="true" /> {bien.baths} sdb
+                      <span className="inline-flex min-w-0 items-center gap-1.5">
+                        <Bath size={18} strokeWidth={1.5} aria-hidden="true" />
+                        <span>{bien.baths} salles d’eau</span>
+                      </span>
+                    )}
+                    {formatSurface(bien.surface) && (
+                      <span className="inline-flex min-w-0 items-center gap-1.5">
+                        <Ruler size={18} strokeWidth={1.5} aria-hidden="true" />
+                        <span>{formatSurface(bien.surface)}</span>
                       </span>
                     )}
                   </div>
