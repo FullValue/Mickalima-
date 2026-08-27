@@ -118,19 +118,34 @@ const BlockTitle: React.FC<{ icon: React.ReactNode; children: React.ReactNode }>
 /* Vidéo : image + bouton play, badge et titre en bas comme avant */
 const VideoBlock: React.FC<{
   image: string;
+  videoSrc?: string;
   label: string;
   badgeIcon: React.ReactNode;
   badge: string;
   title: string;
-}> = ({ image, label, badgeIcon, badge, title }) => (
+}> = ({ image, videoSrc, label, badgeIcon, badge, title }) => (
   <div className="sv-media" style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 24, overflow: 'hidden', background: T.navy }}>
-    <img
-      src={image}
-      alt="Video Background"
-      loading="lazy"
-      decoding="async"
-      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.72 }}
-    />
+    {videoSrc ? (
+      <video
+        src={videoSrc}
+        poster={image}
+        controls
+        playsInline
+        preload="metadata"
+        aria-label={label}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+    ) : (
+      <img
+        src={image}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.72 }}
+      />
+    )}
+    {!videoSrc && (
+      <>
     <div
       aria-hidden="true"
       style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(1,29,65,0.85), rgba(1,29,65,0.15))' }}
@@ -167,6 +182,8 @@ const VideoBlock: React.FC<{
         {title}
       </h3>
     </div>
+      </>
+    )}
   </div>
 );
 
@@ -410,7 +427,8 @@ export const MandatSignature: React.FC = () => (
               {/* Vidéo */}
               <VideoBlock
                 image={IMAGES.misc2}
-                label="Film de présentation"
+                videoSrc="/video/villa-grilly-hero.mp4"
+                label="Villa à Grilly : film de présentation avec vues drone et home staging"
                 badgeIcon={<Camera size={13} aria-hidden="true" />}
                 badge="Drone & Immersion"
                 title="Vidéo 4K"
