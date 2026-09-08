@@ -2,8 +2,8 @@
 
 > License: RSL-1.0
 
-> Mickaël Lima est agent commercial immobilier indépendant
-chez L'agence Immo, basé à Divonne-les-Bains (01220),
+> Mickaël Lima est agent commercial immobilier indépendant,
+basé à Divonne-les-Bains (01220),
 spécialiste du marché frontalier franco-suisse.
 
 ## Services
@@ -107,4 +107,3 @@ Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges,
 - https://mickael-lima.immo/blog/prix-m2-pays-de-gex-2026/
 - https://mickael-lima.immo/blog/immobilier-frontalier-pays-de-gex/
 - https://mickael-lima.immo/blog/mandat-exclusif-ou-simple-pays-de-gex/
-

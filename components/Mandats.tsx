@@ -30,7 +30,7 @@ import { wrap, ServiceHero, StickyIntro, WhiteCard, TwoCol, RecapBand, ServiceSt
 
 const MANDAT_PROVIDER = {
   '@type': 'RealEstateAgent',
-  name: 'Mickaël Lima: L’agence Immo',
+  name: 'Mickaël Lima',
   url: 'https://mickael-lima.immo',
   telephone: '+33769313502',
   email: 'contact@mickael-lima.immo',
