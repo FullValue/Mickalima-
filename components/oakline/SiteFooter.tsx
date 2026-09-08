@@ -274,7 +274,7 @@ export const SiteFooter: React.FC = () => (
 
       {/* Barre basse */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-6 text-sm text-white/55">
-        <span>© 2026 Mickaël Lima: L'agence Immo. Tous droits réservés.</span>
+        <span>© 2026 Mickaël Lima. Tous droits réservés.</span>
         <PillButton to="/estimation" variant="light" arrow className="!px-5 !py-2.5 text-xs">
           Estimation offerte
         </PillButton>

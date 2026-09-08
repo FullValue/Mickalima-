@@ -7,14 +7,10 @@ import { SEO } from './components/SEO';
 // (LazyMotion suspendait le rendu, fallback HomePage sur toutes les routes).
 // Trade-off : +~25KB dans le bundle initial vs SSG fonctionnel.
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Method } from './components/Facilities';
 import { MandatSignature, MandatExclusif } from './components/Mandats';
 import { About } from './components/About';
 import { NosBiens } from './components/NosBiens';
 import { NosBiensDetail } from './components/NosBiensDetail';
-import { GalleryWall } from './components/GalleryWall';
-import { WhyUs } from './components/WhyUs';
 import { Partners } from './components/Partners';
 import { Blog } from './components/Blog';
 import { BlogPostPage } from './components/BlogPostPage';
@@ -28,16 +24,18 @@ import { MentionsLegales } from './components/MentionsLegales';
 import { PolitiqueConfidentialite } from './components/PolitiqueConfidentialite';
 import { RevalisFooter } from './components/nosBiensShared';
 import { Preloader } from './components/Preloader';
-import {
-  Positioning,
-  Problematic,
-  Visibility,
-  Testimonials,
-  FAQSection,
-  FinalCTA,
-  HomeBlog,
-  ZonesDIntervention,
-} from './components/HomeSections';
+// Refonte accueil « Oakline » — voir ref/oakline-reconstruction.md
+import { HeroShowcase } from './components/oakline/HeroShowcase';
+import { FeaturedProperties } from './components/oakline/FeaturedProperties';
+import { AboutTeaser } from './components/oakline/AboutTeaser';
+import { TestimonialsShowcase } from './components/oakline/TestimonialsShowcase';
+import { NeighborhoodsGrid } from './components/oakline/NeighborhoodsGrid';
+import { PortalsParallax } from './components/oakline/PortalsParallax';
+import { InsightsTeaser } from './components/oakline/InsightsTeaser';
+import { CtaContact } from './components/oakline/CtaContact';
+import { FaqAccordion } from './components/oakline/FaqAccordion';
+import { SiteFooter } from './components/oakline/SiteFooter';
+import { WhatsAppButton } from './components/oakline/WhatsAppButton';
 
 const HOMEPAGE_SCHEMA = [
   {
@@ -45,7 +43,7 @@ const HOMEPAGE_SCHEMA = [
     '@type': ['RealEstateAgent', 'LocalBusiness'],
     name: 'Mickaël Lima',
     description:
-      'Agent immobilier prestige spécialisé dans le Pays de Gex et la clientèle frontalière genevoise. Expertise en vente de biens résidentiels haut de gamme, estimation gratuite, diffusion sur +40 portails.',
+      'Agent immobilier dans le Pays de Gex et le bassin genevois. Estimation au juste prix, mise en valeur professionnelle et stratégie de vente adaptée à chaque bien.',
     url: 'https://mickael-lima.immo',
     telephone: '+33769313502',
     email: 'contact@mickael-lima.immo',
@@ -119,23 +117,21 @@ const HOMEPAGE_SCHEMA = [
 const HomePage: React.FC = () => (
   <>
     <SEO
-      title="Mickaël Lima — Agent Immobilier Prestige | Pays de Gex"
-      description="Agent immobilier prestige dans le Pays de Gex. Estimation gratuite, diffusion sur +40 portails immobiliers, clientèle frontalière genevoise et internationale. Vendez au meilleur prix."
+      title="Mickaël Lima — Agent Immobilier | Pays de Gex"
+      description="Vendez votre bien au meilleur prix dans le Pays de Gex avec une estimation argumentée, une mise en valeur professionnelle et une stratégie de diffusion adaptée."
       canonical="/"
       schema={HOMEPAGE_SCHEMA}
     />
-    <Hero />
-    <Positioning />
-    <Problematic />
-    <Method />
-    <Visibility />
-    <WhyUs />
-    <Testimonials />
-    <FAQSection />
-    <HomeBlog />
-    <GalleryWall />
-    <ZonesDIntervention />
-    <FinalCTA />
+    {/* Ordre Oakline — cf. ref/oakline-reconstruction.md §4 */}
+    <HeroShowcase />
+    <FeaturedProperties />
+    <AboutTeaser />
+    <TestimonialsShowcase />
+    <NeighborhoodsGrid />
+    <PortalsParallax />
+    <InsightsTeaser />
+    <CtaContact />
+    <FaqAccordion />
   </>
 );
 
@@ -149,14 +145,16 @@ export const AppContent: React.FC = () => {
   const isFirstRoute = useRef(true);
   useEffect(() => { isFirstRoute.current = false; }, []);
 
-  // /nos-biens et ses pages détail embarquent déjà le footer DA — on masque le footer
-  // global dès qu'une des deux routes (affichée ou cible) est concernée, pour éviter
-  // le double footer pendant la transition.
+  // /nos-biens et ses pages détail embarquent le footer DA Revalis (non modifié) —
+  // dès qu'une des deux routes (affichée ou cible) est concernée, on rend uniquement
+  // RevalisFooter pour éviter le double footer pendant la transition.
+  // Toutes les autres routes utilisent le nouveau SiteFooter (refonte Oakline).
   const hasOwnFooter =
     location.pathname.startsWith('/nos-biens') || displayedPath.startsWith('/nos-biens');
   return (
   <LazyMotion features={domAnimation}>
     <Preloader />
+    <WhatsAppButton />
     <div className="font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
@@ -199,7 +197,7 @@ export const AppContent: React.FC = () => {
         </m.div>
         </AnimatePresence>
       </main>
-      {!hasOwnFooter && <RevalisFooter />}
+      {hasOwnFooter ? <RevalisFooter /> : <SiteFooter />}
     </div>
   </LazyMotion>
   );

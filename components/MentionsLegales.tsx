@@ -4,7 +4,7 @@ import { SEO } from './SEO';
 const MENTIONS_LEGALES_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'Mentions légales — Mickaël Lima',
+  name: 'Mentions légales: Mickaël Lima',
   url: 'https://mickael-lima.immo/mentions-legales/',
   publisher: {
     '@type': 'Person',
@@ -16,7 +16,7 @@ const MENTIONS_LEGALES_SCHEMA = {
 export const MentionsLegales: React.FC = () => (
   <>
     <SEO
-      title="Mentions légales — Mickaël Lima"
+      title="Mentions légales: Mickaël Lima"
       description="Mentions légales de mickael-lima.immo : éditeur, hébergeur, responsable de publication, données personnelles."
       canonical="/mentions-legales"
       schema={MENTIONS_LEGALES_SCHEMA}
@@ -42,7 +42,7 @@ export const MentionsLegales: React.FC = () => (
 
           <section>
             <h2 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Responsable de la publication</h2>
-            <p className="text-base">Mickaël Lima — joignable aux coordonnées ci-dessus.</p>
+            <p className="text-base">Mickaël Lima: joignable aux coordonnées ci-dessus.</p>
           </section>
 
           <section>

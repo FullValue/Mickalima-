@@ -4,7 +4,7 @@ import { SEO } from './SEO';
 export const PolitiqueConfidentialite: React.FC = () => (
   <>
     <SEO
-      title="Politique de confidentialité — Mickaël Lima"
+      title="Politique de confidentialité: Mickaël Lima"
       description="Politique de confidentialité de mickael-lima.immo : données collectées, finalité, durée de conservation, droits RGPD."
       canonical="/politique-confidentialite"
     />

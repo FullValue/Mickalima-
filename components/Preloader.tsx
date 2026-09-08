@@ -55,7 +55,7 @@ export const Preloader: React.FC = () => {
       <div className="ml-preloader__panel ml-preloader__panel--bottom" />
       <div className="ml-preloader__grain" />
       <div className="ml-preloader__center">
-        <span className="ml-preloader__edition">L'agence Immo · Pays de Gex</span>
+        <span className="ml-preloader__edition">Mickaël Lima · Pays de Gex</span>
         <span className="ml-preloader__monogram">ML</span>
         <span className="ml-preloader__rule"><i /></span>
         <img
