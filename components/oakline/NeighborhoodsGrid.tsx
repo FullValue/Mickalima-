@@ -45,6 +45,14 @@ const COMMUNE_SLIDER_IMAGES: Record<
     src: '/images/slider-ornex.webp',
     objectPosition: '50% 50%',
   },
+  thoiry: {
+    src: '/images/slider-thoiry.jpg',
+    objectPosition: '62% 50%',
+  },
+  crozet: {
+    src: '/images/slider-crozet.webp',
+    objectPosition: '50% 50%',
+  },
 };
 
 const COMMUNES_SLIDER = COMMUNES.filter(
