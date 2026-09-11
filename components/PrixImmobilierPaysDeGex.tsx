@@ -230,7 +230,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                       </picture>
                       <div
                         aria-hidden="true"
-                        className="absolute inset-0 -z-10 bg-[#011d41]/55 backdrop-blur-[4px] transition-all duration-500 group-hover:bg-[#011d41]/48 group-hover:backdrop-blur-[2px]"
+                        className="absolute inset-0 -z-10 bg-[#011d41]/55 backdrop-blur-[2px] transition-all duration-500 group-hover:bg-[#011d41]/48 group-hover:backdrop-blur-none"
                       />
                       <div
                         aria-hidden="true"
