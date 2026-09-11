@@ -61,6 +61,51 @@ const COMMUNE_HERO_IMAGES: Record<string, string> = {
 export const getCommuneHeroImage = (slug: string): string =>
   COMMUNE_HERO_IMAGES[slug] ?? '/images/hero-pays-de-gex.jpg';
 
+// Visuels partagés par le slider de l'accueil et les cartes du comparatif.
+// objectPosition garde le point d'intérêt visible dans les conteneurs verticaux.
+export const COMMUNE_CARD_IMAGES: Record<
+  string,
+  { src: string; mobileSrc?: string; objectPosition?: string }
+> = {
+  'ferney-voltaire': {
+    src: '/images/slider-ferney-voltaire.jpg',
+    objectPosition: '50% 50%',
+  },
+  'saint-genis-pouilly': {
+    src: '/images/slider-saint-genis-pouilly.jpg',
+    objectPosition: '50% 50%',
+  },
+  'divonne-les-bains': {
+    src: '/images/slider-divonne-les-bains.jpg',
+    objectPosition: '50% 50%',
+  },
+  gex: {
+    src: '/images/slider-gex.jpg',
+    objectPosition: '50% 50%',
+  },
+  'prevessin-moens': {
+    src: '/images/slider-prevessin-moens.jpg',
+    mobileSrc: '/images/slider-prevessin-moens-mobile.jpg',
+    objectPosition: '50% 50%',
+  },
+  cessy: {
+    src: '/images/slider-cessy.jpg',
+    objectPosition: '50% 50%',
+  },
+  ornex: {
+    src: '/images/slider-ornex.webp',
+    objectPosition: '50% 50%',
+  },
+  thoiry: {
+    src: '/images/slider-thoiry.jpg',
+    objectPosition: '62% 50%',
+  },
+  crozet: {
+    src: '/images/slider-crozet.webp',
+    objectPosition: '50% 50%',
+  },
+};
+
 export const STATS: Stat[] = [
   { label: 'm²', value: '155', icon: 'size' },
   { label: 'Chambres', value: '4', icon: 'bed' },

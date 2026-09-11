@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { m } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, MapPin, TrendingUp } from 'lucide-react';
-import { COMMUNES } from '../constants';
+import { COMMUNES, COMMUNE_CARD_IMAGES } from '../constants';
 import { SEO } from './SEO';
 
 export const PrixImmobilierPaysDeGex: React.FC = () => {
@@ -199,40 +199,67 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {COMMUNES.map((c, i) => (
-                <m.div
-                  key={c.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05, duration: 0.5 }}
-                >
-                  <Link
-                    to={`/prix-immobilier/${c.slug}`}
-                    className="group block bg-white rounded-[10px] p-6 border border-gray-100 shadow-sm hover:border-primary/20 transition-all"
+              {COMMUNES.map((c, i) => {
+                const image = COMMUNE_CARD_IMAGES[c.slug];
+
+                return (
+                  <m.div
+                    key={c.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05, duration: 0.5 }}
                   >
-                    <div className="flex items-start justify-between gap-3 mb-4">
-                      <div>
-                        <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">
-                          {c.distanceGeneve} de Genève
+                    <Link
+                      to={`/prix-immobilier/${c.slug}`}
+                      className="group relative isolate block overflow-hidden rounded-[10px] border border-white/20 bg-primary p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-white/40 hover:shadow-xl"
+                    >
+                      <picture className="absolute inset-0 -z-20">
+                        {image.mobileSrc && (
+                          <source media="(max-width: 767px)" srcSet={image.mobileSrc} />
+                        )}
+                        <img
+                          src={image.src}
+                          alt=""
+                          aria-hidden="true"
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full scale-[1.03] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                          style={{ objectPosition: image.objectPosition }}
+                        />
+                      </picture>
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 -z-10 bg-[#011d41]/55 backdrop-blur-[4px] transition-all duration-500 group-hover:bg-[#011d41]/48 group-hover:backdrop-blur-[2px]"
+                      />
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 -z-10 bg-gradient-to-br from-[#011d41]/35 via-transparent to-[#011d41]/50"
+                      />
+
+                      <div className="flex items-start justify-between gap-3 mb-4">
+                        <div>
+                          <p className="text-xs font-bold uppercase tracking-widest text-white/65 mb-1">
+                            {c.distanceGeneve} de Genève
+                          </p>
+                          <p className="text-xl font-bold text-white">{c.name}</p>
+                        </div>
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md transition-all group-hover:border-white group-hover:bg-white">
+                          <ArrowUpRight size={16} className="text-white transition-colors group-hover:text-primary" />
+                        </div>
+                      </div>
+                      <div className="space-y-1.5 border-t border-white/20 pt-4 text-sm">
+                        <p className="font-light text-white/80">
+                          <span className="text-white/60">Appt&nbsp;:</span> <span className="font-medium text-white">{c.prixApptMin.toLocaleString('fr-FR')}-{c.prixApptMax.toLocaleString('fr-FR')} €/m²</span>
                         </p>
-                        <p className="text-xl font-bold text-textMain group-hover:text-primary transition-colors">{c.name}</p>
+                        <p className="font-light text-white/80">
+                          <span className="text-white/60">Maison&nbsp;:</span> <span className="font-medium text-white">{c.prixMaisonMin.toLocaleString('fr-FR')}-{c.prixMaisonMax.toLocaleString('fr-FR')} €/m²</span>
+                        </p>
                       </div>
-                      <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all shrink-0">
-                        <ArrowUpRight size={16} className="text-gray-400 group-hover:text-white transition-colors" />
-                      </div>
-                    </div>
-                    <div className="border-t border-gray-100 pt-4 space-y-1.5 text-sm">
-                      <p className="text-gray-500 font-light">
-                        <span className="text-gray-400">Appt&nbsp;:</span> <span className="text-textMain font-medium">{c.prixApptMin.toLocaleString('fr-FR')}-{c.prixApptMax.toLocaleString('fr-FR')} €/m²</span>
-                      </p>
-                      <p className="text-gray-500 font-light">
-                        <span className="text-gray-400">Maison&nbsp;:</span> <span className="text-textMain font-medium">{c.prixMaisonMin.toLocaleString('fr-FR')}-{c.prixMaisonMax.toLocaleString('fr-FR')} €/m²</span>
-                      </p>
-                    </div>
-                  </Link>
-                </m.div>
-              ))}
+                    </Link>
+                  </m.div>
+                );
+              })}
             </div>
           </div>
         </section>

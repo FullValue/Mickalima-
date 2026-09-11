@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import { COMMUNES } from '../../constants';
+import { COMMUNES, COMMUNE_CARD_IMAGES } from '../../constants';
 import { PillButton, Reveal, SectionHeader } from './primitives';
 
 /**
@@ -12,51 +12,8 @@ import { PillButton, Reveal, SectionHeader } from './primitives';
 
 const formatEUR = (v: number) => new Intl.NumberFormat('fr-FR').format(v);
 
-const COMMUNE_SLIDER_IMAGES: Record<
-  string,
-  { src: string; mobileSrc?: string; objectPosition?: string }
-> = {
-  'ferney-voltaire': {
-    src: '/images/slider-ferney-voltaire.jpg',
-    objectPosition: '50% 50%',
-  },
-  'saint-genis-pouilly': {
-    src: '/images/slider-saint-genis-pouilly.jpg',
-    objectPosition: '50% 50%',
-  },
-  'divonne-les-bains': {
-    src: '/images/slider-divonne-les-bains.jpg',
-    objectPosition: '50% 50%',
-  },
-  gex: {
-    src: '/images/slider-gex.jpg',
-    objectPosition: '50% 50%',
-  },
-  'prevessin-moens': {
-    src: '/images/slider-prevessin-moens.jpg',
-    mobileSrc: '/images/slider-prevessin-moens-mobile.jpg',
-    objectPosition: '50% 50%',
-  },
-  cessy: {
-    src: '/images/slider-cessy.jpg',
-    objectPosition: '50% 50%',
-  },
-  ornex: {
-    src: '/images/slider-ornex.webp',
-    objectPosition: '50% 50%',
-  },
-  thoiry: {
-    src: '/images/slider-thoiry.jpg',
-    objectPosition: '62% 50%',
-  },
-  crozet: {
-    src: '/images/slider-crozet.webp',
-    objectPosition: '50% 50%',
-  },
-};
-
 const COMMUNES_SLIDER = COMMUNES.filter(
-  (commune) => COMMUNE_SLIDER_IMAGES[commune.slug],
+  (commune) => COMMUNE_CARD_IMAGES[commune.slug],
 );
 
 export const NeighborhoodsGrid: React.FC = () => (
@@ -78,7 +35,7 @@ export const NeighborhoodsGrid: React.FC = () => (
         style={{ '--marquee-duration': '48s' } as React.CSSProperties}
       >
         {[...COMMUNES_SLIDER, ...COMMUNES_SLIDER].map((commune, i) => {
-          const image = COMMUNE_SLIDER_IMAGES[commune.slug];
+          const image = COMMUNE_CARD_IMAGES[commune.slug];
 
           return (
             <Link
