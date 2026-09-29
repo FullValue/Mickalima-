@@ -16,15 +16,15 @@ import {
   Building2,
   TrendingDown,
 } from 'lucide-react';
-import { COMMUNES, getCommuneHeroImage } from '../constants';
+import { COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
 
 const CRITERIA_BASE = [
   {
     icon: Car,
-    title: (distanceGeneve: string) => `${distanceGeneve} de Genève`,
+    title: (distanceGeneve: string) => `${distanceGeneve} de Genève à vol d'oiseau`,
     description: () =>
-      "Un trajet domicile-travail à l'échelle du quotidien. Les axes frontaliers permettent de rejoindre les postes-frontières en quelques minutes, hors heure de pointe.",
+      "La durée du trajet domicile-travail dépend de l'adresse, du poste-frontière et des conditions de circulation.",
   },
   {
     icon: GraduationCap,
@@ -125,15 +125,15 @@ export const FrontalierCommunePage: React.FC = () => {
           name: `Est-il avantageux d'acheter à ${commune.name} quand on travaille à Genève ?`,
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Oui. ${commune.name} se situe à ${commune.distanceGeneve} de Genève, ce qui en fait l'une des communes du Pays de Gex les plus prisées par les frontaliers. ${commune.frontalierContext} Le différentiel de pouvoir d'achat (salaire en CHF + fiscalité française) reste le moteur principal de la demande, et permet aux frontaliers d'accéder à des biens 40 à 60 % moins chers qu'à qualité équivalente côté suisse.`,
+            text: `${commune.name} se situe à ${commune.distanceGeneve} à vol d'oiseau du centre de Genève. ${commune.frontalierContext} L'intérêt d'un achat dépend du lieu de travail, du trajet, du financement, de la fiscalité personnelle et du bien recherché.`,
           },
         },
         {
           '@type': 'Question',
-          name: `Quels sont les prix immobiliers à ${commune.name} en ${year} ?`,
+          name: `Quels sont les prix immobiliers observés à ${commune.name} ?`,
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `À ${commune.name} (${commune.cp}) en ${year}, les prix au m² s'établissent entre ${commune.prixApptMin.toLocaleString('fr-FR')} et ${commune.prixApptMax.toLocaleString('fr-FR')} €/m² pour les appartements, et entre ${commune.prixMaisonMin.toLocaleString('fr-FR')} et ${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² pour les maisons. Le délai moyen de vente sur les biens correctement estimés est de ${commune.delaiMoyen} jours. ${commune.evolutionPrix}`,
+            text: `Sur les transactions DVF de ${COMMUNE_DVF_PERIOD} à ${commune.name} (${commune.cp}), le prix médian est de ${commune.prixApptMin.toLocaleString('fr-FR')} €/m² pour les appartements et de ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m² pour les maisons. Ces médianes ne sont pas des prix de vente garantis. ${commune.evolutionPrix}`,
           },
         },
         {
@@ -141,7 +141,7 @@ export const FrontalierCommunePage: React.FC = () => {
           name: `Mickaël Lima propose-t-il des estimations gratuites à ${commune.name} ?`,
           acceptedAnswer: {
             '@type': 'Answer',
-            text: `Oui. L'estimation est gratuite, confidentielle et sans engagement. Elle inclut une visite sur site à ${commune.name}, l'analyse des transactions comparables récentes dans un rayon de 500 m, et un dossier complet remis sous 48h. Mickaël Lima intervient sur l'ensemble du Pays de Gex avec une expertise particulière sur la clientèle frontalière franco-suisse.`,
+            text: `Oui. L'estimation est gratuite, confidentielle et sans engagement. Elle s'appuie sur une visite du bien et sur des transactions comparables adaptées à sa localisation et à ses caractéristiques. Mickaël Lima intervient sur l'ensemble du Pays de Gex.`,
           },
         },
       ],
@@ -188,7 +188,7 @@ export const FrontalierCommunePage: React.FC = () => {
                   Guide frontalier {year}
                 </span>
                 <span className="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest">
-                  <MapPin size={12} /> {commune.distanceGeneve} de Genève
+                  <MapPin size={12} /> {commune.distanceGeneve} de Genève à vol d'oiseau
                 </span>
               </div>
 
@@ -243,19 +243,19 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Distance Genève</p>
                   <p className="text-4xl font-medium text-textMain">{commune.distanceGeneve}</p>
-                  <p className="text-gray-500 font-light text-sm mt-2">depuis le centre de Genève</p>
+                  <p className="text-gray-500 font-light text-sm mt-2">à vol d'oiseau du centre de Genève</p>
                 </div>
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Délai de vente moyen</p>
-                  <p className="text-4xl font-medium text-textMain">{commune.delaiMoyen} jours</p>
-                  <p className="text-gray-500 font-light text-sm mt-2">sur les biens correctement estimés</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Délai de vente</p>
+                  <p className="text-4xl font-medium text-textMain">Variable</p>
+                  <p className="text-gray-500 font-light text-sm mt-2">selon le bien, le prix et la demande</p>
                 </div>
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Prix appartements</p>
                   <p className="text-3xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')} €/m²
+                    {commune.prixApptMin.toLocaleString('fr-FR')} €/m²
                   </p>
-                  <p className="text-gray-500 font-light text-sm mt-2">fourchette actuelle du marché</p>
+                  <p className="text-gray-500 font-light text-sm mt-2">médiane DVF {COMMUNE_DVF_PERIOD}</p>
                 </div>
               </m.div>
 
@@ -282,6 +282,19 @@ export const FrontalierCommunePage: React.FC = () => {
                   recherchent à {commune.name}
                 </span>
               </h2>
+
+              <figure className="mb-10">
+                <img
+                  src="/images/editorial/vie-frontaliere.webp"
+                  alt="Espace de télétravail lumineux ouvert sur un paysage boisé, visuel d'illustration"
+                  width="1440"
+                  height="960"
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[16/9] w-full rounded-[10px] object-cover"
+                />
+                <figcaption className="mt-3 text-xs text-gray-400">Visuel d’illustration</figcaption>
+              </figure>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {CRITERIA_BASE.map((c, i) => (
@@ -318,7 +331,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <div>
                       <p className="font-bold text-white text-lg mb-2">Accès direct au CERN</p>
                       <p className="text-white/70 font-light leading-relaxed">
-                        Saint-Genis-Pouilly jouxte directement le site principal du CERN et la zone technique de Prévessin. Les employés: physiciens, ingénieurs, techniciens, staff administratif: viennent de 100+ pays et représentent une demande locative et d'achat structurellement stable, indépendante des cycles immobiliers classiques.
+                        Saint-Genis-Pouilly est proche des sites du CERN à Meyrin et à Prévessin. La proximité du lieu de travail peut compter dans le choix d'un logement, mais le trajet réel et la demande varient selon le secteur et le type de bien.
                       </p>
                     </div>
                   </m.div>
@@ -338,7 +351,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <div>
                       <p className="font-bold text-white text-lg mb-2">ONU & organisations internationales</p>
                       <p className="text-white/70 font-light leading-relaxed">
-                        Ferney-Voltaire est à 8 km du Palais des Nations, du siège de l'OMS, du WTO et du WIPO. Les fonctionnaires internationaux représentent une part significative des acheteurs: bénéficiant d'une immunité fiscale partielle et d'un pouvoir d'achat USD/CHF élevé. La communauté anglophone est la plus dense du Pays de Gex, avec des écoles internationales à proximité directe.
+                        Ferney-Voltaire offre un accès aux organisations internationales genevoises. Pour les personnes qui s'y installent, la proximité du lieu de travail, les transports et les établissements scolaires sont des critères à examiner selon leur situation.
                       </p>
                     </div>
                   </m.div>
@@ -368,7 +381,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 </span>
               </h2>
               <p className="text-gray-600 font-light text-lg leading-relaxed max-w-3xl mb-12">
-                Un salarié genevois dispose en moyenne d'un pouvoir d'achat immobilier 40 à 60 % supérieur à un résident français de même profil. Un appartement de 90 m² comparable dans les communes résidentielles genevoises (Carouge, Lancy, Meyrin) se négocie entre 1,2 et 1,8 million CHF. À {commune.name}, la fourchette est de {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')} €/m². Sur une surface équivalente, l'économie représente souvent 800 000 à 1 200 000 €: sans compromis sur la qualité de vie.
+                À {commune.name}, la médiane des appartements vendus sur la période {COMMUNE_DVF_PERIOD} est de {commune.prixApptMin.toLocaleString('fr-FR')} €/m² selon les données DVF. Dans le canton de Genève, la médiane des appartements en propriété par étages du marché libre était de 10 559 CHF/m² en 2024 selon l'OCSTAT. Ces indicateurs portent sur des territoires, des périodes, des biens et des devises différents : ils éclairent le marché, sans permettre de calculer une économie individuelle fiable.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -378,7 +391,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Appartements · {commune.name}</p>
                   </div>
                   <p className="text-3xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
+                    {commune.prixApptMin.toLocaleString('fr-FR')}
                     <span className="text-xl text-gray-400 ml-1">€/m²</span>
                   </p>
                 </div>
@@ -389,7 +402,7 @@ export const FrontalierCommunePage: React.FC = () => {
                     <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Maisons · {commune.name}</p>
                   </div>
                   <p className="text-3xl font-medium text-textMain">
-                    {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                    {commune.prixMaisonMin.toLocaleString('fr-FR')}
                     <span className="text-xl text-gray-400 ml-1">€/m²</span>
                   </p>
                 </div>
@@ -397,10 +410,10 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="bg-primary rounded-[10px] p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 size={20} className="text-white/60" />
-                    <p className="text-xs font-bold uppercase tracking-widest text-white/60">Équivalent Genève-ville</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-white/60">Canton de Genève · PPE marché libre 2024</p>
                   </div>
                   <p className="text-3xl font-medium text-white">
-                    13 000 à 20 000
+                    10 559
                     <span className="text-xl text-white/60 ml-1">CHF/m²</span>
                   </p>
                 </div>
@@ -408,23 +421,26 @@ export const FrontalierCommunePage: React.FC = () => {
 
               <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                 <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
-                  Exemple concret · Budget 800 000 €
+                  Comparer un projet immobilier
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <p className="font-bold text-textMain text-lg mb-2">À {commune.name}</p>
                     <p className="text-gray-600 font-light leading-relaxed">
-                      Une maison de 4 à 5 pièces avec jardin, garage double, finitions récentes: surface de 140 à 180 m² selon l'état et la localisation exacte dans la commune.
+                      Le prix de chaque maison ou appartement dépend de son état, de sa surface, de son emplacement et des transactions réellement comparables. Une médiane communale sert de repère initial pour affiner une estimation.
                     </p>
                   </div>
                   <div>
-                    <p className="font-bold text-textMain text-lg mb-2">Côté suisse (budget équivalent en CHF)</p>
+                    <p className="font-bold text-textMain text-lg mb-2">Côté suisse</p>
                     <p className="text-gray-600 font-light leading-relaxed">
-                      Un appartement de 3 pièces en périphérie genevoise, sans extérieur, dans un immeuble des années 1980. Le franc suisse amplifie l'écart : à parité de pouvoir d'achat, l'avantage français est structurel.
+                      Pour comparer deux biens, il faut tenir compte du taux de change, des frais d'acquisition, des règles de financement et de la fiscalité de chaque ménage, en plus de la localisation et de la qualité du logement.
                     </p>
                   </div>
                 </div>
               </div>
+              <p className="mt-4 text-sm text-gray-500">
+                Sources : <a href={COMMUNE_DVF_SOURCE} target="_blank" rel="noopener noreferrer" className="underline">statistiques DVF</a> et <a href="https://statistique.ge.ch/statistique/infographies/05/05_05/Info_Transactions_prix_immo.pdf" target="_blank" rel="noopener noreferrer" className="underline">OCSTAT, transactions immobilières 2024</a>.
+              </p>
             </m.div>
           </div>
         </section>
@@ -453,22 +469,22 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                   <div className="space-y-5 text-gray-600 font-light text-lg leading-relaxed">
                     <p>
-                      Le CERN emploie directement 17 000 personnes issues de plus de 100 nationalités. À ces effectifs s'ajoutent des milliers de prestataires, doctorants et visiteurs en séjour long. Pour les membres du personnel en contrat permanent ou de longue durée, l'achat à Saint-Genis-Pouilly est la solution logique : à 3 minutes du site principal de Meyrin et à portée du secteur de Prévessin-Moëns.
+                      Le CERN réunit du personnel, des scientifiques utilisateurs et des visiteurs internationaux autour de ses sites de Meyrin et de Prévessin. Saint-Genis-Pouilly peut convenir aux personnes qui souhaitent habiter près de ces sites ; le temps de trajet dépend de l'adresse et des conditions de circulation.
                     </p>
                     <p>
-                      Le profil CERN présente des caractéristiques spécifiques : salaires nets en CHF avec exonérations fiscales partielles, fort pouvoir d'achat, critères de sélection précis (taille, qualité, proximité du CERN). La demande est structurellement découplée des cycles économiques: elle suit le calendrier des recrutements et des rotations de contrats, pas les variations de taux.
+                      Le statut professionnel, le lieu de travail, la durée du contrat et les conditions de financement diffèrent d'un acquéreur à l'autre. La proximité du CERN est un critère possible, à mettre en balance avec le budget et les caractéristiques du logement.
                     </p>
                     <p>
-                      Plusieurs familles du CERN ont acheté à Saint-Genis-Pouilly avec un accompagnement spécialisé: connaître les délais d'obtention de visa, les particularités des statuts diplomatiques et la gestion des virements internationaux fait partie du service.
+                      Une estimation fondée sur les ventes comparables permet d'apprécier le prix d'un bien précis avant d'engager un projet d'achat ou de vente. <a href="https://home.cern/about/who-we-are/our-people/" target="_blank" rel="noopener noreferrer" className="underline">Source : CERN, présentation de ses équipes</a>.
                     </p>
                   </div>
 
                   <div className="space-y-4">
                     {[
-                      { label: 'Employés CERN (direct + associés)', value: '17 000+' },
-                      { label: 'Nationalités représentées', value: '100+' },
-                      { label: 'Distance CERN Meyrin → Saint-Genis', value: '3 min' },
-                      { label: 'Demande locative (rotation annuelle)', value: 'très forte' },
+                      { label: 'Sites proches', value: 'Meyrin / Prévessin' },
+                      { label: 'Communauté scientifique', value: 'internationale' },
+                      { label: 'Temps de trajet', value: 'selon l’adresse' },
+                      { label: 'Projet immobilier', value: 'à étudier' },
                     ].map((item) => (
                       <div key={item.label} className="flex items-center justify-between bg-white p-6 rounded-[10px] border border-gray-100 shadow-sm">
                         <p className="font-medium text-textMain">{item.label}</p>
@@ -506,22 +522,22 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                   <div className="space-y-5 text-gray-600 font-light text-lg leading-relaxed">
                     <p>
-                      Genève accueille plus de 40 organisations internationales: ONU, OMS, OMC, OMPI, OIT, HCR: représentant plus de 35 000 fonctionnaires internationaux. Ferney-Voltaire, à 8 km du Palais des Nations, est le premier marché résidentiel de cette clientèle : une communauté stable, solvable, et très exigeante sur la qualité des biens.
+                      Genève accueille 42 organisations internationales selon la République et canton de Genève. Ferney-Voltaire est une option résidentielle pour certaines personnes qui travaillent dans ces organisations ; le choix dépend notamment du lieu de travail, du trajet et du type de logement recherché.
                     </p>
                     <p>
-                      Les fonctionnaires internationaux bénéficient d'une immunité fiscale sur leurs émoluments: leur capacité d'emprunt est calculée sur un revenu net effectif élevé. La durée des mandats (3 à 5 ans, souvent renouvelés) crée une demande mixte : certains louent d'abord, puis achètent en cas de renouvellement. D'autres achètent dès la première affectation pour rentabiliser le bien à la relocalisation suivante.
+                      Les contrats et situations fiscales des salariés d'organisations internationales sont variés. Un projet d'achat doit donc être étudié selon la durée d'installation envisagée, le financement disponible et les règles qui s'appliquent au ménage.
                     </p>
                     <p>
-                      La communauté anglophone, franco-britannique et nord-américaine est dense à Ferney-Voltaire: avec des écoles internationales, des cercles sociaux actifs et une vie de quartier cosmopolite. C'est un critère de premier ordre pour les familles en relocalisation.
+                      Les établissements scolaires et les liaisons vers Genève peuvent compter dans la recherche d'un logement familial. <a href="https://www.geneve-int.ch/facts-figures" target="_blank" rel="noopener noreferrer" className="underline">Source : République et canton de Genève, chiffres de la Genève internationale</a>.
                     </p>
                   </div>
 
                   <div className="space-y-4">
                     {[
-                      { label: 'Organisations internationales à Genève', value: '40+' },
-                      { label: 'Fonctionnaires internationaux', value: '35 000+' },
-                      { label: 'Distance Palais des Nations → Ferney', value: '8 km' },
-                      { label: 'Profil acheteur dominant', value: 'cadre supérieur' },
+                      { label: 'Organisations internationales à Genève', value: '42' },
+                      { label: 'Source', value: 'Canton de Genève' },
+                      { label: 'Temps de trajet', value: 'selon l’adresse' },
+                      { label: 'Projet immobilier', value: 'à étudier' },
                     ].map((item) => (
                       <div key={item.label} className="flex items-center justify-between bg-white p-6 rounded-[10px] border border-gray-100 shadow-sm">
                         <p className="font-medium text-textMain">{item.label}</p>
@@ -546,7 +562,7 @@ export const FrontalierCommunePage: React.FC = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white text-xs font-bold uppercase tracking-widest mb-8">
-                Gratuit · Sans engagement · Sous 48h
+                Gratuit · Sans engagement
               </span>
 
               <h2 className="text-4xl md:text-6xl font-medium text-white tracking-tight leading-[1.05] mb-6 break-words hyphens-auto">
@@ -597,7 +613,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 Valeur de votre bien à {commune.name}
               </h3>
               <p className="text-gray-500 font-light mt-2">
-                Visite sur site, analyse des comparables, dossier remis sous 48h.
+                Visite sur site et analyse des ventes comparables pour estimer votre bien.
               </p>
             </div>
             <Link

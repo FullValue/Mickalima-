@@ -6,7 +6,7 @@ import { ArrowLeft, Calendar, Clock, Facebook, Twitter, Linkedin } from 'lucide-
 import { m } from 'framer-motion';
 import { PillButton, SectionLabel } from './oakline/primitives';
 
-const LAST_MODIFIED_DATE = '2026-05-18';
+const LAST_MODIFIED_DATE = '2026-09-29';
 
 export const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -145,7 +145,7 @@ export const BlogPostPage: React.FC = () => {
                   <p className="font-serif text-xl leading-tight text-[#011d41]">Mickaël Lima</p>
                   <p className="mb-4 mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#011d41]/65">Expert immobilier</p>
                   <p className="hidden text-sm leading-relaxed text-gray-500 lg:block">
-                    Analyste du marché immobilier Gessien. Mes conseils sont fondés sur 8 ans d'expérience locale.
+                    Analyses du marché immobilier gessien et conseils adaptés à chaque projet.
                   </p>
                 </div>
 

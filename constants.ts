@@ -132,289 +132,175 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,
     slug: "prix-m2-pays-de-gex-2026",
-    title: "Prix au m² dans le Pays de Gex en 2026 : commune par commune",
-    excerpt: "Le Pays de Gex affiche des prix immobiliers parmi les plus élevés de France, portés par la proximité de Genève et la demande des frontaliers. Voici les valeurs réelles par commune.",
+    title: "Prix au m² dans le Pays de Gex en 2026 : les repères des notaires",
+    excerpt: "Prix réellement signés, dates des observations et écarts entre communes : les repères notariaux à connaître avant d'estimer un bien dans le Pays de Gex.",
     date: "2026-05-05",
     category: "Marché",
     image: "/images/blog/prix-m2-pays-de-gex-2026.jpg",
     content: `
-    <p>Le marché immobilier du Pays de Gex reste sous tension en 2026. La demande excède l'offre sur la quasi-totalité des communes, avec des acheteurs issus principalement du bassin genevois : frontaliers, employés d'organisations internationales, cadres expatriés. Avec plus de 5 000 nouveaux arrivants par an dans le secteur et plus de 50 % des transactions sur les communes frontalières réalisées par des ménages percevant leurs revenus en Suisse, le résultat est sans appel : des prix qui résistent à la correction observée dans d'autres marchés français, même en contexte de remontée des taux.</p>
+    <p><em>Mise à jour du 29 septembre 2026.</em> Un prix au mètre carré n'a de sens qu'avec sa source, sa période et le type de bien observé. Les prix ci-dessous proviennent de ventes enregistrées par les notaires. Ils ne sont ni des prix d'annonce, ni des estimations pour un logement précis.</p>
 
-    <h2>Prix médians par commune (mai 2026)</h2>
-    <p>Les données ci-dessous croisent plusieurs sources publiques: Figaro Immobilier, SeLoger, MeilleursAgents: et les transactions enregistrées sur les 12 derniers mois dans le secteur. Les médianes masquent toujours une dispersion : sur Divonne, par exemple, la fourchette appartements va de 3 716 à 9 260 €/m² selon l'emplacement, l'état et la vue.</p>
-    <ul>
-      <li><strong>Ferney-Voltaire</strong>: appartements : médian ~5 566 €/m² (Figaro Immo mai 2026), fourchette 4 983-6 452 €/m². Maisons : 4 800-5 000 €/m² (médian). Évolution : −3 % sur 1 an mais +17 % sur 5 ans.</li>
-      <li><strong>Divonne-les-Bains</strong>: appartements : médian ~6 608 €/m² (SeLoger déc 2025), fourchette 3 716-9 260 €/m². Maisons : ~7 767 €/m². MeilleursAgents donne 7 077 €/m² tous biens confondus (janvier 2026).</li>
-      <li><strong>Saint-Genis-Pouilly</strong>: appartements : ~4 940 €/m², fourchette 3 113-7 047 €/m² (MeilleursAgents mai 2026). Maisons : 5 200 à 7 500 €/m². La proximité immédiate du CERN soutient la demande locative et amortit toute correction.</li>
-      <li><strong>Gex</strong>: médian global 4 442 €/m² (Figaro Immo avril 2026), −3 % sur 1 an, +13 % sur 5 ans. Maisons : 4 292 €/m², en progression de +8 % sur 1 an.</li>
-      <li><strong>Prévessin-Moëns</strong>: médian appartements 5 366 €/m² (Figaro Immo avril 2026), stable sur 1 an, +8 % sur 5 ans. Maisons : 5 000 à 7 200 €/m².</li>
-      <li><strong>Cessy / Ornex</strong>: 4 000 à 5 400 €/m² (appartements), 4 800 à 7 000 €/m² (maisons). Tickets d'entrée maison la plus accessible du secteur frontalier proche.</li>
-      <li><strong>Thoiry / Crozet</strong>: 3 500 à 4 800 €/m² (appartements), 4 200 à 6 200 €/m² (maisons). Décote liée à l'éloignement de la douane.</li>
-    </ul>
+    <h2>Le repère le plus solide pour le Pays de Gex</h2>
+    <p>Sur les ventes du 1er janvier au 31 décembre 2025, les Notaires de France relèvent un <strong>prix médian de 4 800 €/m² pour les appartements anciens</strong> dans le Pays de Gex, en hausse de <strong>3,7 % sur un an</strong>. Pour les maisons anciennes, la médiane porte sur le <strong>prix total : 598 400 €</strong>, en légère baisse de <strong>0,3 % sur un an</strong>. La maison médiane vendue mesurait 130 m² habitables sur 710 m² de terrain. Il serait trompeur de diviser son prix par 130 pour en déduire un prix au m² applicable à toutes les maisons : la valeur du terrain et les caractéristiques du bien comptent aussi.</p>
+    <p>Source : <a href="https://cin-lyon.notaires.fr/wp-content/uploads/2026/03/CID_light01_2025T4.pdf">Notaires de France, conjoncture de l'Ain, ventes 2025</a>.</p>
 
-    <h2>Sources et méthodologie</h2>
-    <p>Les chiffres ci-dessus sont des consolidations de portails grand public (Figaro Immo, SeLoger, MeilleursAgents) recoupées avec les bases de données notariales DVF (Demandes de Valeurs Foncières) accessibles via data.gouv.fr. Aucune source isolée ne fait autorité absolue sur ce marché atypique : les écarts inter-sources peuvent atteindre 15 à 20 % sur un même mois pour une même commune, notamment sur les biens d'exception (vue lac, accès golf, programmes neufs).</p>
-
-    <h2>Ce qui explique ces niveaux de prix</h2>
-    <p>Trois facteurs structurels maintiennent les prix élevés dans le Pays de Gex. D'abord, le différentiel de revenus entre frontaliers et résidents français classiques : un salarié travaillant à Genève dispose d'un pouvoir d'achat immobilier 40 à 60 % supérieur à la moyenne nationale. Ensuite, la rareté du foncier constructible dans un secteur contraint par les zones agricoles et naturelles: la pression urbanistique se reporte sur les biens existants. Enfin, la demande locative soutenue, portée par le renouvellement permanent des contrats de détachement des organisations internationales.</p>
-
-    <blockquote>Le Pays de Gex est l'un des seuls marchés français où la demande en francs suisses coexiste avec la demande en euros. Ce double marché crée des dynamiques de prix qu'un agent non spécialisé ne peut pas anticiper correctement.</blockquote>
-
-    <h2>Évolution des prix sur 5 ans : où va le marché ?</h2>
-    <p>L'analyse glissante 2021-2026 fait apparaître trois dynamiques distinctes selon les communes. Les communes frontalières premium: Ferney-Voltaire et Prévessin-Moëns: affichent une progression de 17 % et 8 % respectivement sur 5 ans, malgré un léger tassement (−3 % à stable) sur les 12 derniers mois lié à la remontée des taux. Cette stabilisation marque une normalisation, pas un retournement.</p>
-    <p>Gex et les communes du second cercle (Cessy, Ornex) ont mieux résisté en flux : +13 % sur 5 ans pour Gex, avec une accélération nette sur les maisons (+8 % sur 1 an). Le report de demande depuis les communes immédiatement frontalières: devenues inabordables pour une partie des primo-accédants frontaliers: alimente cette dynamique. Divonne-les-Bains reste à part : marché premium peu corrélé aux cycles classiques, soutenu par une clientèle internationale dont le pouvoir d'achat est peu sensible aux variations de taux.</p>
-    <p>Les biens d'exception (villas avec vue lac à Divonne, programmes neufs à Ferney) ont enregistré des hausses dépassant 20 % sur 5 ans, et certaines transactions confidentielles franchissent les 12 000 €/m². Ce segment échappe largement aux statistiques publiées.</p>
-
-    <h2>Marché locatif et rendement</h2>
-    <p>Le marché locatif gessien reste le plus tendu de la région Auvergne-Rhône-Alpes. La demande locative excède structurellement l'offre sur l'ensemble des communes frontalières, alimentée par les contrats de détachement courts (3 à 5 ans, souvent renouvelés) des employés d'organisations internationales. Les loyers médians à Divonne-les-Bains s'établissent entre 29 et 30 €/m² selon le Figaro Immobilier (avril 2026), avec des pics au-delà sur les biens premium meublés.</p>
-    <p>Pour un investisseur, les rendements bruts s'établissent à deux niveaux selon le positionnement. Les biens premium en centre-ville de Divonne ou cœur de Ferney plafonnent à 3-4 % brut, compensés par une plus-value patrimoniale historiquement forte et une vacance locative quasi nulle. Les produits plus standards (appartements 2/3 pièces dans le neuf récent à Saint-Genis-Pouilly, Cessy, Ornex) atteignent 4-5 % brut, avec une demande locative qui reste structurelle.</p>
-    <p>Le profil-type du locataire frontalier: solvable, mobile, attendu pour 2 à 6 ans: réduit drastiquement les risques de défaut et de vacance. C'est l'un des rares marchés français où louer en meublé non professionnel reste fiscalement et opérationnellement intéressant sur le long terme.</p>
-
-    <h2>Délais de vente moyens en 2026</h2>
-    <ul>
-      <li><strong>Appartements bien estimés</strong> : 28 à 45 jours en moyenne</li>
-      <li><strong>Maisons bien estimées</strong> : 45 à 75 jours</li>
-      <li><strong>Biens surestimés de 10 %+</strong> : délai multiplié par 3 à 4, avec décote finale systématique</li>
-    </ul>
-    <p>La précision de l'estimation initiale reste le facteur le plus déterminant sur le délai et le prix final obtenu. Un bien correctement positionné attire 3 à 5 visites qualifiées dans les 15 premiers jours ; un bien surestimé reçoit des visites curieuses, fait baisser son propre indicateur de fraîcheur sur les portails, et finit décoté de 8 à 12 % par rapport à l'estimation juste initiale.</p>
-
-    <h2>Ce que ces prix signifient pour un vendeur</h2>
-    <p>Connaître les fourchettes du marché ne suffit pas. Une estimation réalisée à distance, sur la base de données agrégées, peut s'écarter de 10 à 20 % de la valeur réelle dans ce secteur. <strong>Sur un bien à 600 000 €, cela représente entre 60 000 et 120 000 € d'écart</strong>: dans un sens ou dans l'autre. Sous-estimer son bien, c'est laisser de l'argent à l'acheteur. Surestimer, c'est immobiliser son capital pendant des mois avant de finir par décoter.</p>
-    <p>L'estimation d'un bien dans le Pays de Gex doit intégrer sa commune exacte, sa distance aux axes frontaliers, son état énergétique (DPE), sa vue, son exposition, et les transactions comparables récentes dans un rayon de 500 mètres: pas dans un rayon départemental. C'est ce travail d'analyse fine qu'une estimation de terrain permet de réaliser, en moins de 48 heures, et sans engagement.</p>
-
-    <h2>Prix au m² par commune: tableau comparatif 2026</h2>
-    <p>Vue synthétique des prix médians observés sur les 12 derniers mois dans les principales communes du Pays de Gex, croisée avec les données des principaux observatoires immobiliers. Ce format complète les fourchettes détaillées listées plus haut.</p>
+    <h2>Des écarts réels d'une commune à l'autre</h2>
+    <p>Le baromètre notarial de mai 2025 publie les médianes suivantes pour les <strong>appartements anciens</strong> dans cinq communes du secteur. Ces chiffres communaux sont plus anciens que la médiane 2025 ci-dessus : leur date est indiquée pour éviter de les présenter comme des résultats de septembre 2026.</p>
     <table>
-      <thead>
-        <tr>
-          <th>Commune</th>
-          <th>Appartement (médian)</th>
-          <th>Maison (médian)</th>
-          <th>Évolution 1 an</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Commune</th><th>Appartement ancien, prix médian au m²</th><th>Évolution sur un an à la date du baromètre</th></tr></thead>
       <tbody>
-        <tr><td>Divonne-les-Bains</td><td>6 608 €/m²</td><td>7 767 €/m²</td><td>stable</td></tr>
-        <tr><td>Ferney-Voltaire</td><td>5 566 €/m²</td><td>4 800 €/m²</td><td>−3 %</td></tr>
-        <tr><td>Prévessin-Moëns</td><td>5 366 €/m²</td><td>5 300 €/m²</td><td>stable</td></tr>
-        <tr><td>Saint-Genis-Pouilly</td><td>4 940 €/m²</td><td>5 000 €/m²</td><td>+2 %</td></tr>
-        <tr><td>Gex</td><td>4 442 €/m²</td><td>4 292 €/m²</td><td>−3 %</td></tr>
-        <tr><td>Cessy / Ornex</td><td>4 200 €/m²</td><td>4 900 €/m²</td><td>stable</td></tr>
-        <tr><td>Thoiry / Crozet</td><td>3 800 €/m²</td><td>4 200 €/m²</td><td>stable</td></tr>
+        <tr><td>Divonne-les-Bains</td><td>5 640 €</td><td>+1,6 %</td></tr>
+        <tr><td>Prévessin-Moëns</td><td>5 210 €</td><td>+6,8 %</td></tr>
+        <tr><td>Ferney-Voltaire</td><td>4 700 €</td><td>+9,4 %</td></tr>
+        <tr><td>Gex</td><td>4 490 €</td><td>+7,3 %</td></tr>
+        <tr><td>Saint-Genis-Pouilly</td><td>4 480 €</td><td>+4,4 %</td></tr>
       </tbody>
     </table>
-    <p>Ces chiffres constituent des ordres de grandeur. Le prix réel d'un bien dépend de son état, son exposition, son DPE, sa vue et les transactions comparables dans un rayon de 500 mètres. Sur un bien à 600 000 €, un écart d'estimation de 10 % représente 60 000 €: dans un sens ou dans l'autre.</p>
-    <p><strong>Sources :</strong> Figaro Immobilier (mai 2026), SeLoger (décembre 2025), Meilleurs Agents (janvier 2026), PAP (juillet 2025).</p>
-    <p><strong>Comment lire ce tableau ?</strong> Les prix médians sont des points centraux: la moitié des transactions se situe au-dessus, la moitié en dessous. Pour un bien spécifique, le positionnement à l'intérieur de la fourchette dépend de critères concrets : étage (avec ou sans ascenseur), exposition sud, vue dégagée, présence d'un extérieur, état du DPE, qualité de la copropriété. L'évolution sur 1 an est un signal de tendance, pas une garantie : un bien d'exception peut s'écarter significativement de la médiane de sa commune.</p>
+    <p>Source : <a href="https://cin-lyon.notaires.fr/wp-content/uploads/2025/07/Barometre-de-limmobilier-Ain-mai-2025.pdf">Chambre interdépartementale des notaires, baromètre de l'Ain, mai 2025</a>. Les médianes d'une commune et de l'ensemble du Pays de Gex portent sur des périodes différentes ; elles ne doivent pas être soustraites pour calculer une hausse ou une décote récente.</p>
 
-    <h2>Demandez une estimation précise et gratuite</h2>
-    <p>Si vous envisagez de vendre dans le Pays de Gex, la première étape rationnelle est d'obtenir une estimation chiffrée, justifiée, et adaptée à votre commune et à votre bien. Cette estimation est gratuite, confidentielle, et ne vous engage à rien: elle vous donne simplement le repère nécessaire pour décider de vendre, attendre, ou repositionner votre bien.</p>
-    <p><a href="/estimation">Demander mon estimation gratuite →</a></p>
+    <h2>Comment utiliser ces données pour estimer un bien ?</h2>
+    <p>Une médiane signifie que la moitié des ventes du groupe considéré se situe au-dessus et l'autre moitié au-dessous. Elle ne dit pas qu'un appartement donné vaut exactement ce montant. L'adresse, la surface, l'étage, l'état du logement, le DPE, l'extérieur et la période de vente changent le résultat. Les communes absentes du tableau ne disposent pas ici d'une médiane notariale comparable publiée dans ce baromètre ; leur attribuer un chiffre précis créerait une fausse précision.</p>
+    <p>Les ventes effectives peuvent aussi se consulter dans l'<a href="https://app.dvf.etalab.gouv.fr/">application publique DVF</a>. Pour construire un comparatif utile, il faut sélectionner des transactions récentes et réellement comparables, puis écarter les ventes atypiques, les dépendances et les écarts de surface. Les prix affichés sur les portails immobiliers renseignent sur l'offre concurrente, mais ils ne prouvent pas le prix finalement signé.</p>
+    <p>Le calcul d'un écart d'estimation reste simple : sur un bien à 600 000 €, <strong>10 % représentent 60 000 €</strong>. Ce calcul illustre l'enjeu ; il ne signifie pas qu'une estimation en ligne se trompe systématiquement de 10 %.</p>
+    <p><a href="/estimation">Demander une estimation adaptée à mon bien →</a></p>
   `
   },
   {
     id: 2,
     slug: "immobilier-frontalier-pays-de-gex",
     title: "Immobilier dans le Pays de Gex : ce que les frontaliers doivent savoir",
-    excerpt: "Vivre en France, travailler en Suisse : le Pays de Gex attire chaque année des milliers de nouveaux frontaliers. Voici ce qu'il faut comprendre sur ce marché immobilier atypique avant d'acheter ou de vendre.",
+    excerpt: "Vivre en France et travailler en Suisse : chiffres Insee, repères notariaux et points à examiner avant d'acheter, d'investir ou de vendre dans le Pays de Gex.",
     date: "2026-05-05",
     category: "Frontalier",
     image: "/images/blog/immobilier-frontalier-pays-de-gex.jpg",
     content: `
-    <p>Le Pays de Gex compte environ 100 000 habitants, dont près de 35 % travaillent en Suisse. Cette proportion de frontaliers: parmi les plus élevées d'Europe: structure intégralement le marché immobilier local : niveaux de prix, profils d'acheteurs, critères de choix, délais de transaction. Acheter ou vendre dans ce secteur sans maîtriser ces spécificités, c'est travailler avec une carte incomplète.</p>
+    <p><em>Mise à jour du 29 septembre 2026.</em> Le marché gessien est étroitement lié à l'emploi en Suisse. Pour le décrire correctement, il faut distinguer la part des frontaliers parmi les <strong>habitants</strong> de leur part parmi les <strong>personnes en emploi</strong> : ce ne sont pas les mêmes populations.</p>
 
-    <h2>Les chiffres du marché frontalier 2026</h2>
-    <p>Le marché gessien suit une trajectoire à part dans l'immobilier français. Les chiffres parlent d'eux-mêmes : 100 000 habitants dans le Pays de Gex, dont ~35 % travaillent côté suisse (sources : INSEE, Office cantonal de la statistique de Genève). Le segment prestige a enregistré une hausse de 12 % des transactions au premier trimestre 2025, principalement portée par des acheteurs CERN et organisations internationales. Plus de 50 % des transactions sur les communes immédiatement frontalières sont réalisées par des ménages percevant tout ou partie de leurs revenus en francs suisses.</p>
-    <p>Le différentiel de pouvoir d'achat est l'explication clé. Un appartement de 90 m² à Ferney-Voltaire se négocie autour de 500 000 €. Le même logement côté suisse, à Genève ou dans le canton de Vaud, dépasse 1,2 million de francs suisses. Pour un frontalier payé en CHF avec une capacité d'emprunt calculée sur ses revenus suisses, résider en France représente une économie substantielle à qualité de vie équivalente: accès aux axes autoroutiers, temps de trajet maîtrisé, fiscalité française.</p>
+    <h2>Population et emploi frontalier : les chiffres vérifiables</h2>
+    <p>La communauté d'agglomération du Pays de Gex comptait <strong>107 091 habitants en 2023</strong> selon l'Insee. Dans son étude de référence sur l'emploi frontalier, l'Insee dénombrait <strong>29 444 résidents travaillant en Suisse en 2018</strong>, soit <strong>62,0 % des actifs occupés résidant dans l'intercommunalité</strong>. Un travailleur frontalier n'est donc pas « 62 % des habitants » : les enfants, retraités et autres personnes sans emploi ne figurent pas au dénominateur. L'Observatoire des territoires recensait pour sa part plus de 30 000 travailleurs exerçant en Suisse dans le Pays de Gex en 2020.</p>
+    <p>Sources : <a href="https://www.insee.fr/fr/statistiques/1405599?geo=EPCI-240100750+COM-01173">Insee, comparateur de territoires, population 2023</a> ; <a href="https://www.insee.fr/fr/statistiques/6444379">Insee, travailleurs frontaliers, recensement 2018</a> ; <a href="https://www.observatoire-des-territoires.gouv.fr/sites/default/files/2025-03/202411_zoom_transfrontalier_1.pdf">Observatoire des territoires, données 2020</a>.</p>
 
-    <blockquote>Le Pays de Gex n'est pas un marché immobilier français classique. C'est un marché de frontière, avec ses propres règles, ses propres acheteurs et ses propres dynamiques. Les méthodes d'estimation et de commercialisation doivent en tenir compte.</blockquote>
+    <h2>Ce que ces flux changent pour l'immobilier</h2>
+    <p>La proximité du lieu de travail, les temps de trajet aux heures de pointe, l'accès aux écoles et la possibilité de télétravailler pèsent dans le choix d'un logement. Ces critères varient selon l'employeur, le lieu exact de travail et la composition du ménage. Ferney-Voltaire, Prévessin-Moëns et Saint-Genis-Pouilly ne répondent pas aux mêmes besoins que Divonne-les-Bains, Gex ou les communes plus éloignées de la frontière.</p>
+    <p>Les prix confirment que le secteur est cher, sans que tous les biens suivent la même trajectoire. Sur les ventes de 2025, les notaires situent la médiane des <strong>appartements anciens du Pays de Gex à 4 800 €/m² (+3,7 % en un an)</strong> et celle des <strong>maisons anciennes à 598 400 € (−0,3 %)</strong>. Ces chiffres couvrent l'ensemble du secteur et des types de biens différents ; ils ne constituent pas un prix applicable à une adresse particulière. Source : <a href="https://cin-lyon.notaires.fr/wp-content/uploads/2026/03/CID_light01_2025T4.pdf">Notaires de France, conjoncture 2025 de l'Ain</a>.</p>
 
-    <h2>Ce qui différencie un acheteur frontalier</h2>
-    <p>Les frontaliers achètent avec des critères précis, souvent non négociables :</p>
-    <ul>
-      <li><strong>Proximité des axes frontaliers</strong> : D984, A40, douane de Bardonnex: chaque minute gagnée sur le trajet compte, surtout pour les profils avec présentiel obligatoire sur Genève</li>
-      <li><strong>Qualité des établissements scolaires</strong> : les familles expatriées cherchent des communes avec lycées internationaux ou accès au réseau scolaire genevois transfrontalier</li>
-      <li><strong>Fibre et connectivité</strong> : le télétravail partiel (2 à 3 jours / semaine) est désormais la norme dans les organisations internationales: un débit symétrique &gt; 500 Mbps est devenu un critère filtrant</li>
-      <li><strong>Espaces extérieurs</strong> : jardins, terrasses, balcons exposés: la comparaison avec les logements suisses (souvent compacts) joue systématiquement en faveur des biens avec extérieur</li>
-    </ul>
+    <h2>Acheter avec des revenus en francs suisses</h2>
+    <p>Le Haut Conseil de stabilité financière fixe en principe un <strong>taux d'effort maximal de 35 %</strong> des revenus pour l'octroi d'un crédit immobilier en France, assurance emprunteur comprise ; des dérogations encadrées existent. Pour un dossier payé en francs suisses, la banque examine aussi la stabilité des revenus et le risque de change. La méthode de conversion, les garanties et l'apport demandés dépendent de l'établissement et du dossier : aucun apport de 20 ou 30 % n'est imposé à tous les frontaliers. Source : <a href="https://www.economie.gouv.fr/hcsf/mesures/mesure-relative-loctroi-de-credits-immobiliers">HCSF, mesure relative à l'octroi des crédits immobiliers</a>.</p>
+    <p>Avant de signer une offre, demandez à plusieurs prêteurs ou à un courtier quelles pièces ils exigent, quel revenu en euros ils retiendront, quel taux de change ils appliqueront et combien coûtera le crédit dans les scénarios de change défavorables. Un prêt libellé en francs suisses ne supprime pas tous les risques : ceux-ci dépendent notamment de la devise des revenus pendant toute la durée de remboursement.</p>
 
-    <h2>Critères de sélection par profil d'acheteur</h2>
-    <p>La clientèle frontalière n'est pas homogène. Trois profils dominants ciblent des communes différentes, avec des critères et des budgets distincts :</p>
-    <p><strong>CERN et organisations internationales</strong>: Privilégient <em>Saint-Genis-Pouilly</em> (à 3 minutes du site du CERN, douane Meyrin à 5 min) et <em>Prévessin-Moëns</em> (calme résidentiel, accès rapide à la zone Genève-aéroport). Budget moyen 500-800 k€ pour un appartement familial ou une petite maison. Profil : cadres scientifiques ou administratifs, contrats de 3 à 6 ans souvent renouvelés, exigent un standard de finition équivalent au marché suisse.</p>
-    <p><strong>Cadres finance et services genevois</strong>: Ciblent <em>Divonne-les-Bains</em> (lac, golf, casino, prestige) et <em>Ferney-Voltaire centre-ville</em> (vie de quartier, restaurants, communauté internationale dense). Budget 800 k€ à 2 M€. Profil : directeurs, banquiers privés, avocats: recherchent des biens d'exception avec vue, terrain, ou architecture de caractère.</p>
-    <p><strong>Jeunes actifs frontaliers</strong>: Visent <em>Gex</em>, <em>Cessy</em>, <em>Ornex</em>, parfois <em>Thoiry</em>. Budget 300-550 k€ pour un T3/T4 ou une petite maison à rénover. Profil : 28-40 ans, premier achat, prêt en CHF souvent, sensibles au rapport qualité-prix. C'est le segment qui a le plus tiré la demande sur les communes du second cercle ces 3 dernières années.</p>
-
-    <h2>Le marché locatif frontalier</h2>
-    <p>Si vous êtes propriétaire bailleur ou investisseur, le marché locatif gessien est l'un des plus tendus de France. La demande locative excède structurellement l'offre sur toutes les communes frontalières. Les contrats de détachement courts (3 à 5 ans) génèrent un flux constant de locataires solvables. La vacance locative sur les biens correctement positionnés est quasi nulle.</p>
-    <p>Les <strong>T2 et T3 sont les segments les plus rentables</strong>, avec des rendements bruts de 4 à 5 % sur les communes du second cercle (Gex, Cessy, Ornex), 3 à 4 % sur les premiums (Divonne centre, Ferney prestige). Les loyers médians varient de 18 €/m² (Gex, Thoiry) à 30 €/m² (Divonne, Ferney centre meublés), selon le standing et l'équipement.</p>
-    <p>Pour un investisseur étranger ou suisse, le statut LMNP (Loueur Meublé Non Professionnel) reste fiscalement avantageux et opérationnellement simple. C'est l'un des rares marchés français où l'on peut louer rapidement, avec sécurité juridique, et conserver un cash-flow positif net après charges.</p>
-
-    <h2>Vendre à un acheteur frontalier : les 3 erreurs à éviter</h2>
-    <p><strong>Erreur n°1: Diffuser uniquement sur les portails français.</strong> Un propriétaire qui se cantonne à SeLoger, Leboncoin et BienIci laisse passer 30 à 40 % de la demande qualifiée. Les frontaliers actifs sur le marché consultent <em>Properstar</em>, les portails suisses (Homegate, ImmoScout24), et les réseaux d'agents spécialisés zone frontalière. Une diffusion qui ne couvre pas ces canaux est mécaniquement amputée.</p>
-    <p><strong>Erreur n°2: Photographier au smartphone.</strong> Un acheteur frontalier compare votre bien avec des logements suisses dont les annonces sont systématiquement professionnalisées (photos HD, vidéo drone, parfois visite virtuelle). Une annonce visuellement faible est mécaniquement déclassée: pas parce que le bien est moins bien, mais parce que le standard visuel attendu est plus élevé.</p>
-    <p><strong>Erreur n°3: Description française uniquement.</strong> Une part significative des acheteurs frontaliers ne parle pas français comme langue principale (Allemands, Britanniques, Italiens, Néerlandais en relocalisation). Une description bilingue français-anglais double mécaniquement la couverture du bien sur les recherches multilingues.</p>
-    <p>Sur les 240 ventes réalisées en 5 ans dans le Pays de Gex, une proportion significative impliquait des acheteurs travaillant à Genève, au CERN ou dans des organisations internationales: cette clientèle a des attentes précises et des processus d'achat différents des acquéreurs français classiques.</p>
-
-    <h2>Les communes les mieux positionnées pour les frontaliers</h2>
-    <ul>
-      <li><strong>Ferney-Voltaire</strong> : 8 km de Genève, forte communauté internationale, toutes commodités, lycée international</li>
-      <li><strong>Saint-Genis-Pouilly</strong> : CERN à proximité immédiate, demande locative très soutenue, écoles bilingues</li>
-      <li><strong>Prévessin-Moëns</strong> : calme, résidentiel, accès rapide à la douane Bardonnex et au CERN</li>
-      <li><strong>Ornex / Cessy</strong> : pavillonnaire, familles, rapport qualité-prix favorable, accès A40</li>
-      <li><strong>Divonne-les-Bains</strong> : prestige, lac, golf, casino: profil cadre supérieur et expatrié senior</li>
-      <li><strong>Gex</strong> : capitale du Pays de Gex, services complets, budget plus accessible, ski Jura à 20 min</li>
-    </ul>
-
-    <h2>Financement immobilier pour les frontaliers : ce que les banques françaises appliquent</h2>
-    <p>Travailler en Suisse et emprunter en France : c'est possible, mais les règles diffèrent de celles appliquées aux résidents classiques. Voici ce qu'il faut savoir avant de se lancer.</p>
-    <p><strong>La règle des 35 % appliquée au salaire net français.</strong> Les banques françaises calculent le taux d'endettement sur la base du salaire net imposable en France: c'est-à-dire le salaire brut suisse converti en euros, après abattement fiscal frontalier. Ce montant est généralement inférieur au salaire brut suisse, ce qui peut surprendre les primo-accédants frontaliers qui raisonnent en CHF.</p>
-    <p><strong>La variation de change EUR/CHF.</strong> Les établissements prêteurs intègrent un risque de change dans leur analyse. Un frontalier payé en francs suisses qui emprunte en euros est exposé à la fluctuation EUR/CHF. Certaines banques appliquent une décote de 10 à 15 % sur les revenus CHF pour couvrir ce risque, d'autres exigent une assurance change. La meilleure parade reste souvent un prêt en CHF auprès d'une banque transfrontalière (BCGE, Banque de Savoie, CIC Est) qui élimine mécaniquement ce risque.</p>
-    <p><strong>Les courtiers spécialisés font la différence.</strong> Plusieurs courtiers en crédit immobilier du Pays de Gex maîtrisent les spécificités du dossier frontalier : présentation du contrat de travail suisse, attestation de l'employeur, historique des fiches de paie en CHF, justificatif de permis G. Un bon courtier peut obtenir des conditions que la banque de détail classique ne propose pas, notamment sur les biens supérieurs à 600 000 €.</p>
-    <p><strong>Apport recommandé.</strong> Dans le Pays de Gex, compte tenu des niveaux de prix, un apport de 20 à 30 % est généralement nécessaire pour obtenir des conditions compétitives. Sur un bien à 500 000 €, cela représente 100 000 à 150 000 € d'apport personnel: sans compter les frais de notaire (7 à 8 % dans l'ancien) à provisionner en sus.</p>
-    <p><strong>Documents à préparer en amont.</strong> Un dossier frontalier complet inclut : 3 dernières fiches de paie suisses traduites en euros, contrat de travail suisse, attestation de l'employeur sur la pérennité du poste, copie du permis G (frontalier), 3 derniers relevés bancaires CHF et EUR, avis d'imposition français. Un dossier bien préparé peut faire gagner 2 à 3 semaines sur le délai d'instruction bancaire: délai souvent critique quand l'offre d'achat impose une condition suspensive à 45 jours.</p>
-
-    <h2>Vendre dans le Pays de Gex : commencez par une estimation précise</h2>
-    <p>Avant toute mise en marché, une estimation fine: qui intègre la spécificité frontalière, la demande locale réelle, et les transactions comparables récentes: vous évite à la fois de sous-vendre et d'immobiliser votre capital trop longtemps. Notre méthode inclut systématiquement la diffusion sur Properstar et les portails suisses spécialisés frontaliers, en plus des 40+ portails français.</p>
-    <p><a href="/estimation">Demander mon estimation gratuite →</a></p>
+    <h2>Investir ou vendre : calculer plutôt que promettre</h2>
+    <p>Un rendement brut se calcule en divisant le loyer annuel hors charges par le prix total d'acquisition, frais compris. Il faut ensuite retrancher les charges, la fiscalité, les travaux et une hypothèse de vacance pour approcher le rendement net. Un loyer d'annonce, même élevé, ne garantit ni une location immédiate ni un « cash-flow positif ».</p>
+    <p>La location meublée non professionnelle demande aussi un calcul fiscal au cas par cas. Depuis les ventes réalisées à compter du 15 février 2025, les amortissements déduits au régime réel sont en principe pris en compte dans le calcul de la plus-value à la revente. Source : <a href="https://www.impots.gouv.fr/particulier/questions/je-vends-un-bien-immobilier-donne-en-location-meublee-comment-se-calcule-la">Direction générale des finances publiques, plus-value en LMNP</a>.</p>
+    <p>Pour vendre, confrontez les transactions comparables et les annonces concurrentes, puis choisissez les canaux de diffusion utiles à votre bien. Une traduction anglaise ou une présence sur un portail suisse peut aider certains dossiers, mais il n'existe pas de pourcentage public fiable permettant d'affirmer que leur absence fait perdre une part fixe des acheteurs.</p>
+    <p><a href="/estimation">Faire étudier mon projet immobilier →</a></p>
   `
   },
   {
     id: 3,
     slug: "mandat-exclusif-ou-simple-pays-de-gex",
     title: "Mandat exclusif ou mandat simple : lequel choisir dans le Pays de Gex ?",
-    excerpt: "Le choix du type de mandat conditionne la stratégie de vente, le délai, et souvent le prix final. Comparaison objective des deux options, 5 questions à poser à un agent, et coût réel d'un bien qui traîne sur le marché.",
+    excerpt: "Mandat exclusif ou simple : les règles de résiliation, les engagements à comparer et un exemple chiffré pour choisir en connaissance de cause.",
     date: "2026-05-18",
     category: "Conseil",
     image: "/images/blog/mandat-exclusif-ou-simple-pays-de-gex.jpg",
     content: `
-    <p>La question revient dans presque chaque premier rendez-vous : faut-il signer un mandat exclusif ou confier son bien à plusieurs agences ? La réponse dépend moins d'une préférence générale que de la réalité du marché local et des objectifs du vendeur. Dans le Pays de Gex, les deux formules produisent des résultats très différents selon la situation. Cet article fait le tri, avec un calcul concret du coût d'opportunité d'une mise en marché ratée.</p>
+    <p><em>Mise à jour du 29 septembre 2026.</em> Le mandat simple et le mandat exclusif organisent différemment la vente d'un bien. Leur efficacité dépend du prix demandé, de la présentation du logement, de la diffusion prévue et du suivi effectivement assuré. Aucun délai de vente garanti ne découle à lui seul du type de mandat.</p>
 
-    <h2>Ce que dit la loi Hoguet</h2>
-    <p>Un mandat exclusif interdit au propriétaire de confier son bien à une autre agence pendant la durée du contrat, généralement 3 mois renouvelables. Un mandat simple autorise la multi-diffusion et la vente en direct par le propriétaire. Les deux formes sont encadrées par la loi Hoguet du 2 janvier 1970 et ses décrets d'application. L'agent commercial immobilier doit obligatoirement détenir une carte professionnelle (carte T pour les transactions) délivrée par la Chambre de Commerce et d'Industrie.</p>
+    <h2>Ce que chaque mandat autorise</h2>
+    <p>Avec un mandat simple, le vendeur peut confier le bien à plusieurs professionnels et, selon les termes signés, le vendre directement. Avec une clause d'exclusivité, il s'engage à respecter les restrictions expressément prévues au contrat. Les honoraires, la durée, les modalités de résiliation et la diffusion doivent être lus avant signature. Un agent commercial intervient sous l'habilitation d'un titulaire de carte professionnelle ; il ne détient pas lui-même nécessairement une carte T. Source : <a href="https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/professionnels-de-limmobilier-les-regles-connaitre">DGCCRF, règles applicables aux professionnels de l'immobilier</a>.</p>
 
-    <h2>Les avantages concrets du mandat exclusif</h2>
-    <ul>
-      <li><strong>Engagement renforcé de l'agent</strong> : un mandat exclusif justifie un investissement en communication: shooting photo professionnel, vidéo drone 4K, campagne de diffusion sur 40+ portails, relance active du fichier acheteurs</li>
-      <li><strong>Prix affiché cohérent</strong> : un bien sur plusieurs agences apparaît souvent à des prix différents (différentes commissions appliquées), ce qui génère de la méfiance chez les acheteurs et affaiblit la négociation</li>
-      <li><strong>Suivi personnalisé</strong> : un seul interlocuteur coordonne les visites, les retours, et l'ajustement éventuel de stratégie tous les 15 jours</li>
-      <li><strong>Délai généralement plus court</strong> : les statistiques internes montrent un délai moyen inférieur de 30 à 40 % sur les mandats exclusifs correctement travaillés</li>
-      <li><strong>Confidentialité possible</strong> : un mandat exclusif permet une commercialisation off-market, hors portails publics, en sollicitant uniquement un fichier d'acquéreurs qualifiés: précieux pour les biens d'exception ou les situations sensibles (divorce, succession)</li>
-    </ul>
+    <h2>Le délai de résiliation prévu par les textes</h2>
+    <p>Selon l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000030782471/">article 78 du décret du 20 juillet 1972</a>, un mandat comportant une clause d'exclusivité ou une clause pénale peut, <strong>passé trois mois après sa signature</strong>, être dénoncé à tout moment par chaque partie avec un <strong>préavis d'au moins quinze jours</strong> notifié par lettre recommandée avec demande d'avis de réception. Le contrat doit aussi être limité dans le temps et détailler ses clauses. La date d'effet et une éventuelle reconduction se vérifient dans le mandat signé.</p>
+    <p>Pour un mandat conclu à distance ou hors établissement, notamment lors d'une signature au domicile du vendeur, le droit de la consommation prévoit en principe un <strong>délai de rétractation de quatorze jours</strong>. La signature en agence ne bénéficie pas, du seul fait qu'il s'agit d'un mandat immobilier, de ce même droit. Source : <a href="https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/professionnels-de-limmobilier-les-regles-connaitre">DGCCRF, contrats immobiliers à distance et hors établissement</a>.</p>
 
-    <h2>Quand le mandat simple peut avoir du sens</h2>
-    <p>Le mandat simple reste pertinent dans certains cas précis : bien atypique avec une cible très restreinte, propriétaire ayant un réseau personnel solide, ou situation nécessitant une mise sur le marché immédiate sans délai de préparation. Dans ces cas, la multiplication des canaux compense l'absence de stratégie coordonnée. C'est aussi une option pour les vendeurs qui souhaitent garder la possibilité de vendre eux-mêmes à un acquéreur direct (famille, voisin, contact pro).</p>
-
-    <blockquote>Dans le Pays de Gex, la demande est suffisamment soutenue pour qu'un bien correctement estimé et bien présenté se vende avec un mandat exclusif dans des délais raisonnables. La question n'est pas tant le type de mandat que la qualité de l'accompagnement derrière.</blockquote>
-
-    <h2>Ce qui change vraiment la donne</h2>
-    <p>Le type de mandat influence moins le résultat final que deux autres facteurs : la justesse de l'estimation initiale et la qualité de la présentation du bien. Un bien surestimé de 8 % avec mandat exclusif se vendra moins bien qu'un bien correctement estimé avec mandat simple. Et un bien photographié au smartphone restera invisible face aux concurrents mis en valeur avec des photos professionnelles et une vidéo drone: surtout face à une clientèle frontalière qui compare avec le standard visuel suisse.</p>
-    <p>Ces deux éléments: estimation précise et mise en valeur premium: sont inclus systématiquement dans chaque mandat, quel que soit le type choisi, sans frais ajoutés pour le vendeur.</p>
-
-    <h2>Les 5 questions à poser à un agent avant de signer</h2>
-    <p>Avant d'apposer votre signature, posez systématiquement ces 5 questions. Les réponses vous diront en moins de 10 minutes si l'agent en face de vous travaille sérieusement votre dossier ou se contente de mettre une annonce en ligne :</p>
+    <h2>Choisir sur des engagements vérifiables</h2>
+    <p>Avant de signer, demandez un plan de commercialisation adapté au logement : qualité des photographies, informations disponibles dans l'annonce, portails réellement utilisés, calendrier de mise en ligne et manière de restituer les retours de visite. Le nombre brut de portails n'est pas, à lui seul, une mesure de la qualité de la diffusion. Il dépend des abonnements et du réseau du professionnel ; mieux vaut obtenir une liste contractuelle qu'une promesse générale.</p>
     <ol>
-      <li><strong>Sur combien de portails le bien sera-t-il diffusé, et lesquels exactement ?</strong> Une réponse vague ("les principaux") est un drapeau rouge. La bonne réponse cite SeLoger, Leboncoin, BienIci, LogicImmo, Figaro Immobilier, Belles Demeures, Properstar (pour la clientèle frontalière), et parfois LuxuryEstate selon le standing. Soit 40+ portails au total.</li>
-      <li><strong>Qui réalise les photos et la vidéo, et à quel coût pour le vendeur ?</strong> Un bon agent finance lui-même les photos professionnelles, la vidéo drone et le home staging virtuel: c'est son investissement, pas le vôtre. Si on vous facture ces prestations, c'est un signe que l'agent rentabilise mal son mandat.</li>
-      <li><strong>Quel est votre délai moyen de vente constaté sur les 12 derniers mois, par segment de prix ?</strong> Un agent sérieux a ces chiffres en tête. Demandez le délai moyen sur les biens dans votre fourchette de prix, pas la moyenne globale qui ne veut rien dire.</li>
-      <li><strong>Comment gérez-vous les retours négatifs de visiteurs et l'éventuel besoin d'ajuster le prix ?</strong> La bonne réponse inclut un point hebdomadaire, des comptes-rendus écrits de chaque visite, et une discussion factuelle (chiffres, pas opinions) tous les 21 jours sur la pertinence du prix affiché.</li>
-      <li><strong>Quelles sont les conditions exactes de résiliation anticipée du mandat ?</strong> La loi vous protège après 3 mois sur un mandat exclusif. Mais les conditions varient selon l'agence. Lisez précisément la clause, posez la question explicitement, et ne signez pas si la réponse est évasive.</li>
+      <li><strong>Quel prix conseillez-vous, sur quelles ventes comparables et à quelle date ?</strong></li>
+      <li><strong>Quels supports seront créés et qui en paie le coût ?</strong></li>
+      <li><strong>Sur quels canaux précis l'annonce sera-t-elle publiée ?</strong></li>
+      <li><strong>À quelle fréquence recevrai-je les retours de visites et un bilan de la stratégie ?</strong></li>
+      <li><strong>Quelle est la durée du mandat et comment puis-je y mettre fin ?</strong></li>
     </ol>
 
-    <h2>Ce que coûte vraiment un bien qui traîne sur le marché</h2>
-    <p>Beaucoup de propriétaires sous-estiment le coût d'opportunité d'une vente qui traîne. Prenons un exemple concret : maison à 750 000 € qui aurait dû se vendre en 60 jours mais qui reste 6 mois sur le marché avant d'être finalement vendue à 690 000 € (décote de 8 % après plusieurs baisses de prix). Le coût réel ?</p>
-    <ul>
-      <li><strong>Décote finale</strong> : −60 000 € sur le prix initial</li>
-      <li><strong>Crédit-pont ou double charge</strong> (si rachat en cours) : ~1 500 €/mois × 4 mois additionnels = 6 000 €</li>
-      <li><strong>Taxe foncière, charges de copropriété, assurances</strong> sur 4 mois additionnels : ~3 000 à 5 000 €</li>
-      <li><strong>Coût d'opportunité capital</strong> : 690 000 € qui auraient été placés à 3 % nets pendant 4 mois = 6 900 € de manque à gagner</li>
-      <li><strong>Coût psychologique et logistique</strong> : 15 à 20 visites supplémentaires, organisation, déplacements, attente: non chiffrable mais réel</li>
-    </ul>
-    <p><strong>Total : entre 75 000 et 80 000 € de coût caché</strong> sur un bien qui aurait dû se vendre rapidement. Soit l'équivalent de 10 % du prix affiché. Cette analyse explique pourquoi la justesse de l'estimation initiale est l'investissement à plus fort retour qu'un vendeur peut faire: bien avant le choix du type de mandat.</p>
-
-    <h2>Mandat exclusif et diffusion : comment ça marche en pratique</h2>
-    <p>Dans le cadre d'un mandat exclusif chez un agent commercial indépendant connecté à un réseau professionnel (Netty, Hektor, ou équivalent), la diffusion se déroule en 4 étapes calibrées :</p>
-    <p><strong>Phase 1: Production des supports (J0 à J7)</strong> : shooting photo professionnel HD (15 à 25 clichés), vidéo drone 4K si le bien le justifie, plan 2D ou visite virtuelle 3D pour les biens de plus de 350 000 €. Rédaction de l'annonce en français et en anglais. Ces prestations sont entièrement financées par l'agent, sans facturation au vendeur.</p>
-    <p><strong>Phase 2: Diffusion en réseau (J7)</strong> : publication simultanée sur 40+ portails via le hub Netty (SeLoger, Leboncoin, BienIci, LogicImmo, Figaro Immobilier, Belles Demeures, Properstar pour la cible frontalière, LuxuryEstate pour les biens prestige). Activation des fichiers d'acquéreurs internes et partage inter-agences si pertinent.</p>
-    <p><strong>Phase 3: Marketing actif (J7 à J30)</strong> : campagnes Google Ads et Meta géolocalisées, mise en avant sur les réseaux sociaux de l'agent, sollicitation directe des contacts qualifiés du fichier (frontaliers, expatriés, investisseurs).</p>
-    <p><strong>Phase 4: Suivi et ajustement (J15 à J90)</strong> : point hebdomadaire avec le vendeur, comptes-rendus écrits de chaque visite, ajustement de la stratégie tous les 21 jours en fonction des retours visiteurs (prix, présentation, ciblage).</p>
-    <p>Tout cela sans frais cachés pour le vendeur : la rémunération de l'agent est uniquement le pourcentage de commission au moment de la vente effective.</p>
-
-    <h2>Calendrier légal et délais à connaître avant de signer un mandat</h2>
-    <p>Le cadre réglementaire encadre précisément la durée et les conditions de résiliation des mandats immobiliers en France. Voici les points clés à vérifier dans votre projet de mandat avant la signature.</p>
-    <p><strong>Durée initiale.</strong> Un mandat exclusif est généralement conclu pour une durée de 3 mois. Passé ce délai, il devient résiliable à tout moment avec un préavis de 15 jours par lettre recommandée avec accusé de réception envoyée à l'agence.</p>
-    <p><strong>La période irrévocable de 3 mois.</strong> Pendant les 3 premiers mois, le mandat exclusif est irrévocable: sauf faute grave de l'agent. C'est la contrepartie de l'investissement initial réalisé (shooting photo, vidéo drone, campagne de diffusion sur 40+ portails). Cette période d'irrévocabilité est encadrée par l'article 78 du décret du 20 juillet 1972 pris en application de la loi de référence.</p>
-    <p><strong>Le mandat simple n'a pas de durée minimale imposée.</strong> Il peut être révoqué à tout moment, sous réserve des conditions prévues au contrat. En pratique, cette flexibilité a un coût : un agent qui peut perdre le mandat du jour au lendemain investira mécaniquement moins dans la mise en valeur du bien: moins de photos pro, pas de vidéo drone, diffusion plus limitée.</p>
-    <p><strong>Attention aux clauses de reconduction tacite.</strong> Certains mandats prévoient une reconduction automatique si le propriétaire ne notifie pas sa décision dans les délais prévus (souvent 30 jours avant l'échéance). Lisez attentivement la clause de reconduction avant de signer, et notez la date limite dans votre agenda dès la signature.</p>
-    <p><strong>Le délai de rétractation : ce qui s'applique vraiment.</strong> Contrairement à ce que croient certains vendeurs, il n'existe pas de délai de rétractation légal pour un mandat immobilier signé en agence. Le délai de 14 jours du Code de la consommation s'applique uniquement aux mandats conclus à distance (téléphone, visioconférence) ou hors établissement (au domicile du vendeur). C'est un point souvent mal compris et qui peut générer des contestations.</p>
-
-    <h2>Commencer par une estimation gratuite</h2>
-    <p>Avant de décider du type de mandat, la première étape est de connaître la juste valeur de votre bien. Une estimation de terrain: visite sur site, analyse des comparables récents dans un rayon de 500 m, prise en compte des spécificités de votre commune: est gratuite, confidentielle, et ne vous engage à rien.</p>
-    <p>C'est elle qui détermine si votre bien partira en mandat exclusif (avec une stratégie complète) ou en mandat simple, et dans tous les cas, à quel prix.</p>
-    <p><a href="/estimation">Demander mon estimation gratuite →</a></p>
+    <h2>Le coût d'une vente retardée : un exemple, pas une statistique</h2>
+    <p>Supposons une maison affichée à <strong>750 000 €</strong>, puis vendue <strong>690 000 €</strong> après plusieurs ajustements : l'écart entre les deux montants est de <strong>60 000 €, soit 8 % du prix initial</strong>. Cet écart n'établit pas que le mandat ou la durée de commercialisation en est la cause : le prix initial pouvait être trop élevé, le marché pouvait évoluer ou le bien présenter des caractéristiques difficiles à valoriser.</p>
+    <p>Si la vente dure quatre mois de plus que prévu et qu'un financement relais coûte 1 500 € par mois, ce financement ajoute <strong>6 000 €</strong> dans cet exemple. Il ne faut additionner ni une taxe foncière annuelle fictive ni un rendement de placement hypothétique comme s'il s'agissait de frais certains pour tous les vendeurs. Le calcul réel dépend des charges et de la situation du propriétaire.</p>
+    <p>La meilleure comparaison entre deux propositions de mandat porte donc sur le prix justifié par les ventes, la stratégie écrite, les honoraires et les conditions de sortie. Une estimation de terrain permet de poser cette base avant de choisir la formule.</p>
+    <p><a href="/estimation">Demander une estimation de mon bien →</a></p>
   `
   }
 ];
+
+// Statistiques DVF publiques : médianes des ventes exploitables de 2021 à 2025,
+// appartements et maisons séparés, toutes ventes retenues par data.gouv.fr.
+// Les champs historiques Min/Max de Commune portent chacun cette médiane.
+// Distances indicatives à vol d’oiseau calculées depuis le centre des communes
+// (API Découpage administratif) vers le centre de Genève, arrondies au km.
+export const COMMUNE_DVF_PERIOD = '2021–2025';
+export const COMMUNE_DVF_SOURCE = 'https://www.data.gouv.fr/datasets/statistiques-dvf';
+export const COMMUNE_DVF_CSV = 'https://data-pipeline-open.s3.sbg.io.cloud.ovh.net/dvf/stats_whole_period.csv';
 
 export const COMMUNES: Commune[] = [
   {
     slug: "ferney-voltaire",
     name: "Ferney-Voltaire",
     cp: "01210",
-    distanceGeneve: "8 km",
-    prixApptMin: 5200,
-    prixApptMax: 6800,
-    prixMaisonMin: 6500,
-    prixMaisonMax: 9000,
-    delaiMoyen: 35,
+    distanceGeneve: "env. 6 km",
+    prixApptMin: 4844,
+    prixApptMax: 4844,
+    prixMaisonMin: 5160,
+    prixMaisonMax: 5160,
+    delaiMoyen: 0,
     pointsForts: [
-      "8 km du centre de Genève: accès en 15 min",
+      "À proximité de Genève et de ses organisations internationales",
       "Communauté internationale dense, lycée bilingue",
       "Tous commerces, restaurants, vie de quartier animée",
     ],
     descriptionMarche:
-      "Porte d'entrée du Pays de Gex, Ferney-Voltaire est la commune la plus recherchée par les frontaliers genevois. Organisations internationales, communauté expatriée, commerces : un marché premium sous tension permanente.",
+      "Porte d'entrée du Pays de Gex, Ferney-Voltaire bénéficie de sa proximité avec Genève, ses organisations internationales et ses commerces. Le prix d'un logement dépend de ses caractéristiques et des ventes comparables récentes.",
     frontalierContext:
-      "À 8 km du centre de Genève et 15 minutes de l'ONU ou du CERN, Ferney-Voltaire concentre la demande des fonctionnaires internationaux et des cadres expatriés. La présence d'un lycée international et d'une communauté anglophone bien établie en fait le premier choix des familles en relocalisation depuis la Suisse.",
+      "Ferney-Voltaire offre un accès aux organisations internationales genevoises et au bassin d’emploi du CERN. La présence d'établissements scolaires internationaux peut compter pour les familles en relocalisation depuis la Suisse.",
     evolutionPrix:
-      "Depuis 2020, les prix à Ferney-Voltaire ont progressé de 22 % en moyenne, portés par l'appréciation du franc suisse et la pénurie de biens disponibles. Le marché neuf est quasi absent: les rares livraisons sont absorbées en quelques semaines. La tendance de fond reste haussière malgré les corrections observées sur d'autres marchés français.",
+      "Le baromètre notarial de mai 2025 situait le prix médian des appartements anciens à 4 700 €/m², en hausse de 9,4 % sur un an à cette date. La médiane DVF 2021–2025 affichée ici porte sur une période et un périmètre différents.",
     voisines: ["saint-genis-pouilly", "prevessin-moens"],
   },
   {
     slug: "saint-genis-pouilly",
     name: "Saint-Genis-Pouilly",
     cp: "01630",
-    distanceGeneve: "5 km",
-    prixApptMin: 4500,
-    prixApptMax: 5800,
-    prixMaisonMin: 5200,
-    prixMaisonMax: 7500,
-    delaiMoyen: 40,
+    distanceGeneve: "env. 10 km",
+    prixApptMin: 4444,
+    prixApptMax: 4444,
+    prixMaisonMin: 5176,
+    prixMaisonMax: 5176,
+    delaiMoyen: 0,
     pointsForts: [
-      "Accès direct au CERN, douane Meyrin à 3 min",
+      "Accès au CERN et à la frontière de Meyrin",
       "Demande locative parmi les plus fortes du Pays de Gex",
       "Réseau scolaire international (primaire + collège)",
     ],
     descriptionMarche:
-      "La commune du CERN. Saint-Genis-Pouilly bénéficie d'une demande locative et d'achat parmi les plus soutenues du Pays de Gex, portée par les milliers d'employés et visiteurs de l'organisation chaque année.",
+      "Saint-Genis-Pouilly est proche des sites du CERN à Meyrin et à Prévessin. Cette proximité peut compter pour les personnes qui y travaillent, sans suffire à prévoir la demande ou le prix d'un bien précis.",
     frontalierContext:
-      "Saint-Genis-Pouilly jouxte directement le site du CERN et bénéficie d'accès frontaliers rapides vers Meyrin et Genève-centre. La rotation des contrats de détachement crée une demande locative structurelle forte: idéale pour l'investissement. Les acheteurs viennent massivement d'Allemagne, de Suisse alémanique et du Royaume-Uni.",
+      "Saint-Genis-Pouilly est proche des sites du CERN et des accès vers Meyrin. Le temps de trajet varie selon l'adresse et la circulation. La demande locative et le rendement d'un investissement doivent être vérifiés pour chaque bien ; l'origine des acheteurs ne se déduit pas des seules statistiques de vente.",
     evolutionPrix:
-      "Saint-Genis-Pouilly enregistre l'une des plus fortes progressions du secteur sur 5 ans : +28 % sur les maisons, +18 % sur les appartements. La demande CERN est structurellement insensible aux cycles immobiliers classiques. Les maisons y sont plus rares qu'à Cessy ou Ornex, ce qui maintient une prime de localisation durable.",
+      "Le baromètre notarial de mai 2025 situait le prix médian des appartements anciens à 4 480 €/m², en hausse de 4,4 % sur un an à cette date. La médiane DVF 2021–2025 affichée ici porte sur une période et un périmètre différents.",
     voisines: ["ferney-voltaire", "ornex"],
   },
   {
     slug: "divonne-les-bains",
     name: "Divonne-les-Bains",
     cp: "01220",
-    distanceGeneve: "20 km",
-    prixApptMin: 4800,
-    prixApptMax: 6200,
-    prixMaisonMin: 5800,
-    prixMaisonMax: 8500,
-    delaiMoyen: 55,
+    distanceGeneve: "env. 19 km",
+    prixApptMin: 5851,
+    prixApptMax: 5851,
+    prixMaisonMin: 6369,
+    prixMaisonMax: 6369,
+    delaiMoyen: 0,
     pointsForts: [
       "Lac, golf, casino: qualité de vie premium",
-      "Marché très sélectif, biens rares, plus-values élevées",
+      "Marché résidentiel avec des biens de standing",
       "Clientèle cadre supérieur et expatrié senior",
     ],
     descriptionMarche:
@@ -422,145 +308,145 @@ export const COMMUNES: Commune[] = [
     frontalierContext:
       "Divonne cible une clientèle de cadres supérieurs et de dirigeants travaillant à Genève, Nyon ou Lausanne. Le lac, le casino, le golf et la proximité du Jura font de la commune une alternative crédible aux communes vaudoises. Le profil acheteur est souvent en fin de carrière ou en relocalisation long terme.",
     evolutionPrix:
-      "Le marché de Divonne-les-Bains se distingue par une forte proportion de biens haut de gamme et une clientèle internationale peu sensible aux variations de taux. Les prix ont progressé de 15 % depuis 2021. La rareté des biens d'exception: villas avec vue lac ou accès golf: crée des pics très au-dessus des médianes, certaines transactions dépassant 12 000 €/m².",
+      "Le baromètre notarial de mai 2025 situait le prix médian des appartements anciens à 5 640 €/m², en hausse de 1,6 % sur un an à cette date. La médiane DVF 2021–2025 affichée ici porte sur une période et un périmètre différents.",
     voisines: ["gex", "cessy"],
   },
   {
     slug: "gex",
     name: "Gex",
     cp: "01170",
-    distanceGeneve: "25 km",
-    prixApptMin: 3800,
-    prixApptMax: 5200,
-    prixMaisonMin: 4500,
-    prixMaisonMax: 6800,
-    delaiMoyen: 50,
+    distanceGeneve: "env. 18 km",
+    prixApptMin: 4399,
+    prixApptMax: 4399,
+    prixMaisonMin: 5175,
+    prixMaisonMax: 5175,
+    delaiMoyen: 0,
     pointsForts: [
       "Chef-lieu du Pays de Gex: tous services",
       "Accès direct aux pistes de ski du Jura",
-      "Rapport qualité-prix le plus favorable du secteur",
+      "Prix médian des appartements parmi les plus bas des neuf communes étudiées",
     ],
     descriptionMarche:
-      "Capitale du Pays de Gex, Gex offre un rapport qualité-prix favorable tout en bénéficiant des attraits du secteur : accès à la Suisse, environnement Jura, services complets. Un marché plus accessible que Ferney ou Saint-Genis, mais en tension croissante.",
+      "Chef-lieu du Pays de Gex, Gex offre des services et un accès au Jura. Sa médiane DVF 2021–2025 pour les appartements est inférieure à celles de Ferney-Voltaire et de Saint-Genis-Pouilly ; cela ne préjuge pas du prix d'un logement comparable.",
     frontalierContext:
-      "Gex attire les acheteurs qui souhaitent un cadre plus tranquille et plus grand pour le même budget. À 25 km de Genève, le trajet est compensé par des prix inférieurs de 20 à 30 % par rapport à Ferney-Voltaire. Les familles avec enfants scolarisés localement sont surreprésentées dans les transactions.",
+      "Gex attire les acheteurs qui souhaitent un cadre plus tranquille et plus grand pour le même budget. Le trajet vers Genève varie fortement selon la destination et l’heure. Le choix entre Gex et une commune plus proche de la frontière doit intégrer le logement recherché et les déplacements quotidiens.",
     evolutionPrix:
-      "Gex affiche la progression de prix la plus régulière du secteur, sans à-coups. La demande est soutenue par les jeunes actifs frontaliers et les familles en quête d'espace. La ville bénéficie d'un effet de rattrapage par rapport aux communes plus proches de la frontière: l'écart de prix s'est réduit de 15 % en 5 ans.",
+      "Le baromètre notarial de mai 2025 situait le prix médian des appartements anciens à 4 490 €/m², en hausse de 7,3 % sur un an à cette date. La médiane DVF 2021–2025 affichée ici porte sur une période et un périmètre différents.",
     voisines: ["divonne-les-bains", "crozet"],
   },
   {
     slug: "prevessin-moens",
     name: "Prévessin-Moëns",
     cp: "01280",
-    distanceGeneve: "6 km",
-    prixApptMin: 4200,
-    prixApptMax: 5600,
-    prixMaisonMin: 5000,
-    prixMaisonMax: 7200,
-    delaiMoyen: 38,
+    distanceGeneve: "env. 8 km",
+    prixApptMin: 5200,
+    prixApptMax: 5200,
+    prixMaisonMin: 5479,
+    prixMaisonMax: 5479,
+    delaiMoyen: 0,
     pointsForts: [
-      "6 km de Genève, accès douane en 10 min",
+      "À proximité de Genève et des postes-frontières",
       "Commune résidentielle calme, pavillonnaire",
       "Secteur scolaire réputé, écoles bilingues proches",
     ],
     descriptionMarche:
-      "Entre Ferney-Voltaire et Saint-Genis-Pouilly, Prévessin-Moëns est une commune résidentielle prisée pour son calme et sa proximité frontalière. À 6 km de Genève, elle combine les atouts des deux communes voisines avec un marché encore légèrement plus accessible.",
+      "Entre Ferney-Voltaire et Saint-Genis-Pouilly, Prévessin-Moëns est une commune résidentielle prisée pour son calme et sa proximité frontalière. Elle combine les atouts des deux communes voisines, avec des prix qui varient selon le type de bien et l’adresse.",
     frontalierContext:
-      "Prévessin-Moëns est souvent le choix des familles qui cherchent à concilier proximité genevoise et cadre pavillonnaire. Les acheteurs sont largement des frontaliers avec enfants, attirés par les écoles de qualité et la sécurité du quartier. Bien desservie par les axes D984 et A40.",
+      "Prévessin-Moëns est souvent le choix des familles qui cherchent à concilier proximité genevoise et cadre pavillonnaire. La proximité des écoles et des accès frontaliers peut intéresser les familles selon leurs trajets quotidiens. Bien desservie par les axes D984 et A40.",
     evolutionPrix:
-      "Prévessin-Moëns a connu une forte hausse entre 2021 et 2024, portée par le report de demande depuis Ferney-Voltaire. Les prix ont progressé de 20 % en 4 ans. Le marché est aujourd'hui stabilisé à un niveau élevé, avec peu de décote même sur les biens anciens bien situés.",
+      "Le baromètre notarial de mai 2025 situait le prix médian des appartements anciens à 5 210 €/m², en hausse de 6,8 % sur un an à cette date. La médiane DVF 2021–2025 affichée ici porte sur une période et un périmètre différents.",
     voisines: ["ferney-voltaire", "saint-genis-pouilly"],
   },
   {
     slug: "cessy",
     name: "Cessy",
     cp: "01170",
-    distanceGeneve: "12 km",
-    prixApptMin: 4000,
-    prixApptMax: 5400,
-    prixMaisonMin: 4800,
-    prixMaisonMax: 7000,
-    delaiMoyen: 45,
+    distanceGeneve: "env. 13 km",
+    prixApptMin: 4972,
+    prixApptMax: 4972,
+    prixMaisonMin: 5196,
+    prixMaisonMax: 5196,
+    delaiMoyen: 0,
     pointsForts: [
       "Grandes maisons avec jardins: espace rare à ce prix",
       "Cadre verdoyant, commune tranquille et familiale",
-      "12 km de Genève, accès A40 rapide",
+      "Accès aux axes de circulation du Pays de Gex",
     ],
     descriptionMarche:
       "Commune pavillonnaire recherchée pour son cadre verdoyant et ses biens spacieux. Cessy séduit les familles en quête d'espace, avec de grandes maisons et des jardins: un profil rare à ce niveau de prix dans le Pays de Gex.",
     frontalierContext:
-      "Cessy est le choix des frontaliers qui privilégient l'espace sur la proximité immédiate. Les maisons avec jardin y sont plus accessibles qu'à Ferney ou Prévessin. La commune est appréciée des acheteurs suisses cherchant l'équivalent des maisons de campagne vaudoises, à prix immobilier français.",
+      "Cessy est le choix des frontaliers qui privilégient l'espace sur la proximité immédiate. La valeur des maisons avec jardin dépend fortement de leur surface, du terrain et de leur état. La commune est appréciée des acheteurs suisses cherchant l'équivalent des maisons de campagne vaudoises, à prix immobilier français.",
     evolutionPrix:
-      "Cessy est l'une des communes du Pays de Gex où le rapport qualité-prix s'est le plus dégradé pour les acheteurs depuis 2020 (+19 % sur les maisons). La commune bénéficie d'un effet résidentiel premium qui attire aussi bien les Genevois que les retraités actifs cherchant un cadre tranquille.",
+      "Les prix médians DVF affichés ici agrègent les ventes exploitables de 2021 à 2025. Ils décrivent un niveau de prix observé sur cinq ans, pas une hausse annuelle ni une prévision de plus-value.",
     voisines: ["ornex", "gex"],
   },
   {
     slug: "ornex",
     name: "Ornex",
     cp: "01710",
-    distanceGeneve: "10 km",
-    prixApptMin: 4000,
-    prixApptMax: 5400,
-    prixMaisonMin: 4800,
-    prixMaisonMax: 7000,
-    delaiMoyen: 42,
+    distanceGeneve: "env. 9 km",
+    prixApptMin: 5250,
+    prixApptMax: 5250,
+    prixMaisonMin: 5384,
+    prixMaisonMax: 5384,
+    delaiMoyen: 0,
     pointsForts: [
       "Proche CERN et Saint-Genis-Pouilly",
       "Commune pavillonnaire, constructions récentes",
       "Premier achat patrimonial accessible dans le Pays de Gex",
     ],
     descriptionMarche:
-      "Ornex est l'une des communes les plus recherchées pour l'accès au CERN et à Saint-Genis-Pouilly. Pavillonnaire, calme et encore accessible, elle attire une clientèle de jeunes cadres frontaliers cherchant à se constituer un premier patrimoine.",
+      "Ornex est proche de Saint-Genis-Pouilly et des accès vers le CERN. Le marché y comprend des maisons et des appartements dont les prix varient selon l'emplacement, l'état et la surface.",
     frontalierContext:
-      "Ornex est bien positionnée pour les employés du CERN et les frontaliers travaillant sur le secteur de Meyrin. La commune offre un bon rapport qualité-prix avec des maisons récentes. Les acheteurs viennent souvent de Saint-Genis, en recherche d'un bien plus grand pour le même budget.",
+      "Ornex peut intéresser les personnes travaillant dans le secteur de Meyrin ou de Saint-Genis-Pouilly. Une comparaison avec les communes voisines doit porter sur des biens de même type, de même état et de surface proche.",
     evolutionPrix:
-      "Ornex suit de près la dynamique de Saint-Genis-Pouilly, avec un léger décalage à la baisse lié à la moindre densité de services. Les prix ont progressé de 17 % depuis 2021. La commune est particulièrement prisée pour les résidences neuves: plusieurs programmes récents ont été vendus avant livraison.",
+      "Les prix médians DVF affichés ici agrègent les ventes exploitables de 2021 à 2025. Ils décrivent un niveau de prix observé sur cinq ans, pas une hausse annuelle ni une prévision de plus-value.",
     voisines: ["saint-genis-pouilly", "cessy"],
   },
   {
     slug: "thoiry",
     name: "Thoiry",
     cp: "01710",
-    distanceGeneve: "18 km",
-    prixApptMin: 3500,
-    prixApptMax: 4800,
-    prixMaisonMin: 4200,
-    prixMaisonMax: 6200,
-    delaiMoyen: 55,
+    distanceGeneve: "env. 14 km",
+    prixApptMin: 4443,
+    prixApptMax: 4443,
+    prixMaisonMin: 4841,
+    prixMaisonMax: 4841,
+    delaiMoyen: 0,
     pointsForts: [
-      "Cadre alpin exceptionnel, Jura à portée immédiate",
+      "Cadre naturel du Jura à portée immédiate",
       "Biens spacieux parmi les prix les plus accessibles du secteur",
-      "En développement: potentiel de plus-value à moyen terme",
+      "Cadre naturel et offre résidentielle variée",
     ],
     descriptionMarche:
-      "Thoiry est la porte du Jura depuis le Pays de Gex. À 18 km de Genève, la commune offre un cadre naturel exceptionnel avec des biens spacieux à des prix inférieurs aux communes frontalières. Un marché en progression porté par les acheteurs qui arbitrent espace versus proximité.",
+      "Thoiry est la porte du Jura depuis le Pays de Gex. La commune offre un cadre naturel recherché et des logements de tailles variées. Le prix d’un bien doit être comparé à des ventes de même type, plutôt qu’à une commune entière.",
     frontalierContext:
-      "Thoiry séduit les frontaliers en télétravail partiel, qui acceptent un trajet plus long en échange d'un cadre de vie supérieur. La commune est en développement avec de nouveaux programmes résidentiels. Les acheteurs viennent souvent de la région parisienne, attirés par les salaires suisses et le cadre alpin.",
+      "Thoiry séduit les frontaliers en télétravail partiel, qui acceptent un trajet plus long en échange d'un cadre de vie supérieur. La commune est en développement avec de nouveaux programmes résidentiels. L’origine des acheteurs ne figure pas dans les statistiques publiques de prix utilisées ici.",
     evolutionPrix:
-      "Thoiry est le marché émergent du Pays de Gex. Les prix ont progressé de 25 % depuis 2020, partant d'une base plus faible. La tendance télétravail a structurellement renforcé l'attractivité de la commune. C'est aujourd'hui l'un des secteurs où le potentiel de plus-value à moyen terme est le plus élevé du Pays de Gex.",
+      "Les prix médians DVF affichés ici agrègent les ventes exploitables de 2021 à 2025. Ils décrivent un niveau de prix observé sur cinq ans, pas une hausse annuelle ni une prévision de plus-value.",
     voisines: ["gex", "crozet"],
   },
   {
     slug: "crozet",
     name: "Crozet",
     cp: "01170",
-    distanceGeneve: "22 km",
-    prixApptMin: 3500,
-    prixApptMax: 4800,
-    prixMaisonMin: 4200,
-    prixMaisonMax: 6200,
-    delaiMoyen: 60,
+    distanceGeneve: "env. 15 km",
+    prixApptMin: 5387,
+    prixApptMax: 5387,
+    prixMaisonMin: 5171,
+    prixMaisonMax: 5171,
+    delaiMoyen: 0,
     pointsForts: [
       "Commune préservée, biens de caractère et atypiques",
-      "Marché de niche: rareté créatrice de valeur",
-      "22 km de Genève, environnement naturel Jura intact",
+      "Marché local avec des biens de caractère",
+      "Environnement naturel du Jura",
     ],
     descriptionMarche:
       "Crozet est une commune préservée du Jura, entre Gex et la frontière. Marché de niche avec peu de transactions mais des biens d'exception. Idéale pour les acheteurs qui cherchent l'authenticité et le calme à distance raisonnable du bassin genevois.",
     frontalierContext:
-      "Crozet attire une clientèle de connaisseurs : acheteurs cherchant une résidence principale de caractère ou une résidence secondaire proche de Genève. Le marché est peu liquide: il faut un agent connaissant la commune pour accéder aux rares biens disponibles, souvent vendus hors portails.",
+      "Crozet attire une clientèle de connaisseurs : acheteurs cherchant une résidence principale de caractère ou une résidence secondaire proche de Genève. Le nombre de transactions reste limité ; les comparaisons de prix doivent tenir compte de la diversité des biens.",
     evolutionPrix:
-      "Crozet est un marché de niche avec très peu de transactions annuelles. Les prix sont moins comparables d'une année à l'autre en raison du profil atypique des biens. La commune attire une clientèle spécifique cherchant des maisons de caractère ou des vues dégagées sur le Jura: des critères qui commandent une prime de 15 à 25 % par rapport aux médianes.",
+      "Les prix médians DVF affichés ici agrègent les ventes exploitables de 2021 à 2025. Ils décrivent un niveau de prix observé sur cinq ans, pas une hausse annuelle ni une prévision de plus-value.",
     voisines: ["gex", "thoiry"],
   },
 ];

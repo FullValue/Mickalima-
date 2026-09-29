@@ -7,7 +7,7 @@ import { PillButton, SectionLabel } from './oakline/primitives';
 /**
  * Briques de la nouvelle DA (reprise de /nos-biens: template Revalis) :
  * fond clair #f7f7f7, hero image sombre pleine largeur, cartes blanches
- * radius 24, titres Playfair Display, textes Inter, colonne sticky.
+ * cartes sobres, titres Playfair Display, textes Inter, colonne sticky.
  * Utilisées par les pages service (mandats).
  */
 
@@ -24,7 +24,7 @@ export const ServiceHero: React.FC<{
 }> = ({ badge, title, subtitle, image, ctaLabel, ctaTo }) => (
   <section
     style={{
-      position: 'relative', minHeight: 620, display: 'flex', alignItems: 'center',
+      position: 'relative', minHeight: 560, display: 'flex', alignItems: 'center',
       overflow: 'hidden', backgroundColor: T.navy,
     }}
   >
@@ -46,7 +46,7 @@ export const ServiceHero: React.FC<{
           'linear-gradient(90deg, rgba(1,29,65,0.94) 0%, rgba(1,29,65,0.62) 42%, rgba(1,29,65,0.2) 78%, rgba(1,29,65,0.08) 100%)',
       }}
     />
-    <div style={{ ...wrap, position: 'relative', width: '100%', padding: '160px 30px 80px', color: '#fff' }}>
+    <div style={{ ...wrap, position: 'relative', width: '100%', padding: '150px 30px 82px', color: '#fff' }}>
       <m.div
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
@@ -61,8 +61,8 @@ export const ServiceHero: React.FC<{
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.65, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
         style={{
-          fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(46px, 6.4vw, 92px)',
-          lineHeight: '1.04em', marginBottom: 24, maxWidth: 900,
+          fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(46px, 6vw, 84px)',
+          lineHeight: '1.05em', marginBottom: 22, maxWidth: 900,
         }}
       >
         {title}
@@ -71,7 +71,7 @@ export const ServiceHero: React.FC<{
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-        style={{ fontSize: 18, lineHeight: '1.65em', color: 'rgba(255,255,255,0.9)', maxWidth: 520, marginBottom: 40 }}
+        style={{ fontSize: 18, lineHeight: '1.65em', color: 'rgba(255,255,255,0.9)', maxWidth: 550, marginBottom: 34 }}
       >
         {subtitle}
       </m.p>
@@ -132,8 +132,9 @@ export const StickyIntro: React.FC<{
       <span
         aria-hidden="true"
         style={{
-          width: 64, height: 64, borderRadius: '50%', background: '#fff', color: T.navy,
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 26,
+          width: 46, height: 46, borderRadius: 12, background: '#fff', color: T.navy,
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 24,
+          border: `1px solid ${T.border}`,
         }}
       >
         {icon}
@@ -184,17 +185,17 @@ export const StickyIntro: React.FC<{
 /* ---- Carte blanche conteneur (colonne droite) ---- */
 export const WhiteCard: React.FC<{ children: React.ReactNode; gap?: number; pad?: string }> = ({
   children,
-  gap = 52,
-  pad = 'clamp(24px, 3.2vw, 44px)',
+  gap = 38,
+  pad = 'clamp(24px, 3vw, 40px)',
 }) => (
-  <div className="border border-[#ebebeb] shadow-[0_30px_70px_-45px_rgba(1,29,65,0.32)]" style={{ background: '#fff', borderRadius: 24, padding: pad, display: 'flex', flexDirection: 'column', gap }}>
+  <div className="border border-[#ebebeb]" style={{ background: '#fff', borderRadius: 16, padding: pad, display: 'flex', flexDirection: 'column', gap }}>
     {children}
   </div>
 );
 
 /* ---- Bloc 2 colonnes : sticky à gauche, carte blanche à droite ---- */
 export const TwoCol: React.FC<{ left: React.ReactNode; right: React.ReactNode }> = ({ left, right }) => (
-  <div className="sv-cols" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 5fr) minmax(0, 8fr)', gap: 44 }}>
+  <div className="sv-cols" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 5fr) minmax(0, 7fr)', gap: 'clamp(36px, 5vw, 78px)' }}>
     <div>{left}</div>
     <div>{right}</div>
   </div>
@@ -210,18 +211,29 @@ export const RecapBand: React.FC<{
   ctaLabel: string;
   ctaTo: string;
   note?: string;
-}> = ({ badgeIcon, kicker, title, description, cards, ctaLabel, ctaTo, note }) => (
-  <section style={{ background: T.navy, color: '#fff', padding: '100px 0' }}>
+  image?: string;
+}> = ({ badgeIcon, kicker, title, description, cards, ctaLabel, ctaTo, note, image }) => (
+  <section style={{ background: T.navy, color: '#fff', padding: 'clamp(76px, 8vw, 112px) 0' }}>
     <div style={wrap}>
-      <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 60px' }}>
-        <SectionLabel tone="light" icon={badgeIcon} className="mb-6">{kicker}</SectionLabel>
-        <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(36px, 4.6vw, 62px)', lineHeight: '1.06em', marginBottom: 20 }}>
-          {title}
-        </h2>
-        <p style={{ fontSize: 17, lineHeight: '1.65em', color: 'rgba(255,255,255,0.72)' }}>{description}</p>
+      <div className="sv-recap-lead" style={{ display: 'grid', gridTemplateColumns: image ? 'minmax(0, 1fr) minmax(0, 0.95fr)' : '1fr', gap: 'clamp(40px, 6vw, 90px)', alignItems: 'center', marginBottom: 62 }}>
+        <div style={{ maxWidth: 660 }}>
+          <SectionLabel tone="light" icon={badgeIcon} className="mb-6">{kicker}</SectionLabel>
+          <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(36px, 4.6vw, 62px)', lineHeight: '1.06em', marginBottom: 20 }}>
+            {title}
+          </h2>
+          <p style={{ fontSize: 17, lineHeight: '1.65em', color: 'rgba(255,255,255,0.74)', marginBottom: 32 }}>{description}</p>
+          <PillButton to={ctaTo} variant="light" arrow>{ctaLabel}</PillButton>
+          {note && <p style={{ fontSize: 13, lineHeight: 1.5, color: 'rgba(255,255,255,0.52)', marginTop: 20 }}>{note}</p>}
+        </div>
+        {image && (
+          <figure style={{ margin: 0 }}>
+            <img src={image} alt="Ambiance immobilière, visuel d’illustration" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 16 }} />
+            <figcaption style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 10 }}>Visuel d’illustration</figcaption>
+          </figure>
+        )}
       </div>
 
-      <div className="sv-recap" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, marginBottom: 56 }}>
+      <div className="sv-recap" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 28, borderTop: '1px solid rgba(255,255,255,0.2)' }}>
         {cards.map((c, ci) => (
           <m.div
             key={c.title}
@@ -229,13 +241,10 @@ export const RecapBand: React.FC<{
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, delay: ci * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-            style={{
-              background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: 24, padding: 28,
-            }}
+            style={{ padding: '28px 4px 0' }}
           >
-            <span aria-hidden="true" style={{ display: 'inline-flex', marginBottom: 20, color: '#fff' }}>{c.icon}</span>
-            <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 22, lineHeight: '1.25em', marginBottom: 16 }}>
+            <span aria-hidden="true" style={{ display: 'inline-flex', marginBottom: 18, color: 'rgba(255,255,255,0.8)' }}>{c.icon}</span>
+            <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 22, lineHeight: '1.25em', marginBottom: 14 }}>
               {c.title}
             </h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -247,13 +256,6 @@ export const RecapBand: React.FC<{
             </ul>
           </m.div>
         ))}
-      </div>
-
-      <div style={{ textAlign: 'center' }}>
-        <PillButton to={ctaTo} variant="light" arrow>{ctaLabel}</PillButton>
-        {note && (
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.55)', marginTop: 24 }}>{note}</p>
-        )}
       </div>
     </div>
   </section>
@@ -274,6 +276,8 @@ export const ServiceStyles: React.FC = () => (
       .sv-cols { grid-template-columns: 1fr !important; }
       .sv-sticky { position: static !important; }
       .sv-recap { grid-template-columns: repeat(2, 1fr) !important; }
+      .sv-recap-lead { grid-template-columns: 1fr !important; }
+      .sv-visits { grid-template-columns: 1fr !important; }
     }
     @media (max-width: 1023px) {
       .sv-bento { grid-template-columns: 1fr !important; }
@@ -281,7 +285,6 @@ export const ServiceStyles: React.FC = () => (
     }
     @media (max-width: 679px) {
       .sv-recap { grid-template-columns: 1fr !important; }
-      .sv-grid-3 { grid-template-columns: 1fr !important; }
       .sv-grid-3 { grid-template-columns: 1fr !important; }
       .sv-grid-2 { grid-template-columns: 1fr !important; }
     }

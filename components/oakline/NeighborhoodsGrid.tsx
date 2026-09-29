@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import { COMMUNES, COMMUNE_CARD_IMAGES } from '../../constants';
+import { COMMUNES, COMMUNE_CARD_IMAGES, COMMUNE_DVF_PERIOD } from '../../constants';
 import { PillButton, Reveal, SectionHeader } from './primitives';
 
 /**
@@ -71,12 +71,11 @@ export const NeighborhoodsGrid: React.FC = () => (
               </span>
               <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/65">
-                  {commune.distanceGeneve} de Genève
+                  {commune.distanceGeneve} de Genève à vol d'oiseau
                 </p>
                 <h3 className="mt-2 font-serif text-2xl tracking-tight">{commune.name}</h3>
                 <p className="mt-2 text-sm text-white/75">
-                  Appartements {formatEUR(commune.prixApptMin)}-
-                  {formatEUR(commune.prixApptMax)} €/m²
+                  Appartements : médiane {formatEUR(commune.prixApptMin)} €/m² (DVF {COMMUNE_DVF_PERIOD})
                 </p>
               </div>
             </Link>

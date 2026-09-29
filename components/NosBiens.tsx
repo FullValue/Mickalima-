@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { SEO } from './SEO';
 import { T, ListingCard } from './nosBiensShared';
 import { BIENS } from './biensData';
+import { propertyPhotoCrop } from './propertyPhotoCrop';
 
 /**
  * Index des biens: DA du template Framer Revalis (page /listings) :
@@ -134,7 +135,7 @@ export const NosBiens: React.FC = () => {
             height="1080"
             loading="eager"
             decoding="async"
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', ...propertyPhotoCrop(HERO_IMAGE) }}
           />
           <div
             aria-hidden="true"

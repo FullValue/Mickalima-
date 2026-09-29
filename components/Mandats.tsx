@@ -11,21 +11,17 @@ import {
   ShieldCheck,
   MessageSquare,
   Target,
-  Wand2,
-  Play,
 } from 'lucide-react';
-import { m, useReducedMotion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { SEO } from './SEO';
-import { IMAGES } from '../constants';
 import { T } from './nosBiensShared';
 import { wrap, ServiceHero, StickyIntro, WhiteCard, TwoCol, RecapBand, ServiceStyles } from './serviceUI';
 
 /**
  * Pages service (mandats): nouvelle DA reprise de /nos-biens :
- * fond clair, hero image sombre pleine largeur, cartes blanches radius 10,
+ * fond clair, hero image sombre pleine largeur, cartes blanches sobres,
  * titres Playfair Display, colonnes sticky, bandeau récapitulatif navy.
- * ⚠️ Le copywriting et l'ordre des blocs sont ceux de la version précédente,
- * à l'identique: seule la présentation change.
+ * Les prestations sont présentées avec la même DA que l'accueil et le catalogue.
  */
 
 const MANDAT_PROVIDER = {
@@ -61,7 +57,7 @@ const MANDAT_SIGNATURE_SCHEMA = {
   provider: MANDAT_PROVIDER,
   areaServed: MANDAT_AREA,
   description:
-    'Mandat de vente performant : photos HD, vidéo drone 4K, diffusion sur 40+ portails immobiliers, visites qualifiées, reporting hebdomadaire. Inclus sans frais supplémentaires pour le vendeur.',
+    'Mandat de vente avec présentation visuelle, diffusion adaptée au bien, visites préparées et suivi du projet.',
   url: 'https://mickael-lima.immo/mandat-signature/',
   offers: {
     '@type': 'Offer',
@@ -82,7 +78,7 @@ const MANDAT_EXCLUSIF_SCHEMA = {
   provider: MANDAT_PROVIDER,
   areaServed: MANDAT_AREA,
   description:
-    'Mandat exclusif pour biens d’exception : production cinématographique, home staging, événements privés, diffusion internationale (Properstar, LuxuryEstate). Stratégie premium pour propriétés résidentielles haut de gamme.',
+    'Mandat exclusif pour biens d’exception : présentation soignée, stratégie de diffusion adaptée et accompagnement personnalisé.',
   url: 'https://mickael-lima.immo/mandat-exclusif/',
   offers: {
     '@type': 'Offer',
@@ -107,15 +103,15 @@ const PORTAIL_LOGOS = [
 /* ---------- briques locales ---------- */
 
 const BlockTitle: React.FC<{ icon: React.ReactNode; children: React.ReactNode }> = ({ icon, children }) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 22 }}>
-    <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 46, height: 46, flexShrink: 0, borderRadius: '50%', background: '#f5f5f5', color: T.navy }}>{icon}</span>
-    <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 28, lineHeight: '1.2em', color: T.navy }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
+    <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, flexShrink: 0, borderRadius: 10, background: T.bg, color: T.navy }}>{icon}</span>
+    <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 27, lineHeight: '1.2em', color: T.navy }}>
       {children}
     </h3>
   </div>
 );
 
-/* Vidéo : image + bouton play, badge et titre en bas comme avant */
+/* Visuel éditorial pour illustrer la présentation d'un bien. */
 const VideoBlock: React.FC<{
   image: string;
   videoSrc?: string;
@@ -124,7 +120,7 @@ const VideoBlock: React.FC<{
   badge: string;
   title: string;
 }> = ({ image, videoSrc, label, badgeIcon, badge, title }) => (
-  <div className="sv-media" style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 24, overflow: 'hidden', background: T.navy }}>
+  <div className="sv-media" style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 16, overflow: 'hidden', background: T.navy }}>
     {videoSrc ? (
       <video
         src={videoSrc}
@@ -138,37 +134,16 @@ const VideoBlock: React.FC<{
     ) : (
       <img
         src={image}
-        alt=""
+        alt={`${title}, visuel d’illustration`}
         loading="lazy"
         decoding="async"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.72 }}
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
       />
     )}
     {!videoSrc && (
       <>
-    <div
-      aria-hidden="true"
-      style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(1,29,65,0.85), rgba(1,29,65,0.15))' }}
-    />
-    <div
-      style={{
-        position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', gap: 18, color: '#fff',
-      }}
-    >
-      <span
-        style={{
-          width: 68, height: 68, borderRadius: '50%', background: 'rgba(255,255,255,0.92)',
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-        }}
-      >
-        <Play size={26} color={T.dark} fill={T.dark} />
-      </span>
-      <span style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 3, color: 'rgba(255,255,255,0.85)' }}>
-        {label}
-      </span>
-    </div>
-    <div style={{ position: 'absolute', bottom: 24, left: 24, color: '#fff' }}>
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(1,29,65,0.85), transparent 70%)' }} />
+        <div style={{ position: 'absolute', bottom: 24, left: 24, color: '#fff' }}>
       <span
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.14)',
@@ -181,90 +156,10 @@ const VideoBlock: React.FC<{
       <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontStyle: 'italic', fontSize: 32, lineHeight: '1.15em' }}>
         {title}
       </h3>
-    </div>
+      <span style={{ display: 'block', marginTop: 8, fontSize: 12, color: 'rgba(255,255,255,0.7)' }}>Visuel d’illustration</span>
+        </div>
       </>
     )}
-  </div>
-);
-
-/* Galerie : grande photo avec libellé + 3 vignettes */
-const GalleryBlock: React.FC<{ main: string; overlay: string; thumbs: string[]; thumbAlts: string[] }> = ({
-  main,
-  overlay,
-  thumbs,
-  thumbAlts,
-}) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-    <div className="sv-media" style={{ position: 'relative', aspectRatio: '21 / 9', borderRadius: 24, overflow: 'hidden' }}>
-      <img
-        src={main}
-        alt="Main View"
-        loading="lazy"
-        decoding="async"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-      />
-      <span
-        style={{
-          position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          background: 'rgba(17,17,17,0.35)',
-        }}
-      >
-        <span
-          style={{
-            background: '#fff', color: T.dark, fontSize: 14, fontWeight: 500,
-            borderRadius: 50, padding: '11px 24px',
-          }}
-        >
-          {overlay}
-        </span>
-      </span>
-    </div>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="sv-grid-3">
-      {thumbs.map((img, idx) => (
-        <img
-          key={idx}
-          src={img}
-          alt={thumbAlts[idx]}
-          loading="lazy"
-          decoding="async"
-          style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', borderRadius: 16, display: 'block' }}
-        />
-      ))}
-    </div>
-  </div>
-);
-
-/* Tuiles verticales 9:16 (Reels / Teasers) */
-const VerticalTiles: React.FC<{ label: string }> = ({ label }) => (
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="sv-grid-3">
-    {[1, 2, 3].map((i) => (
-      <div key={i} className="sv-media" style={{ position: 'relative', aspectRatio: '9 / 16', borderRadius: 8, overflow: 'hidden' }}>
-        <img
-          src={IMAGES.misc1}
-          alt={`${label} ${i}`}
-          loading="lazy"
-          decoding="async"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-        />
-        <div
-          aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(1,29,65,0.8), transparent 55%)' }}
-        />
-        <div style={{ position: 'absolute', bottom: 16, left: 16, right: 16, color: '#fff' }}>
-          <span
-            style={{
-              width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.2)',
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12,
-            }}
-          >
-            <Play size={16} fill="#fff" color="#fff" />
-          </span>
-          <span style={{ display: 'block', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5 }}>
-            {label} {i}
-          </span>
-        </div>
-      </div>
-    ))}
   </div>
 );
 
@@ -282,7 +177,7 @@ const Panel: React.FC<{
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-80px' }}
     transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-    style={{ background: '#fff', borderRadius: 10, padding: 32 }}>
+    style={{ background: '#fff', border: `1px solid ${T.border}`, borderRadius: 14, padding: 'clamp(24px, 2.5vw, 32px)' }}>
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
       {icon && <span aria-hidden="true" style={{ display: 'inline-flex', color: T.dark }}>{icon}</span>}
       {tag && (
@@ -312,37 +207,6 @@ const Panel: React.FC<{
   </m.div>
 );
 
-/* Bandeau de logos défilant (identique à l'ancienne version) */
-const LogoMarquee: React.FC = () => {
-  const reduced = useReducedMotion();
-  return (
-  <div style={{ background: T.navy, padding: '26px 0', overflow: 'hidden', position: 'relative' }}>
-    <m.div
-      style={{ display: 'flex', gap: 96, alignItems: 'center', flexWrap: 'nowrap', minWidth: 'max-content' }}
-      animate={reduced ? undefined : { x: ['0%', '-50%'] }}
-      transition={{ repeat: Infinity, ease: 'linear', duration: 30 }}
-    >
-      {[...Array(10)].map((_, idx) => (
-        <div
-          key={idx}
-          style={{
-            width: 220, height: 48, opacity: 0.8, background: '#fff',
-            WebkitMaskImage: `url(${IMAGES.logo})`,
-            WebkitMaskSize: 'contain',
-            WebkitMaskRepeat: 'no-repeat',
-            WebkitMaskPosition: 'center',
-            maskImage: `url(${IMAGES.logo})`,
-            maskSize: 'contain',
-            maskRepeat: 'no-repeat',
-            maskPosition: 'center',
-          }}
-        />
-      ))}
-    </m.div>
-  </div>
-  );
-};
-
 /* Titre de section centré (sections 02 et 04) */
 const CenteredHeading: React.FC<{
   icon: React.ReactNode;
@@ -350,12 +214,11 @@ const CenteredHeading: React.FC<{
   title: React.ReactNode;
   desc: string;
 }> = ({ icon, kicker, title, desc }) => (
-  <div style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto 56px' }}>
+  <div style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto 48px' }}>
     <span
       style={{
-        display: 'inline-flex', alignItems: 'center', gap: 8, background: '#fff',
-        border: `1px solid ${T.border}`, borderRadius: 50, padding: '9px 18px',
-        fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.8, color: T.dark, marginBottom: 24,
+        display: 'inline-flex', alignItems: 'center', gap: 8,
+        fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 2, color: T.dark, marginBottom: 22,
       }}
     >
       {icon} {kicker}
@@ -378,7 +241,7 @@ export const MandatSignature: React.FC = () => (
   <>
     <SEO
       title="Mandat Signature | Vendez Mieux: Mickaël Lima Pays de Gex"
-      description="Le Mandat Signature : photos HD, vidéo drone 4K, diffusion sur +40 portails immobiliers, visites qualifiées et zéro visite inutile. Vendez votre bien dans le Pays de Gex au meilleur prix."
+      description="Le Mandat Signature : une présentation soignée, une diffusion adaptée et des visites préparées pour vendre votre bien dans le Pays de Gex."
       canonical="/mandat-signature"
       schema={MANDAT_SIGNATURE_SCHEMA}
     />
@@ -426,59 +289,29 @@ export const MandatSignature: React.FC = () => (
             <WhiteCard>
               {/* Vidéo */}
               <VideoBlock
-                image={IMAGES.misc2}
-                videoSrc="/video/villa-grilly-hero.mp4"
-                label="Villa à Grilly : film de présentation avec vues drone et home staging"
+                image="/images/services/villa-prestige.jpg"
+                label="Présentation visuelle d'un bien"
                 badgeIcon={<Camera size={13} aria-hidden="true" />}
-                badge="Drone & Immersion"
-                title="Vidéo 4K"
+                badge="Film & immersion"
+                title="Une histoire à raconter"
               />
 
-              {/* Photos Pro */}
               <div>
-                <BlockTitle icon={<Camera size={22} />}>Photos Pro Haute Définition</BlockTitle>
-                <GalleryBlock
-                  main={IMAGES.heroBg}
-                  overlay="Agrandir la galerie"
-                  thumbs={[IMAGES.misc1, IMAGES.misc2, IMAGES.misc3]}
-                  thumbAlts={['Detail 0', 'Detail 1', 'Detail 2']}
-                />
-              </div>
-
-              {/* Reels */}
-              <div>
-                <BlockTitle icon={<Share2 size={22} />}>Format TikTok &amp; Reels</BlockTitle>
-                <VerticalTiles label="Reel" />
-              </div>
-
-              {/* Home Staging */}
-              <div>
-                <BlockTitle icon={<Wand2 size={22} />}>Home Staging Virtuel</BlockTitle>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="sv-grid-2">
-                  {[
-                    { label: 'Avant', img: IMAGES.misc1 },
-                    { label: 'Après (IA)', img: IMAGES.misc5 },
-                  ].map(({ label, img }) => (
-                    <div key={label} style={{ position: 'relative', borderRadius: 8, overflow: 'hidden' }}>
-                      <img
-                        src={img}
-                        alt={label}
-                        loading="lazy"
-                        decoding="async"
-                        style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', display: 'block' }}
-                      />
-                      <span
-                        style={{
-                          position: 'absolute', top: 12, left: 12, background: '#fff', color: T.dark,
-                          fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5,
-                          borderRadius: 8, padding: '7px 13px',
-                        }}
-                      >
-                        {label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <BlockTitle icon={<Camera size={22} />}>Une présentation qui donne envie</BlockTitle>
+                <figure style={{ margin: 0 }}>
+                  <img
+                    src="/images/services/visite-maison.jpg"
+                    alt="Intérieur lumineux ouvert sur le paysage, visuel d’illustration"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ display: 'block', width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', borderRadius: 12 }}
+                  />
+                  <figcaption style={{ marginTop: 10, fontSize: 12, color: T.muted }}>Visuel d’illustration</figcaption>
+                </figure>
+                <p style={{ marginTop: 18, fontSize: 16, lineHeight: 1.65, color: T.muted }}>
+                  Photographies, film et formats courts racontent les atouts du lieu avec la même exigence de cadrage.
+                  La visite virtuelle et le home staging sont proposés selon le bien.
+                </p>
               </div>
             </WhiteCard>
           }
@@ -489,21 +322,21 @@ export const MandatSignature: React.FC = () => (
       <section style={{ ...wrap, padding: '100px 30px 0' }}>
         <CenteredHeading
           icon={<Target size={15} aria-hidden="true" />}
-          kicker="02. Diffusion Massive"
+          kicker="02. Diffusion"
           title={
             <>
-              Omniprésence <em style={{ fontStyle: 'italic' }}>Digitale</em>
+              Une visibilité <em style={{ fontStyle: 'italic' }}>choisie</em>
             </>
           }
-          desc="Votre bien ne doit pas être cherché, il doit être trouvé. Nous inondons le marché pour toucher 100% des acquéreurs actifs."
+          desc="Une diffusion choisie pour faire rencontrer votre bien et les acquéreurs qui lui correspondent."
         />
 
         <div className="sv-bento" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           <div style={{ gridColumn: 'span 2' }} className="sv-bento-wide">
             <Panel
               icon={<Share2 size={26} />}
-              title="+40 Portails Immobiliers"
-              desc="Diffusion simultanée sur SeLoger, Leboncoin, BienIci, LogicImmo, Figaro, Belles Demeures, et bien plus encore."
+              title="Portails immobiliers"
+              desc="Diffusion sur les plateformes pertinentes pour votre bien et votre marché."
             >
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 26 }}>
                 {PORTAIL_LOGOS.map((logo) => (
@@ -528,14 +361,6 @@ export const MandatSignature: React.FC = () => (
                     />
                   </a>
                 ))}
-                <span
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', background: T.dark, color: '#fff',
-                    borderRadius: 8, padding: '14px 20px', height: 52, fontSize: 14, fontWeight: 500,
-                  }}
-                >
-                  +35 autres
-                </span>
               </div>
             </Panel>
           </div>
@@ -544,15 +369,13 @@ export const MandatSignature: React.FC = () => (
             icon={<Share2 size={26} />}
             title="Réseaux Sociaux"
             desc="Instagram, Facebook, LinkedIn, TikTok."
-            stat={{ value: '30k+', label: 'Audience Cumulée' }}
           />
 
           <div style={{ gridColumn: 'span 3' }} className="sv-bento-wide">
             <Panel
               icon={<Target size={26} />}
               title="Campagnes Sponsorisées (Ads)"
-              desc="Retargeting Google & Meta pour ne perdre aucun prospect."
-              tag="Active 24/7"
+              desc="Des campagnes ciblées peuvent prolonger la visibilité du bien selon le projet et son marché."
             />
           </div>
         </div>
@@ -562,94 +385,16 @@ export const MandatSignature: React.FC = () => (
       <section style={{ ...wrap, padding: '100px 30px 0' }}>
         <TwoCol
           left={
-            <div className="sv-sticky" style={{ position: 'sticky', top: 100 }}>
-              {/* Espace Propriétaire (dashboard) */}
-              <div style={{ background: '#fff', borderRadius: 10, padding: 32 }}>
-                <div
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    gap: 16, paddingBottom: 24, borderBottom: `1px solid ${T.border}`, marginBottom: 24,
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                    <img
-                      src={IMAGES.heroAgent}
-                      alt="Agent"
-                      loading="lazy"
-                      decoding="async"
-                      style={{ width: 52, height: 52, borderRadius: 8, objectFit: 'cover' }}
-                    />
-                    <div>
-                      <p style={{ fontSize: 17, fontWeight: 500, color: T.dark }}>Espace Propriétaire</p>
-                      <p style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5, color: '#16a34a', marginTop: 5 }}>
-                        <span aria-hidden="true" style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e' }} /> En ligne
-                      </p>
-                    </div>
-                  </div>
-                  <MessageSquare size={22} color={T.muted} aria-hidden="true" />
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                  <div style={{ display: 'flex', gap: 14 }}>
-                    <span
-                      style={{
-                        flexShrink: 0, width: 44, height: 44, borderRadius: '50%', background: T.navy, color: '#fff',
-                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 600,
-                      }}
-                    >
-                      14:00
-                    </span>
-                    <div style={{ background: T.bg, borderRadius: 8, padding: 18, flex: 1 }}>
-                      <p style={{ fontSize: 16, fontWeight: 500, color: T.dark, marginBottom: 8 }}>
-                        Visite effectuée - M. &amp; Mme Dupont
-                      </p>
-                      <p style={{ fontSize: 15, lineHeight: '1.6em', color: T.muted }}>
-                        "Coup de cœur pour le salon, mais hésitation sur la cuisine. Souhaitent une contre-visite."
-                      </p>
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', gap: 14 }}>
-                    <span
-                      style={{
-                        flexShrink: 0, width: 44, height: 44, borderRadius: '50%', background: '#22c55e', color: '#fff',
-                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 600,
-                      }}
-                    >
-                      Hier
-                    </span>
-                    <div style={{ background: T.bg, borderRadius: 8, padding: 18, flex: 1, borderLeft: '3px solid #22c55e' }}>
-                      <p style={{ fontSize: 16, fontWeight: 500, color: T.dark, marginBottom: 8 }}>Offre d'achat reçue !</p>
-                      <p style={{ fontSize: 15, lineHeight: '1.6em', color: T.muted }}>
-                        Offre au prix. Dossier de financement validé par courtier.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 14, marginTop: 24, paddingTop: 20,
-                    borderTop: `1px solid ${T.border}`,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 44, height: 44, borderRadius: 8, background: '#f0fdf4',
-                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    }}
-                  >
-                    <Check size={20} color="#16a34a" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5, color: T.muted, marginBottom: 4 }}>
-                      Réactivité
-                    </p>
-                    <p style={{ fontSize: 17, fontWeight: 500, color: T.dark }}>Réponse &lt; 1h</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <figure className="sv-sticky" style={{ position: 'sticky', top: 100, margin: 0 }}>
+              <img
+                src="/images/services/conseil-immobilier.jpg"
+                alt="Échange autour d’un projet immobilier dans un salon lumineux, visuel d’illustration"
+                loading="lazy"
+                decoding="async"
+                style={{ display: 'block', width: '100%', aspectRatio: '4 / 5', objectFit: 'cover', borderRadius: 16 }}
+              />
+              <figcaption style={{ marginTop: 12, fontSize: 12, color: T.muted }}>Visuel d’illustration</figcaption>
+            </figure>
           }
           right={
             <div>
@@ -660,7 +405,7 @@ export const MandatSignature: React.FC = () => (
                   fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.8, color: T.dark, marginBottom: 24,
                 }}
               >
-                <Layout size={15} aria-hidden="true" /> 03. Transparence Totale
+                <Layout size={15} aria-hidden="true" /> 03. Suivi
               </span>
               <h2
                 style={{
@@ -668,7 +413,7 @@ export const MandatSignature: React.FC = () => (
                   lineHeight: '1.08em', color: T.dark, marginBottom: 20,
                 }}
               >
-                Vous savez tout, <em style={{ fontStyle: 'italic' }}>tout le temps.</em>
+                Un suivi <em style={{ fontStyle: 'italic' }}>clair.</em>
               </h2>
               <p style={{ fontSize: 17, lineHeight: '1.7em', color: T.muted, marginBottom: 36 }}>
                 Fini le silence radio. Nous avons mis en place des processus de suivi rigoureux pour que vous soyez
@@ -696,56 +441,47 @@ export const MandatSignature: React.FC = () => (
       <section style={{ ...wrap, padding: '100px 30px 100px' }}>
         <CenteredHeading
           icon={<ShieldCheck size={15} aria-hidden="true" />}
-          kicker="04. Sécurité"
+          kicker="04. Visites"
           title={
             <>
-              Zéro <em style={{ fontStyle: 'italic' }}>Tourisme Immobilier</em>
+              Des visites <em style={{ fontStyle: 'italic' }}>qualifiées</em>
             </>
           }
-          desc="Nous protégeons votre intimité et votre temps. Seuls les acheteurs sérieux franchissent votre porte."
+          desc="Chaque visite se prépare en amont pour préserver votre temps et présenter le bien dans les meilleures conditions."
         />
 
-        <div className="sv-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
-          <Panel
-            icon={<ShieldCheck size={26} />}
-            title="Identité Vérifiée"
-            desc="Nous collectons la pièce d'identité de chaque visiteur avant la visite pour une sécurité totale."
-          />
-          <Panel
-            icon={<Check size={26} />}
-            title="Financement Validé"
-            desc="Étude de solvabilité obligatoire. Pas de visite sans plan de financement clair et validé."
-            tag="Essentiel"
-          />
-          <Panel
-            icon={<Target size={26} />}
-            title="Projet Mûr"
-            desc="Nous qualifions la motivation et l'adéquation du projet pour éviter les visites de curiosité."
-          />
+        <div className="sv-visits" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: 24, alignItems: 'stretch' }}>
+          <figure style={{ margin: 0, position: 'relative', overflow: 'hidden', borderRadius: 16 }}>
+            <img src="/images/services/visite-maison.jpg" alt="Intérieur ouvert sur le paysage, visuel d’illustration" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: '100%', minHeight: 420, objectFit: 'cover', borderRadius: 16 }} />
+            <figcaption style={{ position: 'absolute', bottom: 14, left: 16, color: '#fff', fontSize: 11, textShadow: '0 1px 5px rgba(0,0,0,.75)' }}>Visuel d’illustration</figcaption>
+          </figure>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <Panel icon={<ShieldCheck size={26} />} title="Premier échange" desc="Nous échangeons sur le projet de l'acquéreur avant d'organiser la visite." />
+            <Panel icon={<Check size={26} />} title="Budget abordé" desc="Le financement est discuté en amont pour vérifier l'adéquation avec le prix du bien." />
+            <Panel icon={<Target size={26} />} title="Visite préparée" desc="Les points forts du logement et les questions pratiques sont présentés avec soin." />
+          </div>
         </div>
       </section>
-
-      <LogoMarquee />
 
       {/* RÉCAP */}
       <RecapBand
         badgeIcon={<Star size={13} aria-hidden="true" />}
-        kicker="L'Excellence Immobilière"
+        kicker="Notre méthode"
         title={
           <>
             Pourquoi choisir le <em style={{ fontStyle: 'italic' }}>Mandat Signature ?</em>
           </>
         }
-        description="Une approche globale qui fusionne technologie, marketing et expertise humaine pour des résultats exceptionnels."
+        description="Une présentation juste, une diffusion adaptée et un dialogue continu à chaque étape de la vente."
         cards={[
           { icon: <Camera size={24} />, title: 'Valorisation Visuelle', items: ['Photos Pro & Drone', 'Visite Virtuelle', 'Vidéos IA'] },
-          { icon: <Share2 size={24} />, title: 'Visibilité Multi-Canal', items: ['+40 Portails', 'Réseaux Sociaux', 'Diffusion TV'] },
+          { icon: <Share2 size={24} />, title: 'Diffusion ciblée', items: ['Portails immobiliers', 'Réseaux sociaux', 'Canaux adaptés'] },
           { icon: <Users size={24} />, title: 'Acquéreurs & Suivi', items: ['Fichier Qualifié', 'Partage Inter-agence', 'WhatsApp dédié'] },
-          { icon: <Layout size={24} />, title: 'Visites Qualifiées', items: ['Préqualification', 'Validation Budget', '0 Visite Inutile'] },
+          { icon: <Layout size={24} />, title: 'Visites Qualifiées', items: ['Premier échange', 'Budget abordé', 'Visite préparée'] },
         ]}
-        ctaLabel="Je choisis l'excellence"
+        ctaLabel="Parlons de votre projet"
         ctaTo="/estimation"
-        note="Engagement social : Chaque vente soutient une association locale du Pays de Gex."
+        image="/images/services/conseil-immobilier.jpg"
       />
     </div>
 
@@ -759,7 +495,7 @@ export const MandatExclusif: React.FC = () => (
   <>
     <SEO
       title="Mandat Exclusif | L'Excellence Immobilière: Mickaël Lima"
-      description="Le Mandat Exclusif : production cinématographique, home staging, événements privés, diffusion internationale. Pour les biens d'exception dans le Pays de Gex qui méritent le meilleur."
+      description="Le Mandat Exclusif : une présentation sur mesure et une stratégie de vente pensée pour les biens d’exception du Pays de Gex."
       canonical="/mandat-exclusif"
       schema={MANDAT_EXCLUSIF_SCHEMA}
     />
@@ -773,9 +509,9 @@ export const MandatExclusif: React.FC = () => (
             Le Mandat <em style={{ fontStyle: 'italic' }}>Exclusif.</em>
           </>
         }
-        subtitle="L'art de sublimer l'exceptionnel. Une production cinématographique pour une désirabilité sans égale."
+        subtitle="Une présentation sensible et une stratégie de vente pensée pour chaque propriété."
         image="/images/mandat-exclusif-hero.jpg"
-        ctaLabel="Candidater pour ce mandat"
+        ctaLabel="Parlons de votre bien"
         ctaTo="/contact"
       />
 
@@ -808,57 +544,53 @@ export const MandatExclusif: React.FC = () => (
           }
           right={
             <WhiteCard>
-              {/* Vidéo cinématographique */}
               <VideoBlock
-                image={IMAGES.cardImage}
-                label="Film Cinématographique (4K)"
+                image="/images/services/villa-prestige.jpg"
+                label="Présentation d’un bien d’exception"
                 badgeIcon={<Star size={13} aria-hidden="true" />}
-                badge="Production Exclusive"
-                title="L'Art de Vivre"
+                badge="Présentation sur mesure"
+                title="L’art de vivre"
               />
-
-              {/* Teasers */}
-              <div>
-                <BlockTitle icon={<Share2 size={22} />}>Teasers Réseaux Sociaux</BlockTitle>
-                <VerticalTiles label="Teaser" />
-              </div>
-
-              {/* Galerie Prestige */}
-              <div>
-                <BlockTitle icon={<Camera size={22} />}>Galerie Prestige</BlockTitle>
-                <GalleryBlock
-                  main={IMAGES.heroBg}
-                  overlay="Vue Panoramique"
-                  thumbs={[IMAGES.misc2, IMAGES.misc3, IMAGES.cardImage]}
-                  thumbAlts={['Detail', 'Exterior', 'Night']}
-                />
+              <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 30 }}>
+                <BlockTitle icon={<Camera size={22} />}>Une mise en scène singulière</BlockTitle>
+                <p style={{ fontSize: 16, lineHeight: 1.7, color: T.muted, marginBottom: 20 }}>
+                  Le film, les photographies et les formats courts sont pensés ensemble pour révéler
+                  l’architecture, les volumes et l’atmosphère du lieu.
+                </p>
+                <div className="sv-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+                  {['Direction artistique', 'Film dédié', 'Diffusion ciblée'].map((item, index) => (
+                    <div key={item} style={{ borderTop: `1px solid ${T.border}`, paddingTop: 12 }}>
+                      <span style={{ display: 'block', fontFamily: T.heading, fontSize: 22, color: T.dark, marginBottom: 5 }}>0{index + 1}</span>
+                      <span style={{ fontSize: 13, lineHeight: 1.5, color: T.muted }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </WhiteCard>
           }
         />
       </section>
 
-      <LogoMarquee />
-
       {/* RÉCAP */}
       <RecapBand
         badgeIcon={<Star size={13} aria-hidden="true" />}
-        kicker="Le Sommet de l'Immobilier"
+        kicker="Un accompagnement sur mesure"
         title={
           <>
-            L'Ultime <em style={{ fontStyle: 'italic' }}>Privilège</em>
+            Révéler ce qui rend votre bien <em style={{ fontStyle: 'italic' }}>unique.</em>
           </>
         }
-        description="Le Mandat Exclusif est notre promesse d'excellence absolue. Une mise en scène digne des plus grandes productions pour des biens qui ne méritent rien de moins."
+        description="Une présentation soignée, un accompagnement direct et une diffusion adaptée au caractère de votre propriété."
         cards={[
           { icon: <Video size={24} />, title: 'Film Cinématographique', items: ['Équipe de Tournage', 'Storytelling', 'Étalonnage 4K'] },
           { icon: <Gem size={24} />, title: 'Diffusion Prestige', items: ['Portails Luxe', 'Ciblage International', 'Off-Market'] },
           { icon: <Star size={24} />, title: 'Événementiel', items: ['Soirée Privée (sur dmd)', 'Relations Publiques', 'Dossier Relié'] },
-          { icon: <ShieldCheck size={24} />, title: 'Service Conciergerie', items: ['Accompagnement VIP', 'Confidentialité', 'Disponibilité 24/7'] },
+          { icon: <ShieldCheck size={24} />, title: 'Accompagnement', items: ['Interlocuteur dédié', 'Confidentialité', 'Suivi personnalisé'] },
         ]}
-        ctaLabel="Candidature Confidentielle"
+        ctaLabel="Échanger sur votre projet"
         ctaTo="/contact"
-        note="Confidentialité absolue garantie sur l'ensemble de la démarche."
+        note="Le niveau de confidentialité est défini avec vous dès le premier échange."
+        image="/images/services/conseil-immobilier.jpg"
       />
     </div>
 

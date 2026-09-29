@@ -11,7 +11,7 @@ import {
   ChevronDown,
   Phone,
 } from 'lucide-react';
-import { COMMUNES, getCommuneHeroImage } from '../constants';
+import { COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
 
 export const CommuneEstimationPage: React.FC = () => {
@@ -93,24 +93,24 @@ export const CommuneEstimationPage: React.FC = () => {
 
   const faqs = [
     {
-      question: `Combien vaut mon bien à ${commune.name} en ${year} ?`,
-      answer: `Les prix au m² à ${commune.name} varient entre ${commune.prixApptMin.toLocaleString('fr-FR')} et ${commune.prixApptMax.toLocaleString('fr-FR')} €/m² pour les appartements, et entre ${commune.prixMaisonMin.toLocaleString('fr-FR')} et ${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² pour les maisons. La valeur précise dépend de l'état, de l'exposition, du DPE et des transactions récentes dans votre rue. Une estimation de terrain reste la seule méthode fiable.`,
+      question: `Comment estimer mon bien à ${commune.name} en ${year} ?`,
+      answer: `Sur les ventes DVF exploitables de ${COMMUNE_DVF_PERIOD}, le prix médian à ${commune.name} est de ${commune.prixApptMin.toLocaleString('fr-FR')} €/m² pour les appartements et de ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m² pour les maisons. Ces médianes ne sont pas une estimation de votre bien : son état, son adresse et ses caractéristiques doivent être étudiés séparément.`,
     },
     {
       question: `Combien de temps faut-il pour vendre à ${commune.name} ?`,
-      answer: `Un bien correctement estimé à ${commune.name} se vend en moyenne en ${commune.delaiMoyen} jours. Un bien surestimé de 10 % ou plus voit ce délai multiplié par 3 à 4, avec une décote finale quasi-systématique. La justesse de l'estimation initiale est le facteur le plus déterminant sur le prix final obtenu.`,
+      answer: `Il n'existe pas ici de délai moyen de vente publié et comparable pour ${commune.name}. La durée dépend du bien, du prix demandé, de la demande au moment de la mise en vente et de la stratégie de commercialisation.`,
     },
     {
       question: `L'estimation est-elle vraiment gratuite et sans engagement ?`,
-      answer: `Oui. L'estimation est gratuite, confidentielle, et ne vous engage en rien. Elle comprend une visite sur site, l'analyse des transactions comparables récentes dans un rayon de 500 mètres, et un dossier remis sous 48h.`,
+      answer: `Oui. L'estimation est gratuite, confidentielle et sans engagement. Elle comprend une visite sur site et l'analyse de transactions comparables récentes, choisies selon le type de bien et le secteur pertinent.`,
     },
   ];
 
   return (
     <>
       <SEO
-        title={`Estimation Immobilière ${commune.name}: Prix m² ${year} | Mickaël Lima`}
-        description={`Estimation gratuite de votre bien à ${commune.name} (${commune.cp}). Prix au m² : ${commune.prixApptMin.toLocaleString('fr-FR')}-${commune.prixApptMax.toLocaleString('fr-FR')} €/m² (appt), ${commune.prixMaisonMin.toLocaleString('fr-FR')}-${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² (maison). Délai moyen : ${commune.delaiMoyen} jours. Réponse sous 48h.`}
+        title={`Estimation Immobilière ${commune.name} : repères DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
+        description={`Estimation gratuite à ${commune.name} (${commune.cp}). Repères DVF ${COMMUNE_DVF_PERIOD} : médiane des appartements ${commune.prixApptMin.toLocaleString('fr-FR')} €/m² et des maisons ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m². Analyse adaptée au bien.`}
         canonical={`/${commune.slug}/estimation-immobiliere`}
         schema={schema}
       />
@@ -146,7 +146,7 @@ export const CommuneEstimationPage: React.FC = () => {
                   Estimation gratuite
                 </span>
                 <span className="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest">
-                  <MapPin size={12} /> {commune.distanceGeneve} de Genève
+                  <MapPin size={12} /> {commune.distanceGeneve} de Genève à vol d'oiseau
                 </span>
               </div>
 
@@ -175,7 +175,7 @@ export const CommuneEstimationPage: React.FC = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                Marché actuel · {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}
+                Ventes DVF · {COMMUNE_DVF_PERIOD}
               </span>
 
               <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-12">
@@ -188,11 +188,11 @@ export const CommuneEstimationPage: React.FC = () => {
                     Appartements
                   </p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
+                    {commune.prixApptMin.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
-                    Fourchette sur les 12 derniers mois, hors biens atypiques
+                    Prix médian au m² des ventes exploitables de {COMMUNE_DVF_PERIOD}
                   </p>
                 </div>
 
@@ -201,11 +201,11 @@ export const CommuneEstimationPage: React.FC = () => {
                     Maisons
                   </p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                    {commune.prixMaisonMin.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
-                    Fourchette sur les 12 derniers mois, hors biens atypiques
+                    Prix médian au m² des ventes exploitables de {COMMUNE_DVF_PERIOD}
                   </p>
                 </div>
               </div>
@@ -214,22 +214,22 @@ export const CommuneEstimationPage: React.FC = () => {
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <Clock size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-textMain text-lg">{commune.delaiMoyen} jours</p>
-                    <p className="text-gray-500 text-sm font-light">Délai moyen de vente (bien estimé)</p>
+                    <p className="font-bold text-textMain text-lg">Selon le bien</p>
+                    <p className="text-gray-500 text-sm font-light">Délai de vente, sans moyenne locale publiée</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <MapPin size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">{commune.distanceGeneve}</p>
-                    <p className="text-gray-500 text-sm font-light">de Genève centre</p>
+                    <p className="text-gray-500 text-sm font-light">à vol d'oiseau du centre de Genève</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <TrendingUp size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-textMain text-lg">Marché sous tension</p>
-                    <p className="text-gray-500 text-sm font-light">Demande frontalière soutenue</p>
+                    <p className="font-bold text-textMain text-lg">Repère historique</p>
+                    <p className="text-gray-500 text-sm font-light">La médiane ne prédit pas le prix d'un bien</p>
                   </div>
                 </div>
               </div>
@@ -296,7 +296,7 @@ export const CommuneEstimationPage: React.FC = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white text-xs font-bold uppercase tracking-widest mb-8">
-                Gratuit · Sans engagement · Sous 48h
+                Gratuit · Sans engagement
               </span>
 
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.05] mb-6 break-words hyphens-auto">
@@ -308,7 +308,7 @@ export const CommuneEstimationPage: React.FC = () => {
               </h2>
 
               <p className="text-white/70 text-xl font-light max-w-xl mx-auto mb-12">
-                Les prix médians donnent une orientation. L'estimation de terrain donne la valeur précise. Sur un bien à 600 000 €, l'écart peut atteindre 60 000 à 120 000 €.
+                Les médianes de commune donnent un repère. Pour estimer un bien, il faut examiner son état, son adresse, ses caractéristiques et des ventes comparables. <a href={COMMUNE_DVF_SOURCE} className="underline">Source des médianes : statistiques DVF publiques</a>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -407,7 +407,7 @@ export const CommuneEstimationPage: React.FC = () => {
                     <div>
                       <p className="font-bold text-textMain text-lg group-hover:text-primary transition-colors">{voisine.name}</p>
                       <p className="text-gray-400 text-sm font-light mt-0.5">
-                        {voisine.distanceGeneve} · {voisine.prixApptMin.toLocaleString('fr-FR')}-{voisine.prixApptMax.toLocaleString('fr-FR')} €/m²
+                        {voisine.distanceGeneve} · appartement médian {voisine.prixApptMin.toLocaleString('fr-FR')} €/m² (DVF {COMMUNE_DVF_PERIOD})
                       </p>
                     </div>
                     <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all shrink-0">

@@ -17,6 +17,7 @@ import {
 import { SEO } from './SEO';
 import { T, AGENT_PHOTO, ListingCard, NBProperty, formatPrice, formatSurface } from './nosBiensShared';
 import { BIENS } from './biensData';
+import { propertyPhotoCrop } from './propertyPhotoCrop';
 
 /**
  * Page détail d'un bien: DA du template Framer Revalis (page listing) :
@@ -185,16 +186,19 @@ const Lightbox: React.FC<{ photos: string[]; index: number; onClose: () => void;
         <button type="button" onClick={prev} aria-label="Photo précédente" style={navBtn}>
           <ChevronLeft size={26} aria-hidden="true" />
         </button>
-        <img
-          key={index}
-          src={photos[index]}
-          alt={`Photo ${index + 1} sur ${photos.length}`}
+        <div
           style={{
-            flex: 1, minWidth: 0, maxHeight: '78vh', objectFit: 'contain',
-            borderRadius: 10, display: 'block',
-            animation: 'nbFadeIn .3s ease',
+            flex: 1, minWidth: 0, maxHeight: '78vh', aspectRatio: '4 / 3',
+            overflow: 'hidden', borderRadius: 10, animation: 'nbFadeIn .3s ease',
           }}
-        />
+        >
+          <img
+            key={index}
+            src={photos[index]}
+            alt={`Photo ${index + 1} sur ${photos.length}`}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...propertyPhotoCrop(photos[index]) }}
+          />
+        </div>
         <button type="button" onClick={next} aria-label="Photo suivante" style={navBtn}>
           <ChevronRight size={26} aria-hidden="true" />
         </button>
@@ -280,7 +284,7 @@ export const NosBiensDetail: React.FC = () => {
               type="button"
               onClick={() => setLightbox(0)}
               aria-label="Agrandir la photo principale"
-              style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minWidth: 0, position: 'relative' }}
+              style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minWidth: 0, position: 'relative', overflow: 'hidden', borderRadius: 10 }}
             >
               <img
                 src={photos[0]}
@@ -289,7 +293,7 @@ export const NosBiensDetail: React.FC = () => {
                 height="900"
                 loading="eager"
                 decoding="async"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 10 }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...propertyPhotoCrop(photos[0]) }}
               />
               <span
                 style={{
@@ -305,7 +309,7 @@ export const NosBiensDetail: React.FC = () => {
                 type="button"
                 onClick={() => setLightbox(1 % photos.length)}
                 aria-label="Agrandir la photo 2"
-                style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0 }}
+                style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0, overflow: 'hidden', borderRadius: 10 }}
               >
                 <img
                   src={heroSide[0]}
@@ -314,7 +318,7 @@ export const NosBiensDetail: React.FC = () => {
                   height="500"
                   loading="lazy"
                   decoding="async"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 10 }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...propertyPhotoCrop(heroSide[0]) }}
                 />
               </button>
               <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr 1.1fr', minHeight: 0 }}>
@@ -322,7 +326,7 @@ export const NosBiensDetail: React.FC = () => {
                   type="button"
                   onClick={() => setLightbox(2 % photos.length)}
                   aria-label="Agrandir la photo 3"
-                  style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0 }}
+                  style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', minHeight: 0, overflow: 'hidden', borderRadius: 10 }}
                 >
                   <img
                     src={heroSide[1]}
@@ -331,7 +335,7 @@ export const NosBiensDetail: React.FC = () => {
                     height="380"
                     loading="lazy"
                     decoding="async"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 10 }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...propertyPhotoCrop(heroSide[1]) }}
                   />
                 </button>
                 <button
@@ -350,7 +354,7 @@ export const NosBiensDetail: React.FC = () => {
                     height="380"
                     loading="lazy"
                     decoding="async"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', ...propertyPhotoCrop(heroSide[2]) }}
                   />
                   <span
                     style={{
@@ -463,7 +467,7 @@ export const NosBiensDetail: React.FC = () => {
                         type="button"
                         onClick={() => setLightbox(4 + i)}
                         aria-label={`Agrandir la photo ${5 + i}`}
-                        style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block' }}
+                        style={{ padding: 0, border: 'none', background: 'none', cursor: 'pointer', display: 'block', overflow: 'hidden', borderRadius: 8 }}
                       >
                         <img
                           src={img}
@@ -472,7 +476,7 @@ export const NosBiensDetail: React.FC = () => {
                           height="450"
                           loading="lazy"
                           decoding="async"
-                          style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 8, display: 'block' }}
+                          style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', display: 'block', ...propertyPhotoCrop(img) }}
                         />
                       </button>
                     ))}

@@ -10,7 +10,7 @@ import {
   Phone,
   BarChart2,
 } from 'lucide-react';
-import { COMMUNES, getCommuneHeroImage } from '../constants';
+import { COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
 
 export const PrixImmobilierPage: React.FC = () => {
@@ -30,8 +30,6 @@ export const PrixImmobilierPage: React.FC = () => {
       </div>
     );
   }
-
-  const year = new Date().getFullYear();
 
   const voisines = commune.voisines.map((slug) => COMMUNES.find((c) => c.slug === slug)).filter(Boolean) as typeof COMMUNES;
 
@@ -87,15 +85,15 @@ export const PrixImmobilierPage: React.FC = () => {
         bestRating: '5',
         worstRating: '1',
       },
-      description: `Prix immobilier ${commune.name} en ${year}: fourchettes par type de bien, évolution du marché et contexte frontalier.`,
+      description: `Prix immobiliers médians à ${commune.name}, calculés sur les ventes DVF de ${COMMUNE_DVF_PERIOD}, par type de bien.`,
     },
   ];
 
   return (
     <>
       <SEO
-        title={`Prix immobilier ${commune.name} en ${year}: Appartements & Maisons | Mickaël Lima`}
-        description={`Prix au m² à ${commune.name} (${commune.cp}) en ${year} : ${commune.prixApptMin.toLocaleString('fr-FR')}-${commune.prixApptMax.toLocaleString('fr-FR')} €/m² (appt), ${commune.prixMaisonMin.toLocaleString('fr-FR')}-${commune.prixMaisonMax.toLocaleString('fr-FR')} €/m² (maison). Évolution, marché frontalier et comparatif communes voisines.`}
+        title={`Prix immobilier ${commune.name} : médianes DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
+        description={`Ventes DVF ${COMMUNE_DVF_PERIOD} à ${commune.name} (${commune.cp}) : médiane appartements ${commune.prixApptMin.toLocaleString('fr-FR')} €/m², maisons ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m². Repères pour comparer les communes voisines.`}
         canonical={`/prix-immobilier/${commune.slug}`}
         schema={schema}
       />
@@ -128,10 +126,10 @@ export const PrixImmobilierPage: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">
-                  Observatoire prix {year}
+                  Repères DVF {COMMUNE_DVF_PERIOD}
                 </span>
                 <span className="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest">
-                  <MapPin size={12} /> {commune.distanceGeneve} de Genève
+                  <MapPin size={12} /> {commune.distanceGeneve} de Genève à vol d'oiseau
                 </span>
               </div>
 
@@ -139,7 +137,7 @@ export const PrixImmobilierPage: React.FC = () => {
                 Prix immobilier
                 <br />
                 <span className="font-newsletter italic font-normal">
-                  {commune.name} en {year}
+                  {commune.name} · {COMMUNE_DVF_PERIOD}
                 </span>
               </h1>
 
@@ -160,7 +158,7 @@ export const PrixImmobilierPage: React.FC = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                Fourchettes · {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}
+                Ventes DVF · {COMMUNE_DVF_PERIOD}
               </span>
 
               <h2 className="text-4xl md:text-5xl font-medium text-textMain tracking-tight mb-12">
@@ -171,22 +169,22 @@ export const PrixImmobilierPage: React.FC = () => {
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Appartements</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
+                    {commune.prixApptMin.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
-                    Fourchette sur les 12 derniers mois, hors biens atypiques
+                    Prix médian au m² des ventes exploitables de {COMMUNE_DVF_PERIOD}
                   </p>
                 </div>
 
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Maisons</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
-                    {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                    {commune.prixMaisonMin.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
                   </p>
                   <p className="text-gray-500 font-light text-sm mt-4">
-                    Fourchette sur les 12 derniers mois, hors biens atypiques
+                    Prix médian au m² des ventes exploitables de {COMMUNE_DVF_PERIOD}
                   </p>
                 </div>
               </div>
@@ -195,22 +193,22 @@ export const PrixImmobilierPage: React.FC = () => {
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <Clock size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-textMain text-lg">{commune.delaiMoyen} jours</p>
-                    <p className="text-gray-500 text-sm font-light">Délai moyen de vente</p>
+                    <p className="font-bold text-textMain text-lg">Selon le bien</p>
+                    <p className="text-gray-500 text-sm font-light">Délai de vente, sans moyenne locale publiée</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <MapPin size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold text-textMain text-lg">{commune.distanceGeneve}</p>
-                    <p className="text-gray-500 text-sm font-light">de Genève centre</p>
+                    <p className="text-gray-500 text-sm font-light">à vol d'oiseau du centre de Genève</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <TrendingUp size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-textMain text-lg">Marché sous tension</p>
-                    <p className="text-gray-500 text-sm font-light">Demande frontalière soutenue</p>
+                    <p className="font-bold text-textMain text-lg">Repère historique</p>
+                    <p className="text-gray-500 text-sm font-light">La médiane ne prédit pas le prix d'un bien</p>
                   </div>
                 </div>
               </div>
@@ -226,8 +224,9 @@ export const PrixImmobilierPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="max-w-3xl"
+              className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14"
             >
+              <div>
               <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
                 Analyse de marché
               </span>
@@ -243,7 +242,21 @@ export const PrixImmobilierPage: React.FC = () => {
                 <p>{commune.descriptionMarche}</p>
                 <p>{commune.frontalierContext}</p>
                 <p>{commune.evolutionPrix}</p>
+                <p className="text-sm"><a href={COMMUNE_DVF_SOURCE}>Source des médianes : statistiques DVF publiques</a>. Les évolutions notariales citées sont issues du <a href="https://cin-lyon.notaires.fr/wp-content/uploads/2025/07/Barometre-de-limmobilier-Ain-mai-2025.pdf">baromètre de mai 2025</a>.</p>
               </div>
+              </div>
+              <figure>
+                <img
+                  src="/images/editorial/marche-pays-de-gex.webp"
+                  alt="Quartier résidentiel au pied d'un relief boisé, visuel d'illustration du marché local"
+                  width="1440"
+                  height="960"
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[4/5] w-full rounded-[10px] object-cover"
+                />
+                <figcaption className="mt-3 text-xs text-gray-400">Visuel d’illustration</figcaption>
+              </figure>
             </m.div>
           </div>
         </section>
@@ -271,9 +284,9 @@ export const PrixImmobilierPage: React.FC = () => {
                     <thead>
                       <tr className="border-b border-gray-200">
                         <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Commune</th>
-                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Appt (€/m²)</th>
-                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Maison (€/m²)</th>
-                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Délai moyen</th>
+                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Appt médian (€/m²)</th>
+                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Maison médiane (€/m²)</th>
+                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Délai</th>
                         <th className="py-4 text-xs font-bold uppercase tracking-widest text-primary/60">Genève</th>
                       </tr>
                     </thead>
@@ -282,12 +295,12 @@ export const PrixImmobilierPage: React.FC = () => {
                       <tr className="border-b border-primary/10 bg-primary/5">
                         <td className="py-5 pr-6 font-bold text-primary">{commune.name}</td>
                         <td className="py-5 pr-6 font-medium text-textMain">
-                          {commune.prixApptMin.toLocaleString('fr-FR')} à {commune.prixApptMax.toLocaleString('fr-FR')}
+                          {commune.prixApptMin.toLocaleString('fr-FR')}
                         </td>
                         <td className="py-5 pr-6 font-medium text-textMain">
-                          {commune.prixMaisonMin.toLocaleString('fr-FR')} à {commune.prixMaisonMax.toLocaleString('fr-FR')}
+                          {commune.prixMaisonMin.toLocaleString('fr-FR')}
                         </td>
-                        <td className="py-5 pr-6 font-medium text-textMain">{commune.delaiMoyen} j</td>
+                        <td className="py-5 pr-6 font-medium text-textMain">Variable</td>
                         <td className="py-5 font-medium text-textMain">{commune.distanceGeneve}</td>
                       </tr>
                       {/* Voisines rows */}
@@ -302,12 +315,12 @@ export const PrixImmobilierPage: React.FC = () => {
                             </Link>
                           </td>
                           <td className="py-5 pr-6 text-gray-600">
-                            {v.prixApptMin.toLocaleString('fr-FR')} à {v.prixApptMax.toLocaleString('fr-FR')}
+                            {v.prixApptMin.toLocaleString('fr-FR')}
                           </td>
                           <td className="py-5 pr-6 text-gray-600">
-                            {v.prixMaisonMin.toLocaleString('fr-FR')} à {v.prixMaisonMax.toLocaleString('fr-FR')}
+                            {v.prixMaisonMin.toLocaleString('fr-FR')}
                           </td>
-                          <td className="py-5 pr-6 text-gray-600">{v.delaiMoyen} j</td>
+                          <td className="py-5 pr-6 text-gray-600">Variable</td>
                           <td className="py-5 text-gray-600">{v.distanceGeneve}</td>
                         </tr>
                       ))}
@@ -330,7 +343,7 @@ export const PrixImmobilierPage: React.FC = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white text-xs font-bold uppercase tracking-widest mb-8">
-                Gratuit · Sans engagement · Sous 48h
+                Gratuit · Sans engagement
               </span>
 
               <h2 className="text-4xl md:text-6xl font-medium text-white tracking-tight leading-[1.05] mb-6 break-words hyphens-auto">
@@ -381,7 +394,7 @@ export const PrixImmobilierPage: React.FC = () => {
                 Estimation immobilière à {commune.name}
               </h3>
               <p className="text-gray-500 font-light mt-2">
-                Visite sur site, analyse des comparables, dossier sous 48h.
+                Visite sur site et analyse des ventes comparables.
               </p>
             </div>
             <Link

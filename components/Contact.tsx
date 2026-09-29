@@ -63,35 +63,39 @@ export const Estimation: React.FC = () => {
         <>
         <SEO
             title="Estimation Gratuite de votre Bien | Pays de Gex: Mickaël Lima"
-            description="Obtenez une estimation gratuite et confidentielle de votre bien immobilier dans le Pays de Gex. Déplacement sur site, analyse marché, dossier complet remis sous 48h."
+            description="Obtenez une estimation gratuite et confidentielle de votre bien immobilier dans le Pays de Gex, fondée sur ses caractéristiques et les ventes comparables."
             canonical="/estimation"
         />
-        <section id="estimation" className="py-32 bg-background relative overflow-hidden min-h-screen flex items-center">
-
-            {/* Elegant Background Gradients */}
-            <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-surface to-transparent -z-10"></div>
-            <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-
-            <div className="container mx-auto px-6 relative z-10 pt-10">
-                <div className="text-center mb-16">
+        <section id="estimation" className="bg-[#f7f7f7] pb-24 pt-32 md:pt-36">
+            <div className="container mx-auto px-6">
+                <div className="mb-14 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+                  <div>
                     <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-200/60 bg-white/60 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
+                        className="mb-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#011d41]"
                     >
-                        <Sparkles size={16} /> Évaluation Confidentielle
+                        <Sparkles size={16} /> Estimation confidentielle
                     </m.div>
                     <m.h1
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.1]"
+                        className="font-serif text-5xl font-normal leading-[1.08] tracking-tight text-[#011d41] md:text-6xl lg:text-[4.5rem]"
                     >
                         Estimez la valeur de <br />
-                        <span className="font-newsletter italic font-normal">votre patrimoine.</span>
+                        <span className="italic">votre patrimoine.</span>
                     </m.h1>
+                    <p className="mt-7 max-w-xl text-lg leading-relaxed text-gray-500">
+                      Une lecture précise du bien, de son emplacement et des ventes comparables pour préparer votre projet.
+                    </p>
+                  </div>
+                  <figure className="m-0">
+                    <img src="/images/services/conseil-immobilier.jpg" alt="Échange autour d’un projet immobilier, visuel d’illustration" loading="eager" decoding="async" className="aspect-[4/3] w-full rounded-2xl object-cover" />
+                    <figcaption className="mt-2 text-xs text-gray-400">Visuel d’illustration</figcaption>
+                  </figure>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
@@ -103,9 +107,7 @@ export const Estimation: React.FC = () => {
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                         className="lg:col-span-7"
                     >
-                        <div className="bg-white p-8 md:p-12 rounded-[10px] border border-gray-100 relative overflow-hidden">
-                            {/* Inner subtle glow */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        <div className="relative overflow-hidden rounded-2xl border border-[#ebebeb] bg-white p-8 md:p-12">
 
                             <AnimatePresence mode="wait" initial={false}>
                             {status !== 'success' ? (
@@ -227,7 +229,7 @@ export const Estimation: React.FC = () => {
                                         </div>
                                         <h4 className="text-3xl font-bold text-textMain mb-4 tracking-tight">✅ Message envoyé !</h4>
                                         <p className="text-gray-500 text-lg font-light leading-relaxed max-w-sm mx-auto">
-                                            Notre équipe vous recontacte sous 24h pour finaliser votre estimation en toute confidentialité.
+                                            Mickaël vous recontactera pour préciser votre projet et préparer votre estimation en toute confidentialité.
                                         </p>
                                     </m.div>
                             )}
@@ -243,12 +245,10 @@ export const Estimation: React.FC = () => {
                         className="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32"
                     >
                         {/* Why Us Card */}
-                        <div className="bg-primary text-white p-12 rounded-[10px] relative overflow-hidden">
-                            {/* Texture Overlay */}
-                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent opacity-60 pointer-events-none"></div>
+                        <div className="relative overflow-hidden rounded-2xl bg-[#011d41] p-9 text-white md:p-11">
 
                             <div className="relative z-10">
-                                <h3 className="text-3xl font-bold mb-8 leading-[1.2] tracking-tight">L'exactitude, notre signature.</h3>
+                                <h3 className="mb-8 font-serif text-3xl font-normal leading-[1.2] tracking-tight">Une estimation qui s’explique.</h3>
                                 <ul className="space-y-6 mb-8">
                                     <li className="flex items-start gap-4">
                                         <div className="mt-1 bg-white/10 p-1.5 rounded-full"><CheckCircle size={16} className="text-accent" /></div>
@@ -260,18 +260,15 @@ export const Estimation: React.FC = () => {
                                     </li>
                                     <li className="flex items-start gap-4">
                                         <div className="mt-1 bg-white/10 p-1.5 rounded-full"><CheckCircle size={16} className="text-accent" /></div>
-                                        <span className="text-white/80 font-light leading-relaxed">Confidentialité absolue garantie de la prise de contact à la vente.</span>
+                                        <span className="text-white/80 font-light leading-relaxed">Un échange discret pour définir la suite qui vous convient.</span>
                                     </li>
                                 </ul>
                             </div>
 
-                            {/* Decorative element */}
-                            <div className="absolute -bottom-24 -right-24 w-64 h-64 border border-white/10 rounded-full"></div>
-                            <div className="absolute -bottom-12 -right-12 w-32 h-32 border border-white/10 rounded-full"></div>
                         </div>
 
                         {/* Agent Profile */}
-                        <div className="bg-white p-8 md:p-10 rounded-[10px] border border-gray-100 flex flex-col md:flex-row items-center gap-8 group">
+                        <div className="group flex flex-col items-center gap-8 rounded-2xl border border-[#ebebeb] bg-white p-8 md:flex-row md:p-10">
                             <div className="relative">
                                 <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-20 group-hover:scale-110 transition-transform duration-500"></div>
                                 <img

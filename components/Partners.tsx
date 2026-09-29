@@ -27,6 +27,8 @@ const PARTNERS = [
     {
         icon: Calculator,
         title: 'Courtiers en banque',
+        image: '/images/editorial/partenaire-financement.webp',
+        imageAlt: "Intérieur lumineux avec plans et carnet, illustration d'un accompagnement au financement",
         description:
             "Des courtiers indépendants qui structurent votre financement, négocient votre taux et sécurisent votre capacité d'emprunt, y compris pour les revenus frontaliers en francs suisses.",
         tag: 'Financement',
@@ -34,6 +36,8 @@ const PARTNERS = [
     {
         icon: Hammer,
         title: 'Artisans qualifiés',
+        image: '/images/editorial/partenaire-artisans.webp',
+        imageAlt: "Matériaux et outillage d'artisan dans un intérieur rénové, visuel d'illustration",
         description:
             "Peintres, électriciens, plombiers, menuisiers : des intervenants connus et assurés pour les travaux de rafraîchissement qui augmentent la valeur perçue de votre bien avant la mise en vente.",
         tag: 'Travaux',
@@ -41,6 +45,8 @@ const PARTNERS = [
     {
         icon: PaintBucket,
         title: "Architectes d'intérieur",
+        image: '/images/editorial/partenaire-architecture-interieure.webp',
+        imageAlt: "Salon aménagé dans des tons naturels, visuel d'illustration de l'architecture intérieure",
         description:
             "Home staging, réaménagement d'espaces et rénovation : des regards experts pour révéler le potentiel de votre bien et aider les acquéreurs à s'y projeter.",
         tag: 'Valorisation',
@@ -48,8 +54,10 @@ const PARTNERS = [
     {
         icon: Building2,
         title: 'Entreprises de rénovation',
+        image: '/images/editorial/partenaire-renovation.webp',
+        imageAlt: "Intérieur en pierre et bois rénové, visuel d'illustration de la rénovation",
         description:
-            "Gros œuvre, rénovations énergétiques, extensions : des entreprises sérieuses pour transformer un bien à fort potentiel: ou rassurer vos acquéreurs sur la suite du projet.",
+            "Gros œuvre, rénovations énergétiques, extensions : des entreprises sérieuses pour transformer un bien à fort potentiel ou rassurer vos acquéreurs sur la suite du projet.",
         tag: 'Rénovation',
     },
 ];
@@ -155,7 +163,19 @@ export const Partners: React.FC = () => {
                         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
                             {PARTNERS.map((partner, idx) => (
                                 <Reveal key={partner.title} delay={idx * 0.08}>
-                                    <article className="group h-full rounded-[24px] border border-[#ebebeb] bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[#011d41]/20 hover:shadow-[0_30px_60px_-30px_rgba(1,29,65,0.25)] md:p-10">
+                                    <article className="group h-full overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white transition-all duration-500 hover:-translate-y-1 hover:border-[#011d41]/20 hover:shadow-[0_30px_60px_-30px_rgba(1,29,65,0.25)]">
+                                        <div className="overflow-hidden bg-[#f5f5f5]">
+                                            <img
+                                                src={partner.image}
+                                                alt={partner.imageAlt}
+                                                width="1440"
+                                                height="720"
+                                                loading="lazy"
+                                                decoding="async"
+                                                className="aspect-[2/1] w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                                            />
+                                        </div>
+                                        <div className="p-8 md:p-10">
                                         <div className="flex items-start justify-between gap-6">
                                             <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f5f5f5] text-[#011d41] transition-colors duration-500 group-hover:bg-[#011d41] group-hover:text-white">
                                                 <partner.icon
@@ -173,6 +193,7 @@ export const Partners: React.FC = () => {
                                         <p className="mt-4 leading-relaxed text-gray-500">
                                             {partner.description}
                                         </p>
+                                        </div>
                                     </article>
                                 </Reveal>
                             ))}

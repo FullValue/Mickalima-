@@ -2,18 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { m } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, MapPin, TrendingUp } from 'lucide-react';
-import { COMMUNES, COMMUNE_CARD_IMAGES } from '../constants';
+import { COMMUNES, COMMUNE_CARD_IMAGES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE } from '../constants';
 import { SEO } from './SEO';
 
 export const PrixImmobilierPaysDeGex: React.FC = () => {
-  const year = new Date().getFullYear();
-
-  // Stats agrégées sur les 9 communes
+  // Amplitude des médianes communales DVF, et non fourchette des transactions.
   const allApptMin = Math.min(...COMMUNES.map(c => c.prixApptMin));
-  const allApptMax = Math.max(...COMMUNES.map(c => c.prixApptMax));
+  const allApptMax = Math.max(...COMMUNES.map(c => c.prixApptMin));
   const allMaisonMin = Math.min(...COMMUNES.map(c => c.prixMaisonMin));
-  const allMaisonMax = Math.max(...COMMUNES.map(c => c.prixMaisonMax));
-  const avgDelai = Math.round(COMMUNES.reduce((sum, c) => sum + c.delaiMoyen, 0) / COMMUNES.length);
+  const allMaisonMax = Math.max(...COMMUNES.map(c => c.prixMaisonMin));
 
   const schema = [
     {
@@ -51,15 +48,15 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
         bestRating: '5',
         worstRating: '1',
       },
-      description: `Observatoire des prix immobiliers dans le Pays de Gex en ${year}: fourchettes par commune, marché frontalier franco-suisse.`,
+      description: `Prix immobiliers médians de neuf communes du Pays de Gex, issus des ventes DVF de ${COMMUNE_DVF_PERIOD}.`,
     },
   ];
 
   return (
     <>
       <SEO
-        title={`Prix immobilier Pays de Gex en ${year}: Comparatif 9 communes | Mickaël Lima`}
-        description={`Prix au m² par commune dans le Pays de Gex en ${year} : Ferney-Voltaire, Divonne, Saint-Genis, Gex, Prévessin… Fourchettes ${allApptMin.toLocaleString('fr-FR')}-${allApptMax.toLocaleString('fr-FR')} €/m² appartements, ${allMaisonMin.toLocaleString('fr-FR')}-${allMaisonMax.toLocaleString('fr-FR')} €/m² maisons.`}
+        title={`Prix immobilier Pays de Gex : médianes DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
+        description={`Comparatif DVF ${COMMUNE_DVF_PERIOD} de 9 communes du Pays de Gex : médianes des appartements de ${allApptMin.toLocaleString('fr-FR')} à ${allApptMax.toLocaleString('fr-FR')} €/m² et des maisons de ${allMaisonMin.toLocaleString('fr-FR')} à ${allMaisonMax.toLocaleString('fr-FR')} €/m² selon la commune.`}
         canonical="/prix-immobilier/pays-de-gex"
         schema={schema}
       />
@@ -91,7 +88,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-3 mb-6">
                 <span className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">
-                  Observatoire prix {year}
+                  Repères DVF {COMMUNE_DVF_PERIOD}
                 </span>
                 <span className="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest">
                   <MapPin size={12} /> 9 communes · Pays de Gex
@@ -101,12 +98,12 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
                 Prix immobilier dans le<br />
                 <span className="font-newsletter italic font-normal">
-                  Pays de Gex en {year}
+                  Pays de Gex · {COMMUNE_DVF_PERIOD}
                 </span>
               </h1>
 
               <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl leading-relaxed">
-                Comparatif des prix au m² commune par commune. Données issues des transactions des 12 derniers mois sur le secteur frontalier franco-suisse.
+                Comparatif des prix médians au m² sur les ventes DVF de {COMMUNE_DVF_PERIOD}, dans neuf communes du secteur frontalier.
               </p>
             </m.div>
           </div>
@@ -114,20 +111,34 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
 
         {/* ── Intro marché ── */}
         <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-6 max-w-3xl">
+          <div className="container mx-auto px-6 max-w-6xl">
             <m.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="space-y-6 text-lg text-textMain leading-relaxed font-light"
+              className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14"
             >
+              <div className="space-y-6 text-lg text-textMain leading-relaxed font-light">
               <p>
-                Le marché immobilier du Pays de Gex reste sous tension en {year}. La demande excède l'offre sur la quasi-totalité des 9 communes, portée par les frontaliers genevois, les employés du CERN et des organisations internationales, ainsi que par une clientèle expatriée à fort pouvoir d'achat. Le résultat : des prix qui résistent à la correction observée dans d'autres marchés français.
+                Le marché du Pays de Gex est lié à l'emploi transfrontalier. Selon <a href="https://www.insee.fr/fr/statistiques/6444379" className="underline">l'Insee</a>, 62 % des actifs occupés résidant dans l'intercommunalité travaillaient en Suisse en 2018. Cette donnée concerne les personnes en emploi, pas l'ensemble des habitants ni la part des acheteurs immobiliers.
               </p>
               <p>
-                Trois facteurs structurels expliquent ce différentiel : le pouvoir d'achat en francs suisses (40 à 60 % supérieur à la moyenne française), la rareté du foncier constructible dans un secteur contraint par les zones agricoles, et une demande locative permanente liée au renouvellement des contrats de détachement. Sur l'ensemble du Pays de Gex, les fourchettes vont de <strong className="font-semibold">{allApptMin.toLocaleString('fr-FR')} à {allApptMax.toLocaleString('fr-FR')} €/m²</strong> pour les appartements et de <strong className="font-semibold">{allMaisonMin.toLocaleString('fr-FR')} à {allMaisonMax.toLocaleString('fr-FR')} €/m²</strong> pour les maisons, avec un délai moyen de vente de <strong className="font-semibold">{avgDelai} jours</strong> sur les biens correctement estimés.
+                Sur les neuf communes présentées, les <strong className="font-semibold">médianes communales</strong> calculées sur les ventes DVF de {COMMUNE_DVF_PERIOD} vont de <strong className="font-semibold">{allApptMin.toLocaleString('fr-FR')} à {allApptMax.toLocaleString('fr-FR')} €/m²</strong> pour les appartements et de <strong className="font-semibold">{allMaisonMin.toLocaleString('fr-FR')} à {allMaisonMax.toLocaleString('fr-FR')} €/m²</strong> pour les maisons. Ces extrêmes ne sont pas des prix plancher ou plafond. Pour l'ensemble du Pays de Gex, les <a href="https://cin-lyon.notaires.fr/wp-content/uploads/2026/03/CID_light01_2025T4.pdf" className="underline">notaires</a> publient une autre mesure : 4 800 €/m² de médiane pour les appartements anciens vendus en 2025.
               </p>
+              </div>
+              <figure>
+                <img
+                  src="/images/editorial/marche-pays-de-gex.webp"
+                  alt="Quartier résidentiel au pied d'un relief boisé, visuel d'illustration du Pays de Gex"
+                  width="1440"
+                  height="960"
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[4/5] w-full rounded-[10px] object-cover"
+                />
+                <figcaption className="mt-3 text-xs text-gray-400">Visuel d’illustration</figcaption>
+              </figure>
             </m.div>
           </div>
         </section>
@@ -142,10 +153,10 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                Comparatif {year}
+                Médianes DVF {COMMUNE_DVF_PERIOD}
               </span>
               <h2 className="text-3xl md:text-5xl font-medium text-textMain tracking-tight mb-10">
-                Prix au m² par commune
+                Prix médians au m² par commune
               </h2>
 
               <div className="overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0 no-scrollbar">
@@ -154,9 +165,9 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                     <tr className="bg-primary text-white text-xs font-bold uppercase tracking-widest">
                       <th className="text-left px-5 py-4">Commune</th>
                       <th className="text-left px-5 py-4">Distance Genève</th>
-                      <th className="text-left px-5 py-4">Appartements €/m²</th>
-                      <th className="text-left px-5 py-4">Maisons €/m²</th>
-                      <th className="text-left px-5 py-4">Délai moyen</th>
+                      <th className="text-left px-5 py-4">Appartements €/m² médian</th>
+                      <th className="text-left px-5 py-4">Maisons €/m² médian</th>
+                      <th className="text-left px-5 py-4">Délai de vente</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -169,12 +180,12 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                         </td>
                         <td className="px-5 py-4 text-gray-600 font-light">{c.distanceGeneve}</td>
                         <td className="px-5 py-4 text-textMain font-medium">
-                          {c.prixApptMin.toLocaleString('fr-FR')} à {c.prixApptMax.toLocaleString('fr-FR')}
+                          {c.prixApptMin.toLocaleString('fr-FR')}
                         </td>
                         <td className="px-5 py-4 text-textMain font-medium">
-                          {c.prixMaisonMin.toLocaleString('fr-FR')} à {c.prixMaisonMax.toLocaleString('fr-FR')}
+                          {c.prixMaisonMin.toLocaleString('fr-FR')}
                         </td>
-                        <td className="px-5 py-4 text-gray-600 font-light">{c.delaiMoyen} jours</td>
+                        <td className="px-5 py-4 text-gray-600 font-light">Selon le bien</td>
                       </tr>
                     ))}
                   </tbody>
@@ -182,7 +193,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               </div>
 
               <p className="text-xs text-gray-400 mt-4 italic">
-                Fourchettes basées sur les transactions des 12 derniers mois: hors biens atypiques. Estimation précise au cas par cas.
+                Médianes calculées sur les ventes exploitables de {COMMUNE_DVF_PERIOD}. <a href={COMMUNE_DVF_SOURCE} className="underline">Source et méthode : data.gouv.fr, statistiques DVF</a>. Les distances vers Genève sont indicatives, à vol d'oiseau.
               </p>
             </m.div>
           </div>
@@ -195,7 +206,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               Explorer commune par commune
             </h2>
             <p className="text-gray-500 font-light text-lg mb-12">
-              Analyse détaillée du marché local, contexte frontalier et évolution des prix.
+              Repères DVF datés, contexte frontalier et analyse des ventes locales.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -250,10 +261,10 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                       </div>
                       <div className="space-y-1.5 border-t border-white/20 pt-4 text-sm">
                         <p className="font-light text-white/80">
-                          <span className="text-white/60">Appt&nbsp;:</span> <span className="font-medium text-white">{c.prixApptMin.toLocaleString('fr-FR')}-{c.prixApptMax.toLocaleString('fr-FR')} €/m²</span>
+                          <span className="text-white/60">Appt médian&nbsp;:</span> <span className="font-medium text-white">{c.prixApptMin.toLocaleString('fr-FR')} €/m²</span>
                         </p>
                         <p className="font-light text-white/80">
-                          <span className="text-white/60">Maison&nbsp;:</span> <span className="font-medium text-white">{c.prixMaisonMin.toLocaleString('fr-FR')}-{c.prixMaisonMax.toLocaleString('fr-FR')} €/m²</span>
+                          <span className="text-white/60">Maison médiane&nbsp;:</span> <span className="font-medium text-white">{c.prixMaisonMin.toLocaleString('fr-FR')} €/m²</span>
                         </p>
                       </div>
                     </Link>
@@ -271,13 +282,13 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               <TrendingUp size={12} className="inline mr-1" /> Estimation gratuite
             </span>
             <h2 className="text-3xl md:text-5xl font-medium text-textMain tracking-tight leading-[1.1] mb-6">
-              Connaître la valeur exacte<br />
+              Mieux situer la valeur<br />
               <span className="font-newsletter italic font-normal">
                 de votre bien
               </span>
             </h2>
             <p className="text-gray-500 font-light text-lg mb-10 max-w-xl mx-auto">
-              Une estimation à distance peut s'écarter de 10 à 20 % de la valeur réelle. Demandez une estimation de terrain, gratuite et confidentielle, livrée sous 48h.
+              Une médiane communale ne suffit pas pour estimer un logement précis. Une visite permet d'examiner son état, son emplacement et les ventes réellement comparables.
             </p>
             <Link
               to="/contact"
