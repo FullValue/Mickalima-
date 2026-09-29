@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BedDouble, Bath, Ruler, MapPin, ArrowUpRight, Phone, Mail } from 'lucide-react';
-import { propertyPhotoCrop } from './propertyPhotoCrop';
+import { PropertyLogoBlur } from './propertyPhotoBlur';
 
 /**
  * Éléments partagés des pages « Nos Biens » : tokens de la DA (issue du
@@ -78,8 +78,9 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
         height="450"
         loading="lazy"
         decoding="async"
-        style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', display: 'block', ...propertyPhotoCrop(l.photos[0]) }}
+        style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', display: 'block' }}
       />
+      <PropertyLogoBlur src={l.photos[0]} />
       <span
         style={{
           position: 'absolute', top: 14, left: 14,

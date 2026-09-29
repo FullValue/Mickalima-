@@ -43,7 +43,21 @@ export const FaqAccordion: React.FC = () => {
           subtitle="Mandats, estimation, confidentialité, zone d'intervention : les réponses aux questions les plus posées par mes clients."
         />
 
-        <div className="mx-auto mt-14 max-w-3xl space-y-4 md:mt-16">
+        <div className="mt-14 grid items-start gap-10 md:mt-16 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
+          <Reveal className="lg:sticky lg:top-28">
+            <figure className="m-0 overflow-hidden rounded-[24px]">
+              <img
+                src="/images/editorial/faq-pays-de-gex.jpg"
+                alt="Intérieur lumineux ouvert sur le Jura, visuel d’illustration"
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/3] w-full object-cover lg:aspect-[4/5]"
+              />
+              <figcaption className="mt-3 text-xs text-gray-500">Visuel d’illustration</figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="space-y-4">
           {FAQS.map((faq, index) => {
             const open = openIndex === index;
             return (
@@ -101,6 +115,7 @@ export const FaqAccordion: React.FC = () => {
               </Reveal>
             );
           })}
+          </div>
         </div>
       </div>
     </section>

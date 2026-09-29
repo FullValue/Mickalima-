@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bath, BedDouble, ChevronLeft, ChevronRight, Ruler } from 'lucide-react';
 import { BIENS } from '../biensData';
-import { propertyPhotoCrop } from '../propertyPhotoCrop';
+import { PropertyLogoBlur } from '../propertyPhotoBlur';
 import { formatPrice, formatSurface } from '../nosBiensShared';
 import { PillButton, Reveal, SectionHeader } from './primitives';
 
@@ -99,8 +99,8 @@ export const FeaturedProperties: React.FC = () => {
                     decoding="async"
                     draggable={false}
                     className="h-full w-full object-cover transition-[filter] duration-500 ease-out group-hover:brightness-75 group-hover:blur-[4px] group-focus-visible:brightness-75 group-focus-visible:blur-[4px] motion-reduce:transition-none"
-                    style={propertyPhotoCrop(bien.photos[0])}
                   />
+                  <PropertyLogoBlur src={bien.photos[0]} />
                   <span className="pointer-events-none absolute left-1/2 top-1/2 inline-flex h-10 -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-[10px] bg-white/30 px-5 text-sm font-medium text-white opacity-0 backdrop-blur-[5px] transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none">
                     <ChevronRight size={18} aria-hidden="true" />
                     Voir le bien
