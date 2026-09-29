@@ -1,6 +1,5 @@
 import React from 'react';
 import { Star } from 'lucide-react';
-import { IMAGES } from '../../constants';
 import { PillButton, Reveal, SectionHeader } from './primitives';
 
 /**
@@ -66,11 +65,13 @@ export const TestimonialsShowcase: React.FC = () => (
       <Reveal className="mt-14 md:mt-16">
         <article className="relative flex min-h-[380px] flex-col justify-end overflow-hidden rounded-[28px] md:min-h-[500px]">
           <img
-            src={IMAGES.gallery[0]}
+            src="/images/editorial/avis-pays-de-gex.jpg"
             alt=""
             aria-hidden="true"
             loading="lazy"
             decoding="async"
+            width="1983"
+            height="793"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div
