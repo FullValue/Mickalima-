@@ -56,18 +56,6 @@
   object-position: 65% center;
 }
 
-.partners-network__figure figcaption {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  background: rgb(1 29 65 / 66%);
-  color: #fff;
-  font-size: 10px;
-  letter-spacing: 0.02em;
-}
-
 .partners-network__card {
   display: flex;
   flex-direction: column;

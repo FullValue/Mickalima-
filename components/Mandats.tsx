@@ -134,7 +134,7 @@ const VideoBlock: React.FC<{
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }}
       />
     ) : (
-      <img src={image} alt={`${title}, visuel d’illustration`} loading="lazy" decoding="async" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+      <img src={image} alt={title} loading="lazy" decoding="async" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
     )}
     {!videoSrc && (
       <>

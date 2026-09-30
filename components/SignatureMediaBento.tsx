@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Camera, ChevronLeft, ChevronRight, Play, Scan, Smartphone, Sparkles, Video, Wand2 } from 'lucide-react';
+import { Camera, ChevronLeft, ChevronRight, Play, Scan, Smartphone, Video, Wand2 } from 'lucide-react';
 import { PillButton, SectionLabel } from './oakline/primitives';
 import { SIGNATURE_VIDEOS, type SignatureVideo } from './signatureVideos';
 import './signature-media-bento.css';
@@ -109,8 +109,7 @@ export const SignatureMediaBento: React.FC = () => (
       <div className="signature-bento-side signature-bento-left">
         <article className="signature-card signature-photo-card">
           <div className="signature-photo">
-            <img src="/images/services/villa-prestige.jpg" alt="Maison en pierre photographiée à la tombée du jour, visuel d’illustration" loading="lazy" decoding="async" />
-            <span className="signature-image-note">Visuel d’illustration</span>
+            <img src="/images/services/villa-prestige.jpg" alt="Maison en pierre à la tombée du jour" loading="lazy" decoding="async" />
           </div>
           <div className="signature-card-copy">
             <p className="signature-eyebrow"><Camera size={15} aria-hidden="true" /> Photos pro haute définition</p>
@@ -137,8 +136,7 @@ export const SignatureMediaBento: React.FC = () => (
         </article>
         <article className="signature-card signature-staging-card">
           <div className="signature-staging-photo">
-            <img src="/images/editorial/partenaire-architecture-interieure.webp" alt="Projection d’un salon lumineux aménagé, visuel d’illustration" loading="lazy" decoding="async" />
-            <span className="signature-image-note"><Sparkles size={12} aria-hidden="true" /> Visuel d’illustration</span>
+            <img src="/images/editorial/partenaire-architecture-interieure.webp" alt="Projection d’un salon lumineux aménagé" loading="lazy" decoding="async" />
           </div>
           <div className="signature-card-copy">
             <h3>Révéler le potentiel.</h3>

@@ -285,14 +285,13 @@ export const FrontalierCommunePage: React.FC = () => {
               <figure className="mb-10">
                 <img
                   src="/images/editorial/vie-frontaliere.webp"
-                  alt="Espace de télétravail lumineux ouvert sur un paysage boisé, visuel d'illustration"
+                  alt="Espace de télétravail lumineux ouvert sur un paysage boisé"
                   width="1440"
                   height="960"
                   loading="lazy"
                   decoding="async"
                   className="aspect-[16/9] w-full rounded-[10px] object-cover"
                 />
-                <figcaption className="mt-3 text-xs text-gray-400">Visuel d’illustration</figcaption>
               </figure>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

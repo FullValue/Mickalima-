@@ -48,12 +48,11 @@ export const FaqAccordion: React.FC = () => {
             <figure className="m-0 overflow-hidden rounded-[24px]">
               <img
                 src="/images/editorial/faq-pays-de-gex.jpg"
-                alt="Intérieur lumineux ouvert sur le Jura, visuel d’illustration"
+                alt="Intérieur lumineux ouvert sur le Jura"
                 loading="lazy"
                 decoding="async"
                 className="aspect-[4/3] w-full object-cover lg:aspect-[4/5]"
               />
-              <figcaption className="mt-3 text-xs text-gray-500">Visuel d’illustration</figcaption>
             </figure>
           </Reveal>
 

@@ -18,7 +18,6 @@
 .signature-photo { position: relative; flex: 1; min-height: 225px; overflow: hidden; }
 .signature-photo img, .signature-staging-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .signature-photo img { object-position: 65% center; }
-.signature-image-note { position: absolute; bottom: 13px; left: 15px; display: flex; align-items: center; gap: 6px; padding: 5px 9px; background: rgba(1,29,65,.64); color: #fff; border-radius: 20px; font-size: 9px; letter-spacing: .04em; backdrop-filter: blur(8px); }
 .signature-tour-card { position: relative; padding: 27px; flex: 1; background: #eeefea; }
 .signature-tour-mark { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
 .signature-tour-mark span { font-family: 'Playfair Display', serif; font-size: 40px; line-height: 1; color: #839083; }

@@ -227,8 +227,7 @@ export const RecapBand: React.FC<{
         </div>
         {image && (
           <figure style={{ margin: 0 }}>
-            <img src={image} alt="Ambiance immobilière, visuel d’illustration" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 16 }} />
-            <figcaption style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', marginTop: 10 }}>Visuel d’illustration</figcaption>
+            <img src={image} alt="Ambiance immobilière" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 16 }} />
           </figure>
         )}
       </div>

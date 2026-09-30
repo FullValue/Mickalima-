@@ -130,14 +130,13 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               <figure>
                 <img
                   src="/images/editorial/marche-pays-de-gex.webp"
-                  alt="Quartier résidentiel au pied d'un relief boisé, visuel d'illustration du Pays de Gex"
+                  alt="Quartier résidentiel au pied d'un relief boisé"
                   width="1440"
                   height="960"
                   loading="lazy"
                   decoding="async"
                   className="aspect-[4/5] w-full rounded-[10px] object-cover"
                 />
-                <figcaption className="mt-3 text-xs text-gray-400">Visuel d’illustration</figcaption>
               </figure>
             </m.div>
           </div>

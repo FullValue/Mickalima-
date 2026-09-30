@@ -174,7 +174,6 @@ export const Partners: React.FC = () => {
                                         loading="lazy"
                                         decoding="async"
                                     />
-                                    <figcaption>Visuel d’illustration</figcaption>
                                 </figure>
                             </Reveal>
                             {PARTNERS.map((partner, idx) => (
