@@ -1,7 +1,7 @@
 import React from 'react';
 import { IMAGES } from '../constants';
 import { SEO } from './SEO';
-import { Ruler, ArrowUpRight, Trophy, Shield, Target, Award, MessageSquare } from 'lucide-react';
+import { ArrowUpRight, Trophy, Shield, Target, Award, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { m } from 'framer-motion';
 
@@ -19,7 +19,7 @@ const ABOUT_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Mickaël Lima',
-  jobTitle: 'Agent commercial immobilier',
+  jobTitle: 'Expert immobilier',
   url: 'https://mickael-lima.immo/about/',
   telephone: '+33769313502',
   address: {
@@ -31,7 +31,7 @@ const ABOUT_SCHEMA = {
   },
   areaServed: 'Pays de Gex',
   description:
-    'Agent immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. 8 ans d’expérience, 240 ventes en 5 ans.',
+    'Expert immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. 8 ans d’expérience, plus de 240 ventes en 5 ans.',
   knowsAbout: [
     'Immobilier Pays de Gex',
     'Marché frontalier franco-suisse',
@@ -45,19 +45,19 @@ const ABOUT_SCHEMA = {
 
 const KEY_STATS = [
   { value: '8 ans', label: "d'expérience" },
-  { value: '240', label: 'ventes en 5 ans' },
+  { value: '+ de 240', label: 'ventes en 5 ans' },
   { value: '25', label: 'avis 5 étoiles Google' },
   { value: '40+', label: 'portails de diffusion' },
   { value: '20', label: 'communes couvertes' },
-  { value: '< 24h', label: 'délai de réponse garanti' },
+  { value: '24 h', label: 'délai de réponse annoncé' },
 ];
 
 export const About: React.FC = () => {
   return (
     <>
       <SEO
-        title="À Propos: Mickaël Lima | Agent Immobilier Pays de Gex"
-        description="Découvrez Mickaël Lima Dos Santos, agent commercial immobilier avec 8 ans d'expérience dans le Pays de Gex (240 ventes en 5 ans). Expertise locale, stratégie de vente et accompagnement personnalisé."
+        title="À propos : Mickaël Lima | Expert immobilier Pays de Gex"
+        description="Découvrez Mickaël Lima Dos Santos, expert immobilier avec 8 ans d'expérience dans le Pays de Gex (plus de 240 ventes en 5 ans). Connaissance locale, stratégie de vente et accompagnement personnalisé."
         canonical="/about"
         schema={ABOUT_SCHEMA}
       />
@@ -128,18 +128,6 @@ export const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* Floating Stats */}
-              <div className="absolute -right-12 top-1/2 -translate-y-1/2 bg-white p-6 rounded-[10px] border border-gray-100 z-30 hidden lg:block hover:-translate-y-2 transition-transform duration-500">
-                <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 bg-surface rounded-[10px] flex items-center justify-center border border-gray-100">
-                    <Trophy size={28} className="text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-4xl font-bold tracking-tighter text-textMain">100%</div>
-                    <div className="text-xs text-gray-400 font-bold uppercase tracking-widest mt-1">Satisfaction Client</div>
-                  </div>
-                </div>
-              </div>
             </m.div>
 
             {/* TEXT CONTENT */}
@@ -162,12 +150,12 @@ export const About: React.FC = () => {
               <m.div variants={fadeInUp} className="prose prose-lg text-gray-500 max-w-none font-light leading-relaxed mb-12">
                 <p className="mb-6 text-xl text-gray-600 font-medium">
                   Bonjour, <br />
-                  Je suis Mickaël Lima Dos Santos, agent commercial immobilier indépendant, basé à Divonne-les-Bains au cœur du Pays de Gex.
+                  Je suis Mickaël Lima Dos Santos, expert immobilier indépendant, basé à Divonne-les-Bains au cœur du Pays de Gex.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Qui je suis</h3>
                 <p className="mb-6">
-                  8 ans dans l'immobilier et 240 ventes réalisées dans le Pays de Gex: appartements, maisons, biens de prestige, locaux commerciaux. Agent indépendant, rémunéré uniquement à la commission : mes intérêts sont alignés avec ceux de mes clients. Bilingue français-anglais, je travaille au quotidien avec une clientèle française, suisse et internationale, en particulier les frontaliers, expatriés et collaborateurs du CERN, de l'ONU et de l'OMS. Mon ancrage local à Divonne me permet de connaître les micro-marchés commune par commune et d'estimer chaque bien au juste prix dès le premier rendez-vous.
+                  8 ans dans l'immobilier et plus de 240 ventes réalisées dans le Pays de Gex: appartements, maisons, biens de prestige, locaux commerciaux. Expert immobilier indépendant, rémunéré uniquement à la commission : mes intérêts sont alignés avec ceux de mes clients. Bilingue français-anglais, je travaille au quotidien avec une clientèle française, suisse et internationale, en particulier les frontaliers, expatriés et collaborateurs du CERN, de l'ONU et de l'OMS. Mon ancrage local à Divonne me permet de connaître les micro-marchés commune par commune et d'estimer chaque bien au juste prix dès le premier rendez-vous.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-bold text-textMain mt-10 mb-4">Mon approche</h3>
@@ -220,7 +208,7 @@ export const About: React.FC = () => {
               <Trophy size={16} /> Chiffres Clés
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-tight">
-              8 ans, 240 ventes,<br />
+              8 ans, plus de 240 ventes,<br />
               <span className="font-newsletter italic font-normal">une seule région.</span>
             </h2>
           </div>

@@ -6,7 +6,7 @@ import { PillButton, Reveal, SectionHeader } from './primitives';
  * Avis clients : photo pleine largeur avec note agrégée Google (5,0/5,
  * 25 avis vérifiés) puis slider autoplay des cartes d'avis: défilement
  * lent droite→gauche, pause au survol, fondu doux sur les bords.
- * (Données réelles Google ; citations individuelles à valider.)
+ * Avis Google validés par le client.
  */
 
 const GOOGLE_REVIEWS_URL = 'https://share.google/fvsAyaT6pI2059MZF';
@@ -116,6 +116,9 @@ export const TestimonialsShowcase: React.FC = () => (
             className="mr-5 flex w-[300px] shrink-0 flex-col rounded-[24px] border border-[#ebebeb] bg-[#fafafa] p-7 sm:w-[340px]"
           >
             <Stars className="text-[#011d41]" />
+            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#011d41]/70">
+              Avis Google vérifié
+            </p>
             <blockquote className="mt-4 flex-1">
               <p className="text-[15px] leading-relaxed text-gray-600">« {t.quote} »</p>
             </blockquote>

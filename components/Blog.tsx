@@ -11,7 +11,7 @@ const BLOG_SCHEMA = {
     name: 'Blog immobilier Pays de Gex: Mickaël Lima',
     url: 'https://mickael-lima.immo/blog/',
     description:
-        'Conseils immobiliers, prix du marché et actualités du Pays de Gex par Mickaël Lima, agent immobilier.',
+        'Conseils immobiliers, prix du marché et actualités du Pays de Gex par Mickaël Lima, expert immobilier.',
     author: {
         '@type': 'Person',
         name: 'Mickaël Lima',
@@ -27,7 +27,7 @@ export const Blog: React.FC = () => {
     return (
         <>
         <SEO
-            title="Blog Immobilier | Marché & Conseils Pays de Gex: Mickaël Lima"
+            title="Guides et données locales | Mickaël Lima, expert immobilier"
             description="Analyses du marché immobilier, conseils d'investissement et actualités réglementaires pour le Pays de Gex et la zone frontalière genevoise."
             canonical="/blog"
             schema={BLOG_SCHEMA}
@@ -39,12 +39,12 @@ export const Blog: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10 pt-10">
                 <div className="mb-20 text-center">
                     <Reveal y={6}>
-                        <SectionLabel icon={<Eye size={14} />}>Actualités &amp; Insights</SectionLabel>
+                        <SectionLabel icon={<Eye size={14} />}>Marché du Pays de Gex</SectionLabel>
                     </Reveal>
                     <Reveal delay={0.08}>
                     <h1 className="mb-8 mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-[#011d41] md:text-5xl lg:text-7xl">
-                        L'Observatoire du <br />
-                        <span className="italic">marché Gessien</span>
+                        Guides et <br />
+                        <span className="italic">données locales</span>
                     </h1>
                     </Reveal>
                     <Reveal delay={0.16}>

@@ -15,8 +15,8 @@ export const InsightsTeaser: React.FC = () => (
   <section className="bg-white py-24 md:py-32">
     <div className="container mx-auto px-6">
       <SectionHeader
-        label="Blog & conseils"
-        title="Analyses du marché local"
+        label="Guides et données locales"
+        title="Comprendre le marché local"
         subtitle="Prix au m², fiscalité frontalière, stratégies de vente : mes analyses pour comprendre le marché du Pays de Gex avant de vous lancer."
       />
 

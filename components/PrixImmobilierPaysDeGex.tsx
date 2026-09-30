@@ -167,7 +167,6 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                       <th className="text-left px-5 py-4">Distance Genève</th>
                       <th className="text-left px-5 py-4">Appartements €/m² médian</th>
                       <th className="text-left px-5 py-4">Maisons €/m² médian</th>
-                      <th className="text-left px-5 py-4">Délai de vente</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -185,7 +184,6 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                         <td className="px-5 py-4 text-textMain font-medium">
                           {c.prixMaisonMin.toLocaleString('fr-FR')}
                         </td>
-                        <td className="px-5 py-4 text-gray-600 font-light">Selon le bien</td>
                       </tr>
                     ))}
                   </tbody>

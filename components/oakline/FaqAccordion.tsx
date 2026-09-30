@@ -12,7 +12,7 @@ const FAQS = [
   {
     question: 'Combien de temps prend une estimation complète ?',
     answer:
-      "Une estimation sérieuse nécessite généralement 48h. Nous nous déplaçons d'abord sur site pour analyser votre bien, puis nous étudions les données marché avant de vous remettre un dossier complet et confidentiel.",
+      "Après la visite du bien, je vous transmets une estimation argumentée sous 24 h, fondée sur ses caractéristiques et sur les ventes comparables.",
   },
   {
     question: 'Proposez-vous des mandats simples ou uniquement exclusifs ?',

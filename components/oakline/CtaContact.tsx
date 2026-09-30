@@ -95,7 +95,7 @@ export const CtaContact: React.FC = () => {
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-md text-base leading-relaxed text-white/75 md:text-lg">
                 Estimation gratuite et confidentielle, déplacement sur site
-                inclus. Réponse sous 48h dans tout le Pays de Gex.
+                inclus. Première réponse sous 24 h dans tout le Pays de Gex.
               </p>
             </Reveal>
             <Reveal delay={0.24}>
@@ -244,7 +244,7 @@ export const CtaContact: React.FC = () => {
                 {status === 'success' && (
                   <p role="status" className="rounded-2xl bg-green-50 px-4 py-3 text-green-700">
                     Merci ! Votre message a bien été envoyé: je vous réponds
-                    sous 48h.
+                    sous 24 h.
                   </p>
                 )}
                 {status === 'error' && (

@@ -203,7 +203,7 @@ export const RevalisFooter: React.FC = () => (
         <div>
           <p style={{ fontFamily: T.heading, fontSize: 26, marginBottom: 16 }}>Mickaël Lima</p>
           <p style={{ fontSize: 15, lineHeight: '1.6em', color: 'rgba(255,255,255,0.65)', maxWidth: 300 }}>
-            Agent immobilier dans le Pays de Gex et le bassin genevois. Vente, estimation et
+            Expert immobilier dans le Pays de Gex et le bassin genevois. Vente, estimation et
             accompagnement des vendeurs comme des acquéreurs frontaliers.
           </p>
         </div>

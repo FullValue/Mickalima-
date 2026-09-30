@@ -6,7 +6,6 @@ import {
   ArrowUpRight,
   MapPin,
   TrendingUp,
-  Clock,
   Phone,
   BarChart2,
 } from 'lucide-react';
@@ -189,14 +188,7 @@ export const PrixImmobilierPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
-                  <Clock size={22} className="text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold text-textMain text-lg">Selon le bien</p>
-                    <p className="text-gray-500 text-sm font-light">Délai de vente, sans moyenne locale publiée</p>
-                  </div>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <MapPin size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
@@ -207,8 +199,8 @@ export const PrixImmobilierPage: React.FC = () => {
                 <div className="flex items-start gap-4 bg-surface p-6 rounded-[10px] border border-gray-100">
                   <TrendingUp size={22} className="text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-bold text-textMain text-lg">Repère historique</p>
-                    <p className="text-gray-500 text-sm font-light">La médiane ne prédit pas le prix d'un bien</p>
+                    <p className="font-bold text-textMain text-lg">Ventes {COMMUNE_DVF_PERIOD}</p>
+                    <p className="text-gray-500 text-sm font-light">Médianes des transactions DVF exploitables, selon le type de bien</p>
                   </div>
                 </div>
               </div>
@@ -286,7 +278,6 @@ export const PrixImmobilierPage: React.FC = () => {
                         <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Commune</th>
                         <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Appt médian (€/m²)</th>
                         <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Maison médiane (€/m²)</th>
-                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Délai</th>
                         <th className="py-4 text-xs font-bold uppercase tracking-widest text-primary/60">Genève</th>
                       </tr>
                     </thead>
@@ -300,7 +291,6 @@ export const PrixImmobilierPage: React.FC = () => {
                         <td className="py-5 pr-6 font-medium text-textMain">
                           {commune.prixMaisonMin.toLocaleString('fr-FR')}
                         </td>
-                        <td className="py-5 pr-6 font-medium text-textMain">Variable</td>
                         <td className="py-5 font-medium text-textMain">{commune.distanceGeneve}</td>
                       </tr>
                       {/* Voisines rows */}
@@ -320,7 +310,6 @@ export const PrixImmobilierPage: React.FC = () => {
                           <td className="py-5 pr-6 text-gray-600">
                             {v.prixMaisonMin.toLocaleString('fr-FR')}
                           </td>
-                          <td className="py-5 pr-6 text-gray-600">Variable</td>
                           <td className="py-5 text-gray-600">{v.distanceGeneve}</td>
                         </tr>
                       ))}
@@ -355,7 +344,7 @@ export const PrixImmobilierPage: React.FC = () => {
               </h2>
 
               <p className="text-white/70 text-xl font-light max-w-xl mx-auto mb-12">
-                Les fourchettes ci-dessus donnent une orientation. Seule une estimation de terrain intègre l'état, l'exposition, le DPE et les transactions comparables récentes dans votre rue.
+                Les médianes ci-dessus donnent un repère historique. Une estimation sur place tient compte de l'état, de l'exposition, du DPE et des transactions comparables récentes autour de votre bien.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

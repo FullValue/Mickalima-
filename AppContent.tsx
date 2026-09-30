@@ -43,7 +43,7 @@ const HOMEPAGE_SCHEMA = [
     '@type': ['RealEstateAgent', 'LocalBusiness'],
     name: 'Mickaël Lima',
     description:
-      'Agent immobilier dans le Pays de Gex et le bassin genevois. Estimation au juste prix, mise en valeur professionnelle et stratégie de vente adaptée à chaque bien.',
+      'Expert immobilier dans le Pays de Gex et le bassin genevois. Estimation au juste prix, mise en valeur professionnelle et stratégie de vente adaptée à chaque bien.',
     url: 'https://mickael-lima.immo',
     telephone: '+33769313502',
     email: 'contact@mickael-lima.immo',
@@ -85,8 +85,8 @@ const HOMEPAGE_SCHEMA = [
     employee: {
       '@type': 'Person',
       name: 'Mickaël Lima Dos Santos',
-      jobTitle: 'Agent Commercial Immobilier',
-      description: "8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (240 ventes sur les 5 dernières années)",
+      jobTitle: 'Expert immobilier',
+      description: "8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (plus de 240 ventes sur les 5 dernières années)",
       telephone: '+33769313502',
       email: 'contact@mickael-lima.immo',
     },
@@ -102,7 +102,7 @@ const HOMEPAGE_SCHEMA = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Mickaël Lima',
-    jobTitle: 'Agent commercial immobilier',
+    jobTitle: 'Expert immobilier',
     knowsAbout: [
       'Immobilier Pays de Gex',
       'Marché frontalier franco-suisse',
@@ -117,16 +117,16 @@ const HOMEPAGE_SCHEMA = [
 const HomePage: React.FC = () => (
   <>
     <SEO
-      title="Mickaël Lima — Agent Immobilier | Pays de Gex"
+      title="Mickaël Lima — Expert immobilier | Pays de Gex"
       description="Vendez votre bien au meilleur prix dans le Pays de Gex avec une estimation argumentée, une mise en valeur professionnelle et une stratégie de diffusion adaptée."
       canonical="/"
       schema={HOMEPAGE_SCHEMA}
     />
     {/* Ordre Oakline — cf. ref/oakline-reconstruction.md §4 */}
     <HeroShowcase />
-    <FeaturedProperties />
     <AboutTeaser />
     <TestimonialsShowcase />
+    <FeaturedProperties />
     <NeighborhoodsGrid />
     <PortalsParallax />
     <InsightsTeaser />

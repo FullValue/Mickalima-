@@ -20,7 +20,7 @@ const DESKTOP_LINKS = [
   { label: 'Nos Biens', to: '/nos-biens' },
   { label: 'À Propos', to: '/about' },
   { label: 'Partenaires', to: '/partenaires' },
-  { label: 'Blog', to: '/blog' },
+  { label: 'Guides', to: '/blog' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -250,7 +250,7 @@ export const Navbar: React.FC = () => {
                             { label: 'Nos Biens', to: '/nos-biens', delay: 'delay-300' },
                             { label: 'À Propos', to: '/about', delay: 'delay-300' },
                             { label: 'Partenaires', to: '/partenaires', delay: 'delay-400' },
-                            { label: 'Blog', to: '/blog', delay: 'delay-500' },
+                            { label: 'Guides', to: '/blog', delay: 'delay-500' },
                             { label: 'Contact', to: '/contact', delay: 'delay-600' },
                         ].map((link) => (
                             <li key={link.to} className={`transition-all duration-500 ${link.delay} ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>

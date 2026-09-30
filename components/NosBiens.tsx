@@ -71,7 +71,7 @@ const NOSBIENS_SCHEMA = {
   '@type': 'CollectionPage',
   name: 'Nos biens à vendre: Pays de Gex et bassin genevois',
   description:
-    'Maisons, appartements et terrains à la vente, sélectionnés par Mickaël Lima, agent immobilier dans le Pays de Gex.',
+    'Maisons, appartements et terrains à la vente, sélectionnés par Mickaël Lima, expert immobilier dans le Pays de Gex.',
   url: 'https://mickael-lima.immo/nos-biens/',
   about: { '@type': 'RealEstateAgent', name: 'Mickaël Lima' },
 };

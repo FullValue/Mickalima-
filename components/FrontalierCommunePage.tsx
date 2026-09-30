@@ -5,7 +5,6 @@ import {
   ArrowLeft,
   ArrowUpRight,
   MapPin,
-  Clock,
   Phone,
   Car,
   GraduationCap,
@@ -30,19 +29,19 @@ const CRITERIA_BASE = [
     icon: GraduationCap,
     title: () => 'Établissements scolaires',
     description: () =>
-      "Écoles francophones, sections bilingues et lycées internationaux accessibles. Pour les familles en relocalisation, la continuité scolaire est souvent le premier critère de sélection de la commune.",
+      "Vérifiez les établissements, les secteurs scolaires et les conditions d'admission pour chaque adresse. Ces points comptent dans un projet de relocalisation familiale.",
   },
   {
     icon: Trees,
     title: () => 'Espaces extérieurs',
     description: () =>
-      "Jardins, terrasses et surfaces habitables impossibles à obtenir au même budget côté suisse. La comparaison avec un logement équivalent à Genève ou Nyon joue systématiquement en faveur du Pays de Gex.",
+      "Surface, jardin et terrasse peuvent modifier le budget et le confort de vie. Comparez des biens de même type en tenant compte des frais et de la devise.",
   },
   {
     icon: Wifi,
-    title: () => 'Télétravail & fibre',
+    title: () => 'Télétravail & connexion',
     description: () =>
-      "Fibre optique déployée, connectivité optimale pour les jours de travail à distance. Indispensable depuis la généralisation du télétravail hybride dans les organisations internationales.",
+      "Vérifiez l'éligibilité internet à l'adresse du bien et les règles de télétravail de votre employeur avant de fixer votre lieu de résidence.",
   },
 ];
 
@@ -152,7 +151,7 @@ export const FrontalierCommunePage: React.FC = () => {
     <>
       <SEO
         title={`Immobilier ${commune.name} pour les frontaliers genevois: Guide ${year} | Mickaël Lima`}
-        description={`Acheter à ${commune.name} (${commune.cp}) en travaillant à Genève : trajet, prix, pouvoir d'achat CHF vs EUR, écoles, critères frontaliers. Expert marché local. Estimation gratuite.`}
+        description={`Acheter à ${commune.name} (${commune.cp}) en travaillant à Genève : trajets, prix DVF et points à vérifier. Guide local par Mickaël Lima, expert immobilier.`}
         canonical={`/frontalier/${commune.slug}`}
         schema={schema}
       />
@@ -246,9 +245,9 @@ export const FrontalierCommunePage: React.FC = () => {
                   <p className="text-gray-500 font-light text-sm mt-2">à vol d'oiseau du centre de Genève</p>
                 </div>
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Délai de vente</p>
-                  <p className="text-4xl font-medium text-textMain">Variable</p>
-                  <p className="text-gray-500 font-light text-sm mt-2">selon le bien, le prix et la demande</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Pays de Gex · emploi frontalier</p>
+                  <p className="text-4xl font-medium text-textMain">62 %</p>
+                  <p className="text-gray-500 font-light text-sm mt-2">des actifs occupés travaillaient en Suisse en 2018 · <a href="https://www.insee.fr/fr/statistiques/6444379" target="_blank" rel="noopener noreferrer" className="underline">Insee</a></p>
                 </div>
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Prix appartements</p>
@@ -574,7 +573,7 @@ export const FrontalierCommunePage: React.FC = () => {
               </h2>
 
               <p className="text-white/70 text-xl font-light max-w-xl mx-auto mb-12">
-                Connaissance du marché local, maîtrise des profils frontaliers, réseau d'acquéreurs actif. Une estimation gratuite pour démarrer, sans engagement.
+                Parlons de votre recherche, du trajet quotidien et du budget. Je vous aide à comparer les biens et les communes à partir de données datées.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -151,7 +151,7 @@ export const SiteFooter: React.FC = () => (
             />
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/65">
-            Agent immobilier dans le Pays de Gex et le bassin genevois. Vente,
+            Expert immobilier dans le Pays de Gex et le bassin genevois. Vente,
             estimation et accompagnement des vendeurs comme des acquéreurs
             frontaliers.
           </p>

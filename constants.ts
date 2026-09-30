@@ -13,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Nos Biens', path: '/nos-biens' },
   { label: 'À Propos', path: '/about' },
   { label: 'Partenaires', path: '/partenaires' },
-  { label: 'Blog', path: '/blog' },
+  { label: 'Guides', path: '/blog' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -304,9 +304,9 @@ export const COMMUNES: Commune[] = [
       "Clientèle cadre supérieur et expatrié senior",
     ],
     descriptionMarche:
-      "Prestige, lac et golf : Divonne-les-Bains est le marché le plus premium du Pays de Gex. Cadres supérieurs, directeurs d'organisations, propriétés d'architecte: une clientèle à fort pouvoir d'achat qui arbitre entre Divonne et les communes vaudoises.",
+      "Divonne-les-Bains dispose d'un lac, d'un golf et d'un marché résidentiel aux biens variés. Parmi les neuf communes étudiées, sa médiane DVF 2021–2025 est la plus élevée pour les appartements et les maisons ; cela ne préjuge pas du prix d'un bien précis.",
     frontalierContext:
-      "Divonne cible une clientèle de cadres supérieurs et de dirigeants travaillant à Genève, Nyon ou Lausanne. Le lac, le casino, le golf et la proximité du Jura font de la commune une alternative crédible aux communes vaudoises. Le profil acheteur est souvent en fin de carrière ou en relocalisation long terme.",
+      "Divonne-les-Bains peut intéresser les personnes travaillant à Genève, Nyon ou Lausanne. Le choix dépend du trajet réel, du budget, des caractéristiques du logement et des services recherchés.",
     evolutionPrix:
       "Le baromètre notarial de mai 2025 situait le prix médian des appartements anciens à 5 640 €/m², en hausse de 1,6 % sur un an à cette date. La médiane DVF 2021–2025 affichée ici porte sur une période et un périmètre différents.",
     voisines: ["gex", "cessy"],
@@ -329,7 +329,7 @@ export const COMMUNES: Commune[] = [
     descriptionMarche:
       "Chef-lieu du Pays de Gex, Gex offre des services et un accès au Jura. Sa médiane DVF 2021–2025 pour les appartements est inférieure à celles de Ferney-Voltaire et de Saint-Genis-Pouilly ; cela ne préjuge pas du prix d'un logement comparable.",
     frontalierContext:
-      "Gex attire les acheteurs qui souhaitent un cadre plus tranquille et plus grand pour le même budget. Le trajet vers Genève varie fortement selon la destination et l’heure. Le choix entre Gex et une commune plus proche de la frontière doit intégrer le logement recherché et les déplacements quotidiens.",
+      "Gex offre un accès aux services du secteur et au Jura. Le trajet vers Genève varie selon la destination et l'heure ; comparez les logements et les déplacements quotidiens avant de choisir la commune.",
     evolutionPrix:
       "Le baromètre notarial de mai 2025 situait le prix médian des appartements anciens à 4 490 €/m², en hausse de 7,3 % sur un an à cette date. La médiane DVF 2021–2025 affichée ici porte sur une période et un périmètre différents.",
     voisines: ["divonne-les-bains", "crozet"],
@@ -375,7 +375,7 @@ export const COMMUNES: Commune[] = [
     descriptionMarche:
       "Commune pavillonnaire recherchée pour son cadre verdoyant et ses biens spacieux. Cessy séduit les familles en quête d'espace, avec de grandes maisons et des jardins: un profil rare à ce niveau de prix dans le Pays de Gex.",
     frontalierContext:
-      "Cessy est le choix des frontaliers qui privilégient l'espace sur la proximité immédiate. La valeur des maisons avec jardin dépend fortement de leur surface, du terrain et de leur état. La commune est appréciée des acheteurs suisses cherchant l'équivalent des maisons de campagne vaudoises, à prix immobilier français.",
+      "Cessy peut convenir à un projet recherchant davantage d'espace. La valeur d'une maison avec jardin dépend de sa surface, du terrain, de son état et de ventes réellement comparables ; le trajet vers la Suisse doit être vérifié depuis l'adresse du bien.",
     evolutionPrix:
       "Les prix médians DVF affichés ici agrègent les ventes exploitables de 2021 à 2025. Ils décrivent un niveau de prix observé sur cinq ans, pas une hausse annuelle ni une prévision de plus-value.",
     voisines: ["ornex", "gex"],
@@ -421,7 +421,7 @@ export const COMMUNES: Commune[] = [
     descriptionMarche:
       "Thoiry est la porte du Jura depuis le Pays de Gex. La commune offre un cadre naturel recherché et des logements de tailles variées. Le prix d’un bien doit être comparé à des ventes de même type, plutôt qu’à une commune entière.",
     frontalierContext:
-      "Thoiry séduit les frontaliers en télétravail partiel, qui acceptent un trajet plus long en échange d'un cadre de vie supérieur. La commune est en développement avec de nouveaux programmes résidentiels. L’origine des acheteurs ne figure pas dans les statistiques publiques de prix utilisées ici.",
+      "À Thoiry, la proximité du Jura peut compter dans le choix résidentiel. Le temps de trajet vers le lieu de travail et les possibilités de télétravail doivent être vérifiés pour chaque projet. L'origine des acheteurs ne figure pas dans les statistiques DVF utilisées ici.",
     evolutionPrix:
       "Les prix médians DVF affichés ici agrègent les ventes exploitables de 2021 à 2025. Ils décrivent un niveau de prix observé sur cinq ans, pas une hausse annuelle ni une prévision de plus-value.",
     voisines: ["gex", "crozet"],
@@ -444,7 +444,7 @@ export const COMMUNES: Commune[] = [
     descriptionMarche:
       "Crozet est une commune préservée du Jura, entre Gex et la frontière. Marché de niche avec peu de transactions mais des biens d'exception. Idéale pour les acheteurs qui cherchent l'authenticité et le calme à distance raisonnable du bassin genevois.",
     frontalierContext:
-      "Crozet attire une clientèle de connaisseurs : acheteurs cherchant une résidence principale de caractère ou une résidence secondaire proche de Genève. Le nombre de transactions reste limité ; les comparaisons de prix doivent tenir compte de la diversité des biens.",
+      "À Crozet, la diversité des logements rend les comparaisons entre biens délicates. Pour un projet frontalier, vérifiez le trajet quotidien et comparez les transactions par type de logement, surface et état.",
     evolutionPrix:
       "Les prix médians DVF affichés ici agrègent les ventes exploitables de 2021 à 2025. Ils décrivent un niveau de prix observé sur cinq ans, pas une hausse annuelle ni une prévision de plus-value.",
     voisines: ["gex", "thoiry"],

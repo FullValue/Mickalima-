@@ -32,7 +32,7 @@ import {
 const CONTACT_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact: Mickaël Lima Agent Immobilier Pays de Gex',
+    name: 'Contact : Mickaël Lima, expert immobilier Pays de Gex',
     url: 'https://mickael-lima.immo/contact/',
     mainEntity: {
         '@type': 'RealEstateAgent',
@@ -98,7 +98,7 @@ export const ContactPage: React.FC = () => {
     const faqs = [
         {
             question: "Combien de temps prend une estimation complète ?",
-            answer: "Une estimation sérieuse nécessite généralement 48h. Nous nous déplaçons d'abord sur site pour analyser votre bien, puis nous étudions les données marché avant de vous remettre un dossier complet et confidentiel."
+            answer: "Après la visite du bien, je vous transmets une estimation argumentée sous 24 h, fondée sur ses caractéristiques et sur les ventes comparables."
         },
         {
             question: "Proposez-vous des mandats simples ou uniquement exclusifs ?",
@@ -118,7 +118,7 @@ export const ContactPage: React.FC = () => {
         <>
         <SEO
             title="Contact | Estimation Gratuite: Mickaël Lima Pays de Gex"
-            description="Contactez Mickaël Lima pour une estimation gratuite et confidentielle de votre bien dans le Pays de Gex. Réponse sous 48h, déplacement sur site inclus."
+            description="Contactez Mickaël Lima pour une estimation gratuite et confidentielle de votre bien dans le Pays de Gex. Première réponse sous 24 h, déplacement sur site inclus."
             canonical="/contact"
             schema={CONTACT_SCHEMA}
         />
@@ -152,7 +152,7 @@ export const ContactPage: React.FC = () => {
                     <Reveal delay={0.16}>
                         <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
                             Une question, une estimation, un projet de vente ?
-                            Réponse garantie sous 48h, déplacement sur site
+                            Première réponse sous 24 h, déplacement sur site
                             inclus dans tout le Pays de Gex.
                         </p>
                     </Reveal>
@@ -212,7 +212,7 @@ export const ContactPage: React.FC = () => {
                                             </span>
                                             <span>
                                                 <span className="block font-semibold tracking-wide transition-colors group-hover:text-white/80">contact@mickael-lima.immo</span>
-                                                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Réponse sous 24h</span>
+                                                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Réponse sous 24 h</span>
                                             </span>
                                         </a>
                                     </div>
@@ -319,7 +319,7 @@ export const ContactPage: React.FC = () => {
                                     <div aria-live="polite" className="min-h-[1.5rem] text-sm">
                                         {status === 'success' && (
                                             <div role="status" className="rounded-2xl bg-green-50 px-4 py-3 text-green-700">
-                                                <p>Merci ! Votre message a bien été envoyé: réponse sous 24h.</p>
+                                                <p>Merci ! Votre message a bien été envoyé : réponse sous 24 h.</p>
                                                 <a
                                                     href={buildWhatsappUrl("Bonjour, je viens de vous transmettre une demande d'estimation depuis votre site.")}
                                                     target="_blank"
@@ -365,7 +365,7 @@ export const ContactPage: React.FC = () => {
                             {
                                 icon: Clock,
                                 title: 'Réactivité absolue',
-                                text: "Un interlocuteur unique. Réponse garantie sous 24h sur chaque demande, retour systématique après chaque visite.",
+                                text: "Un interlocuteur unique. Première réponse sous 24 h sur chaque demande, retour après chaque visite.",
                             },
                             {
                                 icon: ShieldCheck,

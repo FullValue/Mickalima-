@@ -20,7 +20,7 @@ export const BlogPostPage: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background px-6">
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-8 font-newsletter italic font-normal">Article introuvable</h2>
-        <PillButton to="/blog" variant="solid">Retour à l'observatoire</PillButton>
+        <PillButton to="/blog" variant="solid">Retour aux guides</PillButton>
       </div>
     );
   }

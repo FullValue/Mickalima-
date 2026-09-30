@@ -39,7 +39,7 @@ export const AboutTeaser: React.FC = () => (
             />
             <img
               src={AGENT_PHOTO}
-              alt="Mickaël Lima, agent immobilier dans le Pays de Gex"
+              alt="Mickaël Lima, expert immobilier dans le Pays de Gex"
               loading="lazy"
               decoding="async"
               className="relative aspect-[4/5] w-full rounded-[24px] object-cover shadow-[0_40px_80px_-30px_rgba(1,29,65,0.45)]"
@@ -47,7 +47,7 @@ export const AboutTeaser: React.FC = () => (
 
             {/* Chip ventes */}
             <div className="absolute -bottom-8 left-4 rounded-2xl bg-white p-5 shadow-[0_20px_50px_-20px_rgba(1,29,65,0.45)] sm:left-8">
-              <p className="font-serif text-3xl leading-none text-[#011d41]">240</p>
+              <p className="font-serif text-3xl leading-none text-[#011d41]">+ de 240</p>
               <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gray-500">
                 Ventes: 5 dernières années
               </p>

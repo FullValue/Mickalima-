@@ -443,7 +443,7 @@ export const CommuneEstimationPage: React.FC = () => {
                 Analyse complète du Pays de Gex
               </h3>
               <p className="text-gray-500 font-light mt-2">
-                Prix par commune, délais, dynamiques frontalières: tout est dans l'observatoire.
+                Prix par commune et dynamiques frontalières : consultez les guides et données locales.
               </p>
             </div>
             <Link
@@ -453,7 +453,7 @@ export const CommuneEstimationPage: React.FC = () => {
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                 <ArrowUpRight size={18} />
               </div>
-              Lire l'observatoire
+              Lire les guides
             </Link>
           </div>
         </section>
