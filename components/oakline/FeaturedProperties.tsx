@@ -8,6 +8,15 @@ import { PillButton, Reveal, SectionHeader } from './primitives';
 
 const FEATURED = BIENS.filter((bien) => bien.status === 'À vendre').slice(0, 6);
 
+const FEATURED_DESCRIPTIONS: Record<string, string> = {
+  VM976: 'Une maison contemporaine ouverte sur le Léman et le Mont-Blanc à Grilly.',
+  VM990: 'Une maison familiale avec piscine et vue sur le Mont-Blanc à Sauverny.',
+  VM1043: 'Une propriété de caractère à découvrir à Grilly.',
+  VM560: 'Une maison contemporaine avec vue sur les Alpes à Crozet.',
+  VM1126: 'Une maison lumineuse avec appartement indépendant à Divonne-les-Bains.',
+  VM615: 'Une maison contemporaine avec trois suites au pied du Jura à Péron.',
+};
+
 export const FeaturedProperties: React.FC = () => {
   const railRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -116,7 +125,7 @@ export const FeaturedProperties: React.FC = () => {
                   </div>
 
                   <p className="mt-2 line-clamp-2 min-h-[44.8px] text-base leading-[1.4] text-gray-500">
-                    {bien.highlights[0] || `Une propriété de caractère à découvrir à ${bien.city}.`}
+                    {FEATURED_DESCRIPTIONS[bien.ref] || `Une propriété à découvrir à ${bien.city}.`}
                   </p>
 
                   <div className="mt-2 h-[3px] border-t border-[#e5e5e5]" aria-hidden="true" />
