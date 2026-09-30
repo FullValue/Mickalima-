@@ -1,0 +1,174 @@
+.partners-network {
+  color: #011d41;
+}
+
+.partners-network__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 48px;
+  margin-bottom: 52px;
+}
+
+.partners-network__title {
+  margin-top: 24px;
+  font-size: clamp(36px, 4.1vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.partners-network__intro {
+  max-width: 370px;
+  padding-bottom: 4px;
+  color: #646d78;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.partners-network__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    'financement photo valorisation'
+    'travaux photo renovation';
+  gap: 20px;
+}
+
+.partners-network__visual { grid-area: photo; min-width: 0; }
+.partners-network__item--financement { grid-area: financement; }
+.partners-network__item--travaux { grid-area: travaux; }
+.partners-network__item--valorisation { grid-area: valorisation; }
+.partners-network__item--renovation { grid-area: renovation; }
+
+.partners-network__figure {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #e8e6df;
+}
+
+.partners-network__figure img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% center;
+}
+
+.partners-network__figure figcaption {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgb(1 29 65 / 66%);
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.partners-network__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 34px;
+  height: 100%;
+  min-height: 286px;
+  padding: 28px;
+  border-radius: 24px;
+  background: #f5f5f2;
+}
+
+.partners-network__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.partners-network__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgb(1 29 65 / 5%);
+}
+
+.partners-network__tag {
+  color: #68717b;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.partners-network__card-title {
+  font-size: clamp(23px, 1.9vw, 28px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.partners-network__description {
+  margin-top: 13px;
+  color: #646d78;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.partners-network__contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid #ebebeb;
+}
+
+.partners-network__contact > p {
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 999px) {
+  .partners-network__heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .partners-network__intro { max-width: 560px; }
+
+  .partners-network__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'photo photo'
+      'financement travaux'
+      'valorisation renovation';
+  }
+
+  .partners-network__figure { height: 320px; }
+  .partners-network__figure img { object-position: center 65%; }
+  .partners-network__card { min-height: 270px; }
+}
+
+@media (max-width: 639px) {
+  .partners-network__title { font-size: clamp(30px, 7.8vw, 44px); }
+
+  .partners-network__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'photo' 'financement' 'travaux' 'valorisation' 'renovation';
+    gap: 18px;
+  }
+
+  .partners-network__figure { height: auto; aspect-ratio: 4 / 3; }
+  .partners-network__card { min-height: 0; padding: 24px; gap: 28px; }
+  .partners-network__card-title { font-size: 26px; }
+  .partners-network__contact { flex-direction: column; align-items: flex-start; }
+  .partners-network__contact > a { width: 100%; padding: 16px 20px; }
+}

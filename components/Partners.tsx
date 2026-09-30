@@ -10,6 +10,7 @@ import {
     Quote,
 } from 'lucide-react';
 import { SEO } from './SEO';
+import './partners-network.css';
 import {
     Reveal,
     SectionLabel,
@@ -26,38 +27,34 @@ import {
 const PARTNERS = [
     {
         icon: Calculator,
+        area: 'financement',
         title: 'Courtiers en banque',
-        image: '/images/editorial/partenaire-financement.webp',
-        imageAlt: "Intérieur lumineux avec plans et carnet, illustration d'un accompagnement au financement",
         description:
-            "Des courtiers indépendants qui structurent votre financement, négocient votre taux et sécurisent votre capacité d'emprunt, y compris pour les revenus frontaliers en francs suisses.",
+            "Des courtiers indépendants pour préparer votre financement et comparer les solutions, y compris avec des revenus en francs suisses.",
         tag: 'Financement',
     },
     {
         icon: Hammer,
+        area: 'travaux',
         title: 'Artisans qualifiés',
-        image: '/images/editorial/partenaire-artisans.webp',
-        imageAlt: "Matériaux et outillage d'artisan dans un intérieur rénové, visuel d'illustration",
         description:
-            "Peintres, électriciens, plombiers, menuisiers : des intervenants connus et assurés pour les travaux de rafraîchissement qui augmentent la valeur perçue de votre bien avant la mise en vente.",
+            "Peinture, électricité, plomberie, menuiserie : les bons professionnels pour rafraîchir votre bien, avant une vente ou après un achat.",
         tag: 'Travaux',
     },
     {
         icon: PaintBucket,
+        area: 'valorisation',
         title: "Architectes d'intérieur",
-        image: '/images/editorial/partenaire-architecture-interieure.webp',
-        imageAlt: "Salon aménagé dans des tons naturels, visuel d'illustration de l'architecture intérieure",
         description:
-            "Home staging, réaménagement d'espaces et rénovation : des regards experts pour révéler le potentiel de votre bien et aider les acquéreurs à s'y projeter.",
+            "Home staging et réaménagement des espaces pour révéler le potentiel du bien et vous aider à imaginer votre futur intérieur.",
         tag: 'Valorisation',
     },
     {
         icon: Building2,
+        area: 'renovation',
         title: 'Entreprises de rénovation',
-        image: '/images/editorial/partenaire-renovation.webp',
-        imageAlt: "Intérieur en pierre et bois rénové, visuel d'illustration de la rénovation",
         description:
-            "Gros œuvre, rénovations énergétiques, extensions : des entreprises sérieuses pour transformer un bien à fort potentiel ou rassurer vos acquéreurs sur la suite du projet.",
+            "Rénovation énergétique, gros œuvre ou extension : des interlocuteurs pour étudier la faisabilité, le budget et les étapes de votre projet.",
         tag: 'Rénovation',
     },
 ];
@@ -145,59 +142,71 @@ export const Partners: React.FC = () => {
                 </section>
 
                 {/* ---------------------------------- RÉSEAU */}
-                <section className="bg-white py-24 md:py-32">
+                <section className="partners-network bg-white py-24 md:py-32" aria-labelledby="partners-network-title">
                     <div className="container mx-auto px-6">
-                        <SectionHeader
-                            label="Notre réseau"
-                            title={
-                                <>
-                                    Des experts{' '}
-                                    <span className="italic">
-                                        triés sur le volet.
-                                    </span>
-                                </>
-                            }
-                            subtitle="Chaque partenaire a été choisi après collaboration concrète. Pas d'annuaire payant, pas de commission cachée : uniquement des professionnels que je recommanderais à ma propre famille."
-                        />
+                        <div className="partners-network__heading">
+                            <Reveal>
+                                <SectionLabel>Notre réseau</SectionLabel>
+                                <h2 id="partners-network-title" className="partners-network__title font-serif">
+                                    Les bonnes expertises,
+                                    <br />
+                                    <span className="italic">pour votre projet.</span>
+                                </h2>
+                            </Reveal>
+                            <Reveal delay={0.08}>
+                                <p className="partners-network__intro">
+                                    Financement, travaux, aménagement : je vous
+                                    oriente vers les professionnels adaptés à
+                                    votre projet, dans le Pays de Gex et le
+                                    bassin genevois.
+                                </p>
+                            </Reveal>
+                        </div>
 
-                        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <div className="partners-network__grid">
+                            <Reveal className="partners-network__visual" delay={0.08}>
+                                <figure className="partners-network__figure">
+                                    <img
+                                        src="/images/services/conseil-immobilier.jpg"
+                                        alt="Échange autour des plans d'un projet immobilier, dans un intérieur lumineux"
+                                        width="1536"
+                                        height="1024"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                    <figcaption>Visuel d’illustration</figcaption>
+                                </figure>
+                            </Reveal>
                             {PARTNERS.map((partner, idx) => (
-                                <Reveal key={partner.title} delay={idx * 0.08}>
-                                    <article className="group h-full overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white transition-all duration-500 hover:-translate-y-1 hover:border-[#011d41]/20 hover:shadow-[0_30px_60px_-30px_rgba(1,29,65,0.25)]">
-                                        <div className="overflow-hidden bg-[#f5f5f5]">
-                                            <img
-                                                src={partner.image}
-                                                alt={partner.imageAlt}
-                                                width="1440"
-                                                height="720"
-                                                loading="lazy"
-                                                decoding="async"
-                                                className="aspect-[2/1] w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                                            />
-                                        </div>
-                                        <div className="p-8 md:p-10">
-                                        <div className="flex items-start justify-between gap-6">
-                                            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f5f5f5] text-[#011d41] transition-colors duration-500 group-hover:bg-[#011d41] group-hover:text-white">
-                                                <partner.icon
-                                                    size={24}
-                                                    strokeWidth={1.5}
-                                                />
+                                <Reveal
+                                    key={partner.area}
+                                    className={`partners-network__item partners-network__item--${partner.area}`}
+                                    delay={idx * 0.06}
+                                >
+                                    <article className="partners-network__card">
+                                        <div className="partners-network__card-top">
+                                            <span className="partners-network__icon">
+                                                <partner.icon size={23} strokeWidth={1.5} aria-hidden="true" />
                                             </span>
-                                            <span className="rounded-full border border-[#ebebeb] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500">
-                                                {partner.tag}
-                                            </span>
+                                            <span className="partners-network__tag">{partner.tag}</span>
                                         </div>
-                                        <h3 className="mt-8 font-serif text-2xl tracking-tight text-[#011d41] md:text-3xl">
-                                            {partner.title}
-                                        </h3>
-                                        <p className="mt-4 leading-relaxed text-gray-500">
-                                            {partner.description}
-                                        </p>
+                                        <div>
+                                            <h3 className="partners-network__card-title font-serif">{partner.title}</h3>
+                                            <p className="partners-network__description">{partner.description}</p>
                                         </div>
                                     </article>
                                 </Reveal>
                             ))}
                         </div>
+
+                        <Reveal>
+                            <div className="partners-network__contact">
+                                <p className="font-serif">Les bons contacts, au bon moment.</p>
+                                <PillButton to="/contact" variant="solid" arrow>
+                                    Demander une mise en relation
+                                </PillButton>
+                            </div>
+                        </Reveal>
                     </div>
                 </section>
 
