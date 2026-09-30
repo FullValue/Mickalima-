@@ -9,3 +9,4 @@ dist/
 # - Les autres vidéos locales (>100MB) sont aussi exclues
 public/video/*
 !public/video/villa-grilly-hero.mp4
+!public/video/villa-grilly-poster.jpg

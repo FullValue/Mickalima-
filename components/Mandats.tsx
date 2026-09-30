@@ -11,10 +11,10 @@ import {
   ShieldCheck,
   MessageSquare,
   Target,
-  Wand2,
 } from 'lucide-react';
 import { m, useReducedMotion } from 'framer-motion';
 import { SEO } from './SEO';
+import { SignatureMediaBento } from './SignatureMediaBento';
 import { IMAGES } from '../constants';
 import { T } from './nosBiensShared';
 import { wrap, ServiceHero, StickyIntro, WhiteCard, TwoCol, RecapBand, ServiceStyles } from './serviceUI';
@@ -359,93 +359,7 @@ export const MandatSignature: React.FC = () => (
         ctaTo="/estimation"
       />
 
-      {/* SECTION 1 : Valorisation Visuelle & Média */}
-      <section style={{ ...wrap, padding: '90px 30px 0' }}>
-        <TwoCol
-          left={
-            <StickyIntro
-              icon={<Camera size={26} />}
-              title={
-                <>
-                  Valorisation <em style={{ fontStyle: 'italic' }}>Visuelle</em>
-                </>
-              }
-              description="Une stratégie visuelle complète pour capter l'attention partout. Nous créons une véritable identité pour votre bien immobilier."
-              items={[
-                'Photos Pro Haute Définition',
-                'Film de présentation',
-                'Visite Virtuelle Immersive',
-                'Vidéos IA (Intelligence Artificielle)',
-                'Home Staging Virtuel',
-                'Réseaux Sociaux & Média',
-              ]}
-              ctaLabel="Demander une estimation"
-              ctaTo="/estimation"
-            />
-          }
-          right={
-            <WhiteCard>
-              {/* Vidéo */}
-              <VideoBlock
-                image={IMAGES.misc2}
-                videoSrc="/video/villa-grilly-hero.mp4"
-                label="Villa à Grilly : exemple de film de présentation"
-                badgeIcon={<Camera size={13} aria-hidden="true" />}
-                badge="Drone & Immersion"
-                title="Film de présentation"
-              />
-
-              {/* Photos Pro */}
-              <div>
-                <BlockTitle icon={<Camera size={22} />}>Photos Pro Haute Définition</BlockTitle>
-                <GalleryBlock
-                  main={IMAGES.heroBg}
-                  overlay="Sélection de photographies"
-                  thumbs={[IMAGES.misc1, IMAGES.misc2, IMAGES.misc3]}
-                  thumbAlts={['Exemple de photographie intérieure', 'Exemple de photographie de bien', 'Exemple de vue extérieure']}
-                />
-              </div>
-
-              {/* Reels */}
-              <div>
-                <BlockTitle icon={<Share2 size={22} />}>Format TikTok &amp; Reels</BlockTitle>
-                <VerticalTiles label="Reel" />
-              </div>
-
-              {/* Home Staging */}
-              <div>
-                <BlockTitle icon={<Wand2 size={22} />}>Home Staging Virtuel</BlockTitle>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="sv-grid-2">
-                  {[
-                    { label: 'Ambiance existante', img: IMAGES.misc1 },
-                    { label: 'Projection d’ambiance', img: IMAGES.misc5 },
-                  ].map(({ label, img }) => (
-                    <div key={label} style={{ position: 'relative', borderRadius: 8, overflow: 'hidden' }}>
-                      <img
-                        src={img}
-                        alt={`${label}, visuel d’illustration`}
-                        loading="lazy"
-                        decoding="async"
-                        style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', display: 'block' }}
-                      />
-                      <span
-                        style={{
-                          position: 'absolute', top: 12, left: 12, background: '#fff', color: T.dark,
-                          fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5,
-                          borderRadius: 8, padding: '7px 13px',
-                        }}
-                      >
-                        {label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <p style={{ marginTop: 12, fontSize: 13, lineHeight: 1.5, color: T.muted }}>Exemples d’ambiance : ces deux visuels ne représentent pas une transformation du même bien.</p>
-              </div>
-            </WhiteCard>
-          }
-        />
-      </section>
+      <SignatureMediaBento />
 
       {/* SECTION 2 : Visibilité Multi-Canal */}
       <section style={{ ...wrap, padding: '100px 30px 0' }}>

@@ -1,0 +1,97 @@
+.signature-media { max-width: 1360px; margin: 0 auto; padding: 100px 30px 0; color: #011d41; }
+.signature-media-heading { display: grid; grid-template-columns: .65fr 1.65fr auto; align-items: start; gap: 30px; margin-bottom: 48px; }
+.signature-media-heading > :first-child { margin-top: 8px; }
+.signature-media-heading > a { align-self: end; white-space: nowrap; }
+.signature-media-intro h2 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 3.7vw, 56px); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; }
+.signature-media-intro h2 em { display: block; }
+.signature-media-intro > p { max-width: 540px; margin-top: 22px; color: #637080; font-size: 16px; line-height: 1.65; }
+.signature-bento { display: grid; grid-template-columns: 1fr 1.04fr 1fr; gap: 20px; align-items: stretch; }
+.signature-bento-side { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.signature-card { overflow: hidden; border-radius: 24px; background: #fff; }
+.signature-card h3 { font-family: 'Playfair Display', serif; font-size: clamp(25px, 2.2vw, 32px); font-weight: 400; line-height: 1.15; letter-spacing: -.025em; }
+.signature-card p:not(.signature-eyebrow) { color: #65717e; font-size: 14px; line-height: 1.65; }
+.signature-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; line-height: 1.6; text-transform: uppercase; letter-spacing: .13em; }
+.signature-eyebrow svg { flex-shrink: 0; }
+.signature-card-copy { padding: 27px; }
+.signature-card-copy > h3 { margin: 12px 0; }
+.signature-photo-card { display: flex; flex-direction: column; flex: 1.5; }
+.signature-photo { position: relative; flex: 1; min-height: 225px; overflow: hidden; }
+.signature-photo img, .signature-staging-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.signature-photo img { object-position: 65% center; }
+.signature-image-note { position: absolute; bottom: 13px; left: 15px; display: flex; align-items: center; gap: 6px; padding: 5px 9px; background: rgba(1,29,65,.64); color: #fff; border-radius: 20px; font-size: 9px; letter-spacing: .04em; backdrop-filter: blur(8px); }
+.signature-tour-card { position: relative; padding: 27px; flex: 1; background: #eeefea; }
+.signature-tour-mark { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.signature-tour-mark span { font-family: 'Playfair Display', serif; font-size: 40px; line-height: 1; color: #839083; }
+.signature-tour-card h3 { margin: 12px 0; }
+.signature-social-card { padding: 29px 27px; background: #eeefea; }
+.signature-social-card h3 { font-size: clamp(31px, 2.7vw, 39px); margin: 18px 0 15px; }
+.signature-format-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+.signature-format-tags span { padding: 6px 10px; border: 1px solid #011d411a; border-radius: 30px; font-size: 10px; font-weight: 500; }
+.signature-staging-card { display: flex; flex-direction: column; flex: 1; }
+.signature-staging-photo { min-height: 185px; flex: 1; position: relative; }
+.signature-staging-card .signature-card-copy > h3 { margin-top: 0; }
+.signature-service-detail { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; }
+.signature-service-detail svg { flex-shrink: 0; margin-top: 2px; }
+.signature-service-detail h4 { font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+.signature-service-detail p { font-size: 12px !important; }
+.signature-film { align-self: start; min-width: 0; border-radius: 24px; overflow: hidden; background: #011d41; color: #fff; }
+.signature-film-screen { position: relative; aspect-ratio: 9 / 16; background: #01152f; }
+.signature-film-screen video { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; }
+.signature-film-cover { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 25px; background: linear-gradient(180deg, rgba(1,29,65,.48), transparent 36%, rgba(1,29,65,.1) 50%, rgba(1,29,65,.86)); }
+.signature-film-cover > .signature-eyebrow { align-self: start; padding: 7px 11px; border: 1px solid #ffffff40; border-radius: 30px; background: #ffffff12; }
+.signature-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 76px; height: 76px; border: 1px solid #ffffff88; border-radius: 50%; background: #ffffff29; color: #fff; backdrop-filter: blur(10px); cursor: pointer; transition: background .2s, scale .2s; }
+.signature-play svg { margin-left: 4px; }
+.signature-play:hover { background: #ffffff50; scale: 1.05; }
+.signature-film-title > span { font-size: 10px; text-transform: uppercase; letter-spacing: .16em; color: #ffffffbc; }
+.signature-film-title h3 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3vw, 43px); font-weight: 400; line-height: 1.1; margin-top: 12px; }
+.signature-film-title p { font-size: 12px; line-height: 1.5; color: #ffffffb3; margin-top: 12px; }
+.signature-film-navigation { padding: 19px 22px 15px; }
+.signature-film-meta > span { color: #ffffff99; font-size: 9px; text-transform: uppercase; letter-spacing: .17em; }
+.signature-film-meta > p { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12px; margin-top: 5px; }
+.signature-film-count { flex-shrink: 0; color: #ffffffa6; font-size: 10px; }
+.signature-film-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 13px; }
+.signature-arrow { display: grid; place-items: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #ffffff44; color: #fff; transition: background .2s; }
+.signature-arrow:hover:not(:disabled) { background: #ffffff20; }
+.signature-arrow:disabled { opacity: .28; cursor: default; }
+.signature-dots { display: flex; justify-content: center; flex-wrap: wrap; }
+.signature-dot { display: grid; place-items: center; width: 28px; height: 32px; }
+.signature-dot span { width: 6px; height: 6px; border-radius: 50%; background: #ffffff4d; transition: background .2s, width .2s; }
+.signature-dot[aria-current='true'] span { background: #fff; width: 20px; border-radius: 10px; }
+.signature-film button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+.signature-film-error { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 25px; text-align: center; background: #011d41e6; font-size: 14px; }
+.signature-film-error button { padding: 10px 16px; border-radius: 30px; border: 1px solid #ffffff70; }
+@media (max-width: 1100px) {
+  .signature-media-heading { grid-template-columns: 1fr auto; }
+  .signature-media-heading > :first-child { grid-column: 1 / -1; margin: 0; justify-self: start; }
+  .signature-card-copy, .signature-tour-card, .signature-social-card { padding: 22px; }
+  .signature-bento { gap: 16px; }
+  .signature-bento-side { gap: 16px; }
+}
+@media (max-width: 900px) {
+  .signature-bento { grid-template-columns: 1fr 1fr; align-items: start; }
+  .signature-film { grid-column: 2; grid-row: 1; }
+  .signature-bento-left { grid-column: 1; grid-row: 1; }
+  .signature-bento-right { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .signature-card h3 { font-size: 29px; }
+  .signature-social-card h3 { font-size: 39px; }
+  .signature-staging-photo { min-height: 210px; }
+}
+@media (max-width: 600px) {
+  .signature-media { padding: 65px 20px 0; }
+  .signature-media-heading { display: flex; flex-direction: column; gap: 23px; margin-bottom: 32px; }
+  .signature-media-heading > a { align-self: flex-start; }
+  .signature-media-intro h2 { font-size: 39px; }
+  .signature-media-intro > p { margin-top: 17px; font-size: 15px; }
+  .signature-bento { display: flex; flex-direction: column; gap: 18px; }
+  .signature-film { order: -1; width: 100%; }
+  .signature-film-title h3 { font-size: 39px; }
+  .signature-bento-side { width: 100%; gap: 18px; }
+  .signature-bento-right { display: flex; }
+  .signature-card-copy, .signature-tour-card, .signature-social-card { padding: 27px; }
+  .signature-photo { min-height: 270px; }
+  .signature-staging-photo { min-height: 225px; }
+  .signature-card h3 { font-size: 31px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signature-film button, .signature-dot span { transition: none; }
+}
