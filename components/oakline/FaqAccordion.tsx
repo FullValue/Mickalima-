@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
-import { Reveal, SectionHeader } from './primitives';
+import { PillButton, Reveal } from './primitives';
 
-/**
- * FAQ accordéon « pilule » : fermé = pilule (radius 90px), ouvert =
- * carte radius 24px avec réponse. aria-expanded + icône + qui pivote 90°.
- * Questions/réponses reprises à l'identique de HomeSections.tsx (FAQSection).
- */
+/** FAQ de l'accueil : en-tête centré et accordéons larges inspirés de Refit. */
 
 const FAQS = [
   {
@@ -32,80 +28,61 @@ const FAQS = [
 ];
 
 export const FaqAccordion: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#f5f5f5] py-24 md:py-32">
+    <section aria-labelledby="home-faq-title" className="bg-white py-20 md:py-24">
       <div className="container mx-auto px-6">
-        <SectionHeader
-          label="Questions fréquentes"
-          title="Tout ce que vous vous demandez"
-          subtitle="Mandats, estimation, confidentialité, zone d'intervention : les réponses aux questions les plus posées par mes clients."
-        />
+        <Reveal y={6} className="mx-auto max-w-4xl text-center">
+          <span className="inline-flex rounded-full bg-[#011d41] px-4 py-1.5 text-sm text-white">
+            FAQ
+          </span>
+          <h2 id="home-faq-title" className="mt-4 font-serif text-3xl font-normal leading-[1.12] tracking-tight text-[#011d41] md:text-[44px]">
+            Tout ce que vous vous demandez
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 md:text-xl">
+            Mandats, estimation, confidentialité, zone d'intervention : les réponses aux questions les plus posées par mes clients.
+          </p>
+          <PillButton to="/contact" className="mt-8">Me contacter</PillButton>
+        </Reveal>
 
-        <div className="mt-14 grid items-start gap-10 md:mt-16 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
-          <Reveal className="lg:sticky lg:top-28">
-            <figure className="m-0 overflow-hidden rounded-[24px]">
-              <img
-                src="/images/editorial/faq-pays-de-gex.jpg"
-                alt="Intérieur lumineux ouvert sur le Jura"
-                loading="lazy"
-                decoding="async"
-                className="aspect-[4/3] w-full object-cover lg:aspect-[4/5]"
-              />
-            </figure>
-          </Reveal>
-
-          <div className="space-y-4">
+        <div className="mt-14 space-y-4 md:mt-16 md:space-y-5">
           {FAQS.map((faq, index) => {
             const open = openIndex === index;
             return (
               <Reveal key={faq.question} delay={index * 0.06} y={6}>
-                <div
-                  className={`overflow-hidden border transition-all duration-500 ${
-                    open
-                      ? 'rounded-[24px] border-[#011d41]/20 bg-white shadow-[0_15px_40px_-20px_rgba(1,29,65,0.25)]'
-                      : 'rounded-[90px] border-[#ebebeb] bg-white hover:border-[#011d41]/30'
-                  }`}
-                >
-                  <button
-                    type="button"
-                    id={`faq-button-${index}`}
-                    aria-expanded={open}
-                    aria-controls={`faq-panel-${index}`}
-                    onClick={() => setOpenIndex(open ? null : index)}
-                    className="flex w-full items-center justify-between gap-6 px-7 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#011d41] md:px-8"
-                  >
-                    <span className="text-[15px] font-semibold text-[#011d41] md:text-base">
-                      {faq.question}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
-                        open
-                          ? 'border-[#011d41] bg-[#011d41] text-white'
-                          : 'border-[#ebebeb] bg-[#fafafa] text-[#011d41]'
-                      }`}
+                <div className="overflow-hidden rounded-[10px] border border-[#ebebeb] bg-[#fafafa] transition-colors duration-300 hover:border-[#011d41]/25">
+                  <h3>
+                    <button
+                      type="button"
+                      id={`faq-button-${index}`}
+                      aria-expanded={open}
+                      aria-controls={`faq-panel-${index}`}
+                      onClick={() => setOpenIndex(open ? null : index)}
+                      className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[#011d41] md:px-6 md:py-6"
                     >
-                      {/* Icône + pivote de 90° à l'ouverture */}
+                      <span className="font-serif text-lg font-normal leading-snug tracking-tight text-[#011d41] md:text-[22px]">
+                        {faq.question.replace(/ \?$/, '\u00a0?')}
+                      </span>
                       <Plus
-                        size={16}
-                        className={`transition-transform duration-500 ${open ? 'rotate-90' : ''}`}
+                        aria-hidden="true"
+                        size={22}
+                        strokeWidth={1.5}
+                        className={`shrink-0 text-[#011d41] transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
                       />
-                    </span>
-                  </button>
-
-                  {/* Réponse: animation grid-rows (pattern existant du site) */}
+                    </button>
+                  </h3>
                   <div
                     id={`faq-panel-${index}`}
                     role="region"
                     aria-labelledby={`faq-button-${index}`}
-                    className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${
+                    aria-hidden={!open}
+                    className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
                       open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                     }`}
                   >
                     <div className="min-h-0 overflow-hidden">
-                      <p className="px-7 pb-6 text-[15px] leading-relaxed text-gray-600 md:px-8 md:pb-7">
+                      <p className="px-5 pb-6 text-base leading-relaxed text-gray-600 md:px-6 md:text-lg">
                         {faq.answer}
                       </p>
                     </div>
@@ -114,7 +91,6 @@ export const FaqAccordion: React.FC = () => {
               </Reveal>
             );
           })}
-          </div>
         </div>
       </div>
     </section>
