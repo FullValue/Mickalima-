@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import { IMAGES } from '../../constants';
 import { PillButton, Reveal, SectionLabel } from './primitives';
+import { FORM_FIELD_CLASS as inputClass, FORM_LABEL_CLASS as labelClass } from '../formStyles';
 
 /**
  * CTA final « Parlons-en » : fond image + overlay sombre, carte
@@ -21,9 +22,6 @@ const INTERESTS = [
   'Faire estimer mon bien',
   'Autre demande',
 ];
-
-const inputClass =
-  'w-full rounded-full border border-[#ebebeb] bg-[#fafafa] px-5 py-3.5 text-sm text-[#011d41] placeholder:text-gray-400 transition-colors focus:border-[#011d41] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#011d41]/10';
 
 export const CtaContact: React.FC = () => {
   const [status, setStatus] = useState<Status>('idle');
@@ -126,17 +124,17 @@ export const CtaContact: React.FC = () => {
           <Reveal delay={0.15}>
             <form
               onSubmit={handleSubmit}
-              className="rounded-[24px] bg-white p-8 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.5)] md:p-10"
+              className="rounded-2xl border border-[#ebebeb] bg-white p-8 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.5)] md:p-12"
             >
               <h3 className="font-serif text-2xl text-[#011d41]">
                 Faites-moi passer votre message
               </h3>
 
-              <div className="mt-7 grid gap-4">
+              <div className="mt-7 grid gap-6">
                 <div>
                   <label
                     htmlFor="cta-nom"
-                    className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-gray-500"
+                    className={labelClass}
                   >
                     Nom *
                   </label>
@@ -151,11 +149,11 @@ export const CtaContact: React.FC = () => {
                   />
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-6 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="cta-email"
-                      className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-gray-500"
+                      className={labelClass}
                     >
                       Email *
                     </label>
@@ -172,7 +170,7 @@ export const CtaContact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="cta-tel"
-                      className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-gray-500"
+                      className={labelClass}
                     >
                       Téléphone
                     </label>
@@ -190,7 +188,7 @@ export const CtaContact: React.FC = () => {
                 <div>
                   <label
                     htmlFor="cta-interet"
-                    className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-gray-500"
+                    className={labelClass}
                   >
                     Votre projet
                   </label>
@@ -206,7 +204,7 @@ export const CtaContact: React.FC = () => {
                 <div>
                   <label
                     htmlFor="cta-message"
-                    className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-gray-500"
+                    className={labelClass}
                   >
                     Message *
                   </label>
@@ -216,7 +214,7 @@ export const CtaContact: React.FC = () => {
                     required
                     rows={4}
                     placeholder="Décrivez votre projet en quelques lignes…"
-                    className={`${inputClass} resize-none rounded-[20px]`}
+                    className={`${inputClass} resize-y`}
                   />
                 </div>
 
@@ -235,7 +233,7 @@ export const CtaContact: React.FC = () => {
                 type="submit"
                 variant="solid"
                 disabled={status === 'loading'}
-                className="mt-7 w-full"
+                className="mt-7"
               >
                 {status === 'loading' ? 'Envoi en cours…' : 'Envoyer le message'}
               </PillButton>

@@ -16,6 +16,7 @@ import { IMAGES } from '../constants';
 import { buildWhatsappUrl, WHATSAPP_PATH } from './oakline/whatsapp';
 import { track } from './oakline/tracking';
 import { m } from 'framer-motion';
+import { FORM_FIELD_CLASS as inputClass, FORM_LABEL_CLASS as labelClass } from './formStyles';
 import {
     Reveal,
     SectionLabel,
@@ -48,12 +49,6 @@ const CONTACT_SCHEMA = {
         },
     },
 };
-
-/* Champs identiques à ceux du CTA de l'accueil (CtaContact). */
-const inputClass =
-    'w-full rounded-full border border-[#ebebeb] bg-[#fafafa] px-5 py-3.5 text-sm text-[#011d41] placeholder:text-gray-400 transition-colors focus:border-[#011d41] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#011d41]/10';
-const labelClass =
-    'mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-gray-500';
 
 export const ContactPage: React.FC = () => {
     const [activeFaq, setActiveFaq] = React.useState<number | null>(null);
@@ -303,7 +298,7 @@ export const ContactPage: React.FC = () => {
                                             required
                                             rows={5}
                                             placeholder="Parlez-moi de votre projet…"
-                                            className={`${inputClass} resize-none rounded-[20px]`}
+                                            className={`${inputClass} resize-y`}
                                         />
                                     </div>
 
@@ -311,7 +306,6 @@ export const ContactPage: React.FC = () => {
                                         type="submit"
                                         variant="solid"
                                         disabled={status === 'loading'}
-                                        className="w-full"
                                     >
                                         {status === 'loading' ? 'Envoi en cours…' : 'Envoyer la demande'}
                                     </PillButton>

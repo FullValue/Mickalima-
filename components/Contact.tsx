@@ -5,6 +5,7 @@ import { SEO } from './SEO';
 import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
 import { m, AnimatePresence } from 'framer-motion';
 import { PillButton } from './oakline/primitives';
+import { FORM_FIELD_CLASS } from './formStyles';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -84,10 +85,10 @@ export const Estimation: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="font-serif text-5xl font-normal leading-[1.08] tracking-tight text-[#011d41] md:text-6xl lg:text-[4.5rem]"
+                        className="font-serif text-[clamp(2rem,10vw,3rem)] font-normal leading-[1.08] tracking-tight text-[#011d41] md:text-6xl lg:text-[4.5rem]"
                     >
-                        Estimez la valeur de <br />
-                        <span className="italic">votre patrimoine.</span>
+                        Estimez la valeur <br />
+                        <span className="whitespace-nowrap">de <span className="italic">votre patrimoine.</span></span>
                     </m.h1>
                     <p className="mt-7 max-w-xl text-lg leading-relaxed text-gray-500">
                       Une lecture précise du bien, de son emplacement et des ventes comparables pour préparer votre projet.
@@ -152,19 +153,19 @@ export const Estimation: React.FC = () => {
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Surface (m²)</label>
                                             <div className="relative group">
                                                 <Ruler className="absolute left-4 top-[1.1rem] text-gray-400 group-hover:text-primary transition-colors" size={18} />
-                                                <input type="number" name="surface_m2" placeholder="ex: 120" className="w-full bg-surface border-2 border-transparent pl-12 p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                                <input type="number" name="surface_m2" placeholder="ex: 120" className={`${FORM_FIELD_CLASS} pl-12`} required />
                                             </div>
                                         </div>
                                         <div className="space-y-3">
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Nombre de pièces</label>
-                                            <input type="number" name="nombre_pieces" placeholder="ex: 4" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                            <input type="number" name="nombre_pieces" placeholder="ex: 4" className={FORM_FIELD_CLASS} required />
                                         </div>
                                     </div>
 
                                     {/* Localisation */}
                                     <div className="space-y-3">
                                         <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2"><MapPin size={14} /> Localisation</label>
-                                        <input type="text" name="adresse" placeholder="Adresse complète" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="text" name="adresse" placeholder="Adresse complète" className={FORM_FIELD_CLASS} required />
                                     </div>
 
                                     {/* DPE */}
@@ -195,11 +196,11 @@ export const Estimation: React.FC = () => {
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <input type="text" name="nom" placeholder="Nom complet" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
-                                        <input type="email" name="email" placeholder="Email" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="text" name="nom" placeholder="Nom complet" className={FORM_FIELD_CLASS} required />
+                                        <input type="email" name="email" placeholder="Email" className={FORM_FIELD_CLASS} required />
                                     </div>
                                     <div className="pb-4">
-                                        <input type="tel" name="telephone" placeholder="Téléphone" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
+                                        <input type="tel" name="telephone" placeholder="Téléphone" className={FORM_FIELD_CLASS} required />
                                     </div>
 
                                     <PillButton type="submit" disabled={status === 'loading'} className="mt-6">
