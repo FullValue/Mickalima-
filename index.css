@@ -67,6 +67,23 @@ body {
   flex-shrink: 0;
 }
 
+/* Flou discret attaché au bas de l'écran, au-dessus du contenu qui défile. */
+.viewport-bottom-blur { display: none; }
+@media (min-width: 1024px) {
+  .viewport-bottom-blur {
+    display: block;
+    position: fixed;
+    inset: auto 0 0;
+    height: 88px;
+    z-index: 20;
+    pointer-events: none;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2) 35%, #000);
+    mask-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2) 35%, #000);
+  }
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: clip;

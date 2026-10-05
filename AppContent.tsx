@@ -156,6 +156,7 @@ export const AppContent: React.FC = () => {
   <LazyMotion features={domAnimation}>
     <Preloader />
     <WhatsAppButton />
+    <div className="viewport-bottom-blur" aria-hidden="true" />
     <div className="isolate font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
       <main data-page-content className="relative z-10 flex-grow bg-white">
