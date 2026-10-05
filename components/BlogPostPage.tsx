@@ -126,12 +126,12 @@ export const BlogPostPage: React.FC = () => {
         </div>
       </header>
 
-      {/* Lecture structurée : rail auteur, colonne éditoriale, sommaire contextuel */}
+      {/* Lecture structurée : rail auteur et colonne éditoriale */}
       <div className="relative z-20 -mt-8 w-full rounded-t-[32px] border-t border-[#ebebeb] bg-white md:rounded-t-[48px]">
 
-        <div className="container mx-auto max-w-[1240px] px-6 py-16 md:py-24">
+        <div className="container mx-auto max-w-[1040px] px-6 py-16 md:py-24">
 
-          <div className="grid gap-12 lg:grid-cols-[190px_minmax(0,720px)_190px] lg:gap-12 xl:gap-16">
+          <div className="grid gap-12 lg:grid-cols-[190px_minmax(0,1fr)] lg:gap-12 xl:gap-16">
 
             {/* Left Sidebar: Socials & Author (Sticky) */}
             <aside className="relative order-2 lg:order-1">
@@ -195,23 +195,6 @@ export const BlogPostPage: React.FC = () => {
                 <PillButton to="/contact" variant="solid" arrow>Me contacter</PillButton>
               </div>
             </main>
-
-            <aside className="order-3 hidden lg:block">
-              <div className="sticky top-28 rounded-[24px] border border-[#ebebeb] bg-white p-6">
-                <SectionLabel>Lecture</SectionLabel>
-                <div className="mt-6 space-y-5 text-sm text-gray-500">
-                  <div>
-                    <p className="font-serif text-3xl text-[#011d41]">{readingTime} min</p>
-                    <p className="mt-1">Temps de lecture estimé</p>
-                  </div>
-                  <div className="border-t border-[#ebebeb] pt-5">
-                    <p className="font-serif text-3xl text-[#011d41]">{wordCount}</p>
-                    <p className="mt-1">Mots analysés</p>
-                  </div>
-                  <PillButton to="/estimation" variant="ghost" className="w-full" arrow>Estimation</PillButton>
-                </div>
-              </div>
-            </aside>
 
           </div>
         </div>
