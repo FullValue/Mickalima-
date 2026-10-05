@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
 import { PillButton, Reveal } from './primitives';
 
-/** FAQ de l'accueil : en-tête centré et accordéons larges inspirés de Refit. */
+/** Le texte accompagne le défilement des questions sur ordinateur. */
 
 const FAQS = [
   {
@@ -32,21 +32,23 @@ export const FaqAccordion: React.FC = () => {
 
   return (
     <section aria-labelledby="home-faq-title" className="bg-white py-20 md:py-24">
-      <div className="container mx-auto px-6">
-        <Reveal y={6} className="mx-auto max-w-4xl text-center">
+      <div className="container mx-auto grid items-start gap-12 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+        <div className="home-faq-intro lg:sticky lg:top-28">
+        <Reveal y={6} className="max-w-lg">
           <span className="inline-flex rounded-full bg-[#011d41] px-4 py-1.5 text-sm text-white">
             FAQ
           </span>
           <h2 id="home-faq-title" className="mt-4 font-serif text-3xl font-normal leading-[1.12] tracking-tight text-[#011d41] md:text-[44px]">
             Tout ce que vous vous demandez
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 md:text-xl">
+          <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-xl">
             Mandats, estimation, confidentialité, zone d'intervention : les réponses aux questions les plus posées par mes clients.
           </p>
           <PillButton to="/contact" className="mt-8">Me contacter</PillButton>
         </Reveal>
+        </div>
 
-        <div className="mt-14 space-y-4 md:mt-16 md:space-y-5">
+        <div className="home-faq-questions space-y-4 md:space-y-5">
           {FAQS.map((faq, index) => {
             const open = openIndex === index;
             return (
