@@ -7,8 +7,7 @@ import { PillButton } from './oakline/primitives';
 /**
  * Navbar refonte « Oakline » :
  * - transparente sur le hero de l'accueil (texte blanc) ;
- * - fond blanc flouté + texte bleu après ~120px de scroll (et sur les
- *   autres pages, dont les tops clairs rendraient un texte blanc illisible) ;
+ * - fond bleu flouté et texte blanc après ~120px de scroll et sur les autres pages ;
  * - liens avec souligné animé ;
  * - burger dans une pilule ouvrant un panneau mobile plein écran bleu.
  * Les cibles de liens restent celles du menu actuel (NAV_ITEMS : l'entrée
@@ -66,6 +65,19 @@ export const Navbar: React.FC = () => {
         window.addEventListener('keydown', onKeyDown);
         return () => window.removeEventListener('keydown', onKeyDown);
     }, [isMobileMenuOpen]);
+
+    // Releasing the mobile overlay also releases the page scroll on desktop.
+    useEffect(() => {
+        const desktop = window.matchMedia('(min-width: 1024px)');
+        const onChange = () => {
+            if (desktop.matches) {
+                setIsMobileMenuOpen(false);
+                setIsMobileMandatsOpen(false);
+            }
+        };
+        desktop.addEventListener('change', onChange);
+        return () => desktop.removeEventListener('change', onChange);
+    }, []);
 
     // Lien desktop avec souligné animé (scale-x origin-left)
     const NavLinkUnderline: React.FC<{ active: boolean; children: React.ReactNode }> = ({
@@ -203,7 +215,7 @@ export const Navbar: React.FC = () => {
                   role="dialog"
                   aria-modal="true"
                   aria-label="Menu de navigation"
-                  className={`fixed inset-0 bg-[#011d41] z-40 flex flex-col items-center justify-start gap-6 pt-28 pb-12 px-6 overflow-y-auto transition-all duration-500 ${
+                  className={`fixed inset-0 bg-[#011d41] z-40 flex flex-col items-center justify-start gap-6 pt-28 pb-12 px-6 overflow-y-auto overscroll-contain lg:hidden transition-all duration-500 ${
                     isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
                   }`}
                 >
@@ -228,12 +240,13 @@ export const Navbar: React.FC = () => {
 
                             <div
                               id="mobile-mandats-panel"
+                              aria-hidden={!isMobileMandatsOpen}
                               className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out w-full ${isMobileMandatsOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                             >
-                                <div className="overflow-hidden">
+                                <div className="min-h-0 overflow-hidden">
                                     <div className="flex flex-col items-center gap-4 pt-5 pb-2">
-                                        <Link to="/mandat-signature" className="text-lg text-white/80 hover:text-white font-medium">Mandat Signature</Link>
-                                        <Link to="/mandat-exclusif" className="text-lg text-white/80 hover:text-white font-medium">Mandat Exclusif</Link>
+                                        <Link to="/mandat-signature" tabIndex={isMobileMandatsOpen ? 0 : -1} className="flex min-h-11 items-center justify-center px-4 text-lg text-white/80 hover:text-white font-medium">Mandat Signature</Link>
+                                        <Link to="/mandat-exclusif" tabIndex={isMobileMandatsOpen ? 0 : -1} className="flex min-h-11 items-center justify-center px-4 text-lg text-white/80 hover:text-white font-medium">Mandat Exclusif</Link>
                                     </div>
                                 </div>
                             </div>

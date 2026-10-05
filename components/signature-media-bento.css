@@ -35,30 +35,29 @@
 .signature-service-detail p { font-size: 12px !important; }
 .signature-film { align-self: start; min-width: 0; border-radius: 24px; overflow: hidden; background: #011d41; color: #fff; }
 .signature-film-screen { position: relative; aspect-ratio: 9 / 16; background: #01152f; }
-.signature-film-screen video { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; }
-.signature-film-cover { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 25px; background: linear-gradient(180deg, rgba(1,29,65,.48), transparent 36%, rgba(1,29,65,.1) 50%, rgba(1,29,65,.86)); }
-.signature-film-cover > .signature-eyebrow { align-self: start; padding: 7px 11px; border: 1px solid #ffffff40; border-radius: 30px; background: #ffffff12; }
+.signature-film-screen video { display: block; width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; animation: signature-story-enter .3s ease-out; }
+.signature-film-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 8px 22px 22px; pointer-events: none; background: linear-gradient(180deg, #01152f75, transparent 28%, transparent 48%, #01152fc9); }
+.signature-story-progress { display: flex; gap: 5px; flex-shrink: 0; pointer-events: auto; }
+.signature-story-segment { display: flex; align-items: center; flex: 1; min-width: 0; height: 32px; cursor: pointer; }
+.signature-story-track { display: block; width: 100%; height: 3px; overflow: hidden; border-radius: 8px; background: #ffffff45; }
+.signature-story-track > span { display: block; width: 100%; height: 100%; background: #fff; transform-origin: left; transition: transform .2s linear; }
+.signature-film-topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.signature-film-count { flex-shrink: 0; color: #ffffffb3; font-size: 10px; letter-spacing: .06em; }
+.signature-film-bottom { margin-top: auto; }
 .signature-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 76px; height: 76px; border: 1px solid #ffffff88; border-radius: 50%; background: #ffffff29; color: #fff; backdrop-filter: blur(10px); cursor: pointer; transition: background .2s, scale .2s; }
 .signature-play svg { margin-left: 4px; }
 .signature-play:hover { background: #ffffff50; scale: 1.05; }
 .signature-film-title > span { font-size: 10px; text-transform: uppercase; letter-spacing: .16em; color: #ffffffbc; }
-.signature-film-title h3 { font-family: 'Instrument Sans', sans-serif; font-size: clamp(30px, 3vw, 43px); font-weight: 400; line-height: 1.1; margin-top: 12px; }
+.signature-film-title h3 { font-family: 'Instrument Sans', sans-serif; font-size: clamp(30px, 3vw, 43px); font-weight: 400; line-height: 1.1; letter-spacing: -.03em; margin-top: 12px; color: #ffffffe6; }
 .signature-film-title p { font-size: 12px; line-height: 1.5; color: #ffffffb3; margin-top: 12px; }
-.signature-film-navigation { padding: 19px 22px 15px; }
-.signature-film-meta > span { color: #ffffff99; font-size: 9px; text-transform: uppercase; letter-spacing: .17em; }
-.signature-film-meta > p { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12px; margin-top: 5px; }
-.signature-film-count { flex-shrink: 0; color: #ffffffa6; font-size: 10px; }
-.signature-film-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 13px; }
-.signature-arrow { display: grid; place-items: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #ffffff44; color: #fff; transition: background .2s; }
-.signature-arrow:hover:not(:disabled) { background: #ffffff20; }
-.signature-arrow:disabled { opacity: .28; cursor: default; }
-.signature-dots { display: flex; justify-content: center; flex-wrap: wrap; }
-.signature-dot { display: grid; place-items: center; width: 28px; height: 32px; }
-.signature-dot span { width: 6px; height: 6px; border-radius: 50%; background: #ffffff4d; transition: background .2s, width .2s; }
-.signature-dot[aria-current='true'] span { background: #fff; width: 20px; border-radius: 10px; }
-.signature-film button:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+.signature-film-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
+.signature-film-playback, .signature-film-directions { display: flex; gap: 8px; pointer-events: auto; }
+.signature-film-control { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #ffffff40; color: #fff; background: #ffffff12; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); cursor: pointer; transition: background .2s; }
+.signature-film-control:hover { background: #ffffff30; }
+.signature-film button:focus-visible { outline: 2px solid white; outline-offset: 3px; }
 .signature-film-error { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 25px; text-align: center; background: #011d41e6; font-size: 14px; }
 .signature-film-error button { padding: 10px 16px; border-radius: 30px; border: 1px solid #ffffff70; }
+@keyframes signature-story-enter { from { opacity: .5; } to { opacity: 1; } }
 @media (max-width: 1100px) {
   .signature-media-heading { grid-template-columns: 1fr auto; }
   .signature-media-heading > :first-child { grid-column: 1 / -1; margin: 0; justify-self: start; }
@@ -92,5 +91,6 @@
   .signature-card h3 { font-size: 31px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .signature-film button, .signature-dot span { transition: none; }
+  .signature-film button, .signature-story-track > span { transition: none; }
+  .signature-film-screen video { animation: none; }
 }

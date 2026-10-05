@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { Camera, ChevronLeft, ChevronRight, Play, Scan, Smartphone, Video, Wand2 } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Camera, ChevronLeft, ChevronRight, Pause, Play, Scan, Smartphone, Video, Volume2, VolumeX, Wand2 } from 'lucide-react';
 import { PillButton, SectionLabel } from './oakline/primitives';
 import { SIGNATURE_VIDEOS, type SignatureVideo } from './signatureVideos';
 import './signature-media-bento.css';
@@ -7,18 +7,34 @@ import './signature-media-bento.css';
 export const SignatureVideoCarousel: React.FC<{ videos?: SignatureVideo[] }> = ({ videos = SIGNATURE_VIDEOS }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [started, setStarted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
   const [failed, setFailed] = useState(false);
   const player = useRef<HTMLVideoElement>(null);
+  const continuePlayback = useRef(false);
   const currentIndex = Math.min(activeIndex, Math.max(0, videos.length - 1));
   const current = videos[currentIndex];
   const canNavigate = videos.length > 1;
 
-  const selectVideo = (index: number) => {
+  // Once playback has been requested, changing stories keeps it running.
+  useEffect(() => {
+    const video = player.current;
+    if (!video || !continuePlayback.current) return;
+    void video.play().catch(() => {
+      if (player.current === video) setIsPlaying(false);
+    });
+  }, [current?.id]);
+
+  const selectVideo = (index: number, autoplay = started) => {
     if (!canNavigate) return;
     const next = (index + videos.length) % videos.length;
     if (next === currentIndex) return;
+    continuePlayback.current = autoplay;
     player.current?.pause();
     setStarted(false);
+    setIsPlaying(false);
+    setProgress(0);
     setFailed(false);
     setActiveIndex(next);
   };
@@ -27,41 +43,93 @@ export const SignatureVideoCarousel: React.FC<{ videos?: SignatureVideo[] }> = (
     const video = player.current;
     if (!video) return;
     if (failed) video.load();
+    continuePlayback.current = true;
     setFailed(false);
     void video.play().catch(() => {
-      if (player.current === video) setFailed(true);
+      if (player.current === video) setIsPlaying(false);
     });
+  };
+
+  const togglePlayback = () => {
+    if (isPlaying) player.current?.pause();
+    else play();
+  };
+
+  const updateProgress = (video: HTMLVideoElement) => {
+    if (Number.isFinite(video.duration) && video.duration > 0) {
+      setProgress(Math.min(1, video.currentTime / video.duration));
+    }
   };
 
   if (!current) return null;
 
   return (
-    <div className="signature-film" role="region" aria-roledescription="carrousel" aria-label="Films de présentation immobilière">
+    <div className="signature-film" role="region" aria-roledescription="carrousel" aria-label="Films de présentation immobilière" onKeyDown={(event) => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        selectVideo(currentIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    }}>
       <div className="signature-film-screen" role="group" aria-roledescription="diapositive" aria-label={`${currentIndex + 1} sur ${videos.length} : ${current.title}`}>
         <video
           key={current.id}
           ref={player}
           src={current.src}
           poster={current.poster}
-          controls={started}
+          muted={muted}
           playsInline
           preload="none"
           aria-label={`Film de présentation : ${current.title}, ${current.location}`}
-          onPlay={() => setStarted(true)}
-          onError={() => setFailed(true)}
+          onPlay={() => { setStarted(true); setIsPlaying(true); }}
+          onPause={() => setIsPlaying(false)}
+          onTimeUpdate={(event) => updateProgress(event.currentTarget)}
+          onLoadedMetadata={(event) => updateProgress(event.currentTarget)}
+          onEnded={() => {
+            setProgress(1);
+            setIsPlaying(false);
+            if (currentIndex < videos.length - 1) selectVideo(currentIndex + 1, true);
+            else continuePlayback.current = false;
+          }}
+          onError={() => { setFailed(true); setIsPlaying(false); }}
         />
-        {!started && !failed && (
-          <div className="signature-film-cover">
-            <p className="signature-eyebrow"><Video size={15} aria-hidden="true" /> Film de présentation</p>
-            <button type="button" className="signature-play" onClick={play} aria-label={`Lire le film : ${current.title}`}>
-              <Play size={27} fill="currentColor" strokeWidth={1.4} aria-hidden="true" />
-            </button>
-            <div className="signature-film-title">
+        <div className="signature-film-overlay">
+          <div className="signature-story-progress" aria-label="Choisir un film">
+            {videos.map((video, index) => (
+              <button key={video.id} type="button" className="signature-story-segment" aria-label={`Voir la vidéo ${index + 1} : ${video.title}`} aria-current={index === currentIndex ? 'true' : undefined} onClick={() => selectVideo(index)}>
+                <span className="signature-story-track"><span style={{ transform: `scaleX(${index < currentIndex ? 1 : index === currentIndex ? progress : 0})` }} /></span>
+              </button>
+            ))}
+          </div>
+          <div className="signature-film-topline">
+            <p className="signature-eyebrow"><Video size={15} aria-hidden="true" /> Nos films</p>
+            <span className="signature-film-count">{String(currentIndex + 1).padStart(2, '0')} / {String(videos.length).padStart(2, '0')}</span>
+          </div>
+          <div className="signature-film-bottom">
+            <div className="signature-film-title" aria-live="polite" aria-atomic="true">
               <span>{current.location}</span>
               <h3>{current.title}</h3>
               <p>Les volumes, la lumière, l’atmosphère.</p>
             </div>
+            <div className="signature-film-controls">
+              <div className="signature-film-playback">
+                <button type="button" className="signature-film-control" onClick={togglePlayback} aria-label={isPlaying ? 'Mettre le film en pause' : 'Lire le film'}>
+                  {isPlaying ? <Pause size={18} aria-hidden="true" /> : <Play size={18} aria-hidden="true" />}
+                </button>
+                <button type="button" className="signature-film-control" onClick={() => setMuted(!muted)} aria-label={muted ? 'Activer le son du film' : 'Couper le son du film'} aria-pressed={!muted}>
+                  {muted ? <VolumeX size={18} aria-hidden="true" /> : <Volume2 size={18} aria-hidden="true" />}
+                </button>
+              </div>
+              {canNavigate && <div className="signature-film-directions">
+                <button type="button" className="signature-film-control" onClick={() => selectVideo(currentIndex - 1)} aria-label="Vidéo précédente"><ChevronLeft size={20} aria-hidden="true" /></button>
+                <button type="button" className="signature-film-control" onClick={() => selectVideo(currentIndex + 1)} aria-label="Vidéo suivante"><ChevronRight size={20} aria-hidden="true" /></button>
+              </div>}
+            </div>
           </div>
+        </div>
+        {!started && !failed && (
+          <button type="button" className="signature-play" onClick={play} aria-label={`Lire le film : ${current.title}`}>
+            <Play size={27} fill="currentColor" strokeWidth={1.4} aria-hidden="true" />
+          </button>
         )}
         {failed && (
           <div className="signature-film-error" role="alert">
@@ -69,26 +137,6 @@ export const SignatureVideoCarousel: React.FC<{ videos?: SignatureVideo[] }> = (
             <button type="button" onClick={play}>Réessayer la lecture</button>
           </div>
         )}
-      </div>
-      <div className="signature-film-navigation" onKeyDown={(event) => {
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-          event.preventDefault();
-          selectVideo(currentIndex + (event.key === 'ArrowRight' ? 1 : -1));
-        }
-      }}>
-        <div className="signature-film-meta" aria-live="polite" aria-atomic="true">
-          <span>Nos films</span>
-          <p>{current.location} <span className="signature-film-count">{String(currentIndex + 1).padStart(2, '0')} / {String(videos.length).padStart(2, '0')}</span></p>
-        </div>
-        <div className="signature-film-controls">
-          <button type="button" className="signature-arrow" disabled={!canNavigate} onClick={() => selectVideo(currentIndex - 1)} aria-label="Vidéo précédente"><ChevronLeft size={19} aria-hidden="true" /></button>
-          <div className="signature-dots" aria-label="Choisir une vidéo">
-            {videos.map((video, index) => (
-              <button key={video.id} type="button" className="signature-dot" aria-label={`Voir la vidéo ${index + 1} : ${video.title}`} aria-current={index === currentIndex ? 'true' : undefined} onClick={() => selectVideo(index)}><span /></button>
-            ))}
-          </div>
-          <button type="button" className="signature-arrow" disabled={!canNavigate} onClick={() => selectVideo(currentIndex + 1)} aria-label="Vidéo suivante"><ChevronRight size={19} aria-hidden="true" /></button>
-        </div>
       </div>
     </div>
   );

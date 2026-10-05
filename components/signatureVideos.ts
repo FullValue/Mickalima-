@@ -6,7 +6,7 @@ export interface SignatureVideo {
   location: string;
 }
 
-// Ajouter ici les prochains films : flèches et points suivent cette liste.
+// Ajouter ici les prochains films : les segments et l’enchaînement suivent cette liste.
 export const SIGNATURE_VIDEOS: SignatureVideo[] = [
   {
     id: 'villa-grilly',

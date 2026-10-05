@@ -18,8 +18,8 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const IMAGES = {
-  logo: "https://i.imgur.com/lwDyyfu.png",
-  logoWhite: "https://i.imgur.com/lwDyyfu.png",
+  logo: "/images/mickael-lima-logo.png",
+  logoWhite: "/images/mickael-lima-logo.png",
   // Photo officielle de Mickaël (crop carré, buste légèrement coupé): servie en local
   heroAgent: "/images/micka-photo.jpg",
   heroBg: "https://madebydesignesia.com/themes/homely/images/demo/homepage-1.webp",
