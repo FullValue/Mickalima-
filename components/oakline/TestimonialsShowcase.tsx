@@ -1,11 +1,12 @@
 import React from 'react';
 import { Star } from 'lucide-react';
+import { GOOGLE_REVIEWS_COUNT } from '../../constants';
 import { PillButton, Reveal, SectionHeader } from './primitives';
 import { useMarqueeScroll } from './useMarqueeScroll';
 
 /**
  * Avis clients : photo pleine largeur avec note agrégée Google (5,0/5,
- * 25 avis vérifiés) puis slider autoplay des cartes d'avis: défilement
+ * nombre d’avis vérifié sur la fiche Google) puis slider autoplay des cartes d'avis: défilement
  * lent droite→gauche, pause au survol, fondu doux sur les bords.
  * Avis Google validés par le client.
  */
@@ -87,7 +88,7 @@ export const TestimonialsShowcase: React.FC = () => {
               5,0<span className="text-3xl text-white/70">/5</span>
             </p>
             <p className="mt-3 text-sm leading-relaxed text-white/80 md:text-base">
-              Sur <span className="font-semibold text-white">25 avis Google
+              Sur <span className="font-semibold text-white">{GOOGLE_REVIEWS_COUNT} avis Google
               vérifiés</span>: clientèle du Pays de Gex et du bassin genevois.
             </p>
             <PillButton

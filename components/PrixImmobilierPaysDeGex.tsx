@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { m } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, MapPin, TrendingUp } from 'lucide-react';
-import { COMMUNES, COMMUNE_CARD_IMAGES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE } from '../constants';
+import { GOOGLE_REVIEWS_COUNT, COMMUNES, COMMUNE_CARD_IMAGES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE } from '../constants';
 import { SEO } from './SEO';
 
 export const PrixImmobilierPaysDeGex: React.FC = () => {
@@ -44,7 +44,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '5.0',
-        reviewCount: '25',
+        reviewCount: GOOGLE_REVIEWS_COUNT,
         bestRating: '5',
         worstRating: '1',
       },

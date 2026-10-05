@@ -7,6 +7,9 @@ export const COLORS = {
   bg: '#FFFFFF'
 };
 
+// Fiche Google de Mickaël Lima : nombre vérifié le 5 octobre 2026.
+export const GOOGLE_REVIEWS_COUNT = 29;
+
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Accueil', path: '/' },
   { label: 'Services & Mandats', path: '/mandats' },

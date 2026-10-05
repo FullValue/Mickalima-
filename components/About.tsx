@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star, ArrowDown, SearchCheck, Camera, Handshake } from 'lucide-react';
 import { SEO } from './SEO';
+import { GOOGLE_REVIEWS_COUNT } from '../constants';
 import { PartnerMethod } from './PartnerMethod';
 import { AGENT_PHOTO } from './nosBiensShared';
 import { PillButton, Reveal, SectionLabel } from './oakline/primitives';
@@ -21,7 +22,7 @@ const ABOUT_SCHEMA = {
   },
   areaServed: 'Pays de Gex',
   description:
-    'Expert immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. 8 ans d’expérience, plus de 240 ventes en 5 ans.',
+    'Expert immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. Plus de 8 ans d’expérience, plus de 240 ventes en 5 ans.',
   knowsAbout: [
     'Immobilier Pays de Gex',
     'Marché frontalier franco-suisse',
@@ -34,9 +35,9 @@ const ABOUT_SCHEMA = {
 };
 
 const KEY_STATS = [
-  { value: '8 ans', label: "d'expérience" },
+  { value: '8 ans+', label: "d'expérience" },
   { value: '+ de 240', label: 'ventes en 5 ans' },
-  { value: '25', label: 'avis 5 étoiles Google' },
+  { value: String(GOOGLE_REVIEWS_COUNT), label: 'avis Google' },
   { value: '40+', label: 'portails de diffusion' },
   { value: '20', label: 'communes couvertes' },
   { value: '24 h', label: 'délai de réponse annoncé' },
@@ -62,7 +63,7 @@ export const About: React.FC = () => (
   <>
     <SEO
       title="À propos : Mickaël Lima | Expert immobilier Pays de Gex"
-      description="Découvrez Mickaël Lima Dos Santos, expert immobilier avec 8 ans d'expérience dans le Pays de Gex (plus de 240 ventes en 5 ans). Connaissance locale, stratégie de vente et accompagnement personnalisé."
+      description="Découvrez Mickaël Lima Dos Santos, expert immobilier avec plus de 8 ans d'expérience dans le Pays de Gex (plus de 240 ventes en 5 ans). Connaissance locale, stratégie de vente et accompagnement personnalisé."
       canonical="/about"
       schema={ABOUT_SCHEMA}
     />
@@ -97,7 +98,7 @@ export const About: React.FC = () => (
                   <p className="font-serif text-2xl">Mickaël Lima Dos Santos</p>
                   <p className="mt-1 text-xs text-white/75">Expert immobilier indépendant · Divonne-les-Bains</p>
                 </figcaption>
-                <a href="https://share.google/fvsAyaT6pI2059MZF" target="_blank" rel="noopener noreferrer" className="absolute -top-4 right-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white px-4 py-3 text-xs shadow-lg"><Star size={13} className="fill-[#011d41]" aria-hidden="true" />5,0 · 25 avis Google</a>
+                <a href="https://share.google/fvsAyaT6pI2059MZF" target="_blank" rel="noopener noreferrer" className="absolute -top-4 right-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white px-4 py-3 text-xs shadow-lg"><Star size={13} className="fill-[#011d41]" aria-hidden="true" />5,0 · {GOOGLE_REVIEWS_COUNT} avis Google</a>
               </figure>
             </Reveal>
           </div>
@@ -108,7 +109,7 @@ export const About: React.FC = () => (
               <p className="mt-7 text-xl leading-relaxed">Bonjour, je suis Mickaël Lima Dos Santos, expert immobilier indépendant, basé à Divonne-les-Bains, au cœur du Pays de Gex.</p>
             </Reveal>
             <div className="mt-9 space-y-6 text-base leading-relaxed text-gray-500 md:text-lg">
-              <Reveal y={6}><p>Depuis 8 ans, j’accompagne les projets immobiliers du secteur : appartements, maisons, biens de prestige et locaux commerciaux. Plus de 240 ventes réalisées dans le Pays de Gex au cours des cinq dernières années ont construit ma connaissance du terrain.</p></Reveal>
+              <Reveal y={6}><p>Depuis plus de 8 ans, j’accompagne les projets immobiliers du secteur : appartements, maisons, biens de prestige et locaux commerciaux. Plus de 240 ventes réalisées dans le Pays de Gex au cours des cinq dernières années ont construit ma connaissance du terrain.</p></Reveal>
               <Reveal y={6}><p>Bilingue français-anglais, je travaille avec une clientèle française, suisse et internationale : frontaliers, expatriés et collaborateurs du CERN, de l’ONU et de l’OMS. Cette proximité m’aide à comprendre les attentes de chaque acquéreur.</p></Reveal>
               <Reveal y={6}><p>Mon ancrage à Divonne me permet de lire les micro-marchés commune par commune, de connaître les infrastructures locales et d’estimer votre bien au juste prix dès notre premier rendez-vous. Rémunéré uniquement à la commission, je partage votre objectif : une vente réussie.</p></Reveal>
             </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { LazyMotion, domAnimation, AnimatePresence, m } from 'framer-motion';
 import { SEO } from './components/SEO';
+import { GOOGLE_REVIEWS_COUNT } from './constants';
 
 // domAnimation importé en sync : le loader async cassait le SSG
 // (LazyMotion suspendait le rendu, fallback HomePage sur toutes les routes).
@@ -80,7 +81,7 @@ const HOMEPAGE_SCHEMA = [
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5',
-      reviewCount: '25',
+      reviewCount: GOOGLE_REVIEWS_COUNT,
       bestRating: '5',
       worstRating: '1',
     },
@@ -88,7 +89,7 @@ const HOMEPAGE_SCHEMA = [
       '@type': 'Person',
       name: 'Mickaël Lima Dos Santos',
       jobTitle: 'Expert immobilier',
-      description: "8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (plus de 240 ventes sur les 5 dernières années)",
+      description: "Plus de 8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (plus de 240 ventes sur les 5 dernières années)",
       telephone: '+33769313502',
       email: 'contact@mickael-lima.immo',
     },

@@ -15,7 +15,7 @@ import {
   Building2,
   TrendingDown,
 } from 'lucide-react';
-import { COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
+import { GOOGLE_REVIEWS_COUNT, COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
 
 const CRITERIA_BASE = [
@@ -109,7 +109,7 @@ export const FrontalierCommunePage: React.FC = () => {
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '5.0',
-        reviewCount: '25',
+        reviewCount: GOOGLE_REVIEWS_COUNT,
         bestRating: '5',
         worstRating: '1',
       },

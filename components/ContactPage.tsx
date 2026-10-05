@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { SEO } from './SEO';
 import { FaqQuestions } from './oakline/FaqQuestions';
-import { IMAGES } from '../constants';
+import { GOOGLE_REVIEWS_COUNT, IMAGES } from '../constants';
 import { buildWhatsappUrl, WHATSAPP_PATH } from './oakline/whatsapp';
 import { track } from './oakline/tracking';
 import { m } from 'framer-motion';
@@ -231,7 +231,7 @@ export const ContactPage: React.FC = () => {
                                             <Star size={16} fill="currentColor" className="text-white" aria-hidden="true" />
                                             <span className="ml-2 font-semibold text-lg">5/5</span>
                                         </div>
-                                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">25 avis clients</p>
+                                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">{GOOGLE_REVIEWS_COUNT} avis clients</p>
                                     </div>
                                 </div>
                             </div>

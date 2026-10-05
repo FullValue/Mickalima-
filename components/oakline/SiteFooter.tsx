@@ -265,11 +265,8 @@ export const SiteFooter: React.FC = () => (
       </div>
 
       {/* Barre basse */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-6 text-sm text-white/55">
-        <span>© 2026 Mickaël Lima. Tous droits réservés.</span>
-        <PillButton to="/estimation" variant="light" arrow>
-          Estimation offerte
-        </PillButton>
+      <div className="pt-6 text-center text-sm text-white/55">
+        <p>© 2026 Mickaël Lima. Tous droits réservés.</p>
       </div>
     </div>
   </footer>

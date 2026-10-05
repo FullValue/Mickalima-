@@ -257,16 +257,16 @@ export const RevalisFooter: React.FC = () => (
 
       <div
         style={{
-          borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 24, fontSize: 14,
-          color: 'rgba(255,255,255,0.5)', display: 'flex', flexWrap: 'wrap',
-          justifyContent: 'space-between', gap: 12,
+          paddingTop: 24, fontSize: 14, textAlign: 'center',
+          color: 'rgba(255,255,255,0.5)', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', gap: 20,
         }}
       >
-        <span>© 2026 Mickaël Lima. Tous droits réservés.</span>
-        <span style={{ display: 'flex', gap: 20 }}>
+        <span style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 20 }}>
           <Link to="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</Link>
           <Link to="/politique-confidentialite" style={{ color: 'inherit', textDecoration: 'none' }}>Politique de confidentialité</Link>
         </span>
+        <span>© 2026 Mickaël Lima. Tous droits réservés.</span>
       </div>
     </div>
 
