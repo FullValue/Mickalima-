@@ -145,7 +145,7 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Source : <a href="https://cin-lyon.notaires.fr/wp-content/uploads/2026/03/CID_light01_2025T4.pdf">Notaires de France, conjoncture de l'Ain, ventes 2025</a>.</p>
 
     <h2>Des écarts réels d'une commune à l'autre</h2>
-    <p>Le baromètre notarial de mai 2025 publie les médianes suivantes pour les <strong>appartements anciens</strong> dans cinq communes du secteur. Ces chiffres communaux sont plus anciens que la médiane 2025 ci-dessus : leur date est indiquée pour éviter de les présenter comme des résultats de septembre 2026.</p>
+    <p>Le baromètre notarial de mai 2025 publie les médianes suivantes pour les <strong>appartements anciens</strong> dans cinq communes du secteur.</p>
     <table>
       <thead><tr><th>Commune</th><th>Appartement ancien, prix médian au m²</th><th>Évolution sur un an à la date du baromètre</th></tr></thead>
       <tbody>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { IMAGES, COMMUNES } from '../constants';
+import { IMAGES, COMMUNES, COMMUNE_CARD_IMAGES } from '../constants';
 import { SEO } from './SEO';
 import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
 import { m, AnimatePresence } from 'framer-motion';
+import { PillButton } from './oakline/primitives';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -201,12 +202,9 @@ export const Estimation: React.FC = () => {
                                         <input type="tel" name="telephone" placeholder="Téléphone" className="w-full bg-surface border-2 border-transparent p-4 rounded-[10px] text-lg font-medium outline-none focus:bg-white focus:border-primary/20 hover:border-gray-200 transition-all placeholder:text-gray-400" required />
                                     </div>
 
-                                    <button type="submit" disabled={status === 'loading'} className="group w-full bg-white text-textMain border border-gray-200 rounded-full p-2 pr-8 font-bold text-xl flex items-center gap-4 hover:bg-gray-50 transition-all duration-500 shadow-sm transform hover:-translate-y-1 mt-6 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0">
-                                        <div className="w-14 h-14 bg-textMain text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0">
-                                            <ArrowUpRight size={24} />
-                                        </div>
-                                        <span className="tracking-wide">{status === 'loading' ? 'Envoi en cours…' : "Solliciter l'estimation"}</span>
-                                    </button>
+                                    <PillButton type="submit" disabled={status === 'loading'} className="mt-6">
+                                        {status === 'loading' ? 'Envoi en cours…' : "Solliciter l'estimation"}
+                                    </PillButton>
 
                                     {status === 'loading' && (
                                         <p className="text-gray-400 font-medium mt-2 text-center">Envoi en cours...</p>
@@ -292,32 +290,50 @@ export const Estimation: React.FC = () => {
         </section>
 
         {/* ── Estimation par commune ── */}
-        <section className="py-20 bg-surface border-t border-gray-100">
+        <section aria-labelledby="estimation-communes-title" className="py-20 bg-surface border-t border-gray-100">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <span className="inline-block py-1 px-4 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4">
                         Pays de Gex
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-medium text-textMain tracking-tight">
+                    <h2 id="estimation-communes-title" className="text-3xl md:text-4xl font-medium text-textMain tracking-tight">
                         Estimation par commune
                     </h2>
                     <p className="text-gray-500 font-light mt-3 max-w-lg mx-auto">
                         Chaque commune du Pays de Gex a son propre marché. Consultez les prix et demandez une estimation précise pour votre secteur.
                     </p>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
-                    {COMMUNES.map((c) => (
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 max-w-5xl mx-auto">
+                    {COMMUNES.map((c) => {
+                        const image = COMMUNE_CARD_IMAGES[c.slug];
+                        return (
                         <Link
                             key={c.slug}
                             to={`/${c.slug}/estimation-immobiliere`}
-                            className="group flex flex-col items-center gap-2 bg-white rounded-[10px] p-5 border border-gray-100 shadow-sm hover:border-primary/20 transition-all text-center"
+                            aria-label={`Estimer un bien à ${c.name}`}
+                            className="group relative block h-36 overflow-hidden rounded-[20px] bg-[#011d41] shadow-sm sm:h-44 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]"
                         >
-                            <span className="font-bold text-textMain text-sm group-hover:text-primary transition-colors leading-tight">
+                            <picture>
+                                {image.mobileSrc && <source media="(max-width: 767px)" srcSet={image.mobileSrc} />}
+                                <img
+                                    src={image.src}
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 motion-reduce:transition-none"
+                                    style={{ objectPosition: image.objectPosition }}
+                                />
+                            </picture>
+                            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#011d41]/90 via-[#011d41]/25 to-black/10" />
+                            <span aria-hidden="true" className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-[#011d41] transition-transform duration-300 group-hover:rotate-45 motion-reduce:transition-none sm:right-4 sm:top-4">
+                                <ArrowUpRight size={16} />
+                            </span>
+                            <span className="absolute inset-x-0 bottom-0 p-4 font-serif text-lg leading-tight tracking-tight text-white sm:p-5 sm:text-2xl">
                                 {c.name}
                             </span>
-                            <span className="text-xs text-gray-400 font-light">{c.distanceGeneve}</span>
                         </Link>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>
