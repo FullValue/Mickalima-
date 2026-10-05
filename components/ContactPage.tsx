@@ -138,9 +138,9 @@ export const ContactPage: React.FC = () => {
                     </Reveal>
                     <Reveal delay={0.08}>
                         <h1 className="mt-6 font-serif text-4xl leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">
-                            Votre projet commence
+                            Votre projet
                             <br />
-                            <span className="italic">ici.</span>
+                            <span className="whitespace-nowrap italic">commence ici.</span>
                         </h1>
                     </Reveal>
                     <Reveal delay={0.16}>
@@ -346,8 +346,9 @@ export const ContactPage: React.FC = () => {
                         label="Notre charte"
                         title={
                             <>
-                                Nos engagements,{' '}
-                                <span className="italic">noirs sur blanc.</span>
+                                Nos engagements,
+                                <br />
+                                <span className="whitespace-nowrap italic">noirs sur blanc.</span>
                             </>
                         }
                         subtitle="Trois principes non négociables qui structurent chaque accompagnement, de la première prise de contact à la signature."
