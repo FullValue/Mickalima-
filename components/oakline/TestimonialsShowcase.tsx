@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 import { PillButton, Reveal, SectionHeader } from './primitives';
+import { useMarqueeScroll } from './useMarqueeScroll';
 
 /**
  * Avis clients : photo pleine largeur avec note agrégée Google (5,0/5,
@@ -52,7 +53,9 @@ const Stars: React.FC<{ className?: string }> = ({ className = '' }) => (
   </div>
 );
 
-export const TestimonialsShowcase: React.FC = () => (
+export const TestimonialsShowcase: React.FC = () => {
+  const { ref: marquee, copies } = useMarqueeScroll(TESTIMONIALS.length);
+  return (
   <section className="bg-white py-24 md:py-32">
     <div className="container mx-auto px-6">
       <SectionHeader
@@ -102,14 +105,16 @@ export const TestimonialsShowcase: React.FC = () => (
 
     {/* Slider autoplay des cartes d'avis (fondu sur les bords) */}
     <div
+      ref={marquee}
       aria-label="Témoignages clients défilant automatiquement"
+      tabIndex={0}
       className="marquee marquee-mask mt-12 overflow-x-auto md:mt-16 [-ms-overflow-style:none] [scrollbar-width:none]"
     >
       <div
         className="marquee-track px-6"
         style={{ '--marquee-duration': '38s' } as React.CSSProperties}
       >
-        {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+        {Array.from({ length: copies }, () => TESTIMONIALS).flat().map((t, i) => (
           <article
             key={`${t.name}-${i}`}
             aria-hidden={i >= TESTIMONIALS.length || undefined}
@@ -133,4 +138,5 @@ export const TestimonialsShowcase: React.FC = () => (
       </div>
     </div>
   </section>
-);
+  );
+};

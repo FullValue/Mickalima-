@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { COMMUNES, COMMUNE_CARD_IMAGES, COMMUNE_DVF_PERIOD } from '../../constants';
 import { PillButton, Reveal, SectionHeader } from './primitives';
+import { useMarqueeScroll } from './useMarqueeScroll';
 
 /**
  * Zones d'intervention : slider autoplay des communes (cartes image,
@@ -16,7 +17,9 @@ const COMMUNES_SLIDER = COMMUNES.filter(
   (commune) => COMMUNE_CARD_IMAGES[commune.slug],
 );
 
-export const NeighborhoodsGrid: React.FC = () => (
+export const NeighborhoodsGrid: React.FC = () => {
+  const { ref: marquee, copies } = useMarqueeScroll(COMMUNES_SLIDER.length);
+  return (
   <section className="bg-[#f5f5f5] py-24 md:py-32">
     <div className="container mx-auto px-6">
       <SectionHeader
@@ -27,6 +30,7 @@ export const NeighborhoodsGrid: React.FC = () => (
     </div>
 
     <div
+      ref={marquee}
       aria-label="Communes du Pays de Gex"
       className="marquee marquee-mask mt-14 overflow-x-auto md:mt-16 [-ms-overflow-style:none] [scrollbar-width:none]"
     >
@@ -34,7 +38,7 @@ export const NeighborhoodsGrid: React.FC = () => (
         className="marquee-track px-6"
         style={{ '--marquee-duration': '48s' } as React.CSSProperties}
       >
-        {[...COMMUNES_SLIDER, ...COMMUNES_SLIDER].map((commune, i) => {
+        {Array.from({ length: copies }, () => COMMUNES_SLIDER).flat().map((commune, i) => {
           const image = COMMUNE_CARD_IMAGES[commune.slug];
 
           return (
@@ -92,4 +96,5 @@ export const NeighborhoodsGrid: React.FC = () => (
       </Reveal>
     </div>
   </section>
-);
+  );
+};

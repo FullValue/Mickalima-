@@ -135,7 +135,7 @@ img {
 /* ---- Sliders autoplay (avis clients, communes) ---- */
 @keyframes marquee-x {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(calc(-1 * var(--marquee-distance, 50%))); }
 }
 .marquee-track {
   display: flex;
@@ -143,8 +143,14 @@ img {
   animation: marquee-x var(--marquee-duration, 40s) linear infinite;
 }
 .marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track {
+.marquee:focus-within .marquee-track,
+.marquee[data-visible='false'] .marquee-track,
+.marquee[data-document-hidden='true'] .marquee-track {
   animation-play-state: paused;
+}
+.marquee[data-manual='true'] .marquee-track {
+  animation: none;
+  transform: none;
 }
 /* Fondu doux sur les bords gauche/droite */
 .marquee-mask {
