@@ -7,7 +7,7 @@ import { PillButton, SectionLabel } from './oakline/primitives';
 /**
  * Briques de la nouvelle DA (reprise de /nos-biens: template Revalis) :
  * fond clair #f7f7f7, hero image sombre pleine largeur, cartes blanches
- * cartes sobres, titres Playfair Display, textes Inter, colonne sticky.
+ * cartes sobres, titres Instrument Sans, textes Inter, colonne sticky.
  * Utilisées par les pages service (mandats).
  */
 
@@ -212,10 +212,11 @@ export const RecapBand: React.FC<{
   ctaTo: string;
   note?: string;
   image?: string;
-}> = ({ badgeIcon, kicker, title, description, cards, ctaLabel, ctaTo, note, image }) => (
+  media?: React.ReactNode;
+}> = ({ badgeIcon, kicker, title, description, cards, ctaLabel, ctaTo, note, image, media }) => (
   <section style={{ background: T.navy, color: '#fff', padding: 'clamp(76px, 8vw, 112px) 0' }}>
     <div style={wrap}>
-      <div className="sv-recap-lead" style={{ display: 'grid', gridTemplateColumns: image ? 'minmax(0, 1fr) minmax(0, 0.95fr)' : '1fr', gap: 'clamp(40px, 6vw, 90px)', alignItems: 'center', marginBottom: 62 }}>
+      <div className="sv-recap-lead" style={{ display: 'grid', gridTemplateColumns: image || media ? 'minmax(0, 1fr) minmax(0, 1.1fr)' : '1fr', gap: 'clamp(32px, 4vw, 60px)', alignItems: 'center', marginBottom: 62 }}>
         <div style={{ maxWidth: 660 }}>
           <SectionLabel tone="light" icon={badgeIcon} className="mb-6">{kicker}</SectionLabel>
           <h2 style={{ fontFamily: T.heading, fontWeight: 400, fontSize: 'clamp(36px, 4.6vw, 62px)', lineHeight: '1.06em', marginBottom: 20 }}>
@@ -225,11 +226,11 @@ export const RecapBand: React.FC<{
           <PillButton to={ctaTo} variant="light" arrow>{ctaLabel}</PillButton>
           {note && <p style={{ fontSize: 13, lineHeight: 1.5, color: 'rgba(255,255,255,0.52)', marginTop: 20 }}>{note}</p>}
         </div>
-        {image && (
+        {media ?? (image && (
           <figure style={{ margin: 0 }}>
             <img src={image} alt="Ambiance immobilière" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 16 }} />
           </figure>
-        )}
+        ))}
       </div>
 
       <div className="sv-recap" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 28, borderTop: '1px solid rgba(255,255,255,0.2)' }}>

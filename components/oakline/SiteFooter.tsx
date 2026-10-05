@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { IMAGES, NAV_ITEMS } from '../../constants';
 import { PillButton } from './primitives';
 
@@ -73,7 +73,7 @@ const NewsletterForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-7">
+    <form onSubmit={handleSubmit} className="mt-7 w-full min-w-0 max-w-md">
       <div className="flex max-w-md items-center gap-2 rounded-full border border-white/20 bg-white/10 p-1.5 backdrop-blur transition-colors focus-within:border-white/50">
         <label htmlFor="footer-newsletter-email" className="sr-only">
           Votre adresse email
@@ -85,7 +85,7 @@ const NewsletterForm: React.FC = () => {
           required
           autoComplete="email"
           placeholder="Votre adresse email"
-          className="w-full bg-transparent px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none"
+          className="min-w-0 flex-1 bg-transparent px-4 py-2.5 text-sm text-white placeholder:text-white/50 focus:outline-none"
         />
         {/* Honeypot anti-bot */}
         <input
@@ -96,18 +96,14 @@ const NewsletterForm: React.FC = () => {
           autoComplete="off"
           aria-hidden="true"
         />
-        <button
+        <PillButton
           type="submit"
+          variant="light"
           disabled={status === 'loading'}
-          className="group flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#011d41] transition-colors hover:bg-white/90 disabled:opacity-60"
+          className="shrink-0"
         >
           {status === 'loading' ? 'Envoi…' : "S'abonner"}
-          <ArrowUpRight
-            size={15}
-            aria-hidden="true"
-            className="transition-transform duration-300 group-hover:rotate-45"
-          />
-        </button>
+        </PillButton>
       </div>
       <div aria-live="polite" className="mt-3 min-h-[1.25rem] text-sm">
         {status === 'success' && (
@@ -275,7 +271,7 @@ export const SiteFooter: React.FC = () => (
       {/* Barre basse */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-6 text-sm text-white/55">
         <span>© 2026 Mickaël Lima. Tous droits réservés.</span>
-        <PillButton to="/estimation" variant="light" arrow className="!px-5 !py-2.5 text-xs">
+        <PillButton to="/estimation" variant="light" arrow>
           Estimation offerte
         </PillButton>
       </div>

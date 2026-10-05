@@ -15,6 +15,7 @@ import {
 import { m, useReducedMotion } from 'framer-motion';
 import { SEO } from './SEO';
 import { SignatureMediaBento } from './SignatureMediaBento';
+import { SignatureClientGallery } from './SignatureClientGallery';
 import { IMAGES } from '../constants';
 import { T } from './nosBiensShared';
 import { wrap, ServiceHero, StickyIntro, WhiteCard, TwoCol, RecapBand, ServiceStyles } from './serviceUI';
@@ -22,7 +23,7 @@ import { wrap, ServiceHero, StickyIntro, WhiteCard, TwoCol, RecapBand, ServiceSt
 /**
  * Pages service (mandats): nouvelle DA reprise de /nos-biens :
  * fond clair, hero image sombre pleine largeur, cartes blanches sobres,
- * titres Playfair Display, colonnes sticky, bandeau récapitulatif navy.
+ * titres Instrument Sans, colonnes sticky, bandeau récapitulatif navy.
  * Les sections médias, diffusion, suivi et visites restent détaillées.
  */
 
@@ -610,6 +611,7 @@ export const MandatSignature: React.FC = () => (
         ctaLabel="Je choisis l'excellence"
         ctaTo="/estimation"
         note="Les prestations précises sont détaillées dans le mandat et adaptées au bien."
+        media={<SignatureClientGallery />}
       />
     </div>
 

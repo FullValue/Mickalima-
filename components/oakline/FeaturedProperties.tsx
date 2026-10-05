@@ -118,7 +118,7 @@ export const FeaturedProperties: React.FC = () => {
 
                 <div className="p-2.5">
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="min-w-0 font-sans text-[22px] font-medium leading-[1.3] text-[#1a1a1a]">
+                    <h3 className="min-w-0 font-serif text-[22px] font-medium leading-[1.3] text-[#1a1a1a]">
                       {bien.typeLabel} à {bien.city}
                     </h3>
                     <p className="shrink-0 font-sans text-[22px] font-medium leading-[1.3] text-[#1a1a1a]">{formatPrice(bien.price)}</p>

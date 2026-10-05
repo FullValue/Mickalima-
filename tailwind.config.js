@@ -15,10 +15,11 @@ export default {
         border: '#ebebeb',
       },
       fontFamily: {
-        // Playfair Display pour les titres, Inter pour toute l'interface.
+        // Instrument Sans reprend les titres de la référence 360 Lexington Avenue.
         sans: ['Inter', '"Inter Placeholder"', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
-        newsletter: ['"Playfair Display"', 'serif'],
+        serif: ['"Instrument Sans"', 'sans-serif'],
+        accent: ['"Instrument Serif"', 'serif'],
+        newsletter: ['"Instrument Serif"', 'serif'],
       },
     },
   },

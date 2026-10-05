@@ -145,7 +145,7 @@ export const SectionLabel: React.FC<SectionLabelProps> = ({
 );
 
 /* ------------------------------------------------------------------ */
-/* PillButton: bouton pilule (solid bleu / ghost clair / light blanc) */
+/* PillButton: CTA commun à la navbar et aux sections du site.        */
 /* Rend un Link (to), un <a> (href) ou un <button>.                    */
 /* ------------------------------------------------------------------ */
 type PillVariant = 'solid' | 'ghost' | 'light';
@@ -165,12 +165,9 @@ interface PillButtonProps {
 }
 
 const VARIANT_CLASSES: Record<PillVariant, string> = {
-  solid:
-    'bg-[#011d41] text-white hover:bg-[#123a66] focus-visible:outline-[#011d41]',
-  ghost:
-    'bg-[#f5f5f5] text-[#011d41] hover:bg-[#ebebeb] focus-visible:outline-[#011d41]',
-  light:
-    'bg-white text-[#011d41] hover:bg-white/90 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.35)] focus-visible:outline-[#011d41]',
+  solid: 'focus-visible:outline-[#011d41]',
+  ghost: 'focus-visible:outline-[#011d41]',
+  light: 'focus-visible:outline-white',
 };
 
 export const PillButton: React.FC<PillButtonProps> = ({
@@ -182,11 +179,11 @@ export const PillButton: React.FC<PillButtonProps> = ({
   onClick,
   type = 'button',
   disabled,
-  arrow = false,
+  arrow = true,
   className = '',
   ariaLabel,
 }) => {
-  const base = `group/pill inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-sm font-semibold tracking-wide transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${VARIANT_CLASSES[variant]} ${className}`;
+  const base = `group/pill inline-flex items-center justify-center gap-3 rounded-full bg-white py-1.5 pl-6 pr-1.5 text-sm font-semibold leading-5 text-[#011d41] shadow-lg transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 ${VARIANT_CLASSES[variant]} ${className}`;
 
   const content = (
     <>
@@ -194,9 +191,9 @@ export const PillButton: React.FC<PillButtonProps> = ({
       {arrow && (
         <span
           aria-hidden="true"
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black/5 transition-transform duration-300 group-hover/pill:rotate-45"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#011d41] text-white transition-transform duration-300 group-hover/pill:rotate-45"
         >
-          <ArrowUpRight size={15} strokeWidth={2} />
+          <ArrowUpRight size={16} strokeWidth={2} />
         </span>
       )}
     </>
@@ -275,7 +272,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       <div className="lg:col-span-5">
         <Reveal delay={0.16} y={6}>
           <p
-            className={`max-w-md text-base leading-relaxed md:text-lg lg:ml-auto ${
+            className={`max-w-md font-serif text-base leading-relaxed md:text-lg lg:ml-auto ${
               tone === 'light' ? 'text-white/75' : 'text-gray-500'
             }`}
           >

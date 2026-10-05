@@ -1,0 +1,40 @@
+.signature-client-gallery { min-width: 0; width: 100%; }
+.signature-client-gallery-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
+.signature-client-gallery-heading p { color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .16em; font-size: 10px; margin-bottom: 7px; }
+.signature-client-gallery-heading h3 { font-size: 24px; font-weight: 400; line-height: 1.2; }
+.signature-gallery-pause { flex: none; display: inline-flex; justify-content: center; align-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: white; background: rgba(255,255,255,.08); transition: background .3s; }
+.signature-gallery-pause:hover { background: rgba(255,255,255,.2); }
+.signature-gallery-pause:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+.signature-gallery-columns { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; height: 500px; overflow: hidden; mask-image: linear-gradient(to bottom,transparent,black 8%,black 92%,transparent); }
+.signature-gallery-column { min-width: 0; overflow: hidden; }
+.signature-gallery-track { display: flex; flex-direction: column; animation: signature-gallery-rise var(--gallery-duration,36s) linear infinite; }
+.signature-gallery-column:nth-child(even) .signature-gallery-track { animation-direction: reverse; }
+.signature-gallery-group { display: flex; flex-direction: column; gap: 12px; padding-bottom: 12px; }
+.signature-gallery-photo { position: relative; margin: 0; height: 220px; overflow: hidden; border-radius: 16px; background: rgba(255,255,255,.08); }
+.signature-gallery-photo[data-shape="landscape"] { height: 165px; }
+.signature-gallery-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.signature-gallery-photo > span[aria-hidden="true"] {
+  background: transparent !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  mask-image: linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent), linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);
+  mask-composite: intersect;
+}
+.signature-client-gallery[data-paused="true"] .signature-gallery-track { animation-play-state: paused; }
+.signature-gallery-caption { margin-top: 14px; color: rgba(255,255,255,.52); font-size: 12px; line-height: 1.5; }
+@keyframes signature-gallery-rise { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .signature-gallery-columns { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .signature-gallery-column:nth-child(4) { display: none; }
+}
+@media (max-width: 639px) {
+  .signature-gallery-columns { grid-template-columns: repeat(2,minmax(0,1fr)); height: 430px; }
+  .signature-gallery-column:nth-child(n+3) { display: none; }
+  .signature-gallery-photo { height: 240px; }
+  .signature-gallery-photo[data-shape="landscape"] { height: 180px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signature-gallery-track { animation: none; }
+  .signature-gallery-group[aria-hidden="true"] { display: none; }
+  .signature-gallery-pause { display: none; }
+}

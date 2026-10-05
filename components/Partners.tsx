@@ -4,24 +4,21 @@ import {
     Hammer,
     PaintBucket,
     Building2,
-    SearchCheck,
-    Handshake,
-    KeyRound,
     Quote,
 } from 'lucide-react';
 import { SEO } from './SEO';
+import { PartnerMethod } from './PartnerMethod';
 import './partners-network.css';
 import {
     Reveal,
     SectionLabel,
-    SectionHeader,
     PillButton,
 } from './oakline/primitives';
 
 /**
  * Page Partenaires: alignée sur la DA « Oakline » (accueil) :
- * labels pilules, titres Playfair avec accroche italique, boutons pilule,
- * reveals blur+fade, cartes arrondies 24px, section méthode sur fond navy.
+ * Labels et boutons partagés, titres Instrument Sans avec accents italiques,
+ * réseau d'experts et méthode en trois étapes sur une frise horizontale.
  */
 
 const PARTNERS = [
@@ -59,26 +56,6 @@ const PARTNERS = [
     },
 ];
 
-const METHOD_STEPS = [
-    {
-        icon: SearchCheck,
-        number: '01',
-        title: 'Diagnostic de votre projet',
-        text: "Lors de l'estimation ou du premier échange, j'identifie vos besoins réels : financement à consolider, travaux à anticiper, délais à tenir.",
-    },
-    {
-        icon: Handshake,
-        number: '02',
-        title: 'Mise en relation ciblée',
-        text: 'Je vous présente le bon interlocuteur: pas une liste anonyme. Un contact direct, avec le contexte de votre dossier déjà transmis.',
-    },
-    {
-        icon: KeyRound,
-        number: '03',
-        title: 'Suivi coordonné',
-        text: "Courtier, artisan, notaire : je reste votre point d'entrée unique jusqu'à la signature, pour que chaque intervenant avance dans le même sens.",
-    },
-];
 
 export const Partners: React.FC = () => {
     return (
@@ -210,51 +187,7 @@ export const Partners: React.FC = () => {
                 </section>
 
                 {/* ---------------------------------- MÉTHODE */}
-                <section className="relative overflow-hidden bg-[#011d41] py-24 text-white md:py-32">
-                    <div
-                        aria-hidden="true"
-                        className="pointer-events-none absolute -right-40 top-0 h-[480px] w-[480px] rounded-full bg-white/5 blur-[120px]"
-                    />
-                    <div className="container relative z-10 mx-auto px-6">
-                        <SectionHeader
-                            tone="light"
-                            label="La méthode"
-                            title={
-                                <>
-                                    Comment je vous{' '}
-                                    <span className="italic">oriente.</span>
-                                </>
-                            }
-                            subtitle="Un réseau ne vaut que par la manière dont on l'active. Voici comment je mobilise mes partenaires à chaque étape de votre projet."
-                        />
-
-                        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-                            {METHOD_STEPS.map((step, idx) => (
-                                <Reveal key={step.number} delay={idx * 0.1}>
-                                    <article className="h-full rounded-[24px] border border-white/15 bg-white/[0.06] p-8 backdrop-blur-md transition-colors duration-500 hover:bg-white/10 md:p-10">
-                                        <div className="flex items-center justify-between">
-                                            <span className="font-serif text-5xl italic text-white/30">
-                                                {step.number}
-                                            </span>
-                                            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                                                <step.icon
-                                                    size={20}
-                                                    aria-hidden="true"
-                                                />
-                                            </span>
-                                        </div>
-                                        <h3 className="mt-8 font-serif text-2xl tracking-tight">
-                                            {step.title}
-                                        </h3>
-                                        <p className="mt-4 leading-relaxed text-white/70">
-                                            {step.text}
-                                        </p>
-                                    </article>
-                                </Reveal>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <PartnerMethod />
 
                 {/* ---------------------------------- PROMESSE + CTA */}
                 <section className="border-t border-[#ebebeb] bg-[#fafafa] py-24 md:py-32">

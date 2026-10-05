@@ -2,15 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Typographie unifiée : titres en Playfair Display,
-   tout le reste en Inter, avec le fallback Framer Inter Placeholder. */
+/* Instrument Sans pour les titres, Instrument Serif pour les accents,
+   Inter pour le texte courant. */
 @layer base {
   html, body, #root {
     font-family: 'Inter', 'Inter Placeholder', system-ui, -apple-system, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Instrument Sans', sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) :is(em, .italic) {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
   }
 
   button, input, textarea, select {
@@ -58,7 +65,8 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  /* Clip conserve le scroll de la page pour les sections sticky. */
+  overflow-x: clip;
 }
 ::selection {
   background: #011d41;

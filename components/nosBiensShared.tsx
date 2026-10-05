@@ -16,7 +16,7 @@ export const T = {
   muted: '#666666',
   border: '#ebebeb',
   chipBg: '#f1f1f1',
-  heading: '"Playfair Display", serif',
+  heading: '"Instrument Sans", sans-serif',
   body: '"Inter", "Inter Placeholder", system-ui, -apple-system, sans-serif',
 };
 

@@ -226,7 +226,7 @@ export const HeroShowcase: React.FC = () => {
         <h1 className="max-w-5xl font-serif text-[2.6rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
           <SplitWordsSafe text="Vendez votre bien dans le Pays de Gex" delay={0.25} />
           <br />
-          <span className="italic">
+          <span className="font-accent italic text-white">
             <SplitWordsSafe text="au meilleur prix" delay={0.45} />
           </span>
         </h1>
@@ -235,7 +235,7 @@ export const HeroShowcase: React.FC = () => {
           initial={reduce ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.7 }}
-          className="mt-7 max-w-xl text-base font-light leading-relaxed text-white/85 md:text-lg"
+          className="mt-7 max-w-xl font-serif text-base font-light leading-relaxed text-white/85 md:text-lg"
         >
           Estimation argumentée, présentation professionnelle et stratégie de
           diffusion adaptée à chaque bien dans le Pays de Gex.

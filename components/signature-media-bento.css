@@ -2,13 +2,13 @@
 .signature-media-heading { display: grid; grid-template-columns: .65fr 1.65fr auto; align-items: start; gap: 30px; margin-bottom: 48px; }
 .signature-media-heading > :first-child { margin-top: 8px; }
 .signature-media-heading > a { align-self: end; white-space: nowrap; }
-.signature-media-intro h2 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 3.7vw, 56px); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; }
+.signature-media-intro h2 { font-family: 'Instrument Sans', sans-serif; font-size: clamp(36px, 3.7vw, 56px); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; }
 .signature-media-intro h2 em { display: block; }
 .signature-media-intro > p { max-width: 540px; margin-top: 22px; color: #637080; font-size: 16px; line-height: 1.65; }
 .signature-bento { display: grid; grid-template-columns: 1fr 1.04fr 1fr; gap: 20px; align-items: stretch; }
 .signature-bento-side { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .signature-card { overflow: hidden; border-radius: 24px; background: #fff; }
-.signature-card h3 { font-family: 'Playfair Display', serif; font-size: clamp(25px, 2.2vw, 32px); font-weight: 400; line-height: 1.15; letter-spacing: -.025em; }
+.signature-card h3 { font-family: 'Instrument Sans', sans-serif; font-size: clamp(25px, 2.2vw, 32px); font-weight: 400; line-height: 1.15; letter-spacing: -.025em; }
 .signature-card p:not(.signature-eyebrow) { color: #65717e; font-size: 14px; line-height: 1.65; }
 .signature-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; line-height: 1.6; text-transform: uppercase; letter-spacing: .13em; }
 .signature-eyebrow svg { flex-shrink: 0; }
@@ -20,7 +20,7 @@
 .signature-photo img { object-position: 65% center; }
 .signature-tour-card { position: relative; padding: 27px; flex: 1; background: #eeefea; }
 .signature-tour-mark { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
-.signature-tour-mark span { font-family: 'Playfair Display', serif; font-size: 40px; line-height: 1; color: #839083; }
+.signature-tour-mark span { font-family: 'Instrument Sans', sans-serif; font-size: 40px; line-height: 1; color: #839083; }
 .signature-tour-card h3 { margin: 12px 0; }
 .signature-social-card { padding: 29px 27px; background: #eeefea; }
 .signature-social-card h3 { font-size: clamp(31px, 2.7vw, 39px); margin: 18px 0 15px; }
@@ -42,7 +42,7 @@
 .signature-play svg { margin-left: 4px; }
 .signature-play:hover { background: #ffffff50; scale: 1.05; }
 .signature-film-title > span { font-size: 10px; text-transform: uppercase; letter-spacing: .16em; color: #ffffffbc; }
-.signature-film-title h3 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3vw, 43px); font-weight: 400; line-height: 1.1; margin-top: 12px; }
+.signature-film-title h3 { font-family: 'Instrument Sans', sans-serif; font-size: clamp(30px, 3vw, 43px); font-weight: 400; line-height: 1.1; margin-top: 12px; }
 .signature-film-title p { font-size: 12px; line-height: 1.5; color: #ffffffb3; margin-top: 12px; }
 .signature-film-navigation { padding: 19px 22px 15px; }
 .signature-film-meta > span { color: #ffffff99; font-size: 9px; text-transform: uppercase; letter-spacing: .17em; }

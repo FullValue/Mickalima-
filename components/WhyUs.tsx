@@ -310,7 +310,7 @@ export const WhyUs: React.FC = () => {
           font-weight: 600;
         }
         .whyus__title {
-          font-family: 'Playfair Display', serif;
+          font-family: 'Instrument Sans', sans-serif;
           font-size: 44px;
           font-weight: 400;
           line-height: 1.15;
@@ -383,7 +383,7 @@ export const WhyUs: React.FC = () => {
         .whyus-ticker__item {
           display: flex; align-items: center; gap: 32px;
           color: #fff; font-size: 28px; font-weight: 500; white-space: nowrap;
-          font-family: 'Playfair Display', serif;
+          font-family: 'Instrument Sans', sans-serif;
         }
         .whyus-ticker__star { width: 22px; height: 22px; flex: none; }
         @keyframes whyus-scroll { to { transform: translateX(-50%); } }
@@ -445,7 +445,7 @@ export const WhyUs: React.FC = () => {
         }
         .whyus-stat p { margin: 0; color: var(--whyus-sub); font-size: 15px; text-align: center; }
         .whyus-stat__value {
-          font-family: 'Playfair Display', serif;
+          font-family: 'Instrument Sans', sans-serif;
           font-size: 74px; font-weight: 500; line-height: 1;
           color: var(--whyus-title);
         }
@@ -458,7 +458,7 @@ export const WhyUs: React.FC = () => {
           gap: 24px;
         }
         .whyus-satisfaction__value {
-          font-family: 'Playfair Display', serif;
+          font-family: 'Instrument Sans', sans-serif;
           font-size: 60px; font-weight: 500; line-height: 1; color: var(--whyus-title);
         }
         .whyus-satisfaction h3 { margin: 10px 0 8px; font-size: 24px; font-weight: 400; color: var(--whyus-title); }

@@ -57,7 +57,7 @@ export const PortalsParallax: React.FC = () => (
       <h2 className="mx-auto mt-7 max-w-3xl font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
         <SplitWords text="Une visibilité maximale" />
         <br />
-        <span className="italic">
+        <span className="font-accent italic text-white">
           <SplitWords text="pour votre bien" delay={0.25} />
         </span>
       </h2>

@@ -73,7 +73,7 @@ export const AboutTeaser: React.FC = () => (
             <h2 className="mt-7 font-serif text-4xl leading-[1.12] tracking-tight text-[#011d41] md:text-5xl lg:text-[3.4rem]">
               <SplitWords text="Vendre au meilleur prix." />
               <br />
-              <span className="italic text-[#011d41]/80">
+              <span className="font-accent italic text-[#011d41]">
                 <SplitWords text="C’est une stratégie." delay={0.35} />
               </span>
             </h2>

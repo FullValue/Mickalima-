@@ -208,7 +208,7 @@ export const BlogPostPage: React.FC = () => {
                     <p className="font-serif text-3xl text-[#011d41]">{wordCount}</p>
                     <p className="mt-1">Mots analysés</p>
                   </div>
-                  <PillButton to="/estimation" variant="ghost" className="w-full px-4" arrow>Estimation</PillButton>
+                  <PillButton to="/estimation" variant="ghost" className="w-full" arrow>Estimation</PillButton>
                 </div>
               </div>
             </aside>

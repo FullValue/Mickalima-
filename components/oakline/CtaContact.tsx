@@ -89,7 +89,7 @@ export const CtaContact: React.FC = () => {
               <h2 className="mt-6 font-serif text-4xl leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
                 Un projet de vente ?
                 <br />
-                <span className="italic">Parlons-en.</span>
+                <span className="font-accent italic text-white">Parlons-en.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.16}>

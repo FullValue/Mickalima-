@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { IMAGES } from '../constants';
-import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { PillButton } from './oakline/primitives';
 
 /**
  * Navbar refonte « Oakline » :
@@ -169,21 +170,13 @@ export const Navbar: React.FC = () => {
 
                 {/* Right Side - CTA & Mobile Toggle */}
                 <div className="flex items-center gap-3">
-                    <Link
+                    <PillButton
                         to="/estimation"
-                        className={`hidden lg:inline-flex items-center gap-3 rounded-full py-1.5 pl-6 pr-1.5 text-sm font-semibold shadow-lg transition-all duration-500 hover:-translate-y-0.5 group ${
-                            isTransparent
-                              ? 'bg-white text-[#011d41] hover:bg-white/90'
-                              : 'bg-white text-[#011d41] hover:bg-white/90'
-                        }`}
+                        variant="light"
+                        className="hidden lg:inline-flex"
                     >
-                        <span>Estimation offerte</span>
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-300 group-hover:rotate-45 ${
-                            isTransparent ? 'bg-[#011d41] text-white' : 'bg-[#011d41] text-white'
-                        }`}>
-                            <ArrowUpRight size={16} />
-                        </span>
-                    </Link>
+                        Estimation offerte
+                    </PillButton>
 
                     {/* Mobile Toggle: pilule */}
                     <button
@@ -261,15 +254,13 @@ export const Navbar: React.FC = () => {
                         ))}
                     </ul>
 
-                    <Link
+                    <PillButton
                         to="/estimation"
-                        className={`bg-white text-[#011d41] pl-8 pr-2 py-2 rounded-full font-bold hover:bg-white/90 transition-all duration-500 delay-700 text-sm shadow-2xl flex items-center gap-4 mt-8 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                        variant="light"
+                        className={`mt-8 delay-700 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                     >
-                        <span>ESTIMATION OFFERTE</span>
-                        <span className="w-10 h-10 bg-[#011d41] text-white rounded-full flex items-center justify-center">
-                            <ArrowUpRight size={20} />
-                        </span>
-                    </Link>
+                        Estimation offerte
+                    </PillButton>
                 </div>
     </>
   );
