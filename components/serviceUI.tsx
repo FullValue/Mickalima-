@@ -25,7 +25,7 @@ export const ServiceHero: React.FC<{
   <section
     style={{
       position: 'relative', minHeight: 560, display: 'flex', alignItems: 'center',
-      overflow: 'hidden', backgroundColor: T.navy,
+      overflow: 'hidden', borderRadius: '0 0 32px 32px', backgroundColor: T.navy,
     }}
   >
     <img

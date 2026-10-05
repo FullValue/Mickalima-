@@ -1,6 +1,7 @@
 import React from 'react';
-import { Star, ArrowDown } from 'lucide-react';
+import { Star, ArrowDown, SearchCheck, Camera, Handshake } from 'lucide-react';
 import { SEO } from './SEO';
+import { PartnerMethod } from './PartnerMethod';
 import { AGENT_PHOTO } from './nosBiensShared';
 import { PillButton, Reveal, SectionLabel } from './oakline/primitives';
 
@@ -42,9 +43,9 @@ const KEY_STATS = [
 ];
 
 const APPROACH = [
-  { title: 'Estimer avec justesse', text: "Le Pays de Gex est porté par la demande genevoise. Une estimation fondée sur les ventes réelles et les caractéristiques de votre bien permet de défendre votre prix, sans surévaluation ni délai inutile.", value: 'Des faits concrets, des explications claires.' },
-  { title: 'Présenter ce qui fait la différence', text: "Photographie professionnelle, film et supports adaptés : je rends visibles les qualités de votre bien pour aider chaque acquéreur à en comprendre la valeur.", value: 'Une présentation soignée, une diffusion ciblée.' },
-  { title: 'Vous accompagner jusqu’au bout', text: "De notre premier échange à la signature chez le notaire, vous gardez un seul interlocuteur. Retours de visites, reporting et ajustements : vous savez où en est votre vente à chaque étape.", value: 'Un suivi régulier et une communication transparente.' },
+  { icon: SearchCheck, number: '01', title: 'Estimer avec justesse', text: "Le Pays de Gex est porté par la demande genevoise. Une estimation fondée sur les ventes réelles et les caractéristiques de votre bien permet de défendre votre prix, sans surévaluation ni délai inutile.", value: 'Des faits concrets, des explications claires.' },
+  { icon: Camera, number: '02', title: 'Présenter ce qui fait la différence', text: "Photographie professionnelle, film et supports adaptés : je rends visibles les qualités de votre bien pour aider chaque acquéreur à en comprendre la valeur.", value: 'Une présentation soignée, une diffusion ciblée.' },
+  { icon: Handshake, number: '03', title: 'Vous accompagner jusqu’au bout', text: "De notre premier échange à la signature chez le notaire, vous gardez un seul interlocuteur. Retours de visites, reporting et ajustements : vous savez où en est votre vente à chaque étape.", value: 'Un suivi régulier et une communication transparente.' },
 ];
 const SERVICES = [
   { title: 'Estimation argumentée', text: 'Gratuite, fondée sur les données DVF et les comparables récents.' },
@@ -54,7 +55,7 @@ const SERVICES = [
   { title: 'Reporting régulier', text: 'Nombre de vues, retours des visiteurs et ajustements de stratégie quand ils sont nécessaires.' },
   { title: 'Un interlocuteur unique', text: 'De l’estimation à la remise des clés, je reste votre point de contact.' },
 ];
-const COMMUNES = ['Ferney-Voltaire', 'Divonne-les-Bains', 'Saint-Genis-Pouilly', 'Gex', 'Prévessin-Moëns', 'Cessy', 'Ornex', 'Ségny', 'Thoiry', 'Crozet', 'Sauverny', 'Grilly', 'Versonnex', 'Collonges', 'Péron', 'Challex', 'Vesancy', 'Farges', 'Échenevex', 'Saint-Jean-de-Gonville'];
+
 const heading = 'font-serif text-3xl font-normal leading-[1.12] tracking-tight md:text-5xl';
 
 export const About: React.FC = () => (
@@ -122,24 +123,25 @@ export const About: React.FC = () => (
         </div>
       </section>
 
-      <section className="bg-[#011d41] py-24 text-white md:py-32">
-        <div className="container mx-auto grid items-start gap-14 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24">
-          <div className="lg:sticky lg:top-28"><Reveal y={6}><SectionLabel tone="light">Ma méthode & mes valeurs</SectionLabel><h2 className={`${heading} mt-7`}>Une méthode claire.<br /><span className="font-accent italic">À chaque étape.</span></h2><p className="mt-6 max-w-sm leading-relaxed text-white/65">Le marché frontalier a ses codes. Mon rôle : les traduire en décisions concrètes pour votre vente.</p></Reveal></div>
-          <div>{APPROACH.map((item, i) => <Reveal key={item.title} y={6}><article className={`flex gap-5 py-8 ${i === 0 ? 'pt-0' : 'border-t border-white/15'}`}><span aria-hidden="true" className="font-accent text-3xl text-white/40">0{i + 1}</span><div><h3 className="font-serif text-2xl font-normal tracking-tight md:text-3xl">{item.title}</h3><p className="mt-4 leading-relaxed text-white/65">{item.text}</p><p className="mt-4 text-sm text-white/90">{item.value}</p></div></article></Reveal>)}</div>
-        </div>
-      </section>
+      <PartnerMethod
+        id="about-method-title"
+        label="Ma méthode & mes valeurs"
+        title={<>Une méthode claire.<br /><span className="font-accent italic">À chaque étape.</span></>}
+        description="Le marché frontalier a ses codes. Mon rôle : les traduire en décisions concrètes pour votre vente."
+        steps={APPROACH.map(({ value, ...step }) => ({ ...step, text: `${step.text} ${value}` }))}
+      />
 
       <section className="py-24 md:py-32">
-        <div className="container mx-auto grid items-start gap-14 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-24">
-          <div className="lg:sticky lg:top-28"><Reveal y={6}><SectionLabel>Un accompagnement complet</SectionLabel><h2 className={`${heading} mt-7`}>Chaque mandat,<br /><span className="font-accent italic">la même exigence.</span></h2><p className="mt-6 max-w-sm leading-relaxed text-gray-500">De la première estimation à la remise des clés, les moyens d’une commercialisation soignée.</p><PillButton to="/mandat-exclusif" className="mt-8">Découvrir le mandat exclusif</PillButton></Reveal></div>
-          <div className="space-y-4">{SERVICES.map((item, i) => <Reveal key={item.title} y={6}><article className="flex gap-5 rounded-[10px] border border-[#ebebeb] bg-[#fafafa] p-6"><span aria-hidden="true" className="pt-1 font-accent text-xl text-[#011d41]/35">0{i + 1}</span><div><h3 className="font-serif text-xl font-normal tracking-tight">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-gray-500">{item.text}</p></div></article></Reveal>)}</div>
-        </div>
-      </section>
-
-      <section className="bg-[#fafafa] py-24 md:py-28">
-        <div className="container mx-auto grid items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
-          <Reveal><figure className="overflow-hidden rounded-[24px] border border-[#011d41]/10 bg-[#f4f7f5]"><img src="/images/zone-pays-de-gex.svg" alt="Carte du Pays de Gex et de ses communes" loading="lazy" width="520" height="340" className="w-full" /><figcaption className="px-6 pb-4 text-xs text-[#011d41]/50">Contours communaux : <a href="https://geo.api.gouv.fr/" target="_blank" rel="noopener noreferrer" className="underline">API Découpage administratif</a></figcaption></figure></Reveal>
-          <div><Reveal y={6}><SectionLabel>Mon terrain</SectionLabel><h2 className={`${heading} mt-7`}>Le Pays de Gex,<br /><span className="font-accent italic">commune par commune.</span></h2><p className="mt-6 leading-relaxed text-gray-500">20 communes de l’Ain, un marché franco-suisse, une clientèle française et internationale. La proximité de Genève et des organisations internationales façonne chaque projet.</p></Reveal><Reveal y={6}><ul className="mt-7 flex flex-wrap gap-2" aria-label="Les 20 communes couvertes">{COMMUNES.map(name => <li key={name} className="rounded-full border border-[#011d41]/10 px-3 py-1.5 text-xs text-[#011d41]/75">{name}</li>)}</ul><PillButton to="/prix-immobilier/pays-de-gex" className="mt-8">Explorer les marchés locaux</PillButton></Reveal></div>
+        <div className="container mx-auto px-6">
+          <Reveal y={6}>
+            <div className="grid gap-7 lg:grid-cols-2 lg:items-end lg:gap-20">
+              <div><SectionLabel>Un accompagnement complet</SectionLabel><h2 className={`${heading} mt-7`}>Les moyens d’une vente<br /><span className="font-accent italic">bien préparée.</span></h2></div>
+              <div><p className="max-w-lg leading-relaxed text-gray-500">De la première estimation à la remise des clés, les moyens d’une commercialisation soignée.</p><PillButton to="/mandat-exclusif" className="mt-6">Découvrir le mandat exclusif</PillButton></div>
+            </div>
+          </Reveal>
+          <div className="mt-14 grid gap-x-12 md:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((item, i) => <Reveal key={item.title} y={6}><article className="h-full border-t border-[#011d41]/15 py-8"><span aria-hidden="true" className="font-accent text-3xl text-[#011d41]/35">0{i + 1}</span><h3 className="mt-5 font-serif text-2xl font-normal tracking-tight">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-gray-500">{item.text}</p></article></Reveal>)}
+          </div>
         </div>
       </section>
 

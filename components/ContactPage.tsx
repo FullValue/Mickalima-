@@ -118,7 +118,7 @@ export const ContactPage: React.FC = () => {
         />
         <div className="min-h-screen bg-white">
             {/* ---------------------------------- HERO */}
-            <section className="relative flex min-h-[620px] items-center overflow-hidden bg-[#011d41] pt-20">
+            <section className="relative flex min-h-[620px] items-center overflow-hidden rounded-b-[32px] bg-[#011d41] pt-20">
                 <div className="absolute inset-0 z-0">
                     <img
                         src="/images/contact-hero.jpg"
