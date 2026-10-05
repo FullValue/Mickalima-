@@ -7,7 +7,6 @@ import {
   Layout,
   Star,
   Gem,
-  Video,
   ShieldCheck,
   MessageSquare,
   Target,
@@ -16,6 +15,7 @@ import { m, useReducedMotion } from 'framer-motion';
 import { SEO } from './SEO';
 import { SignatureMediaBento } from './SignatureMediaBento';
 import { SignatureClientGallery } from './SignatureClientGallery';
+import { ExclusifClosingSection } from './ExclusifClosingSection';
 import { IMAGES } from '../constants';
 import { T } from './nosBiensShared';
 import { wrap, ServiceHero, StickyIntro, WhiteCard, TwoCol, RecapBand, ServiceStyles } from './serviceUI';
@@ -708,25 +708,7 @@ export const MandatExclusif: React.FC = () => (
       <LogoMarquee />
 
       {/* RÉCAP */}
-      <RecapBand
-        badgeIcon={<Star size={13} aria-hidden="true" />}
-        kicker="Le Sommet de l'Immobilier"
-        title={
-          <>
-            L'Ultime <em style={{ fontStyle: 'italic' }}>Privilège</em>
-          </>
-        }
-        description="Une présentation détaillée du bien et un accompagnement personnalisé à chaque étape de sa vente."
-        cards={[
-          { icon: <Video size={24} />, title: 'Film de présentation', items: ['Scénario adapté', 'Prises de vue soignées', 'Montage dédié'] },
-          { icon: <Gem size={24} />, title: 'Diffusion Prestige', items: ['Portails sélectionnés', 'Acquéreurs ciblés', 'Communication discrète si souhaitée'] },
-          { icon: <Star size={24} />, title: 'Présentation sur mesure', items: ['Galerie photo', 'Formats courts', 'Supports de présentation'] },
-          { icon: <ShieldCheck size={24} />, title: 'Suivi personnalisé', items: ['Interlocuteur dédié', 'Confidentialité', 'Retours réguliers'] },
-        ]}
-        ctaLabel="Candidature Confidentielle"
-        ctaTo="/contact"
-        note="Les modalités de diffusion et de confidentialité sont définies avec vous."
-      />
+      <ExclusifClosingSection />
     </div>
 
     <ServiceStyles />
