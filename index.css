@@ -59,6 +59,14 @@ body {
 .rf-link { transition: color .2s ease; }
 .rf-link:hover { color: #fff !important; }
 
+/* La dernière section recouvre le footer, qui reste posé derrière la page. */
+.footer-reveal {
+  position: sticky;
+  bottom: var(--footer-reveal-bottom, 0px);
+  z-index: 0;
+  flex-shrink: 0;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
@@ -77,6 +85,7 @@ img {
   -webkit-user-drag: none;
 }
 @media (prefers-reduced-motion: reduce) {
+  .footer-reveal { position: static; }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

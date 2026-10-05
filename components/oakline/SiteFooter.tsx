@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Linkedin, Mail, Phone } from 'lucide-react';
 import { IMAGES, NAV_ITEMS } from '../../constants';
 import { PillButton } from './primitives';
 
@@ -243,10 +243,6 @@ export const SiteFooter: React.FC = () => (
               >
                 contact@mickael-lima.immo
               </a>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <MapPin size={15} aria-hidden="true" className="mt-0.5 shrink-0" />
-              <span>328 Rue des Fontanettes, 01220 Divonne-les-Bains</span>
             </li>
           </ul>
 

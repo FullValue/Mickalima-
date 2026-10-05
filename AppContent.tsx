@@ -35,6 +35,7 @@ import { InsightsTeaser } from './components/oakline/InsightsTeaser';
 import { CtaContact } from './components/oakline/CtaContact';
 import { FaqAccordion } from './components/oakline/FaqAccordion';
 import { SiteFooter } from './components/oakline/SiteFooter';
+import { FooterReveal } from './components/FooterReveal';
 import { WhatsAppButton } from './components/oakline/WhatsAppButton';
 
 const HOMEPAGE_SCHEMA = [
@@ -155,9 +156,9 @@ export const AppContent: React.FC = () => {
   <LazyMotion features={domAnimation}>
     <Preloader />
     <WhatsAppButton />
-    <div className="font-sans text-textMain antialiased flex flex-col min-h-screen">
+    <div className="isolate font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
+      <main data-page-content className="relative z-10 flex-grow bg-white">
         {/* Transition douce entre les routes : sortie en fondu pur (pas de translation,
             les surfaces backdrop-blur ré-échantillonneraient à chaque frame), entrée
             fondu + léger glissement. Scroll remis en haut quand l'ancienne page est partie. */}
@@ -197,7 +198,7 @@ export const AppContent: React.FC = () => {
         </m.div>
         </AnimatePresence>
       </main>
-      {hasOwnFooter ? <RevalisFooter /> : <SiteFooter />}
+      <FooterReveal>{hasOwnFooter ? <RevalisFooter /> : <SiteFooter />}</FooterReveal>
     </div>
   </LazyMotion>
   );

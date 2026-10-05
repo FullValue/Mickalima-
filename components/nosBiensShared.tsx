@@ -251,7 +251,6 @@ export const RevalisFooter: React.FC = () => (
               <Phone size={15} aria-hidden="true" />
               <a href="tel:+33769313502" style={{ color: 'inherit', textDecoration: 'none' }}>07 69 31 35 02</a>
             </li>
-            <li>328 Rue des Fontanettes, 01220 Divonne-les-Bains</li>
           </ul>
         </div>
       </div>
