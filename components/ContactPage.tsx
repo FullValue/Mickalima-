@@ -8,10 +8,10 @@ import {
     Clock,
     Globe,
     ShieldCheck,
-    ChevronDown,
     ArrowRight,
 } from 'lucide-react';
 import { SEO } from './SEO';
+import { FaqQuestions } from './oakline/FaqQuestions';
 import { IMAGES } from '../constants';
 import { buildWhatsappUrl, WHATSAPP_PATH } from './oakline/whatsapp';
 import { track } from './oakline/tracking';
@@ -51,7 +51,6 @@ const CONTACT_SCHEMA = {
 };
 
 export const ContactPage: React.FC = () => {
-    const [activeFaq, setActiveFaq] = React.useState<number | null>(null);
     const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -387,53 +386,24 @@ export const ContactPage: React.FC = () => {
             </section>
 
             {/* ---------------------------------- FAQ + ZONE */}
-            <section className="bg-[#fafafa] py-24">
-                <div className="container mx-auto px-6">
-                    <SectionHeader
-                        label="FAQ"
-                        title={
-                            <>
+            <section aria-labelledby="contact-faq-title" className="bg-white py-20 md:py-24">
+                <div className="container mx-auto grid items-start gap-12 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+                    <div className="contact-faq-intro lg:sticky lg:top-28">
+                        <Reveal y={6} className="max-w-lg">
+                            <span className="inline-flex rounded-full bg-[#011d41] px-4 py-1.5 text-sm text-white">FAQ</span>
+                            <h2 id="contact-faq-title" className="mt-4 font-serif text-3xl font-normal leading-[1.12] tracking-tight text-[#011d41] md:text-[44px]">
                                 Questions <span className="italic">fréquentes.</span>
-                            </>
-                        }
-                        subtitle="Les réponses aux questions que l'on me pose le plus souvent avant un premier rendez-vous."
-                    />
-
-                    <div className="mt-16 flex flex-col items-stretch gap-10 lg:flex-row lg:gap-16">
-                        {/* Accordéon FAQ */}
-                        <div className="flex flex-col justify-center lg:w-7/12">
-                            <div className="space-y-4">
-                                {faqs.map((faq, index) => (
-                                    <div
-                                        key={index}
-                                        className={`overflow-hidden rounded-[20px] border bg-white transition-colors duration-300 ${activeFaq === index ? 'border-[#011d41]' : 'border-[#ebebeb]'}`}
-                                    >
-                                        <button
-                                            onClick={() => setActiveFaq(activeFaq === index ? null : index)}
-                                            aria-expanded={activeFaq === index}
-                                            className="flex w-full items-center justify-between p-6 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#011d41]"
-                                        >
-                                            <span className={`pr-4 font-semibold ${activeFaq === index ? 'text-[#011d41]' : 'text-[#011d41]/80'}`}>{faq.question}</span>
-                                            <ChevronDown
-                                                size={18}
-                                                aria-hidden="true"
-                                                className={`shrink-0 transition-transform duration-300 ${activeFaq === index ? 'rotate-180 text-[#011d41]' : 'text-gray-400'}`}
-                                            />
-                                        </button>
-                                        <div
-                                            className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${activeFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
-                                        >
-                                            <div className="min-h-0 overflow-hidden px-6">
-                                                <p className="pb-6 leading-relaxed text-gray-500">{faq.answer}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                            </h2>
+                            <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-xl">
+                                Les réponses aux questions que l'on me pose le plus souvent avant un premier rendez-vous.
+                            </p>
+                        </Reveal>
+                    </div>
+                    <div className="contact-faq-content space-y-10">
+                        <FaqQuestions items={faqs} id="contact-faq" />
 
                         {/* Zone d'intervention */}
-                        <div className="lg:w-5/12">
+                        <div>
                             <div className="group relative flex h-full flex-col justify-center overflow-hidden rounded-[24px] bg-[#011d41] p-10 text-white md:p-12">
                                 <div
                                     aria-hidden="true"
