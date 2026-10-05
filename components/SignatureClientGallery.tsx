@@ -1,24 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 import { Pause, Play } from 'lucide-react';
-import { BIENS } from './biensData';
-import { PropertyLogoBlur } from './propertyPhotoBlur';
+import { CLIENT_PHOTO_COLUMNS } from './mandatMedia';
 import './signature-client-gallery.css';
 
-const SELECTION = [
-  [['VM976', 5], ['VM990', 2], ['VM1043', 5]],
-  [['VM990', 0], ['VM560', 2], ['VM976', 6]],
-  [['VM1043', 0], ['VM1126', 4], ['VM560', 0]],
-  [['VM1126', 0], ['VM976', 8], ['VM990', 5]],
-] as const;
-
-const COLUMNS = SELECTION.map(column => column.flatMap(([ref, index]) => {
-  const bien = BIENS.find(item => item.ref === ref);
-  const src = bien?.photos[index] ?? bien?.photos[0];
-  return src && bien ? [{ src, alt: `${bien.typeLabel} à ${bien.city} — photographie du bien` }] : [];
-}));
-
-/** Mosaïque à colonnes alternées, avec les photos du portefeuille existant. */
+/** Mosaïque à colonnes alternées, avec une sélection des photos fournies. */
 export const SignatureClientGallery: React.FC = () => {
   const gallery = useRef<HTMLDivElement>(null);
   const visible = useInView(gallery, { margin: '100px' });
@@ -33,7 +19,7 @@ export const SignatureClientGallery: React.FC = () => {
         </button>
       </div>
       <div className="signature-gallery-columns">
-        {COLUMNS.map((photos, column) => (
+        {CLIENT_PHOTO_COLUMNS.map((photos, column) => (
           <div className="signature-gallery-column" key={column}>
             <div className="signature-gallery-track" style={{ '--gallery-duration': `${36 + column * 5}s` } as React.CSSProperties}>
               {[0, 1].map(copy => (
@@ -41,7 +27,6 @@ export const SignatureClientGallery: React.FC = () => {
                   {photos.map((photo, index) => (
                     <figure className="signature-gallery-photo" key={photo.src} data-shape={index % 2 === 0 ? 'portrait' : 'landscape'}>
                       <img src={photo.src} alt={copy === 1 ? '' : photo.alt} width="800" height="600" loading="lazy" decoding="async" />
-                      <PropertyLogoBlur src={photo.src} />
                     </figure>
                   ))}
                 </div>
@@ -50,7 +35,7 @@ export const SignatureClientGallery: React.FC = () => {
           </div>
         ))}
       </div>
-      <p className="signature-gallery-caption">Une sélection de biens confiés dans le Pays de Gex.</p>
+      <p className="signature-gallery-caption">Une sélection de mes réalisations immobilières.</p>
     </div>
   );
 };

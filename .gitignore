@@ -10,3 +10,9 @@ dist/
 public/video/*
 !public/video/villa-grilly-hero.mp4
 !public/video/villa-grilly-poster.jpg
+!public/video/villa-divonne.mp4
+!public/video/villa-divonne-poster.jpg
+!public/video/villa-collonges.mp4
+!public/video/villa-collonges-poster.jpg
+!public/video/villa-peron.mp4
+!public/video/villa-peron-poster.jpg

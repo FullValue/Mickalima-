@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Camera, ChevronLeft, ChevronRight, Pause, Play, Scan, Smartphone, Video, Volume2, VolumeX, Wand2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pause, Play, Scan, Smartphone, Video, Volume2, VolumeX, Wand2 } from 'lucide-react';
 import { PillButton, SectionLabel } from './oakline/primitives';
 import { SIGNATURE_VIDEOS, type SignatureVideo } from './signatureVideos';
+import { PropertyPhotoStory } from './PropertyPhotoStory';
+import { SIGNATURE_PHOTOS, SIGNATURE_POTENTIAL_PHOTOS } from './mandatMedia';
 import './signature-media-bento.css';
 
 export const SignatureVideoCarousel: React.FC<{ videos?: SignatureVideo[] }> = ({ videos = SIGNATURE_VIDEOS }) => {
@@ -155,16 +157,10 @@ export const SignatureMediaBento: React.FC = () => (
 
     <div className="signature-bento">
       <div className="signature-bento-side signature-bento-left">
-        <article className="signature-card signature-photo-card">
-          <div className="signature-photo">
-            <img src="/images/services/villa-prestige.jpg" alt="Maison en pierre à la tombée du jour" loading="lazy" decoding="async" />
-          </div>
-          <div className="signature-card-copy">
-            <p className="signature-eyebrow"><Camera size={15} aria-hidden="true" /> Photos pro haute définition</p>
-            <h3>Faire la différence au premier regard.</h3>
-            <p>Des cadrages soignés, des perspectives lisibles et une lumière qui met les espaces en valeur.</p>
-          </div>
-        </article>
+        <PropertyPhotoStory className="signature-photo-story" photos={SIGNATURE_PHOTOS} label="Photographies immobilières"
+          title={<>Faire la différence<br /><em>au premier regard.</em></>}>
+          <p>Des cadrages soignés, des perspectives lisibles et une lumière qui met les espaces en valeur.</p>
+        </PropertyPhotoStory>
         <article className="signature-card signature-tour-card">
           <div className="signature-tour-mark" aria-hidden="true"><Scan size={37} strokeWidth={1} /><span>360°</span></div>
           <p className="signature-eyebrow">Visite virtuelle immersive</p>
@@ -182,16 +178,11 @@ export const SignatureMediaBento: React.FC = () => (
           <p>Des vidéos courtes pour faire découvrir les points forts du bien et donner envie de le visiter.</p>
           <div className="signature-format-tags"><span>TikTok</span><span>Reels</span><span>Format vertical</span></div>
         </article>
-        <article className="signature-card signature-staging-card">
-          <div className="signature-staging-photo">
-            <img src="/images/editorial/partenaire-architecture-interieure.webp" alt="Projection d’un salon lumineux aménagé" loading="lazy" decoding="async" />
-          </div>
-          <div className="signature-card-copy">
-            <h3>Révéler le potentiel.</h3>
+        <PropertyPhotoStory className="signature-staging-story" photos={SIGNATURE_POTENTIAL_PHOTOS} label="Espaces & inspiration"
+          title={<>Révéler<br /><em>le potentiel.</em></>}>
             <div className="signature-service-detail"><Wand2 size={18} aria-hidden="true" /><div><h4>Home staging virtuel</h4><p>Des propositions d’aménagement pour imaginer les possibilités d’un espace.</p></div></div>
             <div className="signature-service-detail"><Video size={18} aria-hidden="true" /><div><h4>Vidéos IA</h4><p>Des projections animées, identifiées comme telles, pour illustrer une nouvelle ambiance.</p></div></div>
-          </div>
-        </article>
+        </PropertyPhotoStory>
       </div>
     </div>
   </section>

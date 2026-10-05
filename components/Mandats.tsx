@@ -13,7 +13,10 @@ import {
 } from 'lucide-react';
 import { m, useReducedMotion } from 'framer-motion';
 import { SEO } from './SEO';
-import { SignatureMediaBento } from './SignatureMediaBento';
+import { SignatureMediaBento, SignatureVideoCarousel } from './SignatureMediaBento';
+import { SIGNATURE_VIDEOS } from './signatureVideos';
+import { PropertyPhotoStory } from './PropertyPhotoStory';
+import { EXCLUSIVE_PHOTOS } from './mandatMedia';
 import { SignatureClientGallery } from './SignatureClientGallery';
 import { ExclusifClosingSection } from './ExclusifClosingSection';
 import { IMAGES } from '../constants';
@@ -94,6 +97,8 @@ const MANDAT_EXCLUSIF_SCHEMA = {
   },
 };
 
+const EXCLUSIVE_VIDEOS = [SIGNATURE_VIDEOS[3], SIGNATURE_VIDEOS[1], SIGNATURE_VIDEOS[0]];
+
 const PORTAIL_LOGOS = [
   { src: '/images/seloger.png', alt: 'SeLoger', href: 'https://www.seloger.com/professionnels-immobilier/2bccyjgnD7SN5UJ1TfrRMy', title: 'Mickaël Lima sur SeLoger' },
   { src: '/images/leboncoin.png', alt: 'Leboncoin', href: 'https://www.leboncoin.fr/boutique/7395512/', title: 'Mickaël Lima sur Leboncoin' },
@@ -114,104 +119,14 @@ const BlockTitle: React.FC<{ icon: React.ReactNode; children: React.ReactNode }>
   </div>
 );
 
-/* Le lecteur est affiché uniquement lorsqu'un vrai fichier vidéo existe. */
-const VideoBlock: React.FC<{
-  image: string;
-  videoSrc?: string;
-  label: string;
-  badgeIcon: React.ReactNode;
-  badge: string;
-  title: string;
-}> = ({ image, videoSrc, label, badgeIcon, badge, title }) => (
-  <div>
-  <div className="sv-media" style={{ position: 'relative', aspectRatio: videoSrc ? '9 / 16' : '16 / 9', maxWidth: videoSrc ? 350 : undefined, margin: '0 auto', borderRadius: 24, overflow: 'hidden', background: T.navy }}>
-    {videoSrc ? (
-      <video
-        src={videoSrc}
-        controls
-        playsInline
-        preload="metadata"
-        aria-label={label}
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }}
-      />
-    ) : (
-      <img src={image} alt={title} loading="lazy" decoding="async" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-    )}
-    {!videoSrc && (
-      <>
-    <div
-      aria-hidden="true"
-      style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(1,29,65,0.85), rgba(1,29,65,0.15))' }}
-    />
-    <div style={{ position: 'absolute', bottom: 24, left: 24, color: '#fff' }}>
-      <span
-        style={{
-          display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.14)',
-          border: '1px solid rgba(255,255,255,0.25)', borderRadius: 50, padding: '6px 14px',
-          fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 12,
-        }}
-      >
-        {badgeIcon} {badge}
-      </span>
-      <h3 style={{ fontFamily: T.heading, fontWeight: 400, fontStyle: 'italic', fontSize: 32, lineHeight: '1.15em' }}>
-        {title}
-      </h3>
-    </div>
-      </>
-    )}
-  </div>
-  {videoSrc && <p style={{ marginTop: 12, fontSize: 13, textAlign: 'center', color: T.muted }}>{label} · format vertical</p>}
-  </div>
-);
-
-/* Galerie : grande photo avec libellé + 3 vignettes */
-const GalleryBlock: React.FC<{ main: string; overlay: string; thumbs: string[]; thumbAlts: string[] }> = ({
-  main,
-  overlay,
-  thumbs,
-  thumbAlts,
-}) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-    <div className="sv-media" style={{ position: 'relative', aspectRatio: '21 / 9', borderRadius: 24, overflow: 'hidden' }}>
-      <img
-        src={main}
-        alt="Exemple de photographie immobilière"
-        loading="lazy"
-        decoding="async"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-      />
-      <div
-        style={{
-          position: 'absolute', bottom: 16, left: 16, background: 'rgba(1,29,65,0.78)',
-          color: '#fff', fontSize: 13, borderRadius: 50, padding: '8px 16px',
-        }}
-      >
-        {overlay}
-      </div>
-    </div>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="sv-grid-3">
-      {thumbs.map((img, idx) => (
-        <img
-          key={idx}
-          src={img}
-          alt={thumbAlts[idx]}
-          loading="lazy"
-          decoding="async"
-          style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', borderRadius: 16, display: 'block' }}
-        />
-      ))}
-    </div>
-  </div>
-);
-
 /* Aperçus des formats courts, sans fausse commande de lecture. */
-const VerticalTiles: React.FC<{ label: string }> = ({ label }) => (
+const VerticalTiles: React.FC = () => (
   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="sv-grid-3">
-    {[IMAGES.misc1, IMAGES.misc2, IMAGES.misc3].map((image, i) => (
-      <div key={i} className="sv-media" style={{ position: 'relative', aspectRatio: '9 / 16', borderRadius: 8, overflow: 'hidden' }}>
+    {SIGNATURE_VIDEOS.slice(1).map((video) => (
+      <div key={video.id} className="sv-media" style={{ position: 'relative', aspectRatio: '9 / 16', borderRadius: 8, overflow: 'hidden' }}>
         <img
-          src={image}
-          alt={`${label} ${i + 1}, exemple de cadrage vertical`}
+          src={video.poster}
+          alt={`Aperçu du film de présentation à ${video.location}`}
           loading="lazy"
           decoding="async"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
@@ -222,7 +137,7 @@ const VerticalTiles: React.FC<{ label: string }> = ({ label }) => (
         />
         <div style={{ position: 'absolute', bottom: 16, left: 16, right: 16, color: '#fff' }}>
           <span style={{ display: 'block', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1.5 }}>
-            {label} {i + 1} · exemple de format
+            {video.location.split(' · ')[0]}<span style={{ display: 'block', marginTop: 6, fontSize: 10, fontWeight: 400, letterSpacing: '.08em', opacity: .75 }}>Format vertical</span>
           </span>
         </div>
       </div>
@@ -674,31 +589,24 @@ export const MandatExclusif: React.FC = () => (
           }
           right={
             <WhiteCard>
-              {/* Vidéo cinématographique */}
-              <VideoBlock
-                image={IMAGES.misc2}
-                videoSrc="/video/villa-grilly-hero.mp4"
-                label="Exemple de film immobilier : villa à Grilly"
-                badgeIcon={<Star size={13} aria-hidden="true" />}
-                badge="Exemple de réalisation"
-                title="Film de présentation"
-              />
+              <div className="exclusive-films">
+                <BlockTitle icon={<Camera size={22} />}>Des biens, des histoires.</BlockTitle>
+                <SignatureVideoCarousel videos={EXCLUSIVE_VIDEOS} />
+              </div>
 
               {/* Teasers */}
               <div>
-                <BlockTitle icon={<Share2 size={22} />}>Teasers Réseaux Sociaux</BlockTitle>
-                <VerticalTiles label="Teaser" />
+                <BlockTitle icon={<Share2 size={22} />}>Pensés pour les réseaux.</BlockTitle>
+                <VerticalTiles />
               </div>
 
               {/* Galerie Prestige */}
               <div>
                 <BlockTitle icon={<Camera size={22} />}>Galerie Prestige</BlockTitle>
-                <GalleryBlock
-                  main={IMAGES.heroBg}
-                  overlay="Sélection de photographies"
-                  thumbs={[IMAGES.misc2, IMAGES.misc3, IMAGES.cardImage]}
-                  thumbAlts={['Exemple de photographie immobilière', 'Exemple de vue extérieure', 'Exemple de bien de prestige']}
-                />
+                <PropertyPhotoStory className="exclusive-photo-story" photos={EXCLUSIVE_PHOTOS} label="Galerie Prestige"
+                  title={<>Chaque détail,<br /><em>une impression.</em></>}>
+                  <p>Des vues aériennes aux espaces de vie, une présentation qui donne toute sa place au caractère du bien.</p>
+                </PropertyPhotoStory>
               </div>
             </WhiteCard>
           }
