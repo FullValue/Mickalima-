@@ -10,7 +10,7 @@ import {
   KeyRound,
   Loader2,
 } from 'lucide-react';
-import { COMMUNES, HERO_SLIDES } from '../../constants';
+import { COMMUNES } from '../../constants';
 import { BIENS } from '../biensData';
 import { EASE, PillButton } from './primitives';
 import { track } from './tracking';
@@ -27,7 +27,7 @@ import { buildWhatsappUrl, WHATSAPP_PATH } from './whatsapp';
  */
 
 const WEB3FORMS_KEY = '38f90cdc-9f17-48ef-bae6-f94e9b44e41f';
-const HERO_IMAGE = HERO_SLIDES[0];
+const HERO_IMAGE = '/images/hero-main.jpg';
 
 const STEP_LABELS = ['Le bien', 'Caractéristiques', 'Votre projet', 'Coordonnées'];
 const TYPES_BIEN = ['Appartement', 'Maison', 'Autre'];
@@ -196,6 +196,7 @@ export const HeroShowcase: React.FC = () => {
         src={HERO_IMAGE}
         alt=""
         aria-hidden="true"
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover"
         initial={reduce ? false : { scale: 1.18 }}
         animate={{ scale: 1 }}

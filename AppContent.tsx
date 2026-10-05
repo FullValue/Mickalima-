@@ -37,6 +37,7 @@ import { FaqAccordion } from './components/oakline/FaqAccordion';
 import { SiteFooter } from './components/oakline/SiteFooter';
 import { FooterReveal } from './components/FooterReveal';
 import { WhatsAppButton } from './components/oakline/WhatsAppButton';
+import { FloatingVideo } from './components/oakline/FloatingVideo';
 
 const HOMEPAGE_SCHEMA = [
   {
@@ -156,6 +157,7 @@ export const AppContent: React.FC = () => {
   <LazyMotion features={domAnimation}>
     <Preloader />
     <WhatsAppButton />
+    {location.pathname === '/' && <FloatingVideo />}
     <div className="viewport-bottom-blur" aria-hidden="true" />
     <div className="isolate font-sans text-textMain antialiased flex flex-col min-h-screen">
       <Navbar />
