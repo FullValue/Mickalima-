@@ -387,8 +387,8 @@ export const ContactPage: React.FC = () => {
 
             {/* ---------------------------------- FAQ + ZONE */}
             <section aria-labelledby="contact-faq-title" className="bg-white py-20 md:py-24">
-                <div className="container mx-auto grid items-start gap-12 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
-                    <div className="contact-faq-intro lg:sticky lg:top-28">
+                <div className="container mx-auto grid items-start gap-12 px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-20">
+                    <div className="contact-faq-content space-y-10">
                         <Reveal y={6} className="max-w-lg">
                             <span className="inline-flex rounded-full bg-[#011d41] px-4 py-1.5 text-sm text-white">FAQ</span>
                             <h2 id="contact-faq-title" className="mt-4 font-serif text-3xl font-normal leading-[1.12] tracking-tight text-[#011d41] md:text-[44px]">
@@ -398,13 +398,12 @@ export const ContactPage: React.FC = () => {
                                 Les réponses aux questions que l'on me pose le plus souvent avant un premier rendez-vous.
                             </p>
                         </Reveal>
-                    </div>
-                    <div className="contact-faq-content space-y-10">
                         <FaqQuestions items={faqs} id="contact-faq" />
-
+                    </div>
+                    <div className="contact-zone lg:sticky lg:top-28">
                         {/* Zone d'intervention */}
                         <div>
-                            <div className="group relative flex h-full flex-col justify-center overflow-hidden rounded-[24px] bg-[#011d41] p-10 text-white md:p-12">
+                            <div className="group relative flex h-full flex-col justify-center overflow-hidden rounded-[24px] bg-[#011d41] p-6 text-white md:p-8">
                                 <div
                                     aria-hidden="true"
                                     className="pointer-events-none absolute -translate-y-1/2 translate-x-1/2 top-0 right-0 h-64 w-64 rounded-full bg-white/5 blur-[80px] transition-colors duration-700 group-hover:bg-white/10"
@@ -412,7 +411,7 @@ export const ContactPage: React.FC = () => {
 
                                 <SectionLabel tone="light" className="self-start">Zone d'intervention</SectionLabel>
 
-                                <div className="mt-10 mb-10 flex gap-6">
+                                <div className="mt-6 mb-6 flex gap-4">
                                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
                                         <MapPin size={18} className="text-white" aria-hidden="true" />
                                     </span>
@@ -425,7 +424,13 @@ export const ContactPage: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="mb-10 rounded-[20px] border border-white/15 bg-white/5 p-6 backdrop-blur-md">
+                                <figure className="mb-6 overflow-hidden rounded-2xl border border-white/15 bg-[#f4f7f5]">
+                                    <img src="/images/zone-pays-de-gex.svg" alt="Carte du Pays de Gex avec la zone délimitée et les communes principales desservies." width="520" height="340" loading="lazy" className="w-full" />
+                                    <figcaption className="px-3 pb-2 text-[10px] text-[#011d41]/60">
+                                        Contours communaux : <a href="https://geo.api.gouv.fr/" target="_blank" rel="noopener noreferrer" className="underline">API Découpage administratif</a>
+                                    </figcaption>
+                                </figure>
+                                <div className="mb-6 rounded-[20px] border border-white/15 bg-white/5 p-5 backdrop-blur-md">
                                     <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Communes couvertes</p>
                                     <p className="text-sm leading-relaxed text-white/85">
                                         Ferney-Voltaire, Divonne-les-Bains,
@@ -435,7 +440,7 @@ export const ContactPage: React.FC = () => {
                                     </p>
                                 </div>
 
-                                <div className="flex gap-6 border-t border-white/10 pt-10">
+                                <div className="flex gap-4 border-t border-white/10 pt-6">
                                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
                                         <MessageSquare size={18} aria-hidden="true" />
                                     </span>
