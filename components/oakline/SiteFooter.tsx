@@ -190,7 +190,7 @@ export const SiteFooter: React.FC = () => (
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
             Pages
           </p>
-          <ul className="flex flex-col gap-3 text-sm">
+          <ul className="grid grid-cols-2 gap-x-5 gap-y-3 text-sm sm:flex sm:flex-col sm:gap-3">
             {PAGES_LINKS.map((item) => (
               <li key={item.path}>
                 <Link
@@ -209,7 +209,7 @@ export const SiteFooter: React.FC = () => (
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
             Services
           </p>
-          <ul className="flex flex-col gap-3 text-sm">
+          <ul className="grid grid-cols-2 gap-x-5 gap-y-3 text-sm sm:flex sm:flex-col sm:gap-3">
             {SERVICES_LINKS.map((item) => (
               <li key={item.to}>
                 <Link
@@ -249,7 +249,7 @@ export const SiteFooter: React.FC = () => (
           <p className="mb-4 mt-8 text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
             Légal
           </p>
-          <ul className="flex flex-col gap-3 text-sm">
+          <ul className="grid grid-cols-2 gap-x-5 gap-y-3 text-sm sm:flex sm:flex-col sm:gap-3">
             {LEGAL_LINKS.map((item) => (
               <li key={item.to}>
                 <Link

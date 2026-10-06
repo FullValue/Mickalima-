@@ -209,7 +209,7 @@ export const RevalisFooter: React.FC = () => (
         </div>
         <div>
           <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>Menu</p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
+          <ul className="nb-footer-links" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
             {[
               { label: 'Accueil', to: '/' },
               { label: 'Nos biens', to: '/nos-biens' },
@@ -225,7 +225,7 @@ export const RevalisFooter: React.FC = () => (
         </div>
         <div>
           <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>À propos</p>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
+          <ul className="nb-footer-links" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
             {[
               { label: 'Mon parcours', to: '/about' },
               { label: 'Partenaires', to: '/partenaires' },
@@ -262,7 +262,7 @@ export const RevalisFooter: React.FC = () => (
           alignItems: 'center', gap: 20,
         }}
       >
-        <span style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 20 }}>
+        <span className="nb-footer-legal" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 20 }}>
           <Link to="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</Link>
           <Link to="/politique-confidentialite" style={{ color: 'inherit', textDecoration: 'none' }}>Politique de confidentialité</Link>
         </span>
@@ -276,6 +276,8 @@ export const RevalisFooter: React.FC = () => (
       }
       @media (max-width: 479px) {
         .nb-footer-cols { grid-template-columns: 1fr !important; }
+        .nb-footer-links, .nb-footer-legal { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px !important; }
+        .nb-footer-legal { width: 100%; text-align: left; }
       }
     `}</style>
   </footer>

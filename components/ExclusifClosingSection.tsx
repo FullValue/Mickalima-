@@ -49,19 +49,19 @@ const ExclusifBenefit: React.FC<{ benefit: Benefit; index: number; active: boole
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px overflow-hidden bg-[#011d41]/15">
         <m.div className="h-full origin-left bg-[#011d41]" style={{ scaleX: reduced ? 1 : scrollYProgress }} />
       </div>
-      <m.div className="grid grid-cols-[44px_minmax(0,1fr)] gap-4 md:grid-cols-[72px_minmax(0,1fr)] md:gap-7" style={{ y: reduced ? 0 : y }}>
-        <m.span aria-hidden="true" style={{ opacity: reduced ? 1 : opacity }} className={`font-accent text-[44px] italic leading-none transition-colors duration-300 motion-reduce:transition-none md:text-[64px] ${active ? 'text-[#011d41]' : 'text-[#8c97a3]'}`}>
+      <m.div className="grid grid-cols-1 gap-3 md:grid-cols-[72px_minmax(0,1fr)] md:gap-7" style={{ y: reduced ? 0 : y }}>
+        <m.span aria-hidden="true" style={{ opacity: reduced ? 1 : opacity }} className={`font-accent text-[38px] italic leading-none transition-colors duration-300 motion-reduce:transition-none md:text-[64px] ${active ? 'text-[#011d41]' : 'text-[#8c97a3]'}`}>
           {String(index + 1).padStart(2, '0')}
         </m.span>
         <div className="contents min-w-0 md:block">
           <div className="flex items-start justify-between gap-4">
-            <h3 className="font-serif text-[25px] font-normal leading-[1.15] tracking-tight text-[#011d41] md:text-[32px]">{benefit.title}</h3>
-            <Icon size={20} strokeWidth={1.5} aria-hidden="true" className="mt-1 hidden shrink-0 text-[#011d41]/55 sm:block" />
+            <h3 className="font-serif text-xl font-normal leading-[1.15] tracking-tight text-[#011d41] md:text-[32px]">{benefit.title}</h3>
+            <Icon size={20} strokeWidth={1.5} aria-hidden="true" className="mt-1 hidden shrink-0 text-[#011d41]/55 md:block" />
           </div>
-          <p className="col-span-2 max-w-xl text-sm leading-relaxed text-[#637080] md:mt-4 md:text-base">{benefit.description}</p>
-          <ul className="col-span-2 flex flex-wrap gap-2 md:mt-5" aria-label="Prestations incluses">
+          <p className="max-w-xl text-xs leading-relaxed text-[#637080] md:mt-4 md:text-base">{benefit.description}</p>
+          <ul className="flex flex-wrap gap-2 md:mt-5" aria-label="Prestations incluses">
             {benefit.details.map(detail => (
-              <li key={detail} className="rounded-full border border-[#011d41]/10 bg-[#f3f4f1] px-3 py-1.5 text-[11px] leading-relaxed text-[#011d41]/75">{detail}</li>
+              <li key={detail} className="max-w-full rounded-2xl border border-[#011d41]/10 bg-[#f3f4f1] px-2.5 py-1.5 text-[10px] leading-relaxed text-[#011d41]/75 md:rounded-full md:px-3 md:text-[11px]">{detail}</li>
             ))}
           </ul>
         </div>
@@ -130,9 +130,9 @@ export const ExclusifClosingSection: React.FC = () => {
           </p>
         </div>
 
-        <ol ref={list} className="min-w-0">
+        <ol ref={list} className="grid min-w-0 grid-cols-2 gap-x-5 md:block">
           {BENEFITS.map((benefit, index) => (
-            <li key={benefit.id} id={benefit.id} ref={element => { items.current[index] = element; }} className="scroll-mt-36">
+            <li key={benefit.id} id={benefit.id} ref={element => { items.current[index] = element; }} className="min-w-0 scroll-mt-36">
               <ExclusifBenefit benefit={benefit} index={index} active={index === activeStep} />
             </li>
           ))}

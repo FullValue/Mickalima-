@@ -237,6 +237,7 @@ export const RecapBand: React.FC<{
         {cards.map((c, ci) => (
           <m.div
             key={c.title}
+            className="sv-recap-item"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -284,7 +285,11 @@ export const ServiceStyles: React.FC = () => (
       .sv-bento-wide { grid-column: auto !important; }
     }
     @media (max-width: 679px) {
-      .sv-recap { grid-template-columns: 1fr !important; }
+      .sv-recap { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px 20px !important; }
+      .sv-recap-item { min-width: 0; padding-inline: 0 !important; }
+      .sv-recap-item h3 { font-size: 19px !important; }
+      .sv-recap-item li { align-items: flex-start !important; font-size: 13px !important; line-height: 1.5; }
+      .sv-recap-item li svg { flex-shrink: 0; margin-top: 3px; }
       .sv-grid-3 { grid-template-columns: 1fr !important; }
       .sv-grid-2 { grid-template-columns: 1fr !important; }
     }

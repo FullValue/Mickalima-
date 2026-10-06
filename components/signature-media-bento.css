@@ -43,7 +43,8 @@
 .signature-story-track > span { display: block; width: 100%; height: 100%; background: #fff; transform-origin: left; transition: transform .2s linear; }
 .signature-film-topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .signature-film-count { flex-shrink: 0; color: #ffffffb3; font-size: 10px; letter-spacing: .06em; }
-.signature-film-bottom { margin-top: auto; }
+.signature-film-bottom { position: relative; isolation: isolate; margin-top: auto; }
+.signature-film-bottom::before { content: ''; position: absolute; inset: 32px -22px -22px; z-index: -1; background: #011d411c; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(transparent,#000 60px); -webkit-mask-image: linear-gradient(transparent,#000 60px); }
 .signature-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: 76px; height: 76px; border: 1px solid #ffffff88; border-radius: 50%; background: #ffffff29; color: #fff; backdrop-filter: blur(10px); cursor: pointer; transition: background .2s, scale .2s; }
 .signature-play svg { margin-left: 4px; }
 .signature-play:hover { background: #ffffff50; scale: 1.05; }
@@ -96,10 +97,10 @@
 }
 
 .exclusive-films .signature-film { max-width: 360px; margin-inline: auto; }
-.signature-film-title { position: relative; isolation: isolate; }
-.signature-film-title::before { content: ''; position: absolute; inset: -18px -22px -20px; z-index: -1; background: #011d411c; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); mask-image: linear-gradient(transparent,#000 30%); }
+.signature-film-title { position: relative; }
 @media (max-width: 380px) {
   .exclusive-films .signature-film-overlay { padding-inline: 16px; }
+  .exclusive-films .signature-film-bottom::before { left: -16px; right: -16px; }
   .exclusive-films .signature-film-control { width: 38px; height: 38px; }
   .exclusive-films .signature-film-controls { gap: 8px; }
   .exclusive-films .signature-film-playback, .exclusive-films .signature-film-directions { gap: 6px; }
