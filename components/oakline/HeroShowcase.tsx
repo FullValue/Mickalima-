@@ -27,7 +27,7 @@ import { buildWhatsappUrl, WHATSAPP_PATH } from './whatsapp';
  */
 
 const WEB3FORMS_KEY = '38f90cdc-9f17-48ef-bae6-f94e9b44e41f';
-const HERO_IMAGE = '/images/hero-main.jpg';
+const HERO_IMAGE = '/images/hero-mickael.jpg';
 
 const STEP_LABELS = ['Le bien', 'Caractéristiques', 'Votre projet', 'Coordonnées'];
 const TYPES_BIEN = ['Appartement', 'Maison', 'Autre'];
@@ -192,16 +192,20 @@ export const HeroShowcase: React.FC = () => {
       className="relative flex min-h-[100svh] flex-col overflow-hidden rounded-b-[32px] shadow-[0_30px_80px_-30px_rgba(1,29,65,0.45)]"
     >
       {/* Image de fond unique: Ken Burns lent */}
-      <m.img
-        src={HERO_IMAGE}
-        alt=""
-        aria-hidden="true"
-        fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover"
-        initial={reduce ? false : { scale: 1.18 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 9, ease: EASE }}
-      />
+      <picture className="absolute inset-0 h-full w-full">
+        <source srcSet="/images/hero-mickael.avif" type="image/avif" />
+        <source srcSet="/images/hero-mickael.webp" type="image/webp" />
+        <m.img
+          src={HERO_IMAGE}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
+          initial={reduce ? false : { scale: 1.18 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 9, ease: EASE }}
+        />
+      </picture>
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/55 via-black/20 to-transparent"
