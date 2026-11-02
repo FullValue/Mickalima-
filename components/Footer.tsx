@@ -220,10 +220,10 @@ export const Footer: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-accent transition-colors group"
-                            aria-label="Voir les 25 avis Google 5 étoiles"
+                            aria-label="Voir les 29 avis Google 5 étoiles"
                         >
                             <span className="text-accent">⭐ 5/5</span>
-                            <span>Voir les 25 avis Google</span>
+                            <span>Voir les 29 avis Google</span>
                             <ArrowUpRight size={14} className="opacity-60 group-hover:opacity-100 group-hover:rotate-45 transition-all" />
                         </a>
                         <span className="text-white/20 hidden sm:inline">·</span>

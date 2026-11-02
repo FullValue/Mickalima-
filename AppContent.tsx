@@ -49,7 +49,7 @@ const HOMEPAGE_SCHEMA = [
       'Expert immobilier dans le Pays de Gex et le bassin genevois. Estimation au juste prix, mise en valeur professionnelle et stratégie de vente adaptée à chaque bien.',
     url: 'https://mickael-lima.immo',
     telephone: '+33769313502',
-    email: 'contact@mickael-lima.immo',
+    email: 'mickainvest@gmail.com',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '328 Rue des Fontanettes',
@@ -91,7 +91,7 @@ const HOMEPAGE_SCHEMA = [
       jobTitle: 'Expert immobilier',
       description: "Plus de 8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (plus de 240 ventes sur les 5 dernières années)",
       telephone: '+33769313502',
-      email: 'contact@mickael-lima.immo',
+      email: 'mickainvest@gmail.com',
     },
     priceRange: '€€€',
     currenciesAccepted: 'EUR',

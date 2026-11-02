@@ -10,7 +10,6 @@ const FEATURED = BIENS.filter((bien) => bien.status === 'À vendre').slice(0, 6)
 
 const FEATURED_DESCRIPTIONS: Record<string, string> = {
   VM976: 'Une maison contemporaine ouverte sur le Léman et le Mont-Blanc à Grilly.',
-  VM990: 'Une maison familiale avec piscine et vue sur le Mont-Blanc à Sauverny.',
   VM1043: 'Une propriété de caractère à découvrir à Grilly.',
   VM560: 'Une maison contemporaine avec vue sur les Alpes à Crozet.',
   VM1126: 'Une maison lumineuse avec appartement indépendant à Divonne-les-Bains.',

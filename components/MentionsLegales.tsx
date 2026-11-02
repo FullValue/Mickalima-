@@ -36,7 +36,7 @@ export const MentionsLegales: React.FC = () => (
               <li><strong className="font-semibold">Qualité :</strong> Agent commercial immobilier indépendant</li>
               <li><strong className="font-semibold">Adresse :</strong> 328 Rue des Fontanettes, 01220 Divonne-les-Bains</li>
               <li><strong className="font-semibold">Téléphone :</strong> <a href="tel:+33769313502" className="text-primary hover:underline">07 69 31 35 02</a></li>
-              <li><strong className="font-semibold">Email :</strong> <a href="mailto:contact@mickael-lima.immo" className="text-primary hover:underline">contact@mickael-lima.immo</a></li>
+              <li><strong className="font-semibold">Email :</strong> <a href="mailto:mickainvest@gmail.com" className="text-primary hover:underline">mickainvest@gmail.com</a></li>
             </ul>
           </section>
 

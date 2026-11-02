@@ -243,8 +243,8 @@ export const RevalisFooter: React.FC = () => (
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'rgba(255,255,255,0.85)' }}>
             <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <Mail size={15} aria-hidden="true" />
-              <a href="mailto:contact@mickael-lima.immo" style={{ color: 'inherit', textDecoration: 'none' }}>
-                contact@mickael-lima.immo
+              <a href="mailto:mickainvest@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                mickainvest@gmail.com
               </a>
             </li>
             <li style={{ display: 'flex', alignItems: 'center', gap: 8 }}>

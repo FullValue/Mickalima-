@@ -19,7 +19,6 @@ const COMMUNES = [
 
 const BIEN_SLUGS = [
   'maison-individuelle-5-pieces-grilly-01220-vm976',
-  'maison-individuelle-7-pieces-sauverny-01220',
   'maison-individuelle-5-pieces-grilly-01220-vm1043',
   'maison-individuelle-8-pieces-crozet-01170',
   'maison-individuelle-5-pieces-divonne-les-bains-01220',
@@ -27,10 +26,6 @@ const BIEN_SLUGS = [
   'maison-individuelle-6-pieces-collonges-01550',
   'maison-individuelle-5-pieces-echenevex-01170',
   'maison-individuelle-5-pieces-villeneuve-les-maguelone-34750',
-  'maison-chalet-3-pieces-evian-les-bains-74500',
-  'maison-mitoyenne-1-cote-5-pieces-peron-01630',
-  'terrain-constructible-570-m2-evian-les-bains-74500',
-  'terrain-constructible-530-m2-evian-les-bains-74500',
   'appartement-t4-4-pieces-ferney-voltaire-01210-va2352',
   'appartement-t4-4-pieces-ferney-voltaire-01210-va2539',
   'maison-individuelle-7-pieces-vetraz-monthoux-74100',

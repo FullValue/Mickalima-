@@ -75,7 +75,7 @@ const ContactCard: React.FC<{ property: NBProperty }> = ({ property }) => (
         const bodyTxt = encodeURIComponent(
           `Nom : ${data.get('name')}\nEmail : ${data.get('email')}\nTéléphone : ${data.get('phone')}\n\n${data.get('message')}`
         );
-        window.location.href = `mailto:contact@mickael-lima.immo?subject=${subject}&body=${bodyTxt}`;
+        window.location.href = `mailto:mickainvest@gmail.com?subject=${subject}&body=${bodyTxt}`;
       }}
       style={{ display: 'flex', flexDirection: 'column', gap: 16, textAlign: 'left', fontFamily: T.body }}
     >

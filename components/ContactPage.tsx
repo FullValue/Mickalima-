@@ -39,7 +39,7 @@ const CONTACT_SCHEMA = {
         '@type': 'RealEstateAgent',
         name: 'Mickaël Lima',
         telephone: '+33769313502',
-        email: 'contact@mickael-lima.immo',
+        email: 'mickainvest@gmail.com',
         address: {
             '@type': 'PostalAddress',
             streetAddress: '328 Rue des Fontanettes',
@@ -200,12 +200,12 @@ export const ContactPage: React.FC = () => {
                                                 <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Appel direct</span>
                                             </span>
                                         </a>
-                                        <a href="mailto:contact@mickael-lima.immo" className="group flex w-fit items-center gap-5">
+                                        <a href="mailto:mickainvest@gmail.com" className="group flex w-fit items-center gap-5">
                                             <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 backdrop-blur-md transition-colors duration-300 group-hover:bg-white group-hover:text-[#011d41]">
                                                 <Mail size={18} />
                                             </span>
                                             <span>
-                                                <span className="block font-semibold tracking-wide transition-colors group-hover:text-white/80">contact@mickael-lima.immo</span>
+                                                <span className="block font-semibold tracking-wide transition-colors group-hover:text-white/80">mickainvest@gmail.com</span>
                                                 <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Réponse sous 24 h</span>
                                             </span>
                                         </a>

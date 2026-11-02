@@ -35,7 +35,7 @@ const MANDAT_PROVIDER = {
   name: 'Mickaël Lima',
   url: 'https://mickael-lima.immo',
   telephone: '+33769313502',
-  email: 'contact@mickael-lima.immo',
+  email: 'mickainvest@gmail.com',
   sameAs: [
     'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
     'https://share.google/fvsAyaT6pI2059MZF',

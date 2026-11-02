@@ -331,7 +331,7 @@ export const Testimonials: React.FC = () => {
                         5,0<span className="text-gray-300 text-3xl md:text-4xl">/5</span>
                     </div>
                     <p className="text-gray-500 text-base md:text-lg font-light mt-4 mb-8">
-                        Sur <span className="font-bold text-textMain">25 avis Google vérifiés</span>: Pays de Gex
+                        Sur <span className="font-bold text-textMain">29 avis Google</span>: Pays de Gex
                     </p>
                     <a
                         href="https://share.google/fvsAyaT6pI2059MZF"

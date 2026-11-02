@@ -108,13 +108,13 @@ export const CtaContact: React.FC = () => {
                   07 69 31 35 02
                 </a>
                 <a
-                  href="mailto:contact@mickael-lima.immo"
+                  href="mailto:mickainvest@gmail.com"
                   className="inline-flex items-center gap-3 font-semibold text-white transition-colors hover:text-white/70"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10">
                     <Mail size={16} aria-hidden="true" />
                   </span>
-                  contact@mickael-lima.immo
+                  mickainvest@gmail.com
                 </a>
               </div>
             </Reveal>

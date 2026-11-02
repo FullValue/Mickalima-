@@ -238,10 +238,10 @@ export const SiteFooter: React.FC = () => (
             <li className="flex items-center gap-2.5">
               <Mail size={15} aria-hidden="true" />
               <a
-                href="mailto:contact@mickael-lima.immo"
+                href="mailto:mickainvest@gmail.com"
                 className="rf-link transition-colors hover:text-white"
               >
-                contact@mickael-lima.immo
+                mickainvest@gmail.com
               </a>
             </li>
           </ul>

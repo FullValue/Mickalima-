@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
  * - reel central façon story (barres de progression, autoplay)
  * - compteurs animés au scroll, anneau d'avatars en rotation
  * Adapté du snippet fourni : DA du site (Playfair/Inter), photos réelles
- * des biens, chiffres réels (240 ventes, 5/5 sur 25 avis Google).
+ * des biens, chiffres réels (240 ventes, 5/5 sur 29 avis Google).
  */
 
 const REEL_IMAGES = [
