@@ -25,9 +25,9 @@ export const NotFound: React.FC = () => (
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <PillButton to="/" variant="solid" arrow>Accueil</PillButton>
-          <PillButton to="/nos-biens" variant="ghost">Biens à vendre</PillButton>
-          <PillButton to="/prix-immobilier/pays-de-gex" variant="ghost">Prix par commune</PillButton>
-          <PillButton to="/estimation" variant="ghost">Estimation</PillButton>
+          <PillButton to="/nos-biens/" variant="ghost">Biens à vendre</PillButton>
+          <PillButton to="/prix-immobilier/pays-de-gex/" variant="ghost">Prix par commune</PillButton>
+          <PillButton to="/estimation/" variant="ghost">Estimation</PillButton>
         </div>
       </div>
     </section>

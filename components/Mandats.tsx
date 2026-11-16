@@ -272,7 +272,7 @@ export const MandatSignature: React.FC = () => (
         subtitle="Des images soignées, une diffusion adaptée et un accompagnement attentif pour présenter votre bien."
         image="/images/hero-main.webp"
         ctaLabel="Demander une estimation"
-        ctaTo="/estimation"
+        ctaTo="/estimation/"
       />
 
       <SignatureMediaBento />
@@ -524,7 +524,7 @@ export const MandatSignature: React.FC = () => (
           { icon: <Layout size={24} />, title: 'Visites Préparées', items: ['Échanges préalables', 'Projet et budget abordés', 'Retours de visite'] },
         ]}
         ctaLabel="Je choisis l'excellence"
-        ctaTo="/estimation"
+        ctaTo="/estimation/"
         note="Les prestations précises sont détaillées dans le mandat et adaptées au bien."
         media={<SignatureClientGallery />}
       />
@@ -557,7 +557,7 @@ export const MandatExclusif: React.FC = () => (
         subtitle="Une mise en valeur soignée et une stratégie dédiée aux biens d’exception."
         image="/images/mandat-exclusif-hero.webp"
         ctaLabel="Candidater pour ce mandat"
-        ctaTo="/contact"
+        ctaTo="/contact/"
       />
 
       {/* SECTION : Valorisation & Prestations */}
@@ -584,7 +584,7 @@ export const MandatExclusif: React.FC = () => (
                 { title: 'Diffusion sur mesure', sub: 'Ciblage adapté aux acquéreurs recherchés' },
               ]}
               ctaLabel="Demander ce mandat"
-              ctaTo="/contact"
+              ctaTo="/contact/"
             />
           }
           right={

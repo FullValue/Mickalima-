@@ -169,7 +169,7 @@ export const HeroShowcase: React.FC = () => {
     if (searchType === 'Appartement' || searchType === 'Maison') params.set('type', searchType);
     if (searchVille) params.set('ville', searchVille);
     const qs = params.toString();
-    navigate(qs ? `/nos-biens?${qs}` : '/nos-biens');
+    navigate(qs ? `/nos-biens/?${qs}` : '/nos-biens/');
   };
 
   /* URL WhatsApp post-estimation : ville/type uniquement (pas de coordonnées) */

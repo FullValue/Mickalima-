@@ -41,13 +41,6 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       })),
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: GOOGLE_REVIEWS_COUNT,
-        bestRating: '5',
-        worstRating: '1',
-      },
       description: `Prix immobiliers médians de neuf communes du Pays de Gex, issus des ventes DVF de ${COMMUNE_DVF_PERIOD}.`,
     },
   ];
@@ -172,7 +165,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                     {COMMUNES.map((c, i) => (
                       <tr key={c.slug} className={`border-t border-gray-100 hover:bg-surface/60 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
                         <td className="px-5 py-4 font-semibold text-textMain">
-                          <Link to={`/prix-immobilier/${c.slug}`} className="hover:text-primary transition-colors">
+                          <Link to={`/prix-immobilier/${c.slug}/`} className="hover:text-primary transition-colors">
                             {c.name}
                           </Link>
                         </td>
@@ -219,7 +212,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
                     transition={{ delay: i * 0.05, duration: 0.5 }}
                   >
                     <Link
-                      to={`/prix-immobilier/${c.slug}`}
+                      to={`/prix-immobilier/${c.slug}/`}
                       className="group relative isolate block overflow-hidden rounded-[10px] border border-white/20 bg-primary p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-white/40 hover:shadow-xl"
                     >
                       <picture className="absolute inset-0 -z-20">
@@ -288,7 +281,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               Une médiane communale ne suffit pas pour estimer un logement précis. Une visite permet d'examiner son état, son emplacement et les ventes réellement comparables.
             </p>
             <Link
-              to="/contact"
+              to="/contact/"
               className="inline-flex items-center gap-3 bg-primary text-white font-bold px-8 py-4 rounded-full hover:bg-primary/90 transition-all group"
             >
               <span>Demander mon estimation</span>

@@ -84,7 +84,7 @@ export const FloatingVideo: React.FC = () => {
               {muted ? <VolumeX size={15} aria-hidden="true" /> : <Volume2 size={15} aria-hidden="true" />}
             </button>
           </div>
-          <Link to="/mandat-exclusif" className={`group mt-2 flex w-full items-center justify-between gap-1 rounded-full py-1.5 pl-3 pr-1.5 text-[11px] font-semibold hover:-translate-y-0.5 ${glassControl}`}>
+          <Link to="/mandat-exclusif/" className={`group mt-2 flex w-full items-center justify-between gap-1 rounded-full py-1.5 pl-3 pr-1.5 text-[11px] font-semibold hover:-translate-y-0.5 ${glassControl}`}>
             <span>En savoir plus</span>
             <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl transition-transform group-hover:rotate-45">
               <ArrowUpRight size={16} />

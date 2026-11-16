@@ -66,7 +66,7 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
     }}
   >
     <Link
-      to={`/nos-biens/${l.slug}`}
+      to={`/nos-biens/${l.slug}/`}
       tabIndex={ariaHidden ? -1 : undefined}
       className="nb-card-media"
       style={{ display: 'block', position: 'relative', borderRadius: 8, overflow: 'hidden' }}
@@ -142,7 +142,7 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
         <MapPin size={15} aria-hidden="true" /> {l.city} ({l.cp})
       </p>
       <Link
-        to={`/nos-biens/${l.slug}`}
+        to={`/nos-biens/${l.slug}/`}
         tabIndex={ariaHidden ? -1 : undefined}
         className="nb-card-cta"
         style={{
@@ -180,7 +180,7 @@ export const RevalisFooter: React.FC = () => (
           Recevez les nouveaux biens en avant-première
         </h2>
         <Link
-          to="/contact"
+          to="/contact/"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 14, background: '#fff', color: T.navy,
             fontSize: 15, fontWeight: 500, textDecoration: 'none', borderRadius: 50, padding: '10px 12px 10px 26px',
@@ -214,10 +214,10 @@ export const RevalisFooter: React.FC = () => (
           <ul className="nb-footer-links" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
             {[
               { label: 'Accueil', to: '/' },
-              { label: 'Nos biens', to: '/nos-biens' },
-              { label: 'Mandat Signature', to: '/mandat-signature' },
-              { label: 'Mandat Exclusif', to: '/mandat-exclusif' },
-              { label: 'Estimation offerte', to: '/estimation' },
+              { label: 'Nos biens', to: '/nos-biens/' },
+              { label: 'Mandat Signature', to: '/mandat-signature/' },
+              { label: 'Mandat Exclusif', to: '/mandat-exclusif/' },
+              { label: 'Estimation offerte', to: '/estimation/' },
             ].map((i) => (
               <li key={i.to}>
                 <Link to={i.to} className="rf-link" style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{i.label}</Link>
@@ -229,10 +229,10 @@ export const RevalisFooter: React.FC = () => (
           <p style={{ fontSize: 14, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 1, color: 'rgba(255,255,255,0.5)', marginBottom: 18 }}>À propos</p>
           <ul className="nb-footer-links" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15 }}>
             {[
-              { label: 'Mon parcours', to: '/about' },
-              { label: 'Partenaires', to: '/partenaires' },
-              { label: 'Blog', to: '/blog' },
-              { label: 'Contact', to: '/contact' },
+              { label: 'Mon parcours', to: '/about/' },
+              { label: 'Partenaires', to: '/partenaires/' },
+              { label: 'Blog', to: '/blog/' },
+              { label: 'Contact', to: '/contact/' },
             ].map((i) => (
               <li key={i.to}>
                 <Link to={i.to} className="rf-link" style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{i.label}</Link>
@@ -265,8 +265,8 @@ export const RevalisFooter: React.FC = () => (
         }}
       >
         <span className="nb-footer-legal" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 20 }}>
-          <Link to="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</Link>
-          <Link to="/politique-confidentialite" style={{ color: 'inherit', textDecoration: 'none' }}>Politique de confidentialité</Link>
+          <Link to="/mentions-legales/" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</Link>
+          <Link to="/politique-confidentialite/" style={{ color: 'inherit', textDecoration: 'none' }}>Politique de confidentialité</Link>
         </span>
         <span>© 2026 Mickaël Lima. Tous droits réservés.</span>
       </div>

@@ -95,7 +95,7 @@ export const FeaturedProperties: React.FC = () => {
               className="w-[calc(100vw-40px)] max-w-none shrink-0 snap-start rounded-[15px] bg-[#f7f7f7] p-2.5 sm:w-[65vw] md:w-[calc((100%_-_24px)_/_2)] lg:w-[calc((100%_-_48px)_/_3)]"
             >
               <Link
-                to={`/nos-biens/${bien.slug}`}
+                to={`/nos-biens/${bien.slug}/`}
                 aria-label={`Voir ${bien.typeLabel} à ${bien.city}, ${formatPrice(bien.price)}`}
                 className="group block rounded-[10px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]"
               >
@@ -160,7 +160,7 @@ export const FeaturedProperties: React.FC = () => {
         </div>
 
         <Reveal delay={0.15} className="mt-6 text-center">
-          <PillButton to="/nos-biens" variant="solid" arrow>
+          <PillButton to="/nos-biens/" variant="solid" arrow>
             Voir tous les biens
           </PillButton>
         </Reveal>

@@ -61,7 +61,7 @@ export const MentionsLegales: React.FC = () => (
 
           <section>
             <h2 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Données personnelles</h2>
-            <p className="text-base">Les données personnelles communiquées via le formulaire de contact sont collectées uniquement aux fins de répondre à votre demande. Elles ne sont ni cédées, ni revendues à des tiers. Pour plus d'informations, consultez la <a href="/politique-confidentialite" className="text-primary hover:underline">politique de confidentialité</a>.</p>
+            <p className="text-base">Les données personnelles communiquées via le formulaire de contact sont collectées uniquement aux fins de répondre à votre demande. Elles ne sont ni cédées, ni revendues à des tiers. Pour plus d'informations, consultez la <a href="/politique-confidentialite/" className="text-primary hover:underline">politique de confidentialité</a>.</p>
           </section>
 
           <section>

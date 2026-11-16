@@ -42,7 +42,7 @@ export const FaqAccordion: React.FC = () => {
             <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-xl">
               Mandats, estimation, confidentialité, zone d'intervention : les réponses aux questions les plus posées par mes clients.
             </p>
-            <PillButton to="/contact" className="mt-8">Me contacter</PillButton>
+            <PillButton to="/contact/" className="mt-8">Me contacter</PillButton>
           </Reveal>
         </div>
 

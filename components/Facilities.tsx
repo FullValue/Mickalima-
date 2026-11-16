@@ -37,7 +37,7 @@ export const Method: React.FC = () => {
             </h2>
           </div>
           <div className="flex flex-col items-start lg:items-end gap-8">
-            <Link to="/mandat-signature" className="bg-white text-textMain font-bold p-2 pr-8 rounded-full border border-gray-200 hover:bg-gray-50 transition-all shadow-sm flex items-center gap-4 group w-fit">
+            <Link to="/mandat-signature/" className="bg-white text-textMain font-bold p-2 pr-8 rounded-full border border-gray-200 hover:bg-gray-50 transition-all shadow-sm flex items-center gap-4 group w-fit">
               <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-300">
                 <ArrowUpRight size={20} />
               </div>

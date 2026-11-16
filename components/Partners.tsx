@@ -104,7 +104,7 @@ export const Partners: React.FC = () => {
                         </Reveal>
                         <Reveal delay={0.24}>
                             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                                <PillButton to="/contact" variant="light" arrow>
+                                <PillButton to="/contact/" variant="light" arrow>
                                     Demander une mise en relation
                                 </PillButton>
                                 <a
@@ -178,7 +178,7 @@ export const Partners: React.FC = () => {
                         <Reveal>
                             <div className="partners-network__contact">
                                 <p className="font-serif">Les bons contacts, au bon moment.</p>
-                                <PillButton to="/contact" variant="solid" arrow>
+                                <PillButton to="/contact/" variant="solid" arrow>
                                     Demander une mise en relation
                                 </PillButton>
                             </div>
@@ -212,10 +212,10 @@ export const Partners: React.FC = () => {
                         </Reveal>
                         <Reveal delay={0.24}>
                             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                                <PillButton to="/estimation" variant="solid" arrow>
+                                <PillButton to="/estimation/" variant="solid" arrow>
                                     Estimer mon bien
                                 </PillButton>
-                                <PillButton to="/contact" variant="ghost">
+                                <PillButton to="/contact/" variant="ghost">
                                     Me contacter
                                 </PillButton>
                             </div>

@@ -53,14 +53,14 @@ export const Blog: React.FC = () => {
                     </p>
                     </Reveal>
                     <Reveal delay={0.24}>
-                        <PillButton to="/estimation" variant="solid" arrow>Solliciter une analyse</PillButton>
+                        <PillButton to="/estimation/" variant="solid" arrow>Solliciter une analyse</PillButton>
                     </Reveal>
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {BLOG_POSTS.map((post, index) => (
                         <Reveal key={post.id} delay={index * 0.08}>
-                            <Link to={`/blog/${post.slug}`} className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white shadow-[0_2px_20px_-5px_rgba(1,29,65,0.12)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(1,29,65,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]">
+                            <Link to={`/blog/${post.slug}/`} className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#ebebeb] bg-white shadow-[0_2px_20px_-5px_rgba(1,29,65,0.12)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(1,29,65,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]">
                                 <div className="relative h-64 overflow-hidden">
                                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                                     <img

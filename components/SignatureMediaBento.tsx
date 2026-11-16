@@ -152,7 +152,7 @@ export const SignatureMediaBento: React.FC = () => (
         <h2 id="signature-media-title">Votre bien, sous son <em>meilleur jour.</em></h2>
         <p>Photos, films et visites immersives : chaque support révèle ce qui rend votre bien unique et aide les acquéreurs à s’y projeter.</p>
       </div>
-      <PillButton to="/estimation" variant="solid" arrow>Parlons de votre bien</PillButton>
+      <PillButton to="/estimation/" variant="solid" arrow>Parlons de votre bien</PillButton>
     </header>
 
     <div className="signature-bento">

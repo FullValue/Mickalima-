@@ -81,7 +81,7 @@ export const About: React.FC = () => (
           </Reveal>
           <Reveal delay={0.16}>
             <div className="mt-9 flex flex-wrap items-center gap-5">
-              <PillButton to="/contact" variant="light">Échanger sur mon projet</PillButton>
+              <PillButton to="/contact/" variant="light">Échanger sur mon projet</PillButton>
               <a href="#mon-parcours" className="inline-flex items-center gap-2 text-sm text-white/85 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white">Faire connaissance <ArrowDown size={15} aria-hidden="true" /></a>
             </div>
           </Reveal>
@@ -113,7 +113,7 @@ export const About: React.FC = () => (
               <Reveal y={6}><p>Bilingue français-anglais, je travaille avec une clientèle française, suisse et internationale : frontaliers, expatriés et collaborateurs du CERN, de l’ONU et de l’OMS. Cette proximité m’aide à comprendre les attentes de chaque acquéreur.</p></Reveal>
               <Reveal y={6}><p>Mon ancrage à Divonne me permet de lire les micro-marchés commune par commune, de connaître les infrastructures locales et d’estimer votre bien au juste prix dès notre premier rendez-vous. Rémunéré uniquement à la commission, je partage votre objectif : une vente réussie.</p></Reveal>
             </div>
-            <Reveal y={6}><div className="mt-9 flex flex-wrap gap-4"><PillButton to="/estimation">Estimer mon bien</PillButton><PillButton to="/contact" variant="ghost">Me contacter</PillButton></div></Reveal>
+            <Reveal y={6}><div className="mt-9 flex flex-wrap gap-4"><PillButton to="/estimation/">Estimer mon bien</PillButton><PillButton to="/contact/" variant="ghost">Me contacter</PillButton></div></Reveal>
           </div>
         </div>
       </section>
@@ -137,7 +137,7 @@ export const About: React.FC = () => (
           <Reveal y={6}>
             <div className="grid gap-7 lg:grid-cols-2 lg:items-end lg:gap-20">
               <div><SectionLabel>Un accompagnement complet</SectionLabel><h2 className={`${heading} mt-7`}>Les moyens d’une vente<br /><span className="font-accent italic">bien préparée.</span></h2></div>
-              <div><p className="max-w-lg leading-relaxed text-gray-500">De la première estimation à la remise des clés, les moyens d’une commercialisation soignée.</p><PillButton to="/mandat-exclusif" className="mt-6">Découvrir le mandat exclusif</PillButton></div>
+              <div><p className="max-w-lg leading-relaxed text-gray-500">De la première estimation à la remise des clés, les moyens d’une commercialisation soignée.</p><PillButton to="/mandat-exclusif/" className="mt-6">Découvrir le mandat exclusif</PillButton></div>
             </div>
           </Reveal>
           <div className="mt-14 grid gap-x-12 md:grid-cols-2 lg:grid-cols-3">
@@ -149,7 +149,7 @@ export const About: React.FC = () => (
       <section className="relative overflow-hidden bg-[#011d41] py-24 md:py-32">
         <img src="/images/pool-cta-final.webp" alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
         <div aria-hidden="true" className="absolute inset-0 bg-[#011d41]/75" />
-        <div className="container relative mx-auto px-6 text-center text-white"><Reveal y={6}><SectionLabel tone="light">Parlons de votre projet</SectionLabel><h2 className={`${heading} mt-7`}>Tout commence<br /><span className="font-accent italic">par un échange.</span></h2><p className="mx-auto mt-6 max-w-lg leading-relaxed text-white/75">Une question, une estimation, un projet de vente ? Un premier échange confidentiel, sans engagement, avec une réponse annoncée sous 24 h.</p><div className="mt-9 flex flex-wrap justify-center gap-4"><PillButton to="/contact" variant="light">Me contacter</PillButton><PillButton to="/estimation" variant="light">Estimation offerte</PillButton></div></Reveal></div>
+        <div className="container relative mx-auto px-6 text-center text-white"><Reveal y={6}><SectionLabel tone="light">Parlons de votre projet</SectionLabel><h2 className={`${heading} mt-7`}>Tout commence<br /><span className="font-accent italic">par un échange.</span></h2><p className="mx-auto mt-6 max-w-lg leading-relaxed text-white/75">Une question, une estimation, un projet de vente ? Un premier échange confidentiel, sans engagement, avec une réponse annoncée sous 24 h.</p><div className="mt-9 flex flex-wrap justify-center gap-4"><PillButton to="/contact/" variant="light">Me contacter</PillButton><PillButton to="/estimation/" variant="light">Estimation offerte</PillButton></div></Reveal></div>
       </section>
     </div>
   </>

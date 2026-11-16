@@ -17,11 +17,11 @@ import { PillButton } from './oakline/primitives';
 const SCROLL_THRESHOLD = 120;
 
 const DESKTOP_LINKS = [
-  { label: 'Nos Biens', to: '/nos-biens' },
-  { label: 'À Propos', to: '/about' },
-  { label: 'Partenaires', to: '/partenaires' },
-  { label: 'Guides', to: '/blog' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Nos Biens', to: '/nos-biens/' },
+  { label: 'À Propos', to: '/about/' },
+  { label: 'Partenaires', to: '/partenaires/' },
+  { label: 'Guides', to: '/blog/' },
+  { label: 'Contact', to: '/contact/' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -102,8 +102,10 @@ export const Navbar: React.FC = () => {
             : `${active ? 'text-white' : 'text-white/80 hover:text-white'}`}
     `;
 
-    const isActivePath = (to: string) =>
-        location.pathname === to || location.pathname.startsWith(`${to}/`);
+    const isActivePath = (to: string) => {
+        const base = to.replace(/\/$/, '');
+        return location.pathname === base || location.pathname.startsWith(`${base}/`);
+    };
 
     const isMandatActive = location.pathname.includes('mandat');
 
@@ -154,11 +156,11 @@ export const Navbar: React.FC = () => {
                             </button>
                             {/* Dropdown Content */}
                             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-64 bg-white rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 p-2 text-left ring-1 ring-black/5 before:content-[''] before:absolute before:-top-6 before:left-0 before:right-0 before:h-6">
-                                <Link to="/mandat-signature" className="block px-4 py-3 rounded-xl text-[#011d41] hover:bg-[#f5f5f5] transition-colors group/item">
+                                <Link to="/mandat-signature/" className="block px-4 py-3 rounded-xl text-[#011d41] hover:bg-[#f5f5f5] transition-colors group/item">
                                     <span className="block font-bold group-hover/item:translate-x-1 transition-transform">Mandat Signature</span>
                                     <span className="text-xs text-gray-500">Le plus performant</span>
                                 </Link>
-                                <Link to="/mandat-exclusif" className="block px-4 py-3 rounded-xl text-[#011d41] hover:bg-[#f5f5f5] transition-colors group/item">
+                                <Link to="/mandat-exclusif/" className="block px-4 py-3 rounded-xl text-[#011d41] hover:bg-[#f5f5f5] transition-colors group/item">
                                     <span className="block font-bold group-hover/item:translate-x-1 transition-transform">Mandat Exclusif</span>
                                     <span className="text-xs text-gray-500">Une stratégie renforcée</span>
                                 </Link>
@@ -185,7 +187,7 @@ export const Navbar: React.FC = () => {
                 {/* Right Side - CTA & Mobile Toggle */}
                 <div className="flex items-center gap-3">
                     <PillButton
-                        to="/estimation"
+                        to="/estimation/"
                         variant="light"
                         className="hidden lg:inline-flex"
                     >
@@ -247,19 +249,19 @@ export const Navbar: React.FC = () => {
                             >
                                 <div className="min-h-0 overflow-hidden">
                                     <div className="flex flex-col items-center gap-4 pt-5 pb-2">
-                                        <Link to="/mandat-signature" tabIndex={isMobileMandatsOpen ? 0 : -1} className="flex min-h-11 items-center justify-center px-4 text-lg text-white/80 hover:text-white font-medium">Mandat Signature</Link>
-                                        <Link to="/mandat-exclusif" tabIndex={isMobileMandatsOpen ? 0 : -1} className="flex min-h-11 items-center justify-center px-4 text-lg text-white/80 hover:text-white font-medium">Mandat Exclusif</Link>
+                                        <Link to="/mandat-signature/" tabIndex={isMobileMandatsOpen ? 0 : -1} className="flex min-h-11 items-center justify-center px-4 text-lg text-white/80 hover:text-white font-medium">Mandat Signature</Link>
+                                        <Link to="/mandat-exclusif/" tabIndex={isMobileMandatsOpen ? 0 : -1} className="flex min-h-11 items-center justify-center px-4 text-lg text-white/80 hover:text-white font-medium">Mandat Exclusif</Link>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
                         {[
-                            { label: 'Nos Biens', to: '/nos-biens', delay: 'delay-300' },
-                            { label: 'À Propos', to: '/about', delay: 'delay-300' },
-                            { label: 'Partenaires', to: '/partenaires', delay: 'delay-400' },
-                            { label: 'Guides', to: '/blog', delay: 'delay-500' },
-                            { label: 'Contact', to: '/contact', delay: 'delay-600' },
+                            { label: 'Nos Biens', to: '/nos-biens/', delay: 'delay-300' },
+                            { label: 'À Propos', to: '/about/', delay: 'delay-300' },
+                            { label: 'Partenaires', to: '/partenaires/', delay: 'delay-400' },
+                            { label: 'Guides', to: '/blog/', delay: 'delay-500' },
+                            { label: 'Contact', to: '/contact/', delay: 'delay-600' },
                         ].map((link) => (
                             <li key={link.to} className={`transition-all duration-500 ${link.delay} ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                                 <Link to={link.to} className="block border-b border-white/10 py-4 font-serif text-2xl tracking-tight text-white md:text-3xl">
@@ -270,7 +272,7 @@ export const Navbar: React.FC = () => {
                     </ul>
 
                     <PillButton
-                        to="/estimation"
+                        to="/estimation/"
                         variant="light"
                         className={`mt-8 delay-700 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                     >

@@ -174,7 +174,7 @@ export const WhyUs: React.FC = () => {
             <p className="whyus__label">/ Pourquoi nous ?</p>
             <h2 className="whyus__title">Votre partenaire immobilier de confiance</h2>
           </div>
-          <Link className="whyus__cta" to="/nos-biens">
+          <Link className="whyus__cta" to="/nos-biens/">
             Voir nos biens
             <span className="whyus__cta-icon">
               <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

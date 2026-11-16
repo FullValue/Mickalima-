@@ -66,7 +66,7 @@ export const NeighborhoodsGrid: React.FC = () => {
           return (
             <Link
               key={`${commune.slug}-${i}`}
-              to={`/prix-immobilier/${commune.slug}`}
+              to={`/prix-immobilier/${commune.slug}/`}
               aria-hidden={i >= COMMUNES_SLIDER.length || undefined}
               tabIndex={i >= COMMUNES_SLIDER.length ? -1 : undefined}
               aria-label={`Découvrir le marché immobilier à ${commune.name}`}
@@ -114,7 +114,7 @@ export const NeighborhoodsGrid: React.FC = () => {
 
     <div className="container mx-auto px-6">
       <Reveal delay={0.15} className="mt-12 text-center">
-        <PillButton to="/prix-immobilier/pays-de-gex" variant="ghost" arrow>
+        <PillButton to="/prix-immobilier/pays-de-gex/" variant="ghost" arrow>
           Voir tous les guides des prix
         </PillButton>
       </Reveal>

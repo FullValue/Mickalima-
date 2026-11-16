@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
                     </p>
 
                     {/* Button matching Context */}
-                    <Link to="/contact" className={`group inline-flex items-center gap-4 font-bold p-2 pr-8 rounded-full transition-all shadow-md transform hover:-translate-y-1 duration-500 w-fit ${isBlueFooterPage ? 'bg-white text-textMain hover:bg-gray-100' : 'bg-white text-textMain border border-gray-200 hover:bg-gray-50'}`}>
+                    <Link to="/contact/" className={`group inline-flex items-center gap-4 font-bold p-2 pr-8 rounded-full transition-all shadow-md transform hover:-translate-y-1 duration-500 w-fit ${isBlueFooterPage ? 'bg-white text-textMain hover:bg-gray-100' : 'bg-white text-textMain border border-gray-200 hover:bg-gray-50'}`}>
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500 shrink-0 ${isBlueFooterPage ? 'bg-textMain text-white' : 'bg-textMain text-white'}`}>
                             <ArrowUpRight size={20} />
                         </div>
@@ -125,10 +125,10 @@ export const Footer: React.FC = () => {
                                 <p className="text-lg font-bold mb-8 text-white">Navigation</p>
                                 <ul className="space-y-4 text-gray-300 font-medium">
                                     <li><Link to="/" className="hover:text-white transition-colors">Accueil</Link></li>
-                                    <li><Link to="/mandat-signature" className="hover:text-white transition-colors">Nos Mandats</Link></li>
-                                    <li><Link to="/nos-biens" className="hover:text-white transition-colors">Nos Biens</Link></li>
-                                    <li><Link to="/about" className="hover:text-white transition-colors">À Propos</Link></li>
-                                    <li><Link to="/partenaires" className="hover:text-white transition-colors">Partenaires</Link></li>
+                                    <li><Link to="/mandat-signature/" className="hover:text-white transition-colors">Nos Mandats</Link></li>
+                                    <li><Link to="/nos-biens/" className="hover:text-white transition-colors">Nos Biens</Link></li>
+                                    <li><Link to="/about/" className="hover:text-white transition-colors">À Propos</Link></li>
+                                    <li><Link to="/partenaires/" className="hover:text-white transition-colors">Partenaires</Link></li>
                                 </ul>
                             </div>
 
@@ -136,9 +136,9 @@ export const Footer: React.FC = () => {
                             <div>
                                 <p className="text-lg font-bold mb-8 text-white">Projet</p>
                                 <ul className="space-y-4 text-gray-300 font-medium">
-                                    <li><Link to="/estimation" className="hover:text-white transition-colors">Estimer mon bien</Link></li>
-                                    <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-                                    <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                                    <li><Link to="/estimation/" className="hover:text-white transition-colors">Estimer mon bien</Link></li>
+                                    <li><Link to="/contact/" className="hover:text-white transition-colors">Contact</Link></li>
+                                    <li><Link to="/blog/" className="hover:text-white transition-colors">Blog</Link></li>
                                 </ul>
                             </div>
 
@@ -146,8 +146,8 @@ export const Footer: React.FC = () => {
                             <div>
                                 <p className="text-lg font-bold mb-8 text-white">Légal</p>
                                 <ul className="space-y-4 text-gray-300 font-medium">
-                                    <li><Link to="/politique-confidentialite" className="hover:text-white transition-colors">Politique de confidentialité</Link></li>
-                                    <li><Link to="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link></li>
+                                    <li><Link to="/politique-confidentialite/" className="hover:text-white transition-colors">Politique de confidentialité</Link></li>
+                                    <li><Link to="/mentions-legales/" className="hover:text-white transition-colors">Mentions légales</Link></li>
                                 </ul>
                             </div>
 
@@ -162,7 +162,7 @@ export const Footer: React.FC = () => {
                                             {COMMUNES.map((c) => (
                                                 <Link
                                                     key={c.slug}
-                                                    to={`/${c.slug}/estimation-immobiliere`}
+                                                    to={`/${c.slug}/estimation-immobiliere/`}
                                                     aria-label={`Estimation immobilière ${c.name}`}
                                                     className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
                                                 >
@@ -179,7 +179,7 @@ export const Footer: React.FC = () => {
                                             {COMMUNES.map((c) => (
                                                 <Link
                                                     key={c.slug}
-                                                    to={`/prix-immobilier/${c.slug}`}
+                                                    to={`/prix-immobilier/${c.slug}/`}
                                                     aria-label={`Prix immobilier ${c.name}`}
                                                     className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
                                                 >
@@ -196,7 +196,7 @@ export const Footer: React.FC = () => {
                                             {COMMUNES.map((c) => (
                                                 <Link
                                                     key={c.slug}
-                                                    to={`/frontalier/${c.slug}`}
+                                                    to={`/frontalier/${c.slug}/`}
                                                     aria-label={`Immobilier frontalier ${c.name}`}
                                                     className="px-3 py-1.5 rounded-full border border-white/15 text-gray-300 text-xs font-medium hover:border-white/40 hover:text-white transition-all"
                                                 >

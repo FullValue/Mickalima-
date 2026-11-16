@@ -22,7 +22,7 @@ export const InsightsTeaser: React.FC = () => {
         />
         <div className="insights-editorial-grid">
           <Reveal className="insights-featured-wrapper">
-            <Link to={`/blog/${featured.slug}`} className="insights-featured" aria-label={`Lire l'article : ${featured.title}`}>
+            <Link to={`/blog/${featured.slug}/`} className="insights-featured" aria-label={`Lire l'article : ${featured.title}`}>
               <img src={featured.image} alt="" aria-hidden="true" loading="lazy" decoding="async" className="insights-featured-image" />
               <div className="insights-featured-shade" aria-hidden="true" />
               <span className="insights-reading-time"><Clock3 size={14} aria-hidden="true" />{readingTime(featured.content)} min de lecture</span>
@@ -44,7 +44,7 @@ export const InsightsTeaser: React.FC = () => {
           <div className="insights-secondary">
             {otherPosts.map((post, index) => (
               <Reveal key={post.id} delay={0.1 + index * 0.1}>
-                <Link to={`/blog/${post.slug}`} className="insights-small-card" aria-label={`Lire l'article : ${post.title}`}>
+                <Link to={`/blog/${post.slug}/`} className="insights-small-card" aria-label={`Lire l'article : ${post.title}`}>
                   <div className="insights-small-image">
                     <img src={post.image} alt="" aria-hidden="true" loading="lazy" decoding="async" />
                     <span className="insights-reading-time"><Clock3 size={14} aria-hidden="true" />{readingTime(post.content)} min de lecture</span>
@@ -56,7 +56,7 @@ export const InsightsTeaser: React.FC = () => {
           </div>
         </div>
         <Reveal delay={0.15} className="mt-12 text-center">
-          <PillButton to="/blog" arrow>Voir tous les articles</PillButton>
+          <PillButton to="/blog/" arrow>Voir tous les articles</PillButton>
         </Reveal>
       </div>
     </section>

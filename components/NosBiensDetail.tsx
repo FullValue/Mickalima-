@@ -65,7 +65,7 @@ const ContactCard: React.FC<{ property: NBProperty }> = ({ property }) => (
       Parlez avec votre agent !
     </h3>
     <p style={{ fontFamily: T.body, fontSize: 15, color: T.muted, margin: '8px 0 24px' }}>
-      Mickaël Lima: réponse en moins d'une heure
+      Mickaël Lima: réponse sous 24 h
     </p>
     <form
       onSubmit={(e) => {
@@ -258,23 +258,53 @@ export const NosBiensDetail: React.FC = () => {
   // Fermer la lightbox quand on change de bien
   useEffect(() => setLightbox(null), [slug]);
 
-  if (!property) return <Navigate to="/nos-biens" replace />;
+  if (!property) return <Navigate to="/nos-biens/" replace />;
 
   const photos = property.photos;
   const others = BIENS.filter((p) => p.slug !== property.slug).slice(0, 8);
   const heroSide = [photos[1] || photos[0], photos[2] || photos[0], photos[3] || photos[0]];
   const galleryRest = photos.slice(4);
 
+  // Deux biens de même type dans la même commune : la référence distingue leurs titres.
+  const sameLabel = BIENS.filter((p) => p.typeLabel === property.typeLabel && p.city === property.city).length > 1;
+  const listingSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateListing',
+    name: property.title,
+    url: `https://mickael-lima.immo/nos-biens/${property.slug}/`,
+    image: photos.slice(0, 3).map((src) => `https://mickael-lima.immo${src}`),
+    identifier: property.ref,
+    ...(property.status === 'À vendre' && property.price
+      ? {
+          offers: {
+            '@type': 'Offer',
+            price: property.price,
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStock',
+          },
+        }
+      : {}),
+    about: {
+      '@type': property.type === 'Appartement' ? 'Apartment' : 'SingleFamilyResidence',
+      ...(property.surface ? { floorSize: { '@type': 'QuantitativeValue', value: property.surface, unitCode: 'MTK' } } : {}),
+      ...(property.rooms ? { numberOfRooms: property.rooms } : {}),
+      address: { '@type': 'PostalAddress', addressLocality: property.city, postalCode: property.cp, addressCountry: 'FR' },
+    },
+    provider: { '@type': 'RealEstateAgent', name: 'Mickaël Lima', url: 'https://mickael-lima.immo/' },
+  };
+
   return (
     <>
       <SEO
-        title={`${property.typeLabel} ${property.city}: ${property.status === 'Vendu' ? 'Vendu' : formatPrice(property.price)} | Nos Biens`}
+        title={`${property.typeLabel} ${property.city}${sameLabel ? ` (réf. ${property.ref})` : ''}: ${property.status === 'Vendu' ? 'Vendu' : formatPrice(property.price)} | Nos Biens`}
         description={`${property.title}: ${[
           property.surface ? `${formatSurface(property.surface)}` : null,
           property.bedrooms ? `${property.bedrooms} chambres` : null,
           property.land ? `terrain ${formatSurface(property.land)}` : null,
         ].filter(Boolean).join(', ')}. ${property.status === 'Vendu' ? 'Bien vendu' : formatPrice(property.price)}. Réf. ${property.ref}.`}
         canonical={`/nos-biens/${property.slug}`}
+        ogImage={photos[0]?.replace(/\.webp$/, '.jpg')}
+        schema={listingSchema}
       />
 
       <div style={{ background: T.bg, fontFamily: T.body, color: T.dark, paddingTop: 96 }}>
@@ -353,7 +383,7 @@ export const NosBiensDetail: React.FC = () => {
                 >
                   <img
                     src={heroSide[2]}
-                    alt=""
+                    alt={`${property.typeLabel} à ${property.city}: photo 4`}
                     width="500"
                     height="380"
                     loading="lazy"

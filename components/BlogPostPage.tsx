@@ -20,7 +20,7 @@ export const BlogPostPage: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-background px-6">
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain mb-8 font-newsletter italic font-normal">Article introuvable</h2>
-        <PillButton to="/blog" variant="solid">Retour aux guides</PillButton>
+        <PillButton to="/blog/" variant="solid">Retour aux guides</PillButton>
       </div>
     );
   }
@@ -54,7 +54,7 @@ export const BlogPostPage: React.FC = () => {
       url: 'https://mickael-lima.immo',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://mickael-lima.immo/images/logo.png',
+        url: 'https://mickael-lima.immo/images/mickael-lima-logo.png',
       },
     },
     image: `https://mickael-lima.immo${post.image}`,
@@ -104,7 +104,7 @@ export const BlogPostPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <Link to="/blog" className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/85 backdrop-blur-sm transition-colors hover:bg-white/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+            <Link to="/blog/" className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/85 backdrop-blur-sm transition-colors hover:bg-white/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
               <ArrowLeft size={16} />
               Retour aux articles
             </Link>
@@ -192,7 +192,7 @@ export const BlogPostPage: React.FC = () => {
                   <h2 className="mb-2 font-serif text-2xl text-[#011d41]">Un projet immobilier en vue ?</h2>
                   <p className="text-gray-500">Discutons de vive voix de vos objectifs.</p>
                 </div>
-                <PillButton to="/contact" variant="solid" arrow>Me contacter</PillButton>
+                <PillButton to="/contact/" variant="solid" arrow>Me contacter</PillButton>
               </div>
             </main>
 

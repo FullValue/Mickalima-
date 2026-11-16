@@ -106,44 +106,7 @@ export const FrontalierCommunePage: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: GOOGLE_REVIEWS_COUNT,
-        bestRating: '5',
-        worstRating: '1',
-      },
       description: `Immobilier à ${commune.name} pour les frontaliers travaillant à Genève. Expertise marché local, clientèle CERN, ONU et organisations internationales.`,
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: `Est-il avantageux d'acheter à ${commune.name} quand on travaille à Genève ?`,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: `${commune.name} se situe à ${commune.distanceGeneve} à vol d'oiseau du centre de Genève. ${commune.frontalierContext} L'intérêt d'un achat dépend du lieu de travail, du trajet, du financement, de la fiscalité personnelle et du bien recherché.`,
-          },
-        },
-        {
-          '@type': 'Question',
-          name: `Quels sont les prix immobiliers observés à ${commune.name} ?`,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: `Sur les transactions DVF de ${COMMUNE_DVF_PERIOD} à ${commune.name} (${commune.cp}), le prix médian est de ${commune.prixApptMin.toLocaleString('fr-FR')} €/m² pour les appartements et de ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m² pour les maisons. Ces médianes ne sont pas des prix de vente garantis. ${commune.evolutionPrix}`,
-          },
-        },
-        {
-          '@type': 'Question',
-          name: `Mickaël Lima propose-t-il des estimations gratuites à ${commune.name} ?`,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: `Oui. L'estimation est gratuite, confidentielle et sans engagement. Elle s'appuie sur une visite du bien et sur des transactions comparables adaptées à sa localisation et à ses caractéristiques. Mickaël Lima intervient sur l'ensemble du Pays de Gex.`,
-          },
-        },
-      ],
     },
   ];
 
@@ -577,7 +540,7 @@ export const FrontalierCommunePage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  to="/contact"
+                  to="/contact/"
                   className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-black/20"
                 >
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
@@ -615,7 +578,7 @@ export const FrontalierCommunePage: React.FC = () => {
               </p>
             </div>
             <Link
-              to={`/${commune.slug}/estimation-immobiliere`}
+              to={`/${commune.slug}/estimation-immobiliere/`}
               className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-primary/20 shrink-0"
             >
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">

@@ -30,6 +30,7 @@ export const SEO: React.FC<SEOProps> = ({
   alternates,
   noindex = false,
 }) => {
+  const ogImageUrl = ogImage.startsWith('/') ? `${BASE_URL}${ogImage}` : ogImage;
   const fullTitle = title.includes('Mickaël Lima') ? title : `${title} | Mickaël Lima`;
   // Force trailing slash sur tous les canonicals pour matcher ce que sert Vercel
   // (résout le mismatch sitemap/canonical sur 40 pages identifié par l'audit)
@@ -59,13 +60,13 @@ export const SEO: React.FC<SEOProps> = ({
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={ogImageUrl} />
       <meta property="og:type" content={ogType} />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={ogImageUrl} />
 
       {/* JSON-LD : un <script> par objet quand schema est un tableau
           (la spec JSON-LD 1.1 n'autorise pas un tableau bare hors @graph) */}

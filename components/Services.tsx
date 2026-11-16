@@ -35,7 +35,7 @@ export const Services: React.FC = () => {
             <div className="absolute inset-0 bg-primary/80 flex flex-col items-center justify-center text-center px-4">
                 <h3 className="text-3xl font-bold text-white mb-6">Prêt à concrétiser votre projet ?</h3>
                 <a 
-                    href="/estimation" 
+                    href="/estimation/" 
                     className="bg-white text-primary font-bold py-4 px-10 rounded hover:bg-gray-100 transition-all shadow-lg"
                 >
                     Demander une estimation

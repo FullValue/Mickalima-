@@ -80,13 +80,6 @@ export const CommuneEstimationPage: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: GOOGLE_REVIEWS_COUNT,
-        bestRating: '5',
-        worstRating: '1',
-      },
       description: `Estimation immobilière gratuite à ${commune.name} (${commune.cp}). Expert du marché frontalier du Pays de Gex.`,
     },
   ];
@@ -111,7 +104,7 @@ export const CommuneEstimationPage: React.FC = () => {
       <SEO
         title={`Estimation Immobilière ${commune.name} : repères DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
         description={`Estimation gratuite à ${commune.name} (${commune.cp}). Repères DVF ${COMMUNE_DVF_PERIOD} : médiane des appartements ${commune.prixApptMin.toLocaleString('fr-FR')} €/m² et des maisons ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m². Analyse adaptée au bien.`}
-        canonical={`/${commune.slug}/estimation-immobiliere`}
+        canonical={`/${commune.slug}/estimation-immobiliere/`}
         schema={schema}
       />
 
@@ -313,7 +306,7 @@ export const CommuneEstimationPage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  to="/contact"
+                  to="/contact/"
                   className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-black/20"
                 >
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
@@ -401,7 +394,7 @@ export const CommuneEstimationPage: React.FC = () => {
                 return (
                   <Link
                     key={slug}
-                    to={`/${slug}/estimation-immobiliere`}
+                    to={`/${slug}/estimation-immobiliere/`}
                     className="group flex items-center justify-between bg-surface rounded-[10px] p-6 border border-gray-100 hover:border-primary/20 transition-all"
                   >
                     <div>
@@ -417,7 +410,7 @@ export const CommuneEstimationPage: React.FC = () => {
                 );
               })}
               <Link
-                to="/estimation"
+                to="/estimation/"
                 className="group flex items-center justify-between bg-primary rounded-[10px] p-6 hover:bg-textMain transition-all"
               >
                 <div>
@@ -447,7 +440,7 @@ export const CommuneEstimationPage: React.FC = () => {
               </p>
             </div>
             <Link
-              to="/blog"
+              to="/blog/"
               className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-primary/20 shrink-0"
             >
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">

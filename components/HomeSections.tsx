@@ -475,7 +475,7 @@ export const HomeBlog: React.FC = () => (
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-textMain tracking-tight leading-[1.05] hyphens-auto break-words">Actualités & <br className="hidden md:block" /><span className="font-newsletter italic font-normal">Conseils</span></h2>
                 </div>
-                <Link to="/blog" className="group flex items-center gap-4 text-textMain font-bold hover:text-primary transition-colors text-lg">
+                <Link to="/blog/" className="group flex items-center gap-4 text-textMain font-bold hover:text-primary transition-colors text-lg">
                     Voir tous les articles
                     <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -496,7 +496,7 @@ export const HomeBlog: React.FC = () => (
                         {/* Glass background from Blog.tsx */}
                         <div className="absolute inset-0 bg-white/70 backdrop-blur-xl rounded-[10px] border border-white/50 transition-all duration-500 -z-10"></div>
 
-                        <Link to={`/blog/${post.slug}`} className="flex flex-col h-full bg-transparent p-4">
+                        <Link to={`/blog/${post.slug}/`} className="flex flex-col h-full bg-transparent p-4">
                             <div className="h-64 rounded-[10px] overflow-hidden relative shadow-inner">
                                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                                 <img
@@ -548,7 +548,7 @@ export const HomeBlog: React.FC = () => (
                 viewport={{ once: true }}
                 className="mt-12 text-center md:hidden"
             >
-                <Link to="/blog" className="inline-flex items-center justify-center w-full py-4 rounded-full border-2 border-primary text-primary font-bold">
+                <Link to="/blog/" className="inline-flex items-center justify-center w-full py-4 rounded-full border-2 border-primary text-primary font-bold">
                     Voir tous les articles
                 </Link>
             </m.div>
@@ -662,7 +662,7 @@ export const ZonesDIntervention: React.FC = () => {
                                     style={{ width: cardWidth, height: cardHeight }}
                                 >
                                     <Link
-                                        to={`/${c.slug}/estimation-immobiliere`}
+                                        to={`/${c.slug}/estimation-immobiliere/`}
                                         className="group block rounded-[10px] overflow-hidden w-full h-full relative"
                                         style={{ background: '#011d41' }}
                                         draggable={false}
@@ -757,13 +757,13 @@ export const FinalCTA: React.FC = () => (
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-lg">
-                        <Link to="/estimation" className="bg-white text-textMain py-2 px-2 pr-6 rounded-full font-bold hover:bg-gray-50 transition-all hover:-translate-y-1 flex items-center justify-center gap-4 group flex-1">
+                        <Link to="/estimation/" className="bg-white text-textMain py-2 px-2 pr-6 rounded-full font-bold hover:bg-gray-50 transition-all hover:-translate-y-1 flex items-center justify-center gap-4 group flex-1">
                             <div className="bg-textMain text-white rounded-full p-4 group-hover:rotate-45 transition-transform duration-300">
                                 <ArrowUpRight size={20} />
                             </div>
                             <span className="text-base tracking-wide whitespace-nowrap">Estimer mon bien gratuitement</span>
                         </Link>
-                        <Link to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-2 px-2 pr-6 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-4 group flex-1">
+                        <Link to="/contact/" className="bg-white/10 backdrop-blur-md text-white border border-white/20 py-2 px-2 pr-6 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-4 group flex-1">
                             <div className="bg-white text-textMain rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
                                 <Phone size={20} />
                             </div>

@@ -13,11 +13,11 @@ export const GOOGLE_REVIEWS_COUNT = 29;
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Accueil', path: '/' },
   { label: 'Services & Mandats', path: '/mandats' },
-  { label: 'Nos Biens', path: '/nos-biens' },
-  { label: 'À Propos', path: '/about' },
-  { label: 'Partenaires', path: '/partenaires' },
-  { label: 'Guides', path: '/blog' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'Nos Biens', path: '/nos-biens/' },
+  { label: 'À Propos', path: '/about/' },
+  { label: 'Partenaires', path: '/partenaires/' },
+  { label: 'Guides', path: '/blog/' },
+  { label: 'Contact', path: '/contact/' },
 ];
 
 export const IMAGES = {
@@ -194,7 +194,7 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Une médiane signifie que la moitié des ventes du groupe considéré se situe au-dessus et l'autre moitié au-dessous. Elle ne dit pas qu'un appartement donné vaut exactement ce montant. L'adresse, la surface, l'étage, l'état du logement, le DPE, l'extérieur et la période de vente changent le résultat. Les communes absentes du tableau ne disposent pas ici d'une médiane notariale comparable publiée dans ce baromètre ; leur attribuer un chiffre précis créerait une fausse précision.</p>
     <p>Les ventes effectives peuvent aussi se consulter dans l'<a href="https://app.dvf.etalab.gouv.fr/">application publique DVF</a>. Pour construire un comparatif utile, il faut sélectionner des transactions récentes et réellement comparables, puis écarter les ventes atypiques, les dépendances et les écarts de surface. Les prix affichés sur les portails immobiliers renseignent sur l'offre concurrente, mais ils ne prouvent pas le prix finalement signé.</p>
     <p>Le calcul d'un écart d'estimation reste simple : sur un bien à 600 000 €, <strong>10 % représentent 60 000 €</strong>. Ce calcul illustre l'enjeu ; il ne signifie pas qu'une estimation en ligne se trompe systématiquement de 10 %.</p>
-    <p><a href="/estimation">Demander une estimation adaptée à mon bien →</a></p>
+    <p><a href="/estimation/">Demander une estimation adaptée à mon bien →</a></p>
   `
   },
   {
@@ -224,7 +224,7 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Un rendement brut se calcule en divisant le loyer annuel hors charges par le prix total d'acquisition, frais compris. Il faut ensuite retrancher les charges, la fiscalité, les travaux et une hypothèse de vacance pour approcher le rendement net. Un loyer d'annonce, même élevé, ne garantit ni une location immédiate ni un « cash-flow positif ».</p>
     <p>La location meublée non professionnelle demande aussi un calcul fiscal au cas par cas. Depuis les ventes réalisées à compter du 15 février 2025, les amortissements déduits au régime réel sont en principe pris en compte dans le calcul de la plus-value à la revente. Source : <a href="https://www.impots.gouv.fr/particulier/questions/je-vends-un-bien-immobilier-donne-en-location-meublee-comment-se-calcule-la">Direction générale des finances publiques, plus-value en LMNP</a>.</p>
     <p>Pour vendre, confrontez les transactions comparables et les annonces concurrentes, puis choisissez les canaux de diffusion utiles à votre bien. Une traduction anglaise ou une présence sur un portail suisse peut aider certains dossiers, mais il n'existe pas de pourcentage public fiable permettant d'affirmer que leur absence fait perdre une part fixe des acheteurs.</p>
-    <p><a href="/estimation">Faire étudier mon projet immobilier →</a></p>
+    <p><a href="/estimation/">Faire étudier mon projet immobilier →</a></p>
   `
   },
   {
@@ -259,7 +259,7 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Supposons une maison affichée à <strong>750 000 €</strong>, puis vendue <strong>690 000 €</strong> après plusieurs ajustements : l'écart entre les deux montants est de <strong>60 000 €, soit 8 % du prix initial</strong>. Cet écart n'établit pas que le mandat ou la durée de commercialisation en est la cause : le prix initial pouvait être trop élevé, le marché pouvait évoluer ou le bien présenter des caractéristiques difficiles à valoriser.</p>
     <p>Si la vente dure quatre mois de plus que prévu et qu'un financement relais coûte 1 500 € par mois, ce financement ajoute <strong>6 000 €</strong> dans cet exemple. Il ne faut additionner ni une taxe foncière annuelle fictive ni un rendement de placement hypothétique comme s'il s'agissait de frais certains pour tous les vendeurs. Le calcul réel dépend des charges et de la situation du propriétaire.</p>
     <p>La meilleure comparaison entre deux propositions de mandat porte donc sur le prix justifié par les ventes, la stratégie écrite, les honoraires et les conditions de sortie. Une estimation de terrain permet de poser cette base avant de choisir la formule.</p>
-    <p><a href="/estimation">Demander une estimation de mon bien →</a></p>
+    <p><a href="/estimation/">Demander une estimation de mon bien →</a></p>
   `
   },
   {
@@ -306,7 +306,7 @@ export const BLOG_POSTS: BlogPost[] = [
     <h2>Méthode et limites de ce relevé</h2>
     <p>Les quatre prix ont été lus sur les pages publiques de chaque site le 16 novembre 2026, pour la commune de Gex uniquement. Il s'agit d'un relevé ponctuel sur une seule commune : il ne permet pas de classer ces simulateurs ni de dire lequel est le plus juste. Leurs chiffres sont mis à jour régulièrement et peuvent avoir changé depuis. La médiane DVF porte sur les ventes de 2021 à 2025 et n'est donc pas directement comparable à un prix moyen d'octobre 2026.</p>
     <p>Pour les autres communes, les repères par commune sont détaillés dans le <a href="/prix-immobilier/pays-de-gex/">comparatif des prix du Pays de Gex</a> et dans l'article sur les <a href="/blog/prix-m2-pays-de-gex-2026/">prix au m² relevés par les notaires</a>.</p>
-    <p><a href="/estimation">Demander une estimation à domicile →</a></p>
+    <p><a href="/estimation/">Demander une estimation à domicile →</a></p>
   `
   }
 ];

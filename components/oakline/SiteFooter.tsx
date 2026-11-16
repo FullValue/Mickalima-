@@ -28,15 +28,15 @@ const WHATSAPP_URL =
 const PAGES_LINKS = NAV_ITEMS.filter((item) => item.path !== '/mandats');
 
 const SERVICES_LINKS = [
-  { label: 'Mandat Signature', to: '/mandat-signature' },
-  { label: 'Mandat Exclusif', to: '/mandat-exclusif' },
-  { label: 'Estimation offerte', to: '/estimation' },
-  { label: 'Nos biens', to: '/nos-biens' },
+  { label: 'Mandat Signature', to: '/mandat-signature/' },
+  { label: 'Mandat Exclusif', to: '/mandat-exclusif/' },
+  { label: 'Estimation offerte', to: '/estimation/' },
+  { label: 'Nos biens', to: '/nos-biens/' },
 ];
 
 const LEGAL_LINKS = [
-  { label: 'Mentions légales', to: '/mentions-legales' },
-  { label: 'Politique de confidentialité', to: '/politique-confidentialite' },
+  { label: 'Mentions légales', to: '/mentions-legales/' },
+  { label: 'Politique de confidentialité', to: '/politique-confidentialite/' },
 ];
 
 const NewsletterForm: React.FC = () => {

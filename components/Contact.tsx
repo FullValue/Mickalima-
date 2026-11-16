@@ -312,7 +312,7 @@ export const Estimation: React.FC = () => {
                         return (
                         <Link
                             key={c.slug}
-                            to={`/${c.slug}/estimation-immobiliere`}
+                            to={`/${c.slug}/estimation-immobiliere/`}
                             aria-label={`Estimer un bien à ${c.name}`}
                             className="group relative block h-36 overflow-hidden rounded-[20px] bg-[#011d41] shadow-sm sm:h-44 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41]"
                         >

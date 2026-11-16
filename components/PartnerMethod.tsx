@@ -74,7 +74,7 @@ export const PartnerMethod: React.FC<{
           </div>
           <div className="partner-method-description">
             <p>{description}</p>
-            <PillButton to="/contact">Parlons de votre projet</PillButton>
+            <PillButton to="/contact/">Parlons de votre projet</PillButton>
           </div>
         </div>
 

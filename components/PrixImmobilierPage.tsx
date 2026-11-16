@@ -77,13 +77,6 @@ export const PrixImmobilierPage: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: GOOGLE_REVIEWS_COUNT,
-        bestRating: '5',
-        worstRating: '1',
-      },
       description: `Prix immobiliers médians à ${commune.name}, calculés sur les ventes DVF de ${COMMUNE_DVF_PERIOD}, par type de bien.`,
     },
   ];
@@ -297,7 +290,7 @@ export const PrixImmobilierPage: React.FC = () => {
                         <tr key={v.slug} className="border-b border-gray-100 hover:bg-surface transition-colors">
                           <td className="py-5 pr-6">
                             <Link
-                              to={`/prix-immobilier/${v.slug}`}
+                              to={`/prix-immobilier/${v.slug}/`}
                               className="font-medium text-textMain hover:text-primary transition-colors"
                             >
                               {v.name}
@@ -348,7 +341,7 @@ export const PrixImmobilierPage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  to="/contact"
+                  to="/contact/"
                   className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-black/20"
                 >
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
@@ -386,7 +379,7 @@ export const PrixImmobilierPage: React.FC = () => {
               </p>
             </div>
             <Link
-              to={`/${commune.slug}/estimation-immobiliere`}
+              to={`/${commune.slug}/estimation-immobiliere/`}
               className="group bg-primary text-white font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-textMain transition-all shadow-primary/20 shrink-0"
             >
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">

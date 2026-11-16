@@ -124,7 +124,7 @@ export const ExclusifClosingSection: React.FC = () => {
             </div>
           </nav>
 
-          <PillButton to="/contact" className="mt-8">Candidature confidentielle</PillButton>
+          <PillButton to="/contact/" className="mt-8">Candidature confidentielle</PillButton>
           <p className="mt-4 max-w-sm text-xs leading-relaxed text-[#637080]">
             Les modalités de diffusion et de confidentialité sont définies avec vous.
           </p>

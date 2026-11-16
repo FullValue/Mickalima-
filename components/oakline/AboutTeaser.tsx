@@ -55,8 +55,8 @@ export const AboutTeaser: React.FC = () => (
               </div>
             </dl>
             <div className="mt-9 flex flex-wrap gap-3">
-              <PillButton to="/about" className="w-full justify-between sm:w-auto sm:justify-center">Découvrir mon parcours</PillButton>
-              <PillButton to="/contact" className="w-full justify-between sm:w-auto sm:justify-center">Me contacter</PillButton>
+              <PillButton to="/about/" className="w-full justify-between sm:w-auto sm:justify-center">Découvrir mon parcours</PillButton>
+              <PillButton to="/contact/" className="w-full justify-between sm:w-auto sm:justify-center">Me contacter</PillButton>
             </div>
           </Reveal>
         </div>
