@@ -121,7 +121,7 @@ export const Problematic: React.FC = () => (
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-[10px] overflow-hidden relative"
                 >
-                    <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.jpg" alt="Notre approche" width="1200" height="800" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                    <img src="/images/villa-fontaine-cour-lueur-du-soir_1167636-26973.webp" alt="Notre approche" width="1200" height="800" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-primary/10"></div>
                 </m.div>
 

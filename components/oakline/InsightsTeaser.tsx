@@ -31,7 +31,7 @@ export const InsightsTeaser: React.FC = () => {
                 <h3>{featured.title}</h3>
                 <div className="insights-featured-meta">
                   <div className="insights-author">
-                    <img src="/images/micka-photo.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                    <img src="/images/micka-photo.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
                     <span>Mickaël Lima</span>
                     <span className="insights-meta-dot" aria-hidden="true">·</span>
                     <time dateTime={featured.date}>{new Date(featured.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</time>

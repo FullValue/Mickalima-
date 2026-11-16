@@ -69,7 +69,7 @@ export const About: React.FC = () => (
     />
     <div className="bg-white text-[#011d41]">
       <section className="relative flex min-h-[660px] items-center overflow-hidden rounded-b-[32px] bg-[#011d41] pb-20 pt-36 md:pb-24">
-        <img src="/images/about-hero.jpg" alt="" aria-hidden="true" width="1920" height="1080" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
+        <img src="/images/about-hero.webp" alt="" aria-hidden="true" width="1920" height="1080" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#011d41]/90 via-[#011d41]/65 to-[#011d41]/20" />
         <div className="container relative mx-auto px-6 text-white">
           <Reveal y={6}><SectionLabel tone="light">Mickaël Lima · À propos</SectionLabel></Reveal>
@@ -147,7 +147,7 @@ export const About: React.FC = () => (
       </section>
 
       <section className="relative overflow-hidden bg-[#011d41] py-24 md:py-32">
-        <img src="/images/pool-cta-final.jpg" alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+        <img src="/images/pool-cta-final.webp" alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
         <div aria-hidden="true" className="absolute inset-0 bg-[#011d41]/75" />
         <div className="container relative mx-auto px-6 text-center text-white"><Reveal y={6}><SectionLabel tone="light">Parlons de votre projet</SectionLabel><h2 className={`${heading} mt-7`}>Tout commence<br /><span className="font-accent italic">par un échange.</span></h2><p className="mx-auto mt-6 max-w-lg leading-relaxed text-white/75">Une question, une estimation, un projet de vente ? Un premier échange confidentiel, sans engagement, avec une réponse annoncée sous 24 h.</p><div className="mt-9 flex flex-wrap justify-center gap-4"><PillButton to="/contact" variant="light">Me contacter</PillButton><PillButton to="/estimation" variant="light">Estimation offerte</PillButton></div></Reveal></div>
       </section>

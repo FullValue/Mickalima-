@@ -42,18 +42,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VM976/01.jpg',
-      '/images/biens/VM976/02.jpg',
-      '/images/biens/VM976/03.jpg',
-      '/images/biens/VM976/04.jpg',
-      '/images/biens/VM976/05.jpg',
-      '/images/biens/VM976/06.jpg',
-      '/images/biens/VM976/07.jpg',
-      '/images/biens/VM976/08.jpg',
-      '/images/biens/VM976/09.jpg',
-      '/images/biens/VM976/10.jpg',
-      '/images/biens/VM976/11.jpg',
-      '/images/biens/VM976/12.jpg'
+      '/images/biens/VM976/01.webp',
+      '/images/biens/VM976/02.webp',
+      '/images/biens/VM976/03.webp',
+      '/images/biens/VM976/04.webp',
+      '/images/biens/VM976/05.webp',
+      '/images/biens/VM976/06.webp',
+      '/images/biens/VM976/07.webp',
+      '/images/biens/VM976/08.webp',
+      '/images/biens/VM976/09.webp',
+      '/images/biens/VM976/10.webp',
+      '/images/biens/VM976/11.webp',
+      '/images/biens/VM976/12.webp'
     ],
   },
   {
@@ -92,18 +92,18 @@ export const BIENS: NBProperty[] = [
       ['Exposition', 'Sud']
     ],
     photos: [
-      '/images/biens/VM1043/01.jpg',
-      '/images/biens/VM1043/02.jpg',
-      '/images/biens/VM1043/03.jpg',
-      '/images/biens/VM1043/04.jpg',
-      '/images/biens/VM1043/05.jpg',
-      '/images/biens/VM1043/06.jpg',
-      '/images/biens/VM1043/07.jpg',
-      '/images/biens/VM1043/08.jpg',
-      '/images/biens/VM1043/09.jpg',
-      '/images/biens/VM1043/10.jpg',
-      '/images/biens/VM1043/11.jpg',
-      '/images/biens/VM1043/12.jpg'
+      '/images/biens/VM1043/01.webp',
+      '/images/biens/VM1043/02.webp',
+      '/images/biens/VM1043/03.webp',
+      '/images/biens/VM1043/04.webp',
+      '/images/biens/VM1043/05.webp',
+      '/images/biens/VM1043/06.webp',
+      '/images/biens/VM1043/07.webp',
+      '/images/biens/VM1043/08.webp',
+      '/images/biens/VM1043/09.webp',
+      '/images/biens/VM1043/10.webp',
+      '/images/biens/VM1043/11.webp',
+      '/images/biens/VM1043/12.webp'
     ],
   },
   {
@@ -143,18 +143,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VM560/01.jpg',
-      '/images/biens/VM560/02.jpg',
-      '/images/biens/VM560/03.jpg',
-      '/images/biens/VM560/04.jpg',
-      '/images/biens/VM560/05.jpg',
-      '/images/biens/VM560/06.jpg',
-      '/images/biens/VM560/07.jpg',
-      '/images/biens/VM560/08.jpg',
-      '/images/biens/VM560/09.jpg',
-      '/images/biens/VM560/10.jpg',
-      '/images/biens/VM560/11.jpg',
-      '/images/biens/VM560/12.jpg'
+      '/images/biens/VM560/01.webp',
+      '/images/biens/VM560/02.webp',
+      '/images/biens/VM560/03.webp',
+      '/images/biens/VM560/04.webp',
+      '/images/biens/VM560/05.webp',
+      '/images/biens/VM560/06.webp',
+      '/images/biens/VM560/07.webp',
+      '/images/biens/VM560/08.webp',
+      '/images/biens/VM560/09.webp',
+      '/images/biens/VM560/10.webp',
+      '/images/biens/VM560/11.webp',
+      '/images/biens/VM560/12.webp'
     ],
   },
   {
@@ -194,18 +194,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VM1126/01.jpg',
-      '/images/biens/VM1126/02.jpg',
-      '/images/biens/VM1126/03.jpg',
-      '/images/biens/VM1126/04.jpg',
-      '/images/biens/VM1126/05.jpg',
-      '/images/biens/VM1126/06.jpg',
-      '/images/biens/VM1126/07.jpg',
-      '/images/biens/VM1126/08.jpg',
-      '/images/biens/VM1126/09.jpg',
-      '/images/biens/VM1126/10.jpg',
-      '/images/biens/VM1126/11.jpg',
-      '/images/biens/VM1126/12.jpg'
+      '/images/biens/VM1126/01.webp',
+      '/images/biens/VM1126/02.webp',
+      '/images/biens/VM1126/03.webp',
+      '/images/biens/VM1126/04.webp',
+      '/images/biens/VM1126/05.webp',
+      '/images/biens/VM1126/06.webp',
+      '/images/biens/VM1126/07.webp',
+      '/images/biens/VM1126/08.webp',
+      '/images/biens/VM1126/09.webp',
+      '/images/biens/VM1126/10.webp',
+      '/images/biens/VM1126/11.webp',
+      '/images/biens/VM1126/12.webp'
     ],
   },
   {
@@ -244,18 +244,18 @@ export const BIENS: NBProperty[] = [
       ['Exposition', 'Sud-Est']
     ],
     photos: [
-      '/images/biens/VM615/01.jpg',
-      '/images/biens/VM615/02.jpg',
-      '/images/biens/VM615/03.jpg',
-      '/images/biens/VM615/04.jpg',
-      '/images/biens/VM615/05.jpg',
-      '/images/biens/VM615/06.jpg',
-      '/images/biens/VM615/07.jpg',
-      '/images/biens/VM615/08.jpg',
-      '/images/biens/VM615/09.jpg',
-      '/images/biens/VM615/10.jpg',
-      '/images/biens/VM615/11.jpg',
-      '/images/biens/VM615/12.jpg'
+      '/images/biens/VM615/01.webp',
+      '/images/biens/VM615/02.webp',
+      '/images/biens/VM615/03.webp',
+      '/images/biens/VM615/04.webp',
+      '/images/biens/VM615/05.webp',
+      '/images/biens/VM615/06.webp',
+      '/images/biens/VM615/07.webp',
+      '/images/biens/VM615/08.webp',
+      '/images/biens/VM615/09.webp',
+      '/images/biens/VM615/10.webp',
+      '/images/biens/VM615/11.webp',
+      '/images/biens/VM615/12.webp'
     ],
   },
   {
@@ -294,18 +294,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VM1093/01.jpg',
-      '/images/biens/VM1093/02.jpg',
-      '/images/biens/VM1093/03.jpg',
-      '/images/biens/VM1093/04.jpg',
-      '/images/biens/VM1093/05.jpg',
-      '/images/biens/VM1093/06.jpg',
-      '/images/biens/VM1093/07.jpg',
-      '/images/biens/VM1093/08.jpg',
-      '/images/biens/VM1093/09.jpg',
-      '/images/biens/VM1093/10.jpg',
-      '/images/biens/VM1093/11.jpg',
-      '/images/biens/VM1093/12.jpg'
+      '/images/biens/VM1093/01.webp',
+      '/images/biens/VM1093/02.webp',
+      '/images/biens/VM1093/03.webp',
+      '/images/biens/VM1093/04.webp',
+      '/images/biens/VM1093/05.webp',
+      '/images/biens/VM1093/06.webp',
+      '/images/biens/VM1093/07.webp',
+      '/images/biens/VM1093/08.webp',
+      '/images/biens/VM1093/09.webp',
+      '/images/biens/VM1093/10.webp',
+      '/images/biens/VM1093/11.webp',
+      '/images/biens/VM1093/12.webp'
     ],
   },
   {
@@ -345,18 +345,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VM920/01.jpg',
-      '/images/biens/VM920/02.jpg',
-      '/images/biens/VM920/03.jpg',
-      '/images/biens/VM920/04.jpg',
-      '/images/biens/VM920/05.jpg',
-      '/images/biens/VM920/06.jpg',
-      '/images/biens/VM920/07.jpg',
-      '/images/biens/VM920/08.jpg',
-      '/images/biens/VM920/09.jpg',
-      '/images/biens/VM920/10.jpg',
-      '/images/biens/VM920/11.jpg',
-      '/images/biens/VM920/12.jpg'
+      '/images/biens/VM920/01.webp',
+      '/images/biens/VM920/02.webp',
+      '/images/biens/VM920/03.webp',
+      '/images/biens/VM920/04.webp',
+      '/images/biens/VM920/05.webp',
+      '/images/biens/VM920/06.webp',
+      '/images/biens/VM920/07.webp',
+      '/images/biens/VM920/08.webp',
+      '/images/biens/VM920/09.webp',
+      '/images/biens/VM920/10.webp',
+      '/images/biens/VM920/11.webp',
+      '/images/biens/VM920/12.webp'
     ],
   },
   {
@@ -393,18 +393,18 @@ export const BIENS: NBProperty[] = [
       ['Exposition', 'Sud-Ouest']
     ],
     photos: [
-      '/images/biens/VM1140/01.jpg',
-      '/images/biens/VM1140/02.jpg',
-      '/images/biens/VM1140/03.jpg',
-      '/images/biens/VM1140/04.jpg',
-      '/images/biens/VM1140/05.jpg',
-      '/images/biens/VM1140/06.jpg',
-      '/images/biens/VM1140/07.jpg',
-      '/images/biens/VM1140/08.jpg',
-      '/images/biens/VM1140/09.jpg',
-      '/images/biens/VM1140/10.jpg',
-      '/images/biens/VM1140/11.jpg',
-      '/images/biens/VM1140/12.jpg'
+      '/images/biens/VM1140/01.webp',
+      '/images/biens/VM1140/02.webp',
+      '/images/biens/VM1140/03.webp',
+      '/images/biens/VM1140/04.webp',
+      '/images/biens/VM1140/05.webp',
+      '/images/biens/VM1140/06.webp',
+      '/images/biens/VM1140/07.webp',
+      '/images/biens/VM1140/08.webp',
+      '/images/biens/VM1140/09.webp',
+      '/images/biens/VM1140/10.webp',
+      '/images/biens/VM1140/11.webp',
+      '/images/biens/VM1140/12.webp'
     ],
   },
   {
@@ -439,14 +439,14 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Non']
     ],
     photos: [
-      '/images/biens/VA2352/01.jpg',
-      '/images/biens/VA2352/02.jpg',
-      '/images/biens/VA2352/03.jpg',
-      '/images/biens/VA2352/04.jpg',
-      '/images/biens/VA2352/05.jpg',
-      '/images/biens/VA2352/06.jpg',
-      '/images/biens/VA2352/07.jpg',
-      '/images/biens/VA2352/08.jpg'
+      '/images/biens/VA2352/01.webp',
+      '/images/biens/VA2352/02.webp',
+      '/images/biens/VA2352/03.webp',
+      '/images/biens/VA2352/04.webp',
+      '/images/biens/VA2352/05.webp',
+      '/images/biens/VA2352/06.webp',
+      '/images/biens/VA2352/07.webp',
+      '/images/biens/VA2352/08.webp'
     ],
   },
   {
@@ -482,17 +482,17 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Non']
     ],
     photos: [
-      '/images/biens/VA2539/01.jpg',
-      '/images/biens/VA2539/02.jpg',
-      '/images/biens/VA2539/03.jpg',
-      '/images/biens/VA2539/04.jpg',
-      '/images/biens/VA2539/05.jpg',
-      '/images/biens/VA2539/06.jpg',
-      '/images/biens/VA2539/07.jpg',
-      '/images/biens/VA2539/08.jpg',
-      '/images/biens/VA2539/09.jpg',
-      '/images/biens/VA2539/10.jpg',
-      '/images/biens/VA2539/11.jpg'
+      '/images/biens/VA2539/01.webp',
+      '/images/biens/VA2539/02.webp',
+      '/images/biens/VA2539/03.webp',
+      '/images/biens/VA2539/04.webp',
+      '/images/biens/VA2539/05.webp',
+      '/images/biens/VA2539/06.webp',
+      '/images/biens/VA2539/07.webp',
+      '/images/biens/VA2539/08.webp',
+      '/images/biens/VA2539/09.webp',
+      '/images/biens/VA2539/10.webp',
+      '/images/biens/VA2539/11.webp'
     ],
   },
   {
@@ -533,18 +533,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VM835/01.jpg',
-      '/images/biens/VM835/02.jpg',
-      '/images/biens/VM835/03.jpg',
-      '/images/biens/VM835/04.jpg',
-      '/images/biens/VM835/05.jpg',
-      '/images/biens/VM835/06.jpg',
-      '/images/biens/VM835/07.jpg',
-      '/images/biens/VM835/08.jpg',
-      '/images/biens/VM835/09.jpg',
-      '/images/biens/VM835/10.jpg',
-      '/images/biens/VM835/11.jpg',
-      '/images/biens/VM835/12.jpg'
+      '/images/biens/VM835/01.webp',
+      '/images/biens/VM835/02.webp',
+      '/images/biens/VM835/03.webp',
+      '/images/biens/VM835/04.webp',
+      '/images/biens/VM835/05.webp',
+      '/images/biens/VM835/06.webp',
+      '/images/biens/VM835/07.webp',
+      '/images/biens/VM835/08.webp',
+      '/images/biens/VM835/09.webp',
+      '/images/biens/VM835/10.webp',
+      '/images/biens/VM835/11.webp',
+      '/images/biens/VM835/12.webp'
     ],
   },
   {
@@ -581,16 +581,16 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VA2424/01.jpg',
-      '/images/biens/VA2424/02.jpg',
-      '/images/biens/VA2424/03.jpg',
-      '/images/biens/VA2424/04.jpg',
-      '/images/biens/VA2424/05.jpg',
-      '/images/biens/VA2424/06.jpg',
-      '/images/biens/VA2424/07.jpg',
-      '/images/biens/VA2424/08.jpg',
-      '/images/biens/VA2424/09.jpg',
-      '/images/biens/VA2424/10.jpg'
+      '/images/biens/VA2424/01.webp',
+      '/images/biens/VA2424/02.webp',
+      '/images/biens/VA2424/03.webp',
+      '/images/biens/VA2424/04.webp',
+      '/images/biens/VA2424/05.webp',
+      '/images/biens/VA2424/06.webp',
+      '/images/biens/VA2424/07.webp',
+      '/images/biens/VA2424/08.webp',
+      '/images/biens/VA2424/09.webp',
+      '/images/biens/VA2424/10.webp'
     ],
   },
   {
@@ -630,18 +630,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Oui']
     ],
     photos: [
-      '/images/biens/VM760/01.jpg',
-      '/images/biens/VM760/02.jpg',
-      '/images/biens/VM760/03.jpg',
-      '/images/biens/VM760/04.jpg',
-      '/images/biens/VM760/05.jpg',
-      '/images/biens/VM760/06.jpg',
-      '/images/biens/VM760/07.jpg',
-      '/images/biens/VM760/08.jpg',
-      '/images/biens/VM760/09.jpg',
-      '/images/biens/VM760/10.jpg',
-      '/images/biens/VM760/11.jpg',
-      '/images/biens/VM760/12.jpg'
+      '/images/biens/VM760/01.webp',
+      '/images/biens/VM760/02.webp',
+      '/images/biens/VM760/03.webp',
+      '/images/biens/VM760/04.webp',
+      '/images/biens/VM760/05.webp',
+      '/images/biens/VM760/06.webp',
+      '/images/biens/VM760/07.webp',
+      '/images/biens/VM760/08.webp',
+      '/images/biens/VM760/09.webp',
+      '/images/biens/VM760/10.webp',
+      '/images/biens/VM760/11.webp',
+      '/images/biens/VM760/12.webp'
     ],
   },
   {
@@ -680,18 +680,18 @@ export const BIENS: NBProperty[] = [
       ['Jardin', 'Non']
     ],
     photos: [
-      '/images/biens/VM902/01.jpg',
-      '/images/biens/VM902/02.jpg',
-      '/images/biens/VM902/03.jpg',
-      '/images/biens/VM902/04.jpg',
-      '/images/biens/VM902/05.jpg',
-      '/images/biens/VM902/06.jpg',
-      '/images/biens/VM902/07.jpg',
-      '/images/biens/VM902/08.jpg',
-      '/images/biens/VM902/09.jpg',
-      '/images/biens/VM902/10.jpg',
-      '/images/biens/VM902/11.jpg',
-      '/images/biens/VM902/12.jpg'
+      '/images/biens/VM902/01.webp',
+      '/images/biens/VM902/02.webp',
+      '/images/biens/VM902/03.webp',
+      '/images/biens/VM902/04.webp',
+      '/images/biens/VM902/05.webp',
+      '/images/biens/VM902/06.webp',
+      '/images/biens/VM902/07.webp',
+      '/images/biens/VM902/08.webp',
+      '/images/biens/VM902/09.webp',
+      '/images/biens/VM902/10.webp',
+      '/images/biens/VM902/11.webp',
+      '/images/biens/VM902/12.webp'
     ],
   },
 ];

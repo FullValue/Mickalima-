@@ -122,7 +122,7 @@ export const ContactPage: React.FC = () => {
             <section className="relative flex min-h-[620px] items-center overflow-hidden rounded-b-[32px] bg-[#011d41] pt-20">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/images/contact-hero.jpg"
+                        src="/images/contact-hero.webp"
                         width="1920"
                         height="1080"
                         loading="eager"

@@ -11,28 +11,38 @@ import { Reveal, SectionLabel, SplitWords } from './primitives';
 const PORTALS = [
   {
     src: '/images/seloger.png',
+    width: 500,
+    height: 122,
     alt: 'SeLoger',
   },
   {
     src: '/images/leboncoin.png',
+    width: 1600,
+    height: 520,
     alt: 'Leboncoin',
     href: 'https://www.leboncoin.fr/boutique/7395512/',
     title: 'Mickaël Lima sur Leboncoin',
   },
   {
     src: '/images/bienici-logo.svg',
+    width: 2500,
+    height: 522,
     alt: 'BienIci',
     href: 'https://www.bienici.com/',
     title: 'Mickaël Lima sur BienIci',
   },
   {
     src: '/images/logo_logicimmo.png',
+    width: 600,
+    height: 309,
     alt: 'LogicImmo',
     href: 'https://www.logic-immo.com/agences-immobilieres/2bccyjgnD7SN5UJ1TfrRMy',
     title: 'Mickaël Lima sur Logic-Immo',
   },
   {
     src: '/images/lefigaroimmo.png',
+    width: 1000,
+    height: 390,
     alt: 'Figaro Immobilier',
     href: 'https://immobilier.lefigaro.fr/',
     title: 'Mickaël Lima sur Figaro Immobilier',
@@ -45,7 +55,7 @@ export const PortalsParallax: React.FC = () => (
     <div
       aria-hidden="true"
       className="parallax-fixed absolute inset-0 bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/pool-cta-final.jpg')" }}
+      style={{ backgroundImage: "url('/images/pool-cta-final.webp')" }}
     />
     <div aria-hidden="true" className="absolute inset-0 bg-[#011d41]/85" />
 
@@ -76,6 +86,8 @@ export const PortalsParallax: React.FC = () => (
             <img
               src={portal.src}
               alt={portal.alt}
+              width={portal.width}
+              height={portal.height}
               loading="lazy"
               decoding="async"
               className="max-h-9 w-auto object-contain"

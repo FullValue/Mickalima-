@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bath, BedDouble, ChevronLeft, ChevronRight, Ruler } from 'lucide-react';
 import { BIENS } from '../biensData';
-import { PropertyLogoBlur } from '../propertyPhotoBlur';
+import { PropertyLogoBlur, coverSrcSet, COVER_SIZES } from '../propertyPhotoBlur';
 import { formatPrice, formatSurface } from '../nosBiensShared';
 import { PillButton, Reveal, SectionHeader } from './primitives';
 
@@ -102,6 +102,10 @@ export const FeaturedProperties: React.FC = () => {
                 <div className="relative aspect-square overflow-hidden rounded-[10px] bg-[#e9e8e2]">
                   <img
                     src={bien.photos[0]}
+                    srcSet={coverSrcSet(bien.photos[0])}
+                    sizes={COVER_SIZES}
+                    width="800"
+                    height="800"
                     alt={`${bien.typeLabel} à ${bien.city}`}
                     loading="lazy"
                     decoding="async"

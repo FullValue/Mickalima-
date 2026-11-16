@@ -24,7 +24,7 @@ export const IMAGES = {
   logo: "/images/mickael-lima-logo.png",
   logoWhite: "/images/mickael-lima-logo.png",
   // Photo officielle de Mickaël (crop carré, buste légèrement coupé): servie en local
-  heroAgent: "/images/micka-photo.jpg",
+  heroAgent: "/images/micka-photo.webp",
   heroBg: "https://madebydesignesia.com/themes/homely/images/demo/homepage-1.webp",
   cardImage: "https://madebydesignesia.com/themes/homely/images/demo/homepage-2.webp",
   misc1: "https://madebydesignesia.com/themes/homely/images/misc/s1.webp",
@@ -33,7 +33,7 @@ export const IMAGES = {
   misc4: "https://madebydesignesia.com/themes/homely/images/misc/s4.webp",
   misc5: "https://madebydesignesia.com/themes/homely/images/misc/s5.webp",
   videoBg: "https://madebydesignesia.com/themes/homely/images/background/1.webp",
-  ctaBg: "/images/pool-cta-final.jpg",
+  ctaBg: "/images/pool-cta-final.webp",
   floorplan: "https://madebydesignesia.com/themes/homely/images/misc/floorplan.webp",
   gallery: [
     "https://madebydesignesia.com/themes/homely/images/gallery/3.webp",
@@ -56,13 +56,13 @@ export const HERO_SLIDES = [
 // Les images des 3 communes prioritaires sont actuellement des placeholders
 // (copies du fallback): à remplacer par de vraies photos quand disponibles.
 const COMMUNE_HERO_IMAGES: Record<string, string> = {
-  'ferney-voltaire': '/images/hero-ferney-voltaire.jpg',
-  'saint-genis-pouilly': '/images/hero-saint-genis-pouilly.jpg',
-  'divonne-les-bains': '/images/hero-divonne-les-bains.jpg',
+  'ferney-voltaire': '/images/hero-ferney-voltaire.webp',
+  'saint-genis-pouilly': '/images/hero-saint-genis-pouilly.webp',
+  'divonne-les-bains': '/images/hero-divonne-les-bains.webp',
 };
 
 export const getCommuneHeroImage = (slug: string): string =>
-  COMMUNE_HERO_IMAGES[slug] ?? '/images/hero-pays-de-gex.jpg';
+  COMMUNE_HERO_IMAGES[slug] ?? '/images/hero-pays-de-gex.webp';
 
 // Visuels partagés par le slider de l'accueil et les cartes du comparatif.
 // objectPosition garde le point d'intérêt visible dans les conteneurs verticaux.
@@ -75,24 +75,24 @@ export const COMMUNE_CARD_IMAGES: Record<
     objectPosition: '50% 50%',
   },
   'saint-genis-pouilly': {
-    src: '/images/slider-saint-genis-pouilly.jpg',
+    src: '/images/slider-saint-genis-pouilly.webp',
     objectPosition: '50% 50%',
   },
   'divonne-les-bains': {
-    src: '/images/slider-divonne-les-bains.jpg',
+    src: '/images/slider-divonne-les-bains.webp',
     objectPosition: '50% 50%',
   },
   gex: {
-    src: '/images/slider-gex.jpg',
+    src: '/images/slider-gex.webp',
     objectPosition: '50% 50%',
   },
   'prevessin-moens': {
-    src: '/images/slider-prevessin-moens.jpg',
-    mobileSrc: '/images/slider-prevessin-moens-mobile.jpg',
+    src: '/images/slider-prevessin-moens.webp',
+    mobileSrc: '/images/slider-prevessin-moens-mobile.webp',
     objectPosition: '50% 50%',
   },
   cessy: {
-    src: '/images/slider-cessy.jpg',
+    src: '/images/slider-cessy.webp',
     objectPosition: '50% 50%',
   },
   ornex: {
@@ -100,7 +100,7 @@ export const COMMUNE_CARD_IMAGES: Record<
     objectPosition: '50% 50%',
   },
   thoiry: {
-    src: '/images/slider-thoiry.jpg',
+    src: '/images/slider-thoiry.webp',
     objectPosition: '62% 50%',
   },
   crozet: {
@@ -139,7 +139,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Prix réellement signés, dates des observations et écarts entre communes : les repères notariaux à connaître avant d'estimer un bien dans le Pays de Gex.",
     date: "2026-05-05",
     category: "Marché",
-    image: "/images/blog/prix-m2-pays-de-gex-2026.jpg",
+    image: "/images/blog/prix-m2-pays-de-gex-2026.webp",
     content: `
     <p><em>Mise à jour du 29 septembre 2026.</em> Un prix au mètre carré n'a de sens qu'avec sa source, sa période et le type de bien observé. Les prix ci-dessous proviennent de ventes enregistrées par les notaires. Ils ne sont ni des prix d'annonce, ni des estimations pour un logement précis.</p>
 
@@ -175,7 +175,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Vivre en France et travailler en Suisse : chiffres Insee, repères notariaux et points à examiner avant d'acheter, d'investir ou de vendre dans le Pays de Gex.",
     date: "2026-05-05",
     category: "Frontalier",
-    image: "/images/blog/immobilier-frontalier-pays-de-gex.jpg",
+    image: "/images/blog/immobilier-frontalier-pays-de-gex.webp",
     content: `
     <p><em>Mise à jour du 29 septembre 2026.</em> Le marché gessien est étroitement lié à l'emploi en Suisse. Pour le décrire correctement, il faut distinguer la part des frontaliers parmi les <strong>habitants</strong> de leur part parmi les <strong>personnes en emploi</strong> : ce ne sont pas les mêmes populations.</p>
 
@@ -205,7 +205,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Mandat exclusif ou simple : les règles de résiliation, les engagements à comparer et un exemple chiffré pour choisir en connaissance de cause.",
     date: "2026-05-18",
     category: "Conseil",
-    image: "/images/blog/mandat-exclusif-ou-simple-pays-de-gex.jpg",
+    image: "/images/blog/mandat-exclusif-ou-simple-pays-de-gex.webp",
     content: `
     <p><em>Mise à jour du 29 septembre 2026.</em> Le mandat simple et le mandat exclusif organisent différemment la vente d'un bien. Leur efficacité dépend du prix demandé, de la présentation du logement, de la diffusion prévue et du suivi effectivement assuré. Aucun délai de vente garanti ne découle à lui seul du type de mandat.</p>
 

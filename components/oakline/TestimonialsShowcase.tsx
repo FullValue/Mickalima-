@@ -95,7 +95,7 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 const Stars: React.FC<{ className?: string }> = ({ className = '' }) => (
-  <div aria-label="Note de 5 sur 5" className={`flex gap-1 ${className}`}>
+  <div role="img" aria-label="Note de 5 sur 5" className={`flex gap-1 ${className}`}>
     {[...Array(5)].map((_, i) => (
       <Star key={i} size={16} fill="currentColor" aria-hidden="true" />
     ))}
@@ -117,7 +117,7 @@ export const TestimonialsShowcase: React.FC = () => {
       <Reveal className="mt-14 md:mt-16">
         <article className="relative flex min-h-[380px] flex-col justify-end overflow-hidden rounded-[28px] md:min-h-[500px]">
           <img
-            src="/images/editorial/avis-pays-de-gex.jpg"
+            src="/images/editorial/avis-pays-de-gex.webp"
             alt=""
             aria-hidden="true"
             loading="lazy"
@@ -177,7 +177,7 @@ export const TestimonialsShowcase: React.FC = () => {
             </blockquote>
             <div className="mt-6 border-t border-[#ebebeb] pt-4">
               <p className="font-serif text-base text-[#011d41]">{t.name}</p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
                 {t.context}
               </p>
             </div>

@@ -4,18 +4,17 @@ import React, { useEffect, useState } from 'react';
  * Preloader plein écran, sobre : nom en serif, ligne de lieu, filet fin
  * qui se remplit, puis fondu.
  * Affiché à chaque chargement complet, quelle que soit la page d'arrivée,
- * tant que la page n'est pas prête (événement load). La navigation interne
+ * jusqu'à l'hydratation de la page. La navigation interne
  * ne le remonte pas : les transitions de route prennent le relais.
- * Première visite de la session : courte intro (1,5 s minimum).
+ * Première visite de la session : courte intro (0,9 s minimum).
  * Visites suivantes : simple fondu dès que la page est prête.
  * Rendu dans le HTML prérendu (SSG) pour couvrir le premier paint.
  * Filet de sécurité CSS : disparaît seul après 4,5 s si le JS échoue.
  */
 
 const SESSION_KEY = 'ml-preloader-seen';
-const FIRST_VISIT_MIN_MS = 1500;
-const MAX_WAIT_MS = 3200;
-const FADE_MS = 700;
+const FIRST_VISIT_MIN_MS = 900;
+const FADE_MS = 450;
 
 export const Preloader: React.FC = () => {
   const [phase, setPhase] = useState<'visible' | 'leaving' | 'gone'>('visible');
@@ -46,12 +45,11 @@ export const Preloader: React.FC = () => {
       }, Math.max(0, minMs - elapsed())));
     };
 
-    if (document.readyState === 'complete') leave();
-    else window.addEventListener('load', leave, { once: true });
-    timers.push(window.setTimeout(leave, Math.max(0, MAX_WAIT_MS - elapsed())));
+    // La page prérendue est déjà affichable dès l'hydratation : on n'attend plus
+    // l'événement load (toutes les images), seulement la durée minimale de l'intro.
+    leave();
 
     return () => {
-      window.removeEventListener('load', leave);
       timers.forEach(clearTimeout);
       root.classList.remove('ml-preloading');
     };
@@ -83,7 +81,7 @@ export const Preloader: React.FC = () => {
         .ml-preloader__inner {
           display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px;
           opacity: 0; transform: translateY(6px);
-          animation: ml-in .9s cubic-bezier(.22,1,.36,1) .1s forwards;
+          animation: ml-in .6s cubic-bezier(.22,1,.36,1) .05s forwards;
         }
         @keyframes ml-in { to { opacity: 1; transform: none; } }
 
@@ -104,7 +102,7 @@ export const Preloader: React.FC = () => {
         .ml-preloader__line i {
           display: block; width: 100%; height: 100%; background: rgba(244,239,229,.85);
           transform: scaleX(0); transform-origin: left;
-          animation: ml-line 1.3s cubic-bezier(.65,0,.35,1) .2s forwards;
+          animation: ml-line .8s cubic-bezier(.65,0,.35,1) .1s forwards;
         }
         @keyframes ml-line { to { transform: scaleX(1); } }
 

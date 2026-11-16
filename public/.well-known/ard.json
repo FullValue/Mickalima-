@@ -1,0 +1,17 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:mickael-lima.immo:skills:guide-du-site",
+      "displayName": "Guide du site mickael-lima.immo pour agents IA",
+      "description": "Où trouver les biens à vendre, les prix au m² par commune et comment demander une estimation immobilière dans le Pays de Gex auprès de Mickaël Lima.",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://mickael-lima.immo/.well-known/agent-skills/guide-du-site.md",
+      "representativeQueries": [
+        "prix au m² à Gex ou Ferney-Voltaire",
+        "maisons à vendre dans le Pays de Gex",
+        "demander une estimation immobilière à Divonne-les-Bains",
+        "agent immobilier pour frontaliers près de Genève"
+      ]
+    }
+  ]
+}

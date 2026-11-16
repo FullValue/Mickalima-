@@ -96,7 +96,7 @@ export const Estimation: React.FC = () => {
                     </p>
                   </div>
                   <figure className="m-0">
-                    <img src="/images/services/conseil-immobilier.jpg" alt="Échange autour d’un projet immobilier" loading="eager" decoding="async" className="aspect-[4/3] w-full rounded-2xl object-cover" />
+                    <img src="/images/services/conseil-immobilier.webp" alt="Échange autour d’un projet immobilier" loading="eager" decoding="async" className="aspect-[4/3] w-full rounded-2xl object-cover" />
                   </figure>
                 </div>
 

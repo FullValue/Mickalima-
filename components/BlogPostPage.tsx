@@ -73,7 +73,7 @@ export const BlogPostPage: React.FC = () => {
       title={`${post.title}: Mickaël Lima`}
       description={post.excerpt}
       canonical={`/blog/${post.slug}`}
-      ogImage={post.image}
+      ogImage={post.image.replace(/^(\/images\/blog\/.+)\.webp$/, '$1.jpg')}
       ogType="article"
       schema={articleSchema}
     />

@@ -140,6 +140,8 @@ export const SiteFooter: React.FC = () => (
             <img
               src={IMAGES.logoWhite}
               alt=""
+              width="468"
+              height="156"
               aria-hidden="true"
               loading="lazy"
               decoding="async"

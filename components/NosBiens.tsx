@@ -11,7 +11,7 @@ import { PropertyLogoBlur } from './propertyPhotoBlur';
  * Données réelles : portefeuille de Mickaël (biensData.ts).
  */
 
-const HERO_IMAGE = '/images/biens/VM976/01.jpg';
+const HERO_IMAGE = '/images/biens/VM976/01.webp';
 
 const TYPES = ['Maison', 'Appartement', 'Terrain'];
 const CITIES = Array.from(new Set(BIENS.map((b) => b.city))).sort((a, b) => a.localeCompare(b, 'fr'));

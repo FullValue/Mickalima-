@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BedDouble, Bath, Ruler, MapPin, ArrowUpRight, Phone, Mail } from 'lucide-react';
-import { PropertyLogoBlur } from './propertyPhotoBlur';
+import { PropertyLogoBlur, coverSrcSet, COVER_SIZES } from './propertyPhotoBlur';
 
 /**
  * Éléments partagés des pages « Nos Biens » : tokens de la DA (issue du
@@ -20,7 +20,7 @@ export const T = {
   body: '"Inter", "Inter Placeholder", system-ui, -apple-system, sans-serif',
 };
 
-export const AGENT_PHOTO = '/images/micka-photo.jpg';
+export const AGENT_PHOTO = '/images/micka-photo.webp';
 
 export interface NBProperty {
   ref: string;
@@ -73,6 +73,8 @@ export const ListingCard: React.FC<{ property: NBProperty; fluid?: boolean; aria
     >
       <img
         src={l.photos[0]}
+        srcSet={coverSrcSet(l.photos[0])}
+        sizes={COVER_SIZES}
         alt={ariaHidden ? '' : `${l.typeLabel} à ${l.city}`}
         width="600"
         height="450"

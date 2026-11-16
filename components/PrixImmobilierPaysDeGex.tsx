@@ -66,7 +66,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
         <section className="relative min-h-[55vh] flex items-end pb-16 md:pb-20 bg-primary overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="/images/hero-pays-de-gex.jpg"
+              src="/images/hero-pays-de-gex.webp"
               alt="Pays de Gex"
               className="w-full h-full object-cover"
             />

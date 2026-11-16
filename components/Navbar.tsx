@@ -123,6 +123,8 @@ export const Navbar: React.FC = () => {
                     <img
                         src={IMAGES.logoWhite}
                         alt=""
+                        width="468"
+                        height="156"
                         aria-hidden="true"
                         className="h-8 md:h-9 w-auto transition-all duration-500 [filter:brightness(0)_invert(1)]"
                     />

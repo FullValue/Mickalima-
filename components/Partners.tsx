@@ -70,7 +70,7 @@ export const Partners: React.FC = () => {
                 <section className="relative flex min-h-[620px] items-center overflow-hidden rounded-b-[32px] bg-[#011d41] pt-20">
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="/images/partners-hero.jpg"
+                            src="/images/partners-hero.webp"
                             width="1920"
                             height="1080"
                             loading="eager"
@@ -144,7 +144,7 @@ export const Partners: React.FC = () => {
                             <Reveal className="partners-network__visual" delay={0.08}>
                                 <figure className="partners-network__figure">
                                     <img
-                                        src="/images/services/conseil-immobilier.jpg"
+                                        src="/images/services/conseil-immobilier.webp"
                                         alt="Échange autour des plans d'un projet immobilier, dans un intérieur lumineux"
                                         width="1536"
                                         height="1024"

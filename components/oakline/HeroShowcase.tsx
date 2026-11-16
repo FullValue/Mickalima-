@@ -27,7 +27,7 @@ import { buildWhatsappUrl, WHATSAPP_PATH } from './whatsapp';
  */
 
 const WEB3FORMS_KEY = '38f90cdc-9f17-48ef-bae6-f94e9b44e41f';
-const HERO_IMAGE = '/images/hero-mickael.jpg';
+const HERO_IMAGE = '/images/hero-mickael.webp';
 
 const STEP_LABELS = ['Le bien', 'Caractéristiques', 'Votre projet', 'Coordonnées'];
 const TYPES_BIEN = ['Appartement', 'Maison', 'Autre'];

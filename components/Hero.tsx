@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
                     <source srcSet="/images/hero-mickael.avif" type="image/avif" />
                     <source srcSet="/images/hero-mickael.webp" type="image/webp" />
                     <img
-                        src="/images/hero-mickael.jpg"
+                        src="/images/hero-mickael.webp"
                         alt="Mickaël Lima agent immobilier Pays de Gex"
                         width="1200"
                         height="630"

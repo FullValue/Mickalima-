@@ -29,7 +29,7 @@ export const PressTicker: React.FC = () => (
     aria-label="Portails de diffusion des biens"
     className="overflow-hidden border-y border-[#ebebeb] bg-white py-14"
   >
-    <p className="mb-9 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-gray-400">
+    <p className="mb-9 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-gray-500">
       Mes biens diffusés sur plus de 40 portails
     </p>
 

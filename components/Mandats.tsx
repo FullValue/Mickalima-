@@ -270,7 +270,7 @@ export const MandatSignature: React.FC = () => (
           </>
         }
         subtitle="Des images soignées, une diffusion adaptée et un accompagnement attentif pour présenter votre bien."
-        image="/images/hero-main.jpg"
+        image="/images/hero-main.webp"
         ctaLabel="Demander une estimation"
         ctaTo="/estimation"
       />
@@ -555,7 +555,7 @@ export const MandatExclusif: React.FC = () => (
           </>
         }
         subtitle="Une mise en valeur soignée et une stratégie dédiée aux biens d’exception."
-        image="/images/mandat-exclusif-hero.jpg"
+        image="/images/mandat-exclusif-hero.webp"
         ctaLabel="Candidater pour ce mandat"
         ctaTo="/contact"
       />

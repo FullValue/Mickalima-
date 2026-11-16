@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 
+/** Couverture d'un bien : vignette 800 px pour les cartes, pleine taille au-delà. */
+export const coverSrcSet = (src: string): string | undefined =>
+  /\/01\.webp$/.test(src) ? `${src.replace(/\.webp$/, '-800.webp')} 800w, ${src} 1600w` : undefined;
+export const COVER_SIZES = '(min-width: 1024px) 34vw, (min-width: 640px) 50vw, 100vw';
+
 type LogoArea = { x: number; y: number; width: number; height: number };
 
 const LEFT_CORNER_LOGOS = new Set([

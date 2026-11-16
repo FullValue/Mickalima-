@@ -11,12 +11,12 @@ import { Link } from 'react-router-dom';
  */
 
 const REEL_IMAGES = [
-  '/images/biens/VM976/02.jpg',
-  '/images/biens/VM1043/03.jpg',
-  '/images/biens/VM990/02.jpg',
+  '/images/biens/VM976/02.webp',
+  '/images/biens/VM1043/03.webp',
+  '/images/biens/VM990/02.webp',
 ];
 
-const TICKER_BG = '/images/biens/VM990/01.jpg';
+const TICKER_BG = '/images/biens/VM990/01.webp';
 
 const AVATARS = [
   'https://framerusercontent.com/images/0Ulaed92GKfjaGsvZjI6pqoUk.png',
@@ -26,14 +26,14 @@ const AVATARS = [
 ];
 
 const RING_IMAGES = [
-  '/images/biens/VM976/01.jpg',
-  '/images/biens/VM990/03.jpg',
-  '/images/biens/VM1043/02.jpg',
-  '/images/biens/VM560/01.jpg',
-  '/images/biens/VM920/01.jpg',
-  '/images/biens/VM615/01.jpg',
-  '/images/biens/VM1126/01.jpg',
-  '/images/biens/VM1093/01.jpg',
+  '/images/biens/VM976/01.webp',
+  '/images/biens/VM990/03.webp',
+  '/images/biens/VM1043/02.webp',
+  '/images/biens/VM560/01.webp',
+  '/images/biens/VM920/01.webp',
+  '/images/biens/VM615/01.webp',
+  '/images/biens/VM1126/01.webp',
+  '/images/biens/VM1093/01.webp',
 ];
 
 const Star: React.FC<{ className?: string; fill?: string }> = ({ className, fill = '#fff' }) => (
