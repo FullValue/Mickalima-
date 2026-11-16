@@ -1,5 +1,5 @@
 import { build } from 'vite';
-import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, readdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 
@@ -78,7 +78,17 @@ async function prerender() {
     },
   });
 
-  const template = readFileSync(path.resolve(__dirname, 'dist/index.html'), 'utf-8');
+  let template = readFileSync(path.resolve(__dirname, 'dist/index.html'), 'utf-8');
+
+  // Précharge les deux polices du premier écran (texte courant et titres) pour
+  // qu'elles se téléchargent en parallèle du CSS au lieu d'attendre sa lecture.
+  const assets = readdirSync(path.resolve(__dirname, 'dist/assets'));
+  const fontPreloads = [/^inter-latin-wght-normal-.*\.woff2$/, /^instrument-sans-latin-wght-normal-.*\.woff2$/]
+    .map(re => assets.find(f => re.test(f)))
+    .filter(Boolean)
+    .map(f => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`);
+  if (fontPreloads.length !== 2) throw new Error(`Polices à précharger introuvables (${fontPreloads.length}/2)`);
+  template = template.replace('</head>', `  ${fontPreloads.join('\n  ')}\n</head>`);
   const serverEntry = pathToFileURL(path.resolve(__dirname, 'dist/server/entry-server.js')).href;
   const { render } = await import(serverEntry);
 

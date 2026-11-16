@@ -68,7 +68,15 @@ export const getCommuneHeroImage = (slug: string): string =>
 // objectPosition garde le point d'intérêt visible dans les conteneurs verticaux.
 export const COMMUNE_CARD_IMAGES: Record<
   string,
-  { src: string; mobileSrc?: string; objectPosition?: string }
+  {
+    src: string;
+    mobileSrc?: string;
+    objectPosition?: string;
+    /** Dimensions de src et largeurs des variantes « -<largeur>.webp » générées à côté. */
+    width?: number;
+    height?: number;
+    variants?: number[];
+  }
 > = {
   'ferney-voltaire': {
     src: '/images/slider-ferney-voltaire.jpg',
@@ -76,31 +84,52 @@ export const COMMUNE_CARD_IMAGES: Record<
   },
   'saint-genis-pouilly': {
     src: '/images/slider-saint-genis-pouilly.webp',
+    width: 1280,
+    height: 962,
+    variants: [960],
     objectPosition: '50% 50%',
   },
   'divonne-les-bains': {
     src: '/images/slider-divonne-les-bains.webp',
+    width: 1280,
+    height: 727,
+    variants: [960],
     objectPosition: '50% 50%',
   },
   gex: {
     src: '/images/slider-gex.webp',
+    width: 1280,
+    height: 853,
+    variants: [960],
     objectPosition: '50% 50%',
   },
   'prevessin-moens': {
     src: '/images/slider-prevessin-moens.webp',
+    width: 1280,
+    height: 960,
+    variants: [960],
     mobileSrc: '/images/slider-prevessin-moens-mobile.webp',
     objectPosition: '50% 50%',
   },
   cessy: {
     src: '/images/slider-cessy.webp',
+    width: 1280,
+    height: 720,
+    variants: [960],
     objectPosition: '50% 50%',
   },
   ornex: {
     src: '/images/slider-ornex.webp',
+    width: 2048,
+    height: 1361,
+    variants: [960, 1280],
     objectPosition: '50% 50%',
   },
   thoiry: {
     src: '/images/slider-thoiry.webp',
+    width: 1280,
+    height: 960,
+    variants: [960],
     objectPosition: '62% 50%',
   },
   crozet: {

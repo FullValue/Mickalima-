@@ -13,6 +13,28 @@ import { useMarqueeScroll } from './useMarqueeScroll';
 
 const formatEUR = (v: number) => new Intl.NumberFormat('fr-FR').format(v);
 
+type CardImage = (typeof COMMUNE_CARD_IMAGES)[string];
+
+/**
+ * Variantes légères des visuels. La largeur annoncée correspond à la largeur réellement
+ * peinte : carte de 270 × 337,5 px (310 × 387,5 px dès 640 px), image en object-cover,
+ * agrandie de 10 % au survol. Le navigateur ne choisit donc jamais une image trop petite.
+ */
+const cardSrcSet = (image: CardImage): string | undefined =>
+  image.variants?.length && image.width
+    ? [
+        ...image.variants.map((w) => `${image.src.replace(/\.webp$/, `-${w}.webp`)} ${w}w`),
+        `${image.src} ${image.width}w`,
+      ].join(', ')
+    : undefined;
+
+const cardSizes = (image: CardImage): string | undefined => {
+  if (!image.variants?.length || !image.width || !image.height) return undefined;
+  const ratio = Math.max(image.width / image.height, 4 / 5);
+  const painted = (boxHeight: number) => Math.ceil(boxHeight * ratio * 1.1);
+  return `(min-width: 640px) ${painted(387.5)}px, ${painted(337.5)}px`;
+};
+
 const COMMUNES_SLIDER = COMMUNES.filter(
   (commune) => COMMUNE_CARD_IMAGES[commune.slug],
 );
@@ -56,6 +78,8 @@ export const NeighborhoodsGrid: React.FC = () => {
                 )}
                 <img
                   src={image.src}
+                  srcSet={cardSrcSet(image)}
+                  sizes={cardSizes(image)}
                   alt={`Vue de ${commune.name}`}
                   loading="lazy"
                   decoding="async"
