@@ -23,6 +23,7 @@ import { PrixImmobilierPaysDeGex } from './components/PrixImmobilierPaysDeGex';
 import { FrontalierCommunePage } from './components/FrontalierCommunePage';
 import { MentionsLegales } from './components/MentionsLegales';
 import { PolitiqueConfidentialite } from './components/PolitiqueConfidentialite';
+import { NotFound } from './components/NotFound';
 import { RevalisFooter } from './components/nosBiensShared';
 import { Preloader } from './components/Preloader';
 // Refonte accueil « Oakline » — voir ref/oakline-reconstruction.md
@@ -41,6 +42,14 @@ import { WhatsAppButton } from './components/oakline/WhatsAppButton';
 import { FloatingVideo } from './components/oakline/FloatingVideo';
 
 const HOMEPAGE_SCHEMA = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Mickaël Lima — Expert immobilier Pays de Gex',
+    url: 'https://mickael-lima.immo/',
+    inLanguage: 'fr-FR',
+    publisher: { '@type': 'Person', name: 'Mickaël Lima' },
+  },
   {
     '@context': 'https://schema.org',
     '@type': ['RealEstateAgent', 'LocalBusiness'],
@@ -198,6 +207,7 @@ export const AppContent: React.FC = () => {
           <Route path="/prix-immobilier/pays-de-gex" element={<PrixImmobilierPaysDeGex />} />
           <Route path="/prix-immobilier/:commune" element={<PrixImmobilierPage />} />
           <Route path="/frontalier/:commune" element={<FrontalierCommunePage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         </m.div>
         </AnimatePresence>

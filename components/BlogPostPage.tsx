@@ -39,7 +39,7 @@ export const BlogPostPage: React.FC = () => {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    dateModified: LAST_MODIFIED_DATE,
+    dateModified: post.date > LAST_MODIFIED_DATE ? post.date : LAST_MODIFIED_DATE,
     author: {
       '@type': 'Person',
       name: 'Mickaël Lima Dos Santos',

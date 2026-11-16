@@ -13,6 +13,8 @@ interface SEOProps {
    * (utile pour les pages bilingues qui ont une vraie alternance FR ↔ EN).
    */
   alternates?: { hreflang: string; href: string }[];
+  /** Page à exclure de l'index (ex. page 404). */
+  noindex?: boolean;
 }
 
 const BASE_URL = 'https://mickael-lima.immo';
@@ -26,6 +28,7 @@ export const SEO: React.FC<SEOProps> = ({
   ogType = 'website',
   schema,
   alternates,
+  noindex = false,
 }) => {
   const fullTitle = title.includes('Mickaël Lima') ? title : `${title} | Mickaël Lima`;
   // Force trailing slash sur tous les canonicals pour matcher ce que sert Vercel
@@ -39,6 +42,7 @@ export const SEO: React.FC<SEOProps> = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Hreflang : custom alternates si fournis (pages bilingues FR/EN),

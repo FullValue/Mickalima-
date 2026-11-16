@@ -232,6 +232,53 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>La meilleure comparaison entre deux propositions de mandat porte donc sur le prix justifié par les ventes, la stratégie écrite, les honoraires et les conditions de sortie. Une estimation de terrain permet de poser cette base avant de choisir la formule.</p>
     <p><a href="/estimation">Demander une estimation de mon bien →</a></p>
   `
+  },
+  {
+    id: 4,
+    slug: "estimation-en-ligne-ou-a-domicile-pays-de-gex",
+    title: "Estimation en ligne ou à domicile : que valent les simulateurs dans le Pays de Gex ?",
+    excerpt: "Quatre simulateurs de prix consultés le même jour pour Gex : jusqu'à 1 270 €/m² d'écart sur les maisons. Ce que chaque méthode d'estimation apporte, et ses limites.",
+    date: "2026-11-16",
+    category: "Conseil",
+    image: "/images/editorial/marche-pays-de-gex.webp",
+    content: `
+    <p><em>Relevé du 16 novembre 2026.</em> Une estimation en ligne donne un ordre de grandeur en quelques minutes ; elle ne connaît ni l'état du logement, ni sa vue, ni son terrain. Une estimation à domicile, comme celle que réalise Mickaël Lima dans le Pays de Gex, part d'une visite et de ventes comparables, mais demande un rendez-vous. Pour une même commune, les simulateurs consultés le même jour affichent des prix moyens qui diffèrent de 11 % pour les appartements et de près de 30 % pour les maisons.</p>
+
+    <h2>Le test : quatre simulateurs, une commune, le même jour</h2>
+    <p>J'ai relevé le 16 novembre 2026 le prix moyen au mètre carré affiché pour Gex (01170) sur quatre sites publics, sans saisir d'adresse ni de caractéristiques. La dernière ligne rappelle la médiane des ventes enregistrées dans la base publique DVF, utilisée sur les <a href="/prix-immobilier/gex/">pages de prix de ce site</a>.</p>
+    <table>
+      <thead>
+        <tr><th>Source</th><th>Période affichée</th><th>Appartements</th><th>Maisons</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://www.efficity.com/prix-immobilier-m2/v_gex_01170/">Efficity</a></td><td>Octobre 2026</td><td>4 320 €/m²</td><td>4 270 €/m²</td></tr>
+        <tr><td><a href="https://realadvisor.fr/fr/prix-m2-immobilier/01170-gex">RealAdvisor</a></td><td>Octobre 2026</td><td>4 522 €/m²</td><td>4 962 €/m²</td></tr>
+        <tr><td><a href="https://www.pap.fr/vendeur/prix-m2/gex-01170-g6829">PAP</a></td><td>1er novembre 2026</td><td>4 617 €/m²</td><td>5 519 €/m²</td></tr>
+        <tr><td><a href="https://www.squarehabitat.fr/prix-immobilier/auvergne-rhone-alpes/ain/gex-01170">Square Habitat</a></td><td>Octobre 2026</td><td>4 814 €/m²</td><td>5 540 €/m²</td></tr>
+        <tr><td><a href="https://www.data.gouv.fr/datasets/statistiques-dvf">Médiane DVF</a></td><td>Ventes 2021–2025</td><td>4 399 €/m²</td><td>5 175 €/m²</td></tr>
+      </tbody>
+    </table>
+    <p>Entre le simulateur le plus bas et le plus haut, l'écart est de <strong>494 €/m² pour les appartements</strong> (11 %) et de <strong>1 270 €/m² pour les maisons</strong> (30 %). Rapporté à une surface, cela représente environ <strong>34 600 € pour un appartement de 70 m²</strong> et <strong>152 400 € pour une maison de 120 m²</strong>. Ces surfaces sont des exemples de calcul, pas des biens réels.</p>
+    <p>Ces chiffres ne sont pas faux pour autant : chaque site utilise ses propres données (ventes enregistrées, annonces, modèle statistique), sa propre période et sa propre définition de la moyenne. L'écart montre surtout qu'un prix moyen par commune ne suffit pas à fixer le prix d'un logement précis, en particulier pour une maison, où le terrain, la vue et l'état pèsent davantage.</p>
+
+    <h2>Trois façons d'estimer un bien, avec leurs limites</h2>
+    <p><strong>Le simulateur en ligne.</strong> Gratuit et immédiat, il convient pour situer un ordre de grandeur ou suivre une tendance. Sa limite : il ne visite pas le bien. Travaux, étage, exposition, nuisances, vue sur le Jura ou le Mont-Blanc, qualité de la copropriété lui échappent, et le test ci-dessus montre que deux simulateurs peuvent diverger fortement. La plupart demandent vos coordonnées pour afficher un résultat détaillé, transmises ensuite à des professionnels.</p>
+    <p><strong>L'avis de valeur d'un professionnel de la transaction.</strong> Agent immobilier ou agent commercial, il visite le logement et le compare à des ventes récentes du secteur. C'est la méthode que je pratique : après la visite, je transmets une estimation argumentée sous 24 h. Ses limites sont réelles : il faut un rendez-vous, et le professionnel qui estime espère en général obtenir le mandat de vente. Un prix flatteur peut servir à le décrocher. Pour s'en prémunir, demandez la liste des ventes comparables retenues, avec leurs dates, et comparez deux ou trois avis.</p>
+    <p><strong>L'expertise d'un expert immobilier ou d'un notaire.</strong> Payante et sur devis, elle aboutit à un rapport écrit qui engage son auteur. Elle s'impose dans les situations où la valeur doit être opposable : succession, divorce, donation, contentieux fiscal. Sa limite : son coût et son délai, rarement justifiés pour une simple mise en vente.</p>
+
+    <h2>Laquelle choisir selon votre situation</h2>
+    <ul>
+      <li><strong>Vous êtes curieux, sans projet daté :</strong> un simulateur suffit, à condition d'en consulter plusieurs et de retenir une fourchette plutôt qu'un chiffre.</li>
+      <li><strong>Vous vendez dans les douze mois :</strong> une estimation à domicile fondée sur des ventes comparables, idéalement auprès de deux professionnels.</li>
+      <li><strong>La valeur doit être opposable à un tiers</strong> (administration fiscale, cohéritiers, ex-conjoint) : une expertise ou un avis notarié.</li>
+      <li><strong>Votre bien est atypique</strong> (grande parcelle, vue, prestations haut de gamme) : la visite est indispensable, les moyennes communales étant peu représentatives.</li>
+    </ul>
+
+    <h2>Méthode et limites de ce relevé</h2>
+    <p>Les quatre prix ont été lus sur les pages publiques de chaque site le 16 novembre 2026, pour la commune de Gex uniquement. Il s'agit d'un relevé ponctuel sur une seule commune : il ne permet pas de classer ces simulateurs ni de dire lequel est le plus juste. Leurs chiffres sont mis à jour régulièrement et peuvent avoir changé depuis. La médiane DVF porte sur les ventes de 2021 à 2025 et n'est donc pas directement comparable à un prix moyen d'octobre 2026.</p>
+    <p>Pour les autres communes, les repères par commune sont détaillés dans le <a href="/prix-immobilier/pays-de-gex/">comparatif des prix du Pays de Gex</a> et dans l'article sur les <a href="/blog/prix-m2-pays-de-gex-2026/">prix au m² relevés par les notaires</a>.</p>
+    <p><a href="/estimation">Demander une estimation à domicile →</a></p>
+  `
   }
 ];
 

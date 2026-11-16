@@ -38,6 +38,7 @@ const BLOG_SLUGS = [
   'prix-m2-pays-de-gex-2026',
   'immobilier-frontalier-pays-de-gex',
   'mandat-exclusif-ou-simple-pays-de-gex',
+  'estimation-en-ligne-ou-a-domicile-pays-de-gex',
 ];
 
 const ROUTES = [
@@ -53,6 +54,7 @@ const ROUTES = [
   '/mentions-legales',
   '/politique-confidentialite',
   '/prix-immobilier/pays-de-gex',
+  '/404',
   ...BLOG_SLUGS.map(s => `/blog/${s}`),
   ...BIEN_SLUGS.map(s => `/nos-biens/${s}`),
   ...COMMUNES.map(c => `/${c}/estimation-immobiliere`),
@@ -102,6 +104,12 @@ async function prerender() {
           .replace(/[ \t]*<meta name="twitter:[^"]*"[^>]*>\r?\n?/g, '')
           .replace(/[ \t]*<!-- OG fallbacks[^\n]*\n?/g, '');
 
+        // Si la route fournit sa propre balise robots (ex. 404 en noindex),
+        // on retire le « index, follow » statique pour éviter deux directives contradictoires
+        if (/name="robots"/.test(helmet.meta?.toString() ?? '')) {
+          html = html.replace(/[ \t]*<meta name="robots"[^>]*>\r?\n?/, '');
+        }
+
         // Inject helmet meta + link + script tags (Article/BreadcrumbList JSON-LD)
         const headInsert = [
           helmet.meta?.toString(),
@@ -119,10 +127,13 @@ async function prerender() {
       // Inject rendered HTML body
       html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
 
+      // /404 → dist/404.html : servi avec un statut HTTP 404 par Vercel et Netlify
       const filePath =
         url === '/'
           ? path.resolve(__dirname, 'dist/index.html')
-          : path.resolve(__dirname, `dist${url}/index.html`);
+          : url === '/404'
+            ? path.resolve(__dirname, 'dist/404.html')
+            : path.resolve(__dirname, `dist${url}/index.html`);
 
       const dir = path.dirname(filePath);
       if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
@@ -137,6 +148,21 @@ async function prerender() {
   }
 
   rmSync(path.resolve(__dirname, 'dist/server'), { recursive: true, force: true });
+
+  // Garde-fou : sans réécriture attrape-tout, une URL du sitemap non pré-rendue
+  // deviendrait un 404 en production. On échoue au build plutôt qu'en ligne.
+  const sitemap = readFileSync(path.resolve(__dirname, 'dist/sitemap.xml'), 'utf-8');
+  const missing = [...sitemap.matchAll(/<loc>https:\/\/mickael-lima\.immo(\/[^<]*)<\/loc>/g)]
+    .map(m => m[1])
+    .filter(p => !existsSync(path.resolve(__dirname, `dist${p}`, 'index.html')));
+  if (missing.length) {
+    console.error(`\n❌ ${missing.length} URL du sitemap sans page pré-rendue :\n  ${missing.join('\n  ')}`);
+    process.exit(1);
+  }
+  if (!existsSync(path.resolve(__dirname, 'dist/404.html'))) {
+    console.error('\n❌ dist/404.html manquant');
+    process.exit(1);
+  }
 
   console.log(`\n${fail ? '⚠️' : '✅'} ${ok} pages pre-rendered${fail ? `, ${fail} failed` : ''}`);
   if (fail > 0) process.exit(1);

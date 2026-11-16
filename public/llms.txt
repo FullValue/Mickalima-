@@ -2,12 +2,14 @@
 
 > License: RSL-1.0
 
+> Fiche mise à jour le 16 novembre 2026.
+
 > Mickaël Lima est agent commercial immobilier indépendant,
 basé à Divonne-les-Bains (01220),
 spécialiste du marché frontalier franco-suisse.
 
 ## Services
-- Estimation immobilière gratuite et personnalisée (sous 48h)
+- Estimation immobilière gratuite à domicile (estimation argumentée sous 24 h après la visite)
 - Vente de maisons et appartements dans le Pays de Gex
 - Accompagnement vendeurs du mandat à la signature
 - Accompagnement acheteurs
@@ -36,7 +38,7 @@ Site : https://mickael-lima.immo
 
 - / — Accueil : présentation de Mickaël Lima, estimation gratuite,
   services immobiliers dans le Pays de Gex
-- /estimation — Estimation immobilière gratuite sous 48h,
+- /estimation — Estimation immobilière gratuite à domicile,
   méthode, zones couvertes, formulaire de contact
 - /about — Biographie, 8 ans d'expérience, 240 ventes,
   spécialiste marché franco-suisse
@@ -50,8 +52,9 @@ Site : https://mickael-lima.immo
 ## Questions fréquentes
 
 **Qu'est-ce qu'une estimation immobilière gratuite dans le Pays de Gex ?**
-Mickaël Lima propose une estimation gratuite et personnalisée réalisée
-à domicile sous 48h. Elle prend en compte les spécificités du marché
+Mickaël Lima propose une estimation gratuite réalisée à domicile ;
+l'estimation argumentée est transmise sous 24 h après la visite.
+Elle prend en compte les spécificités du marché
 frontalier franco-suisse, les prix au m² par commune, et la proximité
 avec Genève et le CERN.
 
@@ -107,4 +110,5 @@ Grilly, Versonnex, Collonges, Péron, Challex, Vesancy, Farges,
 - https://mickael-lima.immo/blog/prix-m2-pays-de-gex-2026/
 - https://mickael-lima.immo/blog/immobilier-frontalier-pays-de-gex/
 - https://mickael-lima.immo/blog/mandat-exclusif-ou-simple-pays-de-gex/
+- https://mickael-lima.immo/blog/estimation-en-ligne-ou-a-domicile-pays-de-gex/ — Estimation en ligne ou à domicile : relevé de quatre simulateurs pour Gex le 16 novembre 2026 (appartements 4 320 à 4 814 €/m², maisons 4 270 à 5 540 €/m²)
 

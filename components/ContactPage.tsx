@@ -11,6 +11,7 @@ import {
     ArrowRight,
 } from 'lucide-react';
 import { SEO } from './SEO';
+import { SourceField } from './SourceField';
 import { FaqQuestions } from './oakline/FaqQuestions';
 import { GOOGLE_REVIEWS_COUNT, IMAGES } from '../constants';
 import { buildWhatsappUrl, WHATSAPP_PATH } from './oakline/whatsapp';
@@ -288,6 +289,8 @@ export const ContactPage: React.FC = () => {
                                             />
                                         </div>
                                     </div>
+
+                                    <SourceField id="contact-source" labelClassName={labelClass} selectClassName={inputClass} />
 
                                     <div>
                                         <label htmlFor="contact-message" className={labelClass}>Message *</label>

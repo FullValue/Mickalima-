@@ -13,7 +13,22 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 User-agent: GoogleOther

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IMAGES, COMMUNES, COMMUNE_CARD_IMAGES } from '../constants';
 import { SEO } from './SEO';
+import { SourceField } from './SourceField';
 import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
 import { m, AnimatePresence } from 'framer-motion';
 import { PillButton } from './oakline/primitives';
@@ -199,6 +200,7 @@ export const Estimation: React.FC = () => {
                                         <input type="text" name="nom" placeholder="Nom complet" className={FORM_FIELD_CLASS} required />
                                         <input type="email" name="email" placeholder="Email" className={FORM_FIELD_CLASS} required />
                                     </div>
+                                    <SourceField id="estimation-source" labelClassName="sr-only" selectClassName={`${FORM_FIELD_CLASS} text-gray-500`} />
                                     <div className="pb-4">
                                         <input type="tel" name="telephone" placeholder="Téléphone" className={FORM_FIELD_CLASS} required />
                                     </div>

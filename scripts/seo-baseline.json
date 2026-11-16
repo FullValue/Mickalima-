@@ -1,0 +1,407 @@
+{
+  "date": "2026-11-16T09:20:38.977Z",
+  "robotsStatus": 200,
+  "robotsBlocksAll": false,
+  "sitemapStatus": 200,
+  "notFound": 200,
+  "bots": {
+    "OAI-SearchBot": 200,
+    "Claude-SearchBot": 200,
+    "PerplexityBot": 200,
+    "bingbot": 200
+  },
+  "pages": {
+    "https://mickael-lima.immo/": {
+      "status": 200,
+      "title": "Mickaël Lima — Expert immobilier | Pays de Gex",
+      "canonical": "https://mickael-lima.immo/",
+      "robots": "index, follow",
+      "h1": "Vendez votre bien dans le Pays de GexVendez votre bien dans le Pays de Gexau meilleur prixau meilleur prix"
+    },
+    "https://mickael-lima.immo/nos-biens/": {
+      "status": 200,
+      "title": "Nos Biens à Vendre: Pays de Gex &amp; Bassin Genevois | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/",
+      "robots": "index, follow",
+      "h1": "Notre sélection de biens"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-grilly-01220-vm976/": {
+      "status": 200,
+      "title": "Maison Individuelle Grilly: 1 800 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-grilly-01220-vm976/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Grilly"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-grilly-01220-vm1043/": {
+      "status": 200,
+      "title": "Maison Individuelle Grilly: 1 295 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-grilly-01220-vm1043/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Grilly"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-8-pieces-crozet-01170/": {
+      "status": 200,
+      "title": "Maison Individuelle Crozet: 1 030 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-8-pieces-crozet-01170/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Crozet"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-divonne-les-bains-01220/": {
+      "status": 200,
+      "title": "Maison Individuelle Divonne-les-Bains: 995 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-divonne-les-bains-01220/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Divonne-les-Bains"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-peron-01630/": {
+      "status": 200,
+      "title": "Maison Individuelle Péron: 795 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-peron-01630/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Péron"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-6-pieces-collonges-01550/": {
+      "status": 200,
+      "title": "Maison Individuelle Collonges: 790 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-6-pieces-collonges-01550/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Collonges"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-echenevex-01170/": {
+      "status": 200,
+      "title": "Maison Individuelle Échenevex: Vendu | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-echenevex-01170/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Échenevex"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-villeneuve-les-maguelone-34750/": {
+      "status": 200,
+      "title": "Maison Individuelle Villeneuve-lès-Maguelone: 555 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-5-pieces-villeneuve-les-maguelone-34750/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Villeneuve-lès-Maguelone"
+    },
+    "https://mickael-lima.immo/nos-biens/appartement-t4-4-pieces-ferney-voltaire-01210-va2352/": {
+      "status": 200,
+      "title": "Appartement Ferney-Voltaire: 370 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/appartement-t4-4-pieces-ferney-voltaire-01210-va2352/",
+      "robots": "index, follow",
+      "h1": "Appartement: Ferney-Voltaire"
+    },
+    "https://mickael-lima.immo/nos-biens/appartement-t4-4-pieces-ferney-voltaire-01210-va2539/": {
+      "status": 200,
+      "title": "Appartement Ferney-Voltaire: 370 000 € | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/appartement-t4-4-pieces-ferney-voltaire-01210-va2539/",
+      "robots": "index, follow",
+      "h1": "Appartement: Ferney-Voltaire"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-7-pieces-vetraz-monthoux-74100/": {
+      "status": 200,
+      "title": "Maison Individuelle Vétraz-Monthoux: Prix sur demande | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-7-pieces-vetraz-monthoux-74100/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Vétraz-Monthoux"
+    },
+    "https://mickael-lima.immo/nos-biens/appartement-t3-3-pieces-cessy-01170/": {
+      "status": 200,
+      "title": "Appartement Cessy: Vendu | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/appartement-t3-3-pieces-cessy-01170/",
+      "robots": "index, follow",
+      "h1": "Appartement: Cessy"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-individuelle-7-pieces-cessy-01170/": {
+      "status": 200,
+      "title": "Maison Individuelle Cessy: Vendu | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-individuelle-7-pieces-cessy-01170/",
+      "robots": "index, follow",
+      "h1": "Maison Individuelle: Cessy"
+    },
+    "https://mickael-lima.immo/nos-biens/maison-mitoyenne-2-cotes-4-pieces-gex-01170/": {
+      "status": 200,
+      "title": "Maison Mitoyenne 2 côtés Gex: Vendu | Nos Biens | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/nos-biens/maison-mitoyenne-2-cotes-4-pieces-gex-01170/",
+      "robots": "index, follow",
+      "h1": "Maison Mitoyenne 2 côtés: Gex"
+    },
+    "https://mickael-lima.immo/estimation/": {
+      "status": 200,
+      "title": "Estimation Gratuite de votre Bien | Pays de Gex: Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/estimation/",
+      "robots": "index, follow",
+      "h1": "Estimez la valeur de votre patrimoine."
+    },
+    "https://mickael-lima.immo/mandat-exclusif/": {
+      "status": 200,
+      "title": "Mandat Exclusif | L&#x27;Excellence Immobilière: Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/mandat-exclusif/",
+      "robots": "index, follow",
+      "h1": "Le Mandat Exclusif."
+    },
+    "https://mickael-lima.immo/mandat-signature/": {
+      "status": 200,
+      "title": "Mandat Signature | Vendez Mieux: Mickaël Lima Pays de Gex",
+      "canonical": "https://mickael-lima.immo/mandat-signature/",
+      "robots": "index, follow",
+      "h1": "Mandat Signature"
+    },
+    "https://mickael-lima.immo/about/": {
+      "status": 200,
+      "title": "À propos : Mickaël Lima | Expert immobilier Pays de Gex",
+      "canonical": "https://mickael-lima.immo/about/",
+      "robots": "index, follow",
+      "h1": "Un regard local.Une stratégie pour vous."
+    },
+    "https://mickael-lima.immo/contact/": {
+      "status": 200,
+      "title": "Contact | Estimation Gratuite: Mickaël Lima Pays de Gex",
+      "canonical": "https://mickael-lima.immo/contact/",
+      "robots": "index, follow",
+      "h1": "Votre projetcommence ici."
+    },
+    "https://mickael-lima.immo/partenaires/": {
+      "status": 200,
+      "title": "Partenaires | Réseau d&#x27;Experts: Mickaël Lima Pays de Gex",
+      "canonical": "https://mickael-lima.immo/partenaires/",
+      "robots": "index, follow",
+      "h1": "Le cerclede confiance."
+    },
+    "https://mickael-lima.immo/mentions-legales/": {
+      "status": 200,
+      "title": "Mentions légales: Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/mentions-legales/",
+      "robots": "index, follow",
+      "h1": "Mentions légales"
+    },
+    "https://mickael-lima.immo/politique-confidentialite/": {
+      "status": 200,
+      "title": "Politique de confidentialité: Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/politique-confidentialite/",
+      "robots": "index, follow",
+      "h1": "Politique de confidentialité"
+    },
+    "https://mickael-lima.immo/blog/": {
+      "status": 200,
+      "title": "Guides et données locales | Mickaël Lima, expert immobilier",
+      "canonical": "https://mickael-lima.immo/blog/",
+      "robots": "index, follow",
+      "h1": "Guides et données locales"
+    },
+    "https://mickael-lima.immo/blog/prix-m2-pays-de-gex-2026/": {
+      "status": 200,
+      "title": "Prix au m² dans le Pays de Gex en 2026 : les repères des notaires: Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/blog/prix-m2-pays-de-gex-2026/",
+      "robots": "index, follow",
+      "h1": "Prix au m² dans le Pays de Gex en 2026 : les repères des notaires"
+    },
+    "https://mickael-lima.immo/blog/immobilier-frontalier-pays-de-gex/": {
+      "status": 200,
+      "title": "Immobilier dans le Pays de Gex : ce que les frontaliers doivent savoir: Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/blog/immobilier-frontalier-pays-de-gex/",
+      "robots": "index, follow",
+      "h1": "Immobilier dans le Pays de Gex : ce que les frontaliers doivent savoir"
+    },
+    "https://mickael-lima.immo/blog/mandat-exclusif-ou-simple-pays-de-gex/": {
+      "status": 200,
+      "title": "Mandat exclusif ou mandat simple : lequel choisir dans le Pays de Gex ?: Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/blog/mandat-exclusif-ou-simple-pays-de-gex/",
+      "robots": "index, follow",
+      "h1": "Mandat exclusif ou mandat simple : lequel choisir dans le Pays de Gex ?"
+    },
+    "https://mickael-lima.immo/ferney-voltaire/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Ferney-Voltaire : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/ferney-voltaire/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreFerney-Voltaire"
+    },
+    "https://mickael-lima.immo/saint-genis-pouilly/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Saint-Genis-Pouilly : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/saint-genis-pouilly/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreSaint-Genis-Pouilly"
+    },
+    "https://mickael-lima.immo/divonne-les-bains/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Divonne-les-Bains : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/divonne-les-bains/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreDivonne-les-Bains"
+    },
+    "https://mickael-lima.immo/gex/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Gex : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/gex/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreGex"
+    },
+    "https://mickael-lima.immo/prevessin-moens/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Prévessin-Moëns : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prevessin-moens/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièrePrévessin-Moëns"
+    },
+    "https://mickael-lima.immo/cessy/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Cessy : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/cessy/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreCessy"
+    },
+    "https://mickael-lima.immo/ornex/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Ornex : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/ornex/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreOrnex"
+    },
+    "https://mickael-lima.immo/thoiry/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Thoiry : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/thoiry/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreThoiry"
+    },
+    "https://mickael-lima.immo/crozet/estimation-immobiliere/": {
+      "status": 200,
+      "title": "Estimation Immobilière Crozet : repères DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/crozet/estimation-immobiliere/",
+      "robots": "index, follow",
+      "h1": "Estimation immobilièreCrozet"
+    },
+    "https://mickael-lima.immo/prix-immobilier/pays-de-gex/": {
+      "status": 200,
+      "title": "Prix immobilier Pays de Gex : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/pays-de-gex/",
+      "robots": "index, follow",
+      "h1": "Prix immobilier dans lePays de Gex · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/ferney-voltaire/": {
+      "status": 200,
+      "title": "Prix immobilier Ferney-Voltaire : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/ferney-voltaire/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierFerney-Voltaire · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/saint-genis-pouilly/": {
+      "status": 200,
+      "title": "Prix immobilier Saint-Genis-Pouilly : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/saint-genis-pouilly/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierSaint-Genis-Pouilly · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/divonne-les-bains/": {
+      "status": 200,
+      "title": "Prix immobilier Divonne-les-Bains : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/divonne-les-bains/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierDivonne-les-Bains · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/gex/": {
+      "status": 200,
+      "title": "Prix immobilier Gex : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/gex/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierGex · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/prevessin-moens/": {
+      "status": 200,
+      "title": "Prix immobilier Prévessin-Moëns : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/prevessin-moens/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierPrévessin-Moëns · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/cessy/": {
+      "status": 200,
+      "title": "Prix immobilier Cessy : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/cessy/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierCessy · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/ornex/": {
+      "status": 200,
+      "title": "Prix immobilier Ornex : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/ornex/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierOrnex · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/thoiry/": {
+      "status": 200,
+      "title": "Prix immobilier Thoiry : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/thoiry/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierThoiry · 2021–2025"
+    },
+    "https://mickael-lima.immo/prix-immobilier/crozet/": {
+      "status": 200,
+      "title": "Prix immobilier Crozet : médianes DVF 2021–2025 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/prix-immobilier/crozet/",
+      "robots": "index, follow",
+      "h1": "Prix immobilierCrozet · 2021–2025"
+    },
+    "https://mickael-lima.immo/frontalier/ferney-voltaire/": {
+      "status": 200,
+      "title": "Immobilier Ferney-Voltaire pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/ferney-voltaire/",
+      "robots": "index, follow",
+      "h1": "Immobilier Ferney-Voltairepour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/saint-genis-pouilly/": {
+      "status": 200,
+      "title": "Immobilier Saint-Genis-Pouilly pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/saint-genis-pouilly/",
+      "robots": "index, follow",
+      "h1": "Immobilier Saint-Genis-Pouillypour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/divonne-les-bains/": {
+      "status": 200,
+      "title": "Immobilier Divonne-les-Bains pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/divonne-les-bains/",
+      "robots": "index, follow",
+      "h1": "Immobilier Divonne-les-Bainspour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/gex/": {
+      "status": 200,
+      "title": "Immobilier Gex pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/gex/",
+      "robots": "index, follow",
+      "h1": "Immobilier Gexpour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/prevessin-moens/": {
+      "status": 200,
+      "title": "Immobilier Prévessin-Moëns pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/prevessin-moens/",
+      "robots": "index, follow",
+      "h1": "Immobilier Prévessin-Moënspour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/cessy/": {
+      "status": 200,
+      "title": "Immobilier Cessy pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/cessy/",
+      "robots": "index, follow",
+      "h1": "Immobilier Cessypour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/ornex/": {
+      "status": 200,
+      "title": "Immobilier Ornex pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/ornex/",
+      "robots": "index, follow",
+      "h1": "Immobilier Ornexpour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/thoiry/": {
+      "status": 200,
+      "title": "Immobilier Thoiry pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/thoiry/",
+      "robots": "index, follow",
+      "h1": "Immobilier Thoirypour les frontaliers genevois"
+    },
+    "https://mickael-lima.immo/frontalier/crozet/": {
+      "status": 200,
+      "title": "Immobilier Crozet pour les frontaliers genevois: Guide 2026 | Mickaël Lima",
+      "canonical": "https://mickael-lima.immo/frontalier/crozet/",
+      "robots": "index, follow",
+      "h1": "Immobilier Crozetpour les frontaliers genevois"
+    }
+  }
+}

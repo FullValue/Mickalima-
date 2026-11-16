@@ -1,6 +1,7 @@
 {
   "buildCommand": "npm run build:ssg",
   "outputDirectory": "dist",
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "/blog/mandat-exclusif-vs-mandat-simple",
@@ -33,7 +34,6 @@
       "permanent": true
     }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {
       "source": "/(.*)",
