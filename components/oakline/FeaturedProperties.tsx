@@ -16,7 +16,10 @@ const FEATURED_DESCRIPTIONS: Record<string, string> = {
   VM615: 'Une maison contemporaine avec trois suites au pied du Jura à Péron.',
 };
 
-export const FeaturedProperties: React.FC = () => {
+/** Section masquée tant qu'aucun bien à vendre n'est publié (voir biensData.ts). */
+export const FeaturedProperties: React.FC = () => (FEATURED.length ? <FeaturedCarousel /> : null);
+
+const FeaturedCarousel: React.FC = () => {
   const railRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
 

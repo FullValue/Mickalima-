@@ -9,7 +9,7 @@ Site de Mickaël Lima, agent commercial immobilier indépendant à Divonne-les-B
 
 ## Où trouver quoi
 
-- Biens à vendre : [liste](https://mickael-lima.immo/nos-biens/), une page par bien avec prix, surface et photos.
+- Biens vendus récemment (références) : [liste](https://mickael-lima.immo/nos-biens/), une page par bien avec surface et photos.
 - Prix au m² par commune (médianes DVF, appartements et maisons) : [comparatif des neuf communes](https://mickael-lima.immo/prix-immobilier/pays-de-gex/), puis `/prix-immobilier/<commune>/`.
 - Contexte frontalier par commune : `/frontalier/<commune>/`.
 - Articles de fond : [guides](https://mickael-lima.immo/blog/).

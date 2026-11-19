@@ -17,18 +17,9 @@ const COMMUNES = [
   'crozet',
 ];
 
+// Fiches publiées : biens vendus uniquement (voir PUBLIER_BIENS_EN_VENTE dans components/biensData.ts)
 const BIEN_SLUGS = [
-  'maison-individuelle-5-pieces-grilly-01220-vm976',
-  'maison-individuelle-5-pieces-grilly-01220-vm1043',
-  'maison-individuelle-8-pieces-crozet-01170',
-  'maison-individuelle-5-pieces-divonne-les-bains-01220',
-  'maison-individuelle-5-pieces-peron-01630',
-  'maison-individuelle-6-pieces-collonges-01550',
   'maison-individuelle-5-pieces-echenevex-01170',
-  'maison-individuelle-5-pieces-villeneuve-les-maguelone-34750',
-  'appartement-t4-4-pieces-ferney-voltaire-01210-va2352',
-  'appartement-t4-4-pieces-ferney-voltaire-01210-va2539',
-  'maison-individuelle-7-pieces-vetraz-monthoux-74100',
   'appartement-t3-3-pieces-cessy-01170',
   'maison-individuelle-7-pieces-cessy-01170',
   'maison-mitoyenne-2-cotes-4-pieces-gex-01170',

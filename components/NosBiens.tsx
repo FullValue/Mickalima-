@@ -69,12 +69,14 @@ const toggle = (list: string[], value: string) =>
 const NOSBIENS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Nos biens à vendre: Pays de Gex et bassin genevois',
+  name: 'Nos biens: Pays de Gex et bassin genevois',
   description:
-    'Maisons, appartements et terrains à la vente, sélectionnés par Mickaël Lima, expert immobilier dans le Pays de Gex.',
+    'Maisons et appartements accompagnés par Mickaël Lima dans le Pays de Gex.',
   url: 'https://mickael-lima.immo/nos-biens/',
   about: { '@type': 'RealEstateAgent', name: 'Mickaël Lima' },
 };
+
+const HAS_EN_VENTE = BIENS.some((p) => p.status !== 'Vendu');
 
 export const NosBiens: React.FC = () => {
   const [status, setStatus] = useState('Tous');
@@ -113,8 +115,12 @@ export const NosBiens: React.FC = () => {
   return (
     <>
       <SEO
-        title="Nos Biens à Vendre: Pays de Gex & Bassin Genevois | Mickaël Lima"
-        description="Maisons, appartements et terrains à vendre dans le Pays de Gex et alentours : Grilly, Divonne-les-Bains, Ferney-Voltaire, Crozet, Péron… Photos, détails et visites avec Mickaël Lima."
+        title={HAS_EN_VENTE
+          ? 'Nos Biens à Vendre: Pays de Gex & Bassin Genevois | Mickaël Lima'
+          : 'Biens vendus récemment: Pays de Gex | Mickaël Lima'}
+        description={HAS_EN_VENTE
+          ? 'Maisons, appartements et terrains à vendre dans le Pays de Gex et alentours : Grilly, Divonne-les-Bains, Ferney-Voltaire, Crozet, Péron… Photos, détails et visites avec Mickaël Lima.'
+          : 'Maisons et appartements vendus récemment dans le Pays de Gex (Cessy, Gex, Échenevex) avec l’accompagnement de Mickaël Lima.'}
         canonical="/nos-biens"
         schema={NOSBIENS_SCHEMA}
       />
@@ -167,7 +173,8 @@ export const NosBiens: React.FC = () => {
           </div>
         </section>
 
-        {/* ===== Sidebar filtres + grille ===== */}
+        {/* ===== Sidebar filtres + grille (masquée sans bien à vendre) ===== */}
+        {HAS_EN_VENTE && (
         <section style={{ maxWidth: 1300, margin: '0 auto', padding: '70px 30px 30px' }}>
           <div className="nb-listing-layout" style={{ display: 'grid', gridTemplateColumns: '350px 1fr', gap: 28, alignItems: 'start' }}>
             {/* --- Sidebar (sticky) --- */}
@@ -259,6 +266,7 @@ export const NosBiens: React.FC = () => {
             </div>
           </div>
         </section>
+        )}
 
         {/* ===== Vendus récemment ===== */}
         {showVendusSection && (
