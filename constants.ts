@@ -308,6 +308,148 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Pour les autres communes, les repères par commune sont détaillés dans le <a href="/prix-immobilier/pays-de-gex/">comparatif des prix du Pays de Gex</a> et dans l'article sur les <a href="/blog/prix-m2-pays-de-gex-2026/">prix au m² relevés par les notaires</a>.</p>
     <p><a href="/estimation/">Demander une estimation à domicile →</a></p>
   `
+  },
+  {
+    id: 5,
+    slug: "agent-immobilier-independant-ou-agence-pays-de-gex",
+    title: "Agent immobilier indépendant ou agence : que choisir pour vendre dans le Pays de Gex ?",
+    excerpt: "Agence avec vitrine, agent commercial indépendant ou vente entre particuliers : ce qui change vraiment pour le vendeur, ce qui ne change pas, et comment vérifier les habilitations.",
+    date: "2026-11-23",
+    category: "Conseil",
+    image: "/images/editorial/faq-pays-de-gex.webp",
+    content: `
+    <p><em>Publié le 23 novembre 2026.</em> Pour vendre une maison ou un appartement dans le Pays de Gex, trois voies coexistent : confier le bien à une agence avec vitrine, à un agent immobilier indépendant, ou le vendre soi-même. Le bon choix dépend moins de l'étiquette que de la personne qui suivra réellement le dossier, de sa connaissance des ventes du secteur et de ce qu'elle s'engage à faire par écrit.</p>
+
+    <h2>Trois façons de vendre, trois organisations</h2>
+    <p><strong>L'agence avec vitrine.</strong> Elle dispose d'un local, souvent de plusieurs négociateurs, et d'un fichier d'acquéreurs. Le vendeur peut avoir plusieurs interlocuteurs selon les étapes : prise de mandat, visites, négociation, suivi chez le notaire.</p>
+    <p><strong>L'agent immobilier indépendant.</strong> Le terme recouvre surtout les agents commerciaux immobiliers, parfois appelés mandataires. Ils travaillent pour le compte d'un professionnel titulaire de la carte professionnelle (agence ou réseau), qui leur délivre une <strong>attestation d'habilitation</strong>, et ils sont inscrits au registre spécial des agents commerciaux (RSAC) en tant que personnes physiques. Source : <a href="https://entreprendre.service-public.gouv.fr/vosdroits/R62621">Service-Public.fr, attestation d'habilitation d'un agent commercial immobilier</a>. Sans vitrine, l'agent se déplace chez le vendeur et suit en principe le dossier de bout en bout.</p>
+    <p><strong>La vente entre particuliers.</strong> Le propriétaire publie lui-même son annonce, organise les visites et négocie. Il économise les honoraires, mais il assume seul le prix, la sélection des acquéreurs, la vérification de leur financement et la préparation du dossier pour le notaire.</p>
+
+    <h2>Ce qui ne change pas, quel que soit le choix</h2>
+    <ul>
+      <li><strong>Les diagnostics.</strong> Le vendeur doit joindre le dossier de diagnostic technique à la promesse ou à l'acte de vente, qu'il vende seul ou accompagné. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">Service-Public.fr, diagnostics immobiliers</a>.</li>
+      <li><strong>Les règles du mandat.</strong> Simple ou exclusif, le mandat obéit aux mêmes textes pour une agence et pour un agent indépendant. Le détail figure dans l'article <a href="/blog/mandat-exclusif-ou-simple-pays-de-gex/">mandat exclusif ou mandat simple</a>.</li>
+      <li><strong>Le calendrier après l'offre.</strong> Délai de rétractation de l'acquéreur, condition suspensive de prêt, date de l'acte : ces étapes sont les mêmes pour tous. Elles sont détaillées dans l'article sur les <a href="/blog/compromis-de-vente-delais-pays-de-gex/">délais du compromis de vente</a>.</li>
+    </ul>
+
+    <h2>Ce qui change vraiment pour le vendeur</h2>
+    <table>
+      <thead><tr><th>Critère</th><th>Agence avec vitrine</th><th>Agent indépendant</th><th>Vente seul</th></tr></thead>
+      <tbody>
+        <tr><td>Interlocuteur</td><td>Un ou plusieurs négociateurs</td><td>En principe une seule personne</td><td>Le vendeur lui-même</td></tr>
+        <tr><td>Disponibilité</td><td>Horaires du local</td><td>Selon l'organisation de l'agent</td><td>Selon le temps du vendeur</td></tr>
+        <tr><td>Fichier d'acquéreurs</td><td>Celui de l'agence</td><td>Celui de l'agent et du réseau qui l'habilite</td><td>Aucun</td></tr>
+        <tr><td>Honoraires</td><td>Selon le barème affiché</td><td>Selon le barème affiché</td><td>Aucun</td></tr>
+        <tr><td>Vérification du financement</td><td>Par le professionnel</td><td>Par le professionnel</td><td>Par le vendeur</td></tr>
+      </tbody>
+    </table>
+    <p>Les honoraires ne dépendent pas du statut : chaque professionnel fixe son barème et doit l'afficher. Comparez donc le montant réel sur votre prix de vente, et ce qu'il couvre.</p>
+
+    <h2>Cinq vérifications avant de signer un mandat</h2>
+    <ol>
+      <li><strong>L'habilitation.</strong> Demandez l'attestation d'habilitation de l'agent indépendant, ou le numéro de carte professionnelle de l'agence, et le nom du titulaire de la carte.</li>
+      <li><strong>Les ventes comparables.</strong> Sur quelles ventes récentes de votre commune repose le prix conseillé ? Les données publiques <a href="https://app.dvf.etalab.gouv.fr/">DVF</a> permettent de les vérifier.</li>
+      <li><strong>Le plan de diffusion.</strong> Photos, visite virtuelle, portails utilisés, éventuelle présence sur un portail suisse ou une annonce en anglais pour toucher les frontaliers et les expatriés.</li>
+      <li><strong>Le suivi.</strong> À quelle fréquence recevrez-vous le compte rendu des visites ?</li>
+      <li><strong>La sortie.</strong> Durée du mandat et conditions de résiliation, écrites noir sur blanc.</li>
+    </ol>
+
+    <h2>Dans le Pays de Gex, ce qui fait la différence</h2>
+    <p>Le marché gessien a ses particularités : beaucoup d'acquéreurs travaillent en Suisse, les prix varient nettement d'une commune à l'autre, et l'écart entre deux biens proches tient souvent à la vue, au terrain ou au temps de trajet vers Genève. Les repères notariaux par commune sont détaillés dans l'article sur les <a href="/blog/prix-m2-pays-de-gex-2026/">prix au m² dans le Pays de Gex</a>. Un professionnel qui connaît ces ventes, qu'il travaille en agence ou en indépendant, sera mieux placé pour fixer un prix crédible dès la mise en vente.</p>
+    <p>Je travaille comme agent immobilier indépendant, basé à Divonne-les-Bains, et je suis personnellement chaque dossier, de l'estimation à la signature chez le notaire.</p>
+    <p><a href="/estimation/">Demander une estimation de mon bien →</a></p>
+  `
+  },
+  {
+    id: 6,
+    slug: "vendre-sa-maison-rapidement-pays-de-gex",
+    title: "Vendre sa maison rapidement dans le Pays de Gex : ce qui raccourcit vraiment les délais",
+    excerpt: "Prix de départ, diagnostics prêts avant la mise en vente, dossier complet et acquéreur dont le financement est vérifié : les leviers concrets pour vendre vite sans brader.",
+    date: "2026-11-23",
+    category: "Conseil",
+    image: "/images/editorial/marche-pays-de-gex.webp",
+    content: `
+    <p><em>Publié le 23 novembre 2026.</em> Vendre vite ne veut pas dire vendre moins cher. La plupart des ventes qui traînent s'expliquent par quelques causes identifiables : un prix de départ trop haut, un dossier incomplet, une présentation qui ne met pas le bien en valeur, ou un acquéreur dont le financement n'a pas été vérifié. Chacune se corrige avant la mise en vente.</p>
+
+    <h2>1. Fixer le bon prix dès la première semaine</h2>
+    <p>Les premières semaines de diffusion sont celles où l'annonce attire le plus d'attention. Un bien affiché trop cher les gaspille : les acquéreurs comparent, ne visitent pas, puis le prix baisse et l'annonce paraît « usée ». Le prix doit s'appuyer sur des ventes réellement signées, pas sur des annonces.</p>
+    <p>Dans le Pays de Gex, les notaires situent la médiane des appartements anciens à <strong>4 800 €/m²</strong> sur les ventes de 2025, avec des écarts sensibles entre communes. Le détail et les sources figurent dans l'article sur les <a href="/blog/prix-m2-pays-de-gex-2026/">prix au m² dans le Pays de Gex</a>. Pour une maison, la parcelle, la vue et l'état comptent souvent plus que la moyenne communale. Les simulateurs en ligne donnent un ordre de grandeur, avec des écarts importants entre eux : voir notre <a href="/blog/estimation-en-ligne-ou-a-domicile-pays-de-gex/">relevé de quatre simulateurs pour Gex</a>.</p>
+    <p><strong>Un exemple, pas une statistique :</strong> une maison mise en vente à 790 000 € alors que les comparables se situent autour de 720 000 € risque d'attendre, puis de baisser par étapes. Mise en vente directement au bon niveau, elle a plus de chances de recevoir plusieurs visites, et parfois plusieurs offres, dans les premières semaines.</p>
+
+    <h2>2. Avoir les diagnostics avant la mise en vente</h2>
+    <p>Le dossier de diagnostic technique doit être joint à la promesse ou à l'acte de vente. Pour une maison, il comprend selon les cas : le DPE, l'audit énergétique si l'étiquette est E, F ou G, le constat de risque d'exposition au plomb (construction avant 1949), l'amiante (permis de construire avant le 1er juillet 1997), l'électricité et le gaz (installations de plus de 15 ans), l'assainissement, les termites selon la zone, l'état des risques et le diagnostic bruit. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">Service-Public.fr, diagnostics immobiliers</a>.</p>
+    <p>Les commander dès la prise de mandat évite deux pertes de temps : attendre le diagnostiqueur une fois l'acquéreur trouvé, et découvrir tardivement une étiquette énergétique qui change la négociation.</p>
+
+    <h2>3. Réunir les documents du notaire dès le départ</h2>
+    <ul>
+      <li>Titre de propriété et, le cas échéant, plans et permis de construire des extensions.</li>
+      <li>Dernier avis de taxe foncière.</li>
+      <li>Factures des travaux importants et attestations d'assurance décennale.</li>
+      <li>Pour une copropriété : règlement, procès-verbaux des dernières assemblées générales et montant des charges.</li>
+      <li>Pour un assainissement individuel : le rapport de contrôle.</li>
+    </ul>
+    <p>Un dossier complet permet de répondre immédiatement aux questions des acquéreurs et de préparer le compromis sans semaines d'attente.</p>
+
+    <h2>4. Soigner la présentation</h2>
+    <p>Photos lumineuses, pièces désencombrées, petites réparations faites, extérieur entretenu : ce travail coûte peu au regard de son effet sur le nombre de visites. Dans le Pays de Gex, beaucoup d'acquéreurs regardent les annonces depuis Genève ou de l'étranger. Une visite virtuelle, un plan et une annonce en anglais aident à les convaincre de se déplacer.</p>
+
+    <h2>5. Vérifier le financement de l'acquéreur</h2>
+    <p>Une vente rapide est une vente qui va au bout. Avant d'accepter une offre, il faut savoir comment l'acquéreur finance son achat : apport, accord de principe d'une banque, revenus en francs suisses pris en compte par le prêteur. La condition suspensive d'obtention de prêt prévue au compromis ne peut pas durer moins d'un mois. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1673">Service-Public.fr, condition suspensive de prêt</a>. Un dossier fragile peut bloquer le bien pendant des semaines avant d'échouer.</p>
+
+    <h2>6. Connaître le calendrier après l'accord</h2>
+    <p>Une fois l'offre acceptée, l'acquéreur dispose d'un délai de rétractation de 10 jours après notification du compromis, puis la date de l'acte authentique est fixée librement par les parties. Les étapes sont détaillées dans l'article sur les <a href="/blog/compromis-de-vente-delais-pays-de-gex/">délais du compromis de vente</a>.</p>
+    <p>Si vous préparez une vente dans les prochains mois, une estimation fondée sur les ventes de votre commune est le premier levier : elle fixe le prix de départ, celui qui conditionne tout le reste.</p>
+    <p><a href="/estimation/">Demander une estimation sous 48 h →</a></p>
+  `
+  },
+  {
+    id: 7,
+    slug: "compromis-de-vente-delais-pays-de-gex",
+    title: "Compromis de vente : délais et étapes jusqu'à l'acte authentique",
+    excerpt: "Délai de rétractation de 10 jours, condition suspensive de prêt d'au moins un mois, date de l'acte fixée par les parties : le calendrier d'une vente expliqué, sources officielles à l'appui.",
+    date: "2026-11-23",
+    category: "Conseil",
+    image: "/images/editorial/partenaire-financement.webp",
+    content: `
+    <p><em>Publié le 23 novembre 2026.</em> Entre l'accord sur le prix et la remise des clés, une vente passe par le compromis puis par l'acte authentique chez le notaire. Chaque étape a ses délais, certains fixés par la loi, d'autres librement par les parties. Les voici dans l'ordre, avec les sources officielles.</p>
+
+    <h2>Le calendrier en un coup d'œil</h2>
+    <table>
+      <thead><tr><th>Étape</th><th>Délai</th><th>Qui le fixe</th></tr></thead>
+      <tbody>
+        <tr><td>Signature du compromis</td><td>Après acceptation de l'offre</td><td>Les parties</td></tr>
+        <tr><td>Rétractation de l'acquéreur</td><td>10 jours à compter de la notification</td><td>La loi</td></tr>
+        <tr><td>Obtention du prêt (condition suspensive)</td><td>Au moins 1 mois</td><td>La loi fixe le minimum, le compromis fixe la durée</td></tr>
+        <tr><td>Signature de l'acte authentique</td><td>Date prévue au compromis</td><td>Les parties</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Le délai de rétractation de l'acquéreur : 10 jours</h2>
+    <p>L'acquéreur non professionnel d'un logement dispose d'un délai de rétractation de <strong>10 jours</strong>. Il ne court pas à partir de la signature mais à partir de la <strong>notification</strong> du compromis : il commence le lendemain de la première présentation de la lettre recommandée qui notifie l'acte. L'acquéreur qui se rétracte n'a pas à se justifier. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2965">Service-Public.fr, compromis de vente</a>.</p>
+
+    <h2>Le vendeur, lui, est engagé dès la signature</h2>
+    <p>Le vendeur ne bénéficie pas d'un délai de rétractation : il est définitivement engagé à vendre dès la signature du compromis, sauf clause particulière prévue dans l'acte. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2965">Service-Public.fr</a>. C'est une raison de plus pour avoir vérifié le prix et les conditions avant de signer.</p>
+
+    <h2>La condition suspensive de prêt : au moins un mois</h2>
+    <p>Lorsque l'acquéreur finance l'achat par un crédit, le compromis prévoit une condition suspensive d'obtention du prêt. Le délai accordé à l'acquéreur ne peut pas être inférieur à <strong>un mois</strong> ; il peut être plus long. Si le prêt est refusé dans ces conditions, la vente ne se fait pas et les sommes versées sont restituées à l'acquéreur. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1673">Service-Public.fr, condition suspensive de prêt</a> (Code de la consommation, articles L313-40 à L313-45).</p>
+    <p>Dans le Pays de Gex, de nombreux acquéreurs perçoivent des revenus en francs suisses. Les prêteurs n'ont pas tous la même façon de les prendre en compte. Prévoir une durée réaliste pour cette condition, plutôt que le minimum, évite de devoir la prolonger en urgence.</p>
+
+    <h2>La date de l'acte authentique : fixée par les parties</h2>
+    <p>Aucun texte n'impose de délai général entre le compromis et l'acte : les parties le fixent librement dans le compromis. Seuls le Haut-Rhin, le Bas-Rhin et la Moselle imposent un maximum de six mois pour un compromis sous seing privé. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2965">Service-Public.fr</a>. En pratique, la date retenue doit laisser le temps d'obtenir le prêt, de purger les éventuels droits de préemption et de réunir les pièces demandées par le notaire.</p>
+
+    <h2>Les diagnostics doivent être valides à la date du compromis</h2>
+    <p>Les diagnostics doivent être en cours de validité à la date de la promesse. Le DPE est valable 10 ans, l'audit énergétique 5 ans. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2965">Service-Public.fr</a>. Un diagnostic expiré entre l'offre et la signature peut retarder le compromis : mieux vaut vérifier les dates dès la mise en vente. La liste complète des diagnostics figure dans l'article <a href="/blog/vendre-sa-maison-rapidement-pays-de-gex/">vendre sa maison rapidement</a>.</p>
+
+    <h2>Ce que le vendeur peut anticiper</h2>
+    <ul>
+      <li>Avoir le dossier de diagnostic technique complet avant la première visite.</li>
+      <li>Réunir titre de propriété, taxe foncière, factures de travaux et, en copropriété, les documents de l'assemblée générale.</li>
+      <li>Vérifier le plan de financement de l'acquéreur avant d'accepter son offre.</li>
+      <li>S'accorder sur une date d'acte compatible avec son propre projet (achat suivant, déménagement).</li>
+    </ul>
+    <p>Vous envisagez de vendre ? Une estimation fondée sur les ventes récentes de votre commune permet de partir sur de bonnes bases, avant même de penser au compromis.</p>
+    <p><a href="/estimation/">Demander une estimation de mon bien →</a></p>
+  `
   }
 ];
 

@@ -30,6 +30,9 @@ const BLOG_SLUGS = [
   'immobilier-frontalier-pays-de-gex',
   'mandat-exclusif-ou-simple-pays-de-gex',
   'estimation-en-ligne-ou-a-domicile-pays-de-gex',
+  'agent-immobilier-independant-ou-agence-pays-de-gex',
+  'vendre-sa-maison-rapidement-pays-de-gex',
+  'compromis-de-vente-delais-pays-de-gex',
 ];
 
 const ROUTES = [
