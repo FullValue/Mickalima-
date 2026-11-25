@@ -355,7 +355,7 @@ export const FAQSection: React.FC = () => {
     const faqs = [
         {
             question: "Combien de temps prend une estimation complète ?",
-            answer: "Une estimation sérieuse nécessite généralement 48h. Nous nous déplaçons d'abord sur site pour analyser votre bien, puis nous étudions les données marché avant de vous remettre un dossier complet et confidentiel."
+            answer: "Mickaël vous rappelle sous 24 h, se déplace sur site pour analyser votre bien, puis vous remet sous 24 h après la visite un avis de valeur argumenté et confidentiel, fondé sur les ventes comparables."
         },
         {
             question: "Proposez-vous des mandats simples ou uniquement exclusifs ?",
@@ -621,7 +621,7 @@ export const ZonesDIntervention: React.FC = () => {
                         </m.h2>
                     </div>
                     <p className="text-gray-500 font-light max-w-sm text-base md:text-lg leading-relaxed lg:text-right">
-                        Connaissance fine de chaque marché local: estimation gratuite sur site en 48h.
+                        Connaissance fine de chaque marché local: estimation gratuite sur site, réponse sous 24 h.
                     </p>
                 </div>
 

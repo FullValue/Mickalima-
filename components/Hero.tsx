@@ -107,7 +107,7 @@ export const Hero: React.FC = () => {
                                 <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
 
                                 <div className="flex items-center gap-2 text-gray-500 text-[0.65rem] font-bold uppercase tracking-widest">
-                                    <Sparkles size={14} /> Estimation gratuite · 48h
+                                    <Sparkles size={14} /> Estimation gratuite · 24 h
                                 </div>
                                 <h2 className="text-2xl font-normal text-textMain leading-tight">
                                     Quelle est la valeur<br />de votre bien&nbsp;?
@@ -213,7 +213,7 @@ export const Hero: React.FC = () => {
                                 )}
 
                                 <p className="text-[0.65rem] text-gray-400 text-center font-light">
-                                    Confidentiel · sans engagement · réponse sous 48h
+                                    Confidentiel · sans engagement · réponse sous 24 h
                                 </p>
                             </form>
                         ) : (

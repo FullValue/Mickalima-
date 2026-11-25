@@ -402,7 +402,7 @@ export const BLOG_POSTS: BlogPost[] = [
     <h2>6. Connaître le calendrier après l'accord</h2>
     <p>Une fois l'offre acceptée, l'acquéreur dispose d'un délai de rétractation de 10 jours après notification du compromis, puis la date de l'acte authentique est fixée librement par les parties. Les étapes sont détaillées dans l'article sur les <a href="/blog/compromis-de-vente-delais-pays-de-gex/">délais du compromis de vente</a>.</p>
     <p>Si vous préparez une vente dans les prochains mois, une estimation fondée sur les ventes de votre commune est le premier levier : elle fixe le prix de départ, celui qui conditionne tout le reste.</p>
-    <p><a href="/estimation/">Demander une estimation sous 48 h →</a></p>
+    <p><a href="/estimation/">Demander une estimation, réponse sous 24 h →</a></p>
   `
   },
   {
