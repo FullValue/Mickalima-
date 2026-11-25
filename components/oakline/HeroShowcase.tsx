@@ -13,7 +13,7 @@ import {
 import { COMMUNES } from '../../constants';
 import { BIENS } from '../biensData';
 import { EASE, PillButton } from './primitives';
-import { track } from './tracking';
+import { track, trackLead, leadContext } from './tracking';
 import { buildWhatsappUrl, WHATSAPP_PATH } from './whatsapp';
 
 /**
@@ -148,11 +148,13 @@ export const HeroShowcase: React.FC = () => {
           nom: est.nom,
           telephone: est.telephone,
           email: est.email,
+          ...leadContext(),
         }),
       });
       const data = await res.json();
       if (!data.success) throw new Error('web3forms');
       track('estimation_form_complete');
+      trackLead('estimation_accueil');
       setMode('done');
     } catch (err) {
       console.error('Web3Forms error:', err);
@@ -225,7 +227,7 @@ export const HeroShowcase: React.FC = () => {
           className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] backdrop-blur-sm"
         >
           <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white/70" />
-          Expert immobilier · Pays de Gex
+          Agent immobilier indépendant · Pays de Gex
         </m.p>
 
         <h1 className="max-w-5xl font-serif text-[2.6rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
@@ -242,8 +244,9 @@ export const HeroShowcase: React.FC = () => {
           transition={{ duration: 0.8, ease: EASE, delay: 0.7 }}
           className="mt-7 max-w-xl font-serif text-base font-light leading-relaxed text-white/85 md:text-lg"
         >
-          Estimation argumentée, présentation professionnelle et stratégie de
-          diffusion adaptée à chaque bien dans le Pays de Gex.
+          Un agent immobilier indépendant plutôt qu’une agence immobilière :
+          estimation argumentée, présentation professionnelle et diffusion
+          adaptée à chaque bien du Pays de Gex.
         </m.p>
       </div>
 

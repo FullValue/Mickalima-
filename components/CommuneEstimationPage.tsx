@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { GOOGLE_REVIEWS_COUNT, COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
+import { CommuneLeadForm } from './CommuneLeadForm';
 
 export const CommuneEstimationPage: React.FC = () => {
   const { commune: communeSlug } = useParams<{ commune: string }>();
@@ -80,7 +81,7 @@ export const CommuneEstimationPage: React.FC = () => {
         addressRegion: 'Ain',
         addressCountry: 'FR',
       },
-      description: `Estimation immobilière gratuite à ${commune.name} (${commune.cp}). Expert du marché frontalier du Pays de Gex.`,
+      description: `Agent immobilier indépendant à ${commune.name} (${commune.cp}) : estimation gratuite, vente de maisons et d'appartements dans le Pays de Gex.`,
     },
   ];
 
@@ -94,6 +95,10 @@ export const CommuneEstimationPage: React.FC = () => {
       answer: `Il n'existe pas ici de délai moyen de vente publié et comparable pour ${commune.name}. La durée dépend du bien, du prix demandé, de la demande au moment de la mise en vente et de la stratégie de commercialisation.`,
     },
     {
+      question: `Agent immobilier indépendant ou agence immobilière à ${commune.name} ?`,
+      answer: `Une agence immobilière répartit les dossiers entre plusieurs négociateurs. En tant qu'agent immobilier indépendant, Mickaël Lima suit lui-même chaque vente à ${commune.name}, de l'estimation à la signature chez le notaire, avec un seul interlocuteur.`,
+    },
+    {
       question: `L'estimation est-elle vraiment gratuite et sans engagement ?`,
       answer: `Oui. L'estimation est gratuite, confidentielle et sans engagement. Elle comprend une visite sur site et l'analyse de transactions comparables récentes, choisies selon le type de bien et le secteur pertinent.`,
     },
@@ -102,8 +107,8 @@ export const CommuneEstimationPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`Estimation Immobilière ${commune.name} : repères DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
-        description={`Estimation gratuite à ${commune.name} (${commune.cp}). Repères DVF ${COMMUNE_DVF_PERIOD} : médiane des appartements ${commune.prixApptMin.toLocaleString('fr-FR')} €/m² et des maisons ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m². Analyse adaptée au bien.`}
+        title={`Immobilier ${commune.name} : estimation gratuite | Mickaël Lima`}
+        description={`Immobilier à ${commune.name} (${commune.cp}) : agent indépendant plutôt qu'agence immobilière. Estimation gratuite, maisons ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m² en médiane DVF.`}
         canonical={`/${commune.slug}/estimation-immobiliere/`}
         schema={schema}
       />
@@ -115,13 +120,13 @@ export const CommuneEstimationPage: React.FC = () => {
           <div className="absolute inset-0">
             <img
               src={getCommuneHeroImage(commune.slug)}
-              alt={`Estimation immobilière ${commune.name}`}
+              alt={`Immobilier à ${commune.name}, Pays de Gex`}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#011d41]/95 via-[#011d41]/70 to-[#011d41]/25" />
           </div>
 
-          <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-5xl">
+          <div className="container mx-auto px-6 lg:px-12 relative z-10 max-w-6xl grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end pt-32">
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -143,17 +148,30 @@ export const CommuneEstimationPage: React.FC = () => {
                 </span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
-                Estimation immobilière
+              <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
+                Immobilier{' '}
                 <br />
                 <span className="font-newsletter italic font-normal">
-                  {commune.name}
+                  à {commune.name}
                 </span>
               </h1>
 
-              <p className="text-white/70 text-xl font-light max-w-xl leading-relaxed">
+              <p className="text-white/85 text-lg font-light max-w-xl leading-relaxed mb-4">
+                Agent immobilier indépendant, je vous accompagne pour vendre votre maison ou votre appartement à {commune.name}, avec le suivi direct qu’une agence immobilière ne donne pas toujours.
+              </p>
+              <p className="text-white/70 text-lg font-light max-w-xl leading-relaxed">
                 {commune.descriptionMarche}
               </p>
+            </m.div>
+
+            <m.div
+              id="estimation-commune"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="scroll-mt-28"
+            >
+              <CommuneLeadForm communeName={commune.name} communeCp={commune.cp} />
             </m.div>
           </div>
         </section>
@@ -305,15 +323,15 @@ export const CommuneEstimationPage: React.FC = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/contact/"
+                <a
+                  href="#estimation-commune"
                   className="group bg-white text-primary font-bold p-3 pr-8 rounded-full flex items-center gap-4 text-base hover:bg-surface transition-all shadow-black/20"
                 >
                   <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform shrink-0">
                     <ArrowUpRight size={18} />
                   </div>
                   Demander une estimation gratuite
-                </Link>
+                </a>
 
                 <a
                   href="tel:+33769313502"
@@ -415,7 +433,7 @@ export const CommuneEstimationPage: React.FC = () => {
               >
                 <div>
                   <p className="font-bold text-white text-lg">Toutes les communes</p>
-                  <p className="text-white/60 text-sm font-light mt-0.5">Estimation gratuite · 9 secteurs</p>
+                  <p className="text-white/60 text-sm font-light mt-0.5">Estimation gratuite · 9 communes</p>
                 </div>
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all shrink-0">
                   <ArrowUpRight size={16} className="text-white" />

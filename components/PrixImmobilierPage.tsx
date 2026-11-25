@@ -126,7 +126,7 @@ export const PrixImmobilierPage: React.FC = () => {
               </div>
 
               <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
-                Prix immobilier
+                Prix immobilier{' '}
                 <br />
                 <span className="font-newsletter italic font-normal">
                   {commune.name} · {COMMUNE_DVF_PERIOD}

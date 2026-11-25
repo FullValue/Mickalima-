@@ -89,7 +89,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
-                Prix immobilier dans le<br />
+                Prix immobilier dans le{' '}<br />
                 <span className="font-newsletter italic font-normal">
                   Pays de Gex · {COMMUNE_DVF_PERIOD}
                 </span>

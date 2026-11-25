@@ -15,7 +15,7 @@ import { SourceField } from './SourceField';
 import { FaqQuestions } from './oakline/FaqQuestions';
 import { GOOGLE_REVIEWS_COUNT, IMAGES } from '../constants';
 import { buildWhatsappUrl, WHATSAPP_PATH } from './oakline/whatsapp';
-import { track } from './oakline/tracking';
+import { track, trackLead, leadContext } from './oakline/tracking';
 import { m } from 'framer-motion';
 import { FORM_FIELD_CLASS as inputClass, FORM_LABEL_CLASS as labelClass } from './formStyles';
 import {
@@ -64,7 +64,7 @@ export const ContactPage: React.FC = () => {
         formData.append('from_name', 'mickael-lima.immo');
         formData.append('botcheck', '');
 
-        const object = Object.fromEntries(formData);
+        const object = { ...Object.fromEntries(formData), ...leadContext() };
         const json = JSON.stringify(object);
 
         try {
@@ -78,6 +78,7 @@ export const ContactPage: React.FC = () => {
             });
             const data = await response.json();
             if (data.success) {
+                trackLead('contact_page');
                 setStatus('success');
                 (e.target as HTMLFormElement).reset();
             } else {

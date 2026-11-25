@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { IMAGES, COMMUNES, COMMUNE_CARD_IMAGES } from '../constants';
 import { SEO } from './SEO';
 import { SourceField } from './SourceField';
+import { trackLead, leadContext } from './oakline/tracking';
 import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkles } from 'lucide-react';
 import { m, AnimatePresence } from 'framer-motion';
 import { PillButton } from './oakline/primitives';
@@ -35,7 +36,7 @@ export const Estimation: React.FC = () => {
         formData.append('from_name', 'mickael-lima.immo');
         formData.append('botcheck', '');
 
-        const object = Object.fromEntries(formData);
+        const object = { ...Object.fromEntries(formData), ...leadContext() };
         const json = JSON.stringify(object);
 
         try {
@@ -49,6 +50,7 @@ export const Estimation: React.FC = () => {
             });
             const data = await response.json();
             if (data.success) {
+                trackLead('estimation_page');
                 setStatus('success');
                 (e.target as HTMLFormElement).reset();
                 window.scrollTo({ top: 0, behavior: 'smooth' });

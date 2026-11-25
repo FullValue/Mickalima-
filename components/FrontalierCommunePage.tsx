@@ -155,7 +155,7 @@ export const FrontalierCommunePage: React.FC = () => {
               </div>
 
               <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.05] mb-6 break-words hyphens-auto">
-                Immobilier {commune.name}
+                Immobilier {commune.name}{' '}
                 <br />
                 <span className="font-newsletter italic font-normal">
                   pour les frontaliers genevois

@@ -10,7 +10,7 @@ const ABOUT_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Mickaël Lima',
-  jobTitle: 'Expert immobilier',
+  jobTitle: 'Agent immobilier indépendant',
   url: 'https://mickael-lima.immo/about/',
   telephone: '+33769313502',
   address: {
@@ -62,7 +62,7 @@ const heading = 'font-serif text-3xl font-normal leading-[1.12] tracking-tight m
 export const About: React.FC = () => (
   <>
     <SEO
-      title="À propos : Mickaël Lima | Expert immobilier Pays de Gex"
+      title="À propos : Mickaël Lima, agent immobilier indépendant"
       description="Découvrez Mickaël Lima Dos Santos, expert immobilier avec plus de 8 ans d'expérience dans le Pays de Gex (plus de 240 ventes en 5 ans). Connaissance locale, stratégie de vente et accompagnement personnalisé."
       canonical="/about"
       schema={ABOUT_SCHEMA}

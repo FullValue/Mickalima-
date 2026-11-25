@@ -45,7 +45,7 @@ const HOMEPAGE_SCHEMA = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Mickaël Lima — Expert immobilier Pays de Gex',
+    name: 'Mickaël Lima — Agent immobilier indépendant, Pays de Gex',
     url: 'https://mickael-lima.immo/',
     inLanguage: 'fr-FR',
     publisher: { '@type': 'Person', name: 'Mickaël Lima' },
@@ -55,7 +55,7 @@ const HOMEPAGE_SCHEMA = [
     '@type': ['RealEstateAgent', 'LocalBusiness'],
     name: 'Mickaël Lima',
     description:
-      'Expert immobilier dans le Pays de Gex et le bassin genevois. Estimation au juste prix, mise en valeur professionnelle et stratégie de vente adaptée à chaque bien.',
+      'Agent immobilier indépendant basé à Divonne-les-Bains, dans le Pays de Gex. Estimation gratuite, mise en valeur professionnelle et stratégie de vente adaptée à chaque bien.',
     url: 'https://mickael-lima.immo',
     telephone: '+33769313502',
     email: 'mickainvest@gmail.com',
@@ -94,7 +94,7 @@ const HOMEPAGE_SCHEMA = [
     employee: {
       '@type': 'Person',
       name: 'Mickaël Lima Dos Santos',
-      jobTitle: 'Expert immobilier',
+      jobTitle: 'Agent immobilier indépendant',
       description: "Plus de 8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (plus de 240 ventes sur les 5 dernières années)",
       telephone: '+33769313502',
       email: 'mickainvest@gmail.com',
@@ -111,7 +111,7 @@ const HOMEPAGE_SCHEMA = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Mickaël Lima',
-    jobTitle: 'Expert immobilier',
+    jobTitle: 'Agent immobilier indépendant',
     knowsAbout: [
       'Immobilier Pays de Gex',
       'Marché frontalier franco-suisse',
@@ -126,8 +126,8 @@ const HOMEPAGE_SCHEMA = [
 const HomePage: React.FC = () => (
   <>
     <SEO
-      title="Mickaël Lima — Expert immobilier | Pays de Gex"
-      description="Vendez votre bien au meilleur prix dans le Pays de Gex avec une estimation argumentée, une mise en valeur professionnelle et une stratégie de diffusion adaptée."
+      title="Agence immobilière Pays de Gex : agent indépendant | Mickaël Lima"
+      description="Agent immobilier indépendant dans le Pays de Gex, alternative à l'agence immobilière : estimation gratuite, mise en valeur professionnelle, vente au juste prix."
       canonical="/"
       schema={HOMEPAGE_SCHEMA}
     />
