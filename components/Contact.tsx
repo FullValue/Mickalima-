@@ -8,6 +8,59 @@ import { Phone, CheckCircle, MapPin, Home, Ruler, FileText, ArrowUpRight, Sparkl
 import { m, AnimatePresence } from 'framer-motion';
 import { PillButton } from './oakline/primitives';
 import { FORM_FIELD_CLASS } from './formStyles';
+import { TESTIMONIALS, GOOGLE_REVIEWS_URL } from './oakline/TestimonialsShowcase';
+import { BIENS } from './biensData';
+import { buildWhatsappUrl } from './oakline/whatsapp';
+import { GOOGLE_REVIEWS_COUNT } from '../constants';
+
+const ESTIMATION_FAQ = [
+    {
+        q: 'L’estimation est-elle vraiment gratuite ?',
+        a: 'Oui. L’estimation est gratuite, confidentielle et sans engagement : vous n’êtes pas tenu de confier ensuite la vente de votre bien.',
+    },
+    {
+        q: 'Comment se déroule l’estimation de ma maison ?',
+        a: 'Mickaël vous rappelle sous 24 h, visite votre bien, puis vous remet un avis de valeur argumenté qui s’appuie sur les ventes comparables de votre commune (données DVF) et sur les caractéristiques réelles du bien.',
+    },
+    {
+        q: 'Une estimation en ligne suffit-elle dans le Pays de Gex ?',
+        a: 'Un simulateur donne un ordre de grandeur. Il ne voit ni l’état du bien, ni la vue, ni les nuisances, qui font varier fortement les prix près de la frontière suisse. Une visite reste nécessaire pour fixer un prix de vente.',
+    },
+    {
+        q: 'Quelles communes couvrez-vous ?',
+        a: 'Tout le Pays de Gex : Divonne-les-Bains, Gex, Ferney-Voltaire, Saint-Genis-Pouilly, Prévessin-Moëns, Cessy, Ornex, Thoiry, Crozet et les communes voisines.',
+    },
+];
+
+const ESTIMATION_SCHEMA = [
+    {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Estimation immobilière gratuite dans le Pays de Gex',
+        serviceType: 'Estimation immobilière',
+        provider: {
+            '@type': 'RealEstateAgent',
+            name: 'Mickaël Lima',
+            url: 'https://mickael-lima.immo',
+            telephone: '+33769313502',
+        },
+        areaServed: { '@type': 'AdministrativeArea', name: 'Pays de Gex' },
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', description: 'Estimation gratuite et sans engagement' },
+    },
+    {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: ESTIMATION_FAQ.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+    },
+];
+
+const ESTIMATION_REVIEWS = TESTIMONIALS.filter((t) =>
+    ['Dylan Areias', 'Veronique', 'Laurent Fine'].includes(t.name),
+);
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -67,9 +120,10 @@ export const Estimation: React.FC = () => {
     return (
         <>
         <SEO
-            title="Estimation Gratuite de votre Bien | Pays de Gex: Mickaël Lima"
-            description="Obtenez une estimation gratuite et confidentielle de votre bien immobilier dans le Pays de Gex, fondée sur ses caractéristiques et les ventes comparables."
+            title="Estimation maison gratuite Pays de Gex | Mickaël Lima"
+            description="Estimation immobilière gratuite dans le Pays de Gex : rappel sous 24 h, visite du bien et avis de valeur fondé sur les ventes comparables. Sans engagement."
             canonical="/estimation"
+            schema={ESTIMATION_SCHEMA}
         />
         <section id="estimation" className="bg-[#f7f7f7] pb-24 pt-32 md:pt-36">
             <div className="container mx-auto px-6">
@@ -81,7 +135,7 @@ export const Estimation: React.FC = () => {
                         viewport={{ once: true }}
                         className="mb-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#011d41]"
                     >
-                        <Sparkles size={16} /> Estimation confidentielle
+                        <Sparkles size={16} /> Estimation immobilière · Pays de Gex
                     </m.div>
                     <m.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -90,12 +144,18 @@ export const Estimation: React.FC = () => {
                         transition={{ delay: 0.1 }}
                         className="font-serif text-[clamp(2rem,10vw,3rem)] font-normal leading-[1.08] tracking-tight text-[#011d41] md:text-6xl lg:text-[4.5rem]"
                     >
-                        Estimez la valeur <br />
-                        <span className="whitespace-nowrap">de <span className="italic">votre patrimoine.</span></span>
+                        Estimation gratuite{' '}<br />
+                        <span className="whitespace-nowrap">de <span className="italic">votre bien.</span></span>
                     </m.h1>
                     <p className="mt-7 max-w-xl text-lg leading-relaxed text-gray-500">
-                      Une lecture précise du bien, de son emplacement et des ventes comparables pour préparer votre projet.
+                      Agent immobilier indépendant à Divonne-les-Bains, Mickaël Lima vous rappelle sous 24 h, visite votre maison ou votre appartement et vous remet un avis de valeur argumenté, fondé sur les ventes comparables de votre commune. Gratuit et sans engagement.
                     </p>
+                    <div className="mt-8 flex flex-wrap gap-3">
+                      <a href="#formulaire-estimation" className="rounded-full bg-[#011d41] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-textMain">Remplir le formulaire</a>
+                      <a href="tel:+33769313502" className="inline-flex items-center gap-2 rounded-full border border-[#011d41]/20 px-6 py-3 text-sm font-bold text-[#011d41] transition-colors hover:bg-white"><Phone size={16} /> 07 69 31 35 02</a>
+                      <a href={buildWhatsappUrl('Bonjour Mickaël, je souhaite une estimation gratuite de mon bien.')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#011d41]/20 px-6 py-3 text-sm font-bold text-[#011d41] transition-colors hover:bg-white">WhatsApp</a>
+                    </div>
+                    <p className="mt-5 text-sm text-gray-500">5,0 sur Google · {GOOGLE_REVIEWS_COUNT} avis</p>
                   </div>
                   <figure className="m-0">
                     <img src="/images/services/conseil-immobilier.webp" alt="Échange autour d’un projet immobilier" loading="eager" decoding="async" className="aspect-[4/3] w-full rounded-2xl object-cover" />
@@ -109,7 +169,8 @@ export const Estimation: React.FC = () => {
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                        className="lg:col-span-7"
+                        className="lg:col-span-7 scroll-mt-28"
+                        id="formulaire-estimation"
                     >
                         <div className="relative overflow-hidden rounded-2xl border border-[#ebebeb] bg-white p-8 md:p-12">
 
@@ -156,19 +217,19 @@ export const Estimation: React.FC = () => {
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Surface (m²)</label>
                                             <div className="relative group">
                                                 <Ruler className="absolute left-4 top-[1.1rem] text-gray-400 group-hover:text-primary transition-colors" size={18} />
-                                                <input type="number" name="surface_m2" placeholder="ex: 120" className={`${FORM_FIELD_CLASS} pl-12`} required />
+                                                <input type="number" name="surface_m2" placeholder="ex: 120 (facultatif)" className={`${FORM_FIELD_CLASS} pl-12`} />
                                             </div>
                                         </div>
                                         <div className="space-y-3">
                                             <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Nombre de pièces</label>
-                                            <input type="number" name="nombre_pieces" placeholder="ex: 4" className={FORM_FIELD_CLASS} required />
+                                            <input type="number" name="nombre_pieces" placeholder="ex: 4 (facultatif)" className={FORM_FIELD_CLASS} />
                                         </div>
                                     </div>
 
                                     {/* Localisation */}
                                     <div className="space-y-3">
                                         <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2"><MapPin size={14} /> Localisation</label>
-                                        <input type="text" name="adresse" placeholder="Adresse complète" className={FORM_FIELD_CLASS} required />
+                                        <input type="text" name="adresse" placeholder="Commune ou adresse du bien" className={FORM_FIELD_CLASS} required />
                                     </div>
 
                                     {/* DPE */}
@@ -195,12 +256,12 @@ export const Estimation: React.FC = () => {
 
                                     <div className="space-y-2">
                                         <h3 className="text-xl font-bold text-textMain tracking-tight">Vos Coordonnées</h3>
-                                        <p className="text-gray-500 font-light text-sm">Pour vous transmettre notre estimation détaillée.</p>
+                                        <p className="text-gray-500 font-light text-sm">Mickaël vous rappelle sous 24 h pour convenir de la visite.</p>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <input type="text" name="nom" placeholder="Nom complet" className={FORM_FIELD_CLASS} required />
-                                        <input type="email" name="email" placeholder="Email" className={FORM_FIELD_CLASS} required />
+                                        <input type="email" name="email" placeholder="Email (facultatif)" className={FORM_FIELD_CLASS} />
                                     </div>
                                     <SourceField id="estimation-source" labelClassName="sr-only" selectClassName={`${FORM_FIELD_CLASS} text-gray-500`} />
                                     <div className="pb-4">
@@ -208,7 +269,7 @@ export const Estimation: React.FC = () => {
                                     </div>
 
                                     <PillButton type="submit" disabled={status === 'loading'} className="mt-6">
-                                        {status === 'loading' ? 'Envoi en cours…' : "Solliciter l'estimation"}
+                                        {status === 'loading' ? 'Envoi en cours…' : "Recevoir mon estimation gratuite"}
                                     </PillButton>
 
                                     {status === 'loading' && (
@@ -281,7 +342,7 @@ export const Estimation: React.FC = () => {
                             </div>
                             <div className="text-center md:text-left text-textMain">
                                 <h4 className="text-2xl font-bold tracking-tight mb-1">Mickaël Lima</h4>
-                                <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Expert Immobilier</p>
+                                <p className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Agent immobilier indépendant</p>
                                 <div className="flex items-center justify-center md:justify-start gap-3 bg-surface border border-gray-100 px-5 py-3 rounded-[10px] w-fit mx-auto md:mx-0 shadow-inner group-hover:bg-primary/5 transition-colors">
                                     <Phone size={18} className="text-primary" />
                                     <span className="font-bold tracking-wide">+33 7 69 31 35 02</span>
@@ -290,6 +351,91 @@ export const Estimation: React.FC = () => {
                         </div>
 
                     </m.div>
+                </div>
+            </div>
+        </section>
+
+        {/* ── Méthode ── */}
+        <section aria-labelledby="estimation-methode-title" className="py-20 bg-white border-t border-gray-100">
+            <div className="container mx-auto px-6 max-w-5xl">
+                <h2 id="estimation-methode-title" className="text-3xl md:text-4xl font-medium text-textMain tracking-tight mb-10">
+                    Comment se passe l’estimation
+                </h2>
+                <ol className="grid gap-6 md:grid-cols-3">
+                    {[
+                        ['1. Rappel sous 24 h', 'Mickaël vous appelle pour comprendre votre projet et vos délais, puis fixe la visite avec vous.'],
+                        ['2. Visite du bien', 'État, surfaces, exposition, vue, travaux, environnement : ce qu’aucun simulateur en ligne ne voit.'],
+                        ['3. Avis de valeur argumenté', 'Une fourchette de prix expliquée, appuyée sur les ventes comparables (DVF) de votre commune et sur le marché frontalier.'],
+                    ].map(([titre, texte]) => (
+                        <li key={titre} className="rounded-2xl border border-[#ebebeb] bg-surface p-7">
+                            <p className="text-lg font-bold text-textMain">{titre}</p>
+                            <p className="mt-2 font-light leading-relaxed text-gray-600">{texte}</p>
+                        </li>
+                    ))}
+                </ol>
+            </div>
+        </section>
+
+        {/* ── Avis ── */}
+        <section aria-labelledby="estimation-avis-title" className="py-20 bg-surface border-t border-gray-100">
+            <div className="container mx-auto px-6 max-w-5xl">
+                <h2 id="estimation-avis-title" className="text-3xl md:text-4xl font-medium text-textMain tracking-tight">
+                    Ils lui ont confié leur bien
+                </h2>
+                <p className="mt-3 text-gray-500 font-light">
+                    Avis publiés sur Google · 5,0 sur {GOOGLE_REVIEWS_COUNT} avis ·{' '}
+                    <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer" className="underline">voir tous les avis</a>
+                </p>
+                <div className="mt-10 grid gap-6 md:grid-cols-3">
+                    {ESTIMATION_REVIEWS.map((t) => (
+                        <figure key={t.name} className="m-0 rounded-2xl border border-[#ebebeb] bg-white p-7">
+                            <blockquote className="m-0 font-light leading-relaxed text-gray-600">« {t.quote} »</blockquote>
+                            <figcaption className="mt-5 text-sm">
+                                <span className="font-bold text-textMain">{t.name}</span>
+                                <span className="text-gray-400"> · {t.context}</span>
+                            </figcaption>
+                        </figure>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        {/* ── Ventes réalisées ── */}
+        <section aria-labelledby="estimation-ventes-title" className="py-20 bg-white border-t border-gray-100">
+            <div className="container mx-auto px-6 max-w-5xl">
+                <h2 id="estimation-ventes-title" className="text-3xl md:text-4xl font-medium text-textMain tracking-tight mb-10">
+                    Ventes réalisées dans le Pays de Gex
+                </h2>
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+                    {BIENS.filter((b) => b.status === 'Vendu').map((b) => (
+                        <Link key={b.slug} to={`/nos-biens/${b.slug}/`} className="group block overflow-hidden rounded-2xl border border-[#ebebeb] bg-surface">
+                            {b.photos[0] && (
+                                <img src={b.photos[0].replace(/\.webp$/, "-800.webp")} alt={`Bien vendu à ${b.city} : ${b.typeLabel}`} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            )}
+                            <div className="p-4">
+                                <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Vendu</p>
+                                <p className="mt-1 font-bold text-textMain">{b.typeLabel}</p>
+                                <p className="text-sm text-gray-500">{b.city} · {Math.round(b.surface)} m²</p>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section aria-labelledby="estimation-faq-title" className="py-20 bg-surface border-t border-gray-100">
+            <div className="container mx-auto px-6 max-w-3xl">
+                <h2 id="estimation-faq-title" className="text-3xl md:text-4xl font-medium text-textMain tracking-tight mb-10">
+                    Questions fréquentes sur l’estimation
+                </h2>
+                <div className="space-y-4">
+                    {ESTIMATION_FAQ.map((f) => (
+                        <div key={f.q} className="rounded-2xl border border-[#ebebeb] bg-white p-6">
+                            <h3 className="text-lg font-bold text-textMain">{f.q}</h3>
+                            <p className="mt-2 font-light leading-relaxed text-gray-600">{f.a}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

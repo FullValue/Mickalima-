@@ -27,7 +27,7 @@ export const Blog: React.FC = () => {
     return (
         <>
         <SEO
-            title="Guides et données locales | Mickaël Lima, expert immobilier"
+            title="Blog immobilier Pays de Gex : guides et prix | Mickaël Lima"
             description="Analyses du marché immobilier, conseils d'investissement et actualités réglementaires pour le Pays de Gex et la zone frontalière genevoise."
             canonical="/blog"
             schema={BLOG_SCHEMA}

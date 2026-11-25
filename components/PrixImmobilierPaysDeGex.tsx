@@ -48,7 +48,7 @@ export const PrixImmobilierPaysDeGex: React.FC = () => {
   return (
     <>
       <SEO
-        title={`Prix immobilier Pays de Gex : médianes DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
+        title={`Prix m² Pays de Gex : médianes DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
         description={`Comparatif DVF ${COMMUNE_DVF_PERIOD} de 9 communes du Pays de Gex : médianes des appartements de ${allApptMin.toLocaleString('fr-FR')} à ${allApptMax.toLocaleString('fr-FR')} €/m² et des maisons de ${allMaisonMin.toLocaleString('fr-FR')} à ${allMaisonMax.toLocaleString('fr-FR')} €/m² selon la commune.`}
         canonical="/prix-immobilier/pays-de-gex"
         schema={schema}

@@ -11,7 +11,7 @@ import { useMarqueeScroll } from './useMarqueeScroll';
  * Avis tirés de la fiche Google Business, texte repris tel que publié.
  */
 
-const GOOGLE_REVIEWS_URL = 'https://share.google/fvsAyaT6pI2059MZF';
+export const GOOGLE_REVIEWS_URL = 'https://share.google/fvsAyaT6pI2059MZF';
 
 interface Testimonial {
   quote: string;
@@ -19,7 +19,7 @@ interface Testimonial {
   context: string;
 }
 
-const TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       `Excellente expérience avec Mickael. Il a géré la vente de notre maison avec un grand professionnalisme : estimation juste, communication fluide, conseils pertinents et un suivi irréprochable. Grâce à son implication, la vente s’est faite très rapidement et en toute sérénité. Je recommande sans hésiter !`,

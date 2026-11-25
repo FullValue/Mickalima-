@@ -70,7 +70,7 @@ export const BlogPostPage: React.FC = () => {
   return (
     <>
     <SEO
-      title={`${post.title}: Mickaël Lima`}
+      title={post.title}
       description={post.excerpt}
       canonical={`/blog/${post.slug}`}
       ogImage={post.image.replace(/^(\/images\/blog\/.+)\.webp$/, '$1.jpg')}

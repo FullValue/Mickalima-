@@ -31,7 +31,9 @@ export const SEO: React.FC<SEOProps> = ({
   noindex = false,
 }) => {
   const ogImageUrl = ogImage.startsWith('/') ? `${BASE_URL}${ogImage}` : ogImage;
-  const fullTitle = title.includes('Mickaël Lima') ? title : `${title} | Mickaël Lima`;
+  // Le suffixe de marque n'est ajouté que s'il tient dans les ~60 caractères affichés par Google.
+  const fullTitle =
+    title.includes('Mickaël Lima') || title.length > 45 ? title : `${title} | Mickaël Lima`;
   // Force trailing slash sur tous les canonicals pour matcher ce que sert Vercel
   // (résout le mismatch sitemap/canonical sur 40 pages identifié par l'audit)
   const normalizedCanonical = canonical

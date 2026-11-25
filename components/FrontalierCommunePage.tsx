@@ -113,8 +113,8 @@ export const FrontalierCommunePage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`Immobilier ${commune.name} pour les frontaliers genevois: Guide ${year} | Mickaël Lima`}
-        description={`Acheter à ${commune.name} (${commune.cp}) en travaillant à Genève : trajets, prix DVF et points à vérifier. Guide local par Mickaël Lima, expert immobilier.`}
+        title={`Vivre à ${commune.name} en travaillant à Genève : guide ${year}`}
+        description={`Acheter à ${commune.name} (${commune.cp}) en travaillant à Genève : trajets, prix DVF et points à vérifier. Guide local par Mickaël Lima, agent immobilier indépendant.`}
         canonical={`/frontalier/${commune.slug}`}
         schema={schema}
       />

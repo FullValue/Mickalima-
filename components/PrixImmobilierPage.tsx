@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { GOOGLE_REVIEWS_COUNT, COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
+import { CommuneLeadForm } from './CommuneLeadForm';
 
 export const PrixImmobilierPage: React.FC = () => {
   const { commune: communeSlug } = useParams<{ commune: string }>();
@@ -84,7 +85,7 @@ export const PrixImmobilierPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`Prix immobilier ${commune.name} : médianes DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
+        title={`Prix m² ${commune.name} : médianes DVF ${COMMUNE_DVF_PERIOD} | Mickaël Lima`}
         description={`Ventes DVF ${COMMUNE_DVF_PERIOD} à ${commune.name} (${commune.cp}) : médiane appartements ${commune.prixApptMin.toLocaleString('fr-FR')} €/m², maisons ${commune.prixMaisonMin.toLocaleString('fr-FR')} €/m². Repères pour comparer les communes voisines.`}
         canonical={`/prix-immobilier/${commune.slug}`}
         schema={schema}
@@ -133,7 +134,10 @@ export const PrixImmobilierPage: React.FC = () => {
                 </span>
               </h1>
 
-              <p className="text-white/70 text-xl font-light max-w-xl leading-relaxed">
+              <p className="text-white text-xl font-light max-w-2xl leading-relaxed mb-4">
+                À {commune.name}, le prix médian est de {commune.prixApptMin.toLocaleString('fr-FR')} €/m² pour un appartement et de {commune.prixMaisonMin.toLocaleString('fr-FR')} €/m² pour une maison, sur les ventes DVF de {COMMUNE_DVF_PERIOD}.
+              </p>
+              <p className="text-white/70 text-lg font-light max-w-xl leading-relaxed">
                 {commune.descriptionMarche}
               </p>
             </m.div>
@@ -198,6 +202,24 @@ export const PrixImmobilierPage: React.FC = () => {
                 </div>
               </div>
             </m.div>
+          </div>
+        </section>
+
+        {/* ── Estimation : votre bien vs la médiane ── */}
+        <section id="estimation-commune" className="py-20 bg-surface border-b border-gray-100 scroll-mt-28">
+          <div className="container mx-auto px-6 max-w-5xl grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-medium text-textMain tracking-tight leading-[1.1]">
+                Votre bien vaut-il plus que la médiane de {commune.name} ?
+              </h2>
+              <p className="mt-5 text-gray-600 font-light text-lg leading-relaxed">
+                Une médiane mélange des biens très différents. L’état, l’étage, la vue, le terrain ou la proximité de la douane font varier le prix d’un bien de plusieurs centaines d’euros par m².
+              </p>
+              <p className="mt-4 text-gray-600 font-light text-lg leading-relaxed">
+                Agent immobilier indépendant, Mickaël Lima visite votre bien et vous remet un avis de valeur argumenté, gratuit et sans engagement.
+              </p>
+            </div>
+            <CommuneLeadForm communeName={commune.name} communeCp={commune.cp} />
           </div>
         </section>
 
