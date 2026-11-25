@@ -22,7 +22,7 @@ const ABOUT_SCHEMA = {
   },
   areaServed: 'Pays de Gex',
   description:
-    'Expert immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. Plus de 8 ans d’expérience.',
+    'Expert immobilier indépendant spécialisé dans le marché franco-suisse du Pays de Gex. Plus de 8 ans d’expérience, plus de 240 ventes en 5 ans.',
   knowsAbout: [
     'Immobilier Pays de Gex',
     'Marché frontalier franco-suisse',
@@ -36,6 +36,7 @@ const ABOUT_SCHEMA = {
 
 const KEY_STATS = [
   { value: '8 ans+', label: "d'expérience" },
+  { value: '+ de 240', label: 'ventes en 5 ans' },
   { value: String(GOOGLE_REVIEWS_COUNT), label: 'avis Google' },
   { value: '40+', label: 'portails de diffusion' },
   { value: '20', label: 'communes couvertes' },
@@ -62,7 +63,7 @@ export const About: React.FC = () => (
   <>
     <SEO
       title="À propos : Mickaël Lima, agent immobilier indépendant"
-      description="Découvrez Mickaël Lima Dos Santos, agent immobilier indépendant avec plus de 8 ans d'expérience dans le Pays de Gex. Connaissance locale, stratégie de vente et accompagnement personnalisé."
+      description="Découvrez Mickaël Lima Dos Santos, expert immobilier avec plus de 8 ans d'expérience dans le Pays de Gex (plus de 240 ventes en 5 ans). Connaissance locale, stratégie de vente et accompagnement personnalisé."
       canonical="/about"
       schema={ABOUT_SCHEMA}
     />
@@ -108,7 +109,7 @@ export const About: React.FC = () => (
               <p className="mt-7 text-xl leading-relaxed">Bonjour, je suis Mickaël Lima Dos Santos, expert immobilier indépendant, basé à Divonne-les-Bains, au cœur du Pays de Gex.</p>
             </Reveal>
             <div className="mt-9 space-y-6 text-base leading-relaxed text-gray-500 md:text-lg">
-              <Reveal y={6}><p>Depuis plus de 8 ans, j’accompagne les projets immobiliers du secteur : appartements, maisons, biens de prestige et locaux commerciaux. Ces années de ventes dans le Pays de Gex ont construit ma connaissance du terrain.</p></Reveal>
+              <Reveal y={6}><p>Depuis plus de 8 ans, j’accompagne les projets immobiliers du secteur : appartements, maisons, biens de prestige et locaux commerciaux. Plus de 240 ventes réalisées dans le Pays de Gex au cours des cinq dernières années ont construit ma connaissance du terrain.</p></Reveal>
               <Reveal y={6}><p>Bilingue français-anglais, je travaille avec une clientèle française, suisse et internationale : frontaliers, expatriés et collaborateurs du CERN, de l’ONU et de l’OMS. Cette proximité m’aide à comprendre les attentes de chaque acquéreur.</p></Reveal>
               <Reveal y={6}><p>Mon ancrage à Divonne me permet de lire les micro-marchés commune par commune, de connaître les infrastructures locales et d’estimer votre bien au juste prix dès notre premier rendez-vous. Rémunéré uniquement à la commission, je partage votre objectif : une vente réussie.</p></Reveal>
             </div>

@@ -95,7 +95,7 @@ const HOMEPAGE_SCHEMA = [
       '@type': 'Person',
       name: 'Mickaël Lima Dos Santos',
       jobTitle: 'Agent immobilier indépendant',
-      description: "Plus de 8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex",
+      description: "Plus de 8 ans d'expérience en promotion immobilière et prospection foncière dans le Pays de Gex (plus de 240 ventes sur les 5 dernières années)",
       telephone: '+33769313502',
       email: 'mickainvest@gmail.com',
     },

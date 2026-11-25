@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
  * - reel central façon story (barres de progression, autoplay)
  * - compteurs animés au scroll, anneau d'avatars en rotation
  * Adapté du snippet fourni : DA du site (Playfair/Inter), photos réelles
- * des biens, chiffres réels (5/5 sur 31 avis Google).
+ * des biens, chiffres réels (240 ventes, 5/5 sur 31 avis Google).
  */
 
 const REEL_IMAGES = [
@@ -205,7 +205,7 @@ export const WhyUs: React.FC = () => {
                     <img key={a} src={a} alt="" loading="lazy" decoding="async" />
                   ))}
                 </div>
-                <p>31 avis Google</p>
+                <p>+ de 240 ventes en 5 ans</p>
               </div>
               <div className="whyus-reviews__bottom">
                 <span>5/5</span>
@@ -235,8 +235,8 @@ export const WhyUs: React.FC = () => {
           {/* Colonne droite */}
           <div className="whyus__col">
             <div className="whyus__card whyus-stat">
-              <p>Années d’expérience dans le Pays de Gex</p>
-              <div className="whyus-stat__value" data-whyus-count="8" data-suffix="+">0+</div>
+              <p>Ventes réalisées en 5 ans</p>
+              <div className="whyus-stat__value" data-whyus-count="240" data-suffix="+">0+</div>
             </div>
 
             <div className="whyus__card whyus-satisfaction">
