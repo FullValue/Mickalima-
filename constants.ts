@@ -450,7 +450,70 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Vous envisagez de vendre ? Une estimation fondée sur les ventes récentes de votre commune permet de partir sur de bonnes bases, avant même de penser au compromis.</p>
     <p><a href="/estimation/">Demander une estimation de mon bien →</a></p>
   `
+  },
+  {
+    id: 8,
+    slug: "vendre-sa-maison-pays-de-gex",
+    title: "Vendre sa maison dans le Pays de Gex : les 7 étapes",
+    excerpt: "Estimation, mandat, diagnostics, visites, offre, compromis et acte : les étapes d'une vente dans le Pays de Gex, les frais du vendeur et la plus-value.",
+    date: "2026-11-25",
+    category: "Conseil",
+    image: "/images/editorial/avis-pays-de-gex.webp",
+    content: `
+    <p><em>Publié le 25 novembre 2026.</em> Vendre sa maison dans le Pays de Gex se fait en sept étapes : estimer le prix, choisir comment vendre, préparer les diagnostics et les documents, faire visiter, négocier l'offre, signer le compromis, puis l'acte authentique chez le notaire. Le vendeur ne paie pas les frais de notaire, qui reviennent à l'acquéreur, et la vente de sa résidence principale est exonérée d'impôt sur la plus-value.</p>
+
+    <h2>Les 7 étapes en un coup d'œil</h2>
+    <table>
+      <thead><tr><th>Étape</th><th>Ce qu'il faut obtenir</th><th>Pour aller plus loin</th></tr></thead>
+      <tbody>
+        <tr><td>1. Estimer le prix</td><td>Une fourchette fondée sur des ventes signées dans la commune</td><td><a href="/estimation/">Estimation gratuite</a></td></tr>
+        <tr><td>2. Choisir comment vendre</td><td>Seul, avec une agence ou un agent indépendant ; mandat simple ou exclusif</td><td><a href="/blog/agent-immobilier-independant-ou-agence-pays-de-gex/">Agent ou agence ?</a></td></tr>
+        <tr><td>3. Préparer le dossier</td><td>Diagnostics et documents du notaire</td><td><a href="/blog/vendre-sa-maison-rapidement-pays-de-gex/">La liste complète</a></td></tr>
+        <tr><td>4. Faire visiter</td><td>Des visites d'acquéreurs dont le projet est vérifié</td><td>—</td></tr>
+        <tr><td>5. Accepter une offre</td><td>Un prix et un financement crédibles</td><td>—</td></tr>
+        <tr><td>6. Signer le compromis</td><td>Rétractation de 10 jours, condition de prêt d'au moins un mois</td><td><a href="/blog/compromis-de-vente-delais-pays-de-gex/">Délais du compromis</a></td></tr>
+        <tr><td>7. Signer l'acte</td><td>Le paiement du prix et la remise des clés</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <h2>1. Estimer le prix sur des ventes réelles</h2>
+    <p>Le prix de départ conditionne tout le reste : un bien affiché trop cher reçoit peu de visites, puis baisse par étapes. Dans le Pays de Gex, les écarts entre communes sont nets, et pour une maison la parcelle, la vue, l'état et le temps de trajet vers Genève pèsent plus que la moyenne communale. Les médianes par commune sont publiées sur nos pages <a href="/prix-immobilier/pays-de-gex/">prix immobilier du Pays de Gex</a>. Les simulateurs en ligne donnent un ordre de grandeur ; une visite reste nécessaire pour fixer un prix de vente (voir notre <a href="/blog/estimation-en-ligne-ou-a-domicile-pays-de-gex/">relevé de quatre simulateurs</a>).</p>
+
+    <h2>2. Choisir comment vendre</h2>
+    <p>Vendre seul évite les honoraires mais laisse au vendeur le prix, les visites, la vérification du financement et le dossier du notaire. Confier la vente à un professionnel, agence ou agent immobilier indépendant, se fait par un mandat écrit, simple ou exclusif. Les différences sont détaillées dans les articles <a href="/blog/agent-immobilier-independant-ou-agence-pays-de-gex/">agent indépendant ou agence</a> et <a href="/blog/mandat-exclusif-ou-simple-pays-de-gex/">mandat exclusif ou simple</a>.</p>
+
+    <h2>3. Préparer les diagnostics et les documents</h2>
+    <p>Le dossier de diagnostic technique doit être joint à la promesse ou à l'acte de vente, que vous vendiez seul ou accompagné. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">Service-Public.fr, diagnostics immobiliers</a>. Commandez-les dès la mise en vente, avec le titre de propriété, la dernière taxe foncière et les factures des travaux importants : un dossier complet permet de répondre tout de suite aux acquéreurs et de préparer le compromis sans attente.</p>
+
+    <h2>4. Faire visiter</h2>
+    <p>Photos lumineuses, plan, visite virtuelle : dans le Pays de Gex, beaucoup d'acquéreurs regardent les annonces depuis Genève ou depuis l'étranger, et une annonce en anglais élargit le public. Avant chaque visite, demandez où en est le projet de l'acquéreur : vente d'un autre bien, apport, accord de principe d'une banque.</p>
+
+    <h2>5. Négocier et accepter une offre</h2>
+    <p>Une offre se juge sur son prix et sur la solidité de son financement. Un acquéreur qui perçoit ses revenus en francs suisses doit avoir vérifié auprès de sa banque comment ils sont pris en compte. Une offre un peu plus basse mais financée vaut souvent mieux qu'une offre plus haute qui risque d'échouer au stade du prêt.</p>
+
+    <h2>6. Signer le compromis</h2>
+    <p>Le vendeur est engagé dès la signature du compromis. L'acquéreur dispose d'un délai de rétractation de <strong>10 jours</strong> à compter de la notification, et la condition suspensive de prêt ne peut pas durer moins d'<strong>un mois</strong>. Sources : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2965">Service-Public.fr, compromis de vente</a> et <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1673">condition suspensive de prêt</a>. Le calendrier complet est dans l'article sur les <a href="/blog/compromis-de-vente-delais-pays-de-gex/">délais du compromis de vente</a>.</p>
+
+    <h2>7. Signer l'acte authentique</h2>
+    <p>La date de l'acte est fixée par les parties dans le compromis. Le jour de la signature chez le notaire, le prix est versé et les clés sont remises. Si un prêt est encore en cours sur la maison, le notaire le rembourse sur le prix de vente.</p>
+
+    <h2>Ce que la vente coûte au vendeur</h2>
+    <ul>
+      <li><strong>Les frais de notaire</strong> (droits de mutation et émoluments) sont à la charge de l'acquéreur, sauf accord contraire.</li>
+      <li><strong>Les diagnostics</strong> sont payés par le vendeur.</li>
+      <li><strong>Les honoraires</strong> du professionnel, si vous en mandatez un, selon le barème qu'il affiche et ce que prévoit le mandat.</li>
+      <li><strong>Le remboursement anticipé</strong> d'un prêt en cours, avec d'éventuelles indemnités prévues par le contrat de prêt.</li>
+    </ul>
+
+    <h2>La plus-value : exonérée pour la résidence principale</h2>
+    <p>La plus-value réalisée sur la vente de votre <strong>résidence principale</strong> et de ses dépendances est totalement exonérée. Pour un autre bien (résidence secondaire, logement loué), la plus-value est imposée à <strong>19 %</strong> d'impôt sur le revenu et <strong>17,2 %</strong> de prélèvements sociaux, après des abattements qui augmentent avec la durée de détention : exonération d'impôt sur le revenu au-delà de <strong>22 ans</strong> et de prélèvements sociaux au-delà de <strong>30 ans</strong>. Le notaire calcule et verse l'impôt au moment de la vente. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10864">Service-Public.fr, plus-value immobilière</a>.</p>
+
+    <h2>Par où commencer ?</h2>
+    <p>Par le prix. Je suis agent immobilier indépendant à Divonne-les-Bains : je visite votre maison et je vous remets un avis de valeur argumenté, fondé sur les ventes comparables de votre commune, gratuitement et sans engagement.</p>
+    <p><a href="/estimation/">Demander une estimation gratuite de ma maison →</a></p>
+  `
   }
+
 ];
 
 // Statistiques DVF publiques : médianes des ventes exploitables de 2021 à 2025,

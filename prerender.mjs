@@ -33,6 +33,7 @@ const BLOG_SLUGS = [
   'agent-immobilier-independant-ou-agence-pays-de-gex',
   'vendre-sa-maison-rapidement-pays-de-gex',
   'compromis-de-vente-delais-pays-de-gex',
+  'vendre-sa-maison-pays-de-gex',
 ];
 
 const ROUTES = [
