@@ -105,6 +105,9 @@ const HOMEPAGE_SCHEMA = [
     sameAs: [
       'https://www.linkedin.com/in/mickael-lima-dos-santos-97137419b/',
       'https://share.google/fvsAyaT6pI2059MZF',
+      'https://www.instagram.com/mickael_lagenceimmo/',
+      'https://www.tiktok.com/@mickalimalagenceimmo',
+      'https://www.facebook.com/profile.php?id=61560497586921',
     ],
   },
   {
