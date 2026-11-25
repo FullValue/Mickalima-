@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { GOOGLE_REVIEWS_COUNT, COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
+import { CommuneLinks } from './CommuneLinks';
 
 const CRITERIA_BASE = [
   {
@@ -511,6 +512,8 @@ export const FrontalierCommunePage: React.FC = () => {
             </div>
           </section>
         )}
+
+        <CommuneLinks slug={commune.slug} name={commune.name} current="frontalier" />
 
         {/* ── CTA ── */}
         <section className="py-24 bg-primary relative overflow-hidden">

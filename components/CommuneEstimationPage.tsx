@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { GOOGLE_REVIEWS_COUNT, COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
+import { CommuneLinks } from './CommuneLinks';
 import { CommuneLeadForm } from './CommuneLeadForm';
 
 export const CommuneEstimationPage: React.FC = () => {
@@ -398,6 +399,8 @@ export const CommuneEstimationPage: React.FC = () => {
             </m.div>
           </div>
         </section>
+
+        <CommuneLinks slug={commune.slug} name={commune.name} current="immobilier" />
 
         {/* ── Communes voisines ── */}
         <section className="py-16 bg-white border-t border-gray-100">

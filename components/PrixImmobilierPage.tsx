@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { GOOGLE_REVIEWS_COUNT, COMMUNES, COMMUNE_DVF_PERIOD, COMMUNE_DVF_SOURCE, getCommuneHeroImage } from '../constants';
 import { SEO } from './SEO';
+import { CommuneLinks } from './CommuneLinks';
 import { CommuneLeadForm } from './CommuneLeadForm';
 
 export const PrixImmobilierPage: React.FC = () => {
@@ -266,6 +267,8 @@ export const PrixImmobilierPage: React.FC = () => {
             </m.div>
           </div>
         </section>
+
+        <CommuneLinks slug={commune.slug} name={commune.name} current="prix" />
 
         {/* ── Comparatif communes voisines ── */}
         {voisines.length > 0 && (

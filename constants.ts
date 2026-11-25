@@ -225,6 +225,9 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>La location meublée non professionnelle demande aussi un calcul fiscal au cas par cas. Depuis les ventes réalisées à compter du 15 février 2025, les amortissements déduits au régime réel sont en principe pris en compte dans le calcul de la plus-value à la revente. Source : <a href="https://www.impots.gouv.fr/particulier/questions/je-vends-un-bien-immobilier-donne-en-location-meublee-comment-se-calcule-la">Direction générale des finances publiques, plus-value en LMNP</a>.</p>
     <p>Pour vendre, confrontez les transactions comparables et les annonces concurrentes, puis choisissez les canaux de diffusion utiles à votre bien. Une traduction anglaise ou une présence sur un portail suisse peut aider certains dossiers, mais il n'existe pas de pourcentage public fiable permettant d'affirmer que leur absence fait perdre une part fixe des acheteurs.</p>
     <p><a href="/estimation/">Faire étudier mon projet immobilier →</a></p>
+  
+    <h2>Guides par commune</h2>
+    <p>Trajets vers Genève, prix et points à vérifier, commune par commune : <a href="/frontalier/divonne-les-bains/">Divonne-les-Bains</a>, <a href="/frontalier/gex/">Gex</a>, <a href="/frontalier/ferney-voltaire/">Ferney-Voltaire</a>, <a href="/frontalier/saint-genis-pouilly/">Saint-Genis-Pouilly</a>, <a href="/frontalier/prevessin-moens/">Prévessin-Moëns</a>, <a href="/frontalier/cessy/">Cessy</a>, <a href="/frontalier/ornex/">Ornex</a>, <a href="/frontalier/thoiry/">Thoiry</a> et <a href="/frontalier/crozet/">Crozet</a>.</p>
   `
   },
   {
