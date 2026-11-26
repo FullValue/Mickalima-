@@ -196,7 +196,7 @@ export const CommuneEstimationPage: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-4">
                     Appartements
                   </p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
@@ -209,7 +209,7 @@ export const CommuneEstimationPage: React.FC = () => {
                 </div>
 
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-4">
                     Maisons
                   </p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
@@ -405,7 +405,7 @@ export const CommuneEstimationPage: React.FC = () => {
         {/* ── Communes voisines ── */}
         <section className="py-16 bg-white border-t border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl">
-            <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-6">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-6">
               Communes voisines
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -420,7 +420,7 @@ export const CommuneEstimationPage: React.FC = () => {
                   >
                     <div>
                       <p className="font-bold text-textMain text-lg group-hover:text-primary transition-colors">{voisine.name}</p>
-                      <p className="text-gray-400 text-sm font-light mt-0.5">
+                      <p className="text-gray-500 text-sm font-light mt-0.5">
                         {voisine.distanceGeneve} · appartement médian {voisine.prixApptMin.toLocaleString('fr-FR')} €/m² (DVF {COMMUNE_DVF_PERIOD})
                       </p>
                     </div>
@@ -450,7 +450,7 @@ export const CommuneEstimationPage: React.FC = () => {
         <section className="py-16 bg-surface border-t border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-2">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-2">
                 Marché immobilier
               </p>
               <h3 className="text-2xl font-bold text-textMain">

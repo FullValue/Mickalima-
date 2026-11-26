@@ -164,7 +164,7 @@ export const PrixImmobilierPage: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Appartements</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-4">Appartements</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
                     {commune.prixApptMin.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
@@ -175,7 +175,7 @@ export const PrixImmobilierPage: React.FC = () => {
                 </div>
 
                 <div className="bg-surface rounded-[10px] p-10 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">Maisons</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-4">Maisons</p>
                   <p className="text-4xl md:text-5xl font-medium text-textMain">
                     {commune.prixMaisonMin.toLocaleString('fr-FR')}
                     <span className="text-2xl text-gray-400 ml-2">€/m²</span>
@@ -292,10 +292,10 @@ export const PrixImmobilierPage: React.FC = () => {
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="border-b border-gray-200">
-                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Commune</th>
-                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Appt médian (€/m²)</th>
-                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/60">Maison médiane (€/m²)</th>
-                        <th className="py-4 text-xs font-bold uppercase tracking-widest text-primary/60">Genève</th>
+                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/75">Commune</th>
+                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/75">Appt médian (€/m²)</th>
+                        <th className="py-4 pr-6 text-xs font-bold uppercase tracking-widest text-primary/75">Maison médiane (€/m²)</th>
+                        <th className="py-4 text-xs font-bold uppercase tracking-widest text-primary/75">Genève</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -393,7 +393,7 @@ export const PrixImmobilierPage: React.FC = () => {
         <section className="py-16 bg-surface border-t border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-2">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-2">
                 Estimation gratuite
               </p>
               <h3 className="text-2xl font-bold text-textMain">

@@ -413,7 +413,7 @@ export const Estimation: React.FC = () => {
                                 <img src={b.photos[0].replace(/\.webp$/, "-800.webp")} alt={`Bien vendu à ${b.city} : ${b.typeLabel}`} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                             )}
                             <div className="p-4">
-                                <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Vendu</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-primary/75">Vendu</p>
                                 <p className="mt-1 font-bold text-textMain">{b.typeLabel}</p>
                                 <p className="text-sm text-gray-500">{b.city} · {Math.round(b.surface)} m²</p>
                             </div>

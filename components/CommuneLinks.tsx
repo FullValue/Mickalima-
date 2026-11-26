@@ -28,7 +28,7 @@ export const CommuneLinks: React.FC<CommuneLinksProps> = ({ slug, name, current 
   return (
     <section aria-labelledby={`commune-links-${slug}`} className="py-16 bg-white border-t border-gray-100">
       <div className="container mx-auto px-6 max-w-5xl">
-        <h2 id={`commune-links-${slug}`} className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-6">
+        <h2 id={`commune-links-${slug}`} className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-6">
           {name} sur ce site
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

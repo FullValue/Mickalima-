@@ -204,17 +204,17 @@ export const FrontalierCommunePage: React.FC = () => {
                 className="space-y-5"
               >
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Distance Genève</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-3">Distance Genève</p>
                   <p className="text-4xl font-medium text-textMain">{commune.distanceGeneve}</p>
                   <p className="text-gray-500 font-light text-sm mt-2">à vol d'oiseau du centre de Genève</p>
                 </div>
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Pays de Gex · emploi frontalier</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-3">Pays de Gex · emploi frontalier</p>
                   <p className="text-4xl font-medium text-textMain">62 %</p>
                   <p className="text-gray-500 font-light text-sm mt-2">des actifs occupés travaillaient en Suisse en 2018 · <a href="https://www.insee.fr/fr/statistiques/6444379" target="_blank" rel="noopener noreferrer" className="underline">Insee</a></p>
                 </div>
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
-                  <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-3">Prix appartements</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-3">Prix appartements</p>
                   <p className="text-3xl font-medium text-textMain">
                     {commune.prixApptMin.toLocaleString('fr-FR')} €/m²
                   </p>
@@ -350,7 +350,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <div className="flex items-center gap-3 mb-4">
                     <TrendingDown size={20} className="text-primary" />
-                    <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Appartements · {commune.name}</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-primary/75">Appartements · {commune.name}</p>
                   </div>
                   <p className="text-3xl font-medium text-textMain">
                     {commune.prixApptMin.toLocaleString('fr-FR')}
@@ -361,7 +361,7 @@ export const FrontalierCommunePage: React.FC = () => {
                 <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
                   <div className="flex items-center gap-3 mb-4">
                     <TrendingDown size={20} className="text-primary" />
-                    <p className="text-xs font-bold uppercase tracking-widest text-primary/60">Maisons · {commune.name}</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-primary/75">Maisons · {commune.name}</p>
                   </div>
                   <p className="text-3xl font-medium text-textMain">
                     {commune.prixMaisonMin.toLocaleString('fr-FR')}
@@ -382,7 +382,7 @@ export const FrontalierCommunePage: React.FC = () => {
               </div>
 
               <div className="bg-surface rounded-[10px] p-8 border border-gray-100">
-                <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-4">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-4">
                   Comparer un projet immobilier
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -570,7 +570,7 @@ export const FrontalierCommunePage: React.FC = () => {
         <section className="py-16 bg-surface border-t border-gray-100">
           <div className="container mx-auto px-6 max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary/60 mb-2">
+              <p className="text-xs font-bold uppercase tracking-widest text-primary/75 mb-2">
                 Estimation gratuite
               </p>
               <h3 className="text-2xl font-bold text-textMain">
