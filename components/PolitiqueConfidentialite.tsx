@@ -69,7 +69,9 @@ export const PolitiqueConfidentialite: React.FC = () => (
 
           <section>
             <h2 className="text-xl font-bold uppercase tracking-widest text-primary mb-4">Cookies</h2>
-            <p className="text-base">Ce site n'utilise aucun cookie de suivi publicitaire ou de mesure d'audience tiers. Seuls les cookies techniques strictement nécessaires au bon fonctionnement du site peuvent être déposés.</p>
+            <p className="text-base mb-3">Ce site n'utilise aucun cookie publicitaire. Avec votre accord, donné dans le bandeau affiché à votre première visite, il utilise Google Analytics (Google Ireland Ltd) pour mesurer sa fréquentation : pages consultées, provenance des visites, envois de formulaire et clics sur le téléphone. Les adresses IP ne sont pas conservées par Google Analytics 4 et les données sont gardées 14 mois au maximum.</p>
+            <p className="text-base mb-3">Sans votre accord, Google Analytics n'est pas chargé. Pour savoir comment vous avez connu le site, le formulaire transmet aussi la page d'arrivée et la provenance de la visite avec votre demande, sans cookie.</p>
+            <p className="text-base">Pour changer d'avis, effacez les données de navigation de ce site dans votre navigateur : le bandeau s'affichera de nouveau.</p>
           </section>
         </div>
         </div>

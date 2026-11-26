@@ -2,8 +2,9 @@
  * Tracking léger et sans dépendance : pousse les événements dans
  * window.dataLayer (compatible GTM / GA4) et window.gtag si présent.
  *
- * - GA4 se charge seulement si VITE_GA4_ID est défini au build (ex. G-XXXXXXX).
- *   Sans identifiant, rien n'est chargé ni envoyé à un tiers.
+ * - GA4 (G-0HQYJV6Z54, ou VITE_GA4_ID au build) ne se charge qu'après le
+ *   consentement du visiteur (bandeau CookieConsent, règles CNIL). Sans accord,
+ *   rien n'est envoyé à Google.
  * - Chaque formulaire joint leadContext() à l'e-mail Web3Forms : page d'arrivée,
  *   page d'envoi, référent et paramètres utm. La source d'une demande est donc
  *   lisible dans l'e-mail reçu, même sans outil d'analytique.
@@ -105,6 +106,33 @@ const loadGa4 = (id: string): void => {
   document.head.appendChild(s);
 };
 
+const DEFAULT_GA4_ID = 'G-0HQYJV6Z54';
+const CONSENT_KEY = 'ml_consent_analytics';
+
+export type ConsentChoice = 'granted' | 'denied';
+
+export const getConsent = (): ConsentChoice | null => {
+  try {
+    const v = localStorage.getItem(CONSENT_KEY);
+    return v === 'granted' || v === 'denied' ? v : null;
+  } catch {
+    return null;
+  }
+};
+
+const ga4Id = (): string =>
+  ((import.meta.env.VITE_GA4_ID as string | undefined) || DEFAULT_GA4_ID).trim();
+
+/** Enregistre le choix du visiteur et charge GA4 s'il accepte. */
+export const setConsent = (choice: ConsentChoice): void => {
+  try {
+    localStorage.setItem(CONSENT_KEY, choice);
+  } catch {
+    /* stockage indisponible : le choix vaut pour cette page */
+  }
+  if (choice === 'granted') loadGa4(ga4Id());
+};
+
 let initialized = false;
 
 /** À appeler une fois au démarrage côté client. */
@@ -113,8 +141,7 @@ export const initTracking = (): void => {
   initialized = true;
   captureAttribution();
 
-  const ga4 = import.meta.env.VITE_GA4_ID as string | undefined;
-  if (ga4) loadGa4(ga4.trim());
+  if (getConsent() === 'granted') loadGa4(ga4Id());
 
   // Clics sur un numéro de téléphone, où qu'il soit sur le site
   // (les boutons WhatsApp ont déjà leurs propres événements).
