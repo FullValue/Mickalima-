@@ -568,6 +568,66 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Je suis agent immobilier indépendant à Divonne-les-Bains : je peux estimer votre maison gratuitement, même si vous envisagez de la vendre seul.</p>
     <p><a href="/estimation/">Demander une estimation gratuite de ma maison →</a></p>
   `
+  },
+  {
+    id: 10,
+    slug: "diagnostics-obligatoires-vente-maison-pays-de-gex",
+    title: "Diagnostics obligatoires pour vendre une maison : la liste",
+    excerpt: "DPE, audit énergétique, plomb, amiante, électricité, gaz, assainissement, termites, état des risques : la liste officielle des diagnostics à fournir pour vendre une maison ou un appartement, et quand les commander.",
+    date: "2026-11-26",
+    category: "Conseil",
+    image: "/images/editorial/partenaire-renovation.webp",
+    content: `
+    <p><em>Publié le 26 novembre 2026.</em> Pour vendre une maison ou un appartement, le vendeur doit remettre à l'acquéreur un dossier de diagnostic technique (DDT), joint à la promesse ou à l'acte de vente. Il regroupe jusqu'à onze diagnostics, selon l'âge, la surface et la situation du bien. Voici la liste officielle, ce qui change entre une maison et un appartement, et le bon moment pour les commander.</p>
+
+    <h2>La liste des diagnostics pour une maison</h2>
+    <table>
+      <thead><tr><th>Diagnostic</th><th>Obligatoire si…</th></tr></thead>
+      <tbody>
+        <tr><td>Diagnostic de performance énergétique (DPE)</td><td>Surface de plancher de 50 m² ou plus</td></tr>
+        <tr><td>Audit énergétique</td><td>Étiquette E, F ou G au DPE</td></tr>
+        <tr><td>Constat de risque d'exposition au plomb (Crep)</td><td>Maison construite avant le 1er janvier 1949</td></tr>
+        <tr><td>État amiante</td><td>Permis de construire délivré avant le 1er juillet 1997</td></tr>
+        <tr><td>Installation intérieure d'électricité</td><td>Installation de plus de 15 ans</td></tr>
+        <tr><td>Installation intérieure de gaz</td><td>Installation de plus de 15 ans</td></tr>
+        <tr><td>Assainissement des eaux usées</td><td>Installation autonome, ou collective sur certains territoires ou par arrêté municipal</td></tr>
+        <tr><td>Termites</td><td>Zone déclarée infestée par arrêté préfectoral</td></tr>
+        <tr><td>État des risques</td><td>Zone à risques (naturels, miniers, sismiques, radon…)</td></tr>
+        <tr><td>Diagnostic bruit</td><td>Zone d'exposition au bruit d'un aéroport</td></tr>
+        <tr><td>Carnet d'information du logement</td><td>Permis ou déclaration de travaux déposés depuis le 1er janvier 2023, ou rénovation depuis cette date</td></tr>
+      </tbody>
+    </table>
+    <p>La promesse ou l'acte de vente doit aussi indiquer s'il existe un risque de mérule dans les zones définies par arrêté. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">Service-Public.fr, diagnostics immobiliers à fournir en cas de vente</a>.</p>
+
+    <h2>Pour un appartement : les différences</h2>
+    <ul>
+      <li>Le <strong>DPE</strong> est demandé sans condition de surface.</li>
+      <li>L'<strong>audit énergétique</strong> ne figure pas dans la liste officielle pour un appartement.</li>
+      <li>Les autres diagnostics suivent les mêmes conditions (date de construction, âge des installations, zone).</li>
+      <li>En copropriété, la promesse ou l'acte doit aussi indiquer la <strong>surface privative</strong> du lot. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">Service-Public.fr</a>.</li>
+    </ul>
+
+    <h2>Combien de temps sont-ils valables ?</h2>
+    <p>Chaque diagnostic a sa propre durée de validité, et il doit être en cours de validité à la date de la promesse. Le DPE est valable 10 ans et l'audit énergétique 5 ans. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2965">Service-Public.fr, compromis de vente</a>. Pour les autres, votre diagnostiqueur vous indique la date limite sur chaque rapport : un diagnostic qui expire entre l'offre et la signature peut retarder le compromis.</p>
+
+    <h2>Le DPE doit apparaître dans l'annonce</h2>
+    <p>Les informations énergétiques issues du DPE doivent figurer dans l'annonce de vente, y compris quand le propriétaire vend seul. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F16096">Service-Public.fr, DPE</a>. C'est une raison de plus pour commander les diagnostics avant la mise en vente, et non après avoir trouvé un acheteur.</p>
+
+    <h2>Qui les réalise et qui les paie ?</h2>
+    <p>Les diagnostics sont réalisés par un diagnostiqueur certifié et sont à la charge du vendeur, qui a l'obligation de les fournir. Service-Public propose un outil pour <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">vérifier la certification d'un diagnostiqueur</a>. Demandez plusieurs devis : un même professionnel peut réaliser l'ensemble du dossier en une visite.</p>
+
+    <h2>Dans le Pays de Gex : trois points à vérifier</h2>
+    <ul>
+      <li><strong>L'assainissement.</strong> Beaucoup de maisons des hameaux et des pieds du Jura ont une installation autonome : le contrôle est alors obligatoire et pèse souvent dans la négociation.</li>
+      <li><strong>L'état des risques.</strong> Il dépend de la parcelle ; il se prépare à partir des informations publiques sur les risques de votre commune.</li>
+      <li><strong>L'étiquette énergétique.</strong> Une maison des années 1970 à 1990 peut se retrouver en E, F ou G : l'audit énergétique devient alors obligatoire et les travaux chiffrés qu'il propose entrent dans la discussion sur le prix.</li>
+    </ul>
+
+    <h2>En résumé : quand les commander</h2>
+    <p>Dès que vous décidez de vendre, avant la mise en ligne de l'annonce. Vous connaîtrez l'étiquette énergétique à afficher, vous éviterez de faire attendre un acquéreur, et vous pourrez fixer un prix qui tient compte des éventuels points faibles du bien. Le déroulé complet d'une vente est détaillé dans <a href="/blog/vendre-sa-maison-pays-de-gex/">vendre sa maison dans le Pays de Gex : les 7 étapes</a>, et les délais après l'accord dans l'article sur le <a href="/blog/compromis-de-vente-delais-pays-de-gex/">compromis de vente</a>.</p>
+    <p>Je suis agent immobilier indépendant à Divonne-les-Bains : lors de l'estimation gratuite de votre bien, je vous indique les diagnostics qui le concernent.</p>
+    <p><a href="/estimation/">Demander une estimation gratuite de mon bien →</a></p>
+  `
   }
 ];
 
