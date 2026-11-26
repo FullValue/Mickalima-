@@ -34,6 +34,7 @@ const BLOG_SLUGS = [
   'vendre-sa-maison-rapidement-pays-de-gex',
   'compromis-de-vente-delais-pays-de-gex',
   'vendre-sa-maison-pays-de-gex',
+  'vendre-sa-maison-sans-agence-pays-de-gex',
 ];
 
 const ROUTES = [

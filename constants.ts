@@ -515,8 +515,60 @@ export const BLOG_POSTS: BlogPost[] = [
     <p>Par le prix. Je suis agent immobilier indépendant à Divonne-les-Bains : je visite votre maison et je vous remets un avis de valeur argumenté, fondé sur les ventes comparables de votre commune, gratuitement et sans engagement.</p>
     <p><a href="/estimation/">Demander une estimation gratuite de ma maison →</a></p>
   `
-  }
+  },
+  {
+    id: 9,
+    slug: "vendre-sa-maison-sans-agence-pays-de-gex",
+    title: "Vendre sa maison sans agence dans le Pays de Gex",
+    excerpt: "C'est légal et cela évite les honoraires, mais le vendeur prend en charge le prix, l'annonce, les visites et le dossier. Ce qui reste obligatoire, les risques et une solution intermédiaire.",
+    date: "2026-11-26",
+    category: "Conseil",
+    image: "/images/editorial/vie-frontaliere.webp",
+    content: `
+    <p><em>Publié le 26 novembre 2026.</em> Vendre sa maison sans agence est parfaitement légal : un particulier peut publier son annonce, faire visiter et signer le compromis avec l'acheteur, puis l'acte chez le notaire. Il économise les honoraires, mais il prend en charge tout ce qu'un professionnel fait d'habitude : fixer le prix, présenter le bien, filtrer les acquéreurs, négocier et préparer le dossier.</p>
 
+    <h2>Ce qui reste obligatoire, avec ou sans agence</h2>
+    <ul>
+      <li><strong>Les diagnostics.</strong> Le dossier de diagnostic technique doit être joint à la promesse ou à l'acte de vente. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">Service-Public.fr, diagnostics immobiliers</a>.</li>
+      <li><strong>Le DPE dans l'annonce.</strong> L'annonce doit mentionner les informations énergétiques issues du diagnostic de performance énergétique, y compris quand c'est un particulier qui la publie. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F16096">Service-Public.fr, DPE</a>.</li>
+      <li><strong>La surface privative en copropriété.</strong> Pour un appartement, la promesse ou l'acte de vente doit indiquer la surface privative. Source : <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F10798">Service-Public.fr</a>.</li>
+      <li><strong>Le calendrier du compromis.</strong> L'acquéreur dispose de 10 jours de rétractation et la condition suspensive de prêt dure au moins un mois. Le détail est dans l'article sur les <a href="/blog/compromis-de-vente-delais-pays-de-gex/">délais du compromis de vente</a>.</li>
+      <li><strong>L'acte authentique chez le notaire</strong>, comme pour toute vente immobilière.</li>
+    </ul>
+
+    <h2>Qui fait quoi, avec ou sans professionnel</h2>
+    <table>
+      <thead><tr><th>Étape</th><th>Vente seul</th><th>Avec un agent ou une agence</th></tr></thead>
+      <tbody>
+        <tr><td>Fixer le prix</td><td>Le vendeur, à partir des annonces et des données publiques</td><td>Le professionnel, sur des ventes comparables et une visite</td></tr>
+        <tr><td>Photos, annonce, diffusion</td><td>Le vendeur</td><td>Le professionnel</td></tr>
+        <tr><td>Répondre aux appels, filtrer les curieux</td><td>Le vendeur</td><td>Le professionnel</td></tr>
+        <tr><td>Visites</td><td>Le vendeur, chez lui</td><td>Le professionnel</td></tr>
+        <tr><td>Vérifier le financement de l'acquéreur</td><td>Le vendeur</td><td>Le professionnel</td></tr>
+        <tr><td>Négocier le prix</td><td>Le vendeur, en direct</td><td>Le professionnel, en intermédiaire</td></tr>
+        <tr><td>Réunir les pièces pour le notaire</td><td>Le vendeur</td><td>Le vendeur, accompagné</td></tr>
+        <tr><td>Honoraires</td><td>Aucun</td><td>Selon le barème affiché et le mandat</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Les cinq risques à anticiper</h2>
+    <ol>
+      <li><strong>Un prix de départ mal fixé.</strong> Trop haut, l'annonce s'use et le prix baisse par étapes ; trop bas, la différence peut dépasser de loin les honoraires économisés. Les annonces affichent des prix demandés, pas des prix signés : appuyez-vous sur les ventes réelles, publiées dans les données <a href="https://app.dvf.etalab.gouv.fr/">DVF</a> et résumées sur nos pages <a href="/prix-immobilier/pays-de-gex/">prix immobilier du Pays de Gex</a>.</li>
+      <li><strong>Un acquéreur dont le financement n'est pas solide.</strong> Une offre acceptée puis abandonnée au stade du prêt bloque le bien pendant des semaines. Dans le Pays de Gex, beaucoup d'acquéreurs ont des revenus en francs suisses : demandez où en est leur dossier bancaire avant de signer.</li>
+      <li><strong>Le temps.</strong> Appels, messages, visites le soir et le week-end : comptez plusieurs heures par semaine pendant toute la commercialisation.</li>
+      <li><strong>La négociation en direct.</strong> Face à l'acheteur, il est plus difficile de tenir son prix ou de répondre aux objections sur l'état du bien.</li>
+      <li><strong>Un dossier incomplet.</strong> Un diagnostic manquant ou périmé, des permis absents pour une extension : chaque pièce qui manque retarde le compromis. La liste est dans l'article <a href="/blog/vendre-sa-maison-rapidement-pays-de-gex/">vendre sa maison rapidement</a>.</li>
+    </ol>
+
+    <h2>Ce qui compte dans le Pays de Gex</h2>
+    <p>Le marché gessien a ses particularités : des acquéreurs qui travaillent à Genève, au CERN ou dans les organisations internationales, des annonces consultées depuis la Suisse ou l'étranger, et des écarts de prix importants d'une commune à l'autre. Une annonce en anglais, une visite virtuelle et un prix justifié par des ventes comparables font souvent la différence pour attirer ces acheteurs.</p>
+
+    <h2>Une solution intermédiaire</h2>
+    <p>Vendre seul n'empêche pas de se faire aider sur un point précis. Le plus utile est le prix : une estimation gratuite et sans engagement vous donne une fourchette fondée sur les ventes réelles de votre commune, que vous vendiez ensuite seul ou accompagné. Si vous confiez ensuite un mandat simple, il permet en général de continuer à chercher un acquéreur vous-même ; vérifiez la clause dans le mandat. Les différences sont expliquées dans l'article <a href="/blog/mandat-exclusif-ou-simple-pays-de-gex/">mandat exclusif ou mandat simple</a>, et le déroulé complet d'une vente dans <a href="/blog/vendre-sa-maison-pays-de-gex/">vendre sa maison dans le Pays de Gex : les 7 étapes</a>.</p>
+    <p>Je suis agent immobilier indépendant à Divonne-les-Bains : je peux estimer votre maison gratuitement, même si vous envisagez de la vendre seul.</p>
+    <p><a href="/estimation/">Demander une estimation gratuite de ma maison →</a></p>
+  `
+  }
 ];
 
 // Statistiques DVF publiques : médianes des ventes exploitables de 2021 à 2025,
