@@ -196,7 +196,7 @@ export const Estimation: React.FC = () => {
 
                                     {/* Type de bien */}
                                     <div className="space-y-4">
-                                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2"><Home size={14} /> Type de propriété</label>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2"><Home size={14} /> Type de propriété</label>
                                         <div className="flex gap-4">
                                             {['Maison', 'Appartement', 'Terrain'].map((type) => (
                                                 <button
@@ -214,27 +214,27 @@ export const Estimation: React.FC = () => {
                                     {/* Details Grid */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-3">
-                                            <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Surface (m²)</label>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2">Surface (m²)</label>
                                             <div className="relative group">
                                                 <Ruler className="absolute left-4 top-[1.1rem] text-gray-400 group-hover:text-primary transition-colors" size={18} />
                                                 <input type="number" name="surface_m2" placeholder="ex: 120 (facultatif)" className={`${FORM_FIELD_CLASS} pl-12`} />
                                             </div>
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">Nombre de pièces</label>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2">Nombre de pièces</label>
                                             <input type="number" name="nombre_pieces" placeholder="ex: 4 (facultatif)" className={FORM_FIELD_CLASS} />
                                         </div>
                                     </div>
 
                                     {/* Localisation */}
                                     <div className="space-y-3">
-                                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2"><MapPin size={14} /> Localisation</label>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2"><MapPin size={14} /> Localisation</label>
                                         <input type="text" name="adresse" placeholder="Commune ou adresse du bien" className={FORM_FIELD_CLASS} required />
                                     </div>
 
                                     {/* DPE */}
                                     <div className="space-y-4">
-                                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2"><FileText size={14} /> Classe Énergétique</label>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2"><FileText size={14} /> Classe Énergétique</label>
                                         <div className="flex flex-wrap gap-3">
                                             {['A', 'B', 'C', 'D', 'E', 'F', 'G'].map((letter) => (
                                                 <button
@@ -392,7 +392,7 @@ export const Estimation: React.FC = () => {
                             <blockquote className="m-0 font-light leading-relaxed text-gray-600">« {t.quote} »</blockquote>
                             <figcaption className="mt-5 text-sm">
                                 <span className="font-bold text-textMain">{t.name}</span>
-                                <span className="text-gray-400"> · {t.context}</span>
+                                <span className="text-gray-500"> · {t.context}</span>
                             </figcaption>
                         </figure>
                     ))}
@@ -468,6 +468,8 @@ export const Estimation: React.FC = () => {
                                 {image.mobileSrc && <source media="(max-width: 767px)" srcSet={image.mobileSrc} />}
                                 <img
                                     src={image.src}
+                                    srcSet={image.variants?.length && image.width ? [...image.variants.map((w) => `${image.src.replace(/\.webp$/, `-${w}.webp`)} ${w}w`), `${image.src} ${image.width}w`].join(', ') : undefined}
+                                    sizes="(min-width: 1024px) 330px, (min-width: 640px) 33vw, 50vw"
                                     alt=""
                                     loading="lazy"
                                     decoding="async"

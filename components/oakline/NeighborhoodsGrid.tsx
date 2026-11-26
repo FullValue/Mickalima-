@@ -69,7 +69,6 @@ export const NeighborhoodsGrid: React.FC = () => {
               to={`/prix-immobilier/${commune.slug}/`}
               aria-hidden={i >= COMMUNES_SLIDER.length || undefined}
               tabIndex={i >= COMMUNES_SLIDER.length ? -1 : undefined}
-              aria-label={`Découvrir le marché immobilier à ${commune.name}`}
               className="group relative mr-5 block aspect-[4/5] w-[270px] shrink-0 overflow-hidden rounded-[24px] bg-[#011d41] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#011d41] sm:w-[310px]"
             >
               <picture>

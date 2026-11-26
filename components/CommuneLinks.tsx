@@ -42,7 +42,7 @@ export const CommuneLinks: React.FC<CommuneLinksProps> = ({ slug, name, current 
               >
                 <div>
                   <p className="text-lg font-bold text-textMain transition-colors group-hover:text-primary">{p.label}</p>
-                  <p className="mt-0.5 text-sm font-light text-gray-400">{p.sub}</p>
+                  <p className="mt-0.5 text-sm font-light text-gray-500">{p.sub}</p>
                 </div>
                 <ArrowUpRight size={16} className="shrink-0 text-gray-400 group-hover:text-primary" />
               </Link>
@@ -57,7 +57,7 @@ export const CommuneLinks: React.FC<CommuneLinksProps> = ({ slug, name, current 
                 <p className="text-lg font-bold text-textMain transition-colors group-hover:text-primary">
                   Vendu à {name} : {b.typeLabel.toLowerCase()}
                 </p>
-                <p className="mt-0.5 text-sm font-light text-gray-400">{Math.round(b.surface)} m² · vente réalisée par Mickaël Lima</p>
+                <p className="mt-0.5 text-sm font-light text-gray-500">{Math.round(b.surface)} m² · vente réalisée par Mickaël Lima</p>
               </div>
               <ArrowUpRight size={16} className="shrink-0 text-gray-400 group-hover:text-primary" />
             </Link>
